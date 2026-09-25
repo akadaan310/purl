@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:purl:schema:communication-profile",
+  "title": "Communication Profile",
+  "description": "A specification of observable communication characteristics (register, density, formatting, ...). It is a style specification in the sense of stylometry and sociolinguistic register; it does not transfer identity, memory, consciousness or model state.",
+  "type": "object",
+  "required": ["schema", "scope", "source", "disclaimer"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "purl.communication-profile/0.1" },
+    "scope": { "const": "observable-communication-characteristics" },
+    "source": { "enum": ["declared", "measured", "mixed"], "description": "declared = stated by someone; measured = computed from a text sample by a documented function. Never conflate the two." },
+    "declared": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "register": { "type": "string", "maxLength": 200 },
+        "register_switching": { "type": "string", "maxLength": 300 },
+        "technical_density": { "enum": ["low", "medium", "high"] },
+        "abstraction_level": { "enum": ["concrete", "mixed", "abstract"] },
+        "response_compression": { "enum": ["terse", "balanced", "expansive"] },
+        "sentence_rhythm": { "type": "string", "maxLength": 200 },
+        "interaction_style": { "type": "string", "maxLength": 300 },
+        "humor": { "enum": ["none", "occasional", "frequent"] },
+        "formatting": { "type": "array", "items": { "type": "string", "maxLength": 80 }, "maxItems": 20 },
+        "terminology": { "type": "array", "items": { "type": "string", "maxLength": 80 }, "maxItems": 100 },
+        "explanatory_behavior": { "type": "string", "maxLength": 300 }
+      }
+    },
+    "measured": {
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["method", "corpus_chars"],
+          "properties": {
+            "method": { "const": "purl.stylometry/0.1" },
+            "corpus_chars": { "type": "integer", "minimum": 0 },
+            "sentences": { "type": "integer" },
+            "words": { "type": "integer" },
+            "sentence_length_mean": { "type": "number" },
+            "sentence_length_sd": { "type": "number" },
+            "mean_word_length": { "type": "number" },
+            "type_token_ratio": { "type": "number" },
+            "question_ratio": { "type": "number" },
+            "exclamation_ratio": { "type": "number" },
+            "list_line_ratio": { "type": "number" },
+            "heading_line_ratio": { "type": "number" },
+            "code_fence_ratio": { "type": "number" }
+          }
+        }
+      ]
+    },
+    "disclaimer": { "const": "This profile specifies observable communication characteristics. It does not transfer identity, memory, consciousness, or model state." }
+  }
+}

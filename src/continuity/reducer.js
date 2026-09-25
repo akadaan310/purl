@@ -14,7 +14,7 @@ export const PRIMITIVES = Object.freeze({
   grant: { right: 'grant', mutates: ['grants'], properties: ['monotone in authority', 'idempotent (by grant id)'] },
   revoke: { right: 'grant', mutates: ['grants'], properties: ['idempotent', 'anti-monotone', 'does not commute with grant'] },
   assign: { right: 'assign', mutates: ['assignee'], properties: ['idempotent', 'last-writer-wins'] },
-  link: { right: 'link', mutates: ['relations'], properties: ['monotone', 'idempotent (by rel+target)'] },
+  link: { right: 'link', mutates: ['relations'], properties: ['monotone', 'idempotent (by rel+target+version)'] },
   transition: { right: 'lifecycle', mutates: ['lifecycle'], properties: ['governed by lifecycle state machine'] },
   transfer: { right: 'own', mutates: ['owner'], properties: ['owner-only', 'not grantable'] },
 });
@@ -105,7 +105,7 @@ export function apply(resource, event) {
       r.assignee = p.assignee;
       break;
     case 'link':
-      if (!r.relations.some((l) => l.rel === p.rel && l.target.resource === p.target.resource)) {
+      if (!r.relations.some((l) => l.rel === p.rel && l.target.resource === p.target.resource && l.target.version === p.target.version)) {
         r.relations.push({ rel: p.rel, target: clone(p.target), note: p.note ?? null, by: event.actor, at: event.at, version: event.version });
       }
       break;
