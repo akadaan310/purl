@@ -28,6 +28,7 @@ PURL is three layers that can be understood — and replaced — independently.
 | `src/continuity` | `core` |
 | `src/research` | `core` |
 | `src/transport` | `core`, `continuity`, `research` |
+| `src/client` | `core`, `continuity` (the reducer, for independent replay) — talks to a server only over HTTP |
 | `scripts/`, `test/` | anything |
 
 Layer 1 knows nothing about HTTP. Layer 2 knows nothing about resources:
