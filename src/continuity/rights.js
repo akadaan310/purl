@@ -36,7 +36,7 @@ export function expandRights(rightsOrRole) {
   if (typeof rightsOrRole === 'string') {
     const r = ROLES[rightsOrRole];
     if (!r) throw new Error(`unknown role ${rightsOrRole}`);
-    return [...r];
+    return [...r].sort();
   }
   return [...new Set(rightsOrRole)].sort();
 }

@@ -7,7 +7,7 @@
   "engines": { "node": ">=20" },
   "scripts": {
     "start": "node src/transport/main.js",
-    "test": "node --test test/",
+    "test": "node --test \"test/**/*.test.js\"",
     "demo": "node scripts/demo.js",
     "experiment": "node scripts/run-experiment.js",
     "reproduce": "node scripts/reproduce.js"
