@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "PURL — Programmable URL Protocol: addressable, stateful, self-describing resources with an experimental substrate for studying state transitions.",
   "type": "module",
-  "license": "MIT",
   "engines": { "node": ">=20" },
   "scripts": {
     "start": "node src/transport/main.js",

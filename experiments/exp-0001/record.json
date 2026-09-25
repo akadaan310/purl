@@ -4,12 +4,12 @@
  "title": "Binary transition structure: calibration, representation artefacts, persistence and the event-log bridge",
  "question": "Which measurable structures in elementary state-transition sequences (a) are detected against appropriate null models, (b) are artefacts of representation, (c) persist under perturbation, (d) converge across independently generated datasets, and (e) appear in projections of real PURL event logs?",
  "run": {
-  "timestamp": "2026-09-25T23:30:59.311Z"
+  "timestamp": "2026-09-25T23:40:30.322Z"
  },
  "version": {
   "purl": "0.1.0",
   "record_schema": "0.1",
-  "git_commit": "e7f8b6dc7c8e9974592b840a8b3bb922e3dca554"
+  "git_commit": "6052b3a4639e420867bf8f77320b0bb9495e2c3f"
  },
  "environment": {
   "node": "v22.22.2",
