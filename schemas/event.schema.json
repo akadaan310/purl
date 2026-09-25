@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:purl:schema:event",
+  "title": "PURL event",
+  "description": "An immutable record of one primitive state transition: state_before --event--> state_after. Events form a hash chain per resource.",
+  "type": "object",
+  "required": ["protocol", "id", "resource", "version", "kind", "op", "invocation", "actor", "authority", "at", "payload", "prev", "state_before", "state_after", "hash"],
+  "additionalProperties": false,
+  "properties": {
+    "protocol": { "const": "PURL/0.1" },
+    "id": { "type": "string", "pattern": "^e_[0-9A-Z]{4,16}$" },
+    "resource": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1, "description": "Resource version after this event. Genesis is version 1." },
+    "kind": { "enum": ["genesis", "patch", "append", "grant", "revoke", "assign", "link", "transition", "transfer"], "description": "The primitive." },
+    "op": { "type": "string", "description": "The operation that was invoked (may be a composition or alias of the primitive)." },
+    "invocation": { "type": "string", "pattern": "^i_[0-9A-Z]{4,16}$", "description": "Groups the events produced atomically by one operation call." },
+    "actor": { "type": "string", "description": "Principal that invoked the operation." },
+    "authority": {
+      "type": "object",
+      "required": ["via", "grant", "chain", "rights"],
+      "additionalProperties": false,
+      "description": "Which single authority source authorised the invocation, with its full delegation chain.",
+      "properties": {
+        "via": { "enum": ["owner", "grant", "public", "admin", "creator", "instance"] },
+        "grant": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "chain": { "type": "array", "items": { "type": "string" } },
+        "rights": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "at": { "type": "string", "format": "date-time" },
+    "payload": { "type": "object" },
+    "prev": { "anyOf": [{ "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }, { "type": "null" }] },
+    "state_before": { "anyOf": [{ "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }, { "type": "null" }] },
+    "state_after": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$", "description": "sha256 of the canonical JSON of this event without the hash field." }
+  }
+}

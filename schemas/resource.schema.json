@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:purl:schema:resource",
+  "title": "PURL resource state",
+  "description": "The canonical state of a resource: the value produced by folding its event log with the reducer. Its content hash appears as state_after on the event that produced it.",
+  "type": "object",
+  "required": ["protocol", "id", "type", "version", "created_at", "created_by", "updated_at", "owner", "assignee", "lifecycle", "state", "collections", "grants", "relations", "derived_from"],
+  "additionalProperties": false,
+  "properties": {
+    "protocol": { "const": "PURL/0.1" },
+    "id": { "$ref": "#/$defs/id" },
+    "type": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$", "description": "Application-level resource type, e.g. research-session. Not interpreted by the protocol." },
+    "version": { "type": "integer", "minimum": 1, "description": "Number of events applied. Monotone; the ETag of the resource." },
+    "created_at": { "type": "string", "format": "date-time" },
+    "created_by": { "$ref": "#/$defs/principal" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "owner": { "$ref": "#/$defs/principal", "description": "Exactly one owner. Changes only through the transfer primitive." },
+    "assignee": { "anyOf": [{ "$ref": "#/$defs/principal" }, { "type": "null" }], "description": "Who is currently responsible for continuing the work. Independent of owner." },
+    "lifecycle": {
+      "type": "object",
+      "required": ["status", "previous"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "enum": ["active", "closed", "completed", "cancelled", "archived"] },
+        "previous": { "anyOf": [{ "enum": ["active", "closed", "completed", "cancelled"] }, { "type": "null" }] }
+      }
+    },
+    "state": { "type": "object", "description": "Free-form application state, mutated only by JSON Merge Patch (RFC 7396)." },
+    "collections": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[a-z][a-z0-9_-]{0,31}$" },
+      "additionalProperties": { "type": "array", "items": { "$ref": "#/$defs/entry" } }
+    },
+    "grants": { "type": "object", "additionalProperties": { "$ref": "#/$defs/grant" } },
+    "relations": { "type": "array", "items": { "$ref": "#/$defs/relation" } },
+    "derived_from": { "anyOf": [{ "$ref": "#/$defs/versionRef" }, { "type": "null" }] }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z]_[0-9A-Z]{4,16}$|^purl-[a-z-]+$" },
+    "principal": { "type": "string", "pattern": "^p_[0-9A-Z]{4,16}$|^p_instance$" },
+    "versionRef": {
+      "type": "object",
+      "required": ["resource"],
+      "additionalProperties": false,
+      "properties": {
+        "resource": { "type": "string" },
+        "version": { "type": "integer", "minimum": 1 },
+        "state_hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "required": ["id", "author", "at", "version", "body", "supersedes", "about", "origin"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^n_[0-9A-Z]{4,16}$" },
+        "author": { "$ref": "#/$defs/principal" },
+        "at": { "type": "string", "format": "date-time" },
+        "version": { "type": "integer", "minimum": 1 },
+        "body": {},
+        "supersedes": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "about": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "origin": { "anyOf": [{ "type": "object" }, { "type": "null" }], "description": "Where this entry was first created, when it arrived via fork or merge." }
+      }
+    },
+    "grant": {
+      "type": "object",
+      "required": ["id", "grantee", "rights", "operations", "parent", "purpose", "expires_at", "granted_by", "granted_at", "version", "revoked"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^g_[0-9A-Z]{4,16}$" },
+        "grantee": { "anyOf": [{ "$ref": "#/$defs/principal" }, { "const": "*" }] },
+        "rights": { "type": "array", "items": { "enum": ["observe", "read", "append", "update", "assign", "link", "lifecycle", "grant"] }, "uniqueItems": true },
+        "operations": { "anyOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "null" }], "description": "If set, the grant may only be used for these operation names." },
+        "parent": { "anyOf": [{ "type": "string" }, { "type": "null" }], "description": "Grant this one was delegated from; null when issued by the owner or an admin." },
+        "purpose": { "anyOf": [{ "type": "string", "maxLength": 500 }, { "type": "null" }] },
+        "expires_at": { "anyOf": [{ "type": "string", "format": "date-time" }, { "type": "null" }] },
+        "granted_by": { "$ref": "#/$defs/principal" },
+        "granted_at": { "type": "string", "format": "date-time" },
+        "version": { "type": "integer" },
+        "revoked": { "anyOf": [{ "type": "object" }, { "type": "null" }] }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "required": ["rel", "target", "note", "by", "at", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "rel": { "enum": ["references", "supersedes", "merged_from", "parent"] },
+        "target": { "$ref": "#/$defs/versionRef" },
+        "note": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "by": { "$ref": "#/$defs/principal" },
+        "at": { "type": "string", "format": "date-time" },
+        "version": { "type": "integer" }
+      }
+    }
+  }
+}
