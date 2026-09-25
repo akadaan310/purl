@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:purl:schema:instance-manifest",
+  "title": "PURL instance manifest",
+  "description": "Served at /.well-known/purl (RFC 8615). Everything a client needs to operate this instance without prior knowledge: endpoints, media types, authentication, concurrency, the operation vocabulary with classification, rights, roles, invariants, and schema locations.",
+  "type": "object",
+  "required": ["protocol", "kind", "implementation", "summary", "endpoints", "representations", "authentication", "concurrency", "errors", "schemas", "vocabulary"],
+  "properties": {
+    "protocol": { "const": "PURL/0.1" },
+    "kind": { "const": "instance-manifest" },
+    "implementation": { "type": "object", "required": ["name", "version"] },
+    "summary": { "type": "string" },
+    "endpoints": {
+      "type": "object",
+      "required": ["resources", "resource", "resource_manifest", "operation", "principals", "schema", "protocol_resource"],
+      "additionalProperties": { "type": "string" }
+    },
+    "representations": { "type": "array", "items": { "type": "object", "required": ["media_type"] } },
+    "authentication": { "type": "object", "required": ["scheme", "header", "obtain", "never_in_url"], "properties": { "never_in_url": { "const": true } } },
+    "concurrency": { "type": "object", "required": ["precondition", "on_conflict"] },
+    "idempotency": { "type": "object" },
+    "errors": { "type": "object", "required": ["media_type"] },
+    "limits": { "type": "object" },
+    "schemas": { "type": "object", "additionalProperties": { "type": "string" } },
+    "experiments": { "type": "array" },
+    "vocabulary": {
+      "type": "object",
+      "required": ["name", "version", "layers", "invariants", "rights", "roles", "primitives", "lifecycle", "operations", "epistemic_categories"],
+      "properties": {
+        "invariants": { "type": "array", "items": { "type": "string" }, "minItems": 10 },
+        "operations": { "type": "array", "items": { "$ref": "#/$defs/operation" } },
+        "epistemic_categories": { "const": ["observation", "transformation", "interpretation", "hypothesis", "conclusion"] }
+      }
+    }
+  },
+  "$defs": {
+    "operation": {
+      "type": "object",
+      "required": ["name", "category", "classification", "composed_of", "safe", "idempotent", "description", "requires", "lifecycle", "method"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^[a-z_]+$" },
+        "category": { "enum": ["read", "write", "transfer", "synchronization", "structural", "termination"] },
+        "classification": { "enum": ["primitive", "composition", "alias", "projection"] },
+        "alias_of": { "type": "string" },
+        "composed_of": { "type": "array", "items": { "type": "string" } },
+        "safe": { "type": "boolean" },
+        "idempotent": { "type": ["boolean", "string"] },
+        "description": { "type": "string" },
+        "effects": { "type": "array", "items": { "type": "string" } },
+        "requires": {
+          "type": "object",
+          "required": ["rights", "owner_only", "conditional_rights", "precondition", "authentication"],
+          "properties": {
+            "rights": { "type": "array", "items": { "type": "string" } },
+            "owner_only": { "type": "boolean" },
+            "authentication": { "enum": ["optional", "required"] }
+          }
+        },
+        "lifecycle": { "type": "array", "items": { "enum": ["active", "closed", "completed", "cancelled", "archived"] } },
+        "method": { "enum": ["GET", "POST"] },
+        "href": { "type": "string" },
+        "href_template": { "type": "string" },
+        "accept": { "type": "string" },
+        "content_type": { "type": "string" },
+        "scope": { "const": "instance" },
+        "request_schema": { "type": "object" },
+        "example": { "type": "object" },
+        "available": { "type": "boolean" },
+        "reason": { "type": "string" },
+        "via": { "type": "string" },
+        "grant": { "type": "string" }
+      }
+    }
+  }
+}

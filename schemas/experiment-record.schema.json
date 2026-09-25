@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:purl:schema:experiment-record",
+  "title": "PURL experiment record",
+  "description": "A reproducible record of one experiment run. Sections are separated by epistemic category; the runner fills observation, transformation, hypothesis (mechanical evaluation of pre-registered criteria) and uncertainty, and never fills interpretation or conclusion.",
+  "type": "object",
+  "required": ["schema", "experiment_id", "title", "question", "run", "version", "environment", "configuration", "observations", "transformations", "hypotheses", "interpretation", "uncertainty", "conclusions", "output_hash"],
+  "properties": {
+    "schema": { "const": "purl.experiment-record/0.1" },
+    "experiment_id": { "type": "string", "pattern": "^exp-[0-9]{4}$" },
+    "title": { "type": "string" },
+    "question": { "type": "string" },
+    "run": { "type": "object", "required": ["timestamp"], "properties": { "timestamp": { "type": "string", "format": "date-time" } } },
+    "version": { "type": "object", "required": ["purl", "record_schema"] },
+    "environment": { "type": "object", "required": ["node", "platform", "arch"] },
+    "configuration": { "type": "object", "required": ["id", "seed", "analysis", "datasets", "hypotheses"] },
+    "observations": {
+      "type": "object", "required": ["category", "datasets"],
+      "properties": {
+        "category": { "const": "observation" },
+        "datasets": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["n", "alphabet", "units", "source", "raw_sha256"],
+            "properties": { "raw_sha256": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" } }
+          }
+        }
+      }
+    },
+    "transformations": { "type": "object", "required": ["category", "catalogue", "outputs"], "properties": { "category": { "const": "transformation" } } },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "id", "statement", "criterion", "status", "evaluation"],
+        "properties": { "category": { "const": "hypothesis" }, "status": { "enum": ["supported", "not_supported", "indeterminate"] } }
+      }
+    },
+    "interpretation": { "type": "object", "required": ["category", "entries"], "properties": { "category": { "const": "interpretation" }, "entries": { "type": "array", "maxItems": 0 } } },
+    "uncertainty": { "type": "object", "required": ["category", "notes"], "properties": { "category": { "const": "uncertainty" } } },
+    "conclusions": { "type": "object", "required": ["category", "entries"], "properties": { "category": { "const": "conclusion" }, "entries": { "type": "array", "maxItems": 0 } } },
+    "output_hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:purl:schema:resource-manifest",
+  "title": "PURL resource manifest",
+  "description": "Served at /r/{id}/manifest. Describes one resource's operations EVALUATED FOR THE REQUESTER: for each operation, whether this principal may invoke it now, via which authority source, or why not.",
+  "type": "object",
+  "required": ["protocol", "kind", "resource", "requester", "how_to_invoke", "operations", "representations", "schemas", "content_trust", "links"],
+  "properties": {
+    "protocol": { "const": "PURL/0.1" },
+    "kind": { "const": "resource-manifest" },
+    "resource": {
+      "type": "object",
+      "required": ["id", "type", "version", "lifecycle", "owner", "assignee", "href"],
+      "properties": { "version": { "type": "integer", "minimum": 1 }, "lifecycle": { "enum": ["active", "closed", "completed", "cancelled", "archived"] } }
+    },
+    "requester": {
+      "type": "object",
+      "required": ["principal", "authenticated", "rights", "sources"],
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": { "type": "object", "required": ["via", "grant", "rights", "chain"], "properties": { "via": { "enum": ["owner", "grant", "public", "admin"] } } }
+        }
+      }
+    },
+    "how_to_invoke": { "type": "object", "required": ["method", "href_template", "headers", "body", "authorisation_rule"] },
+    "operations": {
+      "type": "array",
+      "items": {
+        "$comment": "each item is an instance-manifest operation plus availability for the requester",
+        "$ref": "urn:purl:schema:instance-manifest#/$defs/operation"
+      }
+    },
+    "representations": { "type": "array", "items": { "type": "object", "required": ["media_type", "href"] } },
+    "schemas": { "type": "object" },
+    "content_trust": { "type": "string" },
+    "links": { "type": "object", "required": ["self", "manifest", "events", "lineage", "verify", "continuity"] }
+  }
+}
