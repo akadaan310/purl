@@ -42,7 +42,7 @@ export async function runDemo(base, { print = console.log } = {}) {
   step('Agent A opens the URL and reads the manifest', { kind: docA.kind, protocol: docA.protocol, owner: docA.owner, 'A may': allowed.join(', '), 'A may not (sample)': denied.slice(0, 3) });
 
   // 3. Agent A performs an allowed operation; an event is recorded.
-  const f1 = must(await A.invoke(url, 'append', { collection: 'findings', body: { claim: 'h_3 is 0.29 bits/symbol; order-2 structure present', evidence: 'exp-0001 lag2copy' } }));
+  const f1 = must(await A.invoke(url, 'append', { collection: 'findings', body: { claim: 'lag2copy: h_3 = 0.27 bits/symbol; order-2 structure present', evidence: 'experiments/exp-0001 (lag2copy)' } }));
   const refused = await A.invoke(url, 'update', { merge_patch: { title: 'hijacked' } });
   step('Agent A appends a finding (allowed) and attempts update (not delegated)', { append_status: f1.status, finding: f1.json.result.entry, event: f1.json.events[0], update_status: refused.status, update_problem: refused.json.detail, manifest_had_said: refused.advertised });
 
@@ -53,7 +53,7 @@ export async function runDemo(base, { print = console.log } = {}) {
     package: {
       task: 'Test robustness of the order-2 finding',
       objective: 'Decide whether h_3 stays below 0.5 bits under 5% flips',
-      findings: [{ entry: f1.json.result.entry, summary: 'h_3 ≈ 0.29 on the clean sequence' }],
+      findings: [{ entry: f1.json.result.entry, summary: 'h_3 ≈ 0.27 on the clean sequence' }],
       assumptions: ['Stationarity over the 2048-symbol window'],
       open_questions: ['Does the effect survive bit flips?'],
       constraints: ['Do not modify state; append findings only'],
@@ -70,7 +70,7 @@ export async function runDemo(base, { print = console.log } = {}) {
   step('Agent B reads the continuity view', { addressed_to_B: cont.addressed_to_you, prepared_by: cont.checkpoint.prepared_by, verified_checkpoint: cont.checkpoint.verified, package_status: cont.package_status, requested: cont.package.requested_operation, acknowledged: ack.status });
 
   // 6. Agent B performs the delegated operation; ownership stays separate.
-  const f2 = must(await B.invoke(url, 'append', { collection: 'findings', body: { claim: 'Under 5% flips h_3 rises to ~0.6 bits; structure attenuated but above shuffle baseline', evidence: 'exp-0001 perturbation' } }));
+  const f2 = must(await B.invoke(url, 'append', { collection: 'findings', body: { claim: 'Under 5% added flips mean h_3 rises to 0.55 bits/symbol (5 replicates); attenuated, still far below 1 bit', evidence: 'experiments/exp-0001 perturbation.levels[1]' } }));
   const escalate = await B.invoke(url, 'transfer', { to: B.principal.id });
   const escalate2 = await B.invoke(url, 'grant', { grantee: A.principal.id, rights: ['update'] });
   const now = await B.open(url);
@@ -91,7 +91,7 @@ export async function runDemo(base, { print = console.log } = {}) {
   const mod = must(await B.invoke(forkUrl, 'update', { merge_patch: { threshold_bits: 0.4, note: 'stricter threshold on branch' } }));
   step('Agent B modifies the branch', { status: mod.status, branch_state: (await B.open(forkUrl)).state });
 
-  const sup = must(await A.invoke(url, 'supersede', { collection: 'findings', supersedes: f1.json.result.entry, body: { claim: 'h_3 = 0.29 ± 0.02 bits/symbol (n = 2048); order-2 structure present, detected against Markov-1 surrogates', evidence: 'exp-0001 lag2copy, 99 surrogates' } }));
+  const sup = must(await A.invoke(url, 'supersede', { collection: 'findings', supersedes: f1.json.result.entry, body: { claim: 'lag2copy: h_3 = 0.274 bits/symbol (plug-in, n = 2048), below all 99 Markov-1 surrogates (min 0.960); the order-1 transition matrix is NOT a reliable witness of absence (P00 = 0.615; sampling s.d. 0.068)', evidence: 'experiments/exp-0001 H2 and REPORT.md' } }));
   const afterSup = await human.open(url);
   const original = afterSup.collections.findings.find((e) => e.id === f1.json.result.entry);
   step('Agent A supersedes its first finding', { status: sup.status, original_still_present: Boolean(original), original_body: original.body, superseded_by: original.superseded_by, current_findings: afterSup.collections.findings.filter((e) => e.current).map((e) => e.id) });
