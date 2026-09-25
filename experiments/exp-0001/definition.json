@@ -1,0 +1,131 @@
+{
+  "id": "exp-0001",
+  "title": "Binary transition structure: calibration, representation artefacts, persistence and the event-log bridge",
+  "question": "Which measurable structures in elementary state-transition sequences (a) are detected against appropriate null models, (b) are artefacts of representation, (c) persist under perturbation, (d) converge across independently generated datasets, and (e) appear in projections of real PURL event logs?",
+  "preregistered": "Hypotheses and criteria below were written before the first run and are not edited after it. Outcomes are recorded as they fall.",
+  "seed": 20260925,
+  "analysis": {
+    "max_block_length": 6,
+    "max_lag": 32,
+    "surrogates": 99,
+    "grammar_surrogates": 39,
+    "grammar_max_n": 2048,
+    "perturbation_levels": [0.01, 0.05, 0.1],
+    "perturbation_replicates": 5,
+    "signature": { "top": 16, "minLength": 6 }
+  },
+  "datasets": {
+    "iid_fair": { "role": "negative control", "generator": "iid", "params": { "n": 2048, "p1": 0.5 }, "timer": "poisson", "timer_params": { "rate": 1 }, "seed": 101 },
+    "iid_biased": { "role": "compressible without sequential structure", "generator": "iid", "params": { "n": 2048, "p1": 0.2 }, "timer": "poisson", "timer_params": { "rate": 1 }, "seed": 102 },
+    "markov_sticky": { "role": "first-order structure", "generator": "markov", "params": { "n": 2048, "P": [[0.9, 0.1], [0.3, 0.7]] }, "timer": "poisson", "timer_params": { "rate": 1 }, "seed": 103 },
+    "lag2copy": { "role": "second-order structure invisible at first order", "generator": "lag2copy", "params": { "n": 2048, "eps": 0.05 }, "timer": "poisson", "timer_params": { "rate": 1 }, "seed": 104 },
+    "periodic_noisy": { "role": "periodic structure with 2% flips", "generator": "periodic", "params": { "n": 2048, "pattern": "00101101", "flip": 0.02 }, "timer": "periodic", "timer_params": { "dt": 1, "jitter": 0.1 }, "seed": 105 },
+    "bursty_times": { "role": "temporal structure without symbolic structure", "generator": "iid", "params": { "n": 2048, "p1": 0.5 }, "timer": "bursty", "timer_params": { "fast": 10, "slow": 0.1, "stayBurst": 0.9, "stayGap": 0.5 }, "seed": 106 },
+    "iid_fair_r2": { "role": "replicate", "generator": "iid", "params": { "n": 2048, "p1": 0.5 }, "timer": "poisson", "timer_params": { "rate": 1 }, "seed": 201 },
+    "iid_fair_r3": { "role": "replicate", "generator": "iid", "params": { "n": 2048, "p1": 0.5 }, "timer": "poisson", "timer_params": { "rate": 1 }, "seed": 202 },
+    "markov_sticky_r2": { "role": "replicate", "generator": "markov", "params": { "n": 2048, "P": [[0.9, 0.1], [0.3, 0.7]] }, "timer": "poisson", "timer_params": { "rate": 1 }, "seed": 203 },
+    "periodic_noisy_r2": { "role": "replicate", "generator": "periodic", "params": { "n": 2048, "pattern": "00101101", "flip": 0.02 }, "timer": "periodic", "timer_params": { "dt": 1, "jitter": 0.1 }, "seed": 205 },
+    "periodic_noisy_r3": { "role": "replicate", "generator": "periodic", "params": { "n": 2048, "pattern": "00101101", "flip": 0.02 }, "timer": "periodic", "timer_params": { "dt": 1, "jitter": 0.1 }, "seed": 206 },
+    "purl_workload_kind": { "role": "bridge: real PURL event log, primitive-kind projection", "source": "purl-workload", "params": { "invocations": 400, "mean_interval_s": 30 }, "projection": "kind", "seed": 707 },
+    "purl_workload_authority": { "role": "bridge: same log, binary authority projection", "source": "purl-workload", "params": { "invocations": 400, "mean_interval_s": 30 }, "projection": "authority", "seed": 707 }
+  },
+  "replicate_groups": {
+    "iid_fair": ["iid_fair", "iid_fair_r2", "iid_fair_r3"],
+    "periodic_noisy": ["periodic_noisy", "periodic_noisy_r2", "periodic_noisy_r3"],
+    "markov_sticky": ["markov_sticky", "markov_sticky_r2"]
+  },
+  "hypotheses": [
+    {
+      "id": "H0",
+      "statement": "Negative control: i.i.d. fair data show no sequential structure (h_3 not below shuffle surrogates) and H1 ≈ 1 bit.",
+      "rationale": "If this fails, the pipeline manufactures structure.",
+      "criterion": { "all": [
+        { "path": "datasets.iid_fair.tests.cond_entropy_vs_shuffle.p", "op": ">", "value": 0.05 },
+        { "path": "datasets.iid_fair.symbolic.entropy_H1", "op": "approx", "value": 1, "tolerance": 0.01 }
+      ] }
+    },
+    {
+      "id": "H1",
+      "statement": "First-order Markov data: h_3 is below shuffle surrogates but NOT below Markov-1 surrogates — the structure is fully explained by the transition matrix.",
+      "criterion": { "all": [
+        { "path": "datasets.markov_sticky.tests.cond_entropy_vs_shuffle.p", "op": "<=", "value": 0.05 },
+        { "path": "datasets.markov_sticky.tests.cond_entropy_vs_markov1.p", "op": ">", "value": 0.05 }
+      ] }
+    },
+    {
+      "id": "H2",
+      "statement": "Lag-2 copy data: the first-order transition matrix is ≈ uniform (structure invisible at order 1) yet h_3 is below Markov-1 surrogates (structure visible at order 2).",
+      "rationale": "Tests whether apparent absence of structure is an artefact of the order of the representation.",
+      "criterion": { "all": [
+        { "path": "datasets.lag2copy.symbolic.transition_matrix.0.0", "op": "approx", "value": 0.5, "tolerance": 0.05 },
+        { "path": "datasets.lag2copy.symbolic.transition_matrix.1.1", "op": "approx", "value": 0.5, "tolerance": 0.05 },
+        { "path": "datasets.lag2copy.tests.cond_entropy_vs_markov1.p", "op": "<=", "value": 0.05 }
+      ] }
+    },
+    {
+      "id": "H3",
+      "statement": "Compression is not structure: biased i.i.d. data compress better than fair i.i.d. data, but no better than their own shuffles, and h_3 is not below shuffles.",
+      "criterion": { "all": [
+        { "path": "datasets.iid_biased.symbolic.entropy_H1", "op": "<", "value": 0.8 },
+        { "path": "datasets.iid_biased.grammar.compression_ratio", "op": "<", "ref": "datasets.iid_fair.grammar.compression_ratio" },
+        { "path": "datasets.iid_biased.tests.grammar_ratio_vs_shuffle.p", "op": ">", "value": 0.05 },
+        { "path": "datasets.iid_biased.tests.cond_entropy_vs_shuffle.p", "op": ">", "value": 0.05 }
+      ] }
+    },
+    {
+      "id": "H4",
+      "statement": "Persistence: the period-8 structure is detected in periodic_noisy and survives 5% additional flips in at least 80% of replicates.",
+      "criterion": { "all": [
+        { "path": "datasets.periodic_noisy.symbolic.period.period", "op": "==", "value": 8 },
+        { "path": "datasets.periodic_noisy.perturbation.levels.1.period_agreement", "op": ">=", "value": 0.8 }
+      ] }
+    },
+    {
+      "id": "H5",
+      "statement": "Persistence: lag-2 structure survives 5% flips with mean h_3 below 0.8 bits/symbol.",
+      "criterion": { "path": "datasets.lag2copy.perturbation.levels.1.cond_entropy_mean", "op": "<", "value": 0.8 }
+    },
+    {
+      "id": "H6",
+      "statement": "Time carries information the symbols do not: bursty_times has burstiness > 0.2 (p ≤ 0.05 vs exponential intervals) while its symbols show no sequential structure; Poisson timing has |B| ≤ 0.1.",
+      "criterion": { "all": [
+        { "path": "datasets.bursty_times.temporal.burstiness", "op": ">", "value": 0.2 },
+        { "path": "datasets.bursty_times.tests.burstiness_vs_poisson.p", "op": "<=", "value": 0.05 },
+        { "path": "datasets.bursty_times.tests.cond_entropy_vs_shuffle.p", "op": ">", "value": 0.05 },
+        { "path": "datasets.iid_fair.temporal.burstiness", "op": "approx", "value": 0, "tolerance": 0.1 }
+      ] }
+    },
+    {
+      "id": "H7",
+      "statement": "Representation invariance: entropy-family measures, LZ76, change count and lag-1 autocorrelation are invariant under 0↔1 relabelling; the proportion of 1s is not. Burstiness is invariant under time rescaling; event rate is not.",
+      "rationale": "Separates properties of the process from properties of the encoding.",
+      "criterion": { "all": [
+        { "path": "datasets.markov_sticky.invariance.relabel.measures.entropy_H1.invariant", "op": "==", "value": true },
+        { "path": "datasets.markov_sticky.invariance.relabel.measures.conditional_entropy_h3.invariant", "op": "==", "value": true },
+        { "path": "datasets.markov_sticky.invariance.relabel.measures.lz76_normalized.invariant", "op": "==", "value": true },
+        { "path": "datasets.markov_sticky.invariance.relabel.measures.change_count.invariant", "op": "==", "value": true },
+        { "path": "datasets.markov_sticky.invariance.relabel.measures.autocorrelation_lag1.invariant", "op": "==", "value": true },
+        { "path": "datasets.markov_sticky.invariance.relabel.measures.proportion_of_symbol_1.invariant", "op": "==", "value": false },
+        { "path": "datasets.markov_sticky.invariance.time_rescale.measures.burstiness.invariant", "op": "==", "value": true },
+        { "path": "datasets.markov_sticky.invariance.time_rescale.measures.event_rate.invariant", "op": "==", "value": false }
+      ] }
+    },
+    {
+      "id": "H8",
+      "statement": "Convergence: grammar signatures of independently seeded periodic datasets overlap (mean Jaccard) at least 0.3 more than those of independently seeded i.i.d. datasets.",
+      "criterion": { "path": "cross.convergence.within_generator_mean.periodic_noisy", "op": ">=", "ref": "cross.convergence.within_generator_mean.iid_fair", "offset": 0.3 }
+    },
+    {
+      "id": "H9",
+      "statement": "Bridge positive control: the primitive-kind projection of a PURL event log has sequential structure (h_2 below shuffle surrogates).",
+      "rationale": "Expected true by construction, because composite operations emit fixed primitive patterns. A failure would indicate a broken projection.",
+      "criterion": { "path": "datasets.purl_workload_kind.tests.cond_entropy_vs_shuffle.p", "op": "<=", "value": 0.05 }
+    },
+    {
+      "id": "H10",
+      "statement": "Bridge: Re-Pair's top-level segmentation of the event-kind sequence places boundaries at invocation (operation) boundaries with precision at least 0.2 above the random-placement baseline.",
+      "rationale": "Asks whether compression alone recovers the higher-level operations that produced the transitions.",
+      "criterion": { "path": "datasets.purl_workload_kind.bridge.grammar_segmentation.precision", "op": ">=", "ref": "datasets.purl_workload_kind.bridge.grammar_segmentation.random_precision_baseline", "offset": 0.2 }
+    }
+  ]
+}
