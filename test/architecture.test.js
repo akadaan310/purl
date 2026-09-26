@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const SRC = join(dirname(fileURLToPath(import.meta.url)), '..', 'src');
-const ALLOWED = { core: ['core'], continuity: ['core', 'continuity'], research: ['core', 'research'], transport: ['core', 'continuity', 'research', 'transport'], client: ['core', 'continuity', 'client'] };
+const ALLOWED = { core: ['core'], continuity: ['core', 'continuity'], research: ['core', 'research'], transport: ['core', 'continuity', 'research', 'transport'], client: ['core', 'continuity', 'client'], compute: ['core', 'compute'], bridge: ['core', 'compute', 'bridge'] };
 
 test('layer import rule', () => {
   const violations = [];

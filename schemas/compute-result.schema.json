@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:purl:schema:compute-result",
+  "title": "Computation result claim (purl.compute.result/0.1)",
+  "description": "Carried as the content of an ACSP finding TOK. Everything in it is a CLAIM by the TOK's source session. The pin (resource, version, state_hash) lets any reader check the claim against PURL: read the node at that version, compare its state hash and value, and re-verify its cone.",
+  "type": "object",
+  "required": ["schema", "step", "operation", "value", "purl"],
+  "properties": {
+    "schema": { "const": "purl.compute.result/0.1" },
+    "step": { "type": "string" },
+    "operation": { "enum": ["NOT", "AND", "OR", "XOR", "CONCAT", "HASH"] },
+    "value": { "type": "string", "pattern": "^[01]{1,4096}$" },
+    "operands": { "type": "array", "items": { "type": "object" } },
+    "purl": {
+      "type": "object", "required": ["href", "resource", "version", "state_hash"],
+      "properties": {
+        "href": { "type": "string" },
+        "resource": { "type": "string" },
+        "version": { "type": "integer", "minimum": 1 },
+        "state_hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+      }
+    }
+  }
+}

@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "description": "PURL — Programmable URL Protocol: addressable, stateful, self-describing resources with an experimental substrate for studying state transitions.",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node src/transport/main.js",
     "test": "node --test \"test/**/*.test.js\"",
     "demo": "node scripts/demo.js",
     "experiment": "node scripts/run-experiment.js",
-    "reproduce": "node scripts/reproduce.js"
+    "reproduce": "node scripts/reproduce.js",
+    "composition": "node scripts/composition-experiment.js",
+    "handoff": "node scripts/acsp-handoff.js"
   }
 }

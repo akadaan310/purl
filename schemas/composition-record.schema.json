@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:purl:schema:composition-record",
+  "title": "PURL composition experiment record",
+  "description": "Record of exp-0002-style runs. Sections are separated by epistemic category. The runner fills observation, transformation, hypothesis (mechanical evaluation of pre-registered criteria) and uncertainty; it never fills interpretation or conclusion. An independent agent's analysis is attached afterwards as a separate, attributed interpretation document.",
+  "type": "object",
+  "required": ["schema", "experiment_id", "title", "question", "run", "repositories", "environment", "protocol_versions", "definition", "configuration", "observations", "transformations", "hypotheses", "interpretation", "uncertainty", "conclusions", "independent_agent_analysis", "unresolved_questions", "reproducibility"],
+  "properties": {
+    "schema": { "const": "purl.composition-record/0.1" },
+    "experiment_id": { "type": "string", "pattern": "^exp-[0-9]{4}$" },
+    "title": { "type": "string" },
+    "question": { "type": "string" },
+    "run": { "type": "object", "required": ["timestamp"], "properties": { "timestamp": { "type": "string", "format": "date-time" } } },
+    "repositories": { "type": "object", "required": ["purl", "acsp"] },
+    "environment": { "type": "object", "required": ["node", "platform", "arch"] },
+    "protocol_versions": { "type": "object", "required": ["purl", "acsp", "compute"] },
+    "definition": { "type": "object", "required": ["file", "sha256"] },
+    "configuration": { "type": "object", "required": ["seed", "sizes"] },
+    "observations": { "type": "object", "required": ["category"], "properties": { "category": { "const": "observation" } } },
+    "transformations": { "type": "object", "required": ["category", "catalogue", "outputs"], "properties": { "category": { "const": "transformation" } } },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "id", "statement", "criterion", "status", "evaluation"],
+        "properties": { "category": { "const": "hypothesis" }, "status": { "enum": ["supported", "not_supported", "indeterminate"] } }
+      }
+    },
+    "interpretation": { "type": "object", "required": ["category", "entries"], "properties": { "category": { "const": "interpretation" }, "entries": { "type": "array", "maxItems": 0 } } },
+    "uncertainty": { "type": "object", "required": ["category", "notes"], "properties": { "category": { "const": "uncertainty" } } },
+    "conclusions": { "type": "object", "required": ["category", "entries"], "properties": { "category": { "const": "conclusion" }, "entries": { "type": "array", "maxItems": 0 } } },
+    "independent_agent_analysis": { "type": "object", "required": ["category", "status"], "properties": { "category": { "const": "interpretation" } } },
+    "unresolved_questions": { "type": "array", "items": { "type": "string" } },
+    "reproducibility": { "type": "object", "required": ["output_hash", "hashed_sections", "excluded_sections"], "properties": { "output_hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" } } }
+  }
+}

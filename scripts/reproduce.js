@@ -6,6 +6,11 @@ import { canonicalize, roundDeep } from '../src/core/canonical.js';
 import { execute } from './run-experiment.js';
 
 const id = process.argv[2] ?? 'exp-0001';
+if (id === 'exp-0002') {
+  const { reproduceComposition } = await import('./reproduce-composition.js');
+  process.exitCode = await reproduceComposition();
+  process.exit();
+}
 const { record, dir } = execute(id, { write: false });
 const committed = JSON.parse(readFileSync(join(dir, 'record.json'), 'utf8'));
 

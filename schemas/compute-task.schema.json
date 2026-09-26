@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:purl:schema:compute-task",
+  "title": "Computation task (purl.compute.task/0.1)",
+  "description": "Carried as the content of an ACSP task TOK. Names the PURL instance, binds operand names to PURL resource URLs, and lists steps in order. ACSP stores it as text and never interprets it; the PURL server never sees it.",
+  "type": "object",
+  "required": ["schema", "purl_instance", "inputs", "steps"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "purl.compute.task/0.1" },
+    "purl_instance": { "type": "string", "maxLength": 2000, "description": "URL of the PURL instance manifest (/.well-known/purl)." },
+    "inputs": { "type": "object", "minProperties": 1, "maxProperties": 64, "propertyNames": { "pattern": "^[A-Za-z][A-Za-z0-9_]{0,31}$" }, "description": "Operand name → PURL resource URL." },
+    "steps": {
+      "type": "array", "minItems": 1, "maxItems": 64,
+      "items": {
+        "type": "object", "required": ["id", "operation", "operands"], "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_]{0,31}$" },
+          "operation": { "enum": ["NOT", "AND", "OR", "XOR", "CONCAT", "HASH"] },
+          "operands": { "type": "array", "minItems": 1, "maxItems": 2, "items": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_]{0,31}$" } }
+        }
+      }
+    }
+  }
+}
