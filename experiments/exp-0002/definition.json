@@ -1,0 +1,70 @@
+{
+  "id": "exp-0002",
+  "title": "Addressable composition: PURL resources as a computational substrate inside an ACSP continuity envelope",
+  "question": "Can PURL provide an addressable, compositional computational substrate while ACSP provides the continuity, authority, provenance, checkpoint and transport envelope required to move computational artifacts between independent agents?",
+  "preregistered": "Operational definitions, hypotheses and criteria were written and committed before any composition code existed and before the first run. They are not edited after the first run. Outcomes are recorded as they fall; a criterion that cannot be evaluated is recorded as indeterminate.",
+  "seed": 20260926,
+  "repositories": {
+    "purl": "https://github.com/akadaan310/purl",
+    "acsp": "https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet"
+  },
+  "baseline_commits": {
+    "purl": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+    "acsp": "14b314712c0819ea7e0cfc1d7675a5f6475c125b"
+  },
+  "design_constraints": [
+    "No change to the PURL operation registry, reducer, store or authority model. Computations use only the existing public operations create, link and update, and the existing projections.",
+    "No change to the ACSP protocol, operation registry or engine. The envelope uses only existing ACSP operations.",
+    "PURL and ACSP never import each other. The bridge speaks HTTP to both.",
+    "No normalisation of expressions (commutativity, associativity, identities) is performed anywhere, because neither protocol defines one.",
+    "Merkle-style structural hashes and a hash-consing index are controlled baselines computed outside the substrate; they are never presented as properties of PURL."
+  ],
+  "operational_definitions": {
+    "value": "A non-empty bit string: a JSON string matching ^[01]{1,4096}$. The constants 0 and 1 are the strings \"0\" and \"1\".",
+    "operation": "One of NOT (arity 1), AND, OR, XOR (arity 2, equal-length operands, bitwise), CONCAT (arity 2, string concatenation), HASH (arity 1; the 256-bit SHA-256 digest of the operand's ASCII characters, written as a 256-character bit string). Each has an explicit JSON Schema for its operand list.",
+    "computation node": "A PURL resource of type compute-literal or compute-application whose state validates against schemas/compute-node.schema.json.",
+    "operand pin": "The triple {resource, version, state_hash} recorded in an application node for each operand, where state_hash is the PURL state hash of the operand at that version.",
+    "derived-resource closure": "An application node N satisfies closure iff (i) GET /r/{N} returns a PURL document of kind resource, (ii) GET /r/{N}/verify reports valid, (iii) N can itself be pinned as an operand of another application node, and (iv) the PURL vocabulary (operation registry) hash is identical before and after the run.",
+    "PURL state hash": "state_hash = sha256(canonical JSON of the entire resource record at one version), as implemented by stateHash in src/continuity/store.js.",
+    "content addressing": "An identifier scheme in which the identifier is a function of content only, so that equal content yields equal identifiers and the identifier alone locates the content.",
+    "value hash": "hashOf(value): SHA-256 of the canonical JSON of the value only. A transformation computed by the experiment, not stored by PURL.",
+    "merkle-by-value": "Controlled baseline. Leaf: hashOf([\"lit\", value]). Application: hashOf([\"app\", operation, [child hashes in operand order]]).",
+    "merkle-by-identity": "Controlled baseline. Leaf and application alike: hashOf([\"pin\", resource, version, state_hash]) for leaves, hashOf([\"app\", operation, [child hashes]]) for applications.",
+    "extensional equivalence": "Two application nodes built over the same mutable literal resources are extensionally equivalent iff they evaluate to equal values for every assignment of values to those literals. Over single bits this is decided exhaustively.",
+    "representation captures equivalence": "Some stored or derived identifier (resource id, state_hash, merkle-by-value, merkle-by-identity) is equal for every extensionally equivalent pair tested and unequal for every inequivalent pair tested.",
+    "stale": "An application node is stale iff for some operand pin, pin.version is less than the operand's current version.",
+    "persistent read": "One call to a read method of the substrate port (head, at, verify, inbound, events) — one HTTP GET when the port is HTTP.",
+    "hash operation": "One SHA-256 digest computed in the measuring process, counted by instrumenting Hash.prototype.digest.",
+    "nodes traversed": "Number of distinct-or-repeated node visits made by a procedure, counted by the procedure."
+  },
+  "graphs": {
+    "examples": [
+      "C1 = XOR(0,1)",
+      "C2 = XOR(XOR(0,1),1)",
+      "C3 = AND(XOR(0,1),1)",
+      "HASH and CONCAT over the same literals"
+    ],
+    "shared_dag": "A,B,C,D literals; X = XOR(A,B); Y = AND(X,C); Z = OR(X,D); W = AND(C,D) as an unaffected control",
+    "families": {
+      "chain": "x0 = literal 0, b = literal 1, x_i = XOR(x_{i-1}, b), i = 1..n",
+      "tree": "n seeded random single-bit literals reduced pairwise by XOR into a balanced tree of n-1 application nodes"
+    },
+    "sizes": [1, 10, 100, 1000, 10000]
+  },
+  "hypotheses": [
+    { "id": "H1", "statement": "Derived-resource closure holds for C1 → C2 → C3 using only existing PURL operations.", "criterion": "Every application node in the three examples satisfies all four clauses of the closure definition." },
+    { "id": "H2", "statement": "Construction is deterministic under a deterministic store.", "criterion": "Two independent constructions of the example set with sequential ids and a fixed clock yield identical lists of (resource id, version, state_hash) and identical event hash chains." },
+    { "id": "H3", "statement": "The PURL state hash is content-addressed with respect to a node's value.", "criterion": "Two application nodes XOR(0,1) built independently over the same operand resources have equal state_hash." },
+    { "id": "H4", "statement": "The PURL state hash is invariant to serialisation of the submitted state.", "criterion": "Submitting the same state with permuted key order and different whitespace, to two fresh deterministic stores, yields equal state_hash." },
+    { "id": "H5", "statement": "The PURL state hash is invariant to semantically irrelevant metadata.", "criterion": "Adding a field note to an otherwise identical literal state (fresh deterministic stores) yields equal state_hash." },
+    { "id": "H6", "statement": "The representation identifies commutative permutations.", "criterion": "XOR(A,B) and XOR(B,A) over the same operand resources are equal under at least one of: resource id, state_hash, merkle-by-value, merkle-by-identity." },
+    { "id": "H7", "statement": "The representation captures extensional equivalence.", "criterion": "Per the operational definition, tested on XOR(a,b) vs OR(AND(a,NOT(b)),AND(NOT(a),b)) (equivalent) and XOR(a,b) vs AND(a,b) (inequivalent), over all four assignments of the mutable literals a,b." },
+    { "id": "H8", "statement": "A shared subexpression is stored once, evaluated once, and pinned identically by its consumers.", "criterion": "In the shared DAG: resources created equal distinct nodes; XOR is evaluated exactly once during construction; the pins of X in Y and in Z are identical triples." },
+    { "id": "H9", "statement": "The state hash of an application node is a deterministic function of (operation, operand state hashes, result value) alone.", "criterion": "Every pair of application nodes observed in the example and equivalence sets that agree on (operation, operand pin state hashes, value) also agrees on state_hash." },
+    { "id": "H10", "statement": "After an in-place change to a literal, staleness is identifiable from the substrate's own provenance and unaffected branches remain valid.", "criterion": "(a) dependents found by traversing inbound relations from A equal the ground-truth transitive dependents; (b) W has no stale pin; (c) path-copy recomputation creates exactly one new application node per dependent and every pre-existing node still verifies; (d) at least one dependent keeps its value while its recomputed node has a different state_hash." },
+    { "id": "H11", "statement": "Operation counts scale as the data structure predicts, not as a constant-time derivation.", "criterion": "Over n in {10,100,1000,10000}: lookup by id costs 1 persistent read at every n; full recursive verification's persistent reads grow by a factor in [8,12] per 10x in n (chain and tree); tree leaf-update recomputation touches ceil(log2 n) application nodes; chain leaf-update recomputation touches n application nodes." },
+    { "id": "H12", "statement": "Wall-clock time of lookup by id does not grow with n, while dependent-search by scanning grows with n and by inbound index does not.", "criterion": "Median lookup time at n=10000 is at most 3x that at n=10; log-log slope of scan-based dependent search is at least 0.8; slope of index-based dependent search is at most 0.2. Timing is environment-dependent and excluded from the output hash." },
+    { "id": "H13", "statement": "Computation nodes survive a restart of a persistent PURL store.", "criterion": "After reloading from the data directory, every node verifies, every value re-evaluates to the stored value, and inbound-relation lookup returns the same dependents." },
+    { "id": "H14", "statement": "An ACSP envelope moves a PURL computation between two independent agents without merging them, and the receiving agent can verify it independently.", "criterion": "Agents A and B run as separate OS processes with separate credentials; B reproduces A's ACSP checkpoint hash with PURL's canonicaliser, re-verifies A's PURL result by replay and recomputation, continues with a new derived PURL node; ownership never changes; every ACSP event by B is attributed to B with identity_assurance capability; B's attempt to act as A is refused; and both injected faults (a misreported value in ACSP, a wrong value in the PURL node) are detected by B." }
+  ]
+}
