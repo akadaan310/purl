@@ -138,7 +138,7 @@ export async function executeComposition({ quick = false, handoff = true, timing
     return { category: 'hypothesis', id: h.id, statement: d.statement, criterion: d.criterion, status: h.status, evaluation: h.evaluation };
   }) : [];
   const tf = transformations(o);
-  const excluded = ['observations.timing', 'transformations.outputs.timing_slopes', 'hypotheses[H12].evaluation', 'data/handoff.json (raw agent logs: ports, random ids, times)'];
+  const excluded = ['observations.timing', 'transformations.outputs.timing_slopes', 'hypotheses[H12].evaluation', 'raw/handoff.json (raw agent logs: ports, random ids, times)'];
   const hashed = {
     observations: { ...o, timing: undefined },
     transformations: { ...tf.outputs, timing_slopes: undefined },
@@ -179,7 +179,7 @@ export async function executeComposition({ quick = false, handoff = true, timing
     conclusions: { category: 'conclusion', entries: [] },
     independent_agent_analysis: { category: 'interpretation', status: 'pending', file: `experiments/${ID}/independent-analysis.md`, note: 'Attached after the run by a separate agent that receives only the blind packet (experiments/exp-0002/blind/).' },
     unresolved_questions: [],
-    raw_data: handoffRaw ? { handoff: { file: `experiments/${ID}/data/handoff.json`, sha256: 'sha256:' + sha256(JSON.stringify(handoffRaw) + '\n'), note: 'SHA-256 of the file bytes' } } : {},
+    raw_data: handoffRaw ? { handoff: { file: `experiments/${ID}/raw/handoff.json`, sha256: 'sha256:' + sha256(JSON.stringify(handoffRaw) + '\n'), note: 'SHA-256 of the file bytes' } } : {},
     reproducibility: {
       output_hash: outputHash,
       section_hashes: sectionHashes,
@@ -198,12 +198,12 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const t0 = Date.now();
   const { record, handoffRaw } = await executeComposition({ quick, handoff: !process.argv.includes('--no-handoff') });
   if (!quick) {
-    mkdirSync(join(DIR, 'data'), { recursive: true });
+    mkdirSync(join(DIR, 'raw'), { recursive: true });
     const prior = (() => { try { return JSON.parse(readFileSync(join(DIR, 'record.json'), 'utf8')); } catch { return null; } })();
     if (prior?.unresolved_questions?.length) record.unresolved_questions = prior.unresolved_questions;
     if (prior?.independent_agent_analysis?.status && prior.independent_agent_analysis.status !== 'pending') record.independent_agent_analysis = prior.independent_agent_analysis;
     writeFileSync(join(DIR, 'record.json'), JSON.stringify(record, null, 1) + '\n');
-    if (handoffRaw) writeFileSync(join(DIR, 'data', 'handoff.json'), JSON.stringify(handoffRaw) + '\n');
+    if (handoffRaw) writeFileSync(join(DIR, 'raw', 'handoff.json'), JSON.stringify(handoffRaw) + '\n');
   }
   console.log(`${ID}: ${((Date.now() - t0) / 1000).toFixed(1)} s, output_hash ${record.reproducibility.output_hash}`);
   if (!record.hypotheses.length) for (const [k, h] of Object.entries(record.reproducibility.section_hashes)) console.log(`  ${k.padEnd(34)} ${h}`);

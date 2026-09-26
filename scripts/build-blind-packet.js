@@ -58,7 +58,7 @@ writeFileSync(join(out, 'purl', 'experiments', 'exp-0002', 'definition.json'), J
 
 const record = JSON.parse(readFileSync(join(EXP, 'record.json'), 'utf8'));
 writeFileSync(join(out, 'observations.json'), JSON.stringify({ run: record.run, repositories: record.repositories, environment: record.environment, protocol_versions: record.protocol_versions, configuration: { seed: record.configuration.seed, sizes: record.configuration.sizes, algebra: record.configuration.algebra, inputs: record.configuration.inputs }, observations: record.observations, section_hashes_of_recorded_run: Object.fromEntries(Object.entries(record.reproducibility.section_hashes).filter(([k]) => k !== 'hypotheses')) }, null, 1) + '\n');
-copyFileSync(join(EXP, 'data', 'handoff.json'), join(out, 'handoff-raw.json'));
+copyFileSync(join(EXP, 'raw', 'handoff.json'), join(out, 'handoff-raw.json'));
 mkdirSync(join(out, 'schemas'));
 for (const f of readdirSync(join(ROOT, 'schemas'))) copyFileSync(join(ROOT, 'schemas', f), join(out, 'schemas', f));
 copyFileSync(join(EXP, 'blind', 'README.md'), join(out, 'README.md'));
