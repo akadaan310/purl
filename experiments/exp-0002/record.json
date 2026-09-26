@@ -1,0 +1,3704 @@
+{
+ "schema": "purl.composition-record/0.1",
+ "experiment_id": "exp-0002",
+ "title": "Addressable composition: PURL resources as a computational substrate inside an ACSP continuity envelope",
+ "question": "Can PURL provide an addressable, compositional computational substrate while ACSP provides the continuity, authority, provenance, checkpoint and transport envelope required to move computational artifacts between independent agents?",
+ "run": {
+  "timestamp": "2026-09-26T00:50:20.891Z",
+  "quick": false
+ },
+ "repositories": {
+  "purl": {
+   "url": "https://github.com/akadaan310/purl",
+   "commit": "07c9c36d79bdf719a34029f0a9a38481746e7e17",
+   "branch": "claude/acsp-purl-composition-adsbn6",
+   "dirty_worktree": true
+  },
+  "acsp": {
+   "url": "https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet",
+   "commit": "4302e868b615492ae865925ed251324ce3d446f1",
+   "branch": "claude/acsp-purl-composition-adsbn6",
+   "dirty_worktree": false,
+   "local_path_used": "/home/user/NetGovComEduGovOrgEduGovComNet"
+  }
+ },
+ "environment": {
+  "node": "v22.22.2",
+  "platform": "linux",
+  "arch": "x64"
+ },
+ "protocol_versions": {
+  "purl": "PURL/0.1",
+  "acsp": "ACSP/0.1",
+  "compute": "purl.compute/0.1",
+  "task": "purl.compute.task/0.1",
+  "result": "purl.compute.result/0.1"
+ },
+ "definition": {
+  "file": "experiments/exp-0002/definition.json",
+  "sha256": "sha256:7828f3944ee399f4f502b7f1249e267b5d1acc48fe6d3b7f163537651e222401",
+  "preregistered_in_commit": "007558f"
+ },
+ "hypothesis": "Can PURL provide an addressable, compositional computational substrate while ACSP provides the continuity, authority, provenance, checkpoint and transport envelope required to move computational artifacts between independent agents?",
+ "operational_definitions": {
+  "value": "A non-empty bit string: a JSON string matching ^[01]{1,4096}$. The constants 0 and 1 are the strings \"0\" and \"1\".",
+  "operation": "One of NOT (arity 1), AND, OR, XOR (arity 2, equal-length operands, bitwise), CONCAT (arity 2, string concatenation), HASH (arity 1; the 256-bit SHA-256 digest of the operand's ASCII characters, written as a 256-character bit string). Each has an explicit JSON Schema for its operand list.",
+  "computation node": "A PURL resource of type compute-literal or compute-application whose state validates against schemas/compute-node.schema.json.",
+  "operand pin": "The triple {resource, version, state_hash} recorded in an application node for each operand, where state_hash is the PURL state hash of the operand at that version.",
+  "derived-resource closure": "An application node N satisfies closure iff (i) GET /r/{N} returns a PURL document of kind resource, (ii) GET /r/{N}/verify reports valid, (iii) N can itself be pinned as an operand of another application node, and (iv) the PURL vocabulary (operation registry) hash is identical before and after the run.",
+  "PURL state hash": "state_hash = sha256(canonical JSON of the entire resource record at one version), as implemented by stateHash in src/continuity/store.js.",
+  "content addressing": "An identifier scheme in which the identifier is a function of content only, so that equal content yields equal identifiers and the identifier alone locates the content.",
+  "value hash": "hashOf(value): SHA-256 of the canonical JSON of the value only. A transformation computed by the experiment, not stored by PURL.",
+  "merkle-by-value": "Controlled baseline. Leaf: hashOf([\"lit\", value]). Application: hashOf([\"app\", operation, [child hashes in operand order]]).",
+  "merkle-by-identity": "Controlled baseline. Leaf and application alike: hashOf([\"pin\", resource, version, state_hash]) for leaves, hashOf([\"app\", operation, [child hashes]]) for applications.",
+  "extensional equivalence": "Two application nodes built over the same mutable literal resources are extensionally equivalent iff they evaluate to equal values for every assignment of values to those literals. Over single bits this is decided exhaustively.",
+  "representation captures equivalence": "Some stored or derived identifier (resource id, state_hash, merkle-by-value, merkle-by-identity) is equal for every extensionally equivalent pair tested and unequal for every inequivalent pair tested.",
+  "stale": "An application node is stale iff for some operand pin, pin.version is less than the operand's current version.",
+  "persistent read": "One call to a read method of the substrate port (head, at, verify, inbound, events) — one HTTP GET when the port is HTTP.",
+  "hash operation": "One SHA-256 digest computed in the measuring process, counted by instrumenting Hash.prototype.digest.",
+  "nodes traversed": "Number of distinct-or-repeated node visits made by a procedure, counted by the procedure."
+ },
+ "configuration": {
+  "seed": 20260926,
+  "sizes": [
+   1,
+   10,
+   100,
+   1000,
+   10000
+  ],
+  "graphs": {
+   "examples": [
+    "C1 = XOR(0,1)",
+    "C2 = XOR(XOR(0,1),1)",
+    "C3 = AND(XOR(0,1),1)",
+    "HASH and CONCAT over the same literals"
+   ],
+   "shared_dag": "A,B,C,D literals; X = XOR(A,B); Y = AND(X,C); Z = OR(X,D); W = AND(C,D) as an unaffected control",
+   "families": {
+    "chain": "x0 = literal 0, b = literal 1, x_i = XOR(x_{i-1}, b), i = 1..n",
+    "tree": "n seeded random single-bit literals reduced pairwise by XOR into a balanced tree of n-1 application nodes"
+   },
+   "sizes": [
+    1,
+    10,
+    100,
+    1000,
+    10000
+   ]
+  },
+  "algebra": {
+   "compute": "purl.compute/0.1",
+   "value": {
+    "type": "string",
+    "pattern": "^[01]{1,4096}$",
+    "description": "A non-empty bit string; the constants are \"0\" and \"1\"."
+   },
+   "operations": {
+    "NOT": {
+     "arity": 1,
+     "input": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+       "type": "string",
+       "pattern": "^[01]{1,4096}$",
+       "description": "A non-empty bit string; the constants are \"0\" and \"1\"."
+      }
+     },
+     "properties": [
+      "involution"
+     ],
+     "description": "Bitwise complement."
+    },
+    "AND": {
+     "arity": 2,
+     "input": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+       "type": "string",
+       "pattern": "^[01]{1,4096}$",
+       "description": "A non-empty bit string; the constants are \"0\" and \"1\"."
+      }
+     },
+     "properties": [
+      "commutative",
+      "associative",
+      "idempotent"
+     ],
+     "description": "Bitwise AND of equal-length operands."
+    },
+    "OR": {
+     "arity": 2,
+     "input": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+       "type": "string",
+       "pattern": "^[01]{1,4096}$",
+       "description": "A non-empty bit string; the constants are \"0\" and \"1\"."
+      }
+     },
+     "properties": [
+      "commutative",
+      "associative",
+      "idempotent"
+     ],
+     "description": "Bitwise OR of equal-length operands."
+    },
+    "XOR": {
+     "arity": 2,
+     "input": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+       "type": "string",
+       "pattern": "^[01]{1,4096}$",
+       "description": "A non-empty bit string; the constants are \"0\" and \"1\"."
+      }
+     },
+     "properties": [
+      "commutative",
+      "associative",
+      "self-inverse"
+     ],
+     "description": "Bitwise XOR of equal-length operands."
+    },
+    "CONCAT": {
+     "arity": 2,
+     "input": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+       "type": "string",
+       "pattern": "^[01]{1,4096}$",
+       "description": "A non-empty bit string; the constants are \"0\" and \"1\"."
+      },
+      "description": "Total length at most 4096."
+     },
+     "properties": [
+      "associative"
+     ],
+     "description": "Concatenation of two bit strings."
+    },
+    "HASH": {
+     "arity": 1,
+     "input": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+       "type": "string",
+       "pattern": "^[01]{1,4096}$",
+       "description": "A non-empty bit string; the constants are \"0\" and \"1\"."
+      }
+     },
+     "properties": [],
+     "description": "SHA-256 of the operand's ASCII characters, as a 256-character bit string."
+    }
+   },
+   "normalisation": "none — expressions are never rewritten; properties are declared, not applied"
+  },
+  "design_constraints": [
+   "No change to the PURL operation registry, reducer, store or authority model. Computations use only the existing public operations create, link and update, and the existing projections.",
+   "No change to the ACSP protocol, operation registry or engine. The envelope uses only existing ACSP operations.",
+   "PURL and ACSP never import each other. The bridge speaks HTTP to both.",
+   "No normalisation of expressions (commutativity, associativity, identities) is performed anywhere, because neither protocol defines one.",
+   "Merkle-style structural hashes and a hash-consing index are controlled baselines computed outside the substrate; they are never presented as properties of PURL."
+  ],
+  "inputs": {
+   "examples": "literals 0 and 1",
+   "shared_dag": "A=0, B=1, C=0, D=0",
+   "tree_leaves": "mulberry32(seed + n) < 0.5 ? \"0\" : \"1\"",
+   "handoff": "A=0, B=1; steps C = XOR(A,B), D = XOR(C,B)"
+  }
+ },
+ "observations": {
+  "category": "observation",
+  "examples": {
+   "transport": "HTTP (HttpPort → createPurlServer over a deterministic store)",
+   "vocabulary_hash": "sha256:1422638e52fa160f1bf60c1a859000a92506a75434533391df5754617860f697",
+   "baseline_vocabulary_hash": "sha256:1422638e52fa160f1bf60c1a859000a92506a75434533391df5754617860f697",
+   "evaluations": {
+    "XOR": 14,
+    "AND": 4,
+    "CONCAT": 4,
+    "HASH": 6,
+    "NOT": 3,
+    "OR": 2
+   },
+   "nodes": {
+    "0": {
+     "id": "r_000001",
+     "version": 2,
+     "state_hash": "sha256:d41b7718cd5234474d740ae7caf8357a20f870d8183395d671792e846c9580e8",
+     "value": "0",
+     "node": "literal",
+     "operation": null,
+     "operands": null,
+     "value_sha256": "sha256:98089e6d36f78e9766c9ea34d5acb3611f3a92cd81c5eb102095d924ffc7d08b",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 2,
+      "cone_verify_valid": null,
+      "cone_nodes": null,
+      "used_as_operand": true,
+      "inbound_references": [
+       "r_000003",
+       "r_000008"
+      ]
+     }
+    },
+    "1": {
+     "id": "r_000002",
+     "version": 2,
+     "state_hash": "sha256:2e3e1a4b73c31594d1458a606a5c9eef1d4ff756a643ef37ef04611da684bb91",
+     "value": "1",
+     "node": "literal",
+     "operation": null,
+     "operands": null,
+     "value_sha256": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 2,
+      "cone_verify_valid": null,
+      "cone_nodes": null,
+      "used_as_operand": true,
+      "inbound_references": [
+       "r_000003",
+       "r_000004",
+       "r_000005",
+       "r_000006"
+      ]
+     }
+    },
+    "C1 = XOR(0,1)": {
+     "id": "r_000003",
+     "version": 4,
+     "state_hash": "sha256:0ab86b8a5e6f350f4bcebc2bf4bf46391829164059f8affb831d47659e99a816",
+     "value": "1",
+     "node": "application",
+     "operation": "XOR",
+     "operands": [
+      {
+       "resource": "r_000001",
+       "version": 2,
+       "state_hash": "sha256:d41b7718cd5234474d740ae7caf8357a20f870d8183395d671792e846c9580e8"
+      },
+      {
+       "resource": "r_000002",
+       "version": 2,
+       "state_hash": "sha256:2e3e1a4b73c31594d1458a606a5c9eef1d4ff756a643ef37ef04611da684bb91"
+      }
+     ],
+     "value_sha256": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 4,
+      "cone_verify_valid": true,
+      "cone_nodes": 3,
+      "used_as_operand": true,
+      "inbound_references": [
+       "r_000004",
+       "r_000005",
+       "r_000006"
+      ]
+     }
+    },
+    "C2 = XOR(C1,1)": {
+     "id": "r_000004",
+     "version": 4,
+     "state_hash": "sha256:6405bf84a7f0c72c31a692d8dc8cf65252f7fd50dfb48e4e26060664426fa0b4",
+     "value": "0",
+     "node": "application",
+     "operation": "XOR",
+     "operands": [
+      {
+       "resource": "r_000003",
+       "version": 4,
+       "state_hash": "sha256:0ab86b8a5e6f350f4bcebc2bf4bf46391829164059f8affb831d47659e99a816"
+      },
+      {
+       "resource": "r_000002",
+       "version": 2,
+       "state_hash": "sha256:2e3e1a4b73c31594d1458a606a5c9eef1d4ff756a643ef37ef04611da684bb91"
+      }
+     ],
+     "value_sha256": "sha256:98089e6d36f78e9766c9ea34d5acb3611f3a92cd81c5eb102095d924ffc7d08b",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 4,
+      "cone_verify_valid": true,
+      "cone_nodes": 4,
+      "used_as_operand": true,
+      "inbound_references": [
+       "r_000011"
+      ]
+     }
+    },
+    "C3 = AND(C1,1)": {
+     "id": "r_000005",
+     "version": 4,
+     "state_hash": "sha256:0d4bee5be33fd3bd2949331ccd7dfe36a4a74a85a35ef1c14a4fd85d856d71b8",
+     "value": "1",
+     "node": "application",
+     "operation": "AND",
+     "operands": [
+      {
+       "resource": "r_000003",
+       "version": 4,
+       "state_hash": "sha256:0ab86b8a5e6f350f4bcebc2bf4bf46391829164059f8affb831d47659e99a816"
+      },
+      {
+       "resource": "r_000002",
+       "version": 2,
+       "state_hash": "sha256:2e3e1a4b73c31594d1458a606a5c9eef1d4ff756a643ef37ef04611da684bb91"
+      }
+     ],
+     "value_sha256": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 4,
+      "cone_verify_valid": true,
+      "cone_nodes": 4,
+      "used_as_operand": true,
+      "inbound_references": [
+       "r_000010"
+      ]
+     }
+    },
+    "K = CONCAT(C1,1)": {
+     "id": "r_000006",
+     "version": 4,
+     "state_hash": "sha256:ff6a9137ce14c92cb688eeb7434e351a35fed03ca49106ac6b585019650b0d45",
+     "value": "11",
+     "node": "application",
+     "operation": "CONCAT",
+     "operands": [
+      {
+       "resource": "r_000003",
+       "version": 4,
+       "state_hash": "sha256:0ab86b8a5e6f350f4bcebc2bf4bf46391829164059f8affb831d47659e99a816"
+      },
+      {
+       "resource": "r_000002",
+       "version": 2,
+       "state_hash": "sha256:2e3e1a4b73c31594d1458a606a5c9eef1d4ff756a643ef37ef04611da684bb91"
+      }
+     ],
+     "value_sha256": "sha256:f326bd84707ed76597becb832280595d1a5aaceb0905dc40e3553ebb861bde80",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 4,
+      "cone_verify_valid": true,
+      "cone_nodes": 4,
+      "used_as_operand": true,
+      "inbound_references": [
+       "r_000007"
+      ]
+     }
+    },
+    "HK = HASH(K)": {
+     "id": "r_000007",
+     "version": 3,
+     "state_hash": "sha256:0a69e5001477368af48fb3485b0a56d166465e3d83894371114f0bcc65cf686e",
+     "value": "0100111111001000…(256 bits)",
+     "node": "application",
+     "operation": "HASH",
+     "operands": [
+      {
+       "resource": "r_000006",
+       "version": 4,
+       "state_hash": "sha256:ff6a9137ce14c92cb688eeb7434e351a35fed03ca49106ac6b585019650b0d45"
+      }
+     ],
+     "value_sha256": "sha256:b52c34ab2d7f39e77589fd2dc7f470d7bc71d39df1760df3fec8d586663cb734",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 3,
+      "cone_verify_valid": true,
+      "cone_nodes": 5,
+      "used_as_operand": true,
+      "inbound_references": [
+       "r_000009"
+      ]
+     }
+    },
+    "H0 = HASH(0)": {
+     "id": "r_000008",
+     "version": 3,
+     "state_hash": "sha256:608254b60796df352eb655ac816a5a5a2434639568cf9f0d89cbbac46dc14cf7",
+     "value": "0101111111101100…(256 bits)",
+     "node": "application",
+     "operation": "HASH",
+     "operands": [
+      {
+       "resource": "r_000001",
+       "version": 2,
+       "state_hash": "sha256:d41b7718cd5234474d740ae7caf8357a20f870d8183395d671792e846c9580e8"
+      }
+     ],
+     "value_sha256": "sha256:5692fc2414521e823fe0cc9eae4a8c9bbea5a7b9210955512fe8d79ba3b1871a",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 3,
+      "cone_verify_valid": true,
+      "cone_nodes": 2,
+      "used_as_operand": true,
+      "inbound_references": [
+       "r_000009"
+      ]
+     }
+    },
+    "HX = XOR(HK,H0)": {
+     "id": "r_000009",
+     "version": 4,
+     "state_hash": "sha256:c3ff35dad8c18e77f1600cfa2f8c33ef91b66ddb96a0fec91f85b8a1cfa20e9a",
+     "value": "0001000000100100…(256 bits)",
+     "node": "application",
+     "operation": "XOR",
+     "operands": [
+      {
+       "resource": "r_000007",
+       "version": 3,
+       "state_hash": "sha256:0a69e5001477368af48fb3485b0a56d166465e3d83894371114f0bcc65cf686e"
+      },
+      {
+       "resource": "r_000008",
+       "version": 3,
+       "state_hash": "sha256:608254b60796df352eb655ac816a5a5a2434639568cf9f0d89cbbac46dc14cf7"
+      }
+     ],
+     "value_sha256": "sha256:5d0780b061747e4d34b5fa5688647881788b25aca91a6f93a38c3c91a7102c27",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 4,
+      "cone_verify_valid": true,
+      "cone_nodes": 7,
+      "used_as_operand": false,
+      "inbound_references": []
+     }
+    },
+    "N = NOT(C3)": {
+     "id": "r_000010",
+     "version": 3,
+     "state_hash": "sha256:d3fe23d66b8e9f482861b7668f53274a57d35f02ad664f061c0758ebce377784",
+     "value": "0",
+     "node": "application",
+     "operation": "NOT",
+     "operands": [
+      {
+       "resource": "r_000005",
+       "version": 4,
+       "state_hash": "sha256:0d4bee5be33fd3bd2949331ccd7dfe36a4a74a85a35ef1c14a4fd85d856d71b8"
+      }
+     ],
+     "value_sha256": "sha256:98089e6d36f78e9766c9ea34d5acb3611f3a92cd81c5eb102095d924ffc7d08b",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 3,
+      "cone_verify_valid": true,
+      "cone_nodes": 5,
+      "used_as_operand": true,
+      "inbound_references": [
+       "r_000011"
+      ]
+     }
+    },
+    "E = OR(C2,N)": {
+     "id": "r_000011",
+     "version": 4,
+     "state_hash": "sha256:72bb78f53e789f8966f3565e1eb89f60c3a7197a6636283546a1e20b68a7b0dc",
+     "value": "0",
+     "node": "application",
+     "operation": "OR",
+     "operands": [
+      {
+       "resource": "r_000004",
+       "version": 4,
+       "state_hash": "sha256:6405bf84a7f0c72c31a692d8dc8cf65252f7fd50dfb48e4e26060664426fa0b4"
+      },
+      {
+       "resource": "r_000010",
+       "version": 3,
+       "state_hash": "sha256:d3fe23d66b8e9f482861b7668f53274a57d35f02ad664f061c0758ebce377784"
+      }
+     ],
+     "value_sha256": "sha256:98089e6d36f78e9766c9ea34d5acb3611f3a92cd81c5eb102095d924ffc7d08b",
+     "closure": {
+      "document_kind": "resource",
+      "protocol": "PURL/0.1",
+      "manifest_kind": "resource-manifest",
+      "manifest_operations": 35,
+      "substrate_verify_valid": true,
+      "substrate_events": 4,
+      "cone_verify_valid": true,
+      "cone_nodes": 7,
+      "used_as_operand": false,
+      "inbound_references": []
+     }
+    }
+   },
+   "http_reads": {
+    "reads": 128,
+    "writes": 26,
+    "byMethod": {
+     "create": 11,
+     "head": 35,
+     "link": 15,
+     "verify": 52,
+     "at": 41
+    }
+   }
+  },
+  "determinism": {
+   "run_1": {
+    "nodes": [
+     {
+      "id": "r_000001",
+      "version": 2,
+      "state_hash": "sha256:b16d982aeb58d4c17d5913dd27f0e33a723b68fefd82c944e83567e84ebd3669"
+     },
+     {
+      "id": "r_000002",
+      "version": 2,
+      "state_hash": "sha256:555ac159bb718065660d434cfa3b750aa58060d3eab7fbf049beb190d076818b"
+     },
+     {
+      "id": "r_000003",
+      "version": 4,
+      "state_hash": "sha256:b1711494a2376a7303931a3f3711cb325ab6012df721bc88a0833188bef6e765"
+     },
+     {
+      "id": "r_000004",
+      "version": 4,
+      "state_hash": "sha256:768fa3fbceace4810f1908adab4df861ae41c216abe4f74255e52a2636959c8b"
+     },
+     {
+      "id": "r_000005",
+      "version": 4,
+      "state_hash": "sha256:b22c87d9aacb4b252b6f25682aa86ca195297fa16a2005efe7fba4175bbcef71"
+     }
+    ],
+    "event_heads": [
+     "sha256:4ef0ca61531688c6756eedc558d6db4d8ec1b59b3f9af0f27b3d335898d19aa1",
+     "sha256:b9a40ba8d9b3a9712144f6e73872c62e4d44f979d8939b4e9f6292dc756c8e81",
+     "sha256:05ff6859810490910f04d5ecc0f42b65fa4140923ba8940aee0a6f2f6b2aa101",
+     "sha256:c6616ac499e94cf94b31ed1540f6d115bdac446ae365fd248107eb6b1dddef81",
+     "sha256:c0ada990f1027646fd6089ef04cbd2eb833845f0a910d1fa43370fdb4ff1d89b"
+    ],
+    "event_hashes": [
+     "sha256:c9b7f7fd7f8b5fcd7a8daeeeb280b72b2368b75c942a541fe77b3e0de5d5b4db",
+     "sha256:4ef0ca61531688c6756eedc558d6db4d8ec1b59b3f9af0f27b3d335898d19aa1",
+     "sha256:fc2c4d4845598735461461fa23ad6f8cead1e9fe894fb02e4dd9e85ff6da7971",
+     "sha256:b9a40ba8d9b3a9712144f6e73872c62e4d44f979d8939b4e9f6292dc756c8e81",
+     "sha256:abe9f8b3426db18dd7bd49723ff2b84101d32311b85702af0c0aa04ab7608830",
+     "sha256:0cc9eac2896fb38d2565a7fd2f8bb0dcc23abd137ca42fa77198e1b087fe5cd8",
+     "sha256:3a667c1d63fb8b0047ce82eec37a04a7861d46b5f30ed7564bcd3a96c5092141",
+     "sha256:05ff6859810490910f04d5ecc0f42b65fa4140923ba8940aee0a6f2f6b2aa101",
+     "sha256:b6122d9c0d785ca12ec1ec761fd7f4a362a82d9a4a51018c5dc08308f6fb1a17",
+     "sha256:b40270016d5aa4b4b585ca8a545d2952bec0ecfb81158f6a14888cd68dea6c6f",
+     "sha256:10eac7316bb9f1e50bd77bc9a4518bfc42934431fd0fdc533b6aa79b377601bc",
+     "sha256:c6616ac499e94cf94b31ed1540f6d115bdac446ae365fd248107eb6b1dddef81",
+     "sha256:0e5cd08653565f7a701b305e65607fa387c149b01d8a7ffb552cc7f7c951a20d",
+     "sha256:fc244ee1c368bdeca871e0d2e4aeb705a30d4be48dcb69f6d1fbcef0e2f3444b",
+     "sha256:79f1acfce8e78e4249899e4e86b404375ce0c4539d28fd0aad40b2bc6cd6f5aa",
+     "sha256:c0ada990f1027646fd6089ef04cbd2eb833845f0a910d1fa43370fdb4ff1d89b"
+    ]
+   },
+   "identical": true,
+   "events_compared": 16
+  },
+  "equivalence": {
+   "E1_same_expression_twice": {
+    "a": {
+     "resource_id": "r_000003",
+     "value": "1",
+     "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+     "state_hash": "sha256:b1711494a2376a7303931a3f3711cb325ab6012df721bc88a0833188bef6e765",
+     "merkle_by_value": "sha256:2493b74f91a9f70b5cdfc28a70cd85c0c1f551a11858d5bd0bc3dfd8402464e9",
+     "merkle_by_identity": "sha256:e9ebf75cd4ccd58e7dada62ab8a09ed002c70848f4d88be3e799a8e2e8b009f1",
+     "head_event_hash": "sha256:05ff6859810490910f04d5ecc0f42b65fa4140923ba8940aee0a6f2f6b2aa101"
+    },
+    "b": {
+     "resource_id": "r_000004",
+     "value": "1",
+     "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+     "state_hash": "sha256:eb117214261dd4617fa78fbf622a80a8e4643204a586dc92e598dcd2aa72243d",
+     "merkle_by_value": "sha256:2493b74f91a9f70b5cdfc28a70cd85c0c1f551a11858d5bd0bc3dfd8402464e9",
+     "merkle_by_identity": "sha256:e9ebf75cd4ccd58e7dada62ab8a09ed002c70848f4d88be3e799a8e2e8b009f1",
+     "head_event_hash": "sha256:5a66b24ace29de69dc87c8cd05d03ed5b4a5cb9b4174c28c054de8ea44baed08"
+    },
+    "equal": {
+     "resource_id": false,
+     "value": true,
+     "value_hash": true,
+     "state_hash": false,
+     "merkle_by_value": true,
+     "merkle_by_identity": true,
+     "head_event_hash": false
+    },
+    "differing_record_paths": [
+     "/created_at",
+     "/grants/g_000003",
+     "/grants/g_000004",
+     "/id",
+     "/relations/0/at",
+     "/relations/1/at",
+     "/updated_at"
+    ]
+   },
+   "E2_operand_renaming": {
+    "a": {
+     "resource_id": "r_000003",
+     "value": "1",
+     "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+     "state_hash": "sha256:b1711494a2376a7303931a3f3711cb325ab6012df721bc88a0833188bef6e765",
+     "merkle_by_value": "sha256:2493b74f91a9f70b5cdfc28a70cd85c0c1f551a11858d5bd0bc3dfd8402464e9",
+     "merkle_by_identity": "sha256:e9ebf75cd4ccd58e7dada62ab8a09ed002c70848f4d88be3e799a8e2e8b009f1",
+     "head_event_hash": "sha256:05ff6859810490910f04d5ecc0f42b65fa4140923ba8940aee0a6f2f6b2aa101"
+    },
+    "b": {
+     "resource_id": "r_000007",
+     "value": "1",
+     "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+     "state_hash": "sha256:1653c6ad5b3dcdbd7ded3c59c5df0a1c507ec42b67116953c0a4df8ce65814ed",
+     "merkle_by_value": "sha256:2493b74f91a9f70b5cdfc28a70cd85c0c1f551a11858d5bd0bc3dfd8402464e9",
+     "merkle_by_identity": "sha256:075038354b40723d715327f5e979785d7191603c90ef865e8449b364b6cef525",
+     "head_event_hash": "sha256:392ae623493f9e258e5b086249310d21320ed9510946de8d97b97ef96462252b"
+    },
+    "equal": {
+     "resource_id": false,
+     "value": true,
+     "value_hash": true,
+     "state_hash": false,
+     "merkle_by_value": true,
+     "merkle_by_identity": false,
+     "head_event_hash": false
+    },
+    "differing_record_paths": [
+     "/created_at",
+     "/grants/g_000003",
+     "/grants/g_000007",
+     "/id",
+     "/relations/0/at",
+     "/relations/0/target/resource",
+     "/relations/1/at",
+     "/relations/1/target/resource",
+     "/state/operands/0/resource",
+     "/state/operands/0/state_hash",
+     "/state/operands/1/resource",
+     "/state/operands/1/state_hash",
+     "/updated_at"
+    ]
+   },
+   "E3_commutative_permutation": {
+    "a": {
+     "resource_id": "r_000003",
+     "value": "1",
+     "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+     "state_hash": "sha256:b1711494a2376a7303931a3f3711cb325ab6012df721bc88a0833188bef6e765",
+     "merkle_by_value": "sha256:2493b74f91a9f70b5cdfc28a70cd85c0c1f551a11858d5bd0bc3dfd8402464e9",
+     "merkle_by_identity": "sha256:e9ebf75cd4ccd58e7dada62ab8a09ed002c70848f4d88be3e799a8e2e8b009f1",
+     "head_event_hash": "sha256:05ff6859810490910f04d5ecc0f42b65fa4140923ba8940aee0a6f2f6b2aa101"
+    },
+    "b": {
+     "resource_id": "r_000008",
+     "value": "1",
+     "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+     "state_hash": "sha256:fccc12d389bb02db0a19d3f2f526d41a763d2f680151e5b5255db78ee272b34d",
+     "merkle_by_value": "sha256:48447e0bd776d1cc7ce1a9988e72cd06fb44da97c71d6f8dd9e0432e5a172b02",
+     "merkle_by_identity": "sha256:62a133fac396229e65b1f8c8ad7f55a68657c6b18ca7e62d12410e15c81444c6",
+     "head_event_hash": "sha256:367c02d88c23f6f1ab1893861730823db68ae90a98d22731a411c59518681752"
+    },
+    "equal": {
+     "resource_id": false,
+     "value": true,
+     "value_hash": true,
+     "state_hash": false,
+     "merkle_by_value": false,
+     "merkle_by_identity": false,
+     "head_event_hash": false
+    },
+    "differing_record_paths": [
+     "/created_at",
+     "/grants/g_000003",
+     "/grants/g_000008",
+     "/id",
+     "/relations/0/at",
+     "/relations/0/target/resource",
+     "/relations/1/at",
+     "/relations/1/target/resource",
+     "/state/operands/0/resource",
+     "/state/operands/0/state_hash",
+     "/state/operands/1/resource",
+     "/state/operands/1/state_hash",
+     "/updated_at"
+    ]
+   },
+   "E4_closed_forms_of_value_1": {
+    "forms": {
+     "literal 1": {
+      "resource_id": "r_000002",
+      "value": "1",
+      "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+      "state_hash": "sha256:555ac159bb718065660d434cfa3b750aa58060d3eab7fbf049beb190d076818b",
+      "merkle_by_value": "sha256:44f888900ef3903d670579a866ec4af7abee7f13b9aa2c46d754acec1278f6e8",
+      "merkle_by_identity": "sha256:5745d6360bdc8faca53d6b561be832ae45c83a19c8b965df96ef6757b85cabb3",
+      "head_event_hash": "sha256:b9a40ba8d9b3a9712144f6e73872c62e4d44f979d8939b4e9f6292dc756c8e81"
+     },
+     "XOR(0,1)": {
+      "resource_id": "r_000003",
+      "value": "1",
+      "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+      "state_hash": "sha256:b1711494a2376a7303931a3f3711cb325ab6012df721bc88a0833188bef6e765",
+      "merkle_by_value": "sha256:2493b74f91a9f70b5cdfc28a70cd85c0c1f551a11858d5bd0bc3dfd8402464e9",
+      "merkle_by_identity": "sha256:e9ebf75cd4ccd58e7dada62ab8a09ed002c70848f4d88be3e799a8e2e8b009f1",
+      "head_event_hash": "sha256:05ff6859810490910f04d5ecc0f42b65fa4140923ba8940aee0a6f2f6b2aa101"
+     },
+     "NOT(NOT(1))": {
+      "resource_id": "r_000010",
+      "value": "1",
+      "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+      "state_hash": "sha256:6cbb19f4fdfea591a2b6dacad419d7129a2e52d2afd96daf72578846ad1a0611",
+      "merkle_by_value": "sha256:aacc51018025e032709c306b7ec750fa4cfff11366d9f330a575551e99984063",
+      "merkle_by_identity": "sha256:f40d271b9db6066cad779fe43a21161d8414d112220a7d20f0daddc7c3e58482",
+      "head_event_hash": "sha256:d514434157e4f48611f93ef9af1d583da197a708586adff975247ad8c19b7c03"
+     },
+     "AND(1,1)": {
+      "resource_id": "r_000011",
+      "value": "1",
+      "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+      "state_hash": "sha256:b92bdc3b925152912b062f1c4b8f1a909077bca427af881a31d48e5216a92d24",
+      "merkle_by_value": "sha256:42824a09a7b167c9db17a7fc6b69259b6b2bc6cca864aca4588fe5bb9a71b616",
+      "merkle_by_identity": "sha256:0489b56dfc0001f2c9b70aa04f27f11ab85b26280b053bb47a93fc76436fc9b8",
+      "head_event_hash": "sha256:875abb5e2fc3c1420ab7930ecfcc81d77313d27afde7ef62e45de93fd16220f6"
+     },
+     "OR(0,1)": {
+      "resource_id": "r_000012",
+      "value": "1",
+      "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf",
+      "state_hash": "sha256:9a8736ce666741f8c9f647f0b0aa71d8b8299b300da6b078766efacea92241cb",
+      "merkle_by_value": "sha256:3ff650c6a292eecf8ee5c4aa298b8f084a2225eae168e1c6a20301a5f167ee8f",
+      "merkle_by_identity": "sha256:ffeaeaa6543a6d7a12d65025df13c29ef136fba1845cead6db2007ada8adf3cb",
+      "head_event_hash": "sha256:ad6f76159aea9adbca16eb0fc9b861810dbadb6f2284454dafc7023a41f292b3"
+     }
+    },
+    "distinct_counts": {
+     "resource_id": 5,
+     "value": 1,
+     "value_hash": 1,
+     "state_hash": 5,
+     "merkle_by_value": 5,
+     "merkle_by_identity": 5
+    }
+   },
+   "H9_triples": {
+    "applications": 8,
+    "groups_with_equal_triple": [
+     {
+      "nodes": [
+       "r_000003",
+       "r_000004"
+      ],
+      "state_hashes": [
+       "sha256:b1711494a2376a7303931a3f3711cb325ab6012df721bc88a0833188bef6e765",
+       "sha256:eb117214261dd4617fa78fbf622a80a8e4643204a586dc92e598dcd2aa72243d"
+      ],
+      "equal_state_hash": false
+     }
+    ],
+    "state_hash_inputs_of_an_application": {
+     "determined": [
+      "/state/compute",
+      "/state/node",
+      "/state/operation",
+      "/state/operands",
+      "/state/value",
+      "/state/evaluator"
+     ],
+     "other": [
+      "/protocol",
+      "/id",
+      "/type",
+      "/version",
+      "/created_at",
+      "/created_by",
+      "/updated_at",
+      "/owner",
+      "/assignee",
+      "/lifecycle/status",
+      "/lifecycle/previous",
+      "/collections",
+      "/grants/g_000003/id",
+      "/grants/g_000003/grantee",
+      "/grants/g_000003/rights",
+      "/grants/g_000003/operations",
+      "/grants/g_000003/parent",
+      "/grants/g_000003/purpose",
+      "/grants/g_000003/expires_at",
+      "/grants/g_000003/granted_by",
+      "/grants/g_000003/granted_at",
+      "/grants/g_000003/version",
+      "/grants/g_000003/revoked",
+      "/relations",
+      "/derived_from"
+     ]
+    }
+   },
+   "E5_serialisation": {
+    "submissions": [
+     {
+      "id": "r_000001",
+      "state_hash": "sha256:b7cded069b559dd144ed31cb1553b14e8c4a3881ebb330f4aebfad695a209835",
+      "body_sha256": "sha256:781644fa5630c4983e44a3bb18e83576a4972174bad541a60160c214e97df529"
+     },
+     {
+      "id": "r_000001",
+      "state_hash": "sha256:b7cded069b559dd144ed31cb1553b14e8c4a3881ebb330f4aebfad695a209835",
+      "body_sha256": "sha256:4b5961b3cf6cf9e4aa5bf1fd96c23f146ca67b59d6acd0b23ac66a3149a1ae76"
+     }
+    ],
+    "bodies_differ": true,
+    "equal_state_hash": true
+   },
+   "E6_irrelevant_metadata": {
+    "without_note": {
+     "state_hash": "sha256:19846ec72e8a75e9451f74974d7a785c39e531d4315199168cef1bdd565ce56c",
+     "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+    },
+    "with_note": {
+     "state_hash": "sha256:8f287e7231aadab77a6a85d934db59f25dc6cd25033f0dc8d4edea6b18afcac8",
+     "value_hash": "sha256:391552c099c101b131feaf24c5795a6a15bc8ec82015424e0d2b4274a369a0bf"
+    },
+    "equal_state_hash": false,
+    "differing_record_paths": [
+     "/state/note"
+    ]
+   },
+   "E7_construction_order": {
+    "Y_then_Z": {
+     "X": {
+      "id": "r_000005",
+      "value": "1",
+      "state_hash": "sha256:4fab0f4b6f32e7435403cf7a2cd161da264b751998772faaea4aa7d37f0dfecf",
+      "merkle_by_value": "sha256:2493b74f91a9f70b5cdfc28a70cd85c0c1f551a11858d5bd0bc3dfd8402464e9"
+     },
+     "Y": {
+      "id": "r_000006",
+      "value": "0",
+      "state_hash": "sha256:a327b7b042f47ea03fee9e500689bf740e9a9309aafa1303812fc2e571563090",
+      "merkle_by_value": "sha256:f2f73601864289e3493f4e1290d4f38ce499a5c8613d034bd56e699acb5fef86"
+     },
+     "Z": {
+      "id": "r_000007",
+      "value": "1",
+      "state_hash": "sha256:4672ab68646b300ede169cef768ea62718347d375be062e3abf2de7626d37a72",
+      "merkle_by_value": "sha256:7b582aba9aa22f33aa50e787a4cbece1a74470e983b773946d9a83c0199b362e"
+     }
+    },
+    "Z_then_Y": {
+     "X": {
+      "id": "r_000005",
+      "value": "1",
+      "state_hash": "sha256:4fab0f4b6f32e7435403cf7a2cd161da264b751998772faaea4aa7d37f0dfecf",
+      "merkle_by_value": "sha256:2493b74f91a9f70b5cdfc28a70cd85c0c1f551a11858d5bd0bc3dfd8402464e9"
+     },
+     "Z": {
+      "id": "r_000006",
+      "value": "1",
+      "state_hash": "sha256:a24538abc735c28caf3deb608eb25ad03670060be4c8084f7045c790853553d8",
+      "merkle_by_value": "sha256:7b582aba9aa22f33aa50e787a4cbece1a74470e983b773946d9a83c0199b362e"
+     },
+     "Y": {
+      "id": "r_000007",
+      "value": "0",
+      "state_hash": "sha256:8a3ed35d17974fec87d0d9713ea97ace4789cd9ef72e41279945059fe0bf3ce7",
+      "merkle_by_value": "sha256:f2f73601864289e3493f4e1290d4f38ce499a5c8613d034bd56e699acb5fef86"
+     }
+    },
+    "equal": {
+     "X": {
+      "id": true,
+      "value": true,
+      "state_hash": true,
+      "merkle_by_value": true
+     },
+     "Y": {
+      "id": false,
+      "value": true,
+      "state_hash": false,
+      "merkle_by_value": true
+     },
+     "Z": {
+      "id": false,
+      "value": true,
+      "state_hash": false,
+      "merkle_by_value": true
+     }
+    }
+   },
+   "E8_extensional": {
+    "expressions": {
+     "X1": "XOR(a,b)",
+     "X2": "OR(AND(a,NOT(b)),AND(NOT(a),b))",
+     "X3": "AND(a,b)"
+    },
+    "assignments": [
+     {
+      "a": "0",
+      "b": "0",
+      "values": {
+       "X1": "0",
+       "X2": "0",
+       "X3": "0"
+      }
+     },
+     {
+      "a": "0",
+      "b": "1",
+      "values": {
+       "X1": "1",
+       "X2": "1",
+       "X3": "0"
+      }
+     },
+     {
+      "a": "1",
+      "b": "0",
+      "values": {
+       "X1": "1",
+       "X2": "1",
+       "X3": "0"
+      }
+     },
+     {
+      "a": "1",
+      "b": "1",
+      "values": {
+       "X1": "0",
+       "X2": "0",
+       "X3": "1"
+      }
+     }
+    ],
+    "X1_X2_extensionally_equivalent": true,
+    "X1_X3_extensionally_equivalent": false,
+    "identifier_equal_in_every_assignment": {
+     "X1_X2": {
+      "resource_id": false,
+      "value": true,
+      "value_hash": true,
+      "state_hash": false,
+      "merkle_by_value": false,
+      "merkle_by_identity": false
+     },
+     "X1_X3": {
+      "resource_id": false,
+      "value": false,
+      "value_hash": false,
+      "state_hash": false,
+      "merkle_by_value": false,
+      "merkle_by_identity": false
+     }
+    },
+    "final_cone_verification": {
+     "valid": true,
+     "distinct_nodes": 9
+    }
+   }
+  },
+  "sharing": {
+   "graph": "A,B,C,D literals; X = XOR(A,B); Y = AND(X,C); Z = OR(X,D); W = AND(C,D)",
+   "ids": {
+    "A": "r_000001",
+    "B": "r_000002",
+    "C": "r_000003",
+    "D": "r_000004",
+    "X": "r_000005",
+    "Y": "r_000006",
+    "Z": "r_000007",
+    "W": "r_000008"
+   },
+   "values": {
+    "A": "0",
+    "B": "1",
+    "C": "0",
+    "D": "0",
+    "X": "1",
+    "Y": "0",
+    "Z": "1",
+    "W": "0"
+   },
+   "shared": {
+    "resources": 8,
+    "events": 24,
+    "log_bytes": 18651,
+    "evaluations": {
+     "XOR": 1,
+     "AND": 2,
+     "OR": 1
+    }
+   },
+   "tree_baseline": {
+    "resources": 9,
+    "events": 28,
+    "log_bytes": 21930,
+    "evaluations": {
+     "XOR": 2,
+     "AND": 2,
+     "OR": 1
+    },
+    "ids": {
+     "A": "r_000001",
+     "B": "r_000002",
+     "C": "r_000003",
+     "D": "r_000004",
+     "X1": "r_000005",
+     "X2": "r_000006",
+     "Y": "r_000007",
+     "Z": "r_000008",
+     "W": "r_000009"
+    }
+   },
+   "pins_of_X": {
+    "in_Y": {
+     "resource": "r_000005",
+     "version": 4,
+     "state_hash": "sha256:4fab0f4b6f32e7435403cf7a2cd161da264b751998772faaea4aa7d37f0dfecf"
+    },
+    "in_Z": {
+     "resource": "r_000005",
+     "version": 4,
+     "state_hash": "sha256:4fab0f4b6f32e7435403cf7a2cd161da264b751998772faaea4aa7d37f0dfecf"
+    },
+    "identical": true
+   },
+   "provenance": {
+    "events_of_X": 4,
+    "copies_of_X_provenance_in_shared": 1,
+    "copies_in_tree_baseline": 2,
+    "inbound_to_X": [
+     {
+      "from": "r_000006",
+      "rel": "references",
+      "version": 4
+     },
+     {
+      "from": "r_000007",
+      "rel": "references",
+      "version": 4
+     }
+    ]
+   },
+   "lookup": {
+    "X_by_id_reads": 1
+   },
+   "verification": {
+    "one_pass_shared_memo": {
+     "nodes_visited": 7,
+     "distinct": 7,
+     "reads": 14,
+     "hash_ops": 74,
+     "valid": true
+    },
+    "two_separate_passes": {
+     "nodes_visited": 10,
+     "reads": 22,
+     "hash_ops": 106,
+     "valid": true
+    },
+    "naive_no_memo": {
+     "nodes_visited": 10,
+     "distinct": 7,
+     "reads": 28,
+     "hash_ops": 112,
+     "valid": true
+    }
+   },
+   "hash_behaviour": {
+    "X_merkle_by_value_equal_in_tree_baseline": true,
+    "X_state_hash_equal_in_tree_baseline": false
+   }
+  },
+  "update": {
+   "path-copy": {
+    "change": "A: \"0\" → \"1\" (update, in place)",
+    "ground_truth_dependents": [
+     "X",
+     "Y",
+     "Z"
+    ],
+    "dependents_via_inbound_index": {
+     "found": [
+      "X",
+      "Y",
+      "Z"
+     ],
+     "traversed": 4,
+     "reads": 4
+    },
+    "dependents_via_scan": {
+     "found": [
+      "X",
+      "Y",
+      "Z"
+     ],
+     "scanned": 4,
+     "reads": 1
+    },
+    "stale_before_recompute": {
+     "A": [],
+     "B": [],
+     "C": [],
+     "D": [],
+     "X": [
+      {
+       "operand": "A",
+       "pinned": 2,
+       "current": 3
+      }
+     ],
+     "Y": [],
+     "Z": [],
+     "W": []
+    },
+    "transitively_stale_before_recompute": [
+     "X",
+     "Y",
+     "Z"
+    ],
+    "recompute": {
+     "affected": 3,
+     "created": 3,
+     "writes": 12,
+     "reads": 13,
+     "hash_ops": 51,
+     "evaluations": 10
+    },
+    "before": {
+     "A": {
+      "version": 2,
+      "state_hash": "sha256:b16d982aeb58d4c17d5913dd27f0e33a723b68fefd82c944e83567e84ebd3669",
+      "value": "0",
+      "merkle_by_value": "sha256:ccf7898379c2dd4041eea3d9eb5b9f34d705ca5d64deeda6d44308958b1aa8c1"
+     },
+     "B": {
+      "version": 2,
+      "state_hash": "sha256:555ac159bb718065660d434cfa3b750aa58060d3eab7fbf049beb190d076818b",
+      "value": "1",
+      "merkle_by_value": "sha256:44f888900ef3903d670579a866ec4af7abee7f13b9aa2c46d754acec1278f6e8"
+     },
+     "C": {
+      "version": 2,
+      "state_hash": "sha256:ee1d0541eddb8e854c6582e542debdc77726bab3b030339bd68362efddf8286e",
+      "value": "0",
+      "merkle_by_value": "sha256:ccf7898379c2dd4041eea3d9eb5b9f34d705ca5d64deeda6d44308958b1aa8c1"
+     },
+     "D": {
+      "version": 2,
+      "state_hash": "sha256:aa6e29f27bd49b04c723037dabb044dbdbe24e9fd4110e132a1dc60f269a24a0",
+      "value": "0",
+      "merkle_by_value": "sha256:ccf7898379c2dd4041eea3d9eb5b9f34d705ca5d64deeda6d44308958b1aa8c1"
+     },
+     "X": {
+      "version": 4,
+      "state_hash": "sha256:4fab0f4b6f32e7435403cf7a2cd161da264b751998772faaea4aa7d37f0dfecf",
+      "value": "1",
+      "merkle_by_value": "sha256:2493b74f91a9f70b5cdfc28a70cd85c0c1f551a11858d5bd0bc3dfd8402464e9"
+     },
+     "Y": {
+      "version": 4,
+      "state_hash": "sha256:a327b7b042f47ea03fee9e500689bf740e9a9309aafa1303812fc2e571563090",
+      "value": "0",
+      "merkle_by_value": "sha256:f2f73601864289e3493f4e1290d4f38ce499a5c8613d034bd56e699acb5fef86"
+     },
+     "Z": {
+      "version": 4,
+      "state_hash": "sha256:4672ab68646b300ede169cef768ea62718347d375be062e3abf2de7626d37a72",
+      "value": "1",
+      "merkle_by_value": "sha256:7b582aba9aa22f33aa50e787a4cbece1a74470e983b773946d9a83c0199b362e"
+     },
+     "W": {
+      "version": 4,
+      "state_hash": "sha256:fbe078bfc1cb960d68345fa96a5eb2600292650e1669c581452d7d1d4b3931c5",
+      "value": "0",
+      "merkle_by_value": "sha256:89d82d3a8103c33d042cb9f5ae803d3b4cbec01a04ff988ae171386b6f584671"
+     }
+    },
+    "after": {
+     "X": {
+      "id": "r_000009",
+      "version": 5,
+      "value": "0",
+      "state_hash": "sha256:9489c0cf2b4eeb14c5157be18b0ad4e99d7dd133164cb515909b20e515487ae5",
+      "merkle_by_value": "sha256:9b9744974a0c5bfdbba32281f811698da2a96ff136a61ffb6ab66c25b581e199",
+      "value_changed": true
+     },
+     "Y": {
+      "id": "r_000010",
+      "version": 5,
+      "value": "0",
+      "state_hash": "sha256:99cca0b65091e52b5348160051e7a89b5bfed23382aa0f8fe03a843056c874ca",
+      "merkle_by_value": "sha256:ea3e858ffe541543d2eab6301b51415acc1a509e8a3751841a78309fc32dd546",
+      "value_changed": false
+     },
+     "Z": {
+      "id": "r_000011",
+      "version": 5,
+      "value": "0",
+      "state_hash": "sha256:cdf269d0e96e31146f82070ce97bc3e0a8844fc4274a566d730d3e99569aa935",
+      "merkle_by_value": "sha256:4095be5433bb1070df01016d4b620deacb0a323ce52a0d4ac6087aceabf105c1",
+      "value_changed": true
+     }
+    },
+    "unchanged_nodes": [
+     "B",
+     "C",
+     "D",
+     "W"
+    ],
+    "original_nodes_still_verify_at_their_versions": true,
+    "recomputed_nodes_verify": true,
+    "W_stale": false,
+    "value_unchanged_but_state_hash_changed": [
+     "Y"
+    ],
+    "merkle_by_value_unchanged_where_value_unchanged": [
+     [
+      "Y",
+      false
+     ]
+    ],
+    "supersedes_links_on_old_nodes": {
+     "X": [
+      "r_000009"
+     ],
+     "Y": [
+      "r_000010"
+     ],
+     "Z": [
+      "r_000011"
+     ]
+    }
+   },
+   "in-place": {
+    "change": "A: \"0\" → \"1\" (update, in place)",
+    "ground_truth_dependents": [
+     "X",
+     "Y",
+     "Z"
+    ],
+    "dependents_via_inbound_index": {
+     "found": [
+      "X",
+      "Y",
+      "Z"
+     ],
+     "traversed": 4,
+     "reads": 4
+    },
+    "dependents_via_scan": {
+     "found": [
+      "X",
+      "Y",
+      "Z"
+     ],
+     "scanned": 4,
+     "reads": 1
+    },
+    "stale_before_recompute": {
+     "A": [],
+     "B": [],
+     "C": [],
+     "D": [],
+     "X": [
+      {
+       "operand": "A",
+       "pinned": 2,
+       "current": 3
+      }
+     ],
+     "Y": [],
+     "Z": [],
+     "W": []
+    },
+    "transitively_stale_before_recompute": [
+     "X",
+     "Y",
+     "Z"
+    ],
+    "recompute": {
+     "affected": 3,
+     "created": 0,
+     "writes": 9,
+     "reads": 13,
+     "hash_ops": 36,
+     "evaluations": 10
+    },
+    "before": {
+     "A": {
+      "version": 2,
+      "state_hash": "sha256:b16d982aeb58d4c17d5913dd27f0e33a723b68fefd82c944e83567e84ebd3669",
+      "value": "0",
+      "merkle_by_value": "sha256:ccf7898379c2dd4041eea3d9eb5b9f34d705ca5d64deeda6d44308958b1aa8c1"
+     },
+     "B": {
+      "version": 2,
+      "state_hash": "sha256:555ac159bb718065660d434cfa3b750aa58060d3eab7fbf049beb190d076818b",
+      "value": "1",
+      "merkle_by_value": "sha256:44f888900ef3903d670579a866ec4af7abee7f13b9aa2c46d754acec1278f6e8"
+     },
+     "C": {
+      "version": 2,
+      "state_hash": "sha256:ee1d0541eddb8e854c6582e542debdc77726bab3b030339bd68362efddf8286e",
+      "value": "0",
+      "merkle_by_value": "sha256:ccf7898379c2dd4041eea3d9eb5b9f34d705ca5d64deeda6d44308958b1aa8c1"
+     },
+     "D": {
+      "version": 2,
+      "state_hash": "sha256:aa6e29f27bd49b04c723037dabb044dbdbe24e9fd4110e132a1dc60f269a24a0",
+      "value": "0",
+      "merkle_by_value": "sha256:ccf7898379c2dd4041eea3d9eb5b9f34d705ca5d64deeda6d44308958b1aa8c1"
+     },
+     "X": {
+      "version": 4,
+      "state_hash": "sha256:4fab0f4b6f32e7435403cf7a2cd161da264b751998772faaea4aa7d37f0dfecf",
+      "value": "1",
+      "merkle_by_value": "sha256:2493b74f91a9f70b5cdfc28a70cd85c0c1f551a11858d5bd0bc3dfd8402464e9"
+     },
+     "Y": {
+      "version": 4,
+      "state_hash": "sha256:a327b7b042f47ea03fee9e500689bf740e9a9309aafa1303812fc2e571563090",
+      "value": "0",
+      "merkle_by_value": "sha256:f2f73601864289e3493f4e1290d4f38ce499a5c8613d034bd56e699acb5fef86"
+     },
+     "Z": {
+      "version": 4,
+      "state_hash": "sha256:4672ab68646b300ede169cef768ea62718347d375be062e3abf2de7626d37a72",
+      "value": "1",
+      "merkle_by_value": "sha256:7b582aba9aa22f33aa50e787a4cbece1a74470e983b773946d9a83c0199b362e"
+     },
+     "W": {
+      "version": 4,
+      "state_hash": "sha256:fbe078bfc1cb960d68345fa96a5eb2600292650e1669c581452d7d1d4b3931c5",
+      "value": "0",
+      "merkle_by_value": "sha256:89d82d3a8103c33d042cb9f5ae803d3b4cbec01a04ff988ae171386b6f584671"
+     }
+    },
+    "after": {
+     "X": {
+      "id": "r_000005",
+      "version": 7,
+      "value": "0",
+      "state_hash": "sha256:41a32656adbd23cb8de156c73c82c4e922d504dd7b6d0a916fa49c5a1c8c7f8c",
+      "merkle_by_value": "sha256:9b9744974a0c5bfdbba32281f811698da2a96ff136a61ffb6ab66c25b581e199",
+      "value_changed": true
+     },
+     "Y": {
+      "id": "r_000006",
+      "version": 7,
+      "value": "0",
+      "state_hash": "sha256:b5757553f4c15fd0233e7f47fd6e1aa52bba4fae2b973f3ec0148b5f14c8a805",
+      "merkle_by_value": "sha256:ea3e858ffe541543d2eab6301b51415acc1a509e8a3751841a78309fc32dd546",
+      "value_changed": false
+     },
+     "Z": {
+      "id": "r_000007",
+      "version": 7,
+      "value": "0",
+      "state_hash": "sha256:7981a49362fddf055e7ddf0bef917f77e187dd15139f4285f234f181b66cb015",
+      "merkle_by_value": "sha256:4095be5433bb1070df01016d4b620deacb0a323ce52a0d4ac6087aceabf105c1",
+      "value_changed": true
+     }
+    },
+    "unchanged_nodes": [
+     "B",
+     "C",
+     "D",
+     "W"
+    ],
+    "original_nodes_still_verify_at_their_versions": true,
+    "recomputed_nodes_verify": true,
+    "W_stale": false,
+    "value_unchanged_but_state_hash_changed": [
+     "Y"
+    ],
+    "merkle_by_value_unchanged_where_value_unchanged": [
+     [
+      "Y",
+      false
+     ]
+    ],
+    "supersedes_links_on_old_nodes": null
+   }
+  },
+  "persistence": {
+   "log_bytes": 18870,
+   "state_hashes_identical_after_reload": true,
+   "all_nodes_verify_after_reload": true,
+   "nodes_verified": 8,
+   "re_evaluations": {
+    "XOR": 1,
+    "AND": 2,
+    "OR": 1
+   },
+   "dependents_identical_after_reload": true
+  },
+  "counts": {
+   "chain": [
+    {
+     "n": 1,
+     "application_nodes": 1,
+     "literal_nodes": 2,
+     "construction": {
+      "writes": 5,
+      "reads": 2,
+      "hash_ops": 23,
+      "evaluations": 1
+     },
+     "storage": {
+      "resources": 3,
+      "events": 8,
+      "log_bytes": 6047
+     },
+     "lookup_by_id": {
+      "reads": 1,
+      "hash_ops": 1
+     },
+     "verify_memo": {
+      "reads": 7,
+      "hash_ops": 31,
+      "nodes_visited": 3,
+      "distinct": 3,
+      "valid": true
+     },
+     "verify_naive": {
+      "reads": 9,
+      "hash_ops": 33,
+      "nodes_visited": 3,
+      "valid": true
+     },
+     "provenance_reconstruction": {
+      "reads": 3,
+      "nodes": 3,
+      "visits": 3
+     },
+     "dependents_inbound_index": {
+      "reads": 2,
+      "traversed": 2,
+      "found": 1
+     },
+     "dependents_scan": {
+      "reads": 1,
+      "scanned": 1,
+      "found": 1
+     },
+     "leaf_update_path_copy": {
+      "affected": 1,
+      "created": 1,
+      "evaluations": 1,
+      "writes": 4,
+      "reads": 5,
+      "hash_ops": 17,
+      "value_changed": 1
+     },
+     "structural_duplicates": {
+      "applications": 1,
+      "distinct_merkle_by_value": 1
+     }
+    },
+    {
+     "n": 10,
+     "application_nodes": 10,
+     "literal_nodes": 2,
+     "construction": {
+      "writes": 32,
+      "reads": 20,
+      "hash_ops": 140,
+      "evaluations": 10
+     },
+     "storage": {
+      "resources": 12,
+      "events": 44,
+      "log_bytes": 35558
+     },
+     "lookup_by_id": {
+      "reads": 1,
+      "hash_ops": 1
+     },
+     "verify_memo": {
+      "reads": 25,
+      "hash_ops": 157,
+      "nodes_visited": 12,
+      "distinct": 12,
+      "valid": true
+     },
+     "verify_naive": {
+      "reads": 63,
+      "hash_ops": 249,
+      "nodes_visited": 21,
+      "valid": true
+     },
+     "provenance_reconstruction": {
+      "reads": 12,
+      "nodes": 12,
+      "visits": 21
+     },
+     "dependents_inbound_index": {
+      "reads": 11,
+      "traversed": 11,
+      "found": 10
+     },
+     "dependents_scan": {
+      "reads": 1,
+      "scanned": 10,
+      "found": 10
+     },
+     "leaf_update_path_copy": {
+      "affected": 10,
+      "created": 10,
+      "evaluations": 10,
+      "writes": 40,
+      "reads": 41,
+      "hash_ops": 170,
+      "value_changed": 10
+     },
+     "structural_duplicates": {
+      "applications": 10,
+      "distinct_merkle_by_value": 10
+     }
+    },
+    {
+     "n": 100,
+     "application_nodes": 100,
+     "literal_nodes": 2,
+     "construction": {
+      "writes": 302,
+      "reads": 200,
+      "hash_ops": 1310,
+      "evaluations": 100
+     },
+     "storage": {
+      "resources": 102,
+      "events": 404,
+      "log_bytes": 330668
+     },
+     "lookup_by_id": {
+      "reads": 1,
+      "hash_ops": 1
+     },
+     "verify_memo": {
+      "reads": 205,
+      "hash_ops": 1417,
+      "nodes_visited": 102,
+      "distinct": 102,
+      "valid": true
+     },
+     "verify_naive": {
+      "reads": 603,
+      "hash_ops": 2409,
+      "nodes_visited": 201,
+      "valid": true
+     },
+     "provenance_reconstruction": {
+      "reads": 102,
+      "nodes": 102,
+      "visits": 201
+     },
+     "dependents_inbound_index": {
+      "reads": 101,
+      "traversed": 101,
+      "found": 100
+     },
+     "dependents_scan": {
+      "reads": 1,
+      "scanned": 100,
+      "found": 100
+     },
+     "leaf_update_path_copy": {
+      "affected": 100,
+      "created": 100,
+      "evaluations": 100,
+      "writes": 400,
+      "reads": 401,
+      "hash_ops": 1700,
+      "value_changed": 100
+     },
+     "structural_duplicates": {
+      "applications": 100,
+      "distinct_merkle_by_value": 100
+     }
+    },
+    {
+     "n": 1000,
+     "application_nodes": 1000,
+     "literal_nodes": 2,
+     "construction": {
+      "writes": 3002,
+      "reads": 2000,
+      "hash_ops": 13010,
+      "evaluations": 1000
+     },
+     "storage": {
+      "resources": 1002,
+      "events": 4004,
+      "log_bytes": 3281768
+     },
+     "lookup_by_id": {
+      "reads": 1,
+      "hash_ops": 1
+     },
+     "verify_memo": {
+      "reads": 2005,
+      "hash_ops": 14017,
+      "nodes_visited": 1002,
+      "distinct": 1002,
+      "valid": true
+     },
+     "verify_naive": {
+      "reads": 6003,
+      "hash_ops": 24009,
+      "nodes_visited": 2001,
+      "valid": true
+     },
+     "provenance_reconstruction": {
+      "reads": 1002,
+      "nodes": 1002,
+      "visits": 2001
+     },
+     "dependents_inbound_index": {
+      "reads": 1001,
+      "traversed": 1001,
+      "found": 1000
+     },
+     "dependents_scan": {
+      "reads": 1,
+      "scanned": 1000,
+      "found": 1000
+     },
+     "leaf_update_path_copy": {
+      "affected": 1000,
+      "created": 1000,
+      "evaluations": 1000,
+      "writes": 4000,
+      "reads": 4001,
+      "hash_ops": 17000,
+      "value_changed": 1000
+     },
+     "structural_duplicates": {
+      "applications": 1000,
+      "distinct_merkle_by_value": 1000
+     }
+    },
+    {
+     "n": 10000,
+     "application_nodes": 10000,
+     "literal_nodes": 2,
+     "construction": {
+      "writes": 30002,
+      "reads": 20000,
+      "hash_ops": 130010,
+      "evaluations": 10000
+     },
+     "storage": {
+      "resources": 10002,
+      "events": 40004,
+      "log_bytes": 32792768
+     },
+     "lookup_by_id": {
+      "reads": 1,
+      "hash_ops": 1
+     },
+     "verify_memo": {
+      "reads": 20005,
+      "hash_ops": 140017,
+      "nodes_visited": 10002,
+      "distinct": 10002,
+      "valid": true
+     },
+     "verify_naive": {
+      "reads": 60003,
+      "hash_ops": 240009,
+      "nodes_visited": 20001,
+      "valid": true
+     },
+     "provenance_reconstruction": {
+      "reads": 10002,
+      "nodes": 10002,
+      "visits": 20001
+     },
+     "dependents_inbound_index": {
+      "reads": 10001,
+      "traversed": 10001,
+      "found": 10000
+     },
+     "dependents_scan": {
+      "reads": 1,
+      "scanned": 10000,
+      "found": 10000
+     },
+     "leaf_update_path_copy": {
+      "affected": 10000,
+      "created": 10000,
+      "evaluations": 10000,
+      "writes": 40000,
+      "reads": 40001,
+      "hash_ops": 170000,
+      "value_changed": 10000
+     },
+     "structural_duplicates": {
+      "applications": 10000,
+      "distinct_merkle_by_value": 10000
+     }
+    }
+   ],
+   "tree": [
+    {
+     "n": 1,
+     "application_nodes": 0,
+     "literal_nodes": 1,
+     "construction": {
+      "writes": 1,
+      "reads": 0,
+      "hash_ops": 5,
+      "evaluations": 0
+     },
+     "storage": {
+      "resources": 1,
+      "events": 2,
+      "log_bytes": 1384
+     },
+     "lookup_by_id": {
+      "reads": 1,
+      "hash_ops": 1
+     },
+     "verify_memo": {
+      "reads": 3,
+      "hash_ops": 9,
+      "nodes_visited": 1,
+      "distinct": 1,
+      "valid": true
+     },
+     "verify_naive": {
+      "reads": 3,
+      "hash_ops": 9,
+      "nodes_visited": 1,
+      "valid": true
+     },
+     "provenance_reconstruction": {
+      "reads": 1,
+      "nodes": 1,
+      "visits": 1
+     },
+     "dependents_inbound_index": {
+      "reads": 1,
+      "traversed": 1,
+      "found": 0
+     },
+     "dependents_scan": {
+      "reads": 1,
+      "scanned": 0,
+      "found": 0
+     },
+     "leaf_update_path_copy": {
+      "affected": 0,
+      "created": 0,
+      "evaluations": 0,
+      "writes": 0,
+      "reads": 1,
+      "hash_ops": 0,
+      "value_changed": 0
+     },
+     "structural_duplicates": {
+      "applications": 0,
+      "distinct_merkle_by_value": 0
+     }
+    },
+    {
+     "n": 10,
+     "application_nodes": 9,
+     "literal_nodes": 10,
+     "construction": {
+      "writes": 37,
+      "reads": 18,
+      "hash_ops": 167,
+      "evaluations": 9
+     },
+     "storage": {
+      "resources": 19,
+      "events": 56,
+      "log_bytes": 43351
+     },
+     "lookup_by_id": {
+      "reads": 1,
+      "hash_ops": 1
+     },
+     "verify_memo": {
+      "reads": 39,
+      "hash_ops": 207,
+      "nodes_visited": 19,
+      "distinct": 19,
+      "valid": true
+     },
+     "verify_naive": {
+      "reads": 57,
+      "hash_ops": 225,
+      "nodes_visited": 19,
+      "valid": true
+     },
+     "provenance_reconstruction": {
+      "reads": 19,
+      "nodes": 19,
+      "visits": 19
+     },
+     "dependents_inbound_index": {
+      "reads": 5,
+      "traversed": 5,
+      "found": 4
+     },
+     "dependents_scan": {
+      "reads": 1,
+      "scanned": 9,
+      "found": 4
+     },
+     "leaf_update_path_copy": {
+      "affected": 4,
+      "created": 4,
+      "evaluations": 4,
+      "writes": 16,
+      "reads": 17,
+      "hash_ops": 68,
+      "value_changed": 4
+     },
+     "structural_duplicates": {
+      "applications": 9,
+      "distinct_merkle_by_value": 7
+     }
+    },
+    {
+     "n": 100,
+     "application_nodes": 99,
+     "literal_nodes": 100,
+     "construction": {
+      "writes": 397,
+      "reads": 198,
+      "hash_ops": 1787,
+      "evaluations": 99
+     },
+     "storage": {
+      "resources": 199,
+      "events": 596,
+      "log_bytes": 463021
+     },
+     "lookup_by_id": {
+      "reads": 1,
+      "hash_ops": 1
+     },
+     "verify_memo": {
+      "reads": 399,
+      "hash_ops": 2187,
+      "nodes_visited": 199,
+      "distinct": 199,
+      "valid": true
+     },
+     "verify_naive": {
+      "reads": 597,
+      "hash_ops": 2385,
+      "nodes_visited": 199,
+      "valid": true
+     },
+     "provenance_reconstruction": {
+      "reads": 199,
+      "nodes": 199,
+      "visits": 199
+     },
+     "dependents_inbound_index": {
+      "reads": 8,
+      "traversed": 8,
+      "found": 7
+     },
+     "dependents_scan": {
+      "reads": 1,
+      "scanned": 99,
+      "found": 7
+     },
+     "leaf_update_path_copy": {
+      "affected": 7,
+      "created": 7,
+      "evaluations": 7,
+      "writes": 28,
+      "reads": 29,
+      "hash_ops": 119,
+      "value_changed": 7
+     },
+     "structural_duplicates": {
+      "applications": 99,
+      "distinct_merkle_by_value": 41
+     }
+    },
+    {
+     "n": 1000,
+     "application_nodes": 999,
+     "literal_nodes": 1000,
+     "construction": {
+      "writes": 3997,
+      "reads": 1998,
+      "hash_ops": 17987,
+      "evaluations": 999
+     },
+     "storage": {
+      "resources": 1999,
+      "events": 5996,
+      "log_bytes": 4659721
+     },
+     "lookup_by_id": {
+      "reads": 1,
+      "hash_ops": 1
+     },
+     "verify_memo": {
+      "reads": 3999,
+      "hash_ops": 21987,
+      "nodes_visited": 1999,
+      "distinct": 1999,
+      "valid": true
+     },
+     "verify_naive": {
+      "reads": 5997,
+      "hash_ops": 23985,
+      "nodes_visited": 1999,
+      "valid": true
+     },
+     "provenance_reconstruction": {
+      "reads": 1999,
+      "nodes": 1999,
+      "visits": 1999
+     },
+     "dependents_inbound_index": {
+      "reads": 11,
+      "traversed": 11,
+      "found": 10
+     },
+     "dependents_scan": {
+      "reads": 1,
+      "scanned": 999,
+      "found": 10
+     },
+     "leaf_update_path_copy": {
+      "affected": 10,
+      "created": 10,
+      "evaluations": 10,
+      "writes": 40,
+      "reads": 41,
+      "hash_ops": 170,
+      "value_changed": 10
+     },
+     "structural_duplicates": {
+      "applications": 999,
+      "distinct_merkle_by_value": 245
+     }
+    },
+    {
+     "n": 10000,
+     "application_nodes": 9999,
+     "literal_nodes": 10000,
+     "construction": {
+      "writes": 39997,
+      "reads": 19998,
+      "hash_ops": 179987,
+      "evaluations": 9999
+     },
+     "storage": {
+      "resources": 19999,
+      "events": 59996,
+      "log_bytes": 46626721
+     },
+     "lookup_by_id": {
+      "reads": 1,
+      "hash_ops": 1
+     },
+     "verify_memo": {
+      "reads": 39999,
+      "hash_ops": 219987,
+      "nodes_visited": 19999,
+      "distinct": 19999,
+      "valid": true
+     },
+     "verify_naive": {
+      "reads": 59997,
+      "hash_ops": 239985,
+      "nodes_visited": 19999,
+      "valid": true
+     },
+     "provenance_reconstruction": {
+      "reads": 19999,
+      "nodes": 19999,
+      "visits": 19999
+     },
+     "dependents_inbound_index": {
+      "reads": 15,
+      "traversed": 15,
+      "found": 14
+     },
+     "dependents_scan": {
+      "reads": 1,
+      "scanned": 9999,
+      "found": 14
+     },
+     "leaf_update_path_copy": {
+      "affected": 14,
+      "created": 14,
+      "evaluations": 14,
+      "writes": 56,
+      "reads": 57,
+      "hash_ops": 238,
+      "value_changed": 14
+     },
+     "structural_duplicates": {
+      "applications": 9999,
+      "distinct_merkle_by_value": 1520
+     }
+    }
+   ]
+  },
+  "timing": {
+   "chain": [
+    {
+     "n": 1,
+     "nodes": 3,
+     "creation": {
+      "total_ms": 0.780405999859795,
+      "per_node_ms": 0.2601353332865983
+     },
+     "heap_bytes_after_build": 678472,
+     "lookup_direct_map": {
+      "median_ms": 0.00035099987871944904,
+      "p90_ms": 0.0004379998426884413,
+      "samples": 1000
+     },
+     "lookup_head_with_state_hash": {
+      "median_ms": 0.01569749996997416,
+      "p90_ms": 0.026237000012770295,
+      "samples": 200
+     },
+     "retrieval_replay_at_version": {
+      "median_ms": 0.02272200002335012,
+      "p90_ms": 0.052174000069499016,
+      "samples": 200
+     },
+     "retrieval_http_state": {
+      "median_ms": 0.8422225001268089,
+      "p90_ms": 1.129681000020355,
+      "samples": 100
+     },
+     "validation_single_node_log": {
+      "median_ms": 0.22850750014185905,
+      "p90_ms": 0.28840199997648597,
+      "samples": 200
+     },
+     "dependents_inbound_index": {
+      "median_ms": 0.005038500064983964,
+      "p90_ms": 0.00878399983048439,
+      "samples": 20
+     },
+     "dependents_scan": {
+      "median_ms": 0.008009999874047935,
+      "p90_ms": 0.009987000143155456,
+      "samples": 20
+     },
+     "validation_full_cone_ms": 0.6654920000582933,
+     "provenance_reconstruction_ms": 0.05559900007210672,
+     "hash_index_build_ms": 0.055127999978139997,
+     "hash_index_lookup": {
+      "median_ms": 0.0001759999431669712,
+      "p90_ms": 0.00020999996922910213,
+      "samples": 1000
+     },
+     "search_by_value_scan": {
+      "median_ms": 0.005977499997243285,
+      "p90_ms": 0.013000000035390258,
+      "samples": 20
+     },
+     "update_path_copy_ms": 0.5671280000824481
+    },
+    {
+     "n": 10,
+     "nodes": 12,
+     "creation": {
+      "total_ms": 3.9900819999165833,
+      "per_node_ms": 0.3325068333263819
+     },
+     "heap_bytes_after_build": 3852736,
+     "lookup_direct_map": {
+      "median_ms": 0.00022199982777237892,
+      "p90_ms": 0.00025199982337653637,
+      "samples": 1000
+     },
+     "lookup_head_with_state_hash": {
+      "median_ms": 0.020909499959088862,
+      "p90_ms": 0.026604000013321638,
+      "samples": 200
+     },
+     "retrieval_replay_at_version": {
+      "median_ms": 0.043431000085547566,
+      "p90_ms": 0.06919900001958013,
+      "samples": 200
+     },
+     "retrieval_http_state": {
+      "median_ms": 0.8176705000223592,
+      "p90_ms": 0.9630040000192821,
+      "samples": 100
+     },
+     "validation_single_node_log": {
+      "median_ms": 0.22064549999777228,
+      "p90_ms": 0.28709200001321733,
+      "samples": 200
+     },
+     "dependents_inbound_index": {
+      "median_ms": 0.02645849995315075,
+      "p90_ms": 0.05280900001525879,
+      "samples": 20
+     },
+     "dependents_scan": {
+      "median_ms": 0.029261999996379018,
+      "p90_ms": 0.03635900001972914,
+      "samples": 20
+     },
+     "validation_full_cone_ms": 3.278448000084609,
+     "provenance_reconstruction_ms": 0.25089599983766675,
+     "hash_index_build_ms": 0.2914640000090003,
+     "hash_index_lookup": {
+      "median_ms": 0.00016499985940754414,
+      "p90_ms": 0.00019899988546967506,
+      "samples": 1000
+     },
+     "search_by_value_scan": {
+      "median_ms": 0.015449000056833029,
+      "p90_ms": 0.027492000022903085,
+      "samples": 20
+     },
+     "update_path_copy_ms": 4.217371999984607
+    },
+    {
+     "n": 100,
+     "nodes": 102,
+     "creation": {
+      "total_ms": 36.83363700006157,
+      "per_node_ms": 0.36111408823589775
+     },
+     "heap_bytes_after_build": 3638264,
+     "lookup_direct_map": {
+      "median_ms": 0.00022700009867548943,
+      "p90_ms": 0.00028900010511279106,
+      "samples": 1000
+     },
+     "lookup_head_with_state_hash": {
+      "median_ms": 0.021369999973103404,
+      "p90_ms": 0.027761999983340502,
+      "samples": 200
+     },
+     "retrieval_replay_at_version": {
+      "median_ms": 0.04389249999076128,
+      "p90_ms": 0.05579299991950393,
+      "samples": 200
+     },
+     "retrieval_http_state": {
+      "median_ms": 0.845941000035964,
+      "p90_ms": 0.9556820001453161,
+      "samples": 100
+     },
+     "validation_single_node_log": {
+      "median_ms": 0.25271950010210276,
+      "p90_ms": 0.31616599997505546,
+      "samples": 200
+     },
+     "dependents_inbound_index": {
+      "median_ms": 0.2894080000696704,
+      "p90_ms": 0.3232229999266565,
+      "samples": 20
+     },
+     "dependents_scan": {
+      "median_ms": 0.27898150007240474,
+      "p90_ms": 0.36891399999149144,
+      "samples": 20
+     },
+     "validation_full_cone_ms": 35.001866000005975,
+     "provenance_reconstruction_ms": 3.1193869998678565,
+     "hash_index_build_ms": 2.9242859999649227,
+     "hash_index_lookup": {
+      "median_ms": 0.0001349998638033867,
+      "p90_ms": 0.0001659998670220375,
+      "samples": 1000
+     },
+     "search_by_value_scan": {
+      "median_ms": 0.12658849998842925,
+      "p90_ms": 0.1911740000359714,
+      "samples": 20
+     },
+     "update_path_copy_ms": 54.491413000039756
+    },
+    {
+     "n": 1000,
+     "nodes": 1002,
+     "creation": {
+      "total_ms": 333.14144999999553,
+      "per_node_ms": 0.3324764970059836
+     },
+     "heap_bytes_after_build": 17280408,
+     "lookup_direct_map": {
+      "median_ms": 0.000305499997921288,
+      "p90_ms": 0.0004779999144375324,
+      "samples": 1000
+     },
+     "lookup_head_with_state_hash": {
+      "median_ms": 0.021366500062868,
+      "p90_ms": 0.02661300008185208,
+      "samples": 200
+     },
+     "retrieval_replay_at_version": {
+      "median_ms": 0.045372999855317175,
+      "p90_ms": 0.061270999955013394,
+      "samples": 200
+     },
+     "retrieval_http_state": {
+      "median_ms": 0.7902199999662116,
+      "p90_ms": 0.903821999905631,
+      "samples": 100
+     },
+     "validation_single_node_log": {
+      "median_ms": 0.22393999993801117,
+      "p90_ms": 0.2900839999783784,
+      "samples": 200
+     },
+     "dependents_inbound_index": {
+      "median_ms": 2.290737000061199,
+      "p90_ms": 2.7655609999783337,
+      "samples": 20
+     },
+     "dependents_scan": {
+      "median_ms": 2.368413500022143,
+      "p90_ms": 2.9778660000301898,
+      "samples": 20
+     },
+     "validation_full_cone_ms": 306.9670889999252,
+     "provenance_reconstruction_ms": 24.338808000087738,
+     "hash_index_build_ms": 27.909506000112742,
+     "hash_index_lookup": {
+      "median_ms": 0.00013800011947751045,
+      "p90_ms": 0.00016600009985268116,
+      "samples": 1000
+     },
+     "search_by_value_scan": {
+      "median_ms": 1.2613769999006763,
+      "p90_ms": 1.6281610000878572,
+      "samples": 20
+     },
+     "update_path_copy_ms": 431.6496890000999
+    },
+    {
+     "n": 10000,
+     "nodes": 10002,
+     "creation": {
+      "total_ms": 3276.8300690001342,
+      "per_node_ms": 0.32761748340333274
+     },
+     "heap_bytes_after_build": 68995248,
+     "lookup_direct_map": {
+      "median_ms": 0.00088900001719594,
+      "p90_ms": 0.001436999998986721,
+      "samples": 1000
+     },
+     "lookup_head_with_state_hash": {
+      "median_ms": 0.02303749998100102,
+      "p90_ms": 0.03740900009870529,
+      "samples": 200
+     },
+     "retrieval_replay_at_version": {
+      "median_ms": 0.05065849993843585,
+      "p90_ms": 0.061409000074490905,
+      "samples": 200
+     },
+     "retrieval_http_state": {
+      "median_ms": 0.8165699999080971,
+      "p90_ms": 1.103819000069052,
+      "samples": 100
+     },
+     "validation_single_node_log": {
+      "median_ms": 0.23024399997666478,
+      "p90_ms": 0.29324700008146465,
+      "samples": 200
+     },
+     "dependents_inbound_index": {
+      "median_ms": 25.671288499957882,
+      "p90_ms": 30.008334999904037,
+      "samples": 20
+     },
+     "dependents_scan": {
+      "median_ms": 26.015057999873534,
+      "p90_ms": 28.231196000007913,
+      "samples": 5
+     },
+     "validation_full_cone_ms": 3145.0860340001527,
+     "provenance_reconstruction_ms": 242.2833320000209,
+     "hash_index_build_ms": 318.25461399997585,
+     "hash_index_lookup": {
+      "median_ms": 0.00013399985618889332,
+      "p90_ms": 0.00016300007700920105,
+      "samples": 1000
+     },
+     "search_by_value_scan": {
+      "median_ms": 13.051752000115812,
+      "p90_ms": 17.218974000075832,
+      "samples": 5
+     },
+     "update_path_copy_ms": 4711.828610999975
+    }
+   ],
+   "tree": [
+    {
+     "n": 1,
+     "nodes": 1,
+     "creation": {
+      "total_ms": 0.2687619999051094,
+      "per_node_ms": 0.2687619999051094
+     },
+     "heap_bytes_after_build": 269336,
+     "lookup_direct_map": {
+      "median_ms": 0.00020700006280094385,
+      "p90_ms": 0.00031299982219934464,
+      "samples": 1000
+     },
+     "lookup_head_with_state_hash": {
+      "median_ms": 0.01490800001192838,
+      "p90_ms": 0.018874000059440732,
+      "samples": 200
+     },
+     "retrieval_replay_at_version": {
+      "median_ms": 0.020451500080525875,
+      "p90_ms": 0.02700100000947714,
+      "samples": 200
+     },
+     "retrieval_http_state": {
+      "median_ms": 0.7785649999277666,
+      "p90_ms": 0.9697579999919981,
+      "samples": 100
+     },
+     "validation_single_node_log": {
+      "median_ms": 0.0784394999500364,
+      "p90_ms": 0.12511599995195866,
+      "samples": 200
+     },
+     "dependents_inbound_index": {
+      "median_ms": 0.0026360000483691692,
+      "p90_ms": 0.01107200002297759,
+      "samples": 20
+     },
+     "dependents_scan": {
+      "median_ms": 0.004777499940246344,
+      "p90_ms": 0.05475699994713068,
+      "samples": 20
+     },
+     "validation_full_cone_ms": 0.2279590000398457,
+     "provenance_reconstruction_ms": 0.021917999954894185,
+     "hash_index_build_ms": 0.0034630000591278076,
+     "hash_index_lookup": {
+      "median_ms": 0.00013400008901953697,
+      "p90_ms": 0.0002289998810738325,
+      "samples": 1000
+     },
+     "search_by_value_scan": {
+      "median_ms": 0.0031919999746605754,
+      "p90_ms": 0.005062999902293086,
+      "samples": 20
+     },
+     "update_path_copy_ms": 0.017195000080391765
+    },
+    {
+     "n": 10,
+     "nodes": 19,
+     "creation": {
+      "total_ms": 5.286867999937385,
+      "per_node_ms": 0.2782562105230203
+     },
+     "heap_bytes_after_build": 4100376,
+     "lookup_direct_map": {
+      "median_ms": 0.0001900000497698784,
+      "p90_ms": 0.0003309999592602253,
+      "samples": 1000
+     },
+     "lookup_head_with_state_hash": {
+      "median_ms": 0.022770000039599836,
+      "p90_ms": 0.03038200014270842,
+      "samples": 200
+     },
+     "retrieval_replay_at_version": {
+      "median_ms": 0.03116100002080202,
+      "p90_ms": 0.05285799992270768,
+      "samples": 200
+     },
+     "retrieval_http_state": {
+      "median_ms": 0.7450609999941662,
+      "p90_ms": 0.8588089998811483,
+      "samples": 100
+     },
+     "validation_single_node_log": {
+      "median_ms": 0.234529500012286,
+      "p90_ms": 0.33630599989555776,
+      "samples": 200
+     },
+     "dependents_inbound_index": {
+      "median_ms": 0.01116100000217557,
+      "p90_ms": 0.01166599988937378,
+      "samples": 20
+     },
+     "dependents_scan": {
+      "median_ms": 0.04404349997639656,
+      "p90_ms": 0.06474400009028614,
+      "samples": 20
+     },
+     "validation_full_cone_ms": 4.670982999959961,
+     "provenance_reconstruction_ms": 0.41887799999676645,
+     "hash_index_build_ms": 0.3318010000512004,
+     "hash_index_lookup": {
+      "median_ms": 0.00013500009663403034,
+      "p90_ms": 0.00022799987345933914,
+      "samples": 1000
+     },
+     "search_by_value_scan": {
+      "median_ms": 0.028652000008150935,
+      "p90_ms": 0.04857200011610985,
+      "samples": 20
+     },
+     "update_path_copy_ms": 2.377525000134483
+    },
+    {
+     "n": 100,
+     "nodes": 199,
+     "creation": {
+      "total_ms": 48.71357999998145,
+      "per_node_ms": 0.2447918592963892
+     },
+     "heap_bytes_after_build": 10903480,
+     "lookup_direct_map": {
+      "median_ms": 0.00022500008344650269,
+      "p90_ms": 0.00040600006468594074,
+      "samples": 1000
+     },
+     "lookup_head_with_state_hash": {
+      "median_ms": 0.02316049998626113,
+      "p90_ms": 0.02760100015439093,
+      "samples": 200
+     },
+     "retrieval_replay_at_version": {
+      "median_ms": 0.04602899996098131,
+      "p90_ms": 0.05555099993944168,
+      "samples": 200
+     },
+     "retrieval_http_state": {
+      "median_ms": 0.7622990000527352,
+      "p90_ms": 0.8980019998271018,
+      "samples": 100
+     },
+     "validation_single_node_log": {
+      "median_ms": 0.23318250000011176,
+      "p90_ms": 0.2932229998987168,
+      "samples": 200
+     },
+     "dependents_inbound_index": {
+      "median_ms": 0.017772500053979456,
+      "p90_ms": 0.019499999936670065,
+      "samples": 20
+     },
+     "dependents_scan": {
+      "median_ms": 0.4351454999996349,
+      "p90_ms": 0.5064999999012798,
+      "samples": 20
+     },
+     "validation_full_cone_ms": 44.523546000011265,
+     "provenance_reconstruction_ms": 4.043716999934986,
+     "hash_index_build_ms": 3.6705389998387545,
+     "hash_index_lookup": {
+      "median_ms": 0.00013900012709200382,
+      "p90_ms": 0.0002560000866651535,
+      "samples": 1000
+     },
+     "search_by_value_scan": {
+      "median_ms": 0.27146250009536743,
+      "p90_ms": 0.33415000000968575,
+      "samples": 20
+     },
+     "update_path_copy_ms": 3.224159999983385
+    },
+    {
+     "n": 1000,
+     "nodes": 1999,
+     "creation": {
+      "total_ms": 483.4194739998784,
+      "per_node_ms": 0.24183065232610224
+     },
+     "heap_bytes_after_build": 14231776,
+     "lookup_direct_map": {
+      "median_ms": 0.0005419999361038208,
+      "p90_ms": 0.0009389999322593212,
+      "samples": 1000
+     },
+     "lookup_head_with_state_hash": {
+      "median_ms": 0.023123000049963593,
+      "p90_ms": 0.028214999940246344,
+      "samples": 200
+     },
+     "retrieval_replay_at_version": {
+      "median_ms": 0.04700849996879697,
+      "p90_ms": 0.05888100014999509,
+      "samples": 200
+     },
+     "retrieval_http_state": {
+      "median_ms": 0.8319945000112057,
+      "p90_ms": 1.1059459999669343,
+      "samples": 100
+     },
+     "validation_single_node_log": {
+      "median_ms": 0.25986300001386553,
+      "p90_ms": 0.3876559999771416,
+      "samples": 200
+     },
+     "dependents_inbound_index": {
+      "median_ms": 0.024341000011190772,
+      "p90_ms": 0.03161399997770786,
+      "samples": 20
+     },
+     "dependents_scan": {
+      "median_ms": 4.4033415000885725,
+      "p90_ms": 6.076019000029191,
+      "samples": 20
+     },
+     "validation_full_cone_ms": 448.24858199991286,
+     "provenance_reconstruction_ms": 39.44878500001505,
+     "hash_index_build_ms": 38.45338899991475,
+     "hash_index_lookup": {
+      "median_ms": 0.00012800004333257675,
+      "p90_ms": 0.00015999982133507729,
+      "samples": 1000
+     },
+     "search_by_value_scan": {
+      "median_ms": 2.5916970000835136,
+      "p90_ms": 3.121989999897778,
+      "samples": 20
+     },
+     "update_path_copy_ms": 6.323086999822408
+    },
+    {
+     "n": 10000,
+     "nodes": 19999,
+     "creation": {
+      "total_ms": 4193.1067419999745,
+      "per_node_ms": 0.20966582039101828
+     },
+     "heap_bytes_after_build": 114998632,
+     "lookup_direct_map": {
+      "median_ms": 0.0010255000088363886,
+      "p90_ms": 0.0016639998648315668,
+      "samples": 1000
+     },
+     "lookup_head_with_state_hash": {
+      "median_ms": 0.022470500087365508,
+      "p90_ms": 0.025194999994710088,
+      "samples": 200
+     },
+     "retrieval_replay_at_version": {
+      "median_ms": 0.043474999838508666,
+      "p90_ms": 0.05440899985842407,
+      "samples": 200
+     },
+     "retrieval_http_state": {
+      "median_ms": 0.7724859999725595,
+      "p90_ms": 0.8674089999403805,
+      "samples": 100
+     },
+     "validation_single_node_log": {
+      "median_ms": 0.2312044999562204,
+      "p90_ms": 0.29154499992728233,
+      "samples": 200
+     },
+     "dependents_inbound_index": {
+      "median_ms": 0.0314370000269264,
+      "p90_ms": 0.05509400018490851,
+      "samples": 20
+     },
+     "dependents_scan": {
+      "median_ms": 52.5332959999796,
+      "p90_ms": 59.852341999998316,
+      "samples": 5
+     },
+     "validation_full_cone_ms": 4632.7782509999815,
+     "provenance_reconstruction_ms": 408.0083459999878,
+     "hash_index_build_ms": 454.2918069998268,
+     "hash_index_lookup": {
+      "median_ms": 0.0001379998866468668,
+      "p90_ms": 0.0001729999203234911,
+      "samples": 1000
+     },
+     "search_by_value_scan": {
+      "median_ms": 32.48528299992904,
+      "p90_ms": 36.817380000138655,
+      "samples": 5
+     },
+     "update_path_copy_ms": 7.120710999937728
+    }
+   ]
+  },
+  "handoff_outcomes": [
+   {
+    "run": "honest",
+    "fault": null,
+    "agents": {
+     "A": {
+      "separate_process": true,
+      "acknowledge_status": 200,
+      "viewer_scopes": [
+       "read",
+       "append",
+       "annotate",
+       "checkpoint",
+       "handoff"
+      ],
+      "viewer_is_owner": false,
+      "checkpoints_recomputed": [
+       true
+      ],
+      "verifications": [],
+      "verified": true,
+      "performed": [
+       {
+        "step": "C",
+        "value": "1",
+        "status": 200
+       }
+      ],
+      "handoff_status": 200,
+      "impersonation": {
+       "as": "session-owner",
+       "status": 403,
+       "code": "session_mismatch"
+      }
+     },
+     "B": {
+      "separate_process": true,
+      "acknowledge_status": 200,
+      "viewer_scopes": [
+       "read",
+       "append",
+       "annotate",
+       "checkpoint",
+       "handoff"
+      ],
+      "viewer_is_owner": false,
+      "checkpoints_recomputed": [
+       true,
+       true
+      ],
+      "verifications": [
+       {
+        "step": "C",
+        "source": "session-a",
+        "ok": true,
+        "checks": {
+         "schema_valid": true,
+         "same_instance": true,
+         "pin_state_hash_matches": true,
+         "acsp_claim_equals_purl_value": true,
+         "purl_cone_verifies": true,
+         "operation_matches": true
+        }
+       }
+      ],
+      "verified": true,
+      "performed": [
+       {
+        "step": "D",
+        "value": "0",
+        "status": 200
+       }
+      ],
+      "handoff_status": 200,
+      "impersonation": {
+       "as": "session-a",
+       "status": 403,
+       "code": "session_mismatch"
+      }
+     }
+    },
+    "owner": {
+     "final_acknowledge": 200,
+     "owner_session": "session-owner",
+     "task_responsible_at_end": [
+      {
+       "tok": "TOK-001",
+       "responsible": "session-owner"
+      }
+     ],
+     "checkpoints_recomputed": [
+      true,
+      true,
+      true
+     ],
+     "results": [
+      {
+       "step": "C",
+       "source": "session-a",
+       "claimed": "1",
+       "purl_value": "1",
+       "cone_valid": true,
+       "claim_matches": true,
+       "annotations": [
+        {
+         "kind": "validation",
+         "by": "session-b",
+         "assurance": "capability"
+        }
+       ]
+      },
+      {
+       "step": "D",
+       "source": "session-b",
+       "claimed": "0",
+       "purl_value": "0",
+       "cone_valid": true,
+       "claim_matches": true,
+       "annotations": []
+      }
+     ],
+     "events_by_session": {
+      "session-owner": 6,
+      "session-a": 4,
+      "session-b": 5
+     },
+     "assurance_by_session": {
+      "session-owner": [
+       "asserted",
+       "capability"
+      ],
+      "session-a": [
+       "capability"
+      ],
+      "session-b": [
+       "capability"
+      ]
+     }
+    }
+   },
+   {
+    "run": "fault-misreport",
+    "fault": "misreport",
+    "agents": {
+     "A": {
+      "separate_process": true,
+      "acknowledge_status": 200,
+      "viewer_scopes": [
+       "read",
+       "append",
+       "annotate",
+       "checkpoint",
+       "handoff"
+      ],
+      "viewer_is_owner": false,
+      "checkpoints_recomputed": [
+       true
+      ],
+      "verifications": [],
+      "verified": true,
+      "performed": [
+       {
+        "step": "C",
+        "value": "0",
+        "status": 200
+       }
+      ],
+      "handoff_status": 200,
+      "impersonation": {
+       "as": "session-owner",
+       "status": 403,
+       "code": "session_mismatch"
+      }
+     },
+     "B": {
+      "separate_process": true,
+      "acknowledge_status": 200,
+      "viewer_scopes": [
+       "read",
+       "append",
+       "annotate",
+       "checkpoint",
+       "handoff"
+      ],
+      "viewer_is_owner": false,
+      "checkpoints_recomputed": [
+       true,
+       true
+      ],
+      "verifications": [
+       {
+        "step": "C",
+        "source": "session-a",
+        "ok": false,
+        "checks": {
+         "schema_valid": true,
+         "same_instance": true,
+         "pin_state_hash_matches": true,
+         "acsp_claim_equals_purl_value": false,
+         "purl_cone_verifies": true,
+         "operation_matches": true
+        }
+       }
+      ],
+      "verified": false,
+      "performed": [],
+      "handoff_status": 200,
+      "impersonation": {
+       "as": "session-a",
+       "status": 403,
+       "code": "session_mismatch"
+      }
+     }
+    },
+    "owner": {
+     "final_acknowledge": 200,
+     "owner_session": "session-owner",
+     "task_responsible_at_end": [
+      {
+       "tok": "TOK-001",
+       "responsible": "session-owner"
+      }
+     ],
+     "checkpoints_recomputed": [
+      true,
+      true,
+      true
+     ],
+     "results": [
+      {
+       "step": "C",
+       "source": "session-a",
+       "claimed": "0",
+       "purl_value": "1",
+       "cone_valid": true,
+       "claim_matches": false,
+       "annotations": [
+        {
+         "kind": "dispute",
+         "by": "session-b",
+         "assurance": "capability"
+        }
+       ]
+      }
+     ],
+     "events_by_session": {
+      "session-owner": 6,
+      "session-a": 4,
+      "session-b": 4
+     },
+     "assurance_by_session": {
+      "session-owner": [
+       "asserted",
+       "capability"
+      ],
+      "session-a": [
+       "capability"
+      ],
+      "session-b": [
+       "capability"
+      ]
+     }
+    }
+   },
+   {
+    "run": "fault-wrong-node",
+    "fault": "wrong-node",
+    "agents": {
+     "A": {
+      "separate_process": true,
+      "acknowledge_status": 200,
+      "viewer_scopes": [
+       "read",
+       "append",
+       "annotate",
+       "checkpoint",
+       "handoff"
+      ],
+      "viewer_is_owner": false,
+      "checkpoints_recomputed": [
+       true
+      ],
+      "verifications": [],
+      "verified": true,
+      "performed": [
+       {
+        "step": "C",
+        "value": "0",
+        "status": 200
+       }
+      ],
+      "handoff_status": 200,
+      "impersonation": {
+       "as": "session-owner",
+       "status": 403,
+       "code": "session_mismatch"
+      }
+     },
+     "B": {
+      "separate_process": true,
+      "acknowledge_status": 200,
+      "viewer_scopes": [
+       "read",
+       "append",
+       "annotate",
+       "checkpoint",
+       "handoff"
+      ],
+      "viewer_is_owner": false,
+      "checkpoints_recomputed": [
+       true,
+       true
+      ],
+      "verifications": [
+       {
+        "step": "C",
+        "source": "session-a",
+        "ok": false,
+        "checks": {
+         "schema_valid": true,
+         "same_instance": true,
+         "pin_state_hash_matches": true,
+         "acsp_claim_equals_purl_value": true,
+         "purl_cone_verifies": false,
+         "operation_matches": true
+        }
+       }
+      ],
+      "verified": false,
+      "performed": [],
+      "handoff_status": 200,
+      "impersonation": {
+       "as": "session-a",
+       "status": 403,
+       "code": "session_mismatch"
+      }
+     }
+    },
+    "owner": {
+     "final_acknowledge": 200,
+     "owner_session": "session-owner",
+     "task_responsible_at_end": [
+      {
+       "tok": "TOK-001",
+       "responsible": "session-owner"
+      }
+     ],
+     "checkpoints_recomputed": [
+      true,
+      true,
+      true
+     ],
+     "results": [
+      {
+       "step": "C",
+       "source": "session-a",
+       "claimed": "0",
+       "purl_value": "0",
+       "cone_valid": false,
+       "claim_matches": true,
+       "annotations": [
+        {
+         "kind": "dispute",
+         "by": "session-b",
+         "assurance": "capability"
+        }
+       ]
+      }
+     ],
+     "events_by_session": {
+      "session-owner": 6,
+      "session-a": 4,
+      "session-b": 4
+     },
+     "assurance_by_session": {
+      "session-owner": [
+       "asserted",
+       "capability"
+      ],
+      "session-a": [
+       "capability"
+      ],
+      "session-b": [
+       "capability"
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "transformations": {
+  "category": "transformation",
+  "catalogue": [
+   {
+    "id": "identifier-equality",
+    "name": "equality of resource id, value, value hash, PURL state hash, merkle-by-value, merkle-by-identity and head event hash between paired nodes",
+    "ref": "src/compute/commitments.js"
+   },
+   {
+    "id": "record-diff",
+    "name": "JSON Pointer paths at which two resource records differ",
+    "ref": "src/compute/commitments.js#differingPaths"
+   },
+   {
+    "id": "state-hash-inputs",
+    "name": "partition of an application record into fields fixed by (operation, operand pins, value) and all other fields covered by the state hash",
+    "ref": "src/compute/commitments.js#stateHashInputs"
+   },
+   {
+    "id": "log-log-slope",
+    "name": "least-squares slope of log10(metric) on log10(n) over n ≥ 10; slope ≈ 0 constant, ≈ 1 linear, ≈ 2 quadratic",
+    "ref": "scripts/lib/composition.js#logLogSlope"
+   },
+   {
+    "id": "structural-duplicates",
+    "name": "fraction of application nodes whose merkle-by-value hash equals an earlier node's (what a hash-consing index would deduplicate)",
+    "ref": "scripts/lib/composition.js"
+   }
+  ],
+  "outputs": {
+   "commitment_matrix": {
+    "E1 same expression built twice": {
+     "resource_id": false,
+     "value": true,
+     "value_hash": true,
+     "state_hash": false,
+     "merkle_by_value": true,
+     "merkle_by_identity": true,
+     "head_event_hash": false
+    },
+    "E2 operand resources renamed": {
+     "resource_id": false,
+     "value": true,
+     "value_hash": true,
+     "state_hash": false,
+     "merkle_by_value": true,
+     "merkle_by_identity": false,
+     "head_event_hash": false
+    },
+    "E3 commutative permutation": {
+     "resource_id": false,
+     "value": true,
+     "value_hash": true,
+     "state_hash": false,
+     "merkle_by_value": false,
+     "merkle_by_identity": false,
+     "head_event_hash": false
+    },
+    "E7 construction order (Y)": {
+     "resource_id": false,
+     "value": true,
+     "state_hash": false,
+     "merkle_by_value": true
+    },
+    "E8 extensionally equivalent open expressions (all assignments)": {
+     "resource_id": false,
+     "value": true,
+     "value_hash": true,
+     "state_hash": false,
+     "merkle_by_value": false,
+     "merkle_by_identity": false
+    }
+   },
+   "count_slopes": {
+    "chain": {
+     "construction_writes": 0.9913404430150582,
+     "construction_hash_ops": 0.9900552168740646,
+     "storage_log_bytes": 0.9891237960092649,
+     "verify_memo_reads": 0.9699956157029381,
+     "verify_memo_hash_ops": 0.9846128570571414,
+     "provenance_reads": 0.9754984362261382,
+     "dependents_index_reads": 0.987206493005259,
+     "dependents_scan_scanned": 1,
+     "leaf_update_affected": 1,
+     "bytes_per_node": [
+      {
+       "n": 10,
+       "bytes_per_node": 2963.1666666666665,
+       "events_per_node": 3.6666666666666665
+      },
+      {
+       "n": 100,
+       "bytes_per_node": 3241.843137254902,
+       "events_per_node": 3.9607843137254903
+      },
+      {
+       "n": 1000,
+       "bytes_per_node": 3275.2175648702596,
+       "events_per_node": 3.996007984031936
+      },
+      {
+       "n": 10000,
+       "bytes_per_node": 3278.621075784843,
+       "events_per_node": 3.999600079984003
+      }
+     ],
+     "structural_duplicate_fraction": [
+      {
+       "n": 10,
+       "fraction": 0
+      },
+      {
+       "n": 100,
+       "fraction": 0
+      },
+      {
+       "n": 1000,
+       "fraction": 0
+      },
+      {
+       "n": 10000,
+       "fraction": 0
+      }
+     ]
+    },
+    "tree": {
+     "construction_writes": 1.010442072335692,
+     "construction_hash_ops": 1.0100408183483514,
+     "storage_log_bytes": 1.00976664904775,
+     "verify_memo_reads": 1.0033932088857864,
+     "verify_memo_hash_ops": 1.008159720862899,
+     "provenance_reads": 1.0068723756040925,
+     "dependents_index_reads": 0.1569666462325269,
+     "dependents_scan_scanned": 1.0141072470451036,
+     "leaf_update_affected": 0.17871060930365698,
+     "bytes_per_node": [
+      {
+       "n": 10,
+       "bytes_per_node": 2281.6315789473683,
+       "events_per_node": 2.9473684210526314
+      },
+      {
+       "n": 100,
+       "bytes_per_node": 2326.738693467337,
+       "events_per_node": 2.9949748743718594
+      },
+      {
+       "n": 1000,
+       "bytes_per_node": 2331.026013006503,
+       "events_per_node": 2.9994997498749374
+      },
+      {
+       "n": 10000,
+       "bytes_per_node": 2331.4526226311314,
+       "events_per_node": 2.999949997499875
+      }
+     ],
+     "structural_duplicate_fraction": [
+      {
+       "n": 10,
+       "fraction": 0.2222222222222222
+      },
+      {
+       "n": 100,
+       "fraction": 0.5858585858585859
+      },
+      {
+       "n": 1000,
+       "fraction": 0.7547547547547547
+      },
+      {
+       "n": 10000,
+       "fraction": 0.847984798479848
+      }
+     ]
+    }
+   },
+   "timing_slopes": {
+    "chain": {
+     "creation_total": 0.9699800365621897,
+     "creation_per_node": -0.005518399663948436,
+     "lookup_direct_map": 0.19366325611832225,
+     "lookup_head_with_state_hash": 0.012620396944338585,
+     "retrieval_replay_at_version": 0.021496466306425453,
+     "retrieval_http_state": -0.0031346784897055254,
+     "validation_single_node_log": 0.00029726609099195445,
+     "validation_full_cone": 0.9888893309252371,
+     "provenance_reconstruction": 0.9846719448251282,
+     "dependents_inbound_index": 0.9859112045294502,
+     "dependents_scan": 0.9775644500459023,
+     "hash_index_lookup": -0.026159159361612484,
+     "search_by_value_scan": 0.9778755968852607,
+     "update_path_copy": 1.0043246086576647
+    },
+    "tree": {
+     "creation_total": 0.9694686446793661,
+     "creation_per_node": -0.03740373092472624,
+     "lookup_direct_map": 0.25783624173551534,
+     "lookup_head_with_state_hash": -0.0017954631025471235,
+     "retrieval_replay_at_version": 0.044302946106623754,
+     "retrieval_http_state": 0.008509146425471875,
+     "validation_single_node_log": 0.002844490829045554,
+     "validation_full_cone": 0.9992228857970634,
+     "provenance_reconstruction": 0.9954997364740039,
+     "dependents_inbound_index": 0.14858038540278243,
+     "dependents_scan": 1.023480635067007,
+     "hash_index_lookup": -0.0007171129753912542,
+     "search_by_value_scan": 1.0143469517283799,
+     "update_path_copy": 0.17217073744596248
+    }
+   }
+  }
+ },
+ "hypotheses": [
+  {
+   "category": "hypothesis",
+   "id": "H1",
+   "statement": "Derived-resource closure holds for C1 → C2 → C3 using only existing PURL operations.",
+   "criterion": "Every application node in the three examples satisfies all four clauses of the closure definition.",
+   "status": "supported",
+   "evaluation": {
+    "nodes_checked": [
+     "C1 = XOR(0,1)",
+     "C2 = XOR(C1,1)",
+     "C3 = AND(C1,1)"
+    ],
+    "failures": [],
+    "vocabulary_hash_unchanged": true
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H2",
+   "statement": "Construction is deterministic under a deterministic store.",
+   "criterion": "Two independent constructions of the example set with sequential ids and a fixed clock yield identical lists of (resource id, version, state_hash) and identical event hash chains.",
+   "status": "supported",
+   "evaluation": {
+    "identical": true,
+    "events_compared": 16
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H3",
+   "statement": "The PURL state hash is content-addressed with respect to a node's value.",
+   "criterion": "Two application nodes XOR(0,1) built independently over the same operand resources have equal state_hash.",
+   "status": "not_supported",
+   "evaluation": {
+    "equal": {
+     "resource_id": false,
+     "value": true,
+     "value_hash": true,
+     "state_hash": false,
+     "merkle_by_value": true,
+     "merkle_by_identity": true,
+     "head_event_hash": false
+    },
+    "differing_record_paths": [
+     "/created_at",
+     "/grants/g_000003",
+     "/grants/g_000004",
+     "/id",
+     "/relations/0/at",
+     "/relations/1/at",
+     "/updated_at"
+    ]
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H4",
+   "statement": "The PURL state hash is invariant to serialisation of the submitted state.",
+   "criterion": "Submitting the same state with permuted key order and different whitespace, to two fresh deterministic stores, yields equal state_hash.",
+   "status": "supported",
+   "evaluation": {
+    "submissions": [
+     {
+      "id": "r_000001",
+      "state_hash": "sha256:b7cded069b559dd144ed31cb1553b14e8c4a3881ebb330f4aebfad695a209835",
+      "body_sha256": "sha256:781644fa5630c4983e44a3bb18e83576a4972174bad541a60160c214e97df529"
+     },
+     {
+      "id": "r_000001",
+      "state_hash": "sha256:b7cded069b559dd144ed31cb1553b14e8c4a3881ebb330f4aebfad695a209835",
+      "body_sha256": "sha256:4b5961b3cf6cf9e4aa5bf1fd96c23f146ca67b59d6acd0b23ac66a3149a1ae76"
+     }
+    ],
+    "bodies_differ": true,
+    "equal_state_hash": true
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H5",
+   "statement": "The PURL state hash is invariant to semantically irrelevant metadata.",
+   "criterion": "Adding a field note to an otherwise identical literal state (fresh deterministic stores) yields equal state_hash.",
+   "status": "not_supported",
+   "evaluation": {
+    "equal_state_hash": false,
+    "differing_record_paths": [
+     "/state/note"
+    ]
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H6",
+   "statement": "The representation identifies commutative permutations.",
+   "criterion": "XOR(A,B) and XOR(B,A) over the same operand resources are equal under at least one of: resource id, state_hash, merkle-by-value, merkle-by-identity.",
+   "status": "not_supported",
+   "evaluation": {
+    "identifiers_equal": [],
+    "all": {
+     "resource_id": false,
+     "value": true,
+     "value_hash": true,
+     "state_hash": false,
+     "merkle_by_value": false,
+     "merkle_by_identity": false,
+     "head_event_hash": false
+    }
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H7",
+   "statement": "The representation captures extensional equivalence.",
+   "criterion": "Per the operational definition, tested on XOR(a,b) vs OR(AND(a,NOT(b)),AND(NOT(a),b)) (equivalent) and XOR(a,b) vs AND(a,b) (inequivalent), over all four assignments of the mutable literals a,b.",
+   "status": "not_supported",
+   "evaluation": {
+    "X1_X2_equivalent": true,
+    "X1_X3_equivalent": false,
+    "identifiers_capturing_equivalence": [],
+    "equality_per_identifier": {
+     "X1_X2": {
+      "resource_id": false,
+      "value": true,
+      "value_hash": true,
+      "state_hash": false,
+      "merkle_by_value": false,
+      "merkle_by_identity": false
+     },
+     "X1_X3": {
+      "resource_id": false,
+      "value": false,
+      "value_hash": false,
+      "state_hash": false,
+      "merkle_by_value": false,
+      "merkle_by_identity": false
+     }
+    }
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H8",
+   "statement": "A shared subexpression is stored once, evaluated once, and pinned identically by its consumers.",
+   "criterion": "In the shared DAG: resources created equal distinct nodes; XOR is evaluated exactly once during construction; the pins of X in Y and in Z are identical triples.",
+   "status": "supported",
+   "evaluation": {
+    "resources": 8,
+    "distinct_nodes": 8,
+    "xor_evaluations": 1,
+    "pins_identical": true
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H9",
+   "statement": "The state hash of an application node is a deterministic function of (operation, operand state hashes, result value) alone.",
+   "criterion": "Every pair of application nodes observed in the example and equivalence sets that agree on (operation, operand pin state hashes, value) also agrees on state_hash.",
+   "status": "not_supported",
+   "evaluation": {
+    "groups": 1,
+    "groups_with_different_state_hash": 1,
+    "other_inputs_to_state_hash": [
+     "/protocol",
+     "/id",
+     "/type",
+     "/version",
+     "/created_at",
+     "/created_by",
+     "/updated_at",
+     "/owner",
+     "/assignee",
+     "/lifecycle/status",
+     "/lifecycle/previous",
+     "/collections",
+     "/grants/g_000003/id",
+     "/grants/g_000003/grantee",
+     "/grants/g_000003/rights",
+     "/grants/g_000003/operations",
+     "/grants/g_000003/parent",
+     "/grants/g_000003/purpose",
+     "/grants/g_000003/expires_at",
+     "/grants/g_000003/granted_by",
+     "/grants/g_000003/granted_at",
+     "/grants/g_000003/version",
+     "/grants/g_000003/revoked",
+     "/relations",
+     "/derived_from"
+    ]
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H10",
+   "statement": "After an in-place change to a literal, staleness is identifiable from the substrate's own provenance and unaffected branches remain valid.",
+   "criterion": "(a) dependents found by traversing inbound relations from A equal the ground-truth transitive dependents; (b) W has no stale pin; (c) path-copy recomputation creates exactly one new application node per dependent and every pre-existing node still verifies; (d) at least one dependent keeps its value while its recomputed node has a different state_hash.",
+   "status": "supported",
+   "evaluation": {
+    "a_dependents_match": true,
+    "b_W_unaffected": true,
+    "c_path_copy_one_per_dependent_and_originals_verify": true,
+    "d_value_kept_hash_changed": [
+     "Y"
+    ],
+    "locally_stale": [
+     "X"
+    ],
+    "transitively_stale": [
+     "X",
+     "Y",
+     "Z"
+    ]
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H11",
+   "statement": "Operation counts scale as the data structure predicts, not as a constant-time derivation.",
+   "criterion": "Over n in {10,100,1000,10000}: lookup by id costs 1 persistent read at every n; full recursive verification's persistent reads grow by a factor in [8,12] per 10x in n (chain and tree); tree leaf-update recomputation touches ceil(log2 n) application nodes; chain leaf-update recomputation touches n application nodes.",
+   "status": "supported",
+   "evaluation": {
+    "lookup_one_read_at_every_n": true,
+    "verify_read_ratios_per_10x": {
+     "chain": [
+      8.2,
+      9.78048780487805,
+      9.977556109725686
+     ],
+     "tree": [
+      10.23076923076923,
+      10.022556390977444,
+      10.00225056264066
+     ]
+    },
+    "tree_leaf_update": [
+     {
+      "n": 10,
+      "affected": 4,
+      "expected": 4
+     },
+     {
+      "n": 100,
+      "affected": 7,
+      "expected": 7
+     },
+     {
+      "n": 1000,
+      "affected": 10,
+      "expected": 10
+     },
+     {
+      "n": 10000,
+      "affected": 14,
+      "expected": 14
+     }
+    ],
+    "chain_leaf_update": [
+     {
+      "n": 10,
+      "affected": 10,
+      "expected": 10
+     },
+     {
+      "n": 100,
+      "affected": 100,
+      "expected": 100
+     },
+     {
+      "n": 1000,
+      "affected": 1000,
+      "expected": 1000
+     },
+     {
+      "n": 10000,
+      "affected": 10000,
+      "expected": 10000
+     }
+    ]
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H12",
+   "statement": "Wall-clock time of lookup by id does not grow with n, while dependent-search by scanning grows with n and by inbound index does not.",
+   "criterion": "Median lookup time at n=10000 is at most 3x that at n=10; log-log slope of scan-based dependent search is at least 0.8; slope of index-based dependent search is at most 0.2. Timing is environment-dependent and excluded from the output hash.",
+   "status": "not_supported",
+   "evaluation": {
+    "chain": {
+     "lookup_ratio_10000_vs_10": 4.004507688661139,
+     "scan_slope": 0.9775644500459023,
+     "index_slope": 0.9859112045294502,
+     "lookup_ok": false,
+     "scan_ok": true,
+     "index_ok": false
+    },
+    "tree": {
+     "lookup_ratio_10000_vs_10": 5.397367053737298,
+     "scan_slope": 1.023480635067007,
+     "index_slope": 0.14858038540278243,
+     "lookup_ok": false,
+     "scan_ok": true,
+     "index_ok": true
+    }
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H13",
+   "statement": "Computation nodes survive a restart of a persistent PURL store.",
+   "criterion": "After reloading from the data directory, every node verifies, every value re-evaluates to the stored value, and inbound-relation lookup returns the same dependents.",
+   "status": "supported",
+   "evaluation": {
+    "log_bytes": 18870,
+    "state_hashes_identical_after_reload": true,
+    "all_nodes_verify_after_reload": true,
+    "nodes_verified": 8,
+    "re_evaluations": {
+     "XOR": 1,
+     "AND": 2,
+     "OR": 1
+    },
+    "dependents_identical_after_reload": true
+   }
+  },
+  {
+   "category": "hypothesis",
+   "id": "H14",
+   "statement": "An ACSP envelope moves a PURL computation between two independent agents without merging them, and the receiving agent can verify it independently.",
+   "criterion": "Agents A and B run as separate OS processes with separate credentials; B reproduces A's ACSP checkpoint hash with PURL's canonicaliser, re-verifies A's PURL result by replay and recomputation, continues with a new derived PURL node; ownership never changes; every ACSP event by B is attributed to B with identity_assurance capability; B's attempt to act as A is refused; and both injected faults (a misreported value in ACSP, a wrong value in the PURL node) are detected by B.",
+   "status": "supported",
+   "evaluation": {
+    "separate_processes": true,
+    "B_recomputed_all_checkpoints": true,
+    "B_verified_A": true,
+    "B_continued_with_new_node": true,
+    "ownership_unchanged": true,
+    "B_events_capability_only": true,
+    "B_impersonation_refused": true,
+    "faults_detected": true
+   }
+  }
+ ],
+ "interpretation": {
+  "category": "interpretation",
+  "entries": []
+ },
+ "uncertainty": {
+  "category": "uncertainty",
+  "notes": [
+   "Timing is from one machine and one process, with a shared garbage-collected heap; medians of repeated calls reduce but do not remove noise. Timing is excluded from the output hash and only H12 depends on it.",
+   "Operation counts (reads, writes, hash operations, nodes visited, events, bytes) are deterministic for this code; they describe this implementation, not every implementation of the protocols.",
+   "Hash operations are counted process-wide via Hash.prototype.digest, so they include hashing done by the PURL store (event hashes, state hashes) as well as by the composition layer.",
+   "The in-process StorePort and the HTTP port make the same protocol calls; examples and the E5 serialisation test go over HTTP, the scaling sections go in-process to keep HTTP overhead out of the counts.",
+   "The handoff agents are deterministic programs, not language models. They show what the substrate permits and refuses; they say nothing about whether an LLM agent would follow the same procedure.",
+   "Merkle-by-value, merkle-by-identity and the hash-consing index are baselines computed outside PURL; they are not PURL properties."
+  ]
+ },
+ "conclusions": {
+  "category": "conclusion",
+  "entries": []
+ },
+ "independent_agent_analysis": {
+  "category": "interpretation",
+  "status": "pending",
+  "file": "experiments/exp-0002/independent-analysis.md",
+  "note": "Attached after the run by a separate agent that receives only the blind packet (experiments/exp-0002/blind/)."
+ },
+ "unresolved_questions": [],
+ "raw_data": {
+  "handoff": {
+   "file": "experiments/exp-0002/data/handoff.json",
+   "sha256": "sha256:4cb4f79b18b1de7dc8554cbf03f20538a76667f88ddf6702ef7abe4b17b6733b",
+   "note": "SHA-256 of the file bytes"
+  }
+ },
+ "reproducibility": {
+  "output_hash": "sha256:6e48ab82159d60898d80ac221e34e311cbf54e71b790677b17fa3975979c110a",
+  "section_hashes": {
+   "observations.examples": "sha256:1940d9350395381acf806b1a6ff8c3835c97bbba7f669137362b726d14832134",
+   "observations.determinism": "sha256:6c9ac90789aca107da88100b07adfe4928d4301c1ff55874b117021fc5db1d5d",
+   "observations.equivalence": "sha256:c8ec44c3ab20de2f74f5ca8424023b8685bb17c73aa7e67c6a622caebe55b579",
+   "observations.sharing": "sha256:77a31b20a96a8f572f122968e98f2c9456f0aedfb0cf5f90936b29f8c7915f20",
+   "observations.update": "sha256:39175d2f82071022ef13a52c38fc036714a3e14e4b20052dbbcbc46afe6ac999",
+   "observations.persistence": "sha256:47369142cb7ed0d19b40723935a886b666ea99ca16843a63755fd32c75adf1d2",
+   "observations.counts": "sha256:b8e0554082b52e4706f325cc56e77d954753d4da5c4f0b2902e36bdaa7c7d51c",
+   "observations.handoff_outcomes": "sha256:bd814f5b5a64a5cb33f26c3fda9efc2d3492582c21de260881b351f9f90cbcfc",
+   "transformations": "sha256:1b973dc13b54d333c747e6008d9aa9295e8cee4482044c97d5b02670bce9bb8c",
+   "hypotheses": "sha256:e6b5ae39f59e2b56e908a6c1608f11263b54ec6c4abf346bb5316577fb3b1660"
+  },
+  "hashed_sections": [
+   "observations (except timing)",
+   "transformations.outputs (except timing_slopes)",
+   "hypothesis statuses (except H12)"
+  ],
+  "excluded_sections": [
+   "observations.timing",
+   "transformations.outputs.timing_slopes",
+   "hypotheses[H12].evaluation",
+   "data/handoff.json (raw agent logs: ports, random ids, times)"
+  ],
+  "commands": [
+   "npm run composition",
+   "npm run reproduce -- exp-0002"
+  ]
+ }
+}
