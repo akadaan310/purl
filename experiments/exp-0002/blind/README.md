@@ -63,14 +63,18 @@ or any resource URL with `Accept: application/json`.
 
 ```bash
 cd purl
-npm test                                   # the first protocol's test suite, including the combination layer
-ACSP_DIR=../acsp npm run composition -- --quick   # re-run the procedures (sizes ≤ 1000), print outcomes, write nothing
+npm test                                   # the first protocol's test suite (the combination layer's own test files are withheld: their names state expected outcomes)
+ACSP_DIR=../acsp npm run composition -- --quick   # re-run the procedures (sizes ≤ 1000); prints section hashes, writes nothing
 ACSP_DIR=../acsp npm run handoff           # the multi-agent runs only, printed
 cd ../acsp && npm test                     # the second protocol's test suite
 ```
 
-The full procedure (`npm run composition`, sizes up to 10 000) takes a few
-minutes and writes into `purl/experiments/exp-0002/`.
+The full procedure (`ACSP_DIR=../acsp npm run composition`, sizes up to
+10 000) takes a few minutes, writes `purl/experiments/exp-0002/record.json`,
+and prints a hash per section. Hashed sections should match
+`section_hashes_of_recorded_run` in `observations.json` (timing is not
+hashed). `npm run composition` has no evaluation of any hypothesis in this
+copy.
 
 ## Rules
 

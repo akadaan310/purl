@@ -152,7 +152,7 @@ export async function executeComposition({ quick = false, handoff = true, timing
     schema: 'purl.composition-record/0.1',
     experiment_id: ID,
     title: def.title,
-    question: def.question,
+    question: def.question ?? '(not stated in this copy)',
     run: { timestamp: new Date().toISOString(), quick },
     repositories: { purl: { url: def.repositories.purl, ...git(ROOT) }, acsp: { url: def.repositories.acsp, ...git(acspDir), local_path_used: handoffRaw ? acspDir : null } },
     environment: { node: process.version, platform: process.platform, arch: process.arch },
