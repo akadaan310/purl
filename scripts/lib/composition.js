@@ -86,6 +86,7 @@ export async function examples() {
     const HX = await c.apply('XOR', [Hk.id, H0.id]);
     const N = await c.apply('NOT', [C3.id]);
     const E = await c.apply('OR', [C2.id, N.id]);
+    const constructionEvaluations = { ...c.evaluations };
     const named = { '0': zero, '1': one, 'C1 = XOR(0,1)': C1, 'C2 = XOR(C1,1)': C2, 'C3 = AND(C1,1)': C3, 'K = CONCAT(C1,1)': K, 'HK = HASH(K)': Hk, 'H0 = HASH(0)': H0, 'HX = XOR(HK,H0)': HX, 'N = NOT(C3)': N, 'E = OR(C2,N)': E };
     const nodes = {};
     for (const [name, n] of Object.entries(named)) {
@@ -119,7 +120,7 @@ export async function examples() {
       transport: 'HTTP (HttpPort → createPurlServer over a deterministic store)',
       vocabulary_hash: hashOf(vocabulary()),
       baseline_vocabulary_hash: BASELINE_VOCABULARY_HASH,
-      evaluations: c.evaluations,
+      evaluations: { construction: constructionEvaluations, including_verification: c.evaluations },
       nodes,
       http_reads: w.port.counters,
     };
@@ -211,6 +212,16 @@ export async function equivalence() {
     }
     const collisions = [...groups.values()].filter((g) => g.length > 1).map((g) => ({ nodes: g, state_hashes: g.map((id) => hashOf(store.get(id))), equal_state_hash: new Set(g.map((id) => hashOf(store.get(id)))).size === 1 }));
     out.H9_triples = { applications: apps.length, groups_with_equal_triple: collisions, state_hash_inputs_of_an_application: stateHashInputs(store.get(x1.id)) };
+  }
+  // E9 (exploratory, not pre-registered): the registry declares link idempotent; invoke it twice.
+  {
+    const { store, port, composer: c } = world();
+    const zero = await c.literal('0');
+    const x = await c.apply('NOT', [zero.id]);
+    const before = { version: store.get(x.id).version, relations: store.get(x.id).relations.length, state_hash: hashOf(store.get(x.id)), events: store.events(x.id).length };
+    await port.invoke(x.id, 'link', { rel: 'references', target: zero.id, version: 2 });
+    const after = { version: store.get(x.id).version, relations: store.get(x.id).relations.length, state_hash: hashOf(store.get(x.id)), events: store.events(x.id).length };
+    out.E9_repeated_link_exploratory = { declared_idempotent: 'link: idempotent: true (src/continuity/operations.js)', before, after, relations_unchanged: before.relations === after.relations, event_appended: after.events === before.events + 1, state_hash_changed: before.state_hash !== after.state_hash, differing_record_paths: differingPaths(store.stateAt(x.id, before.version), store.get(x.id)) };
   }
   // E5 serialisation: the same literal state, two byte serialisations, two fresh deterministic stores, over HTTP.
   {
@@ -406,6 +417,7 @@ export async function dynamicUpdate() {
     for (const [k, id] of Object.entries(dag)) transitive[k] = await transitivelyStale(c, id);
     const evalBefore = Object.values(c.evaluations).reduce((a, b) => a + b, 0);
     const recompute = await measure(w.port, () => (mode === 'path-copy' ? c.recomputePathCopy(dag.A) : c.recomputeInPlace(dag.A)));
+    const recomputeEvaluations = Object.values(c.evaluations).reduce((a, b) => a + b, 0) - evalBefore;
     const originals = await c.verifyMany(Object.values(dag).filter((id) => w.store.get(id).state.node === 'application').map((id) => [id, before[names[id]].version]));
     const after = {};
     for (const step of recompute.out.steps) {
@@ -423,7 +435,7 @@ export async function dynamicUpdate() {
       dependents_via_scan: { found: scan.out.ids.map((id) => names[id] ?? id), scanned: scan.out.scanned, reads: scan.reads },
       stale_before_recompute: Object.fromEntries(Object.entries(stale).map(([k, v]) => [k, v.map((s) => ({ operand: names[s.operand] ?? s.operand, pinned: s.pinned, current: s.current }))])),
       transitively_stale_before_recompute: Object.entries(transitive).filter(([, v]) => v).map(([k]) => k),
-      recompute: { affected: recompute.out.affected, created: recompute.out.created, writes: recompute.writes, reads: recompute.reads, hash_ops: recompute.hash_ops, evaluations: Object.values(c.evaluations).reduce((a, b) => a + b, 0) - evalBefore },
+      recompute: { affected: recompute.out.affected, created: recompute.out.created, writes: recompute.writes, reads: recompute.reads, hash_ops: recompute.hash_ops, evaluations: recomputeEvaluations },
       before,
       after,
       unchanged_nodes: Object.keys(dag).filter((k) => !after[k] && k !== 'A'),

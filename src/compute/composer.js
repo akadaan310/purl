@@ -267,7 +267,10 @@ export class Composer {
       const { pins, values } = await this.pins(s.operands.map((p) => p.resource));
       const value = this.#evaluate(s.operation, values);
       let node = await this.port.invoke(d, 'update', { merge_patch: { operands: pins, value } });
-      if (this.link) node = await this.#linkPins(d, pins);
+      // A repeated identical link still appends an event, so link only the pins that are new.
+      const linked = records.get(d).relations.filter((l) => l.rel === 'references');
+      const fresh = pins.filter((p) => !linked.some((l) => l.target.resource === p.resource && l.target.version === p.version));
+      if (this.link && fresh.length) node = await this.#linkPins(d, fresh);
       steps.push({ node: d, old_value: s.value, new_value: value, value_changed: s.value !== value, version: node.version });
     }
     return { mode: 'in-place', affected: order.length, created: 0, steps };
