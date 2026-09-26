@@ -1,0 +1,246 @@
+{
+ "L1_state_hash_matches_server_state_after": true,
+ "L2_live_nodes": {
+  "0": {
+   "id": "r_K9ESG18QNM",
+   "version": 2,
+   "value": "0",
+   "op": null,
+   "operands": [],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "1": {
+   "id": "r_MXC60V6PXH",
+   "version": 2,
+   "value": "1",
+   "op": null,
+   "operands": [],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "C1": {
+   "id": "r_MWG6MY1TVK",
+   "version": 4,
+   "value": "1",
+   "op": "XOR",
+   "operands": [
+    "r_K9ESG18QNM@2",
+    "r_MXC60V6PXH@2"
+   ],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "C2": {
+   "id": "r_VX5FYF6MEJ",
+   "version": 4,
+   "value": "0",
+   "op": "XOR",
+   "operands": [
+    "r_MWG6MY1TVK@4",
+    "r_MXC60V6PXH@2"
+   ],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "C3": {
+   "id": "r_9EDY6Z902B",
+   "version": 4,
+   "value": "1",
+   "op": "AND",
+   "operands": [
+    "r_MWG6MY1TVK@4",
+    "r_MXC60V6PXH@2"
+   ],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "A": {
+   "id": "r_0Q83ZNR384",
+   "version": 2,
+   "value": "0",
+   "op": null,
+   "operands": [],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "B": {
+   "id": "r_C940QY2D6F",
+   "version": 2,
+   "value": "1",
+   "op": null,
+   "operands": [],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "C": {
+   "id": "r_XND4FFX7V2",
+   "version": 2,
+   "value": "0",
+   "op": null,
+   "operands": [],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "D": {
+   "id": "r_DH9AMWWQRV",
+   "version": 2,
+   "value": "0",
+   "op": null,
+   "operands": [],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "X": {
+   "id": "r_1GJRWB7W8T",
+   "version": 4,
+   "value": "1",
+   "op": "XOR",
+   "operands": [
+    "r_0Q83ZNR384@2",
+    "r_C940QY2D6F@2"
+   ],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "Y": {
+   "id": "r_6H52EEKBTS",
+   "version": 4,
+   "value": "0",
+   "op": "AND",
+   "operands": [
+    "r_1GJRWB7W8T@4",
+    "r_XND4FFX7V2@2"
+   ],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "Z": {
+   "id": "r_WT4GTZ6YTT",
+   "version": 4,
+   "value": "1",
+   "op": "OR",
+   "operands": [
+    "r_1GJRWB7W8T@4",
+    "r_DH9AMWWQRV@2"
+   ],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  },
+  "W": {
+   "id": "r_BB1F9CP9X3",
+   "version": 4,
+   "value": "0",
+   "op": "AND",
+   "operands": [
+    "r_XND4FFX7V2@2",
+    "r_DH9AMWWQRV@2"
+   ],
+   "stale": [],
+   "cone_valid": true,
+   "problems": []
+  }
+ },
+ "L3_same_literal_twice": {
+  "ids": [
+   "r_2W9MSY50VG",
+   "r_1CEQN69052"
+  ],
+  "equal_id": false,
+  "equal_state_hash": false
+ },
+ "L4_false_value": {
+  "id": "r_0PRG4PX34M",
+  "created": true,
+  "substrate_verify_valid": true,
+  "composer_cone_valid": false,
+  "problems": [
+   "recorded value 0 ≠ re-evaluated 1"
+  ]
+ },
+ "L5_forged": {
+  "future_version_pin": {
+   "accepted_by_server": true,
+   "id": "r_0663J9KZXE",
+   "substrate_valid": true,
+   "composer_verify": {
+    "threw": "GET /r/r_S7M9991670/state?at=99 → 400 version must be an integer in 1..2"
+   }
+  },
+  "nonexistent_resource_pin": {
+   "accepted_by_server": true,
+   "id": "r_Y9YBNNY03G",
+   "substrate_valid": true,
+   "composer_verify": {
+    "threw": "GET /r/r_ZZZZZZZZZZ/state?at=1 → 404 no resource r_ZZZZZZZZZZ"
+   }
+  },
+  "bogus_state_hash": {
+   "accepted_by_server": true,
+   "id": "r_QXKW4G6GF0",
+   "substrate_valid": true,
+   "composer_verify": {
+    "valid": false,
+    "problems": [
+     "operand r_S7M9991670@2 state hash differs from pin",
+     "no references relation to r_S7M9991670@2"
+    ]
+   }
+  },
+  "wrong_arity_NOT_two_operands": {
+   "accepted_by_server": true,
+   "id": "r_7NBHPKKHX3",
+   "substrate_valid": true,
+   "composer_verify": {
+    "valid": false,
+    "problems": [
+     "no references relation to r_S7M9991670@2",
+     "no references relation to r_E01EDGMW94@2",
+     "re-evaluation failed: operands do not match the input schema of NOT"
+    ]
+   }
+  },
+  "not_a_compute_node_type_free": {
+   "accepted_by_server": true,
+   "id": "r_7EWP6NWW7T"
+  }
+ },
+ "L6_version_staleness": {
+  "before": [],
+  "after": [
+   {
+    "operand": "r_S7M9991670",
+    "pinned": 2,
+    "current": 3
+   }
+  ],
+  "operand_value_unchanged": true,
+  "operand_version_before": 2
+ },
+ "L7_cross_principal": {
+  "update_others_literal": "refused: 403",
+  "pin_others_literal_created": "r_XT4JZD0GCT",
+  "link_recorded_inbound_on_target": true
+ },
+ "L8_inbound_index_injection": {
+  "spam_literal": "r_DQ3TEDD4QA",
+  "appears_in_dependents_of_zero": true
+ },
+ "L9_same_triple": {
+  "same_pins": true,
+  "same_value": true,
+  "equal_state_hash": false
+ }
+}

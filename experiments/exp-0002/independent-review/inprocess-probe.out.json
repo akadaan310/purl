@@ -1,0 +1,156 @@
+{
+ "P1_diamond_ladder": [
+  {
+   "n": 1,
+   "nodes": 2,
+   "memo": {
+    "visited": 2,
+    "reads": 5,
+    "hash_ops": 20,
+    "valid": true
+   },
+   "naive": {
+    "visited": 3,
+    "reads": 9,
+    "hash_ops": 30,
+    "valid": true
+   }
+  },
+  {
+   "n": 2,
+   "nodes": 3,
+   "memo": {
+    "visited": 3,
+    "reads": 7,
+    "hash_ops": 31,
+    "valid": true
+   },
+   "naive": {
+    "visited": 7,
+    "reads": 21,
+    "hash_ops": 72,
+    "valid": true
+   }
+  },
+  {
+   "n": 4,
+   "nodes": 5,
+   "memo": {
+    "visited": 5,
+    "reads": 11,
+    "hash_ops": 53,
+    "valid": true
+   },
+   "naive": {
+    "visited": 31,
+    "reads": 93,
+    "hash_ops": 324,
+    "valid": true
+   }
+  },
+  {
+   "n": 8,
+   "nodes": 9,
+   "memo": {
+    "visited": 9,
+    "reads": 19,
+    "hash_ops": 97,
+    "valid": true
+   },
+   "naive": {
+    "visited": 511,
+    "reads": 1533,
+    "hash_ops": 5364,
+    "valid": true
+   }
+  },
+  {
+   "n": 12,
+   "nodes": 13,
+   "memo": {
+    "visited": 13,
+    "reads": 27,
+    "hash_ops": 141,
+    "valid": true
+   },
+   "naive": {
+    "visited": 8191,
+    "reads": 24573,
+    "hash_ops": 86004,
+    "valid": true
+   }
+  },
+  {
+   "n": 16,
+   "nodes": 17,
+   "memo": {
+    "visited": 17,
+    "reads": 35,
+    "hash_ops": 185,
+    "valid": true
+   },
+   "naive": {
+    "visited": 131071,
+    "reads": 393213,
+    "hash_ops": 1376244,
+    "valid": true
+   }
+  }
+ ],
+ "P2_no_early_cutoff": {
+  "affected": 52,
+  "created": 52,
+  "value_changed": 1
+ },
+ "P3_inbound_injection": {
+  "ok": false,
+  "error": "records.get.state.operands is not iterable"
+ },
+ "P4_recompute_only_evaluations": 3,
+ "P5_declared_properties": {
+  "NOT.involution": {
+   "counterexamples": 0,
+   "cases": 2744
+  },
+  "AND.commutative": {
+   "counterexamples": 0,
+   "cases": 1176
+  },
+  "AND.associative": {
+   "counterexamples": 0,
+   "cases": 584
+  },
+  "AND.idempotent": {
+   "counterexamples": 0,
+   "cases": 2744
+  },
+  "OR.commutative": {
+   "counterexamples": 0,
+   "cases": 1176
+  },
+  "OR.associative": {
+   "counterexamples": 0,
+   "cases": 584
+  },
+  "OR.idempotent": {
+   "counterexamples": 0,
+   "cases": 2744
+  },
+  "XOR.commutative": {
+   "counterexamples": 0,
+   "cases": 1176
+  },
+  "XOR.associative": {
+   "counterexamples": 0,
+   "cases": 584
+  },
+  "XOR.self-inverse": {
+   "counterexamples": 0,
+   "cases": 1176
+  },
+  "CONCAT.associative": {
+   "counterexamples": 0,
+   "cases": 2744
+  }
+ }
+}

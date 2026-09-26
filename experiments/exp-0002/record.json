@@ -3691,9 +3691,13 @@
  },
  "independent_agent_analysis": {
   "category": "interpretation",
-  "status": "pending",
+  "status": "attached",
   "file": "experiments/exp-0002/independent-analysis.md",
-  "note": "Attached after the run by a separate agent that receives only the blind packet (experiments/exp-0002/blind/)."
+  "probes": "experiments/exp-0002/independent-review/",
+  "analysed_run": "run 1 (packet built at commit 762e84f, before run 2)",
+  "author": "a separate Claude Code subagent given only the blind packet",
+  "reproduced": "all nine hashed sections of run 1, from the packet",
+  "note": "Verbatim; the builders' responses are in REPORT.md section 14."
  },
  "unresolved_questions": [
   "Q-X1: Should PURL expose a content-addressed view (state-only hash) alongside the record commitment, and what linkability would that introduce?",

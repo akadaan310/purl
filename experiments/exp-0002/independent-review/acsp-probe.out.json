@@ -1,0 +1,131 @@
+{
+ "honest": {
+  "checkpoints": [
+   {
+    "n": 0,
+    "ok": true
+   },
+   {
+    "n": 1,
+    "ok": true
+   },
+   {
+    "n": 2,
+    "ok": true
+   }
+  ],
+  "claims": [
+   {
+    "tok": "TOK-002",
+    "by": "session-a",
+    "step": "C",
+    "claimed": "1",
+    "purl_value": "1",
+    "pin_hash_ok": true,
+    "cone_valid": true,
+    "problems": [],
+    "annotations": [
+     "validation by session-b"
+    ]
+   },
+   {
+    "tok": "TOK-003",
+    "by": "session-b",
+    "step": "D",
+    "claimed": "0",
+    "purl_value": "0",
+    "pin_hash_ok": true,
+    "cone_valid": true,
+    "problems": [],
+    "annotations": []
+   }
+  ],
+  "handoffs": [
+   "HO-001:accepted->session-a",
+   "HO-002:accepted->session-b",
+   "HO-003:accepted->session-owner"
+  ]
+ },
+ "fault-misreport": {
+  "checkpoints": [
+   {
+    "n": 0,
+    "ok": true
+   },
+   {
+    "n": 1,
+    "ok": true
+   },
+   {
+    "n": 2,
+    "ok": true
+   }
+  ],
+  "claims": [
+   {
+    "tok": "TOK-002",
+    "by": "session-a",
+    "step": "C",
+    "claimed": "0",
+    "purl_value": "1",
+    "pin_hash_ok": true,
+    "cone_valid": true,
+    "problems": [],
+    "annotations": [
+     "dispute by session-b"
+    ]
+   }
+  ],
+  "handoffs": [
+   "HO-001:accepted->session-a",
+   "HO-002:accepted->session-b",
+   "HO-003:accepted->session-owner"
+  ]
+ },
+ "fault-wrong-node": {
+  "checkpoints": [
+   {
+    "n": 0,
+    "ok": true
+   },
+   {
+    "n": 1,
+    "ok": true
+   },
+   {
+    "n": 2,
+    "ok": true
+   }
+  ],
+  "claims": [
+   {
+    "tok": "TOK-002",
+    "by": "session-a",
+    "step": "C",
+    "claimed": "0",
+    "purl_value": "0",
+    "pin_hash_ok": true,
+    "cone_valid": false,
+    "problems": [
+     "recorded value 0 ≠ re-evaluated 1"
+    ],
+    "annotations": [
+     "dispute by session-b"
+    ]
+   }
+  ],
+  "handoffs": [
+   "HO-001:accepted->session-a",
+   "HO-002:accepted->session-b",
+   "HO-003:accepted->session-owner"
+  ]
+ },
+ "anonymous_append_as_session_a": {
+  "status": 401,
+  "code": "authentication_required"
+ },
+ "acsp_accepts_false_claim": {
+  "create": 201,
+  "append": 200
+ }
+}

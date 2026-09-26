@@ -414,6 +414,9 @@ hash. None of the hypothesis criteria reads the corrected fields.
   is a cached map lookup; derivation and verification are linear in the
   nodes involved. Timing criterion H12 failed.
 - The substrate verifies computations. Neither server does.
+- Closure that distinguishes valid from invalid derived nodes. The
+  pre-registered closure definition is satisfied by forged nodes too
+  (independent review, L4/L5).
 
 ## 13. Representation limitations
 
@@ -429,27 +432,73 @@ hash. None of the hypothesis criteria reads the corrected fields.
   `same_instance`; cross-instance pins are unaddressed.
 - Operand order is part of the representation; no normalisation exists, by
   design of both protocols.
+- PURL does not validate compute-node state: dangling, forward-version and
+  mis-hashed pins, and wrong arity, are all accepted and pass `/verify`
+  (independent review, L5). Only the cone check rejects them.
+- All checks trust the PURL server to serve its real history; nothing is
+  signed or anchored outside it (independent review, §4.1).
+- Builder and verifier share one evaluator implementation.
 
 ## 14. Independent-agent analysis
 
-*Pending: filled in from* [`independent-analysis.md`](independent-analysis.md)
-*when the blind review returns.*
+The full text is in [`independent-analysis.md`](independent-analysis.md),
+verbatim, with its probes in [`independent-review/`](independent-review/). It
+was produced by a separate agent that received only the blind packet (§ F of
+the brief). That packet held both repositories without history, the neutral
+procedure specification, run 1's raw observations and the live instances. It
+excluded the hypotheses, the record, this report and the composition tests.
+The task was phrased as "characterise the computational properties of this
+resource system".
+
+**What it reproduced.** It re-ran the full procedure from the packet and
+got all nine hashed section hashes identical to run 1's. PURL's 58 tests and
+ACSP's 25 tests passed.
+
+**Where it agrees with this report** (reached independently): no content
+addressing; the state hash commits to the record, not the computation;
+equal outputs only, never equivalence; closure is representational; no
+complexity advantage beyond textbook indexing, memoisation and path
+copying; faults are caught only by client re-evaluation; ACSP session
+binding holds.
+
+**What it found that this report had not** (each checked and, where it is
+a defect in the bridge, fixed in commit `29275cc`):
+
+| Finding | Evidence | Status |
+|---|---|---|
+| The PURL server accepts any state under `compute-*` types, including dangling pins, pins to future versions, bogus hashes, wrong arity. Substrate `/verify` calls them valid. | L5 | Correct; a property of PURL (state is free-form). Recorded as a limitation (§13). |
+| Closure as defined does not discriminate: forged nodes satisfy it too. | L4, L5 | Accepted. The pre-registered definition was too weak to separate valid from forged nodes; H1 is reported as representational closure only. |
+| `Composer.verify` threw on unreadable pins instead of reporting them. | L5 | **Bridge defect, fixed**; test "robustness: verification reports dangling…". |
+| A third party's `references` link appears in `dependents()` and crashed `recomputePathCopy`. | L8, P3 | **Bridge defect, fixed**. Recomputation keeps only valid applications that actually pin the changed node; others are returned as `rejected_declarations`. The index still lists every declaration, as PURL's lineage document says. Test "robustness: a third party's references link…". |
+| The PURL server is trusted: all checks are over records it serves; a consistent forged history would pass. | inference from code | Accepted as the largest untested assumption; basis of exp-0003 (§15). |
+| One evaluator (`algebra.js`) is shared by builder and verifier. | code | Accepted; verification is replay, not independent evaluation. |
+| Staleness is by version: a non-value event (a link) on an operand makes dependents stale. | L6 | Correct; consistent with E9. |
+| The packet's graph families never exercise DAG memoisation; on a diamond ladder, memo 17 vs naive 131 071 visits (n = 16). | P1 | Accepted; the counts section under-represents sharing. |
+| The recompute-evaluation counter (10 vs 3) is wrong. | P4 | Found independently of run 2's correction (§9); the packet held run 1. |
+| "Scan reads = 1" understates HTTP cost (N+1 GETs). | code | Correct; `dependents_scan.scanned` is the meaningful count. |
+| Determinism, E5 and E7-X equalities rely on sequential ids and a scripted clock; live, identical content gets distinct ids and hashes. | L3 | Correct and consistent with §10.2; H4's scope is canonical serialisation under otherwise identical history. |
+
+The fixes change no recorded measurement: `npm run reproduce -- exp-0002`
+still reproduces run 2's output hash.
 
 ## 15. Next experiment
 
-Proposed as **exp-0003**, to be pre-registered separately:
+Proposed as **exp-0003**, to be pre-registered separately. The first item
+is the independent reviewer's; it addresses the assumption this experiment
+left most exposed.
 
-1. **Content view vs. record view.** Add an additive, server-computed
-   `content_hash` (hash of `state` only) to PURL events, and re-run E1–E8
-   and the sharing and update sections. Measure: dedup rate available to a
-   hash-consing index keyed on it, early-cutoff opportunities in update
-   propagation, and what linkability across principals it introduces.
-2. **Fix or re-declare `link` idempotence** (Q-X2), and check that no other
-   operation declared idempotent appends events on repetition.
-3. **LLM agents in the envelope.** Replace the deterministic agents with
-   language-model agents given only the ACSP URL and a capability. Measure
-   whether they discover and perform verify-before-build, and whether the
-   two fault injections are caught.
+1. **Adversarial substrate.** Serve a forged but internally consistent
+   history for one operand, and run the unchanged agents against it (the
+   expectation to pre-register is that every current check passes). Then
+   add a countermeasure (PURL head hashes anchored in the ACSP checkpoint at
+   handoff, or signed event heads) and measure detection.
+2. **Evaluator independence.** Add a second evaluator in another language on
+   the verifier's side, inject a bug into one, and measure detection.
+3. **Content view vs. record view.** Add an additive, server-computed
+   `content_hash` (hash of `state` only) and re-run E1–E8, sharing and
+   update. Include a canonical-form identifier (ANF or ROBDD) as a positive
+   control for equivalence. Use workloads with real sharing (random DAGs,
+   diamonds).
+4. **`link` idempotence** (Q-X2) and **LLM agents in the envelope** (Q-X7).
 
-New open questions are recorded in
-[`RESEARCH_QUESTIONS.md`](../../RESEARCH_QUESTIONS.md) (Q-X1 … Q-X7).
+New open questions are in [`RESEARCH_QUESTIONS.md`](../../RESEARCH_QUESTIONS.md) (Q-X1 … Q-X7).
