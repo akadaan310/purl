@@ -26,7 +26,7 @@ representation choices.
 ## Quick start
 
 ```bash
-npm test                  # 58 tests: protocol, authority, HTTP, research, demo, reproducibility
+npm test                  # 75 tests: protocol, authority, HTTP, research, demo, reproducibility, composition, bridge
 npm run demo              # the end-to-end scenario below, over HTTP, narrated
 npm start                 # http://127.0.0.1:8080  (PORT, HOST, PURL_DATA_DIR to persist)
 npm run reproduce -- exp-0001   # re-derive the experiment and compare hashes
@@ -77,6 +77,27 @@ operation URL and body shape from manifests:
 7. B **forks**; the fork has lineage but no copied grants. B edits the
    branch. A **supersedes** its first finding — the original stays.
    The human **merges** the branch; the merge is recorded as `merged_from`.
+
+## Composition inside an ACSP envelope (exp-0002)
+
+`src/compute/` treats PURL resources as nodes of a computation graph
+(literals and applications of NOT/AND/OR/XOR/CONCAT/HASH), using only the
+existing operations `create`, `link` and `update`. `src/bridge/` moves such
+computations between independent agents through an unchanged
+[ACSP](https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet)
+instance. The pre-registered experiment and its report are in
+[`experiments/exp-0002`](experiments/exp-0002/REPORT.md). In brief: closure,
+sharing and cross-agent verification work, and both injected faults were
+caught. The state hash is a record commitment, not content addressing. No
+identifier captures equivalence or commutativity, nothing on either server
+evaluates a computation, and no complexity advantage beyond indexing and
+memoisation was found. Design: [docs/composition.md](docs/composition.md).
+
+```bash
+npm run handoff                  # two agent processes, one ACSP and one PURL instance (needs ACSP_DIR)
+npm run composition              # the full exp-0002 run
+npm run reproduce -- exp-0002    # re-run and compare every hashed section
+```
 
 ## Architecture
 
@@ -129,6 +150,7 @@ require deletion.
 | Nomenclature | [NOMENCLATURE.md](NOMENCLATURE.md) |
 | Prior art / novelty accounting | [docs/prior-art.md](docs/prior-art.md) |
 | Unresolved research questions | [RESEARCH_QUESTIONS.md](RESEARCH_QUESTIONS.md) |
+| ACSP × PURL composition experiment | [experiments/exp-0002/](experiments/exp-0002/REPORT.md), [docs/composition.md](docs/composition.md) |
 
 ## What the first experiment found, briefly
 

@@ -3695,7 +3695,16 @@
   "file": "experiments/exp-0002/independent-analysis.md",
   "note": "Attached after the run by a separate agent that receives only the blind packet (experiments/exp-0002/blind/)."
  },
- "unresolved_questions": [],
+ "unresolved_questions": [
+  "Q-X1: Should PURL expose a content-addressed view (state-only hash) alongside the record commitment, and what linkability would that introduce?",
+  "Q-X2: link is declared idempotent but appends an event on repetition (E9, exploratory): re-declare or change the plan?",
+  "Q-X3: Staleness is locally visible one level above a change only; is a server-side transitive staleness projection worth adding?",
+  "Q-X4: Pins by state hash prevent early cutoff; pins by value hash lose record binding. Which does a continuity protocol want?",
+  "Q-X5: Would a registered, deterministic server-side evaluator be worth breaking 'names are never evaluated'? What would it attest that client replay does not?",
+  "Q-X6: What would cross-instance pins need (signed heads, witnesses)?",
+  "Q-X7: Would LLM agents given only the ACSP URL perform verify-before-build and catch the injected faults?",
+  "Direct Map lookup time grew 4.5-5.4x from n=10 to n=10000 at constant read count; not investigated (memory hierarchy is the untested candidate)."
+ ],
  "raw_data": {
   "handoff": {
    "file": "experiments/exp-0002/raw/handoff.json",

@@ -113,3 +113,50 @@ current substrate compares datasets, not implementations. A test would
 run two independent PURL servers (or two projections) on the same
 workload and compare invariant measures only (those passing H7-style
 invariance checks).
+
+## Composition (from exp-0002)
+
+**Q-X1 · Should PURL have a content-addressed view?** The state hash commits
+to the whole record (id, timestamps, owner, grants, relations), so equal
+values, equal expressions and equal operand pins never share it (exp-0002
+H3, H9). A value-only or structure-only hash would let independent builders
+recognise the same result; it would also make results linkable across
+principals, which the per-record hash does not. *Answer by:* adding a
+server-computed `content_hash` of `state` alone to the event (additive
+field) and re-running E1–E8.
+
+**Q-X2 · Is declared idempotence of `link` the right claim?** A repeated
+identical `link` leaves `relations` unchanged but appends an event, advancing
+`version` and `updated_at` and so the state hash (exp-0002 E9, exploratory).
+Either the manifest should say "idempotent in `relations`, not in the log",
+or the plan should emit no event when the relation exists (as `append` with a
+known entry id already does). *Answer by:* deciding which, and adding a test.
+
+**Q-X3 · Transitive staleness.** After an operand changes, only its direct
+dependents have a pin behind their operand's head; nodes further up look
+fresh locally (exp-0002 H10). Detecting staleness needs a traversal of the
+cone. Is a server-side "stale because" projection over `inbound` relations
+worth adding, and can it stay cheap?
+
+**Q-X4 · Early cutoff.** A dependent whose value does not change still gets a
+new identity and state hash when recomputed (Y in exp-0002), so its own
+dependents must be re-pinned. Pinning by value hash instead of state hash
+would allow cutoff but lose the binding to a specific record. Which does a
+continuity protocol want?
+
+**Q-X5 · Server-attested evaluation.** The server stores computed values as
+claims; only re-evaluation detects a wrong one (the wrong-node fault). Would a
+server-side, deterministic, registered evaluator (a new operation) be worth
+its cost to the "names are never evaluated" rule? What would it attest to
+that client replay does not?
+
+**Q-X6 · Cross-instance pins.** exp-0002 kept operands and results on one PURL
+instance, and the agents checked `same_instance`. A pin to a resource on
+another instance can be verified by a client that fetches both (Q-P4), but
+nothing stops that instance from rewriting history. What would a
+cross-instance pin need (signed heads, witnesses)?
+
+**Q-X7 · Would LLM agents follow the verify-before-build procedure?** The
+exp-0002 agents are deterministic programs. Whether a language-model agent
+given only the ACSP URL discovers, performs and records the same checks is
+untested.
