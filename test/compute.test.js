@@ -281,6 +281,39 @@ test('faults: the server stores a wrong claim; only re-evaluation detects it', a
   assert.match(v.problems[0].problem, /recorded value 0 ≠ re-evaluated 1/);
 });
 
+test('robustness: a third party\'s references link is listed as a dependent but never recomputed', async () => {
+  // Found by the independent reviewer (exp-0002 independent-analysis.md, L8/P3).
+  const { store, A, B, invoke } = makeStore();
+  const a = compose(store, A);
+  const lit = await a.literal('0');
+  const x = await a.apply('NOT', [lit.id]);
+  const spam = store.create(B, { type: 'note', state: { hello: 'world' }, public: 'reader' }).resource.id;
+  store.invoke(B, spam, 'link', { expected_version: store.get(spam).version, input: { rel: 'references', target: lit.id } });
+  assert.deepEqual((await a.dependents(lit.id)).ids, [x.id, spam].sort(), 'the index reports every declaration');
+  invoke(A, lit.id, 'update', { merge_patch: { value: '1' } });
+  const out = await a.recomputePathCopy(lit.id);
+  assert.equal(out.created, 1);
+  assert.deepEqual(out.rejected_declarations, [spam]);
+});
+
+test('robustness: verification reports dangling, forward and mis-hashed pins instead of throwing', async () => {
+  const { store, A } = makeStore();
+  const c = compose(store, A);
+  const lit = await c.literal('1');
+  const h = hashAt(store, lit.id);
+  const forged = (operands) => store.create(A, { type: 'compute-application', public: 'reader', state: { compute: 'purl.compute/0.1', node: 'application', operation: 'NOT', operands, value: '0', evaluator: 'forged' } }).resource.id;
+  const cases = {
+    dangling: forged([{ resource: 'r_ZZZZZZ', version: 1, state_hash: h }]),
+    forward: forged([{ resource: lit.id, version: 99, state_hash: h }]),
+    bad_hash: forged([{ resource: lit.id, version: 2, state_hash: 'sha256:' + '0'.repeat(64) }]),
+  };
+  for (const [name, id] of Object.entries(cases)) {
+    assert.equal(store.verify(id).valid, true, `${name}: the substrate accepts it`);
+    const v = await c.verify(id, { memo: true });
+    assert.equal(v.valid, false, `${name}: the cone check rejects it`);
+  }
+});
+
 // ---- persistence and independent replay ----------------------------------------------------------------------
 test('restart persistence: nodes, hashes, values and the inbound index survive a reload', async () => {
   const dir = mkdtempSync(join(tmpdir(), 'purl-compute-'));

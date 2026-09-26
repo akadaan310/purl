@@ -132,7 +132,13 @@ export class Composer {
       if (memo && visited.has(k)) continue;
       visited.add(k);
       visits += 1;
-      const r = await read(rid, v);
+      let r;
+      try {
+        r = await read(rid, v);
+      } catch (e) {
+        problems.push({ node: k, problem: `unreadable: ${e.status ?? ''} ${e.message}`.trim() });
+        continue;
+      }
       const s = r.record.state;
       const errors = nodeErrors(s);
       if (errors.length) {
@@ -146,8 +152,16 @@ export class Composer {
       }
       if (s.node !== 'application') continue;
       const values = [];
+      let missing = false;
       for (const p of s.operands) {
-        const o = await read(p.resource, p.version);
+        let o;
+        try {
+          o = await read(p.resource, p.version);
+        } catch (e) {
+          problems.push({ node: k, problem: `operand ${key(p.resource, p.version)} unreadable: ${e.status ?? ''} ${e.message}`.trim() });
+          missing = true;
+          continue;
+        }
         if (o.state_hash !== p.state_hash) problems.push({ node: k, problem: `operand ${key(p.resource, p.version)} state hash differs from pin` });
         values.push(o.record.state.value);
         if (this.link && !r.record.relations.some((l) => l.rel === 'references' && l.target.resource === p.resource && l.target.version === p.version)) {
@@ -155,6 +169,7 @@ export class Composer {
         }
         if (recursive) stack.push([p.resource, p.version]);
       }
+      if (missing) continue;
       let recomputed = null;
       try {
         recomputed = this.#evaluate(s.operation, values);
@@ -212,10 +227,26 @@ export class Composer {
 
   /** Dependents of `changed`, ordered so every node comes after the dependents it pins. */
   async #affected(changed) {
-    const { ids } = await this.dependents(changed);
-    const set = new Set(ids);
+    const { ids: declared } = await this.dependents(changed);
     const records = new Map();
-    for (const d of ids) records.set(d, (await this.port.head(d)).record);
+    for (const d of declared) records.set(d, (await this.port.head(d)).record);
+    // Inbound links are declarations by the linking resource, which anyone with
+    // `link` on their own resource can make. Keep only valid applications that
+    // actually pin `changed` or another kept node.
+    const set = new Set();
+    for (let grew = true; grew; ) {
+      grew = false;
+      for (const d of declared) {
+        if (set.has(d)) continue;
+        const st = records.get(d).state;
+        if (nodeErrors(st).length || st.node !== 'application') continue;
+        if (st.operands.some((p) => p.resource === changed || set.has(p.resource))) {
+          set.add(d);
+          grew = true;
+        }
+      }
+    }
+    const ids = declared.filter((d) => set.has(d));
     const indeg = new Map(ids.map((d) => [d, 0]));
     const users = new Map();
     for (const d of ids) for (const p of records.get(d).state.operands) {
@@ -234,7 +265,7 @@ export class Composer {
         if (indeg.get(u) === 0) ready.push(u);
       }
     }
-    return { order, records };
+    return { order, records, rejected: declared.filter((d) => !set.has(d)) };
   }
 
   /**
@@ -243,7 +274,7 @@ export class Composer {
    * current operands; old nodes are left untouched and remain verifiable.
    */
   async recomputePathCopy(changed, { supersede = true } = {}) {
-    const { order, records } = await this.#affected(changed);
+    const { order, records, rejected } = await this.#affected(changed);
     const replaced = new Map();
     const steps = [];
     for (const d of order) {
@@ -255,12 +286,12 @@ export class Composer {
       replaced.set(d, node.id);
       steps.push({ old: d, new: node.id, old_value: s.value, new_value: node.value, value_changed: s.value !== node.value });
     }
-    return { mode: 'path-copy', affected: order.length, created: steps.length, steps };
+    return { mode: 'path-copy', affected: order.length, created: steps.length, steps, rejected_declarations: rejected };
   }
 
   /** In-place recomputation: each dependent's state is patched (operands, value); its version advances. */
   async recomputeInPlace(changed) {
-    const { order, records } = await this.#affected(changed);
+    const { order, records, rejected } = await this.#affected(changed);
     const steps = [];
     for (const d of order) {
       const s = records.get(d).state;
@@ -273,6 +304,6 @@ export class Composer {
       if (this.link && fresh.length) node = await this.#linkPins(d, fresh);
       steps.push({ node: d, old_value: s.value, new_value: value, value_changed: s.value !== value, version: node.version });
     }
-    return { mode: 'in-place', affected: order.length, created: 0, steps };
+    return { mode: 'in-place', affected: order.length, created: 0, steps, rejected_declarations: rejected };
   }
 }
