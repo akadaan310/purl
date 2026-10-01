@@ -139,6 +139,72 @@
     "C-053 (no pre-registered test)",
     "live ACSP TALK"
    ]
+  },
+  {
+   "n": 3,
+   "id": "STASIS-3",
+   "label": "bridge: constitution/evidence model, transition & program models, SDK v0.3, development loop observable, four pre-registered experiments, cold reconstruction with caches cleared",
+   "date": "2026-10-01",
+   "status": "CLOSED",
+   "commits": {
+    "substrateIO": "1657120",
+    "purl": "f092e04",
+    "acsp": "e8d989a",
+    "seurl": "620ff95",
+    "golden-surface": "b113718",
+    "MUSA": "d797135"
+   },
+   "changed": [
+    "constitution model: five identities; conformance x authority x evidence-currency axes, all quadrants produced (axes record-2)",
+    "manifest v3: one record per component with every requested field, generated vs declared provenance",
+    "transition model and projection matrix measured by substrateIO; program model (pi.sigma = id on dom(sigma))",
+    "SDK v0.3: greeting, nomenclature/experiments/research/examples, verified code descriptors, eight addressable IDE stages",
+    "development loop observable: POST /dev/iterations, GET /self (six self-* concepts)",
+    "closure admissibility (untyped/typed/constitution/code) shared by route and experiment",
+    "fixes with differential tests: PURL 429 as limit; refused TALK is 'refused'; partial multi-step POST reports effects; TOK cites the build version; implementation_id is loaded code; observation origin is the operator's",
+    "nomenclature: C-011 scoped, C-054 closed class; operational profile"
+   ],
+   "reconstruct": "SOURCE=origin node scripts/bridge-cold-reconstruct.js (report-5 warm, report-6 caches cleared: 34/34 each); checkpoint replay test 'STASIS-3 checkpoint is recoverable'",
+   "purl_note": "f092e04 is the code the closing checkpoint ran; the closing record is the purl commit titled 'bridge: close STASIS-3' (a commit cannot name itself)",
+   "deployments": {
+    "acsp-one.vercel.app": "9fcf2e1 (unchanged; read only, never written)",
+    "seurl.vercel.app": "content hash = index.html @620ff95 (unchanged)"
+   },
+   "checkpoint": "r_D4RSRCHB3G sha256:15f339af547ce28cd5c618de75b83dd0f78150a27d92354fb1d83528addd6cec (snapshot purl circle/checkpoints/stasis-3/, procedure scripts/stasis-close.js); conformance r_AJFZ5299CM (14 TESTED, 1 EXTERNAL, 3 HUMAN_REVIEWED, 1 CONFLICTING, 0 FAILED)",
+   "constitution": "circle constitution-v1 sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4 (unchanged); enforcement.json grew (scroll_program_immutable, ide_stages_change_nothing); A-001 v2 candidate NOT adopted",
+   "experiments": {
+    "EXP-AXES-1": "model not falsified; record-1 invalid (kept)",
+    "EXP-PROGRAM-MODEL-1": "M1-M5 held (M1 on dom(sigma)); 10 records",
+    "EXP-PROGRAM-CLOSURE-1": "P1,P3-P6 held; P2 FALSIFIED",
+    "EXP-DOGFOOD-3": "record-2: D1-D3,D5 held; D4 FALSIFIED (intermittent end-to-end failure, not attributable)",
+    "EXP-R9": "H1,H3 held; H2 FALSIFIED"
+   },
+   "survived": [
+    "ACSP/0.1 and its live data",
+    "PURL/0.1 core",
+    "substrateIO registries and run_ids",
+    "constitution-v1",
+    "STASIS-1 and STASIS-2 checkpoints (replay)"
+   ],
+   "superseded": [
+    "bridge-manifest v2 by v3 (generated components)",
+    "circle-sdk/0.2 by 0.3 (0.2 text kept in SDK-SPEC §1-5)"
+   ],
+   "disproven": [
+    "F-R4 diagnosis that R9 was missed for lack of discoverability (EXP-R9 H2)",
+    "'everything the catalog declares suffices for executable programs' (EXP-PROGRAM-CLOSURE-1 P2)"
+   ],
+   "unresolved": [
+    "K-18/A-002",
+    "A-001..A-004 adoption",
+    "OP-S3-1..OP-S3-18 (circle/OPEN-PROBLEMS.md)",
+    "Q-014/Q-018 cross-provider (needs a human)",
+    "Q-016",
+    "Q-017",
+    "real Android WebView",
+    "SF-1 ramz seal (MUSA owner)",
+    "SF-4 ACSP proposal-queue exhaustion (live untested)"
+   ]
   }
  ]
 }

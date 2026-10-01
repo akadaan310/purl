@@ -1,0 +1,106 @@
+{
+ "protocol": "circle/0 (provisional)",
+ "kind": "checkpoint",
+ "id": "r_D4RSRCHB3G",
+ "content_id": "sha256:15f339af547ce28cd5c618de75b83dd0f78150a27d92354fb1d83528addd6cec",
+ "by": {
+  "session_id": "stasis-3-close",
+  "agent_id": null,
+  "assurance": "asserted"
+ },
+ "constitution": {
+  "version": 1,
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "href": "/constitution"
+ },
+ "commits": {
+  "purl": "f092e04",
+  "substrateIO": "1657120",
+  "acsp": "e8d989a"
+ },
+ "protocols": {
+  "circle": "circle/0 (provisional)",
+  "purl": "PURL/0.1",
+  "substrate": "substrate-purl/0 (provisional)",
+  "acsp": "ACSP/0.1",
+  "seurl": "seurl/0 (url-machine.md)"
+ },
+ "scrolls": [
+  {
+   "id": "r_0TVZYAYQM3",
+   "version": 5
+  },
+  {
+   "id": "r_B2W1BDZRGM",
+   "version": 3
+  },
+  {
+   "id": "r_GC22PTT53A",
+   "version": 3
+  },
+  {
+   "id": "r_4TJ4VGQE6M",
+   "version": 3
+  },
+  {
+   "id": "r_TRWFZ9PH0H",
+   "version": 3
+  },
+  {
+   "id": "r_SBFPB6MX5K",
+   "version": 3
+  },
+  {
+   "id": "r_KN65G0KRVD",
+   "version": 5
+  },
+  {
+   "id": "r_9S0PTGVEP7",
+   "version": 3
+  },
+  {
+   "id": "r_QA9J4F0P2G",
+   "version": 3
+  },
+  {
+   "id": "r_A7TX83A9W9",
+   "version": 2
+  },
+  {
+   "id": "r_4PT0ZMW6QZ",
+   "version": 2
+  }
+ ],
+ "active_scroll": "r_4PT0ZMW6QZ",
+ "substrate_environment_id": "sha256:4f7acc8629fe88becd52674c02c56a662bca0d9161a5078872ffffc5438275dc",
+ "acsp": {
+  "resource_id": "DM7GQJR9RJP4",
+  "version": 3
+ },
+ "conformance_run": "r_AJFZ5299CM",
+ "unresolved": [
+  "two constitutions (MUSA v1 vs COP directive)",
+  "luna-foundry GET mutates ident",
+  "golden-surface shared sessions vs no ambient authority",
+  "MUSA automation against google.com vs directive 28",
+  "deterministic_sha256 mixes address and value",
+  "program-001/417da6c/browser-hand referenced but absent",
+  "golden-surface commits Android build output",
+  "PURL names resource addresses and value addresses"
+ ],
+ "next": "STASIS-4: OP-S3-17 root cause (intermittent end-to-end failure); Q-016 undeclared operation constraints; R9 presentation test; Q-014/Q-018 needs a human; K-18 and A-001 need human decisions",
+ "moves": [
+  {
+   "rel": "resume",
+   "method": "GET",
+   "href": "/resume/r_D4RSRCHB3G",
+   "effect": "read"
+  },
+  {
+   "rel": "self",
+   "method": "GET",
+   "href": "/checkpoints/r_D4RSRCHB3G",
+   "effect": "read"
+  }
+ ]
+}

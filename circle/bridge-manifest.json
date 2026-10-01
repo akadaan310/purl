@@ -1,6 +1,6 @@
 {
  "format": "bridge-manifest/3",
- "generated_at": "2026-10-01T16:44:04.795Z",
+ "generated_at": "2026-10-01T16:54:39.910Z",
  "generator": "scripts/bridge-manifest.js",
  "secrets": "none: commit ids, paths, names and hashes only",
  "start_here": [
@@ -24,7 +24,7 @@
    "repository": "purl",
    "scope": "src/circle",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "6de16d5",
+   "commit": "f092e04",
    "protocol": "circle/0 + SDK",
    "role": "the bridge: stateless composition of the other systems through SEURL move words; holds no records and no authority",
    "input_kinds": [
@@ -518,7 +518,7 @@
    "repository": "purl",
    "scope": "src/{core,continuity,transport}",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "6de16d5",
+   "commit": "f092e04",
    "protocol": "PURL/0.1",
    "role": "persistent versioned records (resources, events, grants); the circle's record store",
    "input_kinds": [
@@ -1683,9 +1683,9 @@
    "url": "https://github.com/akadaan310/purl",
    "default_branch": "claude/purl-protocol-research-bxevq5",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "6de16d5",
+   "head": "f092e04",
    "branches": {
-    "ccr-d0887a23-30wf63": "6de16d5",
+    "ccr-d0887a23-30wf63": "f092e04",
     "claude/acsp-purl-composition-adsbn6": "18c85bf",
     "claude/purl-protocol-research-bxevq5": "3df4452"
    }
@@ -2414,6 +2414,19 @@
     "MUSA": "d797135"
    },
    "checkpoint": "r_AVPVE4Y83H sha256:5c97f6a57784f6f2c68d8c0e544ceda6914b7c2c00a75f2bc8d21b3e2bb38bb8 (snapshot purl circle/checkpoints/stasis-2/); conformance r_4MWWBV02AY"
+  },
+  {
+   "id": "STASIS-3",
+   "label": "bridge: constitution/evidence model, transition & program models, SDK v0.3, development loop observable, four pre-registered experiments, cold reconstruction with caches cleared",
+   "commits": {
+    "substrateIO": "1657120",
+    "purl": "f092e04",
+    "acsp": "e8d989a",
+    "seurl": "620ff95",
+    "golden-surface": "b113718",
+    "MUSA": "d797135"
+   },
+   "checkpoint": "r_D4RSRCHB3G sha256:15f339af547ce28cd5c618de75b83dd0f78150a27d92354fb1d83528addd6cec (snapshot purl circle/checkpoints/stasis-3/, procedure scripts/stasis-close.js); conformance r_AJFZ5299CM (14 TESTED, 1 EXTERNAL, 3 HUMAN_REVIEWED, 1 CONFLICTING, 0 FAILED)"
   }
  ],
  "records": {
@@ -2426,7 +2439,9 @@
    "report-1.json",
    "report-2.json",
    "report-3.json",
-   "report-4.json"
+   "report-4.json",
+   "report-5.json",
+   "report-6.json"
   ],
   "differential": [
    "results-2.json",

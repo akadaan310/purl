@@ -254,3 +254,30 @@ describe('final checkpoint is recoverable from the committed snapshot alone', ()
     }
   });
 });
+
+describe('STASIS-3 checkpoint is recoverable from the committed snapshot alone', () => {
+  test('content id verifies; every scroll replays; the next note survived', async () => {
+    const { cpSync } = await import('node:fs');
+    const { Store } = await import('../src/continuity/store.js');
+    const { createPurlServer } = await import('../src/transport/server.js');
+    const { PurlClient } = await import('../src/client/client.js');
+    const { sha256 } = await import('../src/circle/adapters.js');
+    const dir = mkdtempSync(join(tmpdir(), 'cp3-replay-'));
+    cpSync(join(HERE, '..', 'circle', 'checkpoints', 'stasis-3', 'purl-store'), dir, { recursive: true });
+    const srv = createPurlServer({ store: new Store({ dataDir: dir }) });
+    await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+    try {
+      const client = new PurlClient(`http://127.0.0.1:${srv.address().port}`);
+      const cp = await client.open('/r/r_D4RSRCHB3G');
+      const { content_id, ...rest } = cp.state;
+      assert.equal(sha256(rest), content_id);
+      assert.equal(content_id, 'sha256:15f339af547ce28cd5c618de75b83dd0f78150a27d92354fb1d83528addd6cec');
+      assert.match(cp.state.next, /^STASIS-4/);
+      assert.equal(cp.state.acsp.resource_id, 'DM7GQJR9RJP4');
+      for (const s of cp.state.scrolls) assert.ok((await client.reconstruct(`/r/${s.id}`)).all_ok, s.id);
+    } finally {
+      srv.closeAllConnections?.();
+      await new Promise((r) => srv.close(r));
+    }
+  });
+});

@@ -1,11 +1,11 @@
 {
  "format": "circle-current-state/2",
- "stasis": "STASIS-2",
+ "stasis": "STASIS-3",
  "status": "CLOSED",
  "date": "2026-10-01",
  "commits": {
-  "purl": "53f21e4 (+ closing commit)",
-  "substrateIO": "16657b5",
+  "substrateIO": "1657120",
+  "purl": "f092e04",
   "acsp": "e8d989a",
   "seurl": "620ff95",
   "golden-surface": "b113718",
@@ -18,77 +18,89 @@
   "golden relay": "not mappable"
  },
  "checkpoint": {
-  "id": "r_AVPVE4Y83H",
-  "content_id": "sha256:5c97f6a57784f6f2c68d8c0e544ceda6914b7c2c00a75f2bc8d21b3e2bb38bb8",
-  "snapshot": "circle/checkpoints/stasis-2/"
+  "id": "r_D4RSRCHB3G",
+  "content_id": "sha256:15f339af547ce28cd5c618de75b83dd0f78150a27d92354fb1d83528addd6cec",
+  "snapshot": "circle/checkpoints/stasis-3/"
  },
  "conformance": {
-  "run": "r_4MWWBV02AY",
+  "run": "r_AJFZ5299CM",
   "summary": {
    "TESTED": 14,
    "EXTERNAL": 1,
    "HUMAN_REVIEWED": 3,
-   "CONFLICTING": 1
-  },
-  "checks": 29,
-  "not_run": 0
+   "CONFLICTING": 1,
+   "FAILED": 0
+  }
  },
  "constitution": {
   "version": 1,
-  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4"
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "adopted_amendments": []
  },
  "experiments": {
-  "EXP-BRIDGE-RECON": {
-   "scores": {
-    "sonnet": 12,
-    "haiku": 8,
-    "default": 13
+  "EXP-AXES-1": {
+   "records": [
+    "axes/record-1.json (invalid)",
+    "axes/record-2.json"
+   ],
+   "verdict": "model not falsified"
+  },
+  "EXP-PROGRAM-MODEL-1": {
+   "records": 10,
+   "verdict": "M1 (on dom sigma)-M5 held"
+  },
+  "EXP-PROGRAM-CLOSURE-1": {
+   "records": [
+    "record-1 (aborted)",
+    "record-2",
+    "record-3",
+    "posthoc-PH1 (not pre-registered)"
+   ],
+   "verdict": {
+    "P1": "held",
+    "P2": "FALSIFIED",
+    "P3": "held",
+    "P4": "held",
+    "P5": "held",
+    "P6": "held"
+   }
+  },
+  "EXP-DOGFOOD-3": {
+   "records": [
+    "record-1 (D2 confounded)",
+    "record-2"
+   ],
+   "verdict": {
+    "D1": "held",
+    "D2": "held",
+    "D3": "held",
+    "D4": "FALSIFIED (not attributable; OP-S3-17)",
+    "D5": "held"
+   }
+  },
+  "EXP-R9": {
+   "participants": 8,
+   "verdict": {
+    "H1": "held",
+    "H2": "FALSIFIED",
+    "H3": "held"
    },
-   "hypothesis": "not falsified overall (2/3)"
-  },
-  "differential": {
-   "cases": 9,
-   "differential": 9
-  },
-  "cold": "circle/cold/"
+   "r9_reported": "3/8 (sonnet 3/4, haiku 0/4)"
+  }
+ },
+ "reproduction": {
+  "cold/report-5.json": "34/34 warm caches",
+  "cold/report-6.json": "34/34 caches cleared"
  },
  "statuses": {
-  "NOT_IMPLEMENTED": [
-   "Golden Surface -> ACSP adapter",
-   "Android client",
-   "cross-provider participants (Q-014)"
-  ],
-  "UNRESOLVED": [
-   "K-18",
-   "A-001",
-   "A-002",
-   "A-003",
-   "A-004",
-   "OP-B1",
-   "OP-B2",
-   "OP-B3",
-   "Q-015",
-   "SDK-1 router enumeration",
-   "C-046",
-   "C-052",
-   "C-053"
-  ],
-  "CONFLICTING": [
-   "two SEURLs",
-   "Scroll x4",
-   "two bridges",
-   "migration 0003 x2"
-  ],
-  "ENVIRONMENT_LIMITED": [
-   "real phone",
-   "deployed relay",
-   "live ACSP write"
-  ]
+  "previous": "see stases.json STASIS-2 and git a241999",
+  "document": "circle/CURRENT-STATE.md"
  },
  "next": [
-  "human decisions K-18/A-001..A-004, OP-B3",
-  "Q-014 via reachable deployment",
-  "pre-registered C-053 closure experiment",
-  "R9 discoverability"
+  "OP-S3-17 root cause",
+  "Q-016",
+  "R9 presentation test (larger n)",
+  "Q-017",
+  "human: K-18, A-001, Q-014/Q-018"
  ]
 }

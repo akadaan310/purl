@@ -1,0 +1,114 @@
+{
+ "protocol": "circle/0 (provisional)",
+ "kind": "resume",
+ "checkpoint": "r_D4RSRCHB3G",
+ "intact": true,
+ "content_id": "sha256:15f339af547ce28cd5c618de75b83dd0f78150a27d92354fb1d83528addd6cec",
+ "constitution_changed": false,
+ "scrolls": [
+  {
+   "id": "r_0TVZYAYQM3",
+   "version": 5,
+   "now": 5,
+   "changed_since": false
+  },
+  {
+   "id": "r_B2W1BDZRGM",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_GC22PTT53A",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_4TJ4VGQE6M",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_TRWFZ9PH0H",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_SBFPB6MX5K",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_KN65G0KRVD",
+   "version": 5,
+   "now": 5,
+   "changed_since": false
+  },
+  {
+   "id": "r_9S0PTGVEP7",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_QA9J4F0P2G",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_A7TX83A9W9",
+   "version": 2,
+   "now": 2,
+   "changed_since": false
+  },
+  {
+   "id": "r_4PT0ZMW6QZ",
+   "version": 2,
+   "now": 2,
+   "changed_since": false
+  }
+ ],
+ "active_scroll": "r_4PT0ZMW6QZ",
+ "next": "STASIS-4: OP-S3-17 root cause (intermittent end-to-end failure); Q-016 undeclared operation constraints; R9 presentation test; Q-014/Q-018 needs a human; K-18 and A-001 need human decisions",
+ "unresolved": [
+  "two constitutions (MUSA v1 vs COP directive)",
+  "luna-foundry GET mutates ident",
+  "golden-surface shared sessions vs no ambient authority",
+  "MUSA automation against google.com vs directive 28",
+  "deterministic_sha256 mixes address and value",
+  "program-001/417da6c/browser-hand referenced but absent",
+  "golden-surface commits Android build output",
+  "PURL names resource addresses and value addresses"
+ ],
+ "semantics": "Resuming re-reads addresses and records; no transcript is involved. Differences since the checkpoint are reported, not hidden.",
+ "constitution": {
+  "version": 1,
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "href": "/constitution"
+ },
+ "moves": [
+  {
+   "rel": "active-scroll",
+   "method": "GET",
+   "href": "/scrolls/r_4PT0ZMW6QZ",
+   "effect": "read"
+  },
+  {
+   "rel": "conformance",
+   "method": "GET",
+   "href": "/conformance",
+   "effect": "read"
+  },
+  {
+   "rel": "entry",
+   "method": "GET",
+   "href": "/",
+   "effect": "read"
+  }
+ ]
+}

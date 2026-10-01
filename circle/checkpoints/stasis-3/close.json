@@ -1,0 +1,20 @@
+{
+ "stasis": 3,
+ "closed_by": "stasis-3-close",
+ "program_status": 201,
+ "conformance": {
+  "run": "r_AJFZ5299CM",
+  "summary": {
+   "TESTED": 14,
+   "EXTERNAL": 1,
+   "HUMAN_REVIEWED": 3,
+   "CONFLICTING": 1
+  },
+  "implementation_id": "sha256:93cfb40ac250a41749e492112339fc0c6d1841f6917a136a8acaa03ddb00bc35"
+ },
+ "checkpoint": "r_D4RSRCHB3G",
+ "content_id": "sha256:15f339af547ce28cd5c618de75b83dd0f78150a27d92354fb1d83528addd6cec",
+ "intact": true,
+ "acsp_resource": "DM7GQJR9RJP4",
+ "procedure": "scripts/stasis-close.js"
+}
