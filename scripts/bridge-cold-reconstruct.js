@@ -21,7 +21,10 @@ const BRANCH = process.env.BRANCH ?? 'ccr-d0887a23-30wf63';
 const SOURCE = process.env.SOURCE ?? 'local';
 const REPOS = { purl: 'purl', substrateIO: 'substrateIO', NetGovComEduGovOrgEduGovComNet: 'NetGovComEduGovOrgEduGovComNet', seurl: 'seurl', 'golden-surface': 'golden-surface', MUSA: 'MUSA' };
 const WORK = mkdtempSync(join(tmpdir(), 'cold-'));
-const report = { started: new Date().toISOString(), source: SOURCE, branch: BRANCH, work: WORK, clones: {}, suites: {}, hashes: {}, stases: {}, questions: {}, verdicts: [] };
+const HOME = process.env.HOME ?? '/root';
+const CACHES = { npm: join(HOME, '.npm'), pip: join(HOME, '.cache', 'pip'), node_gyp: join(HOME, '.cache', 'node-gyp') };
+const report = { started: new Date().toISOString(), source: SOURCE, branch: BRANCH, work: WORK, cache_state: process.env.CACHE_STATE ?? 'warm (not cleared)',
+  caches_present: Object.fromEntries(Object.entries(CACHES).map(([k, d]) => [k, existsSync(d)])), clones: {}, suites: {}, hashes: {}, stases: {}, questions: {}, verdicts: [] };
 const sha = (b) => 'sha256:' + createHash('sha256').update(b).digest('hex');
 const sh = (cmd, args, cwd, timeout = 900000) => { const r = spawnSync(cmd, args, { cwd, encoding: 'utf8', timeout, maxBuffer: 1 << 26 }); return { code: r.status, out: (r.stdout ?? '') + (r.stderr ?? '') }; };
 const step = (name, ok, detail) => { report.verdicts.push({ name, ok, detail }); console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}  ${detail ?? ''}`); };
@@ -88,6 +91,20 @@ for (const [name, cmd, args, dir, judge] of suites) {
   }
 }
 
+// 3b. derived artifacts regenerate identically from the clone (STASIS-3)
+{
+  const r = sh('node', ['scripts/projection-matrix.js'], W('purl'));
+  const now = existsSync(W('purl/circle/PROJECTION-MATRIX.json')) ? JSON.parse(readFileSync(W('purl/circle/PROJECTION-MATRIX.json'), 'utf8')) : null;
+  const ref = JSON.parse(execFileSync('git', ['-C', W('purl'), 'show', 'HEAD:circle/PROJECTION-MATRIX.json'], { encoding: 'utf8' }));
+  const key = (m) => JSON.stringify(m.measured.filter((b) => !b.id.startsWith('B7')).map((b) => [b.id, b.n, b.loss_H_source_given_output_bits, b.H_output_given_source_bits]));
+  step('projection matrix B1-B6 reproduces committed values (B7 depends on git history length)', r.code === 0 && now && key(now) === key(ref), r.code === 0 ? '' : r.out.slice(-200));
+  const m = sh('node', ['scripts/bridge-manifest.js'], W('purl'));
+  const gen = JSON.parse(readFileSync(W('purl/circle/bridge-manifest.json'), 'utf8'));
+  const com = JSON.parse(execFileSync('git', ['-C', W('purl'), 'show', 'HEAD:circle/bridge-manifest.json'], { encoding: 'utf8' }));
+  const ck = (x) => JSON.stringify(x.components.map((c) => [c.name, c.protocol, c.role, c.operations, c.research_status, c.security_boundary]));
+  step('bridge manifest regenerates the same components (operations, declared fields)', m.code === 0 && ck(gen) === ck(com), m.code === 0 ? `${gen.components.length} components` : m.out.slice(-200));
+}
+
 // 4–6. restart the circle from the clone, from committed snapshots only
 const { startCircle } = await import(pathToFileURL(W('purl/scripts/circle-lib.js')));
 const purlDir = mkdtempSync(join(tmpdir(), 'cold-purl-'));
@@ -110,6 +127,9 @@ try {
     'How do I continue?': ['/resume/r_HMGMD46GSD', (d) => d.next],
     'How do I test?': ['/tests', (d) => `${d.runs.length} recorded runs`],
     'How do I reproduce?': ['/stases/1', (d) => d.reconstruct],
+    'What is unresolved?': ['/research/open', (d) => `${d.open.length} open items`],
+    'What nomenclature exists?': ['/nomenclature', (d) => `${d.count} terms`],
+    'What does the code claim?': ['/code', (d) => d.ok && `${d.modules.length} modules, descriptors verified`],
   };
   for (const [q, [path, pick]] of Object.entries(ques)) {
     const r = await get(path);
