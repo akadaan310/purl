@@ -1,0 +1,102 @@
+{
+ "experiment": "EXP-R9",
+ "started": "2026-10-01T16:35:33.396Z",
+ "cells": [
+  {
+   "inst": 1,
+   "cell": 1,
+   "surface": "pre",
+   "prompt": "neutral",
+   "model": "sonnet",
+   "purl_commit": "a9133b2",
+   "url": "http://127.0.0.1:8601/",
+   "circle_direct": "http://127.0.0.1:36347",
+   "acsp_resource": "F7SZX8RREMZW",
+   "log": "logs/inst-1-cell-1-sonnet.jsonl"
+  },
+  {
+   "inst": 2,
+   "cell": 1,
+   "surface": "pre",
+   "prompt": "neutral",
+   "model": "haiku",
+   "purl_commit": "a9133b2",
+   "url": "http://127.0.0.1:8602/",
+   "circle_direct": "http://127.0.0.1:36867",
+   "acsp_resource": "4EA5HXK4G33S",
+   "log": "logs/inst-2-cell-1-haiku.jsonl"
+  },
+  {
+   "inst": 3,
+   "cell": 2,
+   "surface": "pre",
+   "prompt": "eliciting",
+   "model": "sonnet",
+   "purl_commit": "a9133b2",
+   "url": "http://127.0.0.1:8603/",
+   "circle_direct": "http://127.0.0.1:35831",
+   "acsp_resource": "FJJ37MV48KCT",
+   "log": "logs/inst-3-cell-2-sonnet.jsonl"
+  },
+  {
+   "inst": 4,
+   "cell": 2,
+   "surface": "pre",
+   "prompt": "eliciting",
+   "model": "haiku",
+   "purl_commit": "a9133b2",
+   "url": "http://127.0.0.1:8604/",
+   "circle_direct": "http://127.0.0.1:37345",
+   "acsp_resource": "WWTP6G0NTK7C",
+   "log": "logs/inst-4-cell-2-haiku.jsonl"
+  },
+  {
+   "inst": 5,
+   "cell": 3,
+   "surface": "current",
+   "prompt": "neutral",
+   "model": "sonnet",
+   "purl_commit": "6de16d5",
+   "url": "http://127.0.0.1:8605/",
+   "circle_direct": "http://127.0.0.1:39361",
+   "acsp_resource": "VYBRDYXPPAGN",
+   "log": "logs/inst-5-cell-3-sonnet.jsonl"
+  },
+  {
+   "inst": 6,
+   "cell": 3,
+   "surface": "current",
+   "prompt": "neutral",
+   "model": "haiku",
+   "purl_commit": "6de16d5",
+   "url": "http://127.0.0.1:8606/",
+   "circle_direct": "http://127.0.0.1:40143",
+   "acsp_resource": "K0Z4ATDBMZ51",
+   "log": "logs/inst-6-cell-3-haiku.jsonl"
+  },
+  {
+   "inst": 7,
+   "cell": 4,
+   "surface": "current",
+   "prompt": "eliciting",
+   "model": "sonnet",
+   "purl_commit": "6de16d5",
+   "url": "http://127.0.0.1:8607/",
+   "circle_direct": "http://127.0.0.1:46161",
+   "acsp_resource": "BFXB31D0447N",
+   "log": "logs/inst-7-cell-4-sonnet.jsonl"
+  },
+  {
+   "inst": 8,
+   "cell": 4,
+   "surface": "current",
+   "prompt": "eliciting",
+   "model": "haiku",
+   "purl_commit": "6de16d5",
+   "url": "http://127.0.0.1:8608/",
+   "circle_direct": "http://127.0.0.1:40933",
+   "acsp_resource": "NAM4WPTZKK8B",
+   "log": "logs/inst-8-cell-4-haiku.jsonl"
+  }
+ ]
+}

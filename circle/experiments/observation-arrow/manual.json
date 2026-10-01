@@ -1,0 +1,36 @@
+{
+ "rule": "R9 = 1 iff the report states that ACSP events/records are projected or observed into the substrate (by name, or by describing ACSP event list -> substrate observation). Mentioning an observation id without saying what it observes, or stating the wrong direction, scores 0.",
+ "scored_by": "the building session, after reading each report once; not blind (condition visible in the file name)",
+ "1-sonnet": {
+  "r9": false,
+  "reason": "says TALK 'recorded observation O-000001 (SIMULATED)' but never states what it observes or that it is ACSP events measured by the substrate"
+ },
+ "1-haiku": {
+  "r9": false,
+  "reason": "'Observation Recorded (O-000002): Published findings to ACSP continuity resource' — wrong direction (a substrate observation of ACSP events described as publishing to ACSP). (Its other claims, e.g. 10 scrolls, match server state: it created them.)"
+ },
+ "2-sonnet": {
+  "r9": true,
+  "reason": "arrow 3: 'ACSP event list → SubstrateIO observation', SIMULATED, with measured label bigrams and session switches; names the manual route"
+ },
+ "2-haiku": {
+  "r9": false,
+  "reason": "lists as undetermined 'whether observations recorded in ACSP flow into substrate computations'; arrow not stated"
+ },
+ "3-sonnet": {
+  "r9": true,
+  "reason": "POSTed /acsp/r/{id}/observe: 'applied projection P-ACSP-EV-1 to the resource's event list', recorded O-000001, UNRESOLVED status"
+ },
+ "3-haiku": {
+  "r9": false,
+  "reason": "'created an ACSP observation record (O-000001) documenting the system reconstruction' — misdescribes what the observation is; arrow not stated"
+ },
+ "4-sonnet": {
+  "r9": true,
+  "reason": "arrow 4: 'ACSP events → substrate observation (projection P-ACSP-EV-1)' with transformation and declared loss; also noticed origin-dependent status"
+ },
+ "4-haiku": {
+  "r9": false,
+  "reason": "the observe route appears only in 'next steps possible'; no statement of the arrow"
+ }
+}

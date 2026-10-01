@@ -1,0 +1,6 @@
+{"seq":1,"t":"2026-10-01T16:37:15.434Z","method":"GET","url":"/","status":200,"bytes":5583,"markers":{"P-ACSP-EV-1":false,"/observe":false}}
+{"seq":2,"t":"2026-10-01T16:37:20.168Z","method":"GET","url":"/constitution","status":200,"bytes":13426,"markers":{"P-ACSP-EV-1":false,"/observe":false}}
+{"seq":3,"t":"2026-10-01T16:37:24.132Z","method":"GET","url":"/acsp/r/WWTP6G0NTK7C","status":200,"bytes":1657,"markers":{"P-ACSP-EV-1":false,"/observe":true}}
+{"seq":4,"t":"2026-10-01T16:37:25.966Z","method":"GET","url":"/acsp/r/WWTP6G0NTK7C/events","status":200,"bytes":2869,"markers":{"P-ACSP-EV-1":false,"/observe":false}}
+{"seq":5,"t":"2026-10-01T16:37:28.763Z","method":"GET","url":"/environment","status":404,"bytes":267,"markers":{"P-ACSP-EV-1":false,"/observe":false}}
+{"seq":6,"t":"2026-10-01T16:37:56.648Z","method":"GET","url":"/operations","status":200,"bytes":22478,"markers":{"P-ACSP-EV-1":false,"/observe":false}}

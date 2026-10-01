@@ -1,0 +1,238 @@
+{
+ "rows": [
+  {
+   "inst": 1,
+   "cell": 1,
+   "surface": "pre",
+   "prompt": "neutral",
+   "model": "sonnet",
+   "requests": 19,
+   "gets": 17,
+   "posts": 2,
+   "sessions": [
+    "subagent-recon-1"
+   ],
+   "exposed": true,
+   "first_exposure_seq": 2,
+   "exposure_urls": [
+    "/sdk",
+    "/acsp/r/F7SZX8RREMZW"
+   ],
+   "requested_arrow": true,
+   "r9_mechanical": true,
+   "r9_manual": false,
+   "r9_manual_reason": "says TALK 'recorded observation O-000001 (SIMULATED)' but never states what it observes or that it is ACSP events measured by the substrate",
+   "miss": "reporting failure (exposed, not reported)"
+  },
+  {
+   "inst": 2,
+   "cell": 1,
+   "surface": "pre",
+   "prompt": "neutral",
+   "model": "haiku",
+   "requests": 21,
+   "gets": 18,
+   "posts": 3,
+   "sessions": [
+    "agent-stasis2-checkpoint-01"
+   ],
+   "exposed": true,
+   "first_exposure_seq": 3,
+   "exposure_urls": [
+    "/acsp/r/4EA5HXK4G33S",
+    "/sdk",
+    "/acsp/r/4EA5HXK4G33S/observe"
+   ],
+   "requested_arrow": true,
+   "r9_mechanical": false,
+   "r9_manual": false,
+   "r9_manual_reason": "'Observation Recorded (O-000002): Published findings to ACSP continuity resource' — wrong direction (substrate observation of ACSP described as publishing to ACSP); also claims 10 scrolls and STASIS-2 completion, contradicted by server state",
+   "miss": "reporting failure (exposed, not reported)"
+  },
+  {
+   "inst": 3,
+   "cell": 2,
+   "surface": "pre",
+   "prompt": "eliciting",
+   "model": "sonnet",
+   "requests": 24,
+   "gets": 23,
+   "posts": 1,
+   "sessions": [
+    "agent-recon-01"
+   ],
+   "exposed": true,
+   "first_exposure_seq": 5,
+   "exposure_urls": [
+    "/sdk",
+    "/acsp/r/FJJ37MV48KCT"
+   ],
+   "requested_arrow": true,
+   "r9_mechanical": true,
+   "r9_manual": true,
+   "r9_manual_reason": "arrow 3: 'ACSP event list → SubstrateIO observation', SIMULATED, with measured label bigrams and session switches; names the manual route",
+   "miss": null
+  },
+  {
+   "inst": 4,
+   "cell": 2,
+   "surface": "pre",
+   "prompt": "eliciting",
+   "model": "haiku",
+   "requests": 6,
+   "gets": 6,
+   "posts": 0,
+   "sessions": [],
+   "exposed": true,
+   "first_exposure_seq": 3,
+   "exposure_urls": [
+    "/acsp/r/WWTP6G0NTK7C"
+   ],
+   "requested_arrow": false,
+   "r9_mechanical": true,
+   "r9_manual": false,
+   "r9_manual_reason": "lists as undetermined 'whether observations recorded in ACSP flow into substrate computations'; arrow not stated",
+   "miss": "reporting failure (exposed, not reported)"
+  },
+  {
+   "inst": 5,
+   "cell": 3,
+   "surface": "current",
+   "prompt": "neutral",
+   "model": "sonnet",
+   "requests": 19,
+   "gets": 16,
+   "posts": 3,
+   "sessions": [
+    "claude-agent-r9-continuation"
+   ],
+   "exposed": true,
+   "first_exposure_seq": 1,
+   "exposure_urls": [
+    "/",
+    "/sdk",
+    "/acsp/r/VYBRDYXPPAGN",
+    "/research",
+    "/projections",
+    "/acsp/r/VYBRDYXPPAGN/observe",
+    "/checkpoints"
+   ],
+   "requested_arrow": true,
+   "r9_mechanical": true,
+   "r9_manual": true,
+   "r9_manual_reason": "POSTed /acsp/r/{id}/observe: 'applied projection P-ACSP-EV-1 to the resource's event list', recorded O-000001, UNRESOLVED status",
+   "miss": null
+  },
+  {
+   "inst": 6,
+   "cell": 3,
+   "surface": "current",
+   "prompt": "neutral",
+   "model": "haiku",
+   "requests": 24,
+   "gets": 21,
+   "posts": 3,
+   "sessions": [
+    "claude-agent-investigation"
+   ],
+   "exposed": true,
+   "first_exposure_seq": 1,
+   "exposure_urls": [
+    "/",
+    "/sdk",
+    "/research",
+    "/acsp/r/K0Z4ATDBMZ51",
+    "/acsp/r/K0Z4ATDBMZ51/observe"
+   ],
+   "requested_arrow": true,
+   "r9_mechanical": true,
+   "r9_manual": false,
+   "r9_manual_reason": "'created an ACSP observation record (O-000001) documenting the system reconstruction' — misdescribes what the observation is; arrow not stated",
+   "miss": "reporting failure (exposed, not reported)"
+  },
+  {
+   "inst": 7,
+   "cell": 4,
+   "surface": "current",
+   "prompt": "eliciting",
+   "model": "sonnet",
+   "requests": 38,
+   "gets": 36,
+   "posts": 2,
+   "sessions": [
+    "x",
+    "session-claude-explorer-1"
+   ],
+   "exposed": true,
+   "first_exposure_seq": 1,
+   "exposure_urls": [
+    "/",
+    "/sdk",
+    "/projections",
+    "/acsp/r/BFXB31D0447N",
+    "/acsp/r/BFXB31D0447N/observe"
+   ],
+   "requested_arrow": true,
+   "r9_mechanical": true,
+   "r9_manual": true,
+   "r9_manual_reason": "arrow 4: 'ACSP events → substrate observation (projection P-ACSP-EV-1)' with transformation and declared loss; also noticed origin-dependent status",
+   "miss": null
+  },
+  {
+   "inst": 8,
+   "cell": 4,
+   "surface": "current",
+   "prompt": "eliciting",
+   "model": "haiku",
+   "requests": 26,
+   "gets": 25,
+   "posts": 1,
+   "sessions": [],
+   "exposed": true,
+   "first_exposure_seq": 1,
+   "exposure_urls": [
+    "/",
+    "/sdk",
+    "/research",
+    "/acsp/r/NAM4WPTZKK8B"
+   ],
+   "requested_arrow": false,
+   "r9_mechanical": false,
+   "r9_manual": false,
+   "r9_manual_reason": "the observe route appears only in 'next steps possible'; no statement of the arrow",
+   "miss": "reporting failure (exposed, not reported)"
+  }
+ ],
+ "table": {
+  "pre/neutral": {
+   "n": 2,
+   "r9": 0,
+   "exposed": 2
+  },
+  "pre/eliciting": {
+   "n": 2,
+   "r9": 1,
+   "exposed": 2
+  },
+  "current/neutral": {
+   "n": 2,
+   "r9": 1,
+   "exposed": 2
+  },
+  "current/eliciting": {
+   "n": 2,
+   "r9": 1,
+   "exposed": 2
+  }
+ },
+ "verdicts": {
+  "H1": "held",
+  "H2": "FALSIFIED (a pre-neutral participant was exposed and did not report)",
+  "H3": "held"
+ },
+ "mechanical_vs_manual_disagreements": [
+  "1-sonnet",
+  "2-haiku",
+  "3-haiku"
+ ]
+}

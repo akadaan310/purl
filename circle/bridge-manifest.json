@@ -1,6 +1,6 @@
 {
  "format": "bridge-manifest/3",
- "generated_at": "2026-10-01T16:02:03.964Z",
+ "generated_at": "2026-10-01T16:44:04.795Z",
  "generator": "scripts/bridge-manifest.js",
  "secrets": "none: commit ids, paths, names and hashes only",
  "start_here": [
@@ -24,7 +24,7 @@
    "repository": "purl",
    "scope": "src/circle",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "bba1b5d",
+   "commit": "6de16d5",
    "protocol": "circle/0 + SDK",
    "role": "the bridge: stateless composition of the other systems through SEURL move words; holds no records and no authority",
    "input_kinds": [
@@ -289,7 +289,7 @@
     },
     {
      "method": "POST",
-     "path": "/acsp/r/{id}/observe?session={s}&origin={o}"
+     "path": "/acsp/r/{id}/observe?session={s}"
     },
     {
      "method": "GET",
@@ -363,7 +363,7 @@
     "POST /programs/transform?source={…}&t={…}&p={…}&session={s}",
     "POST /scrolls/{id}/build?session={s}",
     "POST /checkpoints?session={s}",
-    "POST /acsp/r/{id}/observe?session={s}&origin={o}"
+    "POST /acsp/r/{id}/observe?session={s}"
    ],
    "constitutional_artifact": [
     {
@@ -409,6 +409,7 @@
      "purl/test/implementation-id.test.js",
      "purl/test/manifest.test.js",
      "purl/test/musa.test.js",
+     "purl/test/observe-origin.test.js",
      "purl/test/purl-limit.test.js",
      "purl/test/research.test.js",
      "purl/test/sdk-v03.test.js",
@@ -517,7 +518,7 @@
    "repository": "purl",
    "scope": "src/{core,continuity,transport}",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "bba1b5d",
+   "commit": "6de16d5",
    "protocol": "PURL/0.1",
    "role": "persistent versioned records (resources, events, grants); the circle's record store",
    "input_kinds": [
@@ -688,6 +689,7 @@
      "purl/test/implementation-id.test.js",
      "purl/test/manifest.test.js",
      "purl/test/musa.test.js",
+     "purl/test/observe-origin.test.js",
      "purl/test/purl-limit.test.js",
      "purl/test/research.test.js",
      "purl/test/sdk-v03.test.js",
@@ -869,7 +871,7 @@
    "repository": "substrateIO",
    "scope": "substrate/, tools/purl_server.py",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "da503a4",
+   "commit": "1657120",
    "protocol": "substrate-purl/0 (provisional)",
    "role": "values, typed terms, executions, projections, observations; research registries",
    "input_kinds": [
@@ -1681,9 +1683,9 @@
    "url": "https://github.com/akadaan310/purl",
    "default_branch": "claude/purl-protocol-research-bxevq5",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "bba1b5d",
+   "head": "6de16d5",
    "branches": {
-    "ccr-d0887a23-30wf63": "bd0d280",
+    "ccr-d0887a23-30wf63": "6de16d5",
     "claude/acsp-purl-composition-adsbn6": "18c85bf",
     "claude/purl-protocol-research-bxevq5": "3df4452"
    }
@@ -1708,9 +1710,9 @@
    "url": "https://github.com/akadaan310/substrateIO",
    "default_branch": "claude/research-substrate-bootstrap-bfd02a",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "da503a4",
+   "head": "1657120",
    "branches": {
-    "ccr-d0887a23-30wf63": "da503a4",
+    "ccr-d0887a23-30wf63": "1657120",
     "claude/acsp-program-001-k616hw": "5073595",
     "claude/research-substrate-bootstrap-bfd02a": "7ace119"
    }
@@ -2212,10 +2214,10 @@
   },
   {
    "method": "POST",
-   "path": "/acsp/r/{id}/observe?session={s}&origin={o}",
+   "path": "/acsp/r/{id}/observe?session={s}",
    "edge": "OBSERVE",
    "effect": "append-only",
-   "description": "record P-ACSP-EV-1 observation"
+   "description": "record a P-ACSP-EV-1 observation; origin (harness|service) is configured by the operator, not declared by the participant"
   },
   {
    "method": "GET",

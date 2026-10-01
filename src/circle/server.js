@@ -529,7 +529,7 @@ export function createCircle(cfg) {
       authority: 'Reading confers nothing. The circle holds no capability for this resource.',
     }, [
       move('events', 'GET', `/acsp/r/${id}/events`, 'read'),
-      move('project', 'POST', `/acsp/r/${id}/observe?origin=service|harness`, 'records a SubstrateIO observation of the event list'),
+      move('project', 'POST', `/acsp/r/${id}/observe`, 'records a SubstrateIO observation (P-ACSP-EV-1) of the event list; origin is the operator-configured one', { origin: cfg.acspOrigin ?? null }),
       move('source', 'GET', `${cfg.acspBase}/r/${id}`, 'read', { system: 'acsp' }),
     ]);
   }
@@ -598,9 +598,17 @@ export function createCircle(cfg) {
       m = /^\/acsp\/r\/([^/]+)\/observe$/.exec(path);
       if (m) {
         requireSession(q);
+        // where the events come from is a fact of the configured ACSP, set by the operator; a participant
+        // cannot declare it, because the observation's epistemic status follows from it (EXP-R9: the same
+        // event list was SIMULATED via TALK and UNRESOLVED via ?origin=service)
+        const origin = cfg.acspOrigin ?? null;
+        if (q.has('origin') && q.get('origin') !== origin) {
+          throw new CircleError(422, 'origin_mismatch', `This circle's ACSP is configured as origin "${origin}" by its operator; the origin is not the participant's to declare (it sets the observation's epistemic status).`, { configured_origin: origin });
+        }
+        if (!origin) throw new CircleError(503, 'origin_not_configured', 'The operator has not declared where this ACSP\'s events come from; no observation is recorded without it.');
         const ev = await acsp.events(m[1]);
         if (!ev.ok) throw new CircleError(ev.available ? ev.status : 503, 'acsp_error', 'could not read ACSP events', { reason: ev.reason });
-        const o = await substrate.observe('P-ACSP-EV-1', q.get('origin') ?? '', ev.json);
+        const o = await substrate.observe('P-ACSP-EV-1', origin, ev.json);
         return { status: o.status ?? 503, doc: envelope('observation', { substrate: o.json ?? unavailable('adapter.substrate', o) }) };
       }
       if (path === '/constitution/amendments') {

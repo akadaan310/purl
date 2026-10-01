@@ -74,3 +74,29 @@ construction, and the measure would then become one of coverage. Not done.
 * Other providers' sessions: not automated (§20). Q-014 needs a human.
 * The live ACSP was never written to (only read), because a TALK would add a
   real pending proposal to the field-trial resource.
+
+## STASIS-3: the development loop as observable transitions (EXP-DOGFOOD-3)
+
+F-D1 (above) said the environment hosted the computational loop but not the
+development loop. STASIS-3 adds `POST /dev/iterations` and `GET /self` (six
+separate self-* concepts), and replays the phase's 22 purl commits through
+them. Each commit's **own** test suite was run in a worktree. SPEC
+pre-registered in 707c777.
+
+| record | status | D1 transitions complete | D2 evidence currency | D3 nonexistent commit refused | D4 every commit passes its own suite | D5 GETs change nothing |
+|---|---|---|---|---|---|---|
+| 1 | D2 **confounded** | held (14/14) | "held" vacuously: no commit was `current`, because `implementation_id` hashed the disk and I created a file during the run (SF-7; fixed in e8eaf36) | held | held | held |
+| 2 | valid | held (22/22) | **held**: exactly the 6 commits sharing HEAD's implementation are `current`, the other 16 `none` | held | **FALSIFIED**: bba1b5d and e68f144 failed the end-to-end test | held |
+
+**Diagnosis of D4 (record-2), done before attributing.** Both failing commits
+are documentation-only. Their `implementation_id` (computed by the dev
+iteration itself) equals that of neighbouring commits that passed (effddc…,
+172673…). Identical code passed and failed, so the failure is not
+attributable to those commits. It is an intermittent end-to-end failure under
+load (OP-S3-17, root cause open). The dev-iteration record is what made this
+diagnosis possible: development observed as transitions with evidence did
+real work here.
+
+What remains outside the loop: the circle records development and never
+performs it. No route writes code or makes a commit (`/self`: self-harnessing,
+limit).

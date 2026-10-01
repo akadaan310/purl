@@ -105,7 +105,7 @@ export const ROUTES = [
   ['GET', '/adapters', 'ADDRESS', 'pure', 'adapter contracts'],
   ['GET', '/acsp/r/{id}', 'PROJECT', 'pure', 'an ACSP record, addressable here'],
   ['GET', '/acsp/r/{id}/events', 'RESOLVE', 'pure', 'ACSP events'],
-  ['POST', '/acsp/r/{id}/observe?session={s}&origin={o}', 'OBSERVE', 'append-only', 'record P-ACSP-EV-1 observation'],
+  ['POST', '/acsp/r/{id}/observe?session={s}', 'OBSERVE', 'append-only', 'record a P-ACSP-EV-1 observation; origin (harness|service) is configured by the operator, not declared by the participant'],
   ['GET', '/naici/{surface|read|legal|trace}?url={circle url}', 'OBSERVE', 'pure', 'NAI-CI structures of circle documents'],
 ].map(([method, path, edge, effect, description]) => ({ method, path, edge, effect, description }));
 
@@ -504,9 +504,9 @@ export function createBridge(x) {
         const sp = await substrate.projections();
         return envelope('projections', {
           substrate: sp.available ? sp.json?.projections ?? [] : { unavailable: sp.reason },
-          record: 'POST /acsp/r/{id}/observe?session={s}&origin=harness|service: applies P-ACSP-EV-1 to that resource\'s event list',
+          record: 'POST /acsp/r/{id}/observe?session={s}: applies P-ACSP-EV-1 to that resource\'s event list (origin configured by the operator)',
           addressed_transition: { schema: '/sdk/schemas/addressed-transition', coverage: '/transitions/coverage', projectors: ['purl', 'acsp', 'substrate', 'seurl', 'git', 'golden', 'checkpoint'] },
-        }, [move('coverage', 'GET', '/transitions/coverage', 'read'), ...(cfg.acspResource ? [move('observe-continuity', 'POST', `/acsp/r/${cfg.acspResource}/observe?session={s}&origin=harness`, 'records an observation')] : [])]);
+        }, [move('coverage', 'GET', '/transitions/coverage', 'read'), ...(cfg.acspResource ? [move('observe-continuity', 'POST', `/acsp/r/${cfg.acspResource}/observe?session={s}`, 'records an observation')] : [])]);
       }
       if (path === '/observatory') return envelope('observatory', await observatory(), [move('tests', 'GET', '/tests', 'read'), move('programs', 'GET', '/programs', 'read'), move('stases', 'GET', '/stases', 'read')]);
       if (path === '/stases') { const s = stases(); return envelope('stases', s, s.stases.map((x) => move(x.id, 'GET', `/stases/${x.n}`, 'read'))); }

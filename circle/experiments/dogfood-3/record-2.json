@@ -1,0 +1,2439 @@
+{
+ "experiment": "EXP-DOGFOOD-3",
+ "spec": "circle/experiments/dogfood-3/SPEC.md",
+ "started": "2026-10-01T16:37:17.474Z",
+ "base": "53f21e4",
+ "head": "6de16d521de106e33f3e082f3bfec96422887d15",
+ "working_tree_clean": true,
+ "confounds": [
+  "sibling repositories at their current heads",
+  "node_modules linked from the main checkout"
+ ],
+ "suites": [
+  {
+   "commit": "a2419991d32d0e25386f88ef775ced49164a7b74",
+   "subject": "bridge: close STASIS-2 (checkpoint r_AVPVE4Y83H, conformance r_4MWWBV02AY)",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 80,
+   "pass": 80,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:b868506a98bdf2a7f4003261bd14c2e08a924f1873d599070e9473374a3eb9c6",
+   "seconds": 17
+  },
+  {
+   "commit": "9341d2f670d57a10db169de2fa0604311a4c3afc",
+   "subject": "bridge: cold reconstruction from GitHub (report-2: 23 pass, 6 fail); correct the canonical-state branch claim",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 80,
+   "pass": 80,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:973fd54bfc240cfa615032bfe1c98d41b9289ebc884d3da63f9e5d9b62c3620f",
+   "seconds": 15
+  },
+  {
+   "commit": "c0ead8b9c97910b93331ae59d89928c22da36ee4",
+   "subject": "bridge: cold reconstruction report-3 from GitHub: 29 pass, 0 fail",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 80,
+   "pass": 80,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:86e4a7221eaf5e05a604c6fab6451bc2bd4aa59768f3e6969677f54e8080b5cf",
+   "seconds": 14
+  },
+  {
+   "commit": "103eacafd78009cdad45dbbd92823f3222407b42",
+   "subject": "bridge: STASIS-3 build plan (phases, executable outputs, falsifiable acceptance), written before implementation",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 80,
+   "pass": 80,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:9a8d8cfd8b836ab0f723601015d9c7ea2bb5e9ad3cc4d88857c8132a9e30080b",
+   "seconds": 13
+  },
+  {
+   "commit": "d96d4cad06ff202d21b27564bc64b65291219051",
+   "subject": "bridge: phase 1-2 records: cold report-4 (independent re-run from GitHub), nomenclature conflict register and measured schema fit",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 80,
+   "pass": 80,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:15d3dc8ce0d1e7832b4e08a3cc6eac0cc8ec09c6f80a4de59d4d4b2ff690e999",
+   "seconds": 12
+  },
+  {
+   "commit": "0d617f0a89688bba858e9b3f05838bf44d0c5894",
+   "subject": "bridge: constitution model with separate identities; conformance x authority probed in all four quadrants; evidence currency",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 80,
+   "pass": 80,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:05c50484c2d2f4e438cb5fc1047ff5209ddeed58fa2bd0b0bf9282ae7b08051e",
+   "seconds": 12
+  },
+  {
+   "commit": "b7e6558156419f182af6b876b1608a170e08071a",
+   "subject": "bridge: transition model; projection matrix measured by substrateIO over committed artifacts",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 82,
+   "pass": 82,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:3748af95195161fa6bcec4cca6d058a60cc53e1c934d838d7f3ccff54a381308",
+   "seconds": 11
+  },
+  {
+   "commit": "cc8885051a1590a6843dd268d8191d4b13c07a47",
+   "subject": "bridge: manifest v3, one record per component with every XXIV field; generated vs declared provenance",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 86,
+   "pass": 86,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:aea4a44090c267796de0e8d7e722910c257de1bbf1fc89a68faa4c3ada851cf8",
+   "seconds": 11
+  },
+  {
+   "commit": "de9fca10ffe3c4a3d4f15238e3ac0b23f2957ebd",
+   "subject": "bridge: SDK v0.3 — greeting, nomenclature/experiments/research/examples routes, verified code descriptors, eight addressable IDE stages",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 89,
+   "pass": 89,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:409d25d8c21bca13a872ac814ba73d2cfae4753d52ca157d12f1737d1a17dc1a",
+   "seconds": 12
+  },
+  {
+   "commit": "716edfa09b755b8eefd4c6374019a1b2637410b2",
+   "subject": "experiment: pre-register EXP-PROGRAM-MODEL-1 (SEURL program <-> circle Scroll record)",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 89,
+   "pass": 89,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:cb3557ee4bc6fae800ce954da8db96bd3c62cd25a7e630543a19984a4d945b3d",
+   "seconds": 13
+  },
+  {
+   "commit": "bd0d280dae5a6a29db068b075c940b7f955c5cc2",
+   "subject": "bridge: program model (EXP-PROGRAM-MODEL-1, 10 records kept) and four bridge defects it found",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 93,
+   "pass": 93,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:24164ebda69c91b6e931537d8504c3c6a0a10cdd8b2d3fbf14537427d3c87e65",
+   "seconds": 13
+  },
+  {
+   "commit": "978f9aa159491450acd7af404ee2d32599ee7387",
+   "subject": "program model: correct two counts (M2 3 pairs, M3 42 groups) against record-10",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 93,
+   "pass": 93,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:bb8599fd8afe28f3b7acbd56e70067e37049c33d8e0fbb1f708746eaf824420b",
+   "seconds": 12
+  },
+  {
+   "commit": "707c777ff3bc1e3b449368f75dedc9f015ff98fe",
+   "subject": "experiment: pre-register EXP-DOGFOOD-3 (development loop as observable transitions)",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 93,
+   "pass": 93,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:3db75f8fff3040927dffcc84817d11f3fdd6a63ecdeb4ca165e6452e5fee1a92",
+   "seconds": 12
+  },
+  {
+   "commit": "d62943e3096f38083b8e5981632a15f1b5f5c912",
+   "subject": "bridge: development as observable transitions — POST /dev/iterations, GET /self (six separate self-* concepts)",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 95,
+   "pass": 95,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:9c4cf11859d068d93ec2b3c008abed94ad108ddea59a2edc3ecda3470327756c",
+   "seconds": 12
+  },
+  {
+   "commit": "1b5feace183a0e1916b847bbab5074a0a9792ae6",
+   "subject": "experiment: pre-register EXP-PROGRAM-CLOSURE-1 (untyped / kind-typed / declared-constraint / code-informed transformers)",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 95,
+   "pass": 95,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:9bcfe8f92ea2e3919deecfd46fa1c5f8bbb78e7e9d6083832a4a391263161df7",
+   "seconds": 11
+  },
+  {
+   "commit": "bba1b5d9545745403c664717ada61a2965fcf879",
+   "subject": "experiment: EXP-PROGRAM-CLOSURE-1 erratum to L2 (before the first run)",
+   "command": "npm test",
+   "exit": 1,
+   "tests": 95,
+   "pass": 94,
+   "fail": 1,
+   "skipped": 0,
+   "failed": [
+    "the circle end to end (substrate + PURL + ACSP, real processes)"
+   ],
+   "log_content_id": "sha256:1ac88f94a3291b68e3518b70ac0828d96633037ead687f412ad549677c739a39",
+   "seconds": 12
+  },
+  {
+   "commit": "e8eaf362d3bd951519064c7418acc7fb8ff881fc",
+   "subject": "bridge: closure admissibility (one implementation for route and experiment); implementation_id is the loaded code",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 96,
+   "pass": 96,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:cb901906459cb2b0baecfae76b11eebfef35ea2aa4a39bf971b1d2bf69f0c563",
+   "seconds": 13
+  },
+  {
+   "commit": "a48f7cdf5603459371469a73d6df0b65bda756ad",
+   "subject": "experiment: pre-register EXP-R9 (2x2: surface pre/post F-R4 x neutral/eliciting prompt; logging proxy separates exposure from report)",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 96,
+   "pass": 96,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:1faf43b4cbc94cd727d4c91d849e574acdd2c8b6125093cc8cfa2de25679eba0",
+   "seconds": 17
+  },
+  {
+   "commit": "fabb1b8cae774eb5a88c68f7bcfc5d91528681e4",
+   "subject": "experiment: EXP-R9 apparatus (four cells behind identical logging proxies)",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 96,
+   "pass": 96,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:c52f00d89278e98b8ace1b4187170a6b5ffd41ee15f6ba04fd0e8fe881dee8f7",
+   "seconds": 16
+  },
+  {
+   "commit": "e68f144106c378b554e86bb1cb97321d0afe2f33",
+   "subject": "experiment: EXP-R9 one instance per participant (clarification before running); scorer written before any report",
+   "command": "npm test",
+   "exit": 1,
+   "tests": 96,
+   "pass": 95,
+   "fail": 1,
+   "skipped": 0,
+   "failed": [
+    "the circle end to end (substrate + PURL + ACSP, real processes)"
+   ],
+   "log_content_id": "sha256:90faf5ebbab42bc5b9e76ec287a3556b69735fbcd8376a455c0cc5405c62bade",
+   "seconds": 14
+  },
+  {
+   "commit": "9c4b4873e4d0ebf2ce81fbf8587aa1c86f82ac77",
+   "subject": "bridge: security findings (SF-1 ramz seal forgery reproduced; SF-4 ACSP proposal-queue exhaustion observed locally; fixed and open items)",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 96,
+   "pass": 96,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:52f8a3a9eecf7b94b0fc4106c70f3afa936db7970852598281e31dd538a5c8d2",
+   "seconds": 12
+  },
+  {
+   "commit": "6de16d521de106e33f3e082f3bfec96422887d15",
+   "subject": "experiment: EXP-PROGRAM-CLOSURE-1 results — P1,P3-P6 held; P2 falsified (code-informed arm 0.8635)",
+   "command": "npm test",
+   "exit": 0,
+   "tests": 96,
+   "pass": 96,
+   "fail": 0,
+   "skipped": 0,
+   "failed": [],
+   "log_content_id": "sha256:f0fccb660322dc7387144f448b0ae41c5b405c660a51167c6245d4c0e5de6b06",
+   "seconds": 14
+  }
+ ],
+ "iterations": [
+  {
+   "commit": "a2419991d32d0e25386f88ef775ced49164a7b74",
+   "status": 201,
+   "id": "r_SQ0H1AEY64",
+   "implementation_id": "sha256:5b81f35b20e7a40ef4825644fee23f0ea003bf477c70ac3ee686ced771362f78",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@53f21e483c1c48b5a49b0b48cebbbcd2ed4fec76",
+    "operation": "commit",
+    "target_ref": "git:purl@a2419991d32d0e25386f88ef775ced49164a7b74",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:a298647b73e2bf5cef234f9f847bcb4528b9f185",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "9341d2f670d57a10db169de2fa0604311a4c3afc",
+   "status": 201,
+   "id": "r_BKSNGR5NX6",
+   "implementation_id": "sha256:5b81f35b20e7a40ef4825644fee23f0ea003bf477c70ac3ee686ced771362f78",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@a2419991d32d0e25386f88ef775ced49164a7b74",
+    "operation": "commit",
+    "target_ref": "git:purl@9341d2f670d57a10db169de2fa0604311a4c3afc",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:1901f6b908ce3d3f686199adaf5413c702ea577b",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "c0ead8b9c97910b93331ae59d89928c22da36ee4",
+   "status": 201,
+   "id": "r_06W4XHTTVM",
+   "implementation_id": "sha256:5b81f35b20e7a40ef4825644fee23f0ea003bf477c70ac3ee686ced771362f78",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@9341d2f670d57a10db169de2fa0604311a4c3afc",
+    "operation": "commit",
+    "target_ref": "git:purl@c0ead8b9c97910b93331ae59d89928c22da36ee4",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:ebe7bf22cde5130f3a30fb87cad285d337e4ad70",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "103eacafd78009cdad45dbbd92823f3222407b42",
+   "status": 201,
+   "id": "r_DB43PFSYMG",
+   "implementation_id": "sha256:5b81f35b20e7a40ef4825644fee23f0ea003bf477c70ac3ee686ced771362f78",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@c0ead8b9c97910b93331ae59d89928c22da36ee4",
+    "operation": "commit",
+    "target_ref": "git:purl@103eacafd78009cdad45dbbd92823f3222407b42",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:ec5a59d923f56d3a1bc444843e87cffd498e58fc",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "d96d4cad06ff202d21b27564bc64b65291219051",
+   "status": 201,
+   "id": "r_8W2HZ2B31Z",
+   "implementation_id": "sha256:5b81f35b20e7a40ef4825644fee23f0ea003bf477c70ac3ee686ced771362f78",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@103eacafd78009cdad45dbbd92823f3222407b42",
+    "operation": "commit",
+    "target_ref": "git:purl@d96d4cad06ff202d21b27564bc64b65291219051",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:f2fa15bec8a1c9d371a3fc51b322b74f09f65c0d",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "0d617f0a89688bba858e9b3f05838bf44d0c5894",
+   "status": 201,
+   "id": "r_4TX5342AJ9",
+   "implementation_id": "sha256:f1ecbc3cee107d1b77fba940c5ddf9a589102968401a68f817f1b40df415d3f5",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@d96d4cad06ff202d21b27564bc64b65291219051",
+    "operation": "commit",
+    "target_ref": "git:purl@0d617f0a89688bba858e9b3f05838bf44d0c5894",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:bc9c97c70c2553bf887a8575a47f48ceddb1d2a9",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "b7e6558156419f182af6b876b1608a170e08071a",
+   "status": 201,
+   "id": "r_7Z4C7CWTHT",
+   "implementation_id": "sha256:f1ecbc3cee107d1b77fba940c5ddf9a589102968401a68f817f1b40df415d3f5",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@0d617f0a89688bba858e9b3f05838bf44d0c5894",
+    "operation": "commit",
+    "target_ref": "git:purl@b7e6558156419f182af6b876b1608a170e08071a",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:64669e141bc6f8fc79238b72d91826c90d2d7bdb",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "cc8885051a1590a6843dd268d8191d4b13c07a47",
+   "status": 201,
+   "id": "r_QNZTFEBEN5",
+   "implementation_id": "sha256:f1ecbc3cee107d1b77fba940c5ddf9a589102968401a68f817f1b40df415d3f5",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@b7e6558156419f182af6b876b1608a170e08071a",
+    "operation": "commit",
+    "target_ref": "git:purl@cc8885051a1590a6843dd268d8191d4b13c07a47",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:ad0886aba76f2bd1ab55c97f7b220620909102e4",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "de9fca10ffe3c4a3d4f15238e3ac0b23f2957ebd",
+   "status": 201,
+   "id": "r_DPV9FZBDWS",
+   "implementation_id": "sha256:181647abc1a873500eab8c60ac7b0fd16f53e090929180867cdfa43bac88cb07",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@cc8885051a1590a6843dd268d8191d4b13c07a47",
+    "operation": "commit",
+    "target_ref": "git:purl@de9fca10ffe3c4a3d4f15238e3ac0b23f2957ebd",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:4b1d87c56c2eadd7771ff29878f773854abcdc6b",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "716edfa09b755b8eefd4c6374019a1b2637410b2",
+   "status": 201,
+   "id": "r_7SDQYPWV2M",
+   "implementation_id": "sha256:181647abc1a873500eab8c60ac7b0fd16f53e090929180867cdfa43bac88cb07",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@de9fca10ffe3c4a3d4f15238e3ac0b23f2957ebd",
+    "operation": "commit",
+    "target_ref": "git:purl@716edfa09b755b8eefd4c6374019a1b2637410b2",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:316a05641660289d27c69c1c3767d1e344e2b97d",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "bd0d280dae5a6a29db068b075c940b7f955c5cc2",
+   "status": 201,
+   "id": "r_AD0TACKYF5",
+   "implementation_id": "sha256:2c7a6a76afd5d66a97e2d1f86e529738259fd8acfb17487542581757ab82e1e8",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@716edfa09b755b8eefd4c6374019a1b2637410b2",
+    "operation": "commit",
+    "target_ref": "git:purl@bd0d280dae5a6a29db068b075c940b7f955c5cc2",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:1230997f13ccc166b18c35ba280eea791856df9c",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "978f9aa159491450acd7af404ee2d32599ee7387",
+   "status": 201,
+   "id": "r_B6WR5CS5T5",
+   "implementation_id": "sha256:2c7a6a76afd5d66a97e2d1f86e529738259fd8acfb17487542581757ab82e1e8",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@bd0d280dae5a6a29db068b075c940b7f955c5cc2",
+    "operation": "commit",
+    "target_ref": "git:purl@978f9aa159491450acd7af404ee2d32599ee7387",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:0ff58e336c9af512dd2058cdd4291035c4e8b781",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "707c777ff3bc1e3b449368f75dedc9f015ff98fe",
+   "status": 201,
+   "id": "r_7EKA3ANXA3",
+   "implementation_id": "sha256:2c7a6a76afd5d66a97e2d1f86e529738259fd8acfb17487542581757ab82e1e8",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@978f9aa159491450acd7af404ee2d32599ee7387",
+    "operation": "commit",
+    "target_ref": "git:purl@707c777ff3bc1e3b449368f75dedc9f015ff98fe",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:e4b400f795646b0a66f5d3b9afa2c5c054869b35",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "d62943e3096f38083b8e5981632a15f1b5f5c912",
+   "status": 201,
+   "id": "r_8FJFD14BE1",
+   "implementation_id": "sha256:effddc41a53e1c10b8dd2eb928f4b8d5398c992f2442f4987a41c6a3c06521c7",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@707c777ff3bc1e3b449368f75dedc9f015ff98fe",
+    "operation": "commit",
+    "target_ref": "git:purl@d62943e3096f38083b8e5981632a15f1b5f5c912",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:5b0218b3e6881323ac1df0e5178c2ab38dd6c22e",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "1b5feace183a0e1916b847bbab5074a0a9792ae6",
+   "status": 201,
+   "id": "r_2257ZQJP8G",
+   "implementation_id": "sha256:effddc41a53e1c10b8dd2eb928f4b8d5398c992f2442f4987a41c6a3c06521c7",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@d62943e3096f38083b8e5981632a15f1b5f5c912",
+    "operation": "commit",
+    "target_ref": "git:purl@1b5feace183a0e1916b847bbab5074a0a9792ae6",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:61ccac6f096d94725f5c0f0ac1bbc9362bf55a6c",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "bba1b5d9545745403c664717ada61a2965fcf879",
+   "status": 201,
+   "id": "r_M9KH21S7K4",
+   "implementation_id": "sha256:effddc41a53e1c10b8dd2eb928f4b8d5398c992f2442f4987a41c6a3c06521c7",
+   "currency": "none",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@1b5feace183a0e1916b847bbab5074a0a9792ae6",
+    "operation": "commit",
+    "target_ref": "git:purl@bba1b5d9545745403c664717ada61a2965fcf879",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:734b31f0065bcac5a01f8bc51cba1a68dc81de43",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "e8eaf362d3bd951519064c7418acc7fb8ff881fc",
+   "status": 201,
+   "id": "r_QT1HDVMNZ8",
+   "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+   "currency": "current",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@bba1b5d9545745403c664717ada61a2965fcf879",
+    "operation": "commit",
+    "target_ref": "git:purl@e8eaf362d3bd951519064c7418acc7fb8ff881fc",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:bd230b166bb5f857f3b7415dbea88eba4b097153",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "a48f7cdf5603459371469a73d6df0b65bda756ad",
+   "status": 201,
+   "id": "r_554F4XFRG4",
+   "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+   "currency": "current",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@e8eaf362d3bd951519064c7418acc7fb8ff881fc",
+    "operation": "commit",
+    "target_ref": "git:purl@a48f7cdf5603459371469a73d6df0b65bda756ad",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:0ab0da6fff5cda609b60fb228f94c6a9427407d7",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "fabb1b8cae774eb5a88c68f7bcfc5d91528681e4",
+   "status": 201,
+   "id": "r_SNEG1RBVMB",
+   "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+   "currency": "current",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@a48f7cdf5603459371469a73d6df0b65bda756ad",
+    "operation": "commit",
+    "target_ref": "git:purl@fabb1b8cae774eb5a88c68f7bcfc5d91528681e4",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:a03905a7467a5eb7bf291e3cf08ad5d7bf1bac8f",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "e68f144106c378b554e86bb1cb97321d0afe2f33",
+   "status": 201,
+   "id": "r_2T8P541VB7",
+   "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+   "currency": "current",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@fabb1b8cae774eb5a88c68f7bcfc5d91528681e4",
+    "operation": "commit",
+    "target_ref": "git:purl@e68f144106c378b554e86bb1cb97321d0afe2f33",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:9987e4098b4a75901ac57e207045ff14a1b741de",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "9c4b4873e4d0ebf2ce81fbf8587aa1c86f82ac77",
+   "status": 201,
+   "id": "r_RPE8NSE20N",
+   "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+   "currency": "current",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@e68f144106c378b554e86bb1cb97321d0afe2f33",
+    "operation": "commit",
+    "target_ref": "git:purl@9c4b4873e4d0ebf2ce81fbf8587aa1c86f82ac77",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:4b5b2947ccad66d8efeb0156d05641c6363deb0e",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  },
+  {
+   "commit": "6de16d521de106e33f3e082f3bfec96422887d15",
+   "status": 201,
+   "id": "r_P0XG9PYB8G",
+   "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+   "currency": "current",
+   "transition": {
+    "system": "git-commit",
+    "source_ref": "git:purl@9c4b4873e4d0ebf2ce81fbf8587aa1c86f82ac77",
+    "operation": "commit",
+    "target_ref": "git:purl@6de16d521de106e33f3e082f3bfec96422887d15",
+    "actor": "Claude",
+    "clock": {
+     "domain": "git:purl",
+     "position": null
+    },
+    "content_id": "git-tree:9758249098894af6db45da583f8b47ead9eefbf1",
+    "lost": [
+     "clock"
+    ]
+   },
+   "error": null
+  }
+ ],
+ "conformance": {
+  "status": 201,
+  "run": "r_BSQ73G0CSW",
+  "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+  "summary": {
+   "IMPLEMENTED": 3,
+   "TESTED": 11,
+   "EXTERNAL": 1,
+   "HUMAN_REVIEWED": 3,
+   "CONFLICTING": 1
+  }
+ },
+ "nonexistent_commit": {
+  "status": 404,
+  "code": "not_found",
+  "count_before": 22,
+  "count_after": 22
+ },
+ "gets_change_nothing": {
+  "before": "sha256:1ba893fd4cfcf28053c3631bf4321079fe8145d0663fabbb735685e343fe0df6",
+  "after": "sha256:1ba893fd4cfcf28053c3631bf4321079fe8145d0663fabbb735685e343fe0df6",
+  "equal": true
+ },
+ "export": {
+  "listing": [
+   {
+    "id": "r_SQ0H1AEY64",
+    "repo": "purl",
+    "commit": "a241999",
+    "subject": "bridge: close STASIS-2 (checkpoint r_AVPVE4Y83H, conformance r_4MWWBV02AY)",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_SQ0H1AEY64"
+   },
+   {
+    "id": "r_BKSNGR5NX6",
+    "repo": "purl",
+    "commit": "9341d2f",
+    "subject": "bridge: cold reconstruction from GitHub (report-2: 23 pass, 6 fail); correct the canonical-state branch claim",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_BKSNGR5NX6"
+   },
+   {
+    "id": "r_06W4XHTTVM",
+    "repo": "purl",
+    "commit": "c0ead8b",
+    "subject": "bridge: cold reconstruction report-3 from GitHub: 29 pass, 0 fail",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_06W4XHTTVM"
+   },
+   {
+    "id": "r_DB43PFSYMG",
+    "repo": "purl",
+    "commit": "103eaca",
+    "subject": "bridge: STASIS-3 build plan (phases, executable outputs, falsifiable acceptance), written before implementation",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_DB43PFSYMG"
+   },
+   {
+    "id": "r_8W2HZ2B31Z",
+    "repo": "purl",
+    "commit": "d96d4ca",
+    "subject": "bridge: phase 1-2 records: cold report-4 (independent re-run from GitHub), nomenclature conflict register and measured schema fit",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_8W2HZ2B31Z"
+   },
+   {
+    "id": "r_4TX5342AJ9",
+    "repo": "purl",
+    "commit": "0d617f0",
+    "subject": "bridge: constitution model with separate identities; conformance x authority probed in all four quadrants; evidence currency",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_4TX5342AJ9"
+   },
+   {
+    "id": "r_7Z4C7CWTHT",
+    "repo": "purl",
+    "commit": "b7e6558",
+    "subject": "bridge: transition model; projection matrix measured by substrateIO over committed artifacts",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_7Z4C7CWTHT"
+   },
+   {
+    "id": "r_QNZTFEBEN5",
+    "repo": "purl",
+    "commit": "cc88850",
+    "subject": "bridge: manifest v3, one record per component with every XXIV field; generated vs declared provenance",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_QNZTFEBEN5"
+   },
+   {
+    "id": "r_DPV9FZBDWS",
+    "repo": "purl",
+    "commit": "de9fca1",
+    "subject": "bridge: SDK v0.3 — greeting, nomenclature/experiments/research/examples routes, verified code descriptors, eight addressable IDE stages",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_DPV9FZBDWS"
+   },
+   {
+    "id": "r_7SDQYPWV2M",
+    "repo": "purl",
+    "commit": "716edfa",
+    "subject": "experiment: pre-register EXP-PROGRAM-MODEL-1 (SEURL program <-> circle Scroll record)",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_7SDQYPWV2M"
+   },
+   {
+    "id": "r_AD0TACKYF5",
+    "repo": "purl",
+    "commit": "bd0d280",
+    "subject": "bridge: program model (EXP-PROGRAM-MODEL-1, 10 records kept) and four bridge defects it found",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_AD0TACKYF5"
+   },
+   {
+    "id": "r_B6WR5CS5T5",
+    "repo": "purl",
+    "commit": "978f9aa",
+    "subject": "program model: correct two counts (M2 3 pairs, M3 42 groups) against record-10",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_B6WR5CS5T5"
+   },
+   {
+    "id": "r_7EKA3ANXA3",
+    "repo": "purl",
+    "commit": "707c777",
+    "subject": "experiment: pre-register EXP-DOGFOOD-3 (development loop as observable transitions)",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_7EKA3ANXA3"
+   },
+   {
+    "id": "r_8FJFD14BE1",
+    "repo": "purl",
+    "commit": "d62943e",
+    "subject": "bridge: development as observable transitions — POST /dev/iterations, GET /self (six separate self-* concepts)",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_8FJFD14BE1"
+   },
+   {
+    "id": "r_2257ZQJP8G",
+    "repo": "purl",
+    "commit": "1b5feac",
+    "subject": "experiment: pre-register EXP-PROGRAM-CLOSURE-1 (untyped / kind-typed / declared-constraint / code-informed transformers)",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_2257ZQJP8G"
+   },
+   {
+    "id": "r_M9KH21S7K4",
+    "repo": "purl",
+    "commit": "bba1b5d",
+    "subject": "experiment: EXP-PROGRAM-CLOSURE-1 erratum to L2 (before the first run)",
+    "evidence": 1,
+    "currency": "none",
+    "href": "/dev/iterations/r_M9KH21S7K4"
+   },
+   {
+    "id": "r_QT1HDVMNZ8",
+    "repo": "purl",
+    "commit": "e8eaf36",
+    "subject": "bridge: closure admissibility (one implementation for route and experiment); implementation_id is the loaded code",
+    "evidence": 1,
+    "currency": "current",
+    "href": "/dev/iterations/r_QT1HDVMNZ8"
+   },
+   {
+    "id": "r_554F4XFRG4",
+    "repo": "purl",
+    "commit": "a48f7cd",
+    "subject": "experiment: pre-register EXP-R9 (2x2: surface pre/post F-R4 x neutral/eliciting prompt; logging proxy separates exposure from report)",
+    "evidence": 1,
+    "currency": "current",
+    "href": "/dev/iterations/r_554F4XFRG4"
+   },
+   {
+    "id": "r_SNEG1RBVMB",
+    "repo": "purl",
+    "commit": "fabb1b8",
+    "subject": "experiment: EXP-R9 apparatus (four cells behind identical logging proxies)",
+    "evidence": 1,
+    "currency": "current",
+    "href": "/dev/iterations/r_SNEG1RBVMB"
+   },
+   {
+    "id": "r_2T8P541VB7",
+    "repo": "purl",
+    "commit": "e68f144",
+    "subject": "experiment: EXP-R9 one instance per participant (clarification before running); scorer written before any report",
+    "evidence": 1,
+    "currency": "current",
+    "href": "/dev/iterations/r_2T8P541VB7"
+   },
+   {
+    "id": "r_RPE8NSE20N",
+    "repo": "purl",
+    "commit": "9c4b487",
+    "subject": "bridge: security findings (SF-1 ramz seal forgery reproduced; SF-4 ACSP proposal-queue exhaustion observed locally; fixed and open items)",
+    "evidence": 1,
+    "currency": "current",
+    "href": "/dev/iterations/r_RPE8NSE20N"
+   },
+   {
+    "id": "r_P0XG9PYB8G",
+    "repo": "purl",
+    "commit": "6de16d5",
+    "subject": "experiment: EXP-PROGRAM-CLOSURE-1 results — P1,P3-P6 held; P2 falsified (code-informed arm 0.8635)",
+    "evidence": 1,
+    "currency": "current",
+    "href": "/dev/iterations/r_P0XG9PYB8G"
+   }
+  ],
+  "iterations": [
+   {
+    "id": "r_SQ0H1AEY64",
+    "repo": "purl",
+    "commit": "a2419991d32d0e25386f88ef775ced49164a7b74",
+    "tree": "a298647b73e2bf5cef234f9f847bcb4528b9f185",
+    "parents": [
+     "53f21e483c1c48b5a49b0b48cebbbcd2ed4fec76"
+    ],
+    "subject": "bridge: close STASIS-2 (checkpoint r_AVPVE4Y83H, conformance r_4MWWBV02AY)",
+    "diffstat": "11 files changed, 854 insertions(+), 191 deletions(-)",
+    "generation": 33,
+    "committed_at": "2026-10-01T13:50:55+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@53f21e483c1c48b5a49b0b48cebbbcd2ed4fec76",
+     "operation": "commit",
+     "target_ref": "git:purl@a2419991d32d0e25386f88ef775ced49164a7b74",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:a298647b73e2bf5cef234f9f847bcb4528b9f185",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: close STASIS-2 (checkpoint r_AVPVE4Y83H, conformance r_4MWWBV02AY)",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 80,
+       "pass": 80,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:b868506a98bdf2a7f4003261bd14c2e08a924f1873d599070e9473374a3eb9c6",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:5b81f35b20e7a40ef4825644fee23f0ea003bf477c70ac3ee686ced771362f78",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_BKSNGR5NX6",
+    "repo": "purl",
+    "commit": "9341d2f670d57a10db169de2fa0604311a4c3afc",
+    "tree": "1901f6b908ce3d3f686199adaf5413c702ea577b",
+    "parents": [
+     "a2419991d32d0e25386f88ef775ced49164a7b74"
+    ],
+    "subject": "bridge: cold reconstruction from GitHub (report-2: 23 pass, 6 fail); correct the canonical-state branch claim",
+    "diffstat": "3 files changed, 326 insertions(+), 3 deletions(-)",
+    "generation": 34,
+    "committed_at": "2026-10-01T13:54:53+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@a2419991d32d0e25386f88ef775ced49164a7b74",
+     "operation": "commit",
+     "target_ref": "git:purl@9341d2f670d57a10db169de2fa0604311a4c3afc",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:1901f6b908ce3d3f686199adaf5413c702ea577b",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: cold reconstruction from GitHub (report-2: 23 pass, 6 fail); correct the canonical-state branch claim",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 80,
+       "pass": 80,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:973fd54bfc240cfa615032bfe1c98d41b9289ebc884d3da63f9e5d9b62c3620f",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:5b81f35b20e7a40ef4825644fee23f0ea003bf477c70ac3ee686ced771362f78",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_06W4XHTTVM",
+    "repo": "purl",
+    "commit": "c0ead8b9c97910b93331ae59d89928c22da36ee4",
+    "tree": "ebe7bf22cde5130f3a30fb87cad285d337e4ad70",
+    "parents": [
+     "9341d2f670d57a10db169de2fa0604311a4c3afc"
+    ],
+    "subject": "bridge: cold reconstruction report-3 from GitHub: 29 pass, 0 fail",
+    "diffstat": "4 files changed, 318 insertions(+), 8 deletions(-)",
+    "generation": 35,
+    "committed_at": "2026-10-01T13:58:56+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@9341d2f670d57a10db169de2fa0604311a4c3afc",
+     "operation": "commit",
+     "target_ref": "git:purl@c0ead8b9c97910b93331ae59d89928c22da36ee4",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:ebe7bf22cde5130f3a30fb87cad285d337e4ad70",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: cold reconstruction report-3 from GitHub: 29 pass, 0 fail",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 80,
+       "pass": 80,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:86e4a7221eaf5e05a604c6fab6451bc2bd4aa59768f3e6969677f54e8080b5cf",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:5b81f35b20e7a40ef4825644fee23f0ea003bf477c70ac3ee686ced771362f78",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_DB43PFSYMG",
+    "repo": "purl",
+    "commit": "103eacafd78009cdad45dbbd92823f3222407b42",
+    "tree": "ec5a59d923f56d3a1bc444843e87cffd498e58fc",
+    "parents": [
+     "c0ead8b9c97910b93331ae59d89928c22da36ee4"
+    ],
+    "subject": "bridge: STASIS-3 build plan (phases, executable outputs, falsifiable acceptance), written before implementation",
+    "diffstat": "1 file changed, 24 insertions(+)",
+    "generation": 36,
+    "committed_at": "2026-10-01T15:12:24+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@c0ead8b9c97910b93331ae59d89928c22da36ee4",
+     "operation": "commit",
+     "target_ref": "git:purl@103eacafd78009cdad45dbbd92823f3222407b42",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:ec5a59d923f56d3a1bc444843e87cffd498e58fc",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: STASIS-3 build plan (phases, executable outputs, falsifiable acceptance), written before implementation",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 80,
+       "pass": 80,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:9a8d8cfd8b836ab0f723601015d9c7ea2bb5e9ad3cc4d88857c8132a9e30080b",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:5b81f35b20e7a40ef4825644fee23f0ea003bf477c70ac3ee686ced771362f78",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_8W2HZ2B31Z",
+    "repo": "purl",
+    "commit": "d96d4cad06ff202d21b27564bc64b65291219051",
+    "tree": "f2fa15bec8a1c9d371a3fc51b322b74f09f65c0d",
+    "parents": [
+     "103eacafd78009cdad45dbbd92823f3222407b42"
+    ],
+    "subject": "bridge: phase 1-2 records: cold report-4 (independent re-run from GitHub), nomenclature conflict register and measured schema fit",
+    "diffstat": "4 files changed, 720 insertions(+)",
+    "generation": 37,
+    "committed_at": "2026-10-01T15:15:46+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@103eacafd78009cdad45dbbd92823f3222407b42",
+     "operation": "commit",
+     "target_ref": "git:purl@d96d4cad06ff202d21b27564bc64b65291219051",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:f2fa15bec8a1c9d371a3fc51b322b74f09f65c0d",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: phase 1-2 records: cold report-4 (independent re-run from GitHub), nomenclature conflict register and measured schema fit",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 80,
+       "pass": 80,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:15d3dc8ce0d1e7832b4e08a3cc6eac0cc8ec09c6f80a4de59d4d4b2ff690e999",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:5b81f35b20e7a40ef4825644fee23f0ea003bf477c70ac3ee686ced771362f78",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_4TX5342AJ9",
+    "repo": "purl",
+    "commit": "0d617f0a89688bba858e9b3f05838bf44d0c5894",
+    "tree": "bc9c97c70c2553bf887a8575a47f48ceddb1d2a9",
+    "parents": [
+     "d96d4cad06ff202d21b27564bc64b65291219051"
+    ],
+    "subject": "bridge: constitution model with separate identities; conformance x authority probed in all four quadrants; evidence currency",
+    "diffstat": "9 files changed, 768 insertions(+), 4 deletions(-)",
+    "generation": 38,
+    "committed_at": "2026-10-01T15:19:09+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@d96d4cad06ff202d21b27564bc64b65291219051",
+     "operation": "commit",
+     "target_ref": "git:purl@0d617f0a89688bba858e9b3f05838bf44d0c5894",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:bc9c97c70c2553bf887a8575a47f48ceddb1d2a9",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: constitution model with separate identities; conformance x authority probed in all four quadrants; evidence currency",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 80,
+       "pass": 80,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:05c50484c2d2f4e438cb5fc1047ff5209ddeed58fa2bd0b0bf9282ae7b08051e",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:f1ecbc3cee107d1b77fba940c5ddf9a589102968401a68f817f1b40df415d3f5",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_7Z4C7CWTHT",
+    "repo": "purl",
+    "commit": "b7e6558156419f182af6b876b1608a170e08071a",
+    "tree": "64669e141bc6f8fc79238b72d91826c90d2d7bdb",
+    "parents": [
+     "0d617f0a89688bba858e9b3f05838bf44d0c5894"
+    ],
+    "subject": "bridge: transition model; projection matrix measured by substrateIO over committed artifacts",
+    "diffstat": "5 files changed, 520 insertions(+)",
+    "generation": 39,
+    "committed_at": "2026-10-01T15:23:47+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@0d617f0a89688bba858e9b3f05838bf44d0c5894",
+     "operation": "commit",
+     "target_ref": "git:purl@b7e6558156419f182af6b876b1608a170e08071a",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:64669e141bc6f8fc79238b72d91826c90d2d7bdb",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: transition model; projection matrix measured by substrateIO over committed artifacts",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 82,
+       "pass": 82,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:3748af95195161fa6bcec4cca6d058a60cc53e1c934d838d7f3ccff54a381308",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:f1ecbc3cee107d1b77fba940c5ddf9a589102968401a68f817f1b40df415d3f5",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_QNZTFEBEN5",
+    "repo": "purl",
+    "commit": "cc8885051a1590a6843dd268d8191d4b13c07a47",
+    "tree": "ad0886aba76f2bd1ab55c97f7b220620909102e4",
+    "parents": [
+     "b7e6558156419f182af6b876b1608a170e08071a"
+    ],
+    "subject": "bridge: manifest v3, one record per component with every XXIV field; generated vs declared provenance",
+    "diffstat": "4 files changed, 1808 insertions(+), 17 deletions(-)",
+    "generation": 40,
+    "committed_at": "2026-10-01T15:27:12+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@b7e6558156419f182af6b876b1608a170e08071a",
+     "operation": "commit",
+     "target_ref": "git:purl@cc8885051a1590a6843dd268d8191d4b13c07a47",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:ad0886aba76f2bd1ab55c97f7b220620909102e4",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: manifest v3, one record per component with every XXIV field; generated vs declared provenance",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 86,
+       "pass": 86,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:aea4a44090c267796de0e8d7e722910c257de1bbf1fc89a68faa4c3ada851cf8",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:f1ecbc3cee107d1b77fba940c5ddf9a589102968401a68f817f1b40df415d3f5",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_DPV9FZBDWS",
+    "repo": "purl",
+    "commit": "de9fca10ffe3c4a3d4f15238e3ac0b23f2957ebd",
+    "tree": "4b1d87c56c2eadd7771ff29878f773854abcdc6b",
+    "parents": [
+     "cc8885051a1590a6843dd268d8191d4b13c07a47"
+    ],
+    "subject": "bridge: SDK v0.3 — greeting, nomenclature/experiments/research/examples routes, verified code descriptors, eight addressable IDE stages",
+    "diffstat": "10 files changed, 504 insertions(+), 17 deletions(-)",
+    "generation": 41,
+    "committed_at": "2026-10-01T15:32:37+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@cc8885051a1590a6843dd268d8191d4b13c07a47",
+     "operation": "commit",
+     "target_ref": "git:purl@de9fca10ffe3c4a3d4f15238e3ac0b23f2957ebd",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:4b1d87c56c2eadd7771ff29878f773854abcdc6b",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: SDK v0.3 — greeting, nomenclature/experiments/research/examples routes, verified code descriptors, eight addressable IDE stages",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 89,
+       "pass": 89,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:409d25d8c21bca13a872ac814ba73d2cfae4753d52ca157d12f1737d1a17dc1a",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:181647abc1a873500eab8c60ac7b0fd16f53e090929180867cdfa43bac88cb07",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_7SDQYPWV2M",
+    "repo": "purl",
+    "commit": "716edfa09b755b8eefd4c6374019a1b2637410b2",
+    "tree": "316a05641660289d27c69c1c3767d1e344e2b97d",
+    "parents": [
+     "de9fca10ffe3c4a3d4f15238e3ac0b23f2957ebd"
+    ],
+    "subject": "experiment: pre-register EXP-PROGRAM-MODEL-1 (SEURL program <-> circle Scroll record)",
+    "diffstat": "1 file changed, 28 insertions(+)",
+    "generation": 42,
+    "committed_at": "2026-10-01T15:33:16+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@de9fca10ffe3c4a3d4f15238e3ac0b23f2957ebd",
+     "operation": "commit",
+     "target_ref": "git:purl@716edfa09b755b8eefd4c6374019a1b2637410b2",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:316a05641660289d27c69c1c3767d1e344e2b97d",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "experiment: pre-register EXP-PROGRAM-MODEL-1 (SEURL program <-> circle Scroll record)",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 89,
+       "pass": 89,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:cb3557ee4bc6fae800ce954da8db96bd3c62cd25a7e630543a19984a4d945b3d",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:181647abc1a873500eab8c60ac7b0fd16f53e090929180867cdfa43bac88cb07",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_AD0TACKYF5",
+    "repo": "purl",
+    "commit": "bd0d280dae5a6a29db068b075c940b7f955c5cc2",
+    "tree": "1230997f13ccc166b18c35ba280eea791856df9c",
+    "parents": [
+     "716edfa09b755b8eefd4c6374019a1b2637410b2"
+    ],
+    "subject": "bridge: program model (EXP-PROGRAM-MODEL-1, 10 records kept) and four bridge defects it found",
+    "diffstat": "18 files changed, 10916 insertions(+), 18 deletions(-)",
+    "generation": 43,
+    "committed_at": "2026-10-01T15:53:28+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@716edfa09b755b8eefd4c6374019a1b2637410b2",
+     "operation": "commit",
+     "target_ref": "git:purl@bd0d280dae5a6a29db068b075c940b7f955c5cc2",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:1230997f13ccc166b18c35ba280eea791856df9c",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: program model (EXP-PROGRAM-MODEL-1, 10 records kept) and four bridge defects it found",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 93,
+       "pass": 93,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:24164ebda69c91b6e931537d8504c3c6a0a10cdd8b2d3fbf14537427d3c87e65",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:2c7a6a76afd5d66a97e2d1f86e529738259fd8acfb17487542581757ab82e1e8",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_B6WR5CS5T5",
+    "repo": "purl",
+    "commit": "978f9aa159491450acd7af404ee2d32599ee7387",
+    "tree": "0ff58e336c9af512dd2058cdd4291035c4e8b781",
+    "parents": [
+     "bd0d280dae5a6a29db068b075c940b7f955c5cc2"
+    ],
+    "subject": "program model: correct two counts (M2 3 pairs, M3 42 groups) against record-10",
+    "diffstat": "1 file changed, 2 insertions(+), 2 deletions(-)",
+    "generation": 44,
+    "committed_at": "2026-10-01T15:53:40+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@bd0d280dae5a6a29db068b075c940b7f955c5cc2",
+     "operation": "commit",
+     "target_ref": "git:purl@978f9aa159491450acd7af404ee2d32599ee7387",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:0ff58e336c9af512dd2058cdd4291035c4e8b781",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "program model: correct two counts (M2 3 pairs, M3 42 groups) against record-10",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 93,
+       "pass": 93,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:bb8599fd8afe28f3b7acbd56e70067e37049c33d8e0fbb1f708746eaf824420b",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:2c7a6a76afd5d66a97e2d1f86e529738259fd8acfb17487542581757ab82e1e8",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_7EKA3ANXA3",
+    "repo": "purl",
+    "commit": "707c777ff3bc1e3b449368f75dedc9f015ff98fe",
+    "tree": "e4b400f795646b0a66f5d3b9afa2c5c054869b35",
+    "parents": [
+     "978f9aa159491450acd7af404ee2d32599ee7387"
+    ],
+    "subject": "experiment: pre-register EXP-DOGFOOD-3 (development loop as observable transitions)",
+    "diffstat": "1 file changed, 25 insertions(+)",
+    "generation": 45,
+    "committed_at": "2026-10-01T15:55:34+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@978f9aa159491450acd7af404ee2d32599ee7387",
+     "operation": "commit",
+     "target_ref": "git:purl@707c777ff3bc1e3b449368f75dedc9f015ff98fe",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:e4b400f795646b0a66f5d3b9afa2c5c054869b35",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "experiment: pre-register EXP-DOGFOOD-3 (development loop as observable transitions)",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 93,
+       "pass": 93,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:3db75f8fff3040927dffcc84817d11f3fdd6a63ecdeb4ca165e6452e5fee1a92",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:2c7a6a76afd5d66a97e2d1f86e529738259fd8acfb17487542581757ab82e1e8",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_8FJFD14BE1",
+    "repo": "purl",
+    "commit": "d62943e3096f38083b8e5981632a15f1b5f5c912",
+    "tree": "5b0218b3e6881323ac1df0e5178c2ab38dd6c22e",
+    "parents": [
+     "707c777ff3bc1e3b449368f75dedc9f015ff98fe"
+    ],
+    "subject": "bridge: development as observable transitions — POST /dev/iterations, GET /self (six separate self-* concepts)",
+    "diffstat": "7 files changed, 260 insertions(+), 10 deletions(-)",
+    "generation": 46,
+    "committed_at": "2026-10-01T15:56:36+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@707c777ff3bc1e3b449368f75dedc9f015ff98fe",
+     "operation": "commit",
+     "target_ref": "git:purl@d62943e3096f38083b8e5981632a15f1b5f5c912",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:5b0218b3e6881323ac1df0e5178c2ab38dd6c22e",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: development as observable transitions — POST /dev/iterations, GET /self (six separate self-* concepts)",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 95,
+       "pass": 95,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:9c4cf11859d068d93ec2b3c008abed94ad108ddea59a2edc3ecda3470327756c",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:effddc41a53e1c10b8dd2eb928f4b8d5398c992f2442f4987a41c6a3c06521c7",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_2257ZQJP8G",
+    "repo": "purl",
+    "commit": "1b5feace183a0e1916b847bbab5074a0a9792ae6",
+    "tree": "61ccac6f096d94725f5c0f0ac1bbc9362bf55a6c",
+    "parents": [
+     "d62943e3096f38083b8e5981632a15f1b5f5c912"
+    ],
+    "subject": "experiment: pre-register EXP-PROGRAM-CLOSURE-1 (untyped / kind-typed / declared-constraint / code-informed transformers)",
+    "diffstat": "1 file changed, 40 insertions(+)",
+    "generation": 47,
+    "committed_at": "2026-10-01T15:58:12+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@d62943e3096f38083b8e5981632a15f1b5f5c912",
+     "operation": "commit",
+     "target_ref": "git:purl@1b5feace183a0e1916b847bbab5074a0a9792ae6",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:61ccac6f096d94725f5c0f0ac1bbc9362bf55a6c",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "experiment: pre-register EXP-PROGRAM-CLOSURE-1 (untyped / kind-typed / declared-constraint / code-informed transformers)",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 95,
+       "pass": 95,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:9bcfe8f92ea2e3919deecfd46fa1c5f8bbb78e7e9d6083832a4a391263161df7",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:effddc41a53e1c10b8dd2eb928f4b8d5398c992f2442f4987a41c6a3c06521c7",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_M9KH21S7K4",
+    "repo": "purl",
+    "commit": "bba1b5d9545745403c664717ada61a2965fcf879",
+    "tree": "734b31f0065bcac5a01f8bc51cba1a68dc81de43",
+    "parents": [
+     "1b5feace183a0e1916b847bbab5074a0a9792ae6"
+    ],
+    "subject": "experiment: EXP-PROGRAM-CLOSURE-1 erratum to L2 (before the first run)",
+    "diffstat": "1 file changed, 6 insertions(+)",
+    "generation": 48,
+    "committed_at": "2026-10-01T15:58:42+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@1b5feace183a0e1916b847bbab5074a0a9792ae6",
+     "operation": "commit",
+     "target_ref": "git:purl@bba1b5d9545745403c664717ada61a2965fcf879",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:734b31f0065bcac5a01f8bc51cba1a68dc81de43",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "experiment: EXP-PROGRAM-CLOSURE-1 erratum to L2 (before the first run)",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 95,
+       "pass": 94,
+       "fail": 1,
+       "skipped": 0,
+       "failed": [
+        "the circle end to end (substrate + PURL + ACSP, real processes)"
+       ]
+      },
+      "log_content_id": "sha256:1ac88f94a3291b68e3518b70ac0828d96633037ead687f412ad549677c739a39",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:effddc41a53e1c10b8dd2eb928f4b8d5398c992f2442f4987a41c6a3c06521c7",
+    "conformance_evidence": {
+     "runs": [],
+     "currency": "none"
+    }
+   },
+   {
+    "id": "r_QT1HDVMNZ8",
+    "repo": "purl",
+    "commit": "e8eaf362d3bd951519064c7418acc7fb8ff881fc",
+    "tree": "bd230b166bb5f857f3b7415dbea88eba4b097153",
+    "parents": [
+     "bba1b5d9545745403c664717ada61a2965fcf879"
+    ],
+    "subject": "bridge: closure admissibility (one implementation for route and experiment); implementation_id is the loaded code",
+    "diffstat": "8 files changed, 1851 insertions(+), 13 deletions(-)",
+    "generation": 49,
+    "committed_at": "2026-10-01T16:02:03+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@bba1b5d9545745403c664717ada61a2965fcf879",
+     "operation": "commit",
+     "target_ref": "git:purl@e8eaf362d3bd951519064c7418acc7fb8ff881fc",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:bd230b166bb5f857f3b7415dbea88eba4b097153",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: closure admissibility (one implementation for route and experiment); implementation_id is the loaded code",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 96,
+       "pass": 96,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:cb901906459cb2b0baecfae76b11eebfef35ea2aa4a39bf971b1d2bf69f0c563",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+    "conformance_evidence": {
+     "runs": [
+      {
+       "run": "r_BSQ73G0CSW",
+       "ran_at": "2026-10-01T16:42:10.726Z",
+       "summary": {
+        "IMPLEMENTED": 3,
+        "TESTED": 11,
+        "EXTERNAL": 1,
+        "HUMAN_REVIEWED": 3,
+        "CONFLICTING": 1
+       }
+      }
+     ],
+     "currency": "current"
+    }
+   },
+   {
+    "id": "r_554F4XFRG4",
+    "repo": "purl",
+    "commit": "a48f7cdf5603459371469a73d6df0b65bda756ad",
+    "tree": "0ab0da6fff5cda609b60fb228f94c6a9427407d7",
+    "parents": [
+     "e8eaf362d3bd951519064c7418acc7fb8ff881fc"
+    ],
+    "subject": "experiment: pre-register EXP-R9 (2x2: surface pre/post F-R4 x neutral/eliciting prompt; logging proxy separates exposure from report)",
+    "diffstat": "1 file changed, 36 insertions(+)",
+    "generation": 50,
+    "committed_at": "2026-10-01T16:03:21+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@e8eaf362d3bd951519064c7418acc7fb8ff881fc",
+     "operation": "commit",
+     "target_ref": "git:purl@a48f7cdf5603459371469a73d6df0b65bda756ad",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:0ab0da6fff5cda609b60fb228f94c6a9427407d7",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "experiment: pre-register EXP-R9 (2x2: surface pre/post F-R4 x neutral/eliciting prompt; logging proxy separates exposure from report)",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 96,
+       "pass": 96,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:1faf43b4cbc94cd727d4c91d849e574acdd2c8b6125093cc8cfa2de25679eba0",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+    "conformance_evidence": {
+     "runs": [
+      {
+       "run": "r_BSQ73G0CSW",
+       "ran_at": "2026-10-01T16:42:10.726Z",
+       "summary": {
+        "IMPLEMENTED": 3,
+        "TESTED": 11,
+        "EXTERNAL": 1,
+        "HUMAN_REVIEWED": 3,
+        "CONFLICTING": 1
+       }
+      }
+     ],
+     "currency": "current"
+    }
+   },
+   {
+    "id": "r_SNEG1RBVMB",
+    "repo": "purl",
+    "commit": "fabb1b8cae774eb5a88c68f7bcfc5d91528681e4",
+    "tree": "a03905a7467a5eb7bf291e3cf08ad5d7bf1bac8f",
+    "parents": [
+     "a48f7cdf5603459371469a73d6df0b65bda756ad"
+    ],
+    "subject": "experiment: EXP-R9 apparatus (four cells behind identical logging proxies)",
+    "diffstat": "1 file changed, 79 insertions(+)",
+    "generation": 51,
+    "committed_at": "2026-10-01T16:03:58+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@a48f7cdf5603459371469a73d6df0b65bda756ad",
+     "operation": "commit",
+     "target_ref": "git:purl@fabb1b8cae774eb5a88c68f7bcfc5d91528681e4",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:a03905a7467a5eb7bf291e3cf08ad5d7bf1bac8f",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "experiment: EXP-R9 apparatus (four cells behind identical logging proxies)",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 96,
+       "pass": 96,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:c52f00d89278e98b8ace1b4187170a6b5ffd41ee15f6ba04fd0e8fe881dee8f7",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+    "conformance_evidence": {
+     "runs": [
+      {
+       "run": "r_BSQ73G0CSW",
+       "ran_at": "2026-10-01T16:42:10.726Z",
+       "summary": {
+        "IMPLEMENTED": 3,
+        "TESTED": 11,
+        "EXTERNAL": 1,
+        "HUMAN_REVIEWED": 3,
+        "CONFLICTING": 1
+       }
+      }
+     ],
+     "currency": "current"
+    }
+   },
+   {
+    "id": "r_2T8P541VB7",
+    "repo": "purl",
+    "commit": "e68f144106c378b554e86bb1cb97321d0afe2f33",
+    "tree": "9987e4098b4a75901ac57e207045ff14a1b741de",
+    "parents": [
+     "fabb1b8cae774eb5a88c68f7bcfc5d91528681e4"
+    ],
+    "subject": "experiment: EXP-R9 one instance per participant (clarification before running); scorer written before any report",
+    "diffstat": "3 files changed, 70 insertions(+), 10 deletions(-)",
+    "generation": 52,
+    "committed_at": "2026-10-01T16:04:46+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@fabb1b8cae774eb5a88c68f7bcfc5d91528681e4",
+     "operation": "commit",
+     "target_ref": "git:purl@e68f144106c378b554e86bb1cb97321d0afe2f33",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:9987e4098b4a75901ac57e207045ff14a1b741de",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "experiment: EXP-R9 one instance per participant (clarification before running); scorer written before any report",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 96,
+       "pass": 95,
+       "fail": 1,
+       "skipped": 0,
+       "failed": [
+        "the circle end to end (substrate + PURL + ACSP, real processes)"
+       ]
+      },
+      "log_content_id": "sha256:90faf5ebbab42bc5b9e76ec287a3556b69735fbcd8376a455c0cc5405c62bade",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+    "conformance_evidence": {
+     "runs": [
+      {
+       "run": "r_BSQ73G0CSW",
+       "ran_at": "2026-10-01T16:42:10.726Z",
+       "summary": {
+        "IMPLEMENTED": 3,
+        "TESTED": 11,
+        "EXTERNAL": 1,
+        "HUMAN_REVIEWED": 3,
+        "CONFLICTING": 1
+       }
+      }
+     ],
+     "currency": "current"
+    }
+   },
+   {
+    "id": "r_RPE8NSE20N",
+    "repo": "purl",
+    "commit": "9c4b4873e4d0ebf2ce81fbf8587aa1c86f82ac77",
+    "tree": "4b5b2947ccad66d8efeb0156d05641c6363deb0e",
+    "parents": [
+     "e68f144106c378b554e86bb1cb97321d0afe2f33"
+    ],
+    "subject": "bridge: security findings (SF-1 ramz seal forgery reproduced; SF-4 ACSP proposal-queue exhaustion observed locally; fixed and open items)",
+    "diffstat": "1 file changed, 24 insertions(+)",
+    "generation": 53,
+    "committed_at": "2026-10-01T16:07:18+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@e68f144106c378b554e86bb1cb97321d0afe2f33",
+     "operation": "commit",
+     "target_ref": "git:purl@9c4b4873e4d0ebf2ce81fbf8587aa1c86f82ac77",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:4b5b2947ccad66d8efeb0156d05641c6363deb0e",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "bridge: security findings (SF-1 ramz seal forgery reproduced; SF-4 ACSP proposal-queue exhaustion observed locally; fixed and open items)",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 96,
+       "pass": 96,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:52f8a3a9eecf7b94b0fc4106c70f3afa936db7970852598281e31dd538a5c8d2",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+    "conformance_evidence": {
+     "runs": [
+      {
+       "run": "r_BSQ73G0CSW",
+       "ran_at": "2026-10-01T16:42:10.726Z",
+       "summary": {
+        "IMPLEMENTED": 3,
+        "TESTED": 11,
+        "EXTERNAL": 1,
+        "HUMAN_REVIEWED": 3,
+        "CONFLICTING": 1
+       }
+      }
+     ],
+     "currency": "current"
+    }
+   },
+   {
+    "id": "r_P0XG9PYB8G",
+    "repo": "purl",
+    "commit": "6de16d521de106e33f3e082f3bfec96422887d15",
+    "tree": "9758249098894af6db45da583f8b47ead9eefbf1",
+    "parents": [
+     "9c4b4873e4d0ebf2ce81fbf8587aa1c86f82ac77"
+    ],
+    "subject": "experiment: EXP-PROGRAM-CLOSURE-1 results — P1,P3-P6 held; P2 falsified (code-informed arm 0.8635)",
+    "diffstat": "5 files changed, 768 insertions(+)",
+    "generation": 54,
+    "committed_at": "2026-10-01T16:35:24+00:00",
+    "transition": {
+     "system": "git-commit",
+     "source_ref": "git:purl@9c4b4873e4d0ebf2ce81fbf8587aa1c86f82ac77",
+     "operation": "commit",
+     "target_ref": "git:purl@6de16d521de106e33f3e082f3bfec96422887d15",
+     "actor": "Claude",
+     "clock": {
+      "domain": "git:purl",
+      "position": null
+     },
+     "content_id": "git-tree:9758249098894af6db45da583f8b47ead9eefbf1",
+     "lost": [
+      "clock"
+     ]
+    },
+    "intent": "experiment: EXP-PROGRAM-CLOSURE-1 results — P1,P3-P6 held; P2 falsified (code-informed arm 0.8635)",
+    "evidence": [
+     {
+      "kind": "test-suite",
+      "command": "npm test",
+      "summary": {
+       "tests": 96,
+       "pass": 96,
+       "fail": 0,
+       "skipped": 0,
+       "failed": []
+      },
+      "log_content_id": "sha256:f0fccb660322dc7387144f448b0ae41c5b405c660a51167c6245d4c0e5de6b06",
+      "assurance": "reported by the declaring session (asserted); not observed by the circle"
+     }
+    ],
+    "by": {
+     "session_id": "dogfood-3",
+     "agent_id": null,
+     "assurance": "asserted"
+    },
+    "implementation_id": "sha256:17267340358f002c25e2503c57b056199f02a7ccce65674c2a51bb3399c25ff7",
+    "conformance_evidence": {
+     "runs": [
+      {
+       "run": "r_BSQ73G0CSW",
+       "ran_at": "2026-10-01T16:42:10.726Z",
+       "summary": {
+        "IMPLEMENTED": 3,
+        "TESTED": 11,
+        "EXTERNAL": 1,
+        "HUMAN_REVIEWED": 3,
+        "CONFLICTING": 1
+       }
+      }
+     ],
+     "currency": "current"
+    }
+   }
+  ],
+  "self": {
+   "self-description": {
+    "definition": "the environment returns a description of its own interface sufficient to act in it",
+    "where": [
+     "/sdk",
+     "/code",
+     "/sdk/constitution"
+    ],
+    "tested_by": [
+     "sdk_describes_itself",
+     "test/sdk-v03.test.js (descriptors match source)"
+    ],
+    "status": "TESTED",
+    "limit": "describes what it claims; claims about effects are checked only where a check exists"
+   },
+   "self-observation": {
+    "definition": "the environment records observations of its own operation as records others can read",
+    "where": [
+     "/observatory",
+     "/tests",
+     "/dev/iterations"
+    ],
+    "tested_by": [
+     "observatory_states_running_code"
+    ],
+    "status": "TESTED",
+    "limit": "observes records and running commit, not its own process internals"
+   },
+   "self-transformation": {
+    "definition": "the environment produces new programs from its programs by named, versioned transformers",
+    "where": [
+     "/programs/transform",
+     "/programs/closure"
+    ],
+    "tested_by": [
+     "build_does_not_change_source",
+     "EXP-PROGRAM-MODEL-1 M4"
+    ],
+    "status": "TESTED (programs only)",
+    "limit": "it cannot transform its own implementation: no route writes code"
+   },
+   "self-testing": {
+    "definition": "the environment runs checks against itself and records every result, failures included",
+    "where": [
+     "POST /conformance/runs",
+     "/tests"
+    ],
+    "tested_by": [
+     "conformance runs are themselves records (axes record-2: stale evidence detected)"
+    ],
+    "status": "TESTED",
+    "limit": "the unit test suite (npm test) runs outside the circle; its results enter as reported evidence on a dev iteration"
+   },
+   "self-reconstruction": {
+    "definition": "the environment's state can be rebuilt from its own records",
+    "where": [
+     "/resume/{id}",
+     "/stases",
+     "scripts/bridge-cold-reconstruct.js"
+    ],
+    "tested_by": [
+     "STASIS-2 checkpoint is recoverable",
+     "cold reports"
+    ],
+    "status": "TESTED (checkpoint) / external script (cold)",
+    "limit": "cold reconstruction is run by a script outside the circle, not through a route"
+   },
+   "self-harnessing": {
+    "definition": "the environment's own development is recorded through its own interface as transitions with evidence",
+    "where": [
+     "POST /dev/iterations",
+     "/dev/iterations"
+    ],
+    "tested_by": [
+     "EXP-DOGFOOD-3 (circle/experiments/dogfood-3)"
+    ],
+    "status": "IMPLEMENTED this phase",
+    "limit": "records development; does not perform it. The commit stays a human/agent act through git"
+   }
+  }
+ },
+ "results": {
+  "D1": {
+   "complete": 22,
+   "of": 22
+  },
+  "D2": {
+   "mismatches": [],
+   "current": [
+    "e8eaf36",
+    "a48f7cd",
+    "fabb1b8",
+    "e68f144",
+    "9c4b487",
+    "6de16d5"
+   ]
+  },
+  "D3": {
+   "status": 404,
+   "code": "not_found",
+   "count_before": 22,
+   "count_after": 22
+  },
+  "D4": {
+   "failing_commits": [
+    {
+     "commit": "bba1b5d",
+     "fail": 1,
+     "exit": 1,
+     "failed": [
+      "the circle end to end (substrate + PURL + ACSP, real processes)"
+     ]
+    },
+    {
+     "commit": "e68f144",
+     "fail": 1,
+     "exit": 1,
+     "failed": [
+      "the circle end to end (substrate + PURL + ACSP, real processes)"
+     ]
+    }
+   ]
+  },
+  "D5": {
+   "before": "sha256:1ba893fd4cfcf28053c3631bf4321079fe8145d0663fabbb735685e343fe0df6",
+   "after": "sha256:1ba893fd4cfcf28053c3631bf4321079fe8145d0663fabbb735685e343fe0df6",
+   "equal": true
+  }
+ },
+ "verdicts": {
+  "D1": "held",
+  "D2": "held",
+  "D3": "held",
+  "D4": "FALSIFIED (see failing_commits; diagnose before attributing)",
+  "D5": "held"
+ },
+ "finished": "2026-10-01T16:42:13.170Z"
+}
