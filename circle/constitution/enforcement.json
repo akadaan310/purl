@@ -22,7 +22,11 @@
    "projection_discoverable"
   ],
   "K-01": [
-   "prompt_conversation_not_executed"
+   "prompt_conversation_not_executed",
+   "ide_stages_change_nothing"
+  ],
+  "K-08": [
+   "ide_stages_change_nothing"
   ]
  },
  "provenance": {

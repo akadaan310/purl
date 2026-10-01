@@ -6,6 +6,14 @@
 import { createHash } from 'node:crypto';
 import { canonicalize } from '../core/canonical.js';
 
+export const DESCRIPTOR = {
+  module: 'src/circle/adapters.js',
+  claims: ['one adapter per neighbour system; each reports unavailability instead of inventing data', 'adapters carry no credentials of their own: a capability is passed in by the caller and never logged'],
+  requires: { modules: ['../core/canonical.js'], services: ['substrate HTTP', 'ACSP HTTP', 'Golden Surface relay (optional)'], files: [] },
+  produces: ['DESCRIPTOR', 'ADAPTER_VERSION', 'sha256', 'unavailable', 'SubstrateAdapter', 'AcspAdapter', 'GoldenAdapter'],
+  changes: ['substrate executions/observations (record, observe: only when called)', 'ACSP proposals (submit: only when called)', 'Golden Surface tab state (cmd: only when called)'],
+};
+
 export const ADAPTER_VERSION = 'circle-adapters/0';
 
 async function call(base, method, path, { body, headers = {}, timeoutMs = 15000 } = {}) {

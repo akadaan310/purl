@@ -19,7 +19,15 @@ import { PurlClient } from '../client/client.js';
 import { canonicalize } from '../core/canonical.js';
 import { run, parseMoves, pathOf, VERBS, SeurlError } from './seurl.js';
 import { SubstrateAdapter, AcspAdapter, GoldenAdapter, unavailable, sha256 } from './adapters.js';
-import { createBridge } from './bridge.js';
+import { createBridge, SDK_GREETING } from './bridge.js';
+
+export const DESCRIPTOR = {
+  module: 'src/circle/server.js',
+  claims: ['stateless: every record lives in PURL, the substrate store or ACSP', 'GET never mutates; mutation is POST with a declared session', 'credentials in URLs are refused (K-06)'],
+  requires: { modules: ['../client/client.js', '../core/canonical.js', './seurl.js', './adapters.js', './bridge.js'], services: ['PURL', 'substrate', 'ACSP', 'Golden Surface relay (optional)'], files: ['circle/constitution/constitution-v1.json'] },
+  produces: ['DESCRIPTOR', 'CIRCLE_PROTOCOL', 'canonicalize', 'loadConstitution', 'createCircle', 'createCircleServer'],
+  changes: ['PURL scrolls, checkpoints, amendment proposals, conformance runs (POST)', 'substrate executions (BUILD) and observations', 'ACSP proposals (TALK: propose only)'],
+};
 
 export const CIRCLE_PROTOCOL = 'circle/0 (provisional)';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -88,6 +96,7 @@ export function createCircle(cfg) {
 
   function entry() {
     return envelope('entry', {
+      greeting: SDK_GREETING,
       what: 'A computational environment. Values are addressed by derivation paths; programs are SEURL paths; persisted programs are Scrolls; records go to ACSP; measurements to SubstrateIO.',
       verbs: VERBS,
       grammar: {
@@ -100,6 +109,12 @@ export function createCircle(cfg) {
     }, [
       ...(cfg.acspResource ? [move('continuity', 'GET', `/acsp/r/${cfg.acspResource}`, 'read', { note: 'the ACSP resource TALK publishes to here' })] : []),
       move('sdk', 'GET', '/sdk', 'read', { note: 'what this is, what you can do, and how it describes itself' }),
+      move('ide', 'GET', '/ide?program=/seurl/START/map/eca/90/8/state/5/WRITE/next', 'read', { note: 'the eight development stages, each addressable' }),
+      move('nomenclature', 'GET', '/nomenclature', 'read'),
+      move('experiments', 'GET', '/experiments', 'read'),
+      move('research', 'GET', '/research', 'read'),
+      move('examples', 'GET', '/examples', 'read'),
+      move('code', 'GET', '/code', 'read', { note: 'what each module claims, requires, produces and changes' }),
       move('observatory', 'GET', '/observatory', 'read'),
       move('programs', 'GET', '/programs', 'read'),
       move('tests', 'GET', '/tests', 'read'),

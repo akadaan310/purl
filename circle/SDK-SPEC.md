@@ -1,4 +1,4 @@
-# Circle SDK specification (circle-sdk/0.2)
+# Circle SDK specification (circle-sdk/0.3; §1–5 written at 0.2 and kept, §6 adds 0.3)
 
 The SDK is not a client library. It is the environment describing itself, so
 that any participant that can make HTTP requests can act in it. There is no
@@ -69,3 +69,54 @@ transition the SDK can project (`/git/purl/{commit}`) but cannot perform.
 ## 5. Versioning
 `circle-sdk/0.2` (STASIS-2). 0.1 was the STASIS-1 surface (no `/sdk`). The
 version changes when a route, a schema, or an invariant changes.
+
+## 6. circle-sdk/0.3 (STASIS-3 phase 6)
+
+**Greeting** (in `GET /` and `GET /sdk`): *"You have entered a programmable
+computational substrate. Everything here is addressable. GET shows what an
+operation would do and changes nothing; POST, with your declared session, does
+it. Start at /sdk."*
+
+New routes, all `GET` and pure (module `src/circle/ide.js`):
+
+| Route | Exposes | Source of truth |
+|---|---|---|
+| `/nomenclature`, `/nomenclature/{id}` | terms with status, class, scope | substrateIO `research/registries/nomenclature.json` |
+| `/experiments`, `/experiments/{name}` | SPECs and records (invalid and failed ones listed beside valid ones) | `circle/experiments/*`; substrateIO `experiments.json` |
+| `/research`, `/research/open` | hypotheses, open problems, research queue | substrateIO registries (read-only view) |
+| `/examples` | worked examples, each a URL to GET | `ide.js` |
+| `/code`, `/code/{module}` | each module's descriptor: **claims, requires, produces, changes** | `DESCRIPTOR` export of each `src/circle/*.js`, **verified** against the source |
+| `/ide?program=…`, `/ide/{stage}?program=…` | the eight stages DISCOVER, PARSE, TYPE, PLAN, BUILD, EXECUTE, OBSERVE, RECORD | computed from the program text alone |
+
+§2's stage table maps to addresses as follows:
+
+| Stage | Address | Effect |
+|---|---|---|
+| DISCOVER | `/ide/discover` | legal next verbs; where to look |
+| PARSE | `/ide/parse` | moves; syntax only |
+| TYPE | `/ide/type` | FSM legality + substrate typed term (`derivation_id`) |
+| PLAN | `/ide/plan` | FSM state, `would_reach`, prepared mutations |
+| BUILD | `/ide/build` | identity transformation: `build_id`, artifact text; other transformers at `/programs/transform` |
+| EXECUTE | `/ide/execute` | **pure** value resolution (`value_id`); a *recorded* execution is `POST /scrolls/{id}/build` |
+| OBSERVE | `/ide/observe` | the program as addressed transitions |
+| RECORD | `/ide/record` | `performed: false` and the POST to send. **Never performed here** |
+
+**Non-opaque code.** A descriptor is a claim, so `/code` accepts it only if
+the module's actual exports and relative imports match it (`verifyDescriptors`;
+test `sdk-v03.test.js`). `changes` names every store a module can mutate. The
+check verifies `produces` and `requires.modules`. It does **not** verify
+`claims` or `changes`: those are checked by the conformance checks they name,
+or not at all (UNRESOLVED: no static effect analysis).
+
+**Discovery ≠ execution.** Checked by `get_sweep_changes_nothing` (crawls 60 GET
+URLs from `/`, which now include the new routes) and by the new
+`ide_stages_change_nothing`. That check runs all eight stages on a program
+ending in `COMMIT/BUILD`, and the PURL, substrate and ACSP state hashes stay
+unchanged. It is attached to K-01 and K-08 in `enforcement.json`. Clause texts
+are unchanged, so this is no amendment.
+
+**Fix found while building (kept):** `/constitution/axes` served
+`record-1.json`, the invalid probe. It now serves the latest record and lists
+every record, with record-1 marked invalid. The EXECUTE stage first read
+`value_id` at the top level (null). The substrate returns it at
+`identity.value_id`.

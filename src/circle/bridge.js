@@ -18,10 +18,20 @@ import { fileURLToPath } from 'node:url';
 import { run, parseMoves, pathOf, MUTATING } from './seurl.js';
 import { sha256 } from './adapters.js';
 import { CHECK_SPECS } from './conformance.js';
+import { createIde, IDE_STAGES } from './ide.js';
+
+export const DESCRIPTOR = {
+  module: 'src/circle/bridge.js',
+  claims: ['ROUTES is the complete route table of the circle (routeOf classifies against it)', 'transformers are pure functions over moves, versioned by the hash of their source', 'GET handlers here change nothing; POST /programs/transform commits a new Scroll only if the result is well-typed'],
+  requires: { modules: ['./seurl.js', './adapters.js', './conformance.js', './ide.js'], services: ['substrate (typing)', 'PURL (records)', 'ACSP (projections)'], files: ['circle/constitution/*.json', 'circle/stases.json', 'circle/experiments/axes/*'] },
+  produces: ['DESCRIPTOR', 'SDK_VERSION', 'SDK_GREETING', 'ROUTES', 'routeOf', 'transformerVersion', 'createBridge'],
+  changes: ['PURL scroll records (POST /programs/transform)'],
+};
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..', '..');
-export const SDK_VERSION = 'circle-sdk/0.2';
+export const SDK_VERSION = 'circle-sdk/0.3';
+export const SDK_GREETING = 'You have entered a programmable computational substrate. Everything here is addressable. GET shows what an operation would do and changes nothing; POST, with your declared session, does it. Start at /sdk.';
 
 // ---------------------------------------------------------------------------
 // Routes: the SDK's operation table. Every route the circle serves is listed here;
@@ -33,6 +43,17 @@ export const ROUTES = [
   ['GET', '/sdk/constitution', 'ADDRESS', 'pure', 'the SDK constitution'],
   ['GET', '/sdk/schemas', 'ADDRESS', 'pure', 'schemas of the documents the SDK returns'],
   ['GET', '/sdk/schemas/{name}', 'ADDRESS', 'pure', 'one schema'],
+  ['GET', '/nomenclature', 'RESOLVE', 'pure', 'the term registry (substrateIO), with status and scope'],
+  ['GET', '/nomenclature/{id}', 'RESOLVE', 'pure', 'one term'],
+  ['GET', '/experiments', 'RESOLVE', 'pure', 'experiments: SPECs and records, failed and invalid ones included'],
+  ['GET', '/experiments/{name}', 'RESOLVE', 'pure', 'one experiment'],
+  ['GET', '/research', 'RESOLVE', 'pure', 'research state: hypotheses, open problems, research queue (read-only view)'],
+  ['GET', '/research/open', 'RESOLVE', 'pure', 'open questions only'],
+  ['GET', '/examples', 'ADDRESS', 'pure', 'worked examples, each a URL to GET'],
+  ['GET', '/code', 'RESOLVE', 'pure', 'module descriptors (claims, requires, produces, changes) verified against the source'],
+  ['GET', '/code/{module}', 'RESOLVE', 'pure', 'one module descriptor and its verification'],
+  ['GET', '/ide?program={seurl}', 'ADDRESS', 'pure', 'the eight IDE stages for a program, each a URL'],
+  ['GET', '/ide/{stage}?program={seurl}', 'PARSE', 'pure', 'one stage: discover, parse, type, plan, build, execute (pure value), observe, record (described, never performed)'],
   ['GET', '/constitution', 'RESOLVE', 'pure', 'bridge constitution v1'],
   ['GET', '/constitution/model', 'RESOLVE', 'pure', 'constitution / enforcement / implementation / evidence / authority identities and the three axes'],
   ['GET', '/constitution/axes', 'RESOLVE', 'pure', 'recorded quadrant probes of conformance x authority'],
@@ -335,7 +356,7 @@ export function createBridge(x) {
   function sdkDoc() {
     const sc = JSON.parse(readFileSync(join(ROOT, 'circle', 'constitution', 'sdk-constitution.json'), 'utf8'));
     return {
-      sdk: SDK_VERSION, what: 'A provider-neutral description of how to act in this environment. It assumes nothing about the participant except that it can make HTTP requests.',
+      sdk: SDK_VERSION, greeting: SDK_GREETING, what: 'A provider-neutral description of how to act in this environment. It assumes nothing about the participant except that it can make HTTP requests.',
       questions: {
         'what am I?': 'a participant identified only by the session id you declare (?session=…, recorded as asserted)',
         'what protocol is this?': 'circle/0 over HTTP+JSON; values substrate-purl/0; records PURL/0.1; continuity ACSP/0.1',
@@ -344,7 +365,10 @@ export function createBridge(x) {
         'what can I construct?': '/seurl/… programs; /programs/transform',
         'what can I publish?': 'TALK/acsp/{resource}: a pending ACSP proposal, never more',
         'what can I test?': '/conformance/runs, /tests, /programs/closure',
-        'what programs exist?': '/programs', 'what nomenclature exists?': 'substrateIO research/registries/nomenclature.json; purl circle/BRIDGE-NOMENCLATURE.md',
+        'what programs exist?': '/programs', 'what nomenclature exists?': '/nomenclature (substrateIO registry); conflicts: circle/BRIDGE-NOMENCLATURE.md §9',
+        'what experiments exist?': '/experiments', 'what is the research state?': '/research; open questions: /research/open', 'show me examples': '/examples',
+        'what does the code claim?': '/code (descriptors verified against the source)', 'how do I develop here?': `/ide: ${IDE_STAGES.join(' → ')}, each stage its own URL`,
+        'what is safe?': 'every GET (pure); discovery, classification and planning never execute. Mutations: POST with ?session=',
         'what are the invariants?': '/constitution and /sdk/constitution', 'what is my environment?': '/adapters, /state, /operations',
       },
       routes: ROUTES, schemas: Object.keys(SCHEMAS).map((n) => `/sdk/schemas/${n}`),
@@ -391,14 +415,22 @@ export function createBridge(x) {
   }
 
   // ---- dispatch ---------------------------------------------------------------
+  const ide = createIde({ envelope, move, CircleError, cfg, substrate, typed: (t) => typed(t), P: { seurl: (t, i) => P.seurl(t, i) } });
+
   async function dispatch(method, path, q, body) {
+    const fromIde = await ide.dispatch(method, path, q);
+    if (fromIde) return fromIde;
     if (method === 'GET') {
       if (path === '/sdk') return envelope('sdk', sdkDoc(), [move('constitution', 'GET', '/sdk/constitution', 'read'), move('schemas', 'GET', '/sdk/schemas', 'read'), move('entry', 'GET', '/', 'read')]);
       if (path === '/constitution/model') return envelope('constitution-model', await constitutionModel(), [move('constitution', 'GET', '/constitution', 'read'), move('axes', 'GET', '/constitution/axes', 'read')]);
       if (path === '/constitution/axes') {
-        let rec = null;
-        try { rec = JSON.parse(readFileSync(join(ROOT, 'circle', 'experiments', 'axes', 'record-1.json'), 'utf8')); } catch { /* not recorded yet */ }
-        return envelope('constitution-axes', { recorded: rec, note: rec ? 'Recorded probes (committed). Re-run: node scripts/axes-probe.js' : 'No probe recorded yet.' }, [move('model', 'GET', '/constitution/model', 'read')]);
+        // the latest record is current; earlier ones stay listed (record-1 is invalid: CONSTITUTION-ENFORCEMENT-MODEL.md §4)
+        const dir = join(ROOT, 'circle', 'experiments', 'axes');
+        let names = [];
+        try { names = readdirSync(dir).filter((f) => /^record-\d+\.json$/.test(f)).sort((a, b) => Number(a.match(/\d+/)[0]) - Number(b.match(/\d+/)[0])); } catch { /* not recorded yet */ }
+        const rec = names.length ? JSON.parse(readFileSync(join(dir, names.at(-1)), 'utf8')) : null;
+        return envelope('constitution-axes', { current: names.at(-1) ?? null, recorded: rec, all_records: names, invalid_records: names.includes('record-1.json') ? { 'record-1.json': 'check read state one level too shallow (CONSTITUTION-ENFORCEMENT-MODEL.md §4)' } : {},
+          note: rec ? 'Recorded probes (committed). Re-run: node scripts/axes-probe.js' : 'No probe recorded yet.' }, [move('model', 'GET', '/constitution/model', 'read')]);
       }
       if (path === '/sdk/constitution') return envelope('sdk-constitution', { document: JSON.parse(readFileSync(join(ROOT, 'circle', 'constitution', 'sdk-constitution.json'), 'utf8')) }, [move('sdk', 'GET', '/sdk', 'read')]);
       if (path === '/sdk/schemas') return envelope('schemas', { schemas: Object.keys(SCHEMAS) }, Object.keys(SCHEMAS).map((n) => move(n, 'GET', `/sdk/schemas/${n}`, 'read')));
@@ -468,5 +500,5 @@ export function createBridge(x) {
     return null;
   }
 
-  return { dispatch, perturbations, routeOf, classify, implementationId };
+  return { dispatch, perturbations, routeOf, classify, implementationId, typed, P };
 }

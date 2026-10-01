@@ -1,6 +1,6 @@
 {
  "format": "bridge-manifest/3",
- "generated_at": "2026-10-01T15:26:39.432Z",
+ "generated_at": "2026-10-01T15:32:37.542Z",
  "generator": "scripts/bridge-manifest.js",
  "secrets": "none: commit ids, paths, names and hashes only",
  "start_here": [
@@ -12,7 +12,7 @@
  ],
  "protocols": {
   "circle": "circle/0 (provisional)",
-  "sdk": "circle-sdk/0.2",
+  "sdk": "circle-sdk/0.3",
   "purl": "PURL/0.1",
   "substrate": "substrate-purl/0 (provisional)",
   "acsp": "ACSP/0.1",
@@ -24,7 +24,7 @@
    "repository": "purl",
    "scope": "src/circle",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "b7e6558",
+   "commit": "cc88850",
    "protocol": "circle/0 + SDK",
    "role": "the bridge: stateless composition of the other systems through SEURL move words; holds no records and no authority",
    "input_kinds": [
@@ -58,6 +58,50 @@
     {
      "method": "GET",
      "path": "/sdk/schemas/{name}"
+    },
+    {
+     "method": "GET",
+     "path": "/nomenclature"
+    },
+    {
+     "method": "GET",
+     "path": "/nomenclature/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/experiments"
+    },
+    {
+     "method": "GET",
+     "path": "/experiments/{name}"
+    },
+    {
+     "method": "GET",
+     "path": "/research"
+    },
+    {
+     "method": "GET",
+     "path": "/research/open"
+    },
+    {
+     "method": "GET",
+     "path": "/examples"
+    },
+    {
+     "method": "GET",
+     "path": "/code"
+    },
+    {
+     "method": "GET",
+     "path": "/code/{module}"
+    },
+    {
+     "method": "GET",
+     "path": "/ide?program={seurl}"
+    },
+    {
+     "method": "GET",
+     "path": "/ide/{stage}?program={seurl}"
     },
     {
      "method": "GET",
@@ -243,6 +287,17 @@
     "GET /sdk/constitution",
     "GET /sdk/schemas",
     "GET /sdk/schemas/{name}",
+    "GET /nomenclature",
+    "GET /nomenclature/{id}",
+    "GET /experiments",
+    "GET /experiments/{name}",
+    "GET /research",
+    "GET /research/open",
+    "GET /examples",
+    "GET /code",
+    "GET /code/{module}",
+    "GET /ide?program={seurl}",
+    "GET /ide/{stage}?program={seurl}",
     "GET /constitution",
     "GET /constitution/model",
     "GET /constitution/axes",
@@ -299,7 +354,7 @@
     {
      "path": "purl/circle/constitution/enforcement.json",
      "exists": true,
-     "content_id": "sha256:fb01c43b3f0e441d66f4455baffea6eb7e13fe5a74b416f7066a5fabc7ea9678"
+     "content_id": "sha256:b97c9a79ad374222215bb2061bc3a1cfbe48663d97f8dde2b4e0aedf89fc54c0"
     },
     {
      "path": "purl/circle/constitution/sdk-constitution.json",
@@ -330,8 +385,10 @@
      "purl/test/experiment.test.js",
      "purl/test/golden.test.js",
      "purl/test/http.test.js",
+     "purl/test/manifest.test.js",
      "purl/test/musa.test.js",
      "purl/test/research.test.js",
+     "purl/test/sdk-v03.test.js",
      "purl/test/structure.test.js",
      "purl/test/transition-model.test.js"
     ]
@@ -436,7 +493,7 @@
    "repository": "purl",
    "scope": "src/{core,continuity,transport}",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "b7e6558",
+   "commit": "cc88850",
    "protocol": "PURL/0.1",
    "role": "persistent versioned records (resources, events, grants); the circle's record store",
    "input_kinds": [
@@ -603,8 +660,10 @@
      "purl/test/experiment.test.js",
      "purl/test/golden.test.js",
      "purl/test/http.test.js",
+     "purl/test/manifest.test.js",
      "purl/test/musa.test.js",
      "purl/test/research.test.js",
+     "purl/test/sdk-v03.test.js",
      "purl/test/structure.test.js",
      "purl/test/transition-model.test.js"
     ]
@@ -1594,7 +1653,7 @@
    "url": "https://github.com/akadaan310/purl",
    "default_branch": "claude/purl-protocol-research-bxevq5",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "b7e6558",
+   "head": "cc88850",
    "branches": {
     "ccr-d0887a23-30wf63": "c0ead8b",
     "claude/acsp-purl-composition-adsbn6": "18c85bf",
@@ -1723,6 +1782,83 @@
    "edge": "ADDRESS",
    "effect": "pure",
    "description": "one schema"
+  },
+  {
+   "method": "GET",
+   "path": "/nomenclature",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "the term registry (substrateIO), with status and scope"
+  },
+  {
+   "method": "GET",
+   "path": "/nomenclature/{id}",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "one term"
+  },
+  {
+   "method": "GET",
+   "path": "/experiments",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "experiments: SPECs and records, failed and invalid ones included"
+  },
+  {
+   "method": "GET",
+   "path": "/experiments/{name}",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "one experiment"
+  },
+  {
+   "method": "GET",
+   "path": "/research",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "research state: hypotheses, open problems, research queue (read-only view)"
+  },
+  {
+   "method": "GET",
+   "path": "/research/open",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "open questions only"
+  },
+  {
+   "method": "GET",
+   "path": "/examples",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "worked examples, each a URL to GET"
+  },
+  {
+   "method": "GET",
+   "path": "/code",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "module descriptors (claims, requires, produces, changes) verified against the source"
+  },
+  {
+   "method": "GET",
+   "path": "/code/{module}",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "one module descriptor and its verification"
+  },
+  {
+   "method": "GET",
+   "path": "/ide?program={seurl}",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "the eight IDE stages for a program, each a URL"
+  },
+  {
+   "method": "GET",
+   "path": "/ide/{stage}?program={seurl}",
+   "edge": "PARSE",
+   "effect": "pure",
+   "description": "one stage: discover, parse, type, plan, build, execute (pure value), observe, record (described, never performed)"
   },
   {
    "method": "GET",
@@ -2177,7 +2313,7 @@
  "constitution": {
   "clauses": "circle/constitution/constitution-v1.json",
   "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
-  "enforcement": "sha256:fb01c43b3f0e441d66f4455baffea6eb7e13fe5a74b416f7066a5fabc7ea9678",
+  "enforcement": "sha256:b97c9a79ad374222215bb2061bc3a1cfbe48663d97f8dde2b4e0aedf89fc54c0",
   "sdk": "sha256:e7a8a5cb84576f57c721036a738a7bc78248892ed9315de25d041b3eae3c13d1"
  },
  "historical_states": [

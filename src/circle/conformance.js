@@ -11,6 +11,14 @@ import { AcspAdapter, SubstrateAdapter } from './adapters.js';
 import { createCircle } from './server.js';
 import { sha256 } from './adapters.js';
 
+export const DESCRIPTOR = {
+  module: 'src/circle/conformance.js',
+  claims: ['each check exercises a real operation and records input, expected and actual', 'failed runs are recorded like passed ones'],
+  requires: { modules: ['./adapters.js', './server.js'], services: ['the circle under test'], files: ['circle/constitution/enforcement.json'] },
+  produces: ['DESCRIPTOR', 'loadEnforcement', 'CHECK_SPECS', 'runConformance'],
+  changes: ['PURL conformance-run records', 'test fixtures created by checks (scrolls, checkpoints, ACSP proposals on the configured test resource)'],
+};
+
 const NOT_RUN = Symbol('not_run');
 const ENFORCEMENT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'circle', 'constitution', 'enforcement.json');
 
@@ -145,6 +153,10 @@ export const CHECK_SPECS = {
  "sdk_describes_itself": {
   "input": "GET /sdk; GET every non-template GET route it lists",
   "expected": "/sdk lists itself and /sdk/constitution; no listed route answers 404; an unlisted path is not routed"
+ },
+ "ide_stages_change_nothing": {
+  "input": "GET /ide/{stage}?program=… for all eight stages, on a program that ends in COMMIT/BUILD",
+  "expected": "every stage answers 200; RECORD reports performed=false with the POST to send; PURL, substrate and ACSP state unchanged"
  },
  "prompt_conversation_not_executed": {
   "input": "classify plain text, an object missing fields, and a valid program",
@@ -365,6 +377,17 @@ export async function runConformance(api, author, { acspResource = api.cfg.acspT
     for (const r of listed.filter((x) => x.method === 'GET' && !x.path.includes('{'))) { const g = await h('GET', r.path, null); if (g.status === 404) bad.push(r.path); }
     const unlisted = await h('GET', '/sdk/not-a-route', null);
     return { ok: self && bad.length === 0 && unlisted.status === 404 && api.bridge.routeOf('GET', '/sdk') !== null, detail: `${listed.length} routes; self-listed=${self}; 404s: ${bad.join(',') || 'none'}` };
+  });
+  await check('ide_stages_change_nothing', async () => {
+    const before = await snapshot(api, acspResource);
+    const prog = encodeURIComponent('/seurl/START/map/eca/90/8/state/5/WRITE/next/COMMIT/BUILD');
+    const stages = ['discover', 'parse', 'type', 'plan', 'build', 'execute', 'observe', 'record'];
+    const res = [];
+    for (const st of stages) res.push(await h('GET', `/ide/${st}?program=${prog}`, null));
+    const after = await snapshot(api, acspResource);
+    const rec = res.at(-1).doc?.result;
+    const ok = res.every((r) => r.status === 200) && rec?.performed === false && rec?.to_record?.method === 'POST' && before === after;
+    return { ok, detail: `statuses ${res.map((r) => r.status).join(',')}; record.performed=${rec?.performed}; state ${before === after ? 'unchanged' : 'CHANGED'}` };
   });
   await check('prompt_conversation_not_executed', async () => {
     const before = await snapshot(api, acspResource);

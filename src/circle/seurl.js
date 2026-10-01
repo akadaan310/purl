@@ -16,6 +16,14 @@
 // The session's entire state is a function of the path (url-machine §5: "Session keeps:
 // its url. Nothing else."), so evaluating a path on GET changes nothing anywhere.
 
+export const DESCRIPTOR = {
+  module: 'src/circle/seurl.js',
+  claims: ['the SEURL move-word FSM is pure: run(path) reads only its argument', 'mutating verbs (COMMIT, BUILD, TALK) are returned as prepared, never performed', 'parse is syntax only (no evaluation)'],
+  requires: { modules: [], services: [], files: [] },
+  produces: ['DESCRIPTOR', 'VERBS', 'MUTATING', 'SeurlError', 'parseMoves', 'run', 'pathOf'],
+  changes: [],
+};
+
 export const VERBS = ['START', 'SWITCH', 'WRITE', 'COMMIT', 'BUILD', 'TALK', 'PERTURB'];
 export const MUTATING = new Set(['COMMIT', 'BUILD', 'TALK']);
 
