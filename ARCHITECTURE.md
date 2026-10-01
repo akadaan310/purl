@@ -20,6 +20,14 @@ PURL is three layers that can be understood — and replaced — independently.
                  src/core/  canonical JSON, hashing, ids, schema validation
 ```
 
+## The bridge layer (circle), added on the research branch
+
+`src/circle/` sits beside the layers above and imports only `core`, `client` and
+itself (enforced by `test/architecture.test.js`). It reaches this repository's
+resources through `PurlClient`, as any outside client would, and reaches the
+substrate, ACSP and Golden Surface only over HTTP adapters. It changes nothing
+in Layers 0–2. See `circle/BRIDGE-CONTRACT.md`.
+
 ## Dependency rule
 
 | Module | May import |

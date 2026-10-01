@@ -84,6 +84,10 @@ operation URL and body shape from manifests:
 SEURL programs → typed terms and values (substrateIO) → Scrolls (PURL/0.1 resources)
 → ACSP proposals → SubstrateIO observations → checkpoints. Start at
 [circle/CURRENT-STATE.md](circle/CURRENT-STATE.md); run with `npm run circle`.
+A participant that can only make HTTP requests starts at `GET /` and `GET /sdk`.
+Contract: [circle/BRIDGE-CONTRACT.md](circle/BRIDGE-CONTRACT.md). Branches and deployments:
+[circle/CANONICAL-STATE.md](circle/CANONICAL-STATE.md). Rebuild everything from committed refs:
+`npm run bridge:cold`.
 
 ## Architecture
 

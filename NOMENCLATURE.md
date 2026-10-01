@@ -11,6 +11,13 @@ terminology · motivation · example · non-example.
 
 ---
 
+**Bridge terms** (Scroll in the circle sense, SEURL move word, identity kinds, edge vocabulary,
+stasis, clock domain, cold reconstruction) are not PURL/0.1 terms. They are kept in the
+substrateIO registry (C-037…C-053) and summarised in `circle/BRIDGE-NOMENCLATURE.md`.
+This file's PURL/0.1 terms are unchanged.
+
+---
+
 ### Resource
 *noun · Layer 0/1* — An addressable, versioned, stateful object identified
 by `/r/{id}`, whose state is the fold of its event log.
