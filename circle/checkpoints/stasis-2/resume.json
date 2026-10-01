@@ -1,0 +1,180 @@
+{
+ "protocol": "circle/0 (provisional)",
+ "kind": "resume",
+ "checkpoint": "r_AVPVE4Y83H",
+ "intact": true,
+ "content_id": "sha256:5c97f6a57784f6f2c68d8c0e544ceda6914b7c2c00a75f2bc8d21b3e2bb38bb8",
+ "constitution_changed": false,
+ "scrolls": [
+  {
+   "id": "r_2VC97GG1DN",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_98ZWP0MPXW",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_9PWGDDAVJR",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_TMR4F2M5N1",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_FET5KXQ44H",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_56JZDQD35R",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_8F7ZYMS4NS",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_PSWDQMZRAS",
+   "version": 5,
+   "now": 5,
+   "changed_since": false
+  },
+  {
+   "id": "r_69CR3WHFTC",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_T6G0DT69W5",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_X1V8849X2S",
+   "version": 2,
+   "now": 2,
+   "changed_since": false
+  },
+  {
+   "id": "r_722WQGQRKB",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_VT9DP5S86A",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_7Z7KJHKT4W",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_TDH6PHSPGB",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_YA8Z83C9RH",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_JKRKD11BCK",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_62YC7RX4RQ",
+   "version": 5,
+   "now": 5,
+   "changed_since": false
+  },
+  {
+   "id": "r_PS3N5AG41M",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_N8HPA8NY3N",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_29M185959G",
+   "version": 2,
+   "now": 2,
+   "changed_since": false
+  },
+  {
+   "id": "r_27W8T1MBMV",
+   "version": 2,
+   "now": 2,
+   "changed_since": false
+  }
+ ],
+ "active_scroll": "r_27W8T1MBMV",
+ "next": "STASIS-3: (1) human decisions on K-18/A-001..A-004 and on the canonical ACSP line (OP-B3); (2) Q-014 cross-provider reconstruction via a reachable deployment; (3) pre-register a C-053 closure experiment with kind-typed transformers; (4) make R9 (ACSP->substrate observation) discoverable enough to be found unprompted.",
+ "unresolved": [
+  "two constitutions (MUSA v1 vs COP directive)",
+  "luna-foundry GET mutates ident",
+  "golden-surface shared sessions vs no ambient authority",
+  "MUSA automation against google.com vs directive 28",
+  "deterministic_sha256 mixes address and value",
+  "program-001/417da6c/browser-hand referenced but absent",
+  "golden-surface commits Android build output",
+  "PURL names resource addresses and value addresses"
+ ],
+ "semantics": "Resuming re-reads addresses and records; no transcript is involved. Differences since the checkpoint are reported, not hidden.",
+ "constitution": {
+  "version": 1,
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "href": "/constitution"
+ },
+ "moves": [
+  {
+   "rel": "active-scroll",
+   "method": "GET",
+   "href": "/scrolls/r_27W8T1MBMV",
+   "effect": "read"
+  },
+  {
+   "rel": "conformance",
+   "method": "GET",
+   "href": "/conformance",
+   "effect": "read"
+  },
+  {
+   "rel": "entry",
+   "method": "GET",
+   "href": "/",
+   "effect": "read"
+  }
+ ]
+}

@@ -1,109 +1,94 @@
 {
- "format": "circle-current-state/1",
+ "format": "circle-current-state/2",
+ "stasis": "STASIS-2",
+ "status": "CLOSED",
  "date": "2026-10-01",
  "commits": {
-  "substrateIO": "60ce712",
-  "acsp": "29b4911",
-  "purl": "(this branch head; see git log)",
+  "purl": "53f21e4 (+ closing commit)",
+  "substrateIO": "16657b5",
+  "acsp": "e8d989a",
   "seurl": "620ff95",
   "golden-surface": "b113718",
-  "MUSA": "d797135",
-  "luna-foundry": "6a260ef"
+  "MUSA": "d797135"
+ },
+ "production": {
+  "acsp-one.vercel.app": "9fcf2e1 (no bridge work)",
+  "seurl.vercel.app": "content of 620ff95",
+  "lunar-foundry.vercel.app": "6a260ef",
+  "golden relay": "not mappable"
+ },
+ "checkpoint": {
+  "id": "r_AVPVE4Y83H",
+  "content_id": "sha256:5c97f6a57784f6f2c68d8c0e544ceda6914b7c2c00a75f2bc8d21b3e2bb38bb8",
+  "snapshot": "circle/checkpoints/stasis-2/"
+ },
+ "conformance": {
+  "run": "r_4MWWBV02AY",
+  "summary": {
+   "TESTED": 14,
+   "EXTERNAL": 1,
+   "HUMAN_REVIEWED": 3,
+   "CONFLICTING": 1
+  },
+  "checks": 29,
+  "not_run": 0
  },
  "constitution": {
   "version": 1,
-  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
-  "enforcement": "circle/constitution/enforcement.json"
- },
- "protocols": {
-  "circle": "circle/0 (provisional)",
-  "purl": "PURL/0.1",
-  "substrate": "substrate-purl/0 (provisional)",
-  "acsp": "ACSP/0.1",
-  "seurl": "seurl/0 (url-machine.md)"
- },
- "checkpoint": {
-  "id": "r_HMGMD46GSD",
-  "content_id": "sha256:ef5ed564093e1d0078c03d95ddac7c3f772a4c9506872ce279326a7ce6e13d2e",
-  "active_scroll": "r_G2TE3WEDSM",
-  "acsp": {
-   "resource_id": "Y29DNZA2593N",
-   "version": 4
-  },
-  "conformance_run": "r_PT7JH5RK4C",
-  "snapshot": "circle/checkpoints/final/"
- },
- "conformance": {
-  "last": {
-   "run": "r_PT7JH5RK4C",
-   "summary": {
-    "TESTED": 14,
-    "EXTERNAL": 1,
-    "HUMAN_REVIEWED": 3,
-    "CONFLICTING": 1
-   }
-  },
-  "previous_failed": {
-   "run": "r_NGF9DGARER",
-   "clause": "K-12",
-   "repaired": "forward, by grant events"
-  }
- },
- "tests": {
-  "purl": "70 (12 circle)",
-  "substrateIO": "74 OK, 0 violations",
-  "acsp": "24 vitest; harness over HTTP 13 pass / 3 skip",
-  "luna-foundry": "9",
-  "golden-surface": "store ok, relay PHASE 2 OK, 2 suites environmental FAIL"
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4"
  },
  "experiments": {
-  "EXP-CIRCLE-E2E": {
-   "records": 3,
-   "reproduced": "record-2 == record-3 (sha256:1aad20b2...)",
-   "record-1": "preserved failure"
+  "EXP-BRIDGE-RECON": {
+   "scores": {
+    "sonnet": 12,
+    "haiku": 8,
+    "default": 13
+   },
+   "hypothesis": "not falsified overall (2/3)"
   },
-  "EXP-CIRCLE-FRESH": {
-   "A": "inspected, did not act; non-HTTP inspection",
-   "B": "13/14; H-FRESH not falsified",
-   "C": "valid hand-off; H-BROWSER not falsified",
-   "defects_found": [
-    "F-C1",
-    "F-C2",
-    "F-C3",
-    "F-C4"
-   ]
+  "differential": {
+   "cases": 9,
+   "differential": 9
   },
-  "EXP-CIRCLE-GOLDEN": {
-   "status": "SIMULATED client (FakePhone)"
-  }
+  "cold": "circle/cold/"
  },
  "statuses": {
-  "established": [
-   "C-041 (known concept)",
-   "C-044 (known measurement)"
+  "NOT_IMPLEMENTED": [
+   "Golden Surface -> ACSP adapter",
+   "Android client",
+   "cross-provider participants (Q-014)"
   ],
-  "hypothesis": [
-   "H-FRESH",
-   "H-BROWSER",
-   "C-045"
-  ],
-  "provisional": [
-   "C-042 Scroll",
-   "C-043 SEURL path"
-  ],
-  "unresolved": [
+  "UNRESOLVED": [
    "K-18",
    "A-001",
-   "Q-014",
-   "Q-015/OP-010",
-   "live ACSP TALK",
-   "real Android WebView",
-   "seurl:// scheme",
-   "program-001 source",
-   "code as first-class value",
-   "C-046 constitutional recursion",
-   "external compiler adapters"
+   "A-002",
+   "A-003",
+   "A-004",
+   "OP-B1",
+   "OP-B2",
+   "OP-B3",
+   "Q-015",
+   "SDK-1 router enumeration",
+   "C-046",
+   "C-052",
+   "C-053"
+  ],
+  "CONFLICTING": [
+   "two SEURLs",
+   "Scroll x4",
+   "two bridges",
+   "migration 0003 x2"
+  ],
+  "ENVIRONMENT_LIMITED": [
+   "real phone",
+   "deployed relay",
+   "live ACSP write"
   ]
  },
- "next": "Q-014 cross-provider participant; A-001 and K-18 decisions (human); real-phone Golden Surface run; live ACSP TALK only on request"
+ "next": [
+  "human decisions K-18/A-001..A-004, OP-B3",
+  "Q-014 via reachable deployment",
+  "pre-registered C-053 closure experiment",
+  "R9 discoverability"
+ ]
 }

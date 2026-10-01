@@ -1,0 +1,150 @@
+{
+ "protocol": "circle/0 (provisional)",
+ "kind": "checkpoint",
+ "id": "r_AVPVE4Y83H",
+ "content_id": "sha256:5c97f6a57784f6f2c68d8c0e544ceda6914b7c2c00a75f2bc8d21b3e2bb38bb8",
+ "by": {
+  "session_id": "stasis-2-close",
+  "agent_id": null,
+  "assurance": "asserted"
+ },
+ "constitution": {
+  "version": 1,
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "href": "/constitution"
+ },
+ "commits": {
+  "purl": "53f21e4",
+  "substrateIO": "16657b5",
+  "acsp": null
+ },
+ "protocols": {
+  "circle": "circle/0 (provisional)",
+  "purl": "PURL/0.1",
+  "substrate": "substrate-purl/0 (provisional)",
+  "acsp": "ACSP/0.1",
+  "seurl": "seurl/0 (url-machine.md)"
+ },
+ "scrolls": [
+  {
+   "id": "r_2VC97GG1DN",
+   "version": 3
+  },
+  {
+   "id": "r_98ZWP0MPXW",
+   "version": 3
+  },
+  {
+   "id": "r_9PWGDDAVJR",
+   "version": 3
+  },
+  {
+   "id": "r_TMR4F2M5N1",
+   "version": 3
+  },
+  {
+   "id": "r_FET5KXQ44H",
+   "version": 3
+  },
+  {
+   "id": "r_56JZDQD35R",
+   "version": 3
+  },
+  {
+   "id": "r_8F7ZYMS4NS",
+   "version": 3
+  },
+  {
+   "id": "r_PSWDQMZRAS",
+   "version": 5
+  },
+  {
+   "id": "r_69CR3WHFTC",
+   "version": 3
+  },
+  {
+   "id": "r_T6G0DT69W5",
+   "version": 3
+  },
+  {
+   "id": "r_X1V8849X2S",
+   "version": 2
+  },
+  {
+   "id": "r_722WQGQRKB",
+   "version": 3
+  },
+  {
+   "id": "r_VT9DP5S86A",
+   "version": 3
+  },
+  {
+   "id": "r_7Z7KJHKT4W",
+   "version": 3
+  },
+  {
+   "id": "r_TDH6PHSPGB",
+   "version": 3
+  },
+  {
+   "id": "r_YA8Z83C9RH",
+   "version": 3
+  },
+  {
+   "id": "r_JKRKD11BCK",
+   "version": 3
+  },
+  {
+   "id": "r_62YC7RX4RQ",
+   "version": 5
+  },
+  {
+   "id": "r_PS3N5AG41M",
+   "version": 3
+  },
+  {
+   "id": "r_N8HPA8NY3N",
+   "version": 3
+  },
+  {
+   "id": "r_29M185959G",
+   "version": 2
+  },
+  {
+   "id": "r_27W8T1MBMV",
+   "version": 2
+  }
+ ],
+ "active_scroll": "r_27W8T1MBMV",
+ "substrate_environment_id": "sha256:4f7acc8629fe88becd52674c02c56a662bca0d9161a5078872ffffc5438275dc",
+ "acsp": {
+  "resource_id": "EWHFG2ST3J8E",
+  "version": 5
+ },
+ "conformance_run": "r_4MWWBV02AY",
+ "unresolved": [
+  "two constitutions (MUSA v1 vs COP directive)",
+  "luna-foundry GET mutates ident",
+  "golden-surface shared sessions vs no ambient authority",
+  "MUSA automation against google.com vs directive 28",
+  "deterministic_sha256 mixes address and value",
+  "program-001/417da6c/browser-hand referenced but absent",
+  "golden-surface commits Android build output",
+  "PURL names resource addresses and value addresses"
+ ],
+ "next": "STASIS-3: (1) human decisions on K-18/A-001..A-004 and on the canonical ACSP line (OP-B3); (2) Q-014 cross-provider reconstruction via a reachable deployment; (3) pre-register a C-053 closure experiment with kind-typed transformers; (4) make R9 (ACSP->substrate observation) discoverable enough to be found unprompted.",
+ "moves": [
+  {
+   "rel": "resume",
+   "method": "GET",
+   "href": "/resume/r_AVPVE4Y83H",
+   "effect": "read"
+  },
+  {
+   "rel": "self",
+   "method": "GET",
+   "href": "/checkpoints/r_AVPVE4Y83H",
+   "effect": "read"
+  }
+ ]
+}

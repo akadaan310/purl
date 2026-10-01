@@ -200,6 +200,33 @@ describe('the circle end to end (substrate + PURL + ACSP, real processes)', { sk
   });
 });
 
+describe('STASIS-2 checkpoint is recoverable from the committed snapshot alone', () => {
+  test('content id verifies; every scroll replays; the body note survived', async () => {
+    const { cpSync } = await import('node:fs');
+    const { Store } = await import('../src/continuity/store.js');
+    const { createPurlServer } = await import('../src/transport/server.js');
+    const { PurlClient } = await import('../src/client/client.js');
+    const { sha256 } = await import('../src/circle/adapters.js');
+    const dir = mkdtempSync(join(tmpdir(), 'cp2-replay-'));
+    cpSync(join(HERE, '..', 'circle', 'checkpoints', 'stasis-2', 'purl-store'), dir, { recursive: true });
+    const srv = createPurlServer({ store: new Store({ dataDir: dir }) });
+    await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+    try {
+      const client = new PurlClient(`http://127.0.0.1:${srv.address().port}`);
+      const cp = await client.open('/r/r_AVPVE4Y83H');
+      const { content_id, ...rest } = cp.state;
+      assert.equal(sha256(rest), content_id);
+      assert.equal(content_id, 'sha256:5c97f6a57784f6f2c68d8c0e544ceda6914b7c2c00a75f2bc8d21b3e2bb38bb8');
+      assert.match(cp.state.next, /^STASIS-3/);
+      assert.equal(cp.state.acsp.resource_id, 'EWHFG2ST3J8E');
+      for (const s of cp.state.scrolls) assert.ok((await client.reconstruct(`/r/${s.id}`)).all_ok, s.id);
+    } finally {
+      srv.closeAllConnections?.();
+      await new Promise((r) => srv.close(r));
+    }
+  });
+});
+
 describe('final checkpoint is recoverable from the committed snapshot alone', () => {
   test('content id verifies and every scroll log replays (no live services)', async () => {
     const { cpSync } = await import('node:fs');

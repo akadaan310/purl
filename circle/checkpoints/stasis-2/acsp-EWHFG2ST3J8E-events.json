@@ -1,0 +1,173 @@
+{
+  "protocol": {
+    "name": "ACSP",
+    "version": "ACSP/0.1",
+    "title": "Agent Continuity & Session Protocol",
+    "spec": "http://127.0.0.1:18787/protocol",
+    "spec_json": "http://127.0.0.1:18787/protocol.json",
+    "invariants": [
+      "Continuity does not imply identity.",
+      "Reference does not imply ownership.",
+      "Awareness does not imply authority.",
+      "Handoff does not imply merger."
+    ]
+  },
+  "type": "event_list",
+  "notice": "You are an AI agent accessing an Agent Continuity Resource. This is externally persisted state that independent sessions deliberately published under the ACSP/0.1 protocol. It is not your conversation history and not your memory.",
+  "resource_id": "EWHFG2ST3J8E",
+  "current_version": 5,
+  "semantics": "Append-only history. Each event is one state change; version increases by exactly 1 per event.",
+  "after": 0,
+  "events": [
+    {
+      "id": "EWHFG2ST3J8E@1",
+      "resource_id": "EWHFG2ST3J8E",
+      "version": 1,
+      "parent_version": 0,
+      "resulting_version": 1,
+      "operation": "create",
+      "occurred_at": "2026-10-01T13:38:25.272Z",
+      "actor": {
+        "session_id": "owner-human",
+        "agent_id": null,
+        "kind": "agent"
+      },
+      "identity_assurance": "asserted",
+      "capability_id": null,
+      "on_behalf_of": null,
+      "proposal_id": null,
+      "summary": "owner-human created resource \"bridge reconstruction trial\"",
+      "data": {
+        "owner": {
+          "human": null,
+          "agent_id": null,
+          "session_id": "owner-human"
+        },
+        "title": "bridge reconstruction trial",
+        "visibility": "unlisted",
+        "accepts_proposals": true
+      },
+      "request_hash": "sha256:2188e43ce86fc582cdfbb64b22c7513739eedf9dd6812643a57a295a973cc6aa",
+      "idempotency_key": "intent-0C6TQMFZYSQ8751X"
+    },
+    {
+      "id": "EWHFG2ST3J8E@2",
+      "resource_id": "EWHFG2ST3J8E",
+      "version": 2,
+      "parent_version": 1,
+      "resulting_version": 2,
+      "operation": "propose",
+      "occurred_at": "2026-10-01T13:39:09.027Z",
+      "actor": {
+        "session_id": "claude-recon-2026-10-01",
+        "agent_id": null,
+        "kind": "agent"
+      },
+      "identity_assurance": "asserted",
+      "capability_id": null,
+      "on_behalf_of": null,
+      "proposal_id": null,
+      "summary": "claude-recon-2026-10-01 proposed append (P-001, pending owner decision)",
+      "data": {
+        "operation": "append",
+        "rationale": "Publish a circle Scroll build as continuity.",
+        "proposal_id": "P-001"
+      },
+      "request_hash": "sha256:bd97b4fb88c2be8b991fb227d6b291dbb97a48c1e2ce58859131d6bd9287a703",
+      "idempotency_key": "intent-5R80BMSXA0M70X0J"
+    },
+    {
+      "id": "EWHFG2ST3J8E@3",
+      "resource_id": "EWHFG2ST3J8E",
+      "version": 3,
+      "parent_version": 2,
+      "resulting_version": 3,
+      "operation": "propose",
+      "occurred_at": "2026-10-01T13:41:57.058Z",
+      "actor": {
+        "session_id": "claude-recon-session-001",
+        "agent_id": null,
+        "kind": "agent"
+      },
+      "identity_assurance": "asserted",
+      "capability_id": null,
+      "on_behalf_of": null,
+      "proposal_id": null,
+      "summary": "claude-recon-session-001 proposed append (P-002, pending owner decision)",
+      "data": {
+        "operation": "append",
+        "rationale": "Document the reconstructed system architecture for continuity and future sessions.",
+        "proposal_id": "P-002"
+      },
+      "request_hash": "sha256:8ae8c8742b4f43b4805d3c9e19fec5c0f6efc2bf0689238cded5d6454c627524",
+      "idempotency_key": "intent-RECONSTRUCTION-ARCH-001"
+    },
+    {
+      "id": "EWHFG2ST3J8E@4",
+      "resource_id": "EWHFG2ST3J8E",
+      "version": 4,
+      "parent_version": 3,
+      "resulting_version": 4,
+      "operation": "propose",
+      "occurred_at": "2026-10-01T13:42:12.977Z",
+      "actor": {
+        "session_id": "claude-recon-session-001",
+        "agent_id": null,
+        "kind": "agent"
+      },
+      "identity_assurance": "asserted",
+      "capability_id": null,
+      "on_behalf_of": null,
+      "proposal_id": null,
+      "summary": "claude-recon-session-001 proposed append (P-003, pending owner decision)",
+      "data": {
+        "operation": "append",
+        "rationale": "Document the dynamical properties of ECA rule 90 as discovered through the substrate.",
+        "proposal_id": "P-003"
+      },
+      "request_hash": "sha256:cd2bc4be5b3c942992b5e011fb0060d3b879f0e4caa7ab88883ae4cd53816dfc",
+      "idempotency_key": "intent-ECA-DYNAMICS-001"
+    },
+    {
+      "id": "EWHFG2ST3J8E@5",
+      "resource_id": "EWHFG2ST3J8E",
+      "version": 5,
+      "parent_version": 4,
+      "resulting_version": 5,
+      "operation": "propose",
+      "occurred_at": "2026-10-01T13:49:23.662Z",
+      "actor": {
+        "session_id": "stasis-2-close",
+        "agent_id": null,
+        "kind": "agent"
+      },
+      "identity_assurance": "asserted",
+      "capability_id": null,
+      "on_behalf_of": null,
+      "proposal_id": null,
+      "summary": "stasis-2-close proposed append (P-004, pending owner decision)",
+      "data": {
+        "operation": "append",
+        "rationale": "Publish a circle Scroll build as continuity.",
+        "proposal_id": "P-004"
+      },
+      "request_hash": "sha256:d05eb0babcef7c5fa624409c7019fecbbd217f8702fe0f1ff366a2c9fc4ffd26",
+      "idempotency_key": "intent-4AT930S7BBJ93FBS"
+    }
+  ],
+  "next": null,
+  "links": {
+    "self": "http://127.0.0.1:18787/r/EWHFG2ST3J8E",
+    "html": "http://127.0.0.1:18787/r/EWHFG2ST3J8E",
+    "json": "http://127.0.0.1:18787/r/EWHFG2ST3J8E.json",
+    "status": "http://127.0.0.1:18787/r/EWHFG2ST3J8E?action=status",
+    "operations": "http://127.0.0.1:18787/r/EWHFG2ST3J8E/operations",
+    "events": "http://127.0.0.1:18787/r/EWHFG2ST3J8E/events",
+    "checkpoints": "http://127.0.0.1:18787/r/EWHFG2ST3J8E/checkpoints",
+    "diff": "http://127.0.0.1:18787/r/EWHFG2ST3J8E/diff?from=1",
+    "explorer": "http://127.0.0.1:18787/r/EWHFG2ST3J8E/explorer",
+    "execute": "http://127.0.0.1:18787/r/EWHFG2ST3J8E/operations",
+    "protocol": "http://127.0.0.1:18787/protocol",
+    "protocol_json": "http://127.0.0.1:18787/protocol.json"
+  }
+}

@@ -1,6 +1,6 @@
 {
  "format": "bridge-manifest/2",
- "generated_at": "2026-10-01T13:41:38.477Z",
+ "generated_at": "2026-10-01T13:50:32.971Z",
  "generator": "scripts/bridge-manifest.js",
  "secrets": "none: commit ids, paths, names and hashes only",
  "start_here": [
@@ -37,7 +37,7 @@
    "url": "https://github.com/akadaan310/purl",
    "default_branch": "claude/purl-protocol-research-bxevq5",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "ddbd066",
+   "head": "53f21e4",
    "branches": {
     "ccr-d0887a23-30wf63": "1acfb0c",
     "claude/acsp-purl-composition-adsbn6": "18c85bf",
@@ -50,7 +50,7 @@
    "url": "https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet",
    "default_branch": "claude/agent-continuity-protocol-doi4bn",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "29b4911",
+   "head": "e8d989a",
    "branches": {
     "ccr-d0887a23-30wf63": "29b4911",
     "claude/acsp-program-001-k616hw": "417da6c",
@@ -64,7 +64,7 @@
    "url": "https://github.com/akadaan310/substrateIO",
    "default_branch": "claude/research-substrate-bootstrap-bfd02a",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "07e15d0",
+   "head": "16657b5",
    "branches": {
     "ccr-d0887a23-30wf63": "60ce712",
     "claude/acsp-program-001-k616hw": "5073595",
@@ -416,6 +416,13 @@
   },
   {
    "method": "GET",
+   "path": "/projections",
+   "edge": "PROJECT",
+   "effect": "pure",
+   "description": "declared projections: P-ACSP-EV-1 (substrate) and the addressed-transition projectors"
+  },
+  {
+   "method": "GET",
    "path": "/state",
    "edge": "OBSERVE",
    "effect": "pure",
@@ -601,7 +608,7 @@
  "constitution": {
   "clauses": "circle/constitution/constitution-v1.json",
   "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
-  "enforcement": "sha256:6523850d04593e83acff34747fc015bda9fff2e0e8533a9537a6ab37fe09ee4e",
+  "enforcement": "sha256:d042a1dc2915ec3f78b0f0ebfbcdc1ef5bcb9441e32aecd0deeab893f9ec7496",
   "sdk": "sha256:e7a8a5cb84576f57c721036a738a7bc78248892ed9315de25d041b3eae3c13d1"
  },
  "historical_states": [
@@ -635,8 +642,15 @@
   {
    "id": "STASIS-2",
    "label": "bridge: reconstruction, SDK, observatory, cold reconstruction",
-   "commits": {},
-   "checkpoint": null
+   "commits": {
+    "substrateIO": "16657b5",
+    "purl": "53f21e4",
+    "acsp": "e8d989a",
+    "seurl": "620ff95",
+    "golden-surface": "b113718",
+    "MUSA": "d797135"
+   },
+   "checkpoint": "r_AVPVE4Y83H sha256:5c97f6a57784f6f2c68d8c0e544ceda6914b7c2c00a75f2bc8d21b3e2bb38bb8 (snapshot purl circle/checkpoints/stasis-2/); conformance r_4MWWBV02AY"
   }
  ],
  "records": {
@@ -649,6 +663,7 @@
    "report-1.json"
   ],
   "differential": [
+   "results-2.json",
    "results.json"
   ],
   "fresh_agent": [
@@ -659,7 +674,10 @@
   ],
   "reconstruction": [
    "SPEC.md",
-   "report-1-sonnet.md"
+   "get-safety.json",
+   "report-1-sonnet.md",
+   "report-2-haiku.md",
+   "report-3-default.md"
   ]
  },
  "known_discrepancies": [

@@ -80,11 +80,65 @@
    "n": 2,
    "id": "STASIS-2",
    "label": "bridge: reconstruction, SDK, observatory, cold reconstruction",
-   "date": "open",
-   "status": "OPEN until the final checkpoint of this phase is recorded",
-   "commits": {},
-   "changed": [],
-   "reconstruct": "scripts/bridge-cold-reconstruct.js"
+   "date": "2026-10-01",
+   "status": "CLOSED",
+   "commits": {
+    "substrateIO": "16657b5",
+    "purl": "53f21e4",
+    "acsp": "e8d989a",
+    "seurl": "620ff95",
+    "golden-surface": "b113718",
+    "MUSA": "d797135"
+   },
+   "changed": [
+    "reconstruction corrected (program-001, 417da6c, composition bridge, golden engine exist)",
+    "SDK self-description, prompt contract, programs as objects (build_id, content_id), addressed transitions, git projection, test surface, observatory, stases",
+    "Golden Surface and MUSA boundaries as tests",
+    "differential evidence for 9 defects",
+    "cold reconstruction test",
+    "research-continuity protocol extended (section 1a)",
+    "F-R1..F-R4 fixed"
+   ],
+   "reconstruct": "npm run bridge:cold (SOURCE=origin); checkpoint replay test 'STASIS-2 checkpoint is recoverable'",
+   "purl_note": "53f21e4 is the code the closing checkpoint ran; the closing record itself is the purl commit titled 'bridge: close STASIS-2' (a commit cannot name itself)",
+   "deployments": {
+    "acsp-one.vercel.app": "9fcf2e1 (unchanged; production does not carry any bridge work)"
+   },
+   "checkpoint": "r_AVPVE4Y83H sha256:5c97f6a57784f6f2c68d8c0e544ceda6914b7c2c00a75f2bc8d21b3e2bb38bb8 (snapshot purl circle/checkpoints/stasis-2/); conformance r_4MWWBV02AY",
+   "constitution": "circle constitution-v1 sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4 (unchanged) + enforcement.json (grew)",
+   "survived": [
+    "ACSP/0.1 and its live data",
+    "PURL/0.1 core",
+    "substrateIO registries and run_ids",
+    "constitution-v1",
+    "STASIS-1 checkpoint (replays)"
+   ],
+   "superseded": [
+    "INTEGRATION-CONTRACT.md by BRIDGE-CONTRACT.md (kept)",
+    "bridge-manifest.json v1 (hand-written) by v2 (generated)"
+   ],
+   "disproven": [
+    "STASIS-1 claim: program-001 / 417da6c absent",
+    "MUSA claim: ramz 'tamper refused' (adversarially)",
+    "STASIS-1 claim: Golden Surface refuses seurl:// (true on main only)"
+   ],
+   "unresolved": [
+    "K-18/A-002",
+    "A-001",
+    "A-003",
+    "A-004",
+    "OP-B1",
+    "OP-B2",
+    "OP-B3",
+    "Q-014",
+    "Q-015",
+    "real Android WebView",
+    "SDK-1 router enumeration",
+    "C-046",
+    "C-052",
+    "C-053 (no pre-registered test)",
+    "live ACSP TALK"
+   ]
   }
  ]
 }
