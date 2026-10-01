@@ -10,6 +10,20 @@ tests listed); edge vocabulary, stasis and clock are **definitions** (DERIVED fr
 existing terms); "addressed transition" and "recursive program construction"
 are **hypotheses** under test (see DOGFOOD-REPORT.md, `/transitions`).
 
+## 0. Epistemic labels (defined once; used with these meanings everywhere in circle/)
+
+Source: substrateIO `research/registries/epistemic_statuses.json` (machine-checked by `tools.validate`).
+| Label | Meaning here |
+|---|---|
+| ESTABLISHED | accepted in an external discipline and traceable to a source or standard derivation; this work only records it |
+| OBSERVED | measured from something that exists independently of the instrument: here, this repository's recorded history and records of runs (never a model's output about a physical system) |
+| DERIVED | follows from definitions by an argument written down here; computation may corroborate (e.g. `tests/test_recurrence_terms.py`) |
+| SIMULATED | produced by executing a computational model; true of the model only |
+| INFERRED | an interpretation of evidence; at most this strong |
+| HYPOTHESIS | proposed, not yet tested, or tested without a pre-registered falsification |
+| UNRESOLVED | the evidence does not decide it, or a decision belongs to someone else |
+| DISPROVEN | a recorded test contradicted it; the claim and the test stay in the record |
+
 ## 1. Identity: eleven kinds that must not collapse
 
 Verified on 2026-10-01 by searching the code of every system and by tests.
@@ -119,3 +133,35 @@ C-047 identity decomposition (eleven kinds) · C-048 bridge edge vocabulary ·
 C-049 stasis · C-050 clock domain · C-051 cold reconstruction test ·
 C-052 addressed transition (HYPOTHESIS) · C-053 recursive program
 construction under explicit transition rules (HYPOTHESIS).
+
+## 9. Conflict register (STASIS-3 phase 2)
+
+| Term | Senses found | Resolution | Status |
+|---|---|---|---|
+| attractor / closed class | substrateIO C-011 "attractor (periodic orbit)" = cycle of a functional graph; purl NOMENCLATURE rejects "attractor" for empirical graphs, uses "closed class" | **scope, not error**: on functional graphs cycles = bottom SCCs = recurrent states (verified exhaustively for all 256 maps on 4 states, plus 300 random maps); on general graphs they differ (two counterexamples). C-011 scoped to deterministic maps (revision entry); C-054 "closed class" added as the general term | DERIVED (test `tests/test_recurrence_terms.py`) |
+| "recurrent natures" (operator) | — | no new term: C-054 (closed class) and C-011 (periodic orbit) cover it; recurrence across programs is C-044 | DERIVED |
+| Scroll | ACSP program-001; circle; luna-foundry (text window); MUSA (sealed page) | qualified senses `scroll@acsp-p001`, `scroll@circle`, `scroll@luna-foundry`, `scroll@musa`. No rename: `/scrolls` is a live route, and renaming would erase history. The SDK states the sense it means | UNRESOLVED (which sense becomes canonical is the owners' call) |
+| SEURL | move words; `seurl://golden` addresses | two terms: C-043 *SEURL move word*; *seurl://golden address* (Golden Surface namespace) | DERIVED from code |
+| bridge | circle; composition (ACSP 0.2 + purl compute); golden `POST /bridge` | "the bridge" = the circle in these documents | declared |
+| constitution | MUSA v1; COP directive; circle v1; protocol invariants | one methodology, several artifacts (BRIDGE-CONSTITUTION.md) | declared |
+
+## 10. Is the 12-field term schema the right one? (measured: `circle/nomenclature/schema-fit.json`)
+
+Over the 53 registry terms:
+* 6 of the 12 proposed fields (OPERATION, INPUT, OUTPUT, INVARIANTS, VALIDATION METHOD, IMPLEMENTATION) had **no slot** (coverage 0.0).
+* EVIDENCE was filled for 0.32 of terms and non-examples for 0.075.
+* The registry carries fields the schema lacks, and they matter: **status** (stops terminology outrunning evidence), **term_class**, **notation**, **examples**, **non-examples**.
+
+INFERRED: one schema does not fit all terms. The categories split into
+*operational* terms (method, measurement, measure, perturbation, map, artifact:
+21 terms), for which operation/input/output/invariants/validation/implementation
+are meaningful, and *relational/structural* terms (relation, representation,
+structure, dynamics, meta, physical, provenance, observation, dependability:
+32 terms), for which those fields are empty by nature. Adopted practice:
+
+* **core profile (every term):** name, domain/derivation, definition, notation, related and competing terms, established counterparts, examples, non-examples, status, term_class, history, scope.
+* **operational profile (operational terms add):** operation, input, output, invariants, validation_method, implementation.
+
+Applied to the operational bridge terms C-042…C-044 and C-051…C-053. Whether
+the profiles help a fresh participant reconstruct the structure is measured in
+the observation-arrow experiment (condition with nomenclature exposure).
