@@ -29,10 +29,17 @@ const step = (name, ok, detail) => { report.verdicts.push({ name, ok, detail });
 // 0. clone committed refs
 for (const [name, dir] of Object.entries(REPOS)) {
   const src = SOURCE === 'origin' ? execFileSync('git', ['-C', join(PARENT, dir), 'remote', 'get-url', 'origin'], { encoding: 'utf8' }).trim() : join(PARENT, dir);
-  const r = sh('git', ['clone', '-q', '--branch', BRANCH, '--single-branch', src, join(WORK, dir)], WORK, 300000);
+  // Repositories this work never changed have no session branch on the remote: use their default branch, and say so.
+  let ref = BRANCH;
+  let r = sh('git', ['clone', '-q', '--branch', BRANCH, '--single-branch', src, join(WORK, dir)], WORK, 300000);
+  if (r.code !== 0) {
+    const sym = sh('git', ['ls-remote', '--symref', src, 'HEAD'], WORK).out.match(/refs\/heads\/(\S+)\s+HEAD/);
+    ref = sym ? sym[1] : null;
+    if (ref) r = sh('git', ['clone', '-q', '--branch', ref, '--single-branch', src, join(WORK, dir)], WORK, 300000);
+  }
   const head = r.code === 0 ? execFileSync('git', ['-C', join(WORK, dir), 'rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim() : null;
-  report.clones[name] = { head, ok: r.code === 0 };
-  step(`clone ${name}`, r.code === 0, head ?? r.out.slice(0, 200));
+  report.clones[name] = { head, ref, ok: r.code === 0, session_branch_on_remote: ref === BRANCH };
+  step(`clone ${name}`, r.code === 0, head ? `${head} (${ref})` : r.out.slice(0, 200));
 }
 const W = (d) => join(WORK, d);
 

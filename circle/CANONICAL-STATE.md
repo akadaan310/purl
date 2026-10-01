@@ -46,3 +46,14 @@ URL meets STASIS-0 behaviour.
 * **OP-B1** Golden Surface's deployed relay cannot be mapped to a commit from here.
 * **OP-B2** seurl's deployment has no git provenance. Only a content match is possible.
 * **OP-B3** Which ACSP line is canonical (0.1+program-001, or 0.2) is an owner decision. The bridge must work against 0.1, because that is what is deployed.
+
+## 6. Correction recorded at the STASIS-2 close (the table in §1 is kept as written)
+
+§1 lists `ccr-d0887a23-30wf63` as the research branch of **seurl, golden-surface and
+MUSA**. On GitHub that branch does not exist for those three (`git ls-remote`,
+2026-10-01). The local `origin/ccr-…` refs came from the environment's setup and
+were never pushed, because these repositories were never changed. Their canonical
+state is their default branch (`master`, `main`, `master`) at the same commits
+(`620ff95`, `b113718`, `d797135`). Found by the first cold reconstruction from
+origin (`cold/report-2.json`), which failed to clone them. The script now falls
+back to the default branch and records the ref it used.
