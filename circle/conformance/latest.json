@@ -1,0 +1,330 @@
+{
+ "run": "r_T3V9GH2BNA",
+ "ran_at": "2026-10-01T10:57:38.103Z",
+ "commit": "c561e38",
+ "enforcement": "sha256:175dc9ea1eb60fd1006fede3a89a41ab37f316e5d9ef8d09d4487b628992f08e",
+ "by": {
+  "session_id": "conformance-runner",
+  "agent_id": null,
+  "assurance": "asserted"
+ },
+ "acsp_resource": "HBQKY68BK6M2",
+ "checks": {
+  "get_sweep_changes_nothing": {
+   "ok": true,
+   "detail": "60 GET urls; state hash unchanged"
+  },
+  "credentials_in_url_refused": {
+   "ok": true,
+   "detail": "400, 400"
+  },
+  "mutation_requires_declared_session": {
+   "ok": true,
+   "detail": "422 session_required"
+  },
+  "seurl_vocabulary_closed": {
+   "ok": true,
+   "detail": "400 unknown_verb"
+  },
+  "seurl_fsm_enforced": {
+   "ok": true,
+   "detail": "409:START|TALK, 409:SWITCH|WRITE|TALK|PERTURB, 409:BUILD|TALK|PERTURB"
+  },
+  "constitution_not_writable": {
+   "ok": true,
+   "detail": "405"
+  },
+  "amendment_is_proposal_only": {
+   "ok": true,
+   "detail": "201 proposed"
+  },
+  "author_assurance_is_asserted": {
+   "ok": true,
+   "detail": "{\"session_id\":\"conformance-runner\",\"agent_id\":null,\"assurance\":\"asserted\"}"
+  },
+  "shared_value_distinct_records": {
+   "ok": true,
+   "detail": "value_id equal=true; execution distinct=true"
+  },
+  "fork_leaves_parent_unchanged": {
+   "ok": true,
+   "detail": "parent v3->v3; child r_5DGJN99WQC parent=r_41VPRXDRN9"
+  },
+  "scroll_log_verifies": {
+   "ok": true,
+   "detail": "3 scrolls replayed client-side; failures: none"
+  },
+  "fork_does_not_inherit_records": {
+   "ok": true,
+   "detail": "fork own builds=0, inherited=1"
+  },
+  "aliases_only_from_own_builds": {
+   "ok": true,
+   "detail": "1 equivalence(s); wrong: none"
+  },
+  "scrolls_publicly_readable": {
+   "ok": true,
+   "detail": "5 scrolls verified without credentials; failures: none"
+  },
+  "no_observed_claims": {
+   "ok": true,
+   "detail": "none"
+  },
+  "adapter_refuses_non_propose": {
+   "ok": true,
+   "detail": "403"
+  },
+  "dead_adapter_is_explicit": {
+   "ok": true,
+   "detail": "503 unavailable_here"
+  },
+  "acsp_prepare_changes_nothing": {
+   "ok": true,
+   "detail": "version 1 -> 1"
+  },
+  "talk_stage_never_committed": {
+   "ok": true,
+   "detail": "this talk: submitted (P-001); all stages: submitted"
+  },
+  "no_secret_in_records": {
+   "ok": true,
+   "detail": "1 secret(s) checked; hits: none"
+  },
+  "every_document_has_moves": {
+   "ok": true,
+   "detail": "40 docs; without moves: none; empty where required: none"
+  }
+ },
+ "clauses": [
+  {
+   "id": "K-01",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "get_sweep_changes_nothing",
+     "ok": true,
+     "detail": "60 GET urls; state hash unchanged"
+    },
+    {
+     "name": "acsp_prepare_changes_nothing",
+     "ok": true,
+     "detail": "version 1 -> 1"
+    }
+   ]
+  },
+  {
+   "id": "K-02",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "mutation_requires_declared_session",
+     "ok": true,
+     "detail": "422 session_required"
+    },
+    {
+     "name": "author_assurance_is_asserted",
+     "ok": true,
+     "detail": "{\"session_id\":\"conformance-runner\",\"agent_id\":null,\"assurance\":\"asserted\"}"
+    }
+   ]
+  },
+  {
+   "id": "K-03",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "fork_leaves_parent_unchanged",
+     "ok": true,
+     "detail": "parent v3->v3; child r_5DGJN99WQC parent=r_41VPRXDRN9"
+    },
+    {
+     "name": "fork_does_not_inherit_records",
+     "ok": true,
+     "detail": "fork own builds=0, inherited=1"
+    }
+   ]
+  },
+  {
+   "id": "K-04",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "adapter_refuses_non_propose",
+     "ok": true,
+     "detail": "403"
+    }
+   ]
+  },
+  {
+   "id": "K-05",
+   "status": "EXTERNAL",
+   "checks": []
+  },
+  {
+   "id": "K-06",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "credentials_in_url_refused",
+     "ok": true,
+     "detail": "400, 400"
+    }
+   ]
+  },
+  {
+   "id": "K-07",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "no_secret_in_records",
+     "ok": true,
+     "detail": "1 secret(s) checked; hits: none"
+    }
+   ]
+  },
+  {
+   "id": "K-08",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "talk_stage_never_committed",
+     "ok": true,
+     "detail": "this talk: submitted (P-001); all stages: submitted"
+    }
+   ]
+  },
+  {
+   "id": "K-09",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "no_observed_claims",
+     "ok": true,
+     "detail": "none"
+    }
+   ]
+  },
+  {
+   "id": "K-10",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "dead_adapter_is_explicit",
+     "ok": true,
+     "detail": "503 unavailable_here"
+    }
+   ]
+  },
+  {
+   "id": "K-11",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "shared_value_distinct_records",
+     "ok": true,
+     "detail": "value_id equal=true; execution distinct=true"
+    },
+    {
+     "name": "aliases_only_from_own_builds",
+     "ok": true,
+     "detail": "1 equivalence(s); wrong: none"
+    }
+   ]
+  },
+  {
+   "id": "K-12",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "fork_leaves_parent_unchanged",
+     "ok": true,
+     "detail": "parent v3->v3; child r_5DGJN99WQC parent=r_41VPRXDRN9"
+    },
+    {
+     "name": "scroll_log_verifies",
+     "ok": true,
+     "detail": "3 scrolls replayed client-side; failures: none"
+    },
+    {
+     "name": "scrolls_publicly_readable",
+     "ok": true,
+     "detail": "5 scrolls verified without credentials; failures: none"
+    }
+   ]
+  },
+  {
+   "id": "K-13",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "constitution_not_writable",
+     "ok": true,
+     "detail": "405"
+    },
+    {
+     "name": "amendment_is_proposal_only",
+     "ok": true,
+     "detail": "201 proposed"
+    }
+   ]
+  },
+  {
+   "id": "K-14",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "seurl_vocabulary_closed",
+     "ok": true,
+     "detail": "400 unknown_verb"
+    },
+    {
+     "name": "seurl_fsm_enforced",
+     "ok": true,
+     "detail": "409:START|TALK, 409:SWITCH|WRITE|TALK|PERTURB, 409:BUILD|TALK|PERTURB"
+    }
+   ]
+  },
+  {
+   "id": "K-15",
+   "status": "TESTED",
+   "checks": [
+    {
+     "name": "every_document_has_moves",
+     "ok": true,
+     "detail": "40 docs; without moves: none; empty where required: none"
+    }
+   ]
+  },
+  {
+   "id": "K-16",
+   "status": "HUMAN_REVIEWED",
+   "checks": []
+  },
+  {
+   "id": "K-17",
+   "status": "HUMAN_REVIEWED",
+   "checks": []
+  },
+  {
+   "id": "K-18",
+   "status": "CONFLICTING",
+   "checks": []
+  },
+  {
+   "id": "K-19",
+   "status": "HUMAN_REVIEWED",
+   "checks": []
+  }
+ ],
+ "summary": {
+  "TESTED": 14,
+  "EXTERNAL": 1,
+  "HUMAN_REVIEWED": 3,
+  "CONFLICTING": 1
+ },
+ "commits": {
+  "purl": "c561e38",
+  "substrateIO": "b94e3c0",
+  "acsp": "29b4911"
+ }
+}

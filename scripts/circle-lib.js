@@ -44,7 +44,7 @@ export async function startCircle(o = {}) {
   const substrateDir = o.substrateDir ?? env.SUBSTRATE_DIR;
   if (!substrateBase && substrateDir) {
     const port = o.substratePort ?? 18765;
-    const store = o.substrateStore ?? mkdtempSync(join(tmpdir(), 'circle-substrate-'));
+    const store = o.substrateStore ?? env.SUBSTRATE_STORE ?? mkdtempSync(join(tmpdir(), 'circle-substrate-'));
     children.push(spawn('python3', ['-m', 'tools.purl_server', '--port', String(port), '--store', store], { cwd: substrateDir, stdio: 'ignore', detached: true }));
     substrateBase = `http://127.0.0.1:${port}`;
     await waitFor(substrateBase + '/');

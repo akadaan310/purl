@@ -51,8 +51,21 @@ is tested *as this run exercised it*, not proved.
 |---|---|---|---|---|---|---|
 ${rows.join('\n')}
 
-Amendment history: none adopted. Amendment proposals made by conformance probes are stored as PURL
-resources of type \`amendment\` (status \`proposed\`) and change nothing.
+Additional checks attached through [enforcement.json](constitution/enforcement.json) (content id \`${run.enforcement}\`):
+verification only, never a change to what a clause says.
+
+## Amendment history
+
+* None adopted. The constitution is v1, unchanged since it was written.
+* **A-001 (proposed, awaiting a human decision):** move every clause→check mapping out of
+  \`constitution-v1.json\` into \`enforcement.json\`. Evidence: adding checks after EXP-CIRCLE-FRESH
+  (F-C1, F-C2) would otherwise have changed the constitution's content id, which would be a
+  constitutional change made for an engineering reason. Consequence if adopted: the constitution
+  holds only clauses, sources and amendment rules. Verification can then grow without amendments.
+* **K-18 conflict (open):** MUSA art. I ("nothing waits for approval … to publish") against
+  K-04/ACSP owner resolution. Needs the operator's decision; the circle publishes only as proposals.
+* Amendment proposals created by conformance probes are stored as PURL resources of type
+  \`amendment\` (status \`proposed\`) and change nothing.
 `;
     writeFileSync(join(ROOT, 'circle', 'CONSTITUTION-CONFORMANCE.md'), md);
     console.log(JSON.stringify(run.summary));
