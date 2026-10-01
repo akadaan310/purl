@@ -1,0 +1,134 @@
+{
+ "protocol": "circle/0 (provisional)",
+ "kind": "checkpoint",
+ "id": "r_HMGMD46GSD",
+ "content_id": "sha256:ef5ed564093e1d0078c03d95ddac7c3f772a4c9506872ce279326a7ce6e13d2e",
+ "by": {
+  "session_id": "operator-final",
+  "agent_id": null,
+  "assurance": "asserted"
+ },
+ "constitution": {
+  "version": 1,
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "href": "/constitution"
+ },
+ "commits": {
+  "purl": "c561e38",
+  "substrateIO": "60ce712",
+  "acsp": null
+ },
+ "protocols": {
+  "circle": "circle/0 (provisional)",
+  "purl": "PURL/0.1",
+  "substrate": "substrate-purl/0 (provisional)",
+  "acsp": "ACSP/0.1",
+  "seurl": "seurl/0 (url-machine.md)"
+ },
+ "scrolls": [
+  {
+   "id": "r_G2TE3WEDSM",
+   "version": 4
+  },
+  {
+   "id": "r_3J5FGAVE28",
+   "version": 4
+  },
+  {
+   "id": "r_0QXF95AEG1",
+   "version": 3
+  },
+  {
+   "id": "r_JX7XEVCDPH",
+   "version": 3
+  },
+  {
+   "id": "r_9Y64H6D6XD",
+   "version": 3
+  },
+  {
+   "id": "r_ARXP9BS5SF",
+   "version": 3
+  },
+  {
+   "id": "r_CJEF9DADKS",
+   "version": 3
+  },
+  {
+   "id": "r_FE7MZQC6T7",
+   "version": 3
+  },
+  {
+   "id": "r_V3ZT41854D",
+   "version": 3
+  },
+  {
+   "id": "r_7RQ9YRF99A",
+   "version": 3
+  },
+  {
+   "id": "r_4T45R8AHDT",
+   "version": 3
+  },
+  {
+   "id": "r_S6M8A6WG8B",
+   "version": 5
+  },
+  {
+   "id": "r_4P3G76B89E",
+   "version": 3
+  },
+  {
+   "id": "r_TEM17VTYQS",
+   "version": 3
+  },
+  {
+   "id": "r_HNC6MPF7W6",
+   "version": 3
+  },
+  {
+   "id": "r_FY6JE8XJGD",
+   "version": 3
+  },
+  {
+   "id": "r_76C6YF6JSS",
+   "version": 3
+  },
+  {
+   "id": "r_YVFS18X7T8",
+   "version": 5
+  }
+ ],
+ "active_scroll": "r_G2TE3WEDSM",
+ "substrate_environment_id": "sha256:4f7acc8629fe88becd52674c02c56a662bca0d9161a5078872ffffc5438275dc",
+ "acsp": {
+  "resource_id": "Y29DNZA2593N",
+  "version": 4
+ },
+ "conformance_run": "r_PT7JH5RK4C",
+ "unresolved": [
+  "two constitutions (MUSA v1 vs COP directive)",
+  "luna-foundry GET mutates ident",
+  "golden-surface shared sessions vs no ambient authority",
+  "MUSA automation against google.com vs directive 28",
+  "deterministic_sha256 mixes address and value",
+  "program-001/417da6c/browser-hand referenced but absent",
+  "golden-surface commits Android build output",
+  "PURL names resource addresses and value addresses"
+ ],
+ "next": "Q-014 cross-provider participant; A-001 and K-18 decisions (human); real-phone Golden Surface run; live ACSP TALK only on request",
+ "moves": [
+  {
+   "rel": "resume",
+   "method": "GET",
+   "href": "/resume/r_HMGMD46GSD",
+   "effect": "read"
+  },
+  {
+   "rel": "self",
+   "method": "GET",
+   "href": "/checkpoints/r_HMGMD46GSD",
+   "effect": "read"
+  }
+ ]
+}

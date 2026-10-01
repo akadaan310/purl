@@ -1,0 +1,257 @@
+{
+ "format": "circle-bridge-manifest/1",
+ "date": "2026-10-01",
+ "protocol": "circle/0 (provisional)",
+ "systems": {
+  "circle": {
+   "repo": "purl",
+   "path": "src/circle",
+   "entry": "GET /",
+   "run": "npm run circle"
+  },
+  "purl": {
+   "repo": "purl",
+   "protocol": "PURL/0.1",
+   "role": "records: scrolls, checkpoints, conformance runs, amendments"
+  },
+  "substrate": {
+   "repo": "substrateIO",
+   "protocol": "substrate-purl/0 (provisional)",
+   "role": "values, typed terms, execution records, observations",
+   "run": "python3 -m tools.purl_server"
+  },
+  "acsp": {
+   "repo": "NetGovComEduGovOrgEduGovComNet",
+   "protocol": "ACSP/0.1",
+   "role": "continuity (proposals only from the circle)",
+   "run": "npm run serve:local",
+   "live": "https://acsp-one.vercel.app (read only by this work)"
+  },
+  "seurl": {
+   "repo": "seurl",
+   "role": "the seven-verb move language; executed by circle/seurl.js",
+   "code_changes": "none"
+  },
+  "golden_surface": {
+   "repo": "golden-surface",
+   "role": "client browser; relay adapter",
+   "code_changes": "none"
+  },
+  "musa": {
+   "repo": "MUSA",
+   "role": "source of url-machine.md semantics and constitution v1 articles",
+   "code_changes": "none"
+  },
+  "luna_foundry": {
+   "repo": "luna-foundry",
+   "role": "NAI-CI lens (not integrated)",
+   "code_changes": "none"
+  }
+ },
+ "arrows": [
+  {
+   "id": "A0",
+   "source": "session",
+   "target": "circle",
+   "input": "URL",
+   "output": "document with moves",
+   "identity_boundary": "session declared, asserted",
+   "authority_boundary": "GET free; POST needs declared session, no credential; credentials in URL refused",
+   "provenance": "constitution content id on every document",
+   "state": "none",
+   "failure": "4xx with legal moves; 503 unavailable_here",
+   "tests": [
+    "K-01",
+    "K-02",
+    "K-06"
+   ],
+   "evidence": [
+    "test/circle.test.js"
+   ],
+   "status": "TESTED"
+  },
+  {
+   "id": "A1",
+   "source": "circle",
+   "target": "substrate /term",
+   "input": "value address",
+   "output": "typed term",
+   "identity_boundary": "address_id != derivation_id",
+   "authority_boundary": "none (pure)",
+   "provenance": "derivation_id",
+   "state": "none",
+   "failure": "ill_typed (forwarded)",
+   "tests": [
+    "test_purl_terms.py"
+   ],
+   "evidence": [
+    "substrateIO b94e3c0"
+   ],
+   "status": "TESTED"
+  },
+  {
+   "id": "A2",
+   "source": "circle",
+   "target": "substrate value",
+   "input": "value address",
+   "output": "value + identity",
+   "identity_boundary": "value_id canonical per kind",
+   "authority_boundary": "none (pure)",
+   "provenance": "operation versions, environment_id",
+   "state": "none",
+   "failure": "409/501 forwarded",
+   "tests": [
+    "test_purl_terms.py"
+   ],
+   "evidence": [
+    "F-010"
+   ],
+   "status": "TESTED"
+  },
+  {
+   "id": "A3",
+   "source": "circle",
+   "target": "PURL/0.1",
+   "input": "SEURL COMMIT",
+   "output": "scroll resource",
+   "identity_boundary": "scroll id (record) separate from value ids",
+   "authority_boundary": "owner = circle principal; author = declared session; versions are forks; public reader",
+   "provenance": "hash-chained event log",
+   "state": "event-sourced",
+   "failure": "403 not_authorized / 502",
+   "tests": [
+    "K-03",
+    "K-12",
+    "scroll_log_verifies",
+    "scrolls_publicly_readable"
+   ],
+   "evidence": [
+    "experiments/fresh-agent (F-C1, F-C2)"
+   ],
+   "status": "TESTED"
+  },
+  {
+   "id": "A4",
+   "source": "circle",
+   "target": "substrate records",
+   "input": "scroll steps",
+   "output": "execution records",
+   "identity_boundary": "execution hash per occurrence; value_id shared",
+   "authority_boundary": "none",
+   "provenance": "code_hash, git, environment",
+   "state": "append-only store",
+   "failure": "first failing step kept; FAILED",
+   "tests": [
+    "K-11"
+   ],
+   "evidence": [
+    "experiments/e2e record-2/3"
+   ],
+   "status": "TESTED"
+  },
+  {
+   "id": "A5",
+   "source": "circle",
+   "target": "ACSP",
+   "input": "scroll + builds",
+   "output": "pending proposal",
+   "identity_boundary": "declared actor, asserted",
+   "authority_boundary": "no capability; propose only; never committed",
+   "provenance": "ACSP event, request_hash, idempotency key",
+   "state": "ACSP version +1",
+   "failure": "stops at prepared if invalid; 503 if unreachable",
+   "tests": [
+    "K-04",
+    "K-08"
+   ],
+   "evidence": [
+    "integration test; condition C"
+   ],
+   "status": "TESTED"
+  },
+  {
+   "id": "A6",
+   "source": "ACSP",
+   "target": "substrate observation",
+   "input": "event_list",
+   "output": "P-ACSP-EV-1 observation",
+   "identity_boundary": "observation id; wall clock excluded",
+   "authority_boundary": "none",
+   "provenance": "projection declaration",
+   "state": "append-only store",
+   "failure": "422 malformed",
+   "tests": [
+    "test_acsp_events.py"
+   ],
+   "evidence": [
+    "live snapshot fixture"
+   ],
+   "status": "TESTED"
+  },
+  {
+   "id": "A7",
+   "source": "circle",
+   "target": "checkpoint/resume",
+   "input": "live state",
+   "output": "content-addressed checkpoint; resume doc",
+   "identity_boundary": "content_id = H(state)",
+   "authority_boundary": "read free; continuing needs the same circle principal",
+   "provenance": "commits, constitution id, scroll versions, environment_id, ACSP version",
+   "state": "PURL resource",
+   "failure": "intact flag; drift reported",
+   "tests": [
+    "checkpoint replay test"
+   ],
+   "evidence": [
+    "checkpoints/final"
+   ],
+   "status": "TESTED"
+  },
+  {
+   "id": "A8",
+   "source": "circle",
+   "target": "Golden Surface relay",
+   "input": "circle URL",
+   "output": "tab text",
+   "identity_boundary": "tab owner = seat",
+   "authority_boundary": "seat token from env; own tabs only; read any tab",
+   "provenance": "relay ledger",
+   "state": "twin",
+   "failure": "503/202 offline; 422 non-web scheme",
+   "tests": [],
+   "evidence": [
+    "experiments/golden/record-1.json (FakePhone)"
+   ],
+   "status": "SIMULATED_CLIENT"
+  },
+  {
+   "id": "A9",
+   "source": "Golden Surface",
+   "target": "circle (real phone)",
+   "input": "circle URL in WebView",
+   "output": "rendered JSON",
+   "identity_boundary": "—",
+   "authority_boundary": "—",
+   "provenance": "—",
+   "state": "—",
+   "failure": "—",
+   "tests": [],
+   "evidence": [],
+   "status": "NOT_RUN"
+  }
+ ],
+ "constitution": {
+  "path": "circle/constitution/constitution-v1.json",
+  "enforcement": "circle/constitution/enforcement.json",
+  "conformance": "circle/CONSTITUTION-CONFORMANCE.md"
+ },
+ "fixtures": [
+  "circle/fixtures/acsp-live-8N2RXG1MW79S-2026-10-01/",
+  "circle/experiments/e2e/",
+  "circle/experiments/fresh-agent/",
+  "circle/experiments/golden/",
+  "circle/checkpoints/final/",
+  "substrateIO tests/fixtures/acsp/live-8N2RXG1MW79S-2026-10-01.events.json",
+  "ACSP migration/relay-gen1/"
+ ]
+}

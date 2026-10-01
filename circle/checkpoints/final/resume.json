@@ -1,0 +1,156 @@
+{
+ "protocol": "circle/0 (provisional)",
+ "kind": "resume",
+ "checkpoint": "r_HMGMD46GSD",
+ "intact": true,
+ "content_id": "sha256:ef5ed564093e1d0078c03d95ddac7c3f772a4c9506872ce279326a7ce6e13d2e",
+ "constitution_changed": false,
+ "scrolls": [
+  {
+   "id": "r_G2TE3WEDSM",
+   "version": 4,
+   "now": 4,
+   "changed_since": false
+  },
+  {
+   "id": "r_3J5FGAVE28",
+   "version": 4,
+   "now": 4,
+   "changed_since": false
+  },
+  {
+   "id": "r_0QXF95AEG1",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_JX7XEVCDPH",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_9Y64H6D6XD",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_ARXP9BS5SF",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_CJEF9DADKS",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_FE7MZQC6T7",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_V3ZT41854D",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_7RQ9YRF99A",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_4T45R8AHDT",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_S6M8A6WG8B",
+   "version": 5,
+   "now": 5,
+   "changed_since": false
+  },
+  {
+   "id": "r_4P3G76B89E",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_TEM17VTYQS",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_HNC6MPF7W6",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_FY6JE8XJGD",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_76C6YF6JSS",
+   "version": 3,
+   "now": 3,
+   "changed_since": false
+  },
+  {
+   "id": "r_YVFS18X7T8",
+   "version": 5,
+   "now": 5,
+   "changed_since": false
+  }
+ ],
+ "active_scroll": "r_G2TE3WEDSM",
+ "next": "Q-014 cross-provider participant; A-001 and K-18 decisions (human); real-phone Golden Surface run; live ACSP TALK only on request",
+ "unresolved": [
+  "two constitutions (MUSA v1 vs COP directive)",
+  "luna-foundry GET mutates ident",
+  "golden-surface shared sessions vs no ambient authority",
+  "MUSA automation against google.com vs directive 28",
+  "deterministic_sha256 mixes address and value",
+  "program-001/417da6c/browser-hand referenced but absent",
+  "golden-surface commits Android build output",
+  "PURL names resource addresses and value addresses"
+ ],
+ "semantics": "Resuming re-reads addresses and records; no transcript is involved. Differences since the checkpoint are reported, not hidden.",
+ "constitution": {
+  "version": 1,
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "href": "/constitution"
+ },
+ "moves": [
+  {
+   "rel": "active-scroll",
+   "method": "GET",
+   "href": "/scrolls/r_G2TE3WEDSM",
+   "effect": "read"
+  },
+  {
+   "rel": "conformance",
+   "method": "GET",
+   "href": "/conformance",
+   "effect": "read"
+  },
+  {
+   "rel": "entry",
+   "method": "GET",
+   "href": "/",
+   "effect": "read"
+  }
+ ]
+}

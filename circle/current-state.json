@@ -1,0 +1,109 @@
+{
+ "format": "circle-current-state/1",
+ "date": "2026-10-01",
+ "commits": {
+  "substrateIO": "60ce712",
+  "acsp": "29b4911",
+  "purl": "(this branch head; see git log)",
+  "seurl": "620ff95",
+  "golden-surface": "b113718",
+  "MUSA": "d797135",
+  "luna-foundry": "6a260ef"
+ },
+ "constitution": {
+  "version": 1,
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "enforcement": "circle/constitution/enforcement.json"
+ },
+ "protocols": {
+  "circle": "circle/0 (provisional)",
+  "purl": "PURL/0.1",
+  "substrate": "substrate-purl/0 (provisional)",
+  "acsp": "ACSP/0.1",
+  "seurl": "seurl/0 (url-machine.md)"
+ },
+ "checkpoint": {
+  "id": "r_HMGMD46GSD",
+  "content_id": "sha256:ef5ed564093e1d0078c03d95ddac7c3f772a4c9506872ce279326a7ce6e13d2e",
+  "active_scroll": "r_G2TE3WEDSM",
+  "acsp": {
+   "resource_id": "Y29DNZA2593N",
+   "version": 4
+  },
+  "conformance_run": "r_PT7JH5RK4C",
+  "snapshot": "circle/checkpoints/final/"
+ },
+ "conformance": {
+  "last": {
+   "run": "r_PT7JH5RK4C",
+   "summary": {
+    "TESTED": 14,
+    "EXTERNAL": 1,
+    "HUMAN_REVIEWED": 3,
+    "CONFLICTING": 1
+   }
+  },
+  "previous_failed": {
+   "run": "r_NGF9DGARER",
+   "clause": "K-12",
+   "repaired": "forward, by grant events"
+  }
+ },
+ "tests": {
+  "purl": "70 (12 circle)",
+  "substrateIO": "74 OK, 0 violations",
+  "acsp": "24 vitest; harness over HTTP 13 pass / 3 skip",
+  "luna-foundry": "9",
+  "golden-surface": "store ok, relay PHASE 2 OK, 2 suites environmental FAIL"
+ },
+ "experiments": {
+  "EXP-CIRCLE-E2E": {
+   "records": 3,
+   "reproduced": "record-2 == record-3 (sha256:1aad20b2...)",
+   "record-1": "preserved failure"
+  },
+  "EXP-CIRCLE-FRESH": {
+   "A": "inspected, did not act; non-HTTP inspection",
+   "B": "13/14; H-FRESH not falsified",
+   "C": "valid hand-off; H-BROWSER not falsified",
+   "defects_found": [
+    "F-C1",
+    "F-C2",
+    "F-C3",
+    "F-C4"
+   ]
+  },
+  "EXP-CIRCLE-GOLDEN": {
+   "status": "SIMULATED client (FakePhone)"
+  }
+ },
+ "statuses": {
+  "established": [
+   "C-041 (known concept)",
+   "C-044 (known measurement)"
+  ],
+  "hypothesis": [
+   "H-FRESH",
+   "H-BROWSER",
+   "C-045"
+  ],
+  "provisional": [
+   "C-042 Scroll",
+   "C-043 SEURL path"
+  ],
+  "unresolved": [
+   "K-18",
+   "A-001",
+   "Q-014",
+   "Q-015/OP-010",
+   "live ACSP TALK",
+   "real Android WebView",
+   "seurl:// scheme",
+   "program-001 source",
+   "code as first-class value",
+   "C-046 constitutional recursion",
+   "external compiler adapters"
+  ]
+ },
+ "next": "Q-014 cross-provider participant; A-001 and K-18 decisions (human); real-phone Golden Surface run; live ACSP TALK only on request"
+}

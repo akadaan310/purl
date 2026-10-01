@@ -159,3 +159,31 @@ describe('the circle end to end (substrate + PURL + ACSP, real processes)', { sk
     assert.equal((await get('/naici/surface?url=https://www.google.com/')).doc.error.code, 'foreign_url');
   });
 });
+
+describe('final checkpoint is recoverable from the committed snapshot alone', () => {
+  test('content id verifies and every scroll log replays (no live services)', async () => {
+    const { cpSync } = await import('node:fs');
+    const { Store } = await import('../src/continuity/store.js');
+    const { createPurlServer } = await import('../src/transport/server.js');
+    const { PurlClient } = await import('../src/client/client.js');
+    const { sha256 } = await import('../src/circle/adapters.js');
+    const dir = mkdtempSync(join(tmpdir(), 'cp-replay-'));
+    cpSync(join(HERE, '..', 'circle', 'checkpoints', 'final', 'purl-store'), dir, { recursive: true });
+    const srv = createPurlServer({ store: new Store({ dataDir: dir }) });
+    await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+    try {
+      const client = new PurlClient(`http://127.0.0.1:${srv.address().port}`);
+      const cp = await client.open('/r/r_HMGMD46GSD');
+      const { content_id, ...rest } = cp.state;
+      assert.equal(sha256(rest), content_id);
+      assert.equal(content_id, 'sha256:ef5ed564093e1d0078c03d95ddac7c3f772a4c9506872ce279326a7ce6e13d2e');
+      for (const s of cp.state.scrolls) {
+        const rec = await client.reconstruct(`/r/${s.id}`);
+        assert.ok(rec.all_ok, s.id);
+      }
+    } finally {
+      srv.closeAllConnections?.();
+      await new Promise((r) => srv.close(r));
+    }
+  });
+});

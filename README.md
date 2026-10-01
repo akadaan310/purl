@@ -78,6 +78,13 @@ operation URL and body shape from manifests:
    branch. A **supersedes** its first finding — the original stays.
    The human **merges** the branch; the merge is recorded as `merged_from`.
 
+## The circle (bridge to SubstrateIO, ACSP, SEURL, Golden Surface)
+
+`src/circle/` connects this repository to its sibling systems over HTTP adapters:
+SEURL programs → typed terms and values (substrateIO) → Scrolls (PURL/0.1 resources)
+→ ACSP proposals → SubstrateIO observations → checkpoints. Start at
+[circle/CURRENT-STATE.md](circle/CURRENT-STATE.md); run with `npm run circle`.
+
 ## Architecture
 
 ```
