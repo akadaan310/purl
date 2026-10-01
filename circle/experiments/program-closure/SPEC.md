@@ -38,3 +38,9 @@ programs (substrateIO); laws on executable state-valued programs:
 ## Procedure
 `node scripts/program-closure.js` against a local substrate (`tools.purl_server`, fresh store). Pure GETs only. Two runs; failures kept.
 The circle route `/programs/closure` gains `mode=untyped|typed|constitution` using the same admissibility function as the script (one implementation).
+
+## Erratum (appended before the first run; nothing had been executed)
+L2 as written compares `P/next/next` with `map/power/2/state/x`. That address *is* x
+(a state of the power map), not f²(x). Intended, and used: `P/next/next` has the same
+state integer as `map/power/2/state/x/next`, i.e. f(f(x)) = (f²)(x). Also clarified:
+value_id is extensional, `(n, x)` (substrate `value_rule`), so L1 compares value_ids.
