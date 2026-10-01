@@ -30,7 +30,7 @@ git history (`1acfb0c`) and summarised in `stases.json`.
 | fresh participants (STASIS-1) | OBSERVED: 13/14 (B), hand-off valid (C) | FRESH-AGENT-EXPERIMENT.md |
 | reconstruction from the URL (three models) | OBSERVED: 12/14, 8/14, 13/14; 2 of 3 meet H-RECON | RECONSTRUCTION-EXPERIMENT.md |
 | differential evidence | 9 defects: old FAILS, new PASSES | `differential/results.json`, `results-2.json` |
-| cold reconstruction | REPRODUCED: report-1 27/28 (the failure was the script's); final run recorded in `cold/` | `cold/report-*.json` |
+| cold reconstruction | REPRODUCED from GitHub: report-3 **29/29** (report-1 27/28 and report-2 23/29 kept; failures were the script's and the branch claim's) | `cold/report-1..3.json` |
 | production ACSP | ACSP/0.1 @ `9fcf2e1`: carries **none** of the bridge work | Vercel metadata |
 | cross-provider participants | NOT RUN (Q-014) | — |
 | live ACSP write | NOT DONE (would add a real proposal) | — |

@@ -20,7 +20,7 @@ All values are **simulated** (model executions). Interpretations are marked.
 | test | yes: `/programs/closure`, `POST /conformance/runs` | closure table below; runs on `/tests` |
 | record | yes: PURL scrolls, substrate records, ACSP proposals | event logs |
 | **commit (code)** | **no**: the environment can *project* a git commit (`/git/{repo}/{sha}`) but cannot make one, and code is edited outside it | finding F-D1 |
-| reconstruct | yes: `/resume`, and `bridge-cold-reconstruct.js` restarts the environment from committed refs | cold report-1, report-2 |
+| reconstruct | yes: `/resume`, and `bridge-cold-reconstruct.js` restarts the environment from committed refs | cold report-1 (27/28), report-2 (23/29, branch finding D-11), report-3 (29/29, from GitHub) |
 | continue | yes for records (resume, rebuild = `reproduced`); **no for code** | — |
 
 **Finding F-D1 (observed).** The environment hosts the *computational* loop end
@@ -63,6 +63,9 @@ construction, and the measure would then become one of coverage. Not done.
 | D-8 | the MUSA test parser missed chained transition lines | its own failure | `ec6389e` |
 | D-9 | `test_locked.py` invoked as a script with a URL; it is a unittest module | my run | invocation corrected (no repo change) |
 | D-10 | `serve-local.ts` duplicates `harness/serve.ts` on the composition branch | reconstruction | recorded; not merged |
+| D-11 | CANONICAL-STATE claimed the session branch existed on GitHub for seurl, golden-surface and MUSA; it does not (local refs from setup, never pushed) | cold report-2 (from origin) | correction appended; script falls back to default branches (`9341d2f`) |
+| D-12 | in report-2 the Golden Surface and MUSA boundary tests were skipped at suite level without showing in the skip count (73 vs 80) | reading report-2 | report-3 ran them (80/80); the suite-skip blind spot of the count remains a property of `node --test` |
+| D-13 | the cold §51 phase restores the STASIS-1 snapshot, not STASIS-2's; STASIS-2's checkpoint is verified only by its replay test | reading report-3 | recorded, not changed |
 
 ## 4. What the environment could not support (environment-limited)
 

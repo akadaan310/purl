@@ -1,0 +1,305 @@
+{
+ "started": "2026-10-01T13:54:55.626Z",
+ "source": "origin",
+ "branch": "ccr-d0887a23-30wf63",
+ "work": "/tmp/cold-IUD3R5",
+ "clones": {
+  "purl": {
+   "head": "9341d2f",
+   "ref": "ccr-d0887a23-30wf63",
+   "ok": true,
+   "session_branch_on_remote": true
+  },
+  "substrateIO": {
+   "head": "16657b5",
+   "ref": "ccr-d0887a23-30wf63",
+   "ok": true,
+   "session_branch_on_remote": true
+  },
+  "NetGovComEduGovOrgEduGovComNet": {
+   "head": "e8d989a",
+   "ref": "ccr-d0887a23-30wf63",
+   "ok": true,
+   "session_branch_on_remote": true
+  },
+  "seurl": {
+   "head": "620ff95",
+   "ref": "master",
+   "ok": true,
+   "session_branch_on_remote": false
+  },
+  "golden-surface": {
+   "head": "b113718",
+   "ref": "main",
+   "ok": true,
+   "session_branch_on_remote": false
+  },
+  "MUSA": {
+   "head": "d797135",
+   "ref": "master",
+   "ok": true,
+   "session_branch_on_remote": false
+  }
+ },
+ "suites": {
+  "substrateIO unittest": {
+   "code": 0,
+   "result": "74"
+  },
+  "substrateIO validate": {
+   "code": 0,
+   "result": "0 violations"
+  },
+  "substrateIO run_ids": {
+   "code": 0,
+   "result": "7 run_ids = registry"
+  },
+  "ACSP vitest": {
+   "code": 0,
+   "result": "24 passed"
+  },
+  "purl npm test (incl. circle, golden, musa)": {
+   "code": 0,
+   "result": "80 pass, 0 skipped"
+  }
+ },
+ "hashes": {
+  "constitution": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "e2e": {
+   "reference": "sha256:1aad20b2c19ea7d76eac496252632f5458d4620db7f49951941148c4a0ac158a",
+   "cold": "sha256:1aad20b2c19ea7d76eac496252632f5458d4620db7f49951941148c4a0ac158a",
+   "differing_arrows": []
+  }
+ },
+ "stases": {
+  "STASIS-0": {
+   "missing": []
+  },
+  "STASIS-1": {
+   "missing": []
+  },
+  "STASIS-2": {
+   "missing": []
+  }
+ },
+ "questions": {
+  "What is this?": {
+   "path": "/",
+   "status": 200,
+   "answer": "A computational environment. Values are addressed by derivation paths; programs are SEURL paths; persisted programs are Scrolls; records go to ACSP; measurements to SubstrateIO."
+  },
+  "What protocols exist?": {
+   "path": "/sdk",
+   "status": 200,
+   "answer": "circle/0 over HTTP+JSON; values substrate-purl/0; records PURL/0.1; continuity ACSP/0.1"
+  },
+  "What can I do?": {
+   "path": "/sdk",
+   "status": 200,
+   "answer": "47 routes"
+  },
+  "What is the current state?": {
+   "path": "/observatory",
+   "status": 200,
+   "answer": {
+    "scrolls": 18,
+    "checkpoints": 1,
+    "conformance_runs": 3,
+    "events": 74
+   }
+  },
+  "What happened previously?": {
+   "path": "/stases",
+   "status": 200,
+   "answer": [
+    "STASIS-0",
+    "STASIS-1",
+    "STASIS-2"
+   ]
+  },
+  "What can I execute?": {
+   "path": "/seurl/START/map/eca/90/8/state/5/WRITE/next",
+   "status": 200,
+   "answer": 136
+  },
+  "What can I observe?": {
+   "path": "/transitions/coverage",
+   "status": 200,
+   "answer": [
+    "purl-event",
+    "substrate-execution",
+    "seurl-move",
+    "git-commit",
+    "golden-action",
+    "circle-checkpoint"
+   ]
+  },
+  "How do I continue?": {
+   "path": "/resume/r_HMGMD46GSD",
+   "status": 200,
+   "answer": "Q-014 cross-provider participant; A-001 and K-18 decisions (human); real-phone Golden Surface run; live ACSP TALK only on request"
+  },
+  "How do I test?": {
+   "path": "/tests",
+   "status": 200,
+   "answer": "3 recorded runs"
+  },
+  "How do I reproduce?": {
+   "path": "/stases/1",
+   "status": 200,
+   "answer": "node --test test/circle.test.js (checkpoint replay test); circle/experiments/e2e/record-2.json"
+  }
+ },
+ "verdicts": [
+  {
+   "name": "clone purl",
+   "ok": true,
+   "detail": "9341d2f (ccr-d0887a23-30wf63)"
+  },
+  {
+   "name": "clone substrateIO",
+   "ok": true,
+   "detail": "16657b5 (ccr-d0887a23-30wf63)"
+  },
+  {
+   "name": "clone NetGovComEduGovOrgEduGovComNet",
+   "ok": true,
+   "detail": "e8d989a (ccr-d0887a23-30wf63)"
+  },
+  {
+   "name": "clone seurl",
+   "ok": true,
+   "detail": "620ff95 (master)"
+  },
+  {
+   "name": "clone golden-surface",
+   "ok": true,
+   "detail": "b113718 (main)"
+  },
+  {
+   "name": "clone MUSA",
+   "ok": true,
+   "detail": "d797135 (master)"
+  },
+  {
+   "name": "ACSP npm ci (lockfile)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "substrateIO unittest",
+   "ok": true,
+   "detail": "74"
+  },
+  {
+   "name": "substrateIO validate",
+   "ok": true,
+   "detail": "0 violations"
+  },
+  {
+   "name": "substrateIO run_ids",
+   "ok": true,
+   "detail": "7 run_ids = registry"
+  },
+  {
+   "name": "ACSP vitest",
+   "ok": true,
+   "detail": "24 passed"
+  },
+  {
+   "name": "purl npm test (incl. circle, golden, musa)",
+   "ok": true,
+   "detail": "80 pass, 0 skipped"
+  },
+  {
+   "name": "constitution content id unchanged since STASIS-1",
+   "ok": true,
+   "detail": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4"
+  },
+  {
+   "name": "relay generation-1 snapshot hashes",
+   "ok": true,
+   "detail": "4 files"
+  },
+  {
+   "name": "STASIS-0 commits reachable",
+   "ok": true,
+   "detail": "all"
+  },
+  {
+   "name": "STASIS-1 commits reachable",
+   "ok": true,
+   "detail": "all"
+  },
+  {
+   "name": "STASIS-2 commits reachable",
+   "ok": true,
+   "detail": "all"
+  },
+  {
+   "name": "resume STASIS-1 checkpoint from committed snapshot",
+   "ok": true,
+   "detail": "intact=true"
+  },
+  {
+   "name": "§51 What is this?",
+   "ok": true,
+   "detail": "/ -> \"A computational environment. Values are addressed by derivation paths; programs"
+  },
+  {
+   "name": "§51 What protocols exist?",
+   "ok": true,
+   "detail": "/sdk -> \"circle/0 over HTTP+JSON; values substrate-purl/0; records PURL/0.1; continuity "
+  },
+  {
+   "name": "§51 What can I do?",
+   "ok": true,
+   "detail": "/sdk -> \"47 routes\""
+  },
+  {
+   "name": "§51 What is the current state?",
+   "ok": true,
+   "detail": "/observatory -> {\"scrolls\":18,\"checkpoints\":1,\"conformance_runs\":3,\"events\":74}"
+  },
+  {
+   "name": "§51 What happened previously?",
+   "ok": true,
+   "detail": "/stases -> [\"STASIS-0\",\"STASIS-1\",\"STASIS-2\"]"
+  },
+  {
+   "name": "§51 What can I execute?",
+   "ok": true,
+   "detail": "/seurl/START/map/eca/90/8/state/5/WRITE/next -> 136"
+  },
+  {
+   "name": "§51 What can I observe?",
+   "ok": true,
+   "detail": "/transitions/coverage -> [\"purl-event\",\"substrate-execution\",\"seurl-move\",\"git-commit\",\"golden-action\",\"c"
+  },
+  {
+   "name": "§51 How do I continue?",
+   "ok": true,
+   "detail": "/resume/r_HMGMD46GSD -> \"Q-014 cross-provider participant; A-001 and K-18 decisions (human); real-phone "
+  },
+  {
+   "name": "§51 How do I test?",
+   "ok": true,
+   "detail": "/tests -> \"3 recorded runs\""
+  },
+  {
+   "name": "§51 How do I reproduce?",
+   "ok": true,
+   "detail": "/stases/1 -> \"node --test test/circle.test.js (checkpoint replay test); circle/experiments/e2"
+  },
+  {
+   "name": "EXP-CIRCLE-E2E reproduces record-2 deterministic hash",
+   "ok": true,
+   "detail": "sha256:1aad20b2c19ea7d76eac496252632f5458d4620db7f49951941148c4a0ac158a"
+  }
+ ],
+ "finished": "2026-10-01T13:58:33.189Z",
+ "summary": {
+  "pass": 29,
+  "fail": 0
+ }
+}
