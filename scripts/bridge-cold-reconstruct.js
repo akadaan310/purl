@@ -49,7 +49,7 @@ const suites = [
     const reg = JSON.parse(readFileSync(join(W('substrateIO'), 'research/registries/experiments.json'), 'utf8')).flatMap((e) => e.runs.map((x) => x.run_id));
     return ids.length === 7 && ids.every((i) => reg.includes(i)) && `${ids.length} run_ids = registry`; }],
   ['ACSP vitest', 'npx', ['vitest', 'run'], 'NetGovComEduGovOrgEduGovComNet', (o) => /Tests\s+(\d+) passed/.test(o) && !/failed/.test(o.split('Tests')[1] ?? '') && o.match(/Tests\s+(\d+) passed/)[1] + ' passed'],
-  ['purl node --test (incl. circle, golden, musa)', 'node', ['--test', 'test/'], 'purl', (o) => /# fail 0/.test(o) && `${(o.match(/# pass (\d+)/) ?? [])[1]} pass, ${(o.match(/# skipped (\d+)/) ?? [])[1]} skipped`],
+  ['purl npm test (incl. circle, golden, musa)', 'npm', ['test'], 'purl', (o) => /# fail 0/.test(o) && `${(o.match(/# pass (\d+)/) ?? [])[1]} pass, ${(o.match(/# skipped (\d+)/) ?? [])[1]} skipped`],
 ];
 for (const [name, cmd, args, dir, judge] of suites) {
   const r = sh(cmd, args, W(dir));

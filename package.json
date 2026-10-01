@@ -14,6 +14,7 @@
     "circle:conformance": "node scripts/circle-conformance.js",
     "circle:e2e": "node scripts/circle-e2e.js",
     "bridge:differential": "node scripts/bridge-differential.js",
-    "bridge:cold": "node scripts/bridge-cold-reconstruct.js"
+    "bridge:cold": "node scripts/bridge-cold-reconstruct.js",
+    "bridge:manifest": "node scripts/bridge-manifest.js"
   }
 }

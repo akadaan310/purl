@@ -1,257 +1,698 @@
 {
- "format": "circle-bridge-manifest/1",
- "date": "2026-10-01",
- "protocol": "circle/0 (provisional)",
- "systems": {
-  "circle": {
-   "repo": "purl",
-   "path": "src/circle",
-   "entry": "GET /",
-   "run": "npm run circle"
+ "format": "bridge-manifest/2",
+ "generated_at": "2026-10-01T13:41:38.477Z",
+ "generator": "scripts/bridge-manifest.js",
+ "secrets": "none: commit ids, paths, names and hashes only",
+ "start_here": [
+  "circle/CURRENT-STATE.md",
+  "circle/BRIDGE-RECONSTRUCTION.md",
+  "circle/BRIDGE-CONTRACT.md",
+  "GET / (circle entry)",
+  "GET /sdk"
+ ],
+ "protocols": {
+  "circle": "circle/0 (provisional)",
+  "sdk": "circle-sdk/0.2",
+  "purl": "PURL/0.1",
+  "substrate": "substrate-purl/0 (provisional)",
+  "acsp": "ACSP/0.1",
+  "seurl": "seurl move words (MUSA url-machine.md)"
+ },
+ "repositories": {
+  "seurl": {
+   "role": "program / transition notation (halt page); executable FSM lives in purl src/circle/seurl.js",
+   "protocol": "SEURL move words (url-machine.md)",
+   "url": "https://github.com/akadaan310/seurl",
+   "default_branch": "master",
+   "research_branch": "ccr-d0887a23-30wf63",
+   "head": "620ff95",
+   "branches": {
+    "ccr-d0887a23-30wf63": "620ff95",
+    "master": "620ff95"
+   }
   },
   "purl": {
-   "repo": "purl",
-   "protocol": "PURL/0.1",
-   "role": "records: scrolls, checkpoints, conformance runs, amendments"
+   "role": "records (PURL/0.1) + the bridge layer (src/circle)",
+   "protocol": "PURL/0.1; circle/0",
+   "url": "https://github.com/akadaan310/purl",
+   "default_branch": "claude/purl-protocol-research-bxevq5",
+   "research_branch": "ccr-d0887a23-30wf63",
+   "head": "ddbd066",
+   "branches": {
+    "ccr-d0887a23-30wf63": "1acfb0c",
+    "claude/acsp-purl-composition-adsbn6": "18c85bf",
+    "claude/purl-protocol-research-bxevq5": "3df4452"
+   }
   },
-  "substrate": {
-   "repo": "substrateIO",
+  "NetGovComEduGovOrgEduGovComNet": {
+   "role": "ACSP continuity",
+   "protocol": "ACSP/0.1 (deployed); 0.1+program-001 and 0.2 on branches",
+   "url": "https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet",
+   "default_branch": "claude/agent-continuity-protocol-doi4bn",
+   "research_branch": "ccr-d0887a23-30wf63",
+   "head": "29b4911",
+   "branches": {
+    "ccr-d0887a23-30wf63": "29b4911",
+    "claude/acsp-program-001-k616hw": "417da6c",
+    "claude/acsp-purl-composition-adsbn6": "edd1963",
+    "claude/agent-continuity-protocol-doi4bn": "9fcf2e1"
+   }
+  },
+  "substrateIO": {
+   "role": "values, terms, executions, projections, observations, registries",
    "protocol": "substrate-purl/0 (provisional)",
-   "role": "values, typed terms, execution records, observations",
-   "run": "python3 -m tools.purl_server"
+   "url": "https://github.com/akadaan310/substrateIO",
+   "default_branch": "claude/research-substrate-bootstrap-bfd02a",
+   "research_branch": "ccr-d0887a23-30wf63",
+   "head": "07e15d0",
+   "branches": {
+    "ccr-d0887a23-30wf63": "60ce712",
+    "claude/acsp-program-001-k616hw": "5073595",
+    "claude/research-substrate-bootstrap-bfd02a": "7ace119"
+   }
   },
-  "acsp": {
-   "repo": "NetGovComEduGovOrgEduGovComNet",
-   "protocol": "ACSP/0.1",
-   "role": "continuity (proposals only from the circle)",
-   "run": "npm run serve:local",
-   "live": "https://acsp-one.vercel.app (read only by this work)"
+  "golden-surface": {
+   "role": "embodied client: phone, relay, bus, Najwa",
+   "protocol": "relay HTTP/WS",
+   "url": "https://github.com/akadaan310/golden-surface",
+   "default_branch": "main",
+   "research_branch": "ccr-d0887a23-30wf63",
+   "head": "b113718",
+   "branches": {
+    "ccr-d0887a23-30wf63": "b113718",
+    "claude/golden-surface-locked-tabs-yf57of": "48e995d",
+    "main": "b113718"
+   }
   },
-  "seurl": {
-   "repo": "seurl",
-   "role": "the seven-verb move language; executed by circle/seurl.js",
-   "code_changes": "none"
-  },
-  "golden_surface": {
-   "repo": "golden-surface",
-   "role": "client browser; relay adapter",
-   "code_changes": "none"
-  },
-  "musa": {
-   "repo": "MUSA",
-   "role": "source of url-machine.md semantics and constitution v1 articles",
-   "code_changes": "none"
-  },
-  "luna_foundry": {
-   "repo": "luna-foundry",
-   "role": "NAI-CI lens (not integrated)",
-   "code_changes": "none"
+  "MUSA": {
+   "role": "specification sources and prototypes (outside the bridge)",
+   "protocol": "—",
+   "url": "https://github.com/akadaan310/MUSA",
+   "default_branch": "master",
+   "research_branch": "ccr-d0887a23-30wf63",
+   "head": "d797135",
+   "branches": {
+    "ccr-d0887a23-30wf63": "d797135",
+    "claude/golden-surface-locked-tabs-yf57of": "6337fd0",
+    "master": "d797135"
+   }
   }
  },
- "arrows": [
+ "deployments": [
   {
-   "id": "A0",
-   "source": "session",
-   "target": "circle",
-   "input": "URL",
-   "output": "document with moves",
-   "identity_boundary": "session declared, asserted",
-   "authority_boundary": "GET free; POST needs declared session, no credential; credentials in URL refused",
-   "provenance": "constitution content id on every document",
-   "state": "none",
-   "failure": "4xx with legal moves; 503 unavailable_here",
-   "tests": [
-    "K-01",
-    "K-02",
-    "K-06"
-   ],
-   "evidence": [
-    "test/circle.test.js"
-   ],
-   "status": "TESTED"
+   "url": "https://acsp-one.vercel.app",
+   "repo": "NetGovComEduGovOrgEduGovComNet",
+   "branch": "claude/agent-continuity-protocol-doi4bn",
+   "commit": "9fcf2e1",
+   "mapping": "Vercel git metadata",
+   "protocol": "ACSP/0.1"
   },
   {
-   "id": "A1",
-   "source": "circle",
-   "target": "substrate /term",
-   "input": "value address",
-   "output": "typed term",
-   "identity_boundary": "address_id != derivation_id",
-   "authority_boundary": "none (pure)",
-   "provenance": "derivation_id",
-   "state": "none",
-   "failure": "ill_typed (forwarded)",
-   "tests": [
-    "test_purl_terms.py"
-   ],
-   "evidence": [
-    "substrateIO b94e3c0"
-   ],
-   "status": "TESTED"
+   "url": "https://seurl.vercel.app",
+   "repo": "seurl",
+   "commit": null,
+   "mapping": "content hash = index.html @620ff95 (no git metadata)"
   },
   {
-   "id": "A2",
-   "source": "circle",
-   "target": "substrate value",
-   "input": "value address",
-   "output": "value + identity",
-   "identity_boundary": "value_id canonical per kind",
-   "authority_boundary": "none (pure)",
-   "provenance": "operation versions, environment_id",
-   "state": "none",
-   "failure": "409/501 forwarded",
-   "tests": [
-    "test_purl_terms.py"
-   ],
-   "evidence": [
-    "F-010"
-   ],
-   "status": "TESTED"
+   "url": "https://lunar-foundry.vercel.app",
+   "repo": "luna-foundry",
+   "branch": "claude/golden-surface-locked-tabs-yf57of",
+   "commit": "6a260ef",
+   "mapping": "Vercel git metadata"
   },
   {
-   "id": "A3",
-   "source": "circle",
-   "target": "PURL/0.1",
-   "input": "SEURL COMMIT",
-   "output": "scroll resource",
-   "identity_boundary": "scroll id (record) separate from value ids",
-   "authority_boundary": "owner = circle principal; author = declared session; versions are forks; public reader",
-   "provenance": "hash-chained event log",
-   "state": "event-sourced",
-   "failure": "403 not_authorized / 502",
-   "tests": [
-    "K-03",
-    "K-12",
-    "scroll_log_verifies",
-    "scrolls_publicly_readable"
-   ],
-   "evidence": [
-    "experiments/fresh-agent (F-C1, F-C2)"
-   ],
-   "status": "TESTED"
-  },
-  {
-   "id": "A4",
-   "source": "circle",
-   "target": "substrate records",
-   "input": "scroll steps",
-   "output": "execution records",
-   "identity_boundary": "execution hash per occurrence; value_id shared",
-   "authority_boundary": "none",
-   "provenance": "code_hash, git, environment",
-   "state": "append-only store",
-   "failure": "first failing step kept; FAILED",
-   "tests": [
-    "K-11"
-   ],
-   "evidence": [
-    "experiments/e2e record-2/3"
-   ],
-   "status": "TESTED"
-  },
-  {
-   "id": "A5",
-   "source": "circle",
-   "target": "ACSP",
-   "input": "scroll + builds",
-   "output": "pending proposal",
-   "identity_boundary": "declared actor, asserted",
-   "authority_boundary": "no capability; propose only; never committed",
-   "provenance": "ACSP event, request_hash, idempotency key",
-   "state": "ACSP version +1",
-   "failure": "stops at prepared if invalid; 503 if unreachable",
-   "tests": [
-    "K-04",
-    "K-08"
-   ],
-   "evidence": [
-    "integration test; condition C"
-   ],
-   "status": "TESTED"
-  },
-  {
-   "id": "A6",
-   "source": "ACSP",
-   "target": "substrate observation",
-   "input": "event_list",
-   "output": "P-ACSP-EV-1 observation",
-   "identity_boundary": "observation id; wall clock excluded",
-   "authority_boundary": "none",
-   "provenance": "projection declaration",
-   "state": "append-only store",
-   "failure": "422 malformed",
-   "tests": [
-    "test_acsp_events.py"
-   ],
-   "evidence": [
-    "live snapshot fixture"
-   ],
-   "status": "TESTED"
-  },
-  {
-   "id": "A7",
-   "source": "circle",
-   "target": "checkpoint/resume",
-   "input": "live state",
-   "output": "content-addressed checkpoint; resume doc",
-   "identity_boundary": "content_id = H(state)",
-   "authority_boundary": "read free; continuing needs the same circle principal",
-   "provenance": "commits, constitution id, scroll versions, environment_id, ACSP version",
-   "state": "PURL resource",
-   "failure": "intact flag; drift reported",
-   "tests": [
-    "checkpoint replay test"
-   ],
-   "evidence": [
-    "checkpoints/final"
-   ],
-   "status": "TESTED"
-  },
-  {
-   "id": "A8",
-   "source": "circle",
-   "target": "Golden Surface relay",
-   "input": "circle URL",
-   "output": "tab text",
-   "identity_boundary": "tab owner = seat",
-   "authority_boundary": "seat token from env; own tabs only; read any tab",
-   "provenance": "relay ledger",
-   "state": "twin",
-   "failure": "503/202 offline; 422 non-web scheme",
-   "tests": [],
-   "evidence": [
-    "experiments/golden/record-1.json (FakePhone)"
-   ],
-   "status": "SIMULATED_CLIENT"
-  },
-  {
-   "id": "A9",
-   "source": "Golden Surface",
-   "target": "circle (real phone)",
-   "input": "circle URL in WebView",
-   "output": "rendered JSON",
-   "identity_boundary": "—",
-   "authority_boundary": "—",
-   "provenance": "—",
-   "state": "—",
-   "failure": "—",
-   "tests": [],
-   "evidence": [],
-   "status": "NOT_RUN"
+   "url": "http://40.64.120.87:8490",
+   "repo": "golden-surface",
+   "commit": null,
+   "mapping": "NOT MAPPABLE (unreachable from the build environment)"
   }
  ],
- "constitution": {
-  "path": "circle/constitution/constitution-v1.json",
-  "enforcement": "circle/constitution/enforcement.json",
-  "conformance": "circle/CONSTITUTION-CONFORMANCE.md"
+ "entrypoints": {
+  "circle": "npm run circle (purl)",
+  "substrate": "python3 -m tools.purl_server (substrateIO)",
+  "acsp_local": "npm run serve:local (ACSP)",
+  "relay": "python3 relay/relay.py (golden-surface)"
  },
- "fixtures": [
-  "circle/fixtures/acsp-live-8N2RXG1MW79S-2026-10-01/",
-  "circle/experiments/e2e/",
-  "circle/experiments/fresh-agent/",
-  "circle/experiments/golden/",
-  "circle/checkpoints/final/",
-  "substrateIO tests/fixtures/acsp/live-8N2RXG1MW79S-2026-10-01.events.json",
-  "ACSP migration/relay-gen1/"
+ "operations": [
+  {
+   "method": "GET",
+   "path": "/",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "entry: protocol, verbs, grammar, systems, moves"
+  },
+  {
+   "method": "GET",
+   "path": "/sdk",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "this self-description"
+  },
+  {
+   "method": "GET",
+   "path": "/sdk/constitution",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "the SDK constitution"
+  },
+  {
+   "method": "GET",
+   "path": "/sdk/schemas",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "schemas of the documents the SDK returns"
+  },
+  {
+   "method": "GET",
+   "path": "/sdk/schemas/{name}",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "one schema"
+  },
+  {
+   "method": "GET",
+   "path": "/constitution",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "bridge constitution v1"
+  },
+  {
+   "method": "GET",
+   "path": "/constitution/clauses/{id}",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "one clause"
+  },
+  {
+   "method": "POST",
+   "path": "/constitution/amendments?session={s}",
+   "edge": "RECORD",
+   "effect": "append-only",
+   "description": "propose an amendment (never adopts)"
+  },
+  {
+   "method": "GET",
+   "path": "/conformance",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "latest conformance run"
+  },
+  {
+   "method": "POST",
+   "path": "/conformance/runs?session={s}",
+   "edge": "EXECUTE",
+   "effect": "creates test artifacts",
+   "description": "run every constitutional check"
+  },
+  {
+   "method": "GET",
+   "path": "/tests",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "conformance runs as test suites (failed runs included)"
+  },
+  {
+   "method": "GET",
+   "path": "/tests/{run}",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "one run: every check as a test artifact"
+  },
+  {
+   "method": "GET",
+   "path": "/tests/{run}/{check}",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "one test artifact with hash and provenance"
+  },
+  {
+   "method": "GET",
+   "path": "/prompt-contract",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "prompt contract schema and the program/conversation boundary"
+  },
+  {
+   "method": "GET",
+   "path": "/prompts/classify?p={json}",
+   "edge": "PARSE",
+   "effect": "pure",
+   "description": "classify a prompt; never executes"
+  },
+  {
+   "method": "POST",
+   "path": "/prompts/classify",
+   "edge": "PARSE",
+   "effect": "pure (POST only to carry a body)",
+   "description": "classify a prompt; never executes"
+  },
+  {
+   "method": "GET",
+   "path": "/operations",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "substrate operation registry"
+  },
+  {
+   "method": "GET",
+   "path": "/term/{value address}",
+   "edge": "PARSE",
+   "effect": "pure",
+   "description": "typed term, not evaluated"
+  },
+  {
+   "method": "GET",
+   "path": "/v/{value address}",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "value with identity"
+  },
+  {
+   "method": "GET",
+   "path": "/seurl/{moves}",
+   "edge": "PARSE",
+   "effect": "pure",
+   "description": "SEURL session: FSM state, term, value, legal moves; prepares mutations"
+  },
+  {
+   "method": "POST",
+   "path": "/seurl/{moves}?session={s}",
+   "edge": "RECORD",
+   "effect": "COMMIT/BUILD/TALK as prepared",
+   "description": "perform the prepared mutations"
+  },
+  {
+   "method": "GET",
+   "path": "/programs",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "every program (circle Scroll) with content_id and lineage"
+  },
+  {
+   "method": "GET",
+   "path": "/programs/transform?source={seurl|scroll}&t={transformer}&p={params}",
+   "edge": "BUILD",
+   "effect": "pure",
+   "description": "prepare program -> program with build_id"
+  },
+  {
+   "method": "POST",
+   "path": "/programs/transform?source={…}&t={…}&p={…}&session={s}",
+   "edge": "BUILD",
+   "effect": "append-only",
+   "description": "commit the transformed program as a new Scroll"
+  },
+  {
+   "method": "GET",
+   "path": "/programs/transformers",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "the declared transformers and their versions"
+  },
+  {
+   "method": "GET",
+   "path": "/programs/closure?source={…}&depth={1|2}",
+   "edge": "BUILD",
+   "effect": "pure",
+   "description": "closure of a program under the transformers (typing only)"
+  },
+  {
+   "method": "GET",
+   "path": "/scrolls",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "circle Scrolls"
+  },
+  {
+   "method": "GET",
+   "path": "/scrolls/{id}",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "one Scroll: program, builds, talks, observations, perturbations"
+  },
+  {
+   "method": "POST",
+   "path": "/scrolls/{id}/build?session={s}",
+   "edge": "EXECUTE",
+   "effect": "append-only",
+   "description": "record an execution of every step"
+  },
+  {
+   "method": "GET",
+   "path": "/aliases",
+   "edge": "OBSERVE",
+   "effect": "pure",
+   "description": "measured recurrences (never named automatically)"
+  },
+  {
+   "method": "GET",
+   "path": "/transitions/coverage",
+   "edge": "PROJECT",
+   "effect": "pure",
+   "description": "addressed-transition projection of seven record kinds, field coverage"
+  },
+  {
+   "method": "GET",
+   "path": "/transitions/{system}/{ref}",
+   "edge": "PROJECT",
+   "effect": "pure",
+   "description": "one record kind projected (purl, acsp, substrate, git, seurl, checkpoint)"
+  },
+  {
+   "method": "GET",
+   "path": "/git/{repo}/{commit}",
+   "edge": "PROJECT",
+   "effect": "pure",
+   "description": "a git commit as a transition (read-only)"
+  },
+  {
+   "method": "GET",
+   "path": "/checkpoints",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "checkpoints"
+  },
+  {
+   "method": "GET",
+   "path": "/checkpoints/{id}",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "one checkpoint"
+  },
+  {
+   "method": "POST",
+   "path": "/checkpoints?session={s}",
+   "edge": "RECORD",
+   "effect": "append-only",
+   "description": "create a checkpoint"
+  },
+  {
+   "method": "GET",
+   "path": "/resume/{id}",
+   "edge": "RECONSTRUCT",
+   "effect": "pure",
+   "description": "resume from a checkpoint; drift reported"
+  },
+  {
+   "method": "GET",
+   "path": "/stases",
+   "edge": "RECONSTRUCT",
+   "effect": "pure",
+   "description": "cross-repository baselines"
+  },
+  {
+   "method": "GET",
+   "path": "/stases/{n}",
+   "edge": "RECONSTRUCT",
+   "effect": "pure",
+   "description": "one baseline"
+  },
+  {
+   "method": "GET",
+   "path": "/observatory",
+   "edge": "OBSERVE",
+   "effect": "pure",
+   "description": "live terminal derived from records"
+  },
+  {
+   "method": "GET",
+   "path": "/state",
+   "edge": "OBSERVE",
+   "effect": "pure",
+   "description": "IDE state"
+  },
+  {
+   "method": "GET",
+   "path": "/adapters",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "adapter contracts"
+  },
+  {
+   "method": "GET",
+   "path": "/acsp/r/{id}",
+   "edge": "PROJECT",
+   "effect": "pure",
+   "description": "an ACSP record, addressable here"
+  },
+  {
+   "method": "GET",
+   "path": "/acsp/r/{id}/events",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "ACSP events"
+  },
+  {
+   "method": "POST",
+   "path": "/acsp/r/{id}/observe?session={s}&origin={o}",
+   "edge": "OBSERVE",
+   "effect": "append-only",
+   "description": "record P-ACSP-EV-1 observation"
+  },
+  {
+   "method": "GET",
+   "path": "/naici/{surface|read|legal|trace}?url={circle url}",
+   "edge": "OBSERVE",
+   "effect": "pure",
+   "description": "NAI-CI structures of circle documents"
+  }
+ ],
+ "schemas": [
+  "/sdk/schemas/addressed-transition",
+  "/sdk/schemas/prompt-contract",
+  "/sdk/schemas/test-artifact",
+  "/sdk/schemas/perturbation",
+  "/sdk/schemas/program-transformation"
+ ],
+ "edges": [
+  {
+   "from": "SEURL",
+   "to": "substrate",
+   "kinds": [
+    "PARSE",
+    "RESOLVE"
+   ],
+   "via": "adapter.substrate GET /term, GET <addr>"
+  },
+  {
+   "from": "SEURL",
+   "to": "PURL",
+   "kinds": [
+    "RECORD",
+    "FORK"
+   ],
+   "via": "COMMIT; ?parent="
+  },
+  {
+   "from": "PURL",
+   "to": "substrate",
+   "kinds": [
+    "EXECUTE",
+    "RECORD"
+   ],
+   "via": "BUILD"
+  },
+  {
+   "from": "PURL",
+   "to": "ACSP",
+   "kinds": [
+    "PUBLISH"
+   ],
+   "via": "TALK (propose only)"
+  },
+  {
+   "from": "ACSP",
+   "to": "substrate",
+   "kinds": [
+    "OBSERVE",
+    "PROJECT"
+   ],
+   "via": "P-ACSP-EV-1"
+  },
+  {
+   "from": "ACSP",
+   "to": "circle view",
+   "kinds": [
+    "PROJECT"
+   ],
+   "via": "GET /acsp/r/{id}"
+  },
+  {
+   "from": "program",
+   "to": "program",
+   "kinds": [
+    "BUILD"
+   ],
+   "via": "/programs/transform (build_id)"
+  },
+  {
+   "from": "git",
+   "to": "circle",
+   "kinds": [
+    "PROJECT"
+   ],
+   "via": "/git/{repo}/{commit}"
+  },
+  {
+   "from": "Golden Surface",
+   "to": "circle",
+   "kinds": [
+    "ADDRESS",
+    "RESOLVE"
+   ],
+   "via": "relay /cmd open/read (FakePhone-tested)"
+  },
+  {
+   "from": "MUSA",
+   "to": "circle",
+   "kinds": [
+    "ADDRESS"
+   ],
+   "via": "url-machine.md as specification (test/musa.test.js)"
+  },
+  {
+   "from": "circle",
+   "to": "nomenclature",
+   "kinds": [
+    "RECORD"
+   ],
+   "via": "substrateIO registry commits"
+  },
+  {
+   "from": "checkpoint",
+   "to": "session",
+   "kinds": [
+    "RECONSTRUCT",
+    "REPLAY"
+   ],
+   "via": "/resume/{id}; checkpoint snapshot"
+  },
+  {
+   "from": "scroll",
+   "to": "perturbation record",
+   "kinds": [
+    "PERTURB",
+    "OBSERVE"
+   ],
+   "via": "PERTURB step + damage"
+  }
+ ],
+ "adapters": [
+  "adapter.substrate",
+  "adapter.acsp",
+  "adapter.golden-surface"
+ ],
+ "projections": [
+  "P-ACSP-EV-1 (substrateIO)",
+  "addressed transition (bridge.js P.*)",
+  "scroll → ACSP TOK (scrollTok)",
+  "ACSP resource → /acsp/r/{id}",
+  "git commit → transition"
+ ],
+ "test_suites": {
+  "purl": "node --test test/ (core + circle + golden + musa)",
+  "substrateIO": "python3 -m unittest discover -s tests -t . ; python3 -m tools.validate",
+  "acsp": "npx vitest run ; npx tsx harness/cli.ts --base-url <local>",
+  "golden_surface": "tests/*.py against a relay",
+  "conformance": "POST /conformance/runs",
+  "differential": "npm run bridge:differential",
+  "cold": "npm run bridge:cold"
+ },
+ "constitution": {
+  "clauses": "circle/constitution/constitution-v1.json",
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "enforcement": "sha256:6523850d04593e83acff34747fc015bda9fff2e0e8533a9537a6ab37fe09ee4e",
+  "sdk": "sha256:e7a8a5cb84576f57c721036a738a7bc78248892ed9315de25d041b3eae3c13d1"
+ },
+ "historical_states": [
+  {
+   "id": "STASIS-0",
+   "label": "before the bridge",
+   "commits": {
+    "substrateIO": "7ace119",
+    "purl": "3df4452",
+    "acsp": "9fcf2e1",
+    "seurl": "620ff95",
+    "golden-surface": "b113718",
+    "MUSA": "d797135",
+    "luna-foundry": "6a260ef"
+   },
+   "checkpoint": "ACSP 8N2RXG1MW79S checkpoint 1 @ v5 (live resource at v12)"
+  },
+  {
+   "id": "STASIS-1",
+   "label": "the circle",
+   "commits": {
+    "substrateIO": "60ce712",
+    "purl": "1acfb0c",
+    "acsp": "29b4911",
+    "seurl": "620ff95",
+    "golden-surface": "b113718",
+    "MUSA": "d797135"
+   },
+   "checkpoint": "r_HMGMD46GSD sha256:ef5ed564093e1d0078c03d95ddac7c3f772a4c9506872ce279326a7ce6e13d2e (snapshot purl circle/checkpoints/final/)"
+  },
+  {
+   "id": "STASIS-2",
+   "label": "bridge: reconstruction, SDK, observatory, cold reconstruction",
+   "commits": {},
+   "checkpoint": null
+  }
+ ],
+ "records": {
+  "e2e": [
+   "record-1.json",
+   "record-2.json",
+   "record-3.json"
+  ],
+  "cold": [
+   "report-1.json"
+  ],
+  "differential": [
+   "results.json"
+  ],
+  "fresh_agent": [
+   "SPEC.md",
+   "report-A.md",
+   "report-B.md",
+   "report-C.md"
+  ],
+  "reconstruction": [
+   "SPEC.md",
+   "report-1-sonnet.md"
+  ]
+ },
+ "known_discrepancies": [
+  "two constitutions (MUSA v1 vs COP directive)",
+  "luna-foundry GET mutates ident",
+  "golden-surface shared sessions vs no ambient authority",
+  "MUSA automation against google.com vs directive 28",
+  "deterministic_sha256 mixes address and value",
+  "program-001/417da6c/browser-hand referenced but absent",
+  "golden-surface commits Android build output",
+  "PURL names resource addresses and value addresses",
+  "STASIS-1 reconstruction claimed program-001 and 417da6c absent: disproven (branch claude/acsp-program-001-k616hw)",
+  "two bridges (circle; ACSP 0.2 + PURL composition) on unmerged branches",
+  "two SEURLs: move words vs seurl://golden addresses",
+  "Scroll defined three-plus times (ACSP program-001, circle, luna-foundry, MUSA)",
+  "ACSP program-001 and 0.2 both add migration 0003",
+  "production ACSP (9fcf2e1) predates every integration",
+  "ramz seal accepts a recomputed forgery (public key \"golden\")",
+  "golden-surface engine branch has POST /bridge with a pluggable decider (agent loop in the relay)",
+  "commit 41ce482 message says purl 74 tests; the suite reports 72"
+ ],
+ "open_problems": [
+  "K-18 (as restated by A-002)",
+  "A-001..A-004 adoption",
+  "Q-014 cross-provider participant",
+  "Q-015/OP-010 status of live-service records",
+  "OP-B1 relay not mappable",
+  "OP-B2 seurl deployment without git provenance",
+  "OP-B3 canonical ACSP line",
+  "real Android WebView",
+  "seurl:// in the bridge vs seurl://golden",
+  "SDK-1 router enumeration gap",
+  "C-046 constitutional recursion untested",
+  "live ACSP TALK never performed"
  ]
 }

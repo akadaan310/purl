@@ -1,0 +1,286 @@
+{
+ "started": "2026-10-01T13:37:33.444Z",
+ "source": "local",
+ "branch": "ccr-d0887a23-30wf63",
+ "work": "/tmp/cold-B9fmRp",
+ "clones": {
+  "purl": {
+   "head": "d6c246c",
+   "ok": true
+  },
+  "substrateIO": {
+   "head": "07e15d0",
+   "ok": true
+  },
+  "NetGovComEduGovOrgEduGovComNet": {
+   "head": "29b4911",
+   "ok": true
+  },
+  "seurl": {
+   "head": "620ff95",
+   "ok": true
+  },
+  "golden-surface": {
+   "head": "b113718",
+   "ok": true
+  },
+  "MUSA": {
+   "head": "d797135",
+   "ok": true
+  }
+ },
+ "suites": {
+  "substrateIO unittest": {
+   "code": 0,
+   "result": "74"
+  },
+  "substrateIO validate": {
+   "code": 0,
+   "result": "0 violations"
+  },
+  "substrateIO run_ids": {
+   "code": 0,
+   "result": "7 run_ids = registry"
+  },
+  "ACSP vitest": {
+   "code": 0,
+   "result": "24 passed"
+  },
+  "purl node --test (incl. circle, golden, musa)": {
+   "code": 1,
+   "result": "FAILED",
+   "tail": "de:internal/modules/cjs/loader:1030:22)\n#     at Function._load (node:internal/modules/cjs/loader:1192:37)\n#     at TracingChannel.traceSync (node:diagnostics_channel:328:14)\n#     at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n#     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n#     at node:internal/main/run_main_module:36:49 {\n#   code: 'MODULE_NOT_FOUND',\n#   requireStack: []\n# }\n# Node.js v22.22.0\n# Subtest: test\nnot ok 1 - test\n  ---\n  duration_ms: 59.453054\n  type: 'test'\n  location: '/tmp/cold-B9fmRp/purl/test:1:1'\n  failureType: 'testCodeFailure'\n  exitCode: 1\n  signal: ~\n  error: 'test failed'\n  code: 'ERR_TEST_FAILURE'\n  ...\n1..1\n# tests 1\n# suites 0\n# pass 0\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 71.485086\n"
+  }
+ },
+ "hashes": {
+  "constitution": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "e2e": {
+   "reference": "sha256:1aad20b2c19ea7d76eac496252632f5458d4620db7f49951941148c4a0ac158a",
+   "cold": "sha256:1aad20b2c19ea7d76eac496252632f5458d4620db7f49951941148c4a0ac158a",
+   "differing_arrows": []
+  }
+ },
+ "stases": {
+  "STASIS-0": {
+   "missing": []
+  },
+  "STASIS-1": {
+   "missing": []
+  }
+ },
+ "questions": {
+  "What is this?": {
+   "path": "/",
+   "status": 200,
+   "answer": "A computational environment. Values are addressed by derivation paths; programs are SEURL paths; persisted programs are Scrolls; records go to ACSP; measurements to SubstrateIO."
+  },
+  "What protocols exist?": {
+   "path": "/sdk",
+   "status": 200,
+   "answer": "circle/0 over HTTP+JSON; values substrate-purl/0; records PURL/0.1; continuity ACSP/0.1"
+  },
+  "What can I do?": {
+   "path": "/sdk",
+   "status": 200,
+   "answer": "46 routes"
+  },
+  "What is the current state?": {
+   "path": "/observatory",
+   "status": 200,
+   "answer": {
+    "scrolls": 18,
+    "checkpoints": 1,
+    "conformance_runs": 3,
+    "events": 74
+   }
+  },
+  "What happened previously?": {
+   "path": "/stases",
+   "status": 200,
+   "answer": [
+    "STASIS-0",
+    "STASIS-1",
+    "STASIS-2"
+   ]
+  },
+  "What can I execute?": {
+   "path": "/seurl/START/map/eca/90/8/state/5/WRITE/next",
+   "status": 200,
+   "answer": 136
+  },
+  "What can I observe?": {
+   "path": "/transitions/coverage",
+   "status": 200,
+   "answer": [
+    "purl-event",
+    "substrate-execution",
+    "seurl-move",
+    "git-commit",
+    "golden-action",
+    "circle-checkpoint"
+   ]
+  },
+  "How do I continue?": {
+   "path": "/resume/r_HMGMD46GSD",
+   "status": 200,
+   "answer": "Q-014 cross-provider participant; A-001 and K-18 decisions (human); real-phone Golden Surface run; live ACSP TALK only on request"
+  },
+  "How do I test?": {
+   "path": "/tests",
+   "status": 200,
+   "answer": "3 recorded runs"
+  },
+  "How do I reproduce?": {
+   "path": "/stases/1",
+   "status": 200,
+   "answer": "node --test test/circle.test.js (checkpoint replay test); circle/experiments/e2e/record-2.json"
+  }
+ },
+ "verdicts": [
+  {
+   "name": "clone purl",
+   "ok": true,
+   "detail": "d6c246c"
+  },
+  {
+   "name": "clone substrateIO",
+   "ok": true,
+   "detail": "07e15d0"
+  },
+  {
+   "name": "clone NetGovComEduGovOrgEduGovComNet",
+   "ok": true,
+   "detail": "29b4911"
+  },
+  {
+   "name": "clone seurl",
+   "ok": true,
+   "detail": "620ff95"
+  },
+  {
+   "name": "clone golden-surface",
+   "ok": true,
+   "detail": "b113718"
+  },
+  {
+   "name": "clone MUSA",
+   "ok": true,
+   "detail": "d797135"
+  },
+  {
+   "name": "ACSP npm ci (lockfile)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "substrateIO unittest",
+   "ok": true,
+   "detail": "74"
+  },
+  {
+   "name": "substrateIO validate",
+   "ok": true,
+   "detail": "0 violations"
+  },
+  {
+   "name": "substrateIO run_ids",
+   "ok": true,
+   "detail": "7 run_ids = registry"
+  },
+  {
+   "name": "ACSP vitest",
+   "ok": true,
+   "detail": "24 passed"
+  },
+  {
+   "name": "purl node --test (incl. circle, golden, musa)",
+   "ok": false,
+   "detail": "stCodeFailure'\n  exitCode: 1\n  signal: ~\n  error: 'test failed'\n  code: 'ERR_TEST_FAILURE'\n  ...\n1..1\n# tests 1\n# suites 0\n# pass 0\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 71.485086\n"
+  },
+  {
+   "name": "constitution content id unchanged since STASIS-1",
+   "ok": true,
+   "detail": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4"
+  },
+  {
+   "name": "relay generation-1 snapshot hashes",
+   "ok": true,
+   "detail": "4 files"
+  },
+  {
+   "name": "STASIS-0 commits reachable",
+   "ok": true,
+   "detail": "all"
+  },
+  {
+   "name": "STASIS-1 commits reachable",
+   "ok": true,
+   "detail": "all"
+  },
+  {
+   "name": "resume STASIS-1 checkpoint from committed snapshot",
+   "ok": true,
+   "detail": "intact=true"
+  },
+  {
+   "name": "§51 What is this?",
+   "ok": true,
+   "detail": "/ -> \"A computational environment. Values are addressed by derivation paths; programs"
+  },
+  {
+   "name": "§51 What protocols exist?",
+   "ok": true,
+   "detail": "/sdk -> \"circle/0 over HTTP+JSON; values substrate-purl/0; records PURL/0.1; continuity "
+  },
+  {
+   "name": "§51 What can I do?",
+   "ok": true,
+   "detail": "/sdk -> \"46 routes\""
+  },
+  {
+   "name": "§51 What is the current state?",
+   "ok": true,
+   "detail": "/observatory -> {\"scrolls\":18,\"checkpoints\":1,\"conformance_runs\":3,\"events\":74}"
+  },
+  {
+   "name": "§51 What happened previously?",
+   "ok": true,
+   "detail": "/stases -> [\"STASIS-0\",\"STASIS-1\",\"STASIS-2\"]"
+  },
+  {
+   "name": "§51 What can I execute?",
+   "ok": true,
+   "detail": "/seurl/START/map/eca/90/8/state/5/WRITE/next -> 136"
+  },
+  {
+   "name": "§51 What can I observe?",
+   "ok": true,
+   "detail": "/transitions/coverage -> [\"purl-event\",\"substrate-execution\",\"seurl-move\",\"git-commit\",\"golden-action\",\"c"
+  },
+  {
+   "name": "§51 How do I continue?",
+   "ok": true,
+   "detail": "/resume/r_HMGMD46GSD -> \"Q-014 cross-provider participant; A-001 and K-18 decisions (human); real-phone "
+  },
+  {
+   "name": "§51 How do I test?",
+   "ok": true,
+   "detail": "/tests -> \"3 recorded runs\""
+  },
+  {
+   "name": "§51 How do I reproduce?",
+   "ok": true,
+   "detail": "/stases/1 -> \"node --test test/circle.test.js (checkpoint replay test); circle/experiments/e2"
+  },
+  {
+   "name": "EXP-CIRCLE-E2E reproduces record-2 deterministic hash",
+   "ok": true,
+   "detail": "sha256:1aad20b2c19ea7d76eac496252632f5458d4620db7f49951941148c4a0ac158a"
+  }
+ ],
+ "finished": "2026-10-01T13:41:14.104Z",
+ "summary": {
+  "pass": 27,
+  "fail": 1
+ }
+}
