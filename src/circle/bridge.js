@@ -20,17 +20,21 @@ import { sha256 } from './adapters.js';
 import { CHECK_SPECS } from './conformance.js';
 import { createIde, IDE_STAGES } from './ide.js';
 import { createDev } from './dev.js';
+import { admissible, nBitsOf } from './closure.js';
 
 export const DESCRIPTOR = {
   module: 'src/circle/bridge.js',
   claims: ['ROUTES is the complete route table of the circle (routeOf classifies against it)', 'transformers are pure functions over moves, versioned by the hash of their source', 'GET handlers here change nothing; POST /programs/transform commits a new Scroll only if the result is well-typed'],
-  requires: { modules: ['./seurl.js', './adapters.js', './conformance.js', './ide.js', './dev.js'], services: ['substrate (typing)', 'PURL (records)', 'ACSP (projections)'], files: ['circle/constitution/*.json', 'circle/stases.json', 'circle/experiments/axes/*'] },
+  requires: { modules: ['./seurl.js', './adapters.js', './conformance.js', './ide.js', './dev.js', './closure.js'], services: ['substrate (typing)', 'PURL (records)', 'ACSP (projections)'], files: ['circle/constitution/*.json', 'circle/stases.json', 'circle/experiments/axes/*'] },
   produces: ['DESCRIPTOR', 'SDK_VERSION', 'SDK_GREETING', 'ROUTES', 'routeOf', 'transformerVersion', 'createBridge'],
   changes: ['PURL scroll records (POST /programs/transform)', 'PURL dev-iteration records (POST /dev/iterations, via dev.js)'],
 };
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..', '..');
+const filesOnDisk = () => Object.fromEntries(readdirSync(HERE).filter((f) => f.endsWith('.js')).sort().map((f) => [`src/circle/${f}`, sha256(readFileSync(join(HERE, f), 'utf8'))]));
+// src/circle as it was when this module was evaluated (static imports resolve first, so the circle's modules are loaded)
+const LOADED_FILES = filesOnDisk();
 export const SDK_VERSION = 'circle-sdk/0.3';
 export const SDK_GREETING = 'You have entered a programmable computational substrate. Everything here is addressable. GET shows what an operation would do and changes nothing; POST, with your declared session, does it. Start at /sdk.';
 
@@ -81,7 +85,7 @@ export const ROUTES = [
   ['GET', '/programs/transform?source={seurl|scroll}&t={transformer}&p={params}', 'BUILD', 'pure', 'prepare program -> program with build_id'],
   ['POST', '/programs/transform?source={…}&t={…}&p={…}&session={s}', 'BUILD', 'append-only', 'commit the transformed program as a new Scroll'],
   ['GET', '/programs/transformers', 'ADDRESS', 'pure', 'the declared transformers and their versions'],
-  ['GET', '/programs/closure?source={…}&depth={1|2}', 'BUILD', 'pure', 'closure of a program under the transformers (typing only)'],
+  ['GET', '/programs/closure?source={…}&depth={1|2}&mode={untyped|typed|constitution}', 'BUILD', 'pure', 'closure of a program under the transformers (typing only)'],
   ['GET', '/scrolls', 'RESOLVE', 'pure', 'circle Scrolls'],
   ['GET', '/scrolls/{id}', 'RESOLVE', 'pure', 'one Scroll: program, builds, talks, observations, perturbations'],
   ['POST', '/scrolls/{id}/build?session={s}', 'EXECUTE', 'append-only', 'record an execution of every step'],
@@ -181,12 +185,26 @@ export function createBridge(x) {
 
   async function closure(q) {
     const depth = Math.min(2, Number(q.get('depth') ?? 1));
+    const mode = q.get('mode') ?? 'untyped';
+    if (!['untyped', 'typed', 'constitution'].includes(mode)) throw new CircleError(422, 'unknown_mode', 'mode: untyped (generate, then type), typed (catalog kinds), constitution (everything the catalog declares). The code-informed arm exists only in scripts/program-closure.js.');
+    const catalog = mode === 'untyped' ? null : (await substrate.operations()).json;
+    if (mode !== 'untyped' && !catalog?.operations) throw new CircleError(503, 'unavailable_here', 'the substrate operation catalog is needed for this mode');
+    // an appended operation is admitted by the same rule as EXP-PROGRAM-CLOSURE-1 (src/circle/closure.js)
+    const admits = (prefixTyped, t, p) => {
+      if (mode === 'untyped' || !['extend', 'perturb'].includes(t)) return true;
+      const [segment, ...params] = (t === 'perturb' ? ['flip', ...p] : p.join('/').split('/'));
+      const op = catalog.operations.find((o) => o.segment === segment && o.applies_to === prefixTyped.kind) ?? catalog.operations.find((o) => o.segment === segment);
+      if (!op) return false;
+      return admissible(mode, { op: op.id, segment, applies_to: op.applies_to, params: params.map((x) => (/^\d+$/.test(x) ? Number(x) : x)) }, { kind: prefixTyped.kind, n: nBitsOf(prefixTyped.address), catalog });
+    };
+    let skipped = 0;
     const src = await sourceOf(q);
     let frontier = [src.text];
     const seen = new Map([[sha256(src.text), { text: src.text, depth: 0, typed: await typed(src.text) }]]);
     for (let d = 1; d <= depth; d++) {
       const next = [];
       for (const text of frontier) for (const [t, p] of CLOSURE_SET) {
+        if (mode !== 'untyped' && !admits(seen.get(sha256(text)).typed, t, p)) { skipped++; continue; }
         const moves = parseMoves(text.slice('/seurl'.length));
         const out = programText(TRANSFORMERS[t].fn(moves, p));
         const cid = sha256(out);
@@ -199,7 +217,7 @@ export function createBridge(x) {
     }
     const results = [...seen.values()].filter((r) => r.depth > 0);
     const ok = results.filter((r) => r.typed.ok).length;
-    return { source: src.text, depth, transformers: CLOSURE_SET.map(([t, p]) => `${t}(${p.join('/')})`), distinct_results: results.length, well_typed: ok,
+    return { source: src.text, depth, mode, not_admitted: skipped, transformers: CLOSURE_SET.map(([t, p]) => `${t}(${p.join('/')})`), distinct_results: results.length, well_typed: ok,
       closure_fraction: results.length ? ok / results.length : null,
       failures_by_stage: results.filter((r) => !r.typed.ok).reduce((a, r) => ({ ...a, [r.typed.stage]: (a[r.typed.stage] ?? 0) + 1 }), {}),
       results, measure: 'fraction of distinct transformation results that are FSM-legal and well-typed. Typing only: execution is not attempted here (GET is pure).' };
@@ -318,8 +336,10 @@ export function createBridge(x) {
 
   // ---- SDK --------------------------------------------------------------------
   function sdkProvenance() {
-    const files = readdirSync(HERE).filter((f) => f.endsWith('.js')).sort();
-    return { files: Object.fromEntries(files.map((f) => [`src/circle/${f}`, sha256(readFileSync(join(HERE, f), 'utf8'))])), commit: cfg.commits?.purl ?? null };
+    // the implementation is what this process loaded, not what is on disk now (EXP-DOGFOOD-3 record-1: a
+    // file created during a run changed the reported implementation_id of a process that never loaded it)
+    const disk = filesOnDisk();
+    return { files: LOADED_FILES, commit: cfg.commits?.purl ?? null, disk_differs_from_loaded: sha256(disk) !== sha256(LOADED_FILES) };
   }
   const SCHEMAS = {
     'addressed-transition': { type: 'object', required: ['system', 'source_ref', 'operation', 'target_ref', 'actor', 'clock', 'content_id', 'lost'], properties: { system: { type: 'string' }, source_ref: { type: ['string', 'null'] }, operation: { type: ['string', 'null'] }, target_ref: { type: ['string', 'null'] }, actor: { type: ['string', 'null'] }, clock: { type: ['object', 'null'], properties: { domain: { type: 'string' }, position: { type: ['integer', 'null'] } } }, content_id: { type: ['string', 'null'] }, lost: { type: 'array', items: { type: 'string' } } } },
@@ -331,7 +351,7 @@ export function createBridge(x) {
 
   function implementationId() {
     const p = sdkProvenance();
-    return { implementation_id: sha256(p.files), files: p.files, commit: p.commit };
+    return { implementation_id: sha256(p.files), files: p.files, commit: p.commit, disk_differs_from_loaded: p.disk_differs_from_loaded };
   }
 
   async function constitutionModel() {

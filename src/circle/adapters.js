@@ -59,6 +59,7 @@ export class SubstrateAdapter {
   resolve(address) { return call(this.base, 'GET', address); }
   record(address) { return call(this.base, 'POST', address); }
   environment() { return call(this.base, 'GET', '/environment'); }
+  operations() { return call(this.base, 'GET', '/operations'); }
   projections() { return call(this.base, 'GET', '/projections'); }
   observe(projection, origin, document) { return call(this.base, 'POST', '/observations', { body: { projection, origin, document } }); }
 }

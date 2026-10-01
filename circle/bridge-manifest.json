@@ -1,6 +1,6 @@
 {
  "format": "bridge-manifest/3",
- "generated_at": "2026-10-01T15:56:36.328Z",
+ "generated_at": "2026-10-01T16:02:03.964Z",
  "generator": "scripts/bridge-manifest.js",
  "secrets": "none: commit ids, paths, names and hashes only",
  "start_here": [
@@ -24,7 +24,7 @@
    "repository": "purl",
    "scope": "src/circle",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "707c777",
+   "commit": "bba1b5d",
    "protocol": "circle/0 + SDK",
    "role": "the bridge: stateless composition of the other systems through SEURL move words; holds no records and no authority",
    "input_kinds": [
@@ -209,7 +209,7 @@
     },
     {
      "method": "GET",
-     "path": "/programs/closure?source={…}&depth={1|2}"
+     "path": "/programs/closure?source={…}&depth={1|2}&mode={untyped|typed|constitution}"
     },
     {
      "method": "GET",
@@ -334,7 +334,7 @@
     "GET /programs",
     "GET /programs/transform?source={seurl|scroll}&t={transformer}&p={params}",
     "GET /programs/transformers",
-    "GET /programs/closure?source={…}&depth={1|2}",
+    "GET /programs/closure?source={…}&depth={1|2}&mode={untyped|typed|constitution}",
     "GET /scrolls",
     "GET /scrolls/{id}",
     "GET /aliases",
@@ -406,6 +406,7 @@
      "purl/test/experiment.test.js",
      "purl/test/golden.test.js",
      "purl/test/http.test.js",
+     "purl/test/implementation-id.test.js",
      "purl/test/manifest.test.js",
      "purl/test/musa.test.js",
      "purl/test/purl-limit.test.js",
@@ -516,7 +517,7 @@
    "repository": "purl",
    "scope": "src/{core,continuity,transport}",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "707c777",
+   "commit": "bba1b5d",
    "protocol": "PURL/0.1",
    "role": "persistent versioned records (resources, events, grants); the circle's record store",
    "input_kinds": [
@@ -684,6 +685,7 @@
      "purl/test/experiment.test.js",
      "purl/test/golden.test.js",
      "purl/test/http.test.js",
+     "purl/test/implementation-id.test.js",
      "purl/test/manifest.test.js",
      "purl/test/musa.test.js",
      "purl/test/purl-limit.test.js",
@@ -1679,7 +1681,7 @@
    "url": "https://github.com/akadaan310/purl",
    "default_branch": "claude/purl-protocol-research-bxevq5",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "707c777",
+   "head": "bba1b5d",
    "branches": {
     "ccr-d0887a23-30wf63": "bd0d280",
     "claude/acsp-purl-composition-adsbn6": "18c85bf",
@@ -2070,7 +2072,7 @@
   },
   {
    "method": "GET",
-   "path": "/programs/closure?source={…}&depth={1|2}",
+   "path": "/programs/closure?source={…}&depth={1|2}&mode={untyped|typed|constitution}",
    "edge": "BUILD",
    "effect": "pure",
    "description": "closure of a program under the transformers (typing only)"
