@@ -114,7 +114,7 @@ describe('the circle end to end (substrate + PURL + ACSP, real processes)', { sk
     assert.equal(cp.status, 201);
     first = c;
     await c.close({ children: false });
-    c = await startCircle({ substrateBase: `http://127.0.0.1:28765`, acspBase: `http://127.0.0.1:28787`, purlDataDir, acspOrigin: 'harness' });
+    c = await startCircle({ substrateBase: `http://127.0.0.1:28765`, acspBase: `http://127.0.0.1:28787`, purlDataDir, acspOrigin: 'harness', acspResource });
     c.cfg.acspTestResource = acspResource;
     // a restarted circle registers a new PURL principal; resume needs only reads
     const resumed = (await get(`/resume/${cp.doc.id}`)).doc;
@@ -150,6 +150,45 @@ describe('the circle end to end (substrate + PURL + ACSP, real processes)', { sk
     assert.equal(cand.stage, 'observed_recurrence');
     assert.ok(cand.recurrence >= 2);
   }, { timeout: 60000 });
+
+  test('SDK: self-description, prompt contract, programs as objects, transitions', async () => {
+    const sdk = (await get('/sdk')).doc;
+    assert.ok(sdk.routes.some((r) => r.path === '/sdk'));
+    assert.ok(Object.keys(sdk.provenance.files).includes('src/circle/bridge.js'));
+    assert.equal((await get('/prompts/classify?p=' + encodeURIComponent('just chatting'))).doc.kind, 'conversation');
+    const c = (await post('/prompts/classify', { operation: { method: 'GET', href: '/v/map/eca/90/8' }, expected_transition: 'none', test: 'kind map', completion_condition: 'value present' })).doc;
+    assert.equal(c.kind, 'program');
+    const bad = (await post('/prompts/classify', { operation: { method: 'DELETE', href: '/x' }, expected_transition: 'a', test: 'b', completion_condition: 'c' })).doc;
+    assert.equal(bad.kind, 'invalid_program');
+    // program -> program, with build_id and lineage; the source is untouched
+    const src = await post('/seurl/START/map/eca/90/8/state/5/WRITE/next/COMMIT?session=sdk-test');
+    const prep = (await get(`/programs/transform?source=${src.doc.scroll.id}&t=extend&p=orbit`)).doc;
+    assert.equal(prep.result.typed.ok, true);
+    assert.notEqual(prep.result.content_id, prep.source.content_id);
+    const commit = await post(`/programs/transform?source=${src.doc.scroll.id}&t=extend&p=orbit&session=sdk-test`);
+    assert.equal(commit.status, 201);
+    assert.equal(commit.doc.build_id, prep.build_id); // build_id is a function of source, transformer, params: same prepare and commit
+    const ill = await post(`/programs/transform?source=${src.doc.scroll.id}&t=extend&p=cycle/0&session=sdk-test`);
+    assert.equal(ill.status, 422);
+    const cl = (await get(`/programs/closure?source=${src.doc.scroll.id}&depth=1`)).doc;
+    assert.ok(cl.closure_fraction >= 0 && cl.closure_fraction <= 1, String(cl.closure_fraction));
+    const dead = (await get('/programs/closure?source=/seurl/START/map/eca/30/8&depth=1')).doc; // a map binds no state: state transformers cannot apply
+    assert.equal(dead.closure_fraction, 0);
+    const cov = (await get('/transitions/coverage')).doc;
+    const sys = cov.matrix.map((m) => m.system);
+    for (const s of ['purl-event', 'substrate-execution', 'seurl-move', 'acsp-event']) assert.ok(sys.includes(s), s);
+    assert.equal(cov.matrix.find((m) => m.system === 'substrate-execution').actor, 0); // the instrument records no actor: a measured loss
+  }, { timeout: 120000 });
+
+  test('test surface and observatory derive from records; failures stay', async () => {
+    const runs = (await get('/tests')).doc.runs;
+    assert.ok(runs.length >= 1);
+    const t = (await get(`/tests/${runs[0].run}/get_sweep_changes_nothing`)).doc;
+    assert.ok(t.hash.startsWith('sha256:') && t.expected_transition && t.provenance.constitution);
+    const o = (await get('/observatory')).doc;
+    assert.ok(o.transitions.length > 0 && o.current_constitution.content_id);
+    assert.equal((await get('/stases/1')).doc.id, 'STASIS-1');
+  });
 
   test('NAI-CI primitives over circle URLs; foreign URLs refused', async () => {
     const legal = (await get('/naici/legal?url=' + encodeURIComponent('/seurl/START/map/eca/90/8/state/5'))).doc;

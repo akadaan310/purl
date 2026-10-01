@@ -2,9 +2,30 @@
  "format": "circle-enforcement/1",
  "semantics": "Additional verification checks attached to existing clauses. Verification is not governing authority: this file never changes what a clause says, only how it is checked. Added after EXP-CIRCLE-FRESH condition B found defects the clause checks in constitution-v1.json had passed. Whether all clause->check mappings should live here instead of in the constitution is amendment proposal A-001 (CONSTITUTION-CONFORMANCE.md).",
  "additional_checks": {
-  "K-03": ["fork_does_not_inherit_records"],
-  "K-11": ["aliases_only_from_own_builds"],
-  "K-12": ["scrolls_publicly_readable"]
+  "K-03": [
+   "fork_does_not_inherit_records"
+  ],
+  "K-11": [
+   "aliases_only_from_own_builds",
+   "identity_kinds_stay_distinct"
+  ],
+  "K-12": [
+   "scrolls_publicly_readable",
+   "build_does_not_change_source"
+  ],
+  "K-15": [
+   "sdk_describes_itself"
+  ],
+  "K-01": [
+   "prompt_conversation_not_executed"
+  ]
  },
- "provenance": {"found_by": "EXP-CIRCLE-FRESH condition B", "defects": ["F-C1", "F-C2"]}
+ "provenance": {
+  "found_by": "EXP-CIRCLE-FRESH condition B",
+  "defects": [
+   "F-C1",
+   "F-C2"
+  ],
+  "stasis_2": "identity, build, SDK and prompt-contract checks added with the bridge surfaces (BRIDGE-CONSTITUTION.md)"
+ }
 }

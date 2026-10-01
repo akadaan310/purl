@@ -44,6 +44,109 @@ async function crawl(api, limit = 60) {
   return seen;
 }
 
+export const CHECK_SPECS = {
+ "get_sweep_changes_nothing": {
+  "input": "crawl every GET move reachable from / (≤60 URLs) and prepared mutation URLs",
+  "expected": "hash of PURL record versions, substrate execution counts and ACSP version unchanged"
+ },
+ "credentials_in_url_refused": {
+  "input": "GET /?cap=abc; POST …/COMMIT?…&token=x",
+  "expected": "400 credential_in_url both times"
+ },
+ "mutation_requires_declared_session": {
+  "input": "POST …/COMMIT without ?session",
+  "expected": "422 session_required; nothing written"
+ },
+ "seurl_vocabulary_closed": {
+  "input": "GET /seurl/START/map/eca/90/8/JUMP",
+  "expected": "400 unknown_verb"
+ },
+ "seurl_fsm_enforced": {
+  "input": "WRITE from IDLE; COMMIT from BOUND; WRITE after a prepared COMMIT",
+  "expected": "409 illegal_move with the legal set, three times"
+ },
+ "constitution_not_writable": {
+  "input": "POST /constitution",
+  "expected": "405"
+ },
+ "amendment_is_proposal_only": {
+  "input": "POST /constitution/amendments",
+  "expected": "201 status proposed; constitution content id unchanged"
+ },
+ "author_assurance_is_asserted": {
+  "input": "commit a scroll with ?session=",
+  "expected": "scroll.author = {session_id, assurance: asserted}"
+ },
+ "shared_value_distinct_records": {
+  "input": "build /map/increment/3/power/8/table and /map/eca/204/3/table",
+  "expected": "equal value_id; distinct derivation_id and execution_hash"
+ },
+ "fork_leaves_parent_unchanged": {
+  "input": "commit a new version with &parent= under another session",
+  "expected": "parent version and state hash unchanged; child.parent = parent; child author = other session"
+ },
+ "scroll_log_verifies": {
+  "input": "PurlClient.reconstruct every scroll",
+  "expected": "client-side replay all_ok"
+ },
+ "fork_does_not_inherit_records": {
+  "input": "build a parent, fork it, do not build the fork",
+  "expected": "fork shows 0 own builds and ≥1 inherited"
+ },
+ "aliases_only_from_own_builds": {
+  "input": "GET /aliases; resolve each listed address directly",
+  "expected": "every listed value_id equals the directly resolved one"
+ },
+ "scrolls_publicly_readable": {
+  "input": "GET /r/{id}/verify on PURL without credentials, for every scroll",
+  "expected": "200 and valid=true"
+ },
+ "no_observed_claims": {
+  "input": "scan builds and observations of every scroll",
+  "expected": "no epistemic status OBSERVED"
+ },
+ "adapter_refuses_non_propose": {
+  "input": "AcspAdapter.submit an append intent",
+  "expected": "403; no request sent"
+ },
+ "dead_adapter_is_explicit": {
+  "input": "circle with substrate at a closed port: GET a SEURL session",
+  "expected": "503 unavailable_here; no substituted result"
+ },
+ "acsp_prepare_changes_nothing": {
+  "input": "GET prepare_propose on the continuity resource",
+  "expected": "intent returned; ACSP version unchanged"
+ },
+ "talk_stage_never_committed": {
+  "input": "POST …/COMMIT/BUILD/TALK/acsp/{resource}",
+  "expected": "stage submitted; no talk anywhere is committed"
+ },
+ "no_secret_in_records": {
+  "input": "scan every circle record for the circle's secrets",
+  "expected": "no occurrence"
+ },
+ "every_document_has_moves": {
+  "input": "crawl ≤40 documents",
+  "expected": "every non-error document has moves; entry/session/scroll/state/resume have ≥1"
+ },
+ "identity_kinds_stay_distinct": {
+  "input": "/map/eca/204/6/state/9/next and /map/increment/6/state/8/next (both x = 9)",
+  "expected": "equal value_id; distinct address_id, derivation_id, content_id, scroll id, execution_hash"
+ },
+ "build_does_not_change_source": {
+  "input": "POST /programs/transform?t=extend on a committed scroll",
+  "expected": "source scroll version, state and content_id unchanged; result has new content_id and a build_id citing the source"
+ },
+ "sdk_describes_itself": {
+  "input": "GET /sdk; GET every non-template GET route it lists",
+  "expected": "/sdk lists itself and /sdk/constitution; no listed route answers 404; an unlisted path is not routed"
+ },
+ "prompt_conversation_not_executed": {
+  "input": "classify plain text, an object missing fields, and a valid program",
+  "expected": "conversation, conversation, program; no state change"
+ }
+};
+
 export async function runConformance(api, author, { acspResource = api.cfg.acspTestResource ?? api.cfg.acspResource ?? null } = {}) {
   const results = {};
   const h = (m, p, b) => api.handle(m, p, b);
@@ -206,6 +309,47 @@ export async function runConformance(api, author, { acspResource = api.cfg.acspT
     const missing = [...seen].filter(([, r]) => r.status < 400 && !Array.isArray(r.doc.moves)).map(([u]) => u);
     const empty = [...seen].filter(([, r]) => ['entry', 'seurl-session', 'scroll', 'scrolls', 'ide-state', 'resume'].includes(r.doc.kind) && !r.doc.moves.length).map(([u]) => u);
     return { ok: missing.length === 0 && empty.length === 0, detail: `${seen.size} docs; without moves: ${missing.join(',') || 'none'}; empty where required: ${empty.join(',') || 'none'}` };
+  });
+
+  await check('identity_kinds_stay_distinct', async () => {
+    const a = await h('POST', `/seurl/START/map/eca/204/6/state/9/WRITE/next/COMMIT/BUILD${session}`, null); // rule 204 = identity: f(9) = 9
+    const b = await h('POST', `/seurl/START/map/increment/6/state/8/WRITE/next/COMMIT/BUILD${session}`, null); // 8 + 1 = 9
+    const ra = a.doc.steps?.[1]?.build?.records?.at(-1);
+    const rb = b.doc.steps?.[1]?.build?.records?.at(-1);
+    if (!ra || !rb) return { ok: false, detail: `builds missing: ${a.status} ${b.status}` };
+    const sa = (await api.purlRead(a.doc.scroll.id)).state;
+    const sb = (await api.purlRead(b.doc.scroll.id)).state;
+    const ta = (await api.substrate.term(ra.address)).json;
+    const tb = (await api.substrate.term(rb.address)).json;
+    const distinct = ta.address_id !== tb.address_id && ra.derivation_id !== rb.derivation_id && sa.content_id !== sb.content_id && a.doc.scroll.id !== b.doc.scroll.id && ra.execution_hash !== rb.execution_hash;
+    return { ok: ra.value_id === rb.value_id && distinct, detail: `value_id equal=${ra.value_id === rb.value_id}; address/derivation/content/record/execution distinct=${distinct}` };
+  });
+  await check('build_does_not_change_source', async () => {
+    const src = await h('POST', `/seurl/START/map/eca/30/6/state/1/WRITE/next/COMMIT${session}`, null);
+    if (!src.doc.scroll) return { ok: false, detail: `source: ${src.status}` };
+    const before = await api.purlRead(src.doc.scroll.id);
+    const t = await h('POST', `/programs/transform?source=${src.doc.scroll.id}&t=extend&p=next&session=${author.session_id}`, null);
+    const after = await api.purlRead(src.doc.scroll.id);
+    const res = t.doc.scroll ? await api.purlRead(t.doc.scroll.id) : null;
+    return { ok: t.status === 201 && before.version === after.version && sha256(before.state) === sha256(after.state) && res?.state.content_id !== before.state.content_id
+      && res?.state.derived_from?.source?.content_id === before.state.content_id && Boolean(t.doc.build_id), detail: `transform ${t.status}; source v${before.version}->v${after.version}; result ${res?.id} build_id ${String(t.doc.build_id).slice(0, 15)}` };
+  });
+  await check('sdk_describes_itself', async () => {
+    const sdk = (await h('GET', '/sdk', null)).doc;
+    const listed = sdk.routes ?? [];
+    const self = listed.some((r) => r.path === '/sdk') && listed.some((r) => r.path === '/sdk/constitution');
+    const bad = [];
+    for (const r of listed.filter((x) => x.method === 'GET' && !x.path.includes('{'))) { const g = await h('GET', r.path, null); if (g.status === 404) bad.push(r.path); }
+    const unlisted = await h('GET', '/sdk/not-a-route', null);
+    return { ok: self && bad.length === 0 && unlisted.status === 404 && api.bridge.routeOf('GET', '/sdk') !== null, detail: `${listed.length} routes; self-listed=${self}; 404s: ${bad.join(',') || 'none'}` };
+  });
+  await check('prompt_conversation_not_executed', async () => {
+    const before = await snapshot(api, acspResource);
+    const a = (await h('GET', '/prompts/classify?p=' + encodeURIComponent('hi, how are you?'), null)).doc;
+    const b = (await h('POST', '/prompts/classify', { instruction: 'do it', operation: { method: 'POST', href: '/seurl/START/map/eca/90/8/state/5/WRITE/next/COMMIT' } })).doc;
+    const c = (await h('POST', '/prompts/classify', { operation: { method: 'POST', href: '/seurl/START/map/eca/90/8/state/5/WRITE/next/COMMIT' }, expected_transition: 'COMMITTED', test: 'scroll exists', completion_condition: 'scroll id returned' })).doc;
+    const after = await snapshot(api, acspResource);
+    return { ok: a.kind === 'conversation' && b.kind === 'conversation' && c.kind === 'program' && c.would_mutate === true && before === after, detail: `${a.kind}, ${b.kind}, ${c.kind}; state ${before === after ? 'unchanged' : 'CHANGED'}` };
   });
 
   const c = api.constitution();

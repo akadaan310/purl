@@ -19,6 +19,7 @@ import { PurlClient } from '../client/client.js';
 import { canonicalize } from '../core/canonical.js';
 import { run, parseMoves, pathOf, VERBS, SeurlError } from './seurl.js';
 import { SubstrateAdapter, AcspAdapter, GoldenAdapter, unavailable, sha256 } from './adapters.js';
+import { createBridge } from './bridge.js';
 
 export const CIRCLE_PROTOCOL = 'circle/0 (provisional)';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -98,6 +99,11 @@ export function createCircle(cfg) {
       systems: { substrate: substrate.describe(), acsp: { ...acsp.describe(), continuity_resource: cfg.acspResource ?? null }, golden_surface: golden.describe(), purl: { id: 'purl/0.1', base: cfg.purlBase } },
     }, [
       ...(cfg.acspResource ? [move('continuity', 'GET', `/acsp/r/${cfg.acspResource}`, 'read', { note: 'the ACSP resource TALK publishes to here' })] : []),
+      move('sdk', 'GET', '/sdk', 'read', { note: 'what this is, what you can do, and how it describes itself' }),
+      move('observatory', 'GET', '/observatory', 'read'),
+      move('programs', 'GET', '/programs', 'read'),
+      move('tests', 'GET', '/tests', 'read'),
+      move('prompt-contract', 'GET', '/prompt-contract', 'read'),
       move('constitution', 'GET', '/constitution', 'read'),
       move('operations', 'GET', '/operations', 'read'),
       move('value', 'GET', '/v/map/eca/90/8/state/5/next', 'read'),
@@ -190,7 +196,7 @@ export function createCircle(cfg) {
   }
 
   // ---- Scrolls --------------------------------------------------------------------
-  async function commitScroll(s, author, parent) {
+  async function commitScroll(s, author, parent, extra = {}) {
     const t = (await substrate.term(s.current_address)).json;
     let id;
     let version = 1;
@@ -199,6 +205,8 @@ export function createCircle(cfg) {
       bound: s.bound, program: s.program, steps: prefixes(s), address: s.current_address,
       term: { kind: t.kind, derivation_id: t.derivation_id }, author, constitution: { version: constitution().doc.version, content_id: constitution().content_id },
       parent: parent ?? null,
+      content_id: sha256(pathOf(s.moves.filter((m) => !['COMMIT', 'BUILD', 'TALK'].includes(m.verb)))),
+      ...extra,
     };
     if (parent) {
       const pdoc = await scrollDoc(parent); // must exist; never written
@@ -479,6 +487,8 @@ export function createCircle(cfg) {
   }
 
   // ---- router -----------------------------------------------------------------------
+  const bridge = createBridge({ substrate, acsp, purl, purlRead, purlList, envelope, move, CircleError, constitution, cfg, scrollDoc, requireSession, commitScroll, handle: (...a) => handle(...a) });
+
   async function dispatch(method, rawPath, body) {
     const u = new URL(rawPath, 'http://circle.invalid');
     const path = decodeURIComponent(u.pathname).replace(/\/+$/, '') || '/';
@@ -486,6 +496,8 @@ export function createCircle(cfg) {
     for (const k of ['cap', 'capability', 'token', 'access_token', 'key']) {
       if (q.has(k)) throw new CircleError(400, 'credential_in_url', `Credentials never travel in URLs (found "${k}"). The circle holds no authority on your behalf and accepts none this way.`);
     }
+    const ext = await bridge.dispatch(method, path, q, body);
+    if (ext) return { status: method === 'POST' && ext.kind !== 'prompt-classification' ? 201 : 200, doc: ext };
     if (method === 'GET') {
       if (path === '/') return { status: 200, doc: entry() };
       if (path === '/constitution') { const c = constitution(); return { status: 200, doc: envelope('constitution', { content_id: c.content_id, document: c.doc }, c.doc.clauses.map((k) => move(k.id, 'GET', `/constitution/clauses/${k.id}`, 'read'))) }; }
@@ -510,7 +522,7 @@ export function createCircle(cfg) {
       }
       if (/^\/scrolls\/[^/]+$/.test(path)) {
         const d = await scrollDoc(path.split('/')[2]);
-        return { status: 200, doc: envelope('scroll', { id: d.id, version: d.version, owner: d.owner, ...d.state, builds: d.builds, talks: d.talks, observations: d.observations, inherited_from_parent: d.inherited, purl: `${cfg.purlBase}/r/${d.id}`,
+        return { status: 200, doc: envelope('scroll', { id: d.id, version: d.version, owner: d.owner, ...d.state, builds: d.builds, talks: d.talks, observations: d.observations, perturbations: bridge.perturbations(d), inherited_from_parent: d.inherited, purl: `${cfg.purlBase}/r/${d.id}`,
           version_semantics: 'version is the PURL event count of this record (genesis, grant, each build/talk/observation append). A build records the version it ran against. Scroll *versions* in the program sense are forks (parent).' }, [
           move('rebuild', 'POST', `/scrolls/${d.id}/build?session={id}`, 'executes every step again and records it'),
           move('new-version', 'POST', `/seurl${d.state.seurl.slice('/seurl'.length)}/COMMIT?session={id}&parent=${d.id}`, 'commits a fork as the next version; this one is untouched', { template: true }),
@@ -574,7 +586,7 @@ export function createCircle(cfg) {
     }
   }
 
-  const api = { handle, purl, substrate, acsp, golden, secrets, constitution, cfg, purlList, purlRead };
+  const api = { handle, purl, substrate, acsp, golden, secrets, constitution, cfg, purlList, purlRead, bridge };
   return api;
 }
 

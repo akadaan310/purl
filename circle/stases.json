@@ -1,0 +1,90 @@
+{
+ "format": "circle-stases/1",
+ "term": "C-049 stasis (= cross-repository baseline)",
+ "stases": [
+  {
+   "n": 0,
+   "id": "STASIS-0",
+   "label": "before the bridge",
+   "date": "2026-10-01T10:21Z",
+   "commits": {
+    "substrateIO": "7ace119",
+    "purl": "3df4452",
+    "acsp": "9fcf2e1",
+    "seurl": "620ff95",
+    "golden-surface": "b113718",
+    "MUSA": "d797135",
+    "luna-foundry": "6a260ef"
+   },
+   "deployments": {
+    "acsp-one.vercel.app": "9fcf2e1",
+    "seurl.vercel.app": "content of 620ff95",
+    "lunar-foundry.vercel.app": "6a260ef"
+   },
+   "checkpoint": "ACSP 8N2RXG1MW79S checkpoint 1 @ v5 (live resource at v12)",
+   "constitution": "none clause-structured",
+   "unmerged_lines_not_seen_at_the_time": [
+    "ACSP program-001 (417da6c)",
+    "ACSP 0.2 + PURL composition (edd1963, 18c85bf)",
+    "golden-surface engine (48e995d)"
+   ],
+   "reconstruct": "git checkout the commits; ACSP live snapshot in ACSP migration/relay-gen1/"
+  },
+  {
+   "n": 1,
+   "id": "STASIS-1",
+   "label": "the circle",
+   "date": "2026-10-01T11:02Z",
+   "commits": {
+    "substrateIO": "60ce712",
+    "purl": "1acfb0c",
+    "acsp": "29b4911",
+    "seurl": "620ff95",
+    "golden-surface": "b113718",
+    "MUSA": "d797135"
+   },
+   "deployments": {
+    "acsp-one.vercel.app": "9fcf2e1 (unchanged)"
+   },
+   "checkpoint": "r_HMGMD46GSD sha256:ef5ed564093e1d0078c03d95ddac7c3f772a4c9506872ce279326a7ce6e13d2e (snapshot purl circle/checkpoints/final/)",
+   "constitution": "circle constitution-v1 sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+   "changed": [
+    "SEURL executable (circle)",
+    "typed terms + identity decomposition (F-010)",
+    "circle Scrolls, TALK, observations, checkpoints",
+    "constitution-v1 + conformance"
+   ],
+   "survived": [
+    "ACSP/0.1 protocol and live data",
+    "PURL/0.1 core",
+    "substrateIO registries and run_ids"
+   ],
+   "superseded": [],
+   "disproven_later": [
+    "'program-001 / 417da6c absent from every branch' (STASIS-1 reconstruction)"
+   ],
+   "unresolved": [
+    "K-18",
+    "A-001",
+    "Q-014",
+    "Q-015",
+    "live TALK",
+    "real phone",
+    "seurl:// scheme",
+    "code as value",
+    "C-046"
+   ],
+   "reconstruct": "node --test test/circle.test.js (checkpoint replay test); circle/experiments/e2e/record-2.json"
+  },
+  {
+   "n": 2,
+   "id": "STASIS-2",
+   "label": "bridge: reconstruction, SDK, observatory, cold reconstruction",
+   "date": "open",
+   "status": "OPEN until the final checkpoint of this phase is recorded",
+   "commits": {},
+   "changed": [],
+   "reconstruct": "scripts/bridge-cold-reconstruct.js"
+  }
+ ]
+}

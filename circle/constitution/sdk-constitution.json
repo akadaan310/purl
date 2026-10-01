@@ -1,0 +1,93 @@
+{
+ "format": "constitutional-artifact/1",
+ "identity": {
+  "name": "circle SDK",
+  "version": "circle-sdk/0.2",
+  "address": "/sdk"
+ },
+ "purpose": "Let any participant that can make HTTP requests learn what this environment is and act in it, without a provider-specific prompt.",
+ "boundaries": {
+  "inside": [
+   "the routes listed at /sdk",
+   "documents the circle returns"
+  ],
+  "outside": [
+   "substrate, PURL and ACSP internals (reached through adapters)",
+   "any third-party provider",
+   "any credential"
+  ]
+ },
+ "invariants": [
+  {
+   "id": "SDK-1",
+   "text": "Every route the circle serves is listed at /sdk, and /sdk lists itself and its own constitution.",
+   "check": "sdk_describes_itself"
+  },
+  {
+   "id": "SDK-2",
+   "text": "GET never changes state anywhere; every mutation is a POST to a listed route.",
+   "check": "get_sweep_changes_nothing"
+  },
+  {
+   "id": "SDK-3",
+   "text": "The SDK assumes no model provider: no route, schema or text names one as a requirement.",
+   "check": "human-reviewed"
+  },
+  {
+   "id": "SDK-4",
+   "text": "A prompt is a program only if it satisfies the prompt contract; classification never executes.",
+   "check": "prompt_conversation_not_executed"
+  },
+  {
+   "id": "SDK-5",
+   "text": "The SDK's provenance (file hashes, commit) is served with it.",
+   "check": "sdk_describes_itself"
+  }
+ ],
+ "permitted_transitions": [
+  "GET any listed route",
+  "POST a listed POST route with a declared session",
+  "classify a prompt"
+ ],
+ "forbidden_transitions": [
+  "mutation through GET",
+  "acting on a credential passed in a URL",
+  "adopting or editing a constitution",
+  "publishing beyond an ACSP pending proposal",
+  "executing a classified prompt as a side effect of classification"
+ ],
+ "observable_effects": {
+  "POST /seurl …/COMMIT": "PURL scroll resource",
+  "…/BUILD": "substrate execution records + PURL append",
+  "…/TALK": "one ACSP proposal",
+  "POST /programs/transform": "PURL scroll with derived_from",
+  "POST /checkpoints": "PURL checkpoint",
+  "POST /conformance/runs": "PURL conformance-run + test scrolls"
+ },
+ "non_effects": [
+  "reading a route records nothing",
+  "classification records nothing",
+  "/observatory and /tests derive from existing records and store nothing"
+ ],
+ "validation_method": "the conformance runner (POST /conformance/runs); checks named above",
+ "evidence_requirements": "a conformance run in which every mechanical invariant's check passed against a live circle",
+ "provenance": {
+  "served_at": "/sdk (provenance.files, provenance.commit)"
+ },
+ "version": "1",
+ "related_terms": [
+  "C-043",
+  "C-047",
+  "C-048",
+  "C-052",
+  "C-053"
+ ],
+ "implementation": [
+  "src/circle/bridge.js (ROUTES, sdkDoc, classify)",
+  "src/circle/server.js"
+ ],
+ "tests": [
+  "test/circle.test.js",
+  "src/circle/conformance.js"
+ ]
+}
