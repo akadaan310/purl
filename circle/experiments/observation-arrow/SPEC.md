@@ -34,3 +34,7 @@ Participants: subagents with no conversation context, models `sonnet` and `haiku
 
 ## Procedure
 `node scripts/r9-apparatus.js` starts the four cells and writes `cells.json`. The participants run. Each final report is saved verbatim as `report-<cell>-<model>.md`. `node scripts/r9-score.js` writes `results.json`. GET-safety is re-checked per cell (state hash before and after).
+
+## Clarification (appended before the apparatus ran)
+Each participant gets its **own instance** of its cell's configuration: 8 circles, 8 proxies on ports 8601–8608.
+Then every logged request belongs to exactly one participant, with no time-window attribution rule, and participants can run in parallel. Within a cell, the two instances are identical in code and setup.

@@ -48,29 +48,31 @@ function proxy(target, logFile, port) {
   return new Promise((ok) => server.listen(port, '127.0.0.1', () => ok(server)));
 }
 
-const CELLS = [
+const curCommit = execFileSync('git', ['-C', ROOT, 'rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim();
+const BASECELLS = [
   { cell: 1, surface: 'pre', prompt: 'neutral', lib: libPre, commit: PRE },
   { cell: 2, surface: 'pre', prompt: 'eliciting', lib: libPre, commit: PRE },
-  { cell: 3, surface: 'current', prompt: 'neutral', lib: libCur, commit: execFileSync('git', ['-C', ROOT, 'rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim() },
-  { cell: 4, surface: 'current', prompt: 'eliciting', lib: libCur, commit: null },
+  { cell: 3, surface: 'current', prompt: 'neutral', lib: libCur, commit: curCommit },
+  { cell: 4, surface: 'current', prompt: 'eliciting', lib: libCur, commit: curCommit },
 ];
-CELLS[3].commit = CELLS[2].commit;
+// one instance per participant (SPEC clarification): models sonnet and haiku in every cell
+const CELLS = BASECELLS.flatMap((c, i) => ['sonnet', 'haiku'].map((model, j) => ({ ...c, model, inst: i * 2 + j + 1 })));
 const running = [];
 const doc = { experiment: 'EXP-R9', started: new Date().toISOString(), cells: [] };
 for (const c of CELLS) {
   const circle = await c.lib.startCircle({ substrateDir: resolve(ROOT, '..', 'substrateIO'), acspDir: resolve(ROOT, '..', 'NetGovComEduGovOrgEduGovComNet'),
-    substratePort: 43000 + c.cell, acspPort: 43100 + c.cell, purlDataDir: mkdtempSync(join(tmpdir(), `r9-cell${c.cell}-`)) });
+    substratePort: 43000 + c.inst, acspPort: 43100 + c.inst, purlDataDir: mkdtempSync(join(tmpdir(), `r9-inst${c.inst}-`)) });
   // the operator creates the continuity resource as owner (as in EXP-BRIDGE-RECON)
-  const intent = await (await fetch(`${circle.acspBase}/new?format=json&session_id=operator-owner&title=EXP-R9-cell-${c.cell}`)).json();
+  const intent = await (await fetch(`${circle.acspBase}/new?format=json&session_id=operator-owner&title=EXP-R9-instance-${c.inst}`)).json();
   const rid = (await (await fetch(`${circle.acspBase}/r`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(intent.request) })).json()).resource_id;
   circle.cfg.acspResource = rid;
-  const port = 8600 + c.cell;
-  const logFile = join(OUT, 'logs', `cell-${c.cell}.jsonl`);
+  const port = 8600 + c.inst;
+  const logFile = join(OUT, 'logs', `inst-${c.inst}-cell-${c.cell}-${c.model}.jsonl`);
   const px = await proxy(circle.base, logFile, port);
   circle.cfg.publicBase = `http://127.0.0.1:${port}`; // links the circle writes point at the proxy
   running.push({ circle, px });
-  doc.cells.push({ cell: c.cell, surface: c.surface, prompt: c.prompt, purl_commit: c.commit, url: `http://127.0.0.1:${port}/`, circle_direct: circle.base, acsp_resource: rid, log: `logs/cell-${c.cell}.jsonl` });
-  console.log('cell', c.cell, c.surface, c.prompt, `http://127.0.0.1:${port}/`);
+  doc.cells.push({ inst: c.inst, cell: c.cell, surface: c.surface, prompt: c.prompt, model: c.model, purl_commit: c.commit, url: `http://127.0.0.1:${port}/`, circle_direct: circle.base, acsp_resource: rid, log: `logs/inst-${c.inst}-cell-${c.cell}-${c.model}.jsonl` });
+  console.log('instance', c.inst, 'cell', c.cell, c.surface, c.prompt, c.model, `http://127.0.0.1:${port}/`);
 }
 writeFileSync(join(OUT, 'cells.json'), JSON.stringify(doc, null, 1) + '\n');
 console.log('READY');
