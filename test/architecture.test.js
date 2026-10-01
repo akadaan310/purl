@@ -1,5 +1,6 @@
 // Enforces the dependency rule in ARCHITECTURE.md: Layer 1 and Layer 2 never
 // import each other or Layer 0; core imports only the standard library.
+// circle (the bridge) reaches PURL only through the client, other systems only over HTTP.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
@@ -7,7 +8,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const SRC = join(dirname(fileURLToPath(import.meta.url)), '..', 'src');
-const ALLOWED = { core: ['core'], continuity: ['core', 'continuity'], research: ['core', 'research'], transport: ['core', 'continuity', 'research', 'transport'], client: ['core', 'continuity', 'client'] };
+const ALLOWED = { core: ['core'], continuity: ['core', 'continuity'], research: ['core', 'research'], transport: ['core', 'continuity', 'research', 'transport'], client: ['core', 'continuity', 'client'], circle: ['core', 'client', 'circle'] };
 
 test('layer import rule', () => {
   const violations = [];
