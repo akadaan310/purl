@@ -23,8 +23,8 @@ BRIDGE-NOMENCLATURE.md §0.
 | | prediction | result | label |
 |---|---|---|---|
 | M1 | π∘σ = id | holds on **all 147 programs σ accepts** (loss 0, n=147). σ refused 108 of 255: 12 not in WRITING (a word of PERTURBs only stays BOUND; COMMIT is illegal there), 96 ill-typed (after `orbit` the value is an orbit, and `next`/`flip` are not defined on it). The prediction as written ("for every program of the declared space") **over-claimed σ's domain** | OBSERVED; domain DERIVED from FSM + typing |
-| M2 | σ not a function | holds: the same program committed twice gives distinct ids and one `content_id` (5/5) | OBSERVED |
-| M3 | the verb label survives σ | holds: 45 groups with the same address; within each, the same `derivation_id` and distinct `content_id` | OBSERVED |
+| M2 | σ not a function | holds: the same program committed twice gives distinct ids and one `content_id` (3/3 pairs; the sampler yields 3, not the 5 it was written for) | OBSERVED |
+| M3 | the verb label survives σ | holds: 42 groups (126 records) with the same address; within each, the same `derivation_id` and distinct `content_id` | OBSERVED |
 | M4 | lineage is reconstructible from records | holds on 8/8 committed transformations: source text + transformer@version + params recompute the record's program and `build_id`. 4 were refused as ill-typed and nothing was committed | OBSERVED |
 | M5 | τ keeps the program and loses the record | holds 4/4: the program is recoverable from the TOK's `SEURL:` line, and author and parent are absent. They are recoverable only by following the scroll URL the TOK carries | OBSERVED |
 
