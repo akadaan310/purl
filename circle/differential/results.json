@@ -1,0 +1,96 @@
+{
+ "ran_at": "2026-10-01T13:36:26.705Z",
+ "results": [
+  {
+   "id": "F-C1",
+   "found_by": "EXP-CIRCLE-FRESH condition B",
+   "repo": "purl",
+   "old": "09d13b6",
+   "check": "fork_does_not_inherit_records",
+   "kind": "circle",
+   "new": "ec6389e",
+   "old_result": {
+    "ok": false,
+    "detail": "fork own builds=1, inherited=undefined"
+   },
+   "new_result": {
+    "ok": true,
+    "detail": "fork own builds=0, inherited=1"
+   },
+   "verdict": "DIFFERENTIAL (old fails, new passes)"
+  },
+  {
+   "id": "F-C1b",
+   "found_by": "EXP-CIRCLE-FRESH condition B",
+   "repo": "purl",
+   "old": "09d13b6",
+   "check": "aliases_only_from_own_builds",
+   "kind": "circle",
+   "new": "ec6389e",
+   "old_result": {
+    "ok": false,
+    "detail": "2 equivalence(s); wrong: /map/eca/204/3/table/graph: sha256:a69e82e28ba0a9d80dfb93f7a04dfff9a4481a444ab0526cfeace59a32a52905 != sha256:b3fdbc500bb0777019f390d2cc5683d6f79a6c6fd37641a47ab3a56cf6d10f06; /map/eca/30/4/state/3/next: sha256:8bf776dfab415b3bc5aba0be5cd56102959015fe40dcb616e783f7a1e33c081f != sha256:852c003fa8ec9f3def3c5fb47dee19ff5c69fff9509acc4502c8f86ed7972a9a"
+   },
+   "new_result": {
+    "ok": true,
+    "detail": "1 equivalence(s); wrong: none"
+   },
+   "verdict": "DIFFERENTIAL (old fails, new passes)"
+  },
+  {
+   "id": "F-C2",
+   "found_by": "EXP-CIRCLE-FRESH condition B",
+   "repo": "purl",
+   "old": "09d13b6",
+   "check": "scrolls_publicly_readable",
+   "kind": "circle",
+   "new": "ec6389e",
+   "old_result": {
+    "ok": false,
+    "detail": "5 scrolls verified without credentials; failures: r_XJ7504NS3V:404,r_04HNK53GQV:404"
+   },
+   "new_result": {
+    "ok": true,
+    "detail": "5 scrolls verified without credentials; failures: none"
+   },
+   "verdict": "DIFFERENTIAL (old fails, new passes)"
+  },
+  {
+   "id": "F-010",
+   "found_by": "the instrument (reproduced before the fix)",
+   "repo": "substrateIO",
+   "old": "7ace119",
+   "kind": "substrate",
+   "file": "tests/test_purl_terms.py",
+   "test": "TestIdentityDecomposition.test_store_compare_uses_value_id_across_addresses",
+   "new": "07e15d0",
+   "old_result": {
+    "ok": false,
+    "detail": "FAIL: test_store_compare_uses_value_id_across_addresses (tests.test_purl_terms.TestIdentityDecomposition.test_store_compare_uses_value_id_across_addresses) |     self.assertEqual(compare(a, b)[\"verdict\"], \"same_value\")      # was \"different_value\" before F-010 | AssertionError: 'different_value' != 'same_value'"
+   },
+   "new_result": {
+    "ok": true,
+    "detail": "OK"
+   },
+   "verdict": "DIFFERENTIAL (old fails, new passes)"
+  },
+  {
+   "id": "B-SDK",
+   "found_by": "dogfood (STASIS-2): build_id did not exist",
+   "repo": "purl",
+   "old": "1acfb0c",
+   "check": "build_does_not_change_source",
+   "kind": "circle",
+   "new": "ec6389e",
+   "old_result": {
+    "ok": false,
+    "detail": "transform 404; source v2->v2; result undefined build_id undefined"
+   },
+   "new_result": {
+    "ok": true,
+    "detail": "transform 201; source v2->v2; result r_3QWSMQPQGS build_id sha256:2b343d75"
+   },
+   "verdict": "DIFFERENTIAL (old fails, new passes)"
+  }
+ ]
+}
