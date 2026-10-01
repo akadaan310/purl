@@ -1,6 +1,6 @@
 {
  "format": "bridge-manifest/3",
- "generated_at": "2026-10-01T15:32:37.542Z",
+ "generated_at": "2026-10-01T15:53:28.156Z",
  "generator": "scripts/bridge-manifest.js",
  "secrets": "none: commit ids, paths, names and hashes only",
  "start_here": [
@@ -24,7 +24,7 @@
    "repository": "purl",
    "scope": "src/circle",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "cc88850",
+   "commit": "716edfa",
    "protocol": "circle/0 + SDK",
    "role": "the bridge: stateless composition of the other systems through SEURL move words; holds no records and no authority",
    "input_kinds": [
@@ -387,9 +387,11 @@
      "purl/test/http.test.js",
      "purl/test/manifest.test.js",
      "purl/test/musa.test.js",
+     "purl/test/purl-limit.test.js",
      "purl/test/research.test.js",
      "purl/test/sdk-v03.test.js",
      "purl/test/structure.test.js",
+     "purl/test/talk-refused.test.js",
      "purl/test/transition-model.test.js"
     ]
    },
@@ -493,7 +495,7 @@
    "repository": "purl",
    "scope": "src/{core,continuity,transport}",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "cc88850",
+   "commit": "716edfa",
    "protocol": "PURL/0.1",
    "role": "persistent versioned records (resources, events, grants); the circle's record store",
    "input_kinds": [
@@ -662,9 +664,11 @@
      "purl/test/http.test.js",
      "purl/test/manifest.test.js",
      "purl/test/musa.test.js",
+     "purl/test/purl-limit.test.js",
      "purl/test/research.test.js",
      "purl/test/sdk-v03.test.js",
      "purl/test/structure.test.js",
+     "purl/test/talk-refused.test.js",
      "purl/test/transition-model.test.js"
     ]
    },
@@ -1653,9 +1657,9 @@
    "url": "https://github.com/akadaan310/purl",
    "default_branch": "claude/purl-protocol-research-bxevq5",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "cc88850",
+   "head": "716edfa",
    "branches": {
-    "ccr-d0887a23-30wf63": "c0ead8b",
+    "ccr-d0887a23-30wf63": "de9fca1",
     "claude/acsp-purl-composition-adsbn6": "18c85bf",
     "claude/purl-protocol-research-bxevq5": "3df4452"
    }
@@ -1682,7 +1686,7 @@
    "research_branch": "ccr-d0887a23-30wf63",
    "head": "da503a4",
    "branches": {
-    "ccr-d0887a23-30wf63": "16657b5",
+    "ccr-d0887a23-30wf63": "da503a4",
     "claude/acsp-program-001-k616hw": "5073595",
     "claude/research-substrate-bootstrap-bfd02a": "7ace119"
    }

@@ -1,0 +1,972 @@
+{
+ "experiment": "EXP-PROGRAM-MODEL-1",
+ "spec": "circle/experiments/program-model/SPEC.md",
+ "started": "2026-10-01T15:51:00.218Z",
+ "commits": {
+  "purl": "716edfa",
+  "substrateIO": "da503a4",
+  "acsp": "e8d989a"
+ },
+ "results": {
+  "M1": {
+   "n": 255,
+   "committed": 147,
+   "refused": [
+    {
+     "program": "/START/map/eca/90/8/state/5",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/next/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/next/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/next/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/next/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/flip/0/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/flip/0/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/flip/0/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/flip/0/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/PERTURB/0",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/PERTURB/0/PERTURB/0",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/PERTURB/0/PERTURB/0/PERTURB/0",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/PERTURB/0/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/PERTURB/0/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/PERTURB/0/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/PERTURB/0/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/next/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/next/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/next/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/next/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/flip/0/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/flip/0/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/flip/0/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/flip/0/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/PERTURB/0/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/PERTURB/0/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/PERTURB/0/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/PERTURB/0/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/next/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/next/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/next/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/next/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/flip/0/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/flip/0/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/flip/0/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/flip/0/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/PERTURB/0",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/PERTURB/0/PERTURB/0",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/PERTURB/0/PERTURB/0/PERTURB/0",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/PERTURB/0/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/PERTURB/0/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/PERTURB/0/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/PERTURB/0/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/next/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/next/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/next/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/next/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/flip/0/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/flip/0/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/flip/0/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/flip/0/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/PERTURB/0/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/PERTURB/0/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/PERTURB/0/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/PERTURB/0/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/orbit/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/next/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/next/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/next/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/next/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/flip/0/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/flip/0/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/flip/0/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/flip/0/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/PERTURB/0",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/PERTURB/0/PERTURB/0",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/PERTURB/0/PERTURB/0/PERTURB/0",
+     "status": 409,
+     "code": "illegal_move",
+     "fsm_state": "BOUND"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/PERTURB/0/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/PERTURB/0/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/PERTURB/0/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/PERTURB/0/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/next/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/next/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/next/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/next/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/flip/0/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/flip/0/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/flip/0/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/flip/0/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/PERTURB/0/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/PERTURB/0/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/PERTURB/0/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/PERTURB/0/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/orbit/WRITE/next",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/orbit/WRITE/flip/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/orbit/PERTURB/0",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/orbit/WRITE/orbit/WRITE/orbit",
+     "status": 404,
+     "code": "ill_typed",
+     "fsm_state": "WRITING"
+    }
+   ],
+   "mismatches": [],
+   "verdict": "π∘σ = id on the domain of σ (147/255); σ refused 108 programs, so σ is partial",
+   "rows_count": 147
+  },
+  "M2": {
+   "pairs": [
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/next/WRITE/next",
+     "ids": [
+      "r_77BKXDJS6K",
+      "r_4W05666XR6"
+     ],
+     "content_ids_equal": true,
+     "ids_differ": true
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/next/WRITE/next/WRITE/next",
+     "ids": [
+      "r_PR33ADRSDD",
+      "r_TDT2EQZBMC"
+     ],
+     "content_ids_equal": true,
+     "ids_differ": true
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/next/WRITE/next/WRITE/flip/0",
+     "ids": [
+      "r_3V6QWBJP2N",
+      "r_XFFPMS398D"
+     ],
+     "content_ids_equal": true,
+     "ids_differ": true
+    }
+   ],
+   "verdict": "held: same program, distinct records, one content_id"
+  },
+  "M3": {
+   "groups": 42,
+   "records_in_groups": 126,
+   "violations": [],
+   "verdict": "held: same address and derivation_id, distinct content_id (the record keeps what the address loses: B1)"
+  },
+  "M4": {
+   "cases": [
+    {
+     "transformer": "extend",
+     "params": "next",
+     "source": "/seurl/START/map/eca/90/8/state/5/WRITE/next/WRITE/next/WRITE/orbit",
+     "committed": false,
+     "status": 422,
+     "code": "ill_typed"
+    },
+    {
+     "transformer": "extend",
+     "params": "next",
+     "source": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0",
+     "committed": true,
+     "record_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0/WRITE/next",
+     "rebuilt_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0/WRITE/next",
+     "seurl_equal": true,
+     "build_id_equal": true,
+     "version_equal": true,
+     "build_id_recomputed_from_record": true
+    },
+    {
+     "transformer": "extend",
+     "params": "trace/8",
+     "source": "/seurl/START/map/eca/90/8/state/5/WRITE/next/WRITE/next/WRITE/orbit",
+     "committed": false,
+     "status": 422,
+     "code": "ill_typed"
+    },
+    {
+     "transformer": "extend",
+     "params": "trace/8",
+     "source": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0",
+     "committed": true,
+     "record_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0/WRITE/trace/8",
+     "rebuilt_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0/WRITE/trace/8",
+     "seurl_equal": true,
+     "build_id_equal": true,
+     "version_equal": true,
+     "build_id_recomputed_from_record": true
+    },
+    {
+     "transformer": "perturb",
+     "params": "3",
+     "source": "/seurl/START/map/eca/90/8/state/5/WRITE/next/WRITE/next/WRITE/orbit",
+     "committed": false,
+     "status": 422,
+     "code": "ill_typed"
+    },
+    {
+     "transformer": "perturb",
+     "params": "3",
+     "source": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0",
+     "committed": true,
+     "record_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0/PERTURB/3",
+     "rebuilt_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0/PERTURB/3",
+     "seurl_equal": true,
+     "build_id_equal": true,
+     "version_equal": true,
+     "build_id_recomputed_from_record": true
+    },
+    {
+     "transformer": "iterate",
+     "params": "2",
+     "source": "/seurl/START/map/eca/90/8/state/5/WRITE/next/WRITE/next/WRITE/orbit",
+     "committed": false,
+     "status": 422,
+     "code": "ill_typed"
+    },
+    {
+     "transformer": "iterate",
+     "params": "2",
+     "source": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0",
+     "committed": true,
+     "record_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0/PERTURB/0/WRITE/flip/0/WRITE/flip/0",
+     "rebuilt_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0/PERTURB/0/WRITE/flip/0/WRITE/flip/0",
+     "seurl_equal": true,
+     "build_id_equal": true,
+     "version_equal": true,
+     "build_id_recomputed_from_record": true
+    },
+    {
+     "transformer": "truncate",
+     "params": "",
+     "source": "/seurl/START/map/eca/90/8/state/5/WRITE/next/WRITE/next/WRITE/orbit",
+     "committed": true,
+     "record_seurl": "/seurl/START/map/eca/90/8/state/5/WRITE/next/WRITE/next",
+     "rebuilt_seurl": "/seurl/START/map/eca/90/8/state/5/WRITE/next/WRITE/next",
+     "seurl_equal": true,
+     "build_id_equal": true,
+     "version_equal": true,
+     "build_id_recomputed_from_record": true
+    },
+    {
+     "transformer": "truncate",
+     "params": "",
+     "source": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0",
+     "committed": true,
+     "record_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0",
+     "rebuilt_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0",
+     "seurl_equal": true,
+     "build_id_equal": true,
+     "version_equal": true,
+     "build_id_recomputed_from_record": true
+    },
+    {
+     "transformer": "retarget",
+     "params": "map/eca/110/8/state/9",
+     "source": "/seurl/START/map/eca/90/8/state/5/WRITE/next/WRITE/next/WRITE/orbit",
+     "committed": true,
+     "record_seurl": "/seurl/START/map/eca/110/8/state/9/WRITE/next/WRITE/next/WRITE/orbit",
+     "rebuilt_seurl": "/seurl/START/map/eca/110/8/state/9/WRITE/next/WRITE/next/WRITE/orbit",
+     "seurl_equal": true,
+     "build_id_equal": true,
+     "version_equal": true,
+     "build_id_recomputed_from_record": true
+    },
+    {
+     "transformer": "retarget",
+     "params": "map/eca/110/8/state/9",
+     "source": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/flip/0/WRITE/flip/0",
+     "committed": true,
+     "record_seurl": "/seurl/START/map/eca/110/8/state/9/PERTURB/0/WRITE/flip/0/WRITE/flip/0",
+     "rebuilt_seurl": "/seurl/START/map/eca/110/8/state/9/PERTURB/0/WRITE/flip/0/WRITE/flip/0",
+     "seurl_equal": true,
+     "build_id_equal": true,
+     "version_equal": true,
+     "build_id_recomputed_from_record": true
+    }
+   ],
+   "verdict": "held on 8 committed transformations (4 refused as ill-typed: nothing committed)"
+  },
+  "M5": {
+   "cases": [
+    {
+     "program": "/START/map/eca/90/8/state/5/WRITE/flip/0/PERTURB/0/WRITE/next",
+     "scroll": "r_14KY50FF61",
+     "proposal": "P-001",
+     "talk_stage": "submitted",
+     "talk_refusal": null,
+     "talk_status": 200,
+     "talk_error": null,
+     "program_recovered": true,
+     "tok_program": "/seurl/START/map/eca/90/8/state/5/WRITE/flip/0/PERTURB/0/WRITE/next",
+     "record_seurl": "/seurl/START/map/eca/90/8/state/5/WRITE/flip/0/PERTURB/0/WRITE/next",
+     "provenance_in_tok": {
+      "author_session": false,
+      "parent": false,
+      "parent_recorded": "r_E30RCG38ZQ"
+     },
+     "scroll_url_in_tok": true,
+     "tok_cites_version": 4,
+     "record_version_after_talk": 6
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/WRITE/next/WRITE/flip/0/PERTURB/0",
+     "scroll": "r_DG8YPVH0JM",
+     "proposal": "P-002",
+     "talk_stage": "submitted",
+     "talk_refusal": null,
+     "talk_status": 200,
+     "talk_error": null,
+     "program_recovered": true,
+     "tok_program": "/seurl/START/map/eca/30/8/state/1/WRITE/next/WRITE/flip/0/PERTURB/0",
+     "record_seurl": "/seurl/START/map/eca/30/8/state/1/WRITE/next/WRITE/flip/0/PERTURB/0",
+     "provenance_in_tok": {
+      "author_session": false,
+      "parent": false,
+      "parent_recorded": "r_E30RCG38ZQ"
+     },
+     "scroll_url_in_tok": true,
+     "tok_cites_version": 4,
+     "record_version_after_talk": 6
+    },
+    {
+     "program": "/START/map/eca/30/8/state/1/PERTURB/0/WRITE/next/WRITE/orbit",
+     "scroll": "r_8E3J07BFES",
+     "proposal": "P-003",
+     "talk_stage": "submitted",
+     "talk_refusal": null,
+     "talk_status": 200,
+     "talk_error": null,
+     "program_recovered": true,
+     "tok_program": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/next/WRITE/orbit",
+     "record_seurl": "/seurl/START/map/eca/30/8/state/1/PERTURB/0/WRITE/next/WRITE/orbit",
+     "provenance_in_tok": {
+      "author_session": false,
+      "parent": false,
+      "parent_recorded": "r_E30RCG38ZQ"
+     },
+     "scroll_url_in_tok": true,
+     "tok_cites_version": 4,
+     "record_version_after_talk": 6
+    },
+    {
+     "program": "/START/map/increment/3/state/2/WRITE/flip/0/WRITE/next",
+     "scroll": "r_G0WRT7F7NE",
+     "proposal": "P-004",
+     "talk_stage": "submitted",
+     "talk_refusal": null,
+     "talk_status": 200,
+     "talk_error": null,
+     "program_recovered": true,
+     "tok_program": "/seurl/START/map/increment/3/state/2/WRITE/flip/0/WRITE/next",
+     "record_seurl": "/seurl/START/map/increment/3/state/2/WRITE/flip/0/WRITE/next",
+     "provenance_in_tok": {
+      "author_session": false,
+      "parent": false,
+      "parent_recorded": "r_E30RCG38ZQ"
+     },
+     "scroll_url_in_tok": true,
+     "tok_cites_version": 4,
+     "record_version_after_talk": 6
+    }
+   ],
+   "verdict": "held: program recoverable from TOK content; author and parent absent (recoverable only by following the scroll URL)"
+  }
+ },
+ "loss": [
+  {
+   "id": "PM-σπ",
+   "from": "program",
+   "to": "record.seurl (π∘σ)",
+   "n": 147,
+   "H_source_bits": 7.1997,
+   "H_output_bits": 7.1997,
+   "loss_H_source_given_output_bits": 0,
+   "H_output_given_source_bits": 0,
+   "injective_on_sample": true,
+   "functional_on_sample": true,
+   "mm_bias_bound_bits": 0.7164,
+   "measured_by": "substrateIO substrate.info.conditional_entropy_pairs"
+  },
+  {
+   "id": "PM-π",
+   "from": "record (seurl, author, parent, id)",
+   "to": "program (π)",
+   "n": 150,
+   "H_source_bits": 7.2288,
+   "H_output_bits": 7.1888,
+   "loss_H_source_given_output_bits": 0.04,
+   "H_output_given_source_bits": 0,
+   "injective_on_sample": false,
+   "functional_on_sample": true,
+   "mm_bias_bound_bits": 0.7165,
+   "measured_by": "substrateIO substrate.info.conditional_entropy_pairs"
+  },
+  {
+   "id": "PM-τ",
+   "from": "record (seurl, author, parent, version)",
+   "to": "TOK content program line",
+   "n": 4,
+   "H_source_bits": 2,
+   "H_output_bits": 2,
+   "loss_H_source_given_output_bits": 0,
+   "H_output_given_source_bits": 0,
+   "injective_on_sample": true,
+   "functional_on_sample": true,
+   "mm_bias_bound_bits": 0.541,
+   "measured_by": "substrateIO substrate.info.conditional_entropy_pairs"
+  }
+ ],
+ "finished": "2026-10-01T15:51:51.135Z",
+ "rate_limit_waits": 4,
+ "partial_posts_not_resent": []
+}

@@ -26,3 +26,18 @@ Two runs (`record-1.json`, `record-2.json`). Failures are kept.
 
 ## Not tested here
 Whether the "minimal loss boundary" generalises to other record systems, and whether TOKs published to the live ACSP behave the same way (no live writes: authority boundary).
+
+## Run log (appended after the runs; the predictions above are unchanged)
+
+| record | code | status | what happened |
+|---|---|---|---|
+| (none) | 716edfa | crashed, no record | the script indexed rows that did not exist (fewer commits than assumed) and wrote nothing. Fix: the script now writes its record even when it crashes |
+| 1 | 716edfa | **confounded** | PURL's write limit (token bucket 120, 4/s) refused 6 COMMITs, all of M2 and all of M5; the circle reported it as `502 purl_refused` |
+| 2, 3 | + 429 fix | partly valid | M1–M4 valid. In record-3 one TALK was reported `prepared` without a proposal: cause not recorded |
+| 4 | + talk detail | partly valid | cause recorded: ACSP `422 limit_exceeded`, "100 pending proposals". The script's retry-on-429 had resent multi-step POSTs whose earlier steps had already happened, duplicating proposals |
+| 5, 6 | + partial-effect reporting, no resend | M5 not measured | each M5 POST failed part-way on the PURL limit. The error now listed the performed steps, and the script correctly did not resend |
+| 7, 8 | + refill pacing | valid | all predictions held (M1 on σ's domain) |
+| 9, 10 | + TOK version fix | **valid, final** | as 7–8; the TOK now cites the version holding the build (v4, was v3) |
+
+## Post-hoc checks (not pre-registered; labelled as such)
+* **PH-1** TOK version citation: does the version the TOK cites hold the build it describes? Records 2–8: no (it cited the COMMIT version). Fixed. Differential test in `test/talk-refused.test.js`.

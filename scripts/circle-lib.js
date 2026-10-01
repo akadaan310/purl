@@ -74,7 +74,8 @@ export async function startCircle(o = {}) {
   }
 
   const purlStore = new Store({ dataDir: o.purlDataDir ?? env.PURL_DATA_DIR ?? null });
-  const purlServer = createPurlServer({ store: purlStore });
+  // o.purlLimiter: tests only (to reach PURL's write limit deterministically)
+  const purlServer = createPurlServer({ store: purlStore, ...(o.purlLimiter ? { limiter: o.purlLimiter } : {}) });
   const purlPort = await listen(purlServer, o.purlPort ?? 0);
   servers.push(purlServer);
   const purlBase = `http://127.0.0.1:${purlPort}`;

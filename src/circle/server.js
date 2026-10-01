@@ -61,16 +61,21 @@ export function createCircle(cfg) {
   }
 
   // ---- PURL/0.1 persistence (scrolls, checkpoints, runs, amendments) -------------
+  // A PURL limit (429) is reported as a limit with its retry_after, not as a gateway failure (K-10:
+  // an unavailable capability is reported as what it is). Found by EXP-PROGRAM-MODEL-1 record-1.
+  const purlFailure = (r, message) => (r.status === 429
+    ? new CircleError(429, 'purl_limited', `PURL limit: ${r.json?.detail ?? 'limit exceeded'}`, { retry_after_seconds: r.json?.retry_after_seconds ?? null, purl: r.json })
+    : new CircleError(502, 'purl_refused', message, { purl: r.json }));
   async function purlCreate(type, state) {
     await ensurePrincipal();
     const r = await purl.request('POST', '/r', { type, state, public: 'reader' });
-    if (!r.ok) throw new CircleError(502, 'purl_refused', `PURL refused create: ${r.json?.detail}`, { purl: r.json });
+    if (!r.ok) throw purlFailure(r, `PURL refused create: ${r.json?.detail}`);
     return r.json.resource;
   }
   async function purlRead(id) {
     const r = await purl.request('GET', `/r/${encodeURIComponent(id)}`);
     if (r.status === 404) throw new CircleError(404, 'not_found', `No PURL resource ${id}.`);
-    if (!r.ok) throw new CircleError(502, 'purl_refused', r.json?.detail ?? 'PURL error');
+    if (!r.ok) throw purlFailure(r, r.json?.detail ?? 'PURL error');
     return r.json;
   }
   async function purlOp(id, name, input) {
@@ -80,12 +85,13 @@ export function createCircle(cfg) {
     if (r.status === 401 || r.status === 403) {
       throw new CircleError(403, 'not_authorized', `PURL refused ${name}: this circle's principal holds no right to change ${id}. Reference does not imply ownership; fork it instead (new-version move).`, { purl: r.json });
     }
-    if (!r.ok) throw new CircleError(502, 'purl_refused', `PURL refused ${name}: ${r.json?.detail}`, { purl: r.json });
+    if (!r.ok) throw purlFailure(r, `PURL refused ${name}: ${r.json?.detail}`);
     return r.json;
   }
   async function purlList(type) {
     const r = await purl.request('GET', `/r?type=${encodeURIComponent(type)}`);
-    return r.ok ? r.json.items : [];
+    if (!r.ok) throw purlFailure(r, `PURL refused list ${type}: ${r.json?.detail}`); // never substitute an empty list (K-10)
+    return r.json.items;
   }
 
   // ---- documents ------------------------------------------------------------------
@@ -202,10 +208,21 @@ export function createCircle(cfg) {
     const steps = [];
     let scroll = null;
     const parent = q.get('parent');
+    // A multi-step POST is not atomic: each step writes to its own system. If a step fails, the
+    // error reports every step already performed and any effect of the failing step that is known
+    // (e.g. an ACSP proposal submitted before the PURL append failed), so the participant never has
+    // to guess what happened. Found by EXP-PROGRAM-MODEL-1 record-4 (retries duplicated proposals).
     for (const p of s.prepared) {
-      if (p.verb === 'COMMIT') { scroll = await commitScroll(s, author, parent); steps.push({ verb: 'COMMIT', stage: 'committed', scroll }); }
-      if (p.verb === 'BUILD') { const b = await buildScroll(scroll.id, author); steps.push({ verb: 'BUILD', stage: b.outcome, build: b }); if (b.outcome === 'FAILED') break; }
-      if (p.verb === 'TALK') steps.push({ verb: 'TALK', ...(await talk(p.to.resource_id, scroll, author, s)) });
+      try {
+        if (p.verb === 'COMMIT') { scroll = await commitScroll(s, author, parent); steps.push({ verb: 'COMMIT', stage: 'committed', scroll }); }
+        if (p.verb === 'BUILD') { const b = await buildScroll(scroll.id, author); steps.push({ verb: 'BUILD', stage: b.outcome, build: b }); if (b.outcome === 'FAILED') break; }
+        if (p.verb === 'TALK') steps.push({ verb: 'TALK', ...(await talk(p.to.resource_id, scroll, author, s)) });
+      } catch (e) {
+        if (!(e instanceof CircleError)) throw e;
+        throw new CircleError(e.status, e.code, `${e.message} (during ${p.verb}; ${steps.length} earlier step(s) performed and not undone)`,
+          { ...e.details, partial: true, failed_step: p.verb, performed_steps: steps, step_effects: e.details?.step_effects ?? null, scroll: scroll ? { id: scroll.id } : null,
+            retry_note: steps.length || e.details?.step_effects ? 'Do not resend this POST unchanged: it would repeat the performed steps. Continue from the failed step.' : 'Nothing was performed; the POST may be resent.' });
+      }
     }
     return envelope('seurl-performed', { seurl: pathOf(s.moves), author, steps, scroll },
       scroll ? [move('scroll', 'GET', `/scrolls/${scroll.id}`, 'read'), move('checkpoint', 'POST', `/checkpoints?session=${author.session_id}`, 'creates a checkpoint')] : []);
@@ -290,16 +307,25 @@ export function createCircle(cfg) {
 
   async function talk(resourceId, scroll, author, s) {
     if (!scroll) throw new CircleError(409, 'nothing_to_talk', 'TALK needs a committed scroll in the same program (…/COMMIT[/BUILD]/TALK/acsp/{id}).');
-    const builds = (await scrollDoc(scroll.id)).builds;
-    const tok = scrollTok(scroll, s, builds);
+    // cite the version that holds the builds the TOK describes; it cited the COMMIT version, which holds
+    // none (EXP-PROGRAM-MODEL-1 records 2-8; test 'a TOK cites a scroll version that contains the build')
+    const cur = await scrollDoc(scroll.id);
+    const builds = cur.builds;
+    const tok = scrollTok({ ...scroll, version: cur.version }, s, builds);
     const prep = await acsp.prepare(resourceId, { session_id: author.session_id, agent_id: author.agent_id ?? undefined, tok, rationale: 'Publish a circle Scroll build as continuity.' });
     if (!prep.available) return { stage: null, error: unavailable('adapter.acsp', prep) };
     if (!prep.ok) return { stage: null, error: prep.json?.error ?? prep.json, prepare_url: prep.prepare_url };
     if (!prep.json.validation?.valid) return { stage: 'prepared', valid: false, validation: prep.json.validation, prepare_url: prep.prepare_url };
     const sub = await acsp.submit(prep.json);
-    const record = { scroll: scroll.id, system: 'acsp', resource_id: resourceId, stage: sub.stage ?? 'prepared', proposal_id: sub.proposal_id, status: sub.status, prepare_url: prep.prepare_url,
+    // a refused submission was attempted: it is 'refused', never 'prepared' (K-08). Found by EXP-PROGRAM-MODEL-1 record-3.
+    const stage = sub.stage ?? (sub.available === false ? 'unavailable' : 'refused');
+    const record = { scroll: scroll.id, system: 'acsp', resource_id: resourceId, stage, proposal_id: sub.proposal_id, status: sub.status,
+      ...(stage === 'refused' ? { refusal: { status: sub.status, code: sub.json?.error?.code ?? null, message: sub.json?.error?.message ?? null } } : {}), prepare_url: prep.prepare_url,
       note: 'submitted = a pending proposal. Committed only if the resource owner accepts it; the circle cannot do that.' };
-    await purlOp(scroll.id, 'append', { collection: 'talks', body: record });
+    try { await purlOp(scroll.id, 'append', { collection: 'talks', body: record }); } catch (e) {
+      if (e instanceof CircleError) throw new CircleError(e.status, e.code, `${e.message}; the ACSP submission had already happened`, { ...e.details, step_effects: { acsp: record } });
+      throw e;
+    }
     let observation = null;
     if (sub.ok) {
       const ev = await acsp.events(resourceId);
