@@ -4,7 +4,7 @@
 //   circle/differential/results.json
 // A defect is differential evidence only if the old run FAILS and the new run PASSES.
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, mkdirSync, rmSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -21,14 +21,22 @@ function worktree(repo, ref) {
 }
 
 // Circle checks: start the OLD circle from its own worktree, run the CURRENT check code against it.
-async function circleChecks(ref, names) {
+const ACSP_DIR = process.env.ACSP_DIR ?? resolve(ROOT, '..', 'NetGovComEduGovOrgEduGovComNet');
+async function circleChecks(ref, names, { acsp = false } = {}) {
   const wt = worktree(ROOT, ref);
   try {
     const { startCircle } = await import(pathToFileURL(join(wt.dir, 'scripts', 'circle-lib.js')));
     const { runConformance } = await import(pathToFileURL(join(ROOT, 'src', 'circle', 'conformance.js')));
-    const c = await startCircle({ substrateDir: SUB, substratePort: 39000 + Math.floor(Math.random() * 500), purlDataDir: mkdtempSync(join(tmpdir(), 'diff-purl-')) });
+    const port = 39000 + Math.floor(Math.random() * 500);
+    const c = await startCircle({ substrateDir: SUB, substratePort: port, purlDataDir: mkdtempSync(join(tmpdir(), 'diff-purl-')), ...(acsp ? { acspDir: ACSP_DIR, acspPort: port + 1000 } : {}) });
     try {
-      const r = await runConformance(c.circle, { session_id: `differential-${ref}`, assurance: 'asserted' }, { acspResource: null });
+      let acspResource = null;
+      if (acsp) { // the harness acts as the human owner of a fresh resource; the circle never holds its capability
+        const i = await (await fetch(`${c.acspBase}/new?format=json&session_id=owner-human&title=differential`)).json();
+        acspResource = (await (await fetch(`${c.acspBase}/r`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(i.request) })).json()).resource_id;
+        c.cfg.acspResource = acspResource;
+      }
+      const r = await runConformance(c.circle, { session_id: `differential-${ref}`, assurance: 'asserted' }, { acspResource });
       return Object.fromEntries(names.map((n) => [n, r.checks[n] ?? { ok: null, detail: 'check absent' }]));
     } finally { await c.close(); }
   } finally { wt.done(); }
@@ -48,21 +56,27 @@ function substrateTest(ref, testFile, testName) {
   } finally { wt.done(); }
 }
 
-const CASES = [
+const ONLY = process.env.CASES ? process.env.CASES.split(',') : null;
+const ALL_CASES = [
   { id: 'F-C1', found_by: 'EXP-CIRCLE-FRESH condition B', repo: 'purl', old: '09d13b6', check: 'fork_does_not_inherit_records', kind: 'circle' },
   { id: 'F-C1b', found_by: 'EXP-CIRCLE-FRESH condition B', repo: 'purl', old: '09d13b6', check: 'aliases_only_from_own_builds', kind: 'circle' },
   { id: 'F-C2', found_by: 'EXP-CIRCLE-FRESH condition B', repo: 'purl', old: '09d13b6', check: 'scrolls_publicly_readable', kind: 'circle' },
   { id: 'F-010', found_by: 'the instrument (reproduced before the fix)', repo: 'substrateIO', old: '7ace119', kind: 'substrate', file: 'tests/test_purl_terms.py', test: 'TestIdentityDecomposition.test_store_compare_uses_value_id_across_addresses' },
   { id: 'B-SDK', found_by: 'dogfood (STASIS-2): build_id did not exist', repo: 'purl', old: '1acfb0c', check: 'build_does_not_change_source', kind: 'circle' },
+  { id: 'F-R1', found_by: 'EXP-BRIDGE-RECON participant 3', repo: 'purl', old: 'ddbd066', check: 'checkpoint_keeps_body_fields', kind: 'circle' },
+  { id: 'F-R2', found_by: 'EXP-BRIDGE-RECON participant 3', repo: 'purl', old: 'ddbd066', check: 'checkpoint_records_continuity_resource', kind: 'circle', acsp: true },
+  { id: 'F-R3', found_by: 'EXP-BRIDGE-RECON participant 3', repo: 'purl', old: 'ddbd066', check: 'observatory_states_running_code', kind: 'circle' },
+  { id: 'F-R4', found_by: 'EXP-BRIDGE-RECON (R9 missed by all three)', repo: 'purl', old: 'ddbd066', check: 'projection_discoverable', kind: 'circle' },
 ];
+const CASES = ALL_CASES.filter((c) => !ONLY || ONLY.includes(c.id));
 
 const results = [];
 for (const c of CASES) {
   const newRef = git(c.repo === 'purl' ? ROOT : SUB, 'rev-parse', '--short', 'HEAD');
   let oldR, newR;
   if (c.kind === 'circle') {
-    oldR = (await circleChecks(c.old, [c.check]))[c.check];
-    newR = (await circleChecks('HEAD', [c.check]))[c.check];
+    oldR = (await circleChecks(c.old, [c.check], c))[c.check];
+    newR = (await circleChecks('HEAD', [c.check], c))[c.check];
   } else {
     oldR = substrateTest(c.old, c.file, c.test);
     newR = substrateTest('HEAD', c.file, c.test);
@@ -72,4 +86,7 @@ for (const c of CASES) {
   console.log(c.id, verdict);
 }
 mkdirSync(join(ROOT, 'circle', 'differential'), { recursive: true });
-writeFileSync(join(ROOT, 'circle', 'differential', 'results.json'), JSON.stringify({ ran_at: new Date().toISOString(), results }, null, 1) + '\n');
+// never overwrite a previous record: results.json (first run), then results-2.json, …
+const dir = join(ROOT, 'circle', 'differential');
+const n = readdirSync(dir).filter((f) => /^results(-\d+)?\.json$/.test(f)).length + 1;
+writeFileSync(join(dir, n === 1 ? 'results.json' : `results-${n}.json`), JSON.stringify({ ran_at: new Date().toISOString(), cases: CASES.map((c) => c.id), results }, null, 1) + '\n');

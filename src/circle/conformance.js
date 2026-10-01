@@ -45,6 +45,10 @@ async function crawl(api, limit = 60) {
 }
 
 export const CHECK_SPECS = {
+ "checkpoint_keeps_body_fields": {"input": "POST /checkpoints with JSON body {next}; then with an unknown body field", "expected": "next recorded from the body; unknown field refused 422"},
+ "checkpoint_records_continuity_resource": {"input": "POST /checkpoints with no acsp_resource, continuity resource configured", "expected": "checkpoint.acsp = configured resource and its version"},
+ "observatory_states_running_code": {"input": "GET /observatory", "expected": "current_commit has running and head and running_differs_from_head"},
+ "projection_discoverable": {"input": "GET /; GET /projections", "expected": "entry lists /projections; it lists P-ACSP-EV-1"},
  "get_sweep_changes_nothing": {
   "input": "crawl every GET move reachable from / (≤60 URLs) and prepared mutation URLs",
   "expected": "hash of PURL record versions, substrate execution counts and ACSP version unchanged"
@@ -350,6 +354,28 @@ export async function runConformance(api, author, { acspResource = api.cfg.acspT
     const c = (await h('POST', '/prompts/classify', { operation: { method: 'POST', href: '/seurl/START/map/eca/90/8/state/5/WRITE/next/COMMIT' }, expected_transition: 'COMMITTED', test: 'scroll exists', completion_condition: 'scroll id returned' })).doc;
     const after = await snapshot(api, acspResource);
     return { ok: a.kind === 'conversation' && b.kind === 'conversation' && c.kind === 'program' && c.would_mutate === true && before === after, detail: `${a.kind}, ${b.kind}, ${c.kind}; state ${before === after ? 'unchanged' : 'CHANGED'}` };
+  });
+
+  await check('checkpoint_keeps_body_fields', async () => {
+    const a = await h('POST', `/checkpoints${session}`, { next: 'conformance probe: note in the body' });
+    const b = await h('POST', `/checkpoints${session}`, { nxt: 'typo' });
+    return { ok: a.status === 201 && a.doc.next === 'conformance probe: note in the body' && b.status === 422, detail: `body next -> ${JSON.stringify(a.doc.next)}; unknown field -> ${b.status}` };
+  });
+  await check('checkpoint_records_continuity_resource', async () => {
+    if (!api.cfg.acspResource) return NOT_RUN;
+    const a = await h('POST', `/checkpoints${session}`, null);
+    return { ok: a.status === 201 && a.doc.acsp?.resource_id === api.cfg.acspResource && Number.isInteger(a.doc.acsp?.version), detail: JSON.stringify(a.doc.acsp) };
+  });
+  await check('observatory_states_running_code', async () => {
+    const o = (await h('GET', '/observatory', null)).doc;
+    const c = o.current_commit ?? {};
+    return { ok: 'running' in c && 'head' in c && typeof c.running_differs_from_head === 'boolean', detail: `running=${JSON.stringify(c.running ?? null)?.slice(0, 60)} differs=${c.running_differs_from_head}` };
+  });
+  await check('projection_discoverable', async () => {
+    const e = (await h('GET', '/', null)).doc;
+    const p = await h('GET', '/projections', null);
+    const ids = (p.doc.substrate ?? []).map((x) => x.id);
+    return { ok: (e.moves ?? []).some((m) => m.href === '/projections') && p.status === 200 && ids.includes('P-ACSP-EV-1'), detail: `entry lists /projections=${(e.moves ?? []).some((m) => m.href === '/projections')}; projections=${ids.join(',')}` };
   });
 
   const c = api.constitution();

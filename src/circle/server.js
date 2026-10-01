@@ -115,6 +115,7 @@ export function createCircle(cfg) {
       move('state', 'GET', '/state', 'read'),
       move('conformance', 'GET', '/conformance', 'read'),
       move('checkpoints', 'GET', '/checkpoints', 'read'),
+      move('projections', 'GET', '/projections', 'read', { note: 'declared projections, e.g. ACSP events -> substrate observation (P-ACSP-EV-1)' }),
       move('adapters', 'GET', '/adapters', 'read'),
       move('naici', 'GET', '/naici/legal?url=/', 'read', { primitives: ['surface', 'read', 'legal', 'trace'] }),
     ]);
@@ -327,23 +328,29 @@ export function createCircle(cfg) {
   }
 
   // ---- checkpoints ----------------------------------------------------------------
-  async function makeCheckpoint(q) {
+  async function makeCheckpoint(q, body) {
     const author = requireSession(q);
+    // F-R1: fields may come in the JSON body or the query; unknown body fields are refused, never ignored
+    const ALLOWED = ['next', 'scroll', 'acsp_resource'];
+    const b = body && typeof body === 'object' && !Array.isArray(body) ? body : {};
+    const unknown = Object.keys(b).filter((k) => !ALLOWED.includes(k));
+    if (unknown.length) throw new CircleError(422, 'unknown_fields', `A checkpoint body may carry only ${ALLOWED.join(', ')}; refused: ${unknown.join(', ')}.`, { allowed: ALLOWED });
+    const field = (k) => b[k] ?? q.get(k) ?? null;
     const scrolls = [];
     for (const it of await purlList('scroll')) scrolls.push({ id: it.id, version: it.version });
     const env = await substrate.environment();
     const runs = await purlList('conformance-run');
-    const acspId = q.get('acsp_resource');
+    const acspId = field('acsp_resource') ?? cfg.acspResource ?? null; // F-R2: default to the configured continuity resource
     const acspState = acspId ? await acsp.status(acspId) : null;
     const state = {
       by: author, constitution: { version: constitution().doc.version, content_id: constitution().content_id },
       commits: cfg.commits ?? {}, protocols: { circle: CIRCLE_PROTOCOL, purl: 'PURL/0.1', substrate: 'substrate-purl/0 (provisional)', acsp: 'ACSP/0.1', seurl: 'seurl/0 (url-machine.md)' },
-      scrolls, active_scroll: q.get('scroll') ?? scrolls.at(-1)?.id ?? null,
+      scrolls, active_scroll: field('scroll') ?? scrolls.at(-1)?.id ?? null,
       substrate_environment_id: env.json?.environment_id ?? null,
       acsp: acspState?.ok ? { resource_id: acspId, version: acspState.json.version } : null,
       conformance_run: runs.at(-1)?.id ?? null,
       unresolved: cfg.unresolved ?? [],
-      next: q.get('next') ?? null,
+      next: field('next'),
     };
     const content_id = sha256(state);
     const r = await purlCreate('circle-checkpoint', { ...state, content_id });
@@ -546,7 +553,7 @@ export function createCircle(cfg) {
       if (path.startsWith('/seurl')) return { status: 201, doc: await seurlPerform(path.slice('/seurl'.length), q) };
       let m = /^\/scrolls\/([^/]+)\/build$/.exec(path);
       if (m) { const author = requireSession(q); return { status: 201, doc: envelope('build', { build: await buildScroll(m[1], author) }, [move('scroll', 'GET', `/scrolls/${m[1]}`, 'read')]) }; }
-      if (path === '/checkpoints') return { status: 201, doc: await makeCheckpoint(q) };
+      if (path === '/checkpoints') return { status: 201, doc: await makeCheckpoint(q, body) };
       m = /^\/acsp\/r\/([^/]+)\/observe$/.exec(path);
       if (m) {
         requireSession(q);
@@ -595,7 +602,9 @@ const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>'
 /** HTML for browser-only agents: the same JSON, with every GET href a link. No prose is added. */
 function asHtml(doc) {
   const json = esc(JSON.stringify(doc, null, 1)).replace(/(&quot;href&quot;: &quot;)(\/[^&\s{]*)(&quot;)/g, '$1<a href="$2">$2</a>$3');
-  return `<!doctype html><meta charset="utf-8"><title>${esc(String(doc.kind ?? 'circle'))}</title><pre>${json}</pre>`;
+  // the observatory is a live terminal: its HTML view re-reads the records every 3 s (it stores nothing)
+  const refresh = doc.kind === 'observatory' ? '<meta http-equiv="refresh" content="3">' : '';
+  return `<!doctype html><meta charset="utf-8">${refresh}<title>${esc(String(doc.kind ?? 'circle'))}</title><pre>${json}</pre>`;
 }
 
 export function createCircleServer(cfg) {

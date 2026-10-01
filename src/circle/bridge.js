@@ -67,6 +67,7 @@ export const ROUTES = [
   ['GET', '/stases', 'RECONSTRUCT', 'pure', 'cross-repository baselines'],
   ['GET', '/stases/{n}', 'RECONSTRUCT', 'pure', 'one baseline'],
   ['GET', '/observatory', 'OBSERVE', 'pure', 'live terminal derived from records'],
+  ['GET', '/projections', 'PROJECT', 'pure', 'declared projections: P-ACSP-EV-1 (substrate) and the addressed-transition projectors'],
   ['GET', '/state', 'OBSERVE', 'pure', 'IDE state'],
   ['GET', '/adapters', 'ADDRESS', 'pure', 'adapter contracts'],
   ['GET', '/acsp/r/{id}', 'PROJECT', 'pure', 'an ACSP record, addressable here'],
@@ -274,7 +275,9 @@ export function createBridge(x) {
       current_program: lastScroll ? { id: lastScroll.id, program: lastScroll.state.seurl, builds: lastScroll.builds.map((b) => b.outcome) } : null,
       current_test: lastCheck ? { run: runs.at(-1).id, check: lastCheck[0], href: `/tests/${runs.at(-1).id}/${lastCheck[0]}` } : null,
       current_result: lastRun ? { summary: lastRun.summary, failed: lastRun.clauses.filter((k) => k.status === 'FAILED').map((k) => k.id) } : null,
-      current_commit: commits,
+      current_commit: { running: cfg.commits ?? {}, head: commits,
+        running_differs_from_head: Object.entries(cfg.commits ?? {}).some(([k, v]) => v && commits[k === 'acsp' ? 'NetGovComEduGovOrgEduGovComNet' : k] && !commits[k === 'acsp' ? 'NetGovComEduGovOrgEduGovComNet' : k].commit.startsWith(v.slice(0, 7))),
+        semantics: 'running = the commit each process was started from (what produced the records); head = the repository now. They differ when code was committed after start.' },
       current_projection: lastScroll?.observations.at(-1) ?? null,
       current_open_problem: (cfg.unresolved ?? [])[0] ?? null,
       transitions: events.slice(-30),
@@ -398,6 +401,14 @@ export function createBridge(x) {
       }
       m = /^\/tests\/([^/]+)(?:\/([^/]+))?$/.exec(path);
       if (m) { const doc = await testDoc(m[1], m[2]); return envelope('test', doc, m[2] ? [move('run', 'GET', `/tests/${m[1]}`, 'read')] : doc.tests.map((t) => move(t.test, 'GET', `/tests/${m[1]}/${t.test}`, 'read'))); }
+      if (path === '/projections') {
+        const sp = await substrate.projections();
+        return envelope('projections', {
+          substrate: sp.available ? sp.json?.projections ?? [] : { unavailable: sp.reason },
+          record: 'POST /acsp/r/{id}/observe?session={s}&origin=harness|service: applies P-ACSP-EV-1 to that resource\'s event list',
+          addressed_transition: { schema: '/sdk/schemas/addressed-transition', coverage: '/transitions/coverage', projectors: ['purl', 'acsp', 'substrate', 'seurl', 'git', 'golden', 'checkpoint'] },
+        }, [move('coverage', 'GET', '/transitions/coverage', 'read'), ...(cfg.acspResource ? [move('observe-continuity', 'POST', `/acsp/r/${cfg.acspResource}/observe?session={s}&origin=harness`, 'records an observation')] : [])]);
+      }
       if (path === '/observatory') return envelope('observatory', await observatory(), [move('tests', 'GET', '/tests', 'read'), move('programs', 'GET', '/programs', 'read'), move('stases', 'GET', '/stases', 'read')]);
       if (path === '/stases') { const s = stases(); return envelope('stases', s, s.stases.map((x) => move(x.id, 'GET', `/stases/${x.n}`, 'read'))); }
       m = /^\/stases\/(\d+)$/.exec(path);

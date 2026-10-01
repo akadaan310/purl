@@ -188,6 +188,7 @@ describe('the circle end to end (substrate + PURL + ACSP, real processes)', { sk
     const o = (await get('/observatory')).doc;
     assert.ok(o.transitions.length > 0 && o.current_constitution.content_id);
     assert.equal((await get('/stases/1')).doc.id, 'STASIS-1');
+    assert.match((await get('/observatory', 'text/html')).doc, /http-equiv="refresh"/); // a live terminal for a human watcher
   });
 
   test('NAI-CI primitives over circle URLs; foreign URLs refused', async () => {
