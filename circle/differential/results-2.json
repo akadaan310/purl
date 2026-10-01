@@ -1,0 +1,84 @@
+{
+ "ran_at": "2026-10-01T13:48:44.203Z",
+ "cases": [
+  "F-R1",
+  "F-R2",
+  "F-R3",
+  "F-R4"
+ ],
+ "results": [
+  {
+   "id": "F-R1",
+   "found_by": "EXP-BRIDGE-RECON participant 3",
+   "repo": "purl",
+   "old": "ddbd066",
+   "check": "checkpoint_keeps_body_fields",
+   "kind": "circle",
+   "new": "5b4699c",
+   "old_result": {
+    "ok": false,
+    "detail": "body next -> null; unknown field -> 201"
+   },
+   "new_result": {
+    "ok": true,
+    "detail": "body next -> \"conformance probe: note in the body\"; unknown field -> 422"
+   },
+   "verdict": "DIFFERENTIAL (old fails, new passes)"
+  },
+  {
+   "id": "F-R2",
+   "found_by": "EXP-BRIDGE-RECON participant 3",
+   "repo": "purl",
+   "old": "ddbd066",
+   "check": "checkpoint_records_continuity_resource",
+   "kind": "circle",
+   "acsp": true,
+   "new": "5b4699c",
+   "old_result": {
+    "ok": false,
+    "detail": "null"
+   },
+   "new_result": {
+    "ok": true,
+    "detail": "{\"resource_id\":\"BKQYP5MBCQ77\",\"version\":2}"
+   },
+   "verdict": "DIFFERENTIAL (old fails, new passes)"
+  },
+  {
+   "id": "F-R3",
+   "found_by": "EXP-BRIDGE-RECON participant 3",
+   "repo": "purl",
+   "old": "ddbd066",
+   "check": "observatory_states_running_code",
+   "kind": "circle",
+   "new": "5b4699c",
+   "old_result": {
+    "ok": false,
+    "detail": "running=null differs=undefined"
+   },
+   "new_result": {
+    "ok": true,
+    "detail": "running={\"purl\":\"5b4699c\",\"substrateIO\":\"16657b5\",\"acsp\":null} differs=false"
+   },
+   "verdict": "DIFFERENTIAL (old fails, new passes)"
+  },
+  {
+   "id": "F-R4",
+   "found_by": "EXP-BRIDGE-RECON (R9 missed by all three)",
+   "repo": "purl",
+   "old": "ddbd066",
+   "check": "projection_discoverable",
+   "kind": "circle",
+   "new": "5b4699c",
+   "old_result": {
+    "ok": false,
+    "detail": "entry lists /projections=false; projections="
+   },
+   "new_result": {
+    "ok": true,
+    "detail": "entry lists /projections=true; projections=P-ACSP-EV-1"
+   },
+   "verdict": "DIFFERENTIAL (old fails, new passes)"
+  }
+ ]
+}
