@@ -46,7 +46,9 @@ export function createCircle(cfg) {
   const base = () => cfg.publicBase;
 
   async function ensurePrincipal() {
-    if (!purl.token) await purl.register('agent');
+    if (purl.token) return;
+    await purl.register('agent');
+    cfg.onPrincipal?.(purl.token); // persisted by the launcher as configuration (0600), never into a record
   }
 
   // ---- PURL/0.1 persistence (scrolls, checkpoints, runs, amendments) -------------
@@ -63,9 +65,13 @@ export function createCircle(cfg) {
     return r.json;
   }
   async function purlOp(id, name, input) {
+    await ensurePrincipal();
     const doc = await purlRead(id);
     const r = await purl.request('POST', `/r/${id}/ops/${name}`, { expected_version: doc.version, input });
-    if (!r.ok) throw new CircleError(r.status === 403 ? 403 : 502, 'purl_refused', `PURL refused ${name}: ${r.json?.detail}`, { purl: r.json });
+    if (r.status === 401 || r.status === 403) {
+      throw new CircleError(403, 'not_authorized', `PURL refused ${name}: this circle's principal holds no right to change ${id}. Reference does not imply ownership; fork it instead (new-version move).`, { purl: r.json });
+    }
+    if (!r.ok) throw new CircleError(502, 'purl_refused', `PURL refused ${name}: ${r.json?.detail}`, { purl: r.json });
     return r.json;
   }
   async function purlList(type) {
@@ -88,8 +94,9 @@ export function createCircle(cfg) {
         value_address: 'root constructor then operations, e.g. /map/eca/90/8/state/5/next (see /operations)',
         rule: 'GET any URL to see what it would do. POST the same URL to do it. Mutations need ?session=<your declared session id>.',
       },
-      systems: { substrate: substrate.describe(), acsp: acsp.describe(), golden_surface: golden.describe(), purl: { id: 'purl/0.1', base: cfg.purlBase } },
+      systems: { substrate: substrate.describe(), acsp: { ...acsp.describe(), continuity_resource: cfg.acspResource ?? null }, golden_surface: golden.describe(), purl: { id: 'purl/0.1', base: cfg.purlBase } },
     }, [
+      ...(cfg.acspResource ? [move('continuity', 'GET', `/acsp/r/${cfg.acspResource}`, 'read', { note: 'the ACSP resource TALK publishes to here' })] : []),
       move('constitution', 'GET', '/constitution', 'read'),
       move('operations', 'GET', '/operations', 'read'),
       move('start', 'GET', '/seurl/START/map/eca/90/8/state/5', 'read', { note: 'a session bound to a value' }),

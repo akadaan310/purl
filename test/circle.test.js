@@ -123,6 +123,10 @@ describe('the circle end to end (substrate + PURL + ACSP, real processes)', { sk
     assert.equal(resumed.constitution_changed, false);
     assert.equal(resumed.next, 'run conformance');
     assert.ok(resumed.scrolls.every((s) => s.changed_since === false));
+    // the restarted circle is the same PURL principal (token kept beside the store), so it can extend the scroll
+    const rebuilt = await post(`/scrolls/${sid}/build?session=e2e-later`);
+    assert.equal(rebuilt.status, 201, JSON.stringify(rebuilt.doc.error));
+    assert.deepEqual(rebuilt.doc.build.records.map((r) => r.rerun), ['reproduced', 'reproduced', 'reproduced', 'reproduced']);
   }, { timeout: 120000 });
 
   test('constitutional conformance: no clause FAILED; statuses are derived', async () => {

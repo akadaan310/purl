@@ -1,0 +1,360 @@
+{
+ "experiment": "EXP-CIRCLE-E2E",
+ "run": 2,
+ "commits": {
+  "purl": "079c96e",
+  "substrateIO": null,
+  "acsp": null
+ },
+ "epistemic_status": "SIMULATED (actors are this script; ACSP is a local in-memory instance)",
+ "deterministic_sha256": "sha256:1aad20b2c19ea7d76eac496252632f5458d4620db7f49951941148c4a0ac158a",
+ "deterministic": [
+  {
+   "arrow": "enter",
+   "status": 200,
+   "verbs": [
+    "START",
+    "SWITCH",
+    "WRITE",
+    "COMMIT",
+    "BUILD",
+    "TALK",
+    "PERTURB"
+   ],
+   "constitution": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4"
+  },
+  {
+   "arrow": "discover-constitution",
+   "status": 200,
+   "clauses": 19
+  },
+  {
+   "arrow": "legal-operations",
+   "status": 200,
+   "legal": [
+    "SWITCH",
+    "WRITE",
+    "WRITE",
+    "WRITE",
+    "WRITE",
+    "WRITE",
+    "TALK",
+    "PERTURB"
+   ]
+  },
+  {
+   "arrow": "construct (SEURL -> typed term -> value)",
+   "status": 200,
+   "state": "WRITING",
+   "address": "/map/eca/90/8/state/5/next/flip/0/damage/16",
+   "derivation_id": "sha256:d6de6d3c29b68d133dc938029d9986a08a3e077dce2c515f627679f2d8365f47",
+   "value_id": "sha256:cd1fbd12a85c00d864c14f0f8bc46ecb75baace10895329aa99c19d755dbb2b3"
+  },
+  {
+   "arrow": "prepare (GET changes nothing)",
+   "status": 200,
+   "state": "WRITING",
+   "would_reach": "BUILT"
+  },
+  {
+   "arrow": "perform (PURL scroll, substrate executions, ACSP propose, substrate observation)",
+   "status": 201,
+   "stages": [
+    "committed",
+    "BUILT",
+    "submitted"
+   ],
+   "records": [
+    {
+     "address": "/map/eca/90/8/state/5",
+     "derivation_id": "sha256:68ac55c710565a365560a80b0ef2a5807ac150283d2a0f912b1cc2882b50b5e0",
+     "value_id": "sha256:7a9ffa2712be1a6a62febe1f82b22a97ed80b9b220a42228d09213c27bd3f343",
+     "status": [
+      "computational"
+     ]
+    },
+    {
+     "address": "/map/eca/90/8/state/5/next",
+     "derivation_id": "sha256:0b9b178ddf322027168e754f8b273f66feb65d5039d366bd5c78c483331a545a",
+     "value_id": "sha256:c17f95d5664c78a943b62c27dca621c01e817b82b4bf4a09747fe481828b566e",
+     "status": [
+      "computational"
+     ]
+    },
+    {
+     "address": "/map/eca/90/8/state/5/next/flip/0",
+     "derivation_id": "sha256:f1d7ad2387997a8c1dd77dbad59c5ddb82f757cbae52a1d8a6bb9f3764d1de10",
+     "value_id": "sha256:feea2ed5d8e50276d43b8fa1b5bbc9235a02facee5d0cde09398f6a3ab749552",
+     "status": [
+      "computational",
+      "simulated intervention on a computational model"
+     ]
+    },
+    {
+     "address": "/map/eca/90/8/state/5/next/flip/0/damage/16",
+     "derivation_id": "sha256:d6de6d3c29b68d133dc938029d9986a08a3e077dce2c515f627679f2d8365f47",
+     "value_id": "sha256:cd1fbd12a85c00d864c14f0f8bc46ecb75baace10895329aa99c19d755dbb2b3",
+     "status": [
+      "computational",
+      "simulated intervention on a computational model"
+     ]
+    }
+   ],
+   "observation": {
+    "n": 2,
+    "label_counts": {
+     "create": 1,
+     "propose": 1
+    },
+    "label_bigrams": {
+     "create -> propose": 1
+    },
+    "sessions": [
+     "exp-e2e",
+     "owner-human"
+    ],
+    "session_switches": [
+     2
+    ],
+    "transition_system": {
+     "n_nodes": 2,
+     "n_edges": 1,
+     "sources": 1,
+     "sinks": 1,
+     "mean_out_degree": 0.5,
+     "is_dag": true
+    }
+   },
+   "observation_status": "SIMULATED"
+  },
+  {
+   "arrow": "acsp-version-delta",
+   "delta": 1
+  },
+  {
+   "arrow": "observe scroll",
+   "status": 200,
+   "address": "/map/eca/90/8/state/5/next/flip/0/damage/16",
+   "builds": [
+    "BUILT"
+   ],
+   "talks": [
+    "submitted"
+   ]
+  },
+  {
+   "arrow": "checkpoint",
+   "status": 201,
+   "active_scroll_is_this": true
+  },
+  {
+   "arrow": "resume (new process)",
+   "status": 200,
+   "intact": true,
+   "constitution_changed": false,
+   "next": "resume and rebuild",
+   "changed": [
+    false
+   ]
+  },
+  {
+   "arrow": "rebuild from resumed state",
+   "status": 201,
+   "outcome": "BUILT",
+   "value_ids": [
+    "sha256:7a9ffa2712be1a6a62febe1f82b22a97ed80b9b220a42228d09213c27bd3f343",
+    "sha256:c17f95d5664c78a943b62c27dca621c01e817b82b4bf4a09747fe481828b566e",
+    "sha256:feea2ed5d8e50276d43b8fa1b5bbc9235a02facee5d0cde09398f6a3ab749552",
+    "sha256:cd1fbd12a85c00d864c14f0f8bc46ecb75baace10895329aa99c19d755dbb2b3"
+   ],
+   "reruns": [
+    "reproduced",
+    "reproduced",
+    "reproduced",
+    "reproduced"
+   ]
+  }
+ ],
+ "transcript": [
+  {
+   "arrow": "enter",
+   "method": "GET",
+   "path": "/",
+   "status": 200,
+   "ms": 9,
+   "observed": {
+    "moves": [
+     "constitution",
+     "operations",
+     "start",
+     "example-program",
+     "scrolls",
+     "aliases",
+     "state",
+     "conformance",
+     "checkpoints",
+     "adapters",
+     "naici"
+    ]
+   }
+  },
+  {
+   "arrow": "discover-constitution",
+   "method": "GET",
+   "path": "/constitution",
+   "status": 200,
+   "ms": 3,
+   "observed": {
+    "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4"
+   }
+  },
+  {
+   "arrow": "legal-operations",
+   "method": "GET",
+   "path": "/naici/legal?url=%2Fseurl%2FSTART%2Fmap%2Feca%2F90%2F8%2Fstate%2F5",
+   "status": 200,
+   "ms": 43,
+   "observed": {}
+  },
+  {
+   "arrow": "construct (SEURL -> typed term -> value)",
+   "method": "GET",
+   "path": "/seurl/START/map/eca/90/8/state/5/WRITE/next/PERTURB/0/WRITE/damage/16",
+   "status": 200,
+   "ms": 44,
+   "observed": {
+    "value": {
+     "baseline_x0": 136,
+     "perturbed_x0": 137,
+     "horizon": 16,
+     "distance": [
+      1,
+      2,
+      2,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "comparison": {
+      "class": "recovered",
+      "horizon": 16,
+      "d0": 1,
+      "distance_series": [
+       1,
+       2,
+       2,
+       4,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "persistence": 3,
+      "recovery_time": 4,
+      "max_distance": 4,
+      "amplification": 4,
+      "spread": 3,
+      "first_escape_time": 1,
+      "final_distance": 0
+     }
+    }
+   }
+  },
+  {
+   "arrow": "prepare (GET changes nothing)",
+   "method": "GET",
+   "path": "/seurl/START/map/eca/90/8/state/5/WRITE/next/PERTURB/0/WRITE/damage/16/COMMIT/BUILD/TALK/acsp/SFG822BC3F74",
+   "status": 200,
+   "ms": 13,
+   "observed": {
+    "prepared": [
+     {
+      "verb": "COMMIT"
+     },
+     {
+      "verb": "BUILD"
+     },
+     {
+      "verb": "TALK",
+      "to": {
+       "system": "acsp",
+       "resource_id": "SFG822BC3F74"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "arrow": "perform (PURL scroll, substrate executions, ACSP propose, substrate observation)",
+   "method": "POST",
+   "path": "/seurl/START/map/eca/90/8/state/5/WRITE/next/PERTURB/0/WRITE/damage/16/COMMIT/BUILD/TALK/acsp/SFG822BC3F74?session=exp-e2e&agent=circle-e2e",
+   "status": 201,
+   "ms": 209,
+   "observed": {
+    "scroll": "r_7ZP5YPTPNB",
+    "proposal": "P-001",
+    "execution_ids": [
+     "X-000033",
+     "X-000034",
+     "X-000035",
+     "X-000036"
+    ]
+   }
+  },
+  {
+   "arrow": "observe scroll",
+   "method": "GET",
+   "path": "/scrolls/r_7ZP5YPTPNB",
+   "status": 200,
+   "ms": 4,
+   "observed": {}
+  },
+  {
+   "arrow": "checkpoint",
+   "method": "POST",
+   "path": "/checkpoints?session=exp-e2e&scroll=r_7ZP5YPTPNB&acsp_resource=SFG822BC3F74&next=resume%20and%20rebuild",
+   "status": 201,
+   "ms": 36,
+   "observed": {
+    "id": "r_WCR12MM447",
+    "content_id": "sha256:07e8320c09c0b7363b0e1b0dd2137495ae034f898f81b46c6e012b333a69bb91"
+   }
+  },
+  {
+   "arrow": "resume (new process)",
+   "method": "GET",
+   "path": "/resume/r_WCR12MM447",
+   "status": 200,
+   "ms": 29,
+   "observed": {}
+  },
+  {
+   "arrow": "rebuild from resumed state",
+   "method": "POST",
+   "path": "/scrolls/r_7ZP5YPTPNB/build?session=exp-e2e-later",
+   "status": 201,
+   "ms": 134,
+   "observed": {}
+  }
+ ]
+}
