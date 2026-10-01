@@ -1,6 +1,6 @@
 {
- "format": "bridge-manifest/2",
- "generated_at": "2026-10-01T13:58:56.921Z",
+ "format": "bridge-manifest/3",
+ "generated_at": "2026-10-01T15:26:39.432Z",
  "generator": "scripts/bridge-manifest.js",
  "secrets": "none: commit ids, paths, names and hashes only",
  "start_here": [
@@ -18,6 +18,1564 @@
   "acsp": "ACSP/0.1",
   "seurl": "seurl move words (MUSA url-machine.md)"
  },
+ "components": [
+  {
+   "name": "circle",
+   "repository": "purl",
+   "scope": "src/circle",
+   "branch": "ccr-d0887a23-30wf63",
+   "commit": "b7e6558",
+   "protocol": "circle/0 + SDK",
+   "role": "the bridge: stateless composition of the other systems through SEURL move words; holds no records and no authority",
+   "input_kinds": [
+    "SEURL move word",
+    "address",
+    "session (asserted)"
+   ],
+   "output_kinds": [
+    "view",
+    "record (via PURL)",
+    "execution (via substrate)",
+    "proposal (via ACSP)"
+   ],
+   "operations": [
+    {
+     "method": "GET",
+     "path": "/"
+    },
+    {
+     "method": "GET",
+     "path": "/sdk"
+    },
+    {
+     "method": "GET",
+     "path": "/sdk/constitution"
+    },
+    {
+     "method": "GET",
+     "path": "/sdk/schemas"
+    },
+    {
+     "method": "GET",
+     "path": "/sdk/schemas/{name}"
+    },
+    {
+     "method": "GET",
+     "path": "/constitution"
+    },
+    {
+     "method": "GET",
+     "path": "/constitution/model"
+    },
+    {
+     "method": "GET",
+     "path": "/constitution/axes"
+    },
+    {
+     "method": "GET",
+     "path": "/constitution/clauses/{id}"
+    },
+    {
+     "method": "POST",
+     "path": "/constitution/amendments?session={s}"
+    },
+    {
+     "method": "GET",
+     "path": "/conformance"
+    },
+    {
+     "method": "POST",
+     "path": "/conformance/runs?session={s}"
+    },
+    {
+     "method": "GET",
+     "path": "/tests"
+    },
+    {
+     "method": "GET",
+     "path": "/tests/{run}"
+    },
+    {
+     "method": "GET",
+     "path": "/tests/{run}/{check}"
+    },
+    {
+     "method": "GET",
+     "path": "/prompt-contract"
+    },
+    {
+     "method": "GET",
+     "path": "/prompts/classify?p={json}"
+    },
+    {
+     "method": "POST",
+     "path": "/prompts/classify"
+    },
+    {
+     "method": "GET",
+     "path": "/operations"
+    },
+    {
+     "method": "GET",
+     "path": "/term/{value address}"
+    },
+    {
+     "method": "GET",
+     "path": "/v/{value address}"
+    },
+    {
+     "method": "GET",
+     "path": "/seurl/{moves}"
+    },
+    {
+     "method": "POST",
+     "path": "/seurl/{moves}?session={s}"
+    },
+    {
+     "method": "GET",
+     "path": "/programs"
+    },
+    {
+     "method": "GET",
+     "path": "/programs/transform?source={seurl|scroll}&t={transformer}&p={params}"
+    },
+    {
+     "method": "POST",
+     "path": "/programs/transform?source={…}&t={…}&p={…}&session={s}"
+    },
+    {
+     "method": "GET",
+     "path": "/programs/transformers"
+    },
+    {
+     "method": "GET",
+     "path": "/programs/closure?source={…}&depth={1|2}"
+    },
+    {
+     "method": "GET",
+     "path": "/scrolls"
+    },
+    {
+     "method": "GET",
+     "path": "/scrolls/{id}"
+    },
+    {
+     "method": "POST",
+     "path": "/scrolls/{id}/build?session={s}"
+    },
+    {
+     "method": "GET",
+     "path": "/aliases"
+    },
+    {
+     "method": "GET",
+     "path": "/transitions/coverage"
+    },
+    {
+     "method": "GET",
+     "path": "/transitions/{system}/{ref}"
+    },
+    {
+     "method": "GET",
+     "path": "/git/{repo}/{commit}"
+    },
+    {
+     "method": "GET",
+     "path": "/checkpoints"
+    },
+    {
+     "method": "GET",
+     "path": "/checkpoints/{id}"
+    },
+    {
+     "method": "POST",
+     "path": "/checkpoints?session={s}"
+    },
+    {
+     "method": "GET",
+     "path": "/resume/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/stases"
+    },
+    {
+     "method": "GET",
+     "path": "/stases/{n}"
+    },
+    {
+     "method": "GET",
+     "path": "/observatory"
+    },
+    {
+     "method": "GET",
+     "path": "/projections"
+    },
+    {
+     "method": "GET",
+     "path": "/state"
+    },
+    {
+     "method": "GET",
+     "path": "/adapters"
+    },
+    {
+     "method": "GET",
+     "path": "/acsp/r/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/acsp/r/{id}/events"
+    },
+    {
+     "method": "POST",
+     "path": "/acsp/r/{id}/observe?session={s}&origin={o}"
+    },
+    {
+     "method": "GET",
+     "path": "/naici/{surface|read|legal|trace}?url={circle url}"
+    }
+   ],
+   "operations_note": "circle route table (src/circle/bridge.js ROUTES)",
+   "safe_operations": [
+    "GET /",
+    "GET /sdk",
+    "GET /sdk/constitution",
+    "GET /sdk/schemas",
+    "GET /sdk/schemas/{name}",
+    "GET /constitution",
+    "GET /constitution/model",
+    "GET /constitution/axes",
+    "GET /constitution/clauses/{id}",
+    "GET /conformance",
+    "GET /tests",
+    "GET /tests/{run}",
+    "GET /tests/{run}/{check}",
+    "GET /prompt-contract",
+    "GET /prompts/classify?p={json}",
+    "GET /operations",
+    "GET /term/{value address}",
+    "GET /v/{value address}",
+    "GET /seurl/{moves}",
+    "GET /programs",
+    "GET /programs/transform?source={seurl|scroll}&t={transformer}&p={params}",
+    "GET /programs/transformers",
+    "GET /programs/closure?source={…}&depth={1|2}",
+    "GET /scrolls",
+    "GET /scrolls/{id}",
+    "GET /aliases",
+    "GET /transitions/coverage",
+    "GET /transitions/{system}/{ref}",
+    "GET /git/{repo}/{commit}",
+    "GET /checkpoints",
+    "GET /checkpoints/{id}",
+    "GET /resume/{id}",
+    "GET /stases",
+    "GET /stases/{n}",
+    "GET /observatory",
+    "GET /projections",
+    "GET /state",
+    "GET /adapters",
+    "GET /acsp/r/{id}",
+    "GET /acsp/r/{id}/events",
+    "GET /naici/{surface|read|legal|trace}?url={circle url}"
+   ],
+   "mutating_operations": [
+    "POST /constitution/amendments?session={s}",
+    "POST /conformance/runs?session={s}",
+    "POST /prompts/classify",
+    "POST /seurl/{moves}?session={s}",
+    "POST /programs/transform?source={…}&t={…}&p={…}&session={s}",
+    "POST /scrolls/{id}/build?session={s}",
+    "POST /checkpoints?session={s}",
+    "POST /acsp/r/{id}/observe?session={s}&origin={o}"
+   ],
+   "constitutional_artifact": [
+    {
+     "path": "purl/circle/constitution/constitution-v1.json",
+     "exists": true,
+     "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4"
+    },
+    {
+     "path": "purl/circle/constitution/enforcement.json",
+     "exists": true,
+     "content_id": "sha256:fb01c43b3f0e441d66f4455baffea6eb7e13fe5a74b416f7066a5fabc7ea9678"
+    },
+    {
+     "path": "purl/circle/constitution/sdk-constitution.json",
+     "exists": true,
+     "content_id": "sha256:e7a8a5cb84576f57c721036a738a7bc78248892ed9315de25d041b3eae3c13d1"
+    }
+   ],
+   "nomenclature_artifact": [
+    {
+     "path": "purl/circle/BRIDGE-NOMENCLATURE.md",
+     "exists": true,
+     "content_id": "sha256:48055a82af04deaa02e91f490675eb5f7f73eb8a7c0ee2694c837eb0c2978181"
+    },
+    {
+     "path": "substrateIO/research/registries/nomenclature.json",
+     "exists": true,
+     "content_id": "sha256:2bc74a6cedb07aba305146106bb24b81573cb2318e4330485f0b363650e0d67d"
+    }
+   ],
+   "test_suite": {
+    "command": "npm test (purl)",
+    "files": [
+     "purl/test/architecture.test.js",
+     "purl/test/authority.test.js",
+     "purl/test/circle.test.js",
+     "purl/test/continuity.test.js",
+     "purl/test/demo.test.js",
+     "purl/test/experiment.test.js",
+     "purl/test/golden.test.js",
+     "purl/test/http.test.js",
+     "purl/test/musa.test.js",
+     "purl/test/research.test.js",
+     "purl/test/structure.test.js",
+     "purl/test/transition-model.test.js"
+    ]
+   },
+   "research_status": "IMPLEMENTED, TESTED; addressed transition (C-052) and recursive program construction (C-053) are HYPOTHESES",
+   "projection_boundaries": [
+    {
+     "id": "B1",
+     "from": "SEURL move word (program)",
+     "to": "value address",
+     "edge": "PARSE",
+     "n": 255,
+     "loss_bits": 1.3412,
+     "spurious_bits": 0
+    },
+    {
+     "id": "B2",
+     "from": "raw SEURL text",
+     "to": "canonical program text",
+     "edge": "PARSE",
+     "n": 1020,
+     "loss_bits": 1.9941,
+     "spurious_bits": 0
+    },
+    {
+     "id": "B3a",
+     "from": "circle Scroll record",
+     "to": "SEURL program text (π)",
+     "edge": "PROJECT",
+     "n": 40,
+     "loss_bits": 1.6707,
+     "spurious_bits": 0
+    },
+    {
+     "id": "B3b",
+     "from": "SEURL program text",
+     "to": "circle Scroll record (σ, COMMIT)",
+     "edge": "RECORD",
+     "n": 40,
+     "loss_bits": 0,
+     "spurious_bits": 1.6707
+    },
+    {
+     "id": "D1",
+     "from": "circle Scroll + build",
+     "to": "ACSP TOK in a proposal",
+     "edge": "PUBLISH",
+     "lost": [
+      "execution ids",
+      "environment_id",
+      "code hash",
+      "PURL event log (URL kept)"
+     ],
+     "status": "DECLARED, not measured: the TOK text is built from the record; no corpus of TOKs with their records exists in committed data"
+    }
+   ],
+   "known_information_loss": [
+    "B1 SEURL move word (program) -> value address: 1.3412 bits",
+    "B2 raw SEURL text -> canonical program text: 1.9941 bits",
+    "B3a circle Scroll record -> SEURL program text (π): 1.6707 bits",
+    "D1 circle Scroll + build -> ACSP TOK in a proposal: execution ids, environment_id, code hash, PURL event log (URL kept)"
+   ],
+   "security_boundary": "never holds credentials; rejects ?cap= (K-06); mutation only by POST; TALK = propose only; authority stays with PURL grants, ACSP capabilities, Golden seats, git rights",
+   "deployment": [],
+   "reconstruction_method": "clone purl@branch, npm ci, npm test, resume checkpoint (scripts/bridge-cold-reconstruct.js)",
+   "provenance": {
+    "generated": [
+     "branch",
+     "commit",
+     "operations",
+     "safe_operations",
+     "mutating_operations",
+     "constitutional_artifact.exists/content_id",
+     "nomenclature_artifact.exists/content_id",
+     "test_suite.files",
+     "projection_boundaries (values)",
+     "known_information_loss",
+     "deployment"
+    ],
+    "declared": [
+     "name",
+     "repository",
+     "scope",
+     "protocol",
+     "role",
+     "input_kinds",
+     "output_kinds",
+     "routes_from",
+     "artifact paths",
+     "test_suite.command",
+     "research_status",
+     "projection_boundaries (ids)",
+     "security_boundary",
+     "reconstruction_method"
+    ],
+    "declared_in": "circle/components.json",
+    "safe_rule": "safe = GET/HEAD by method; exceptions are listed in security_boundary (e.g. GET /ws upgrade)"
+   }
+  },
+  {
+   "name": "purl-core",
+   "repository": "purl",
+   "scope": "src/{core,continuity,transport}",
+   "branch": "ccr-d0887a23-30wf63",
+   "commit": "b7e6558",
+   "protocol": "PURL/0.1",
+   "role": "persistent versioned records (resources, events, grants); the circle's record store",
+   "input_kinds": [
+    "operation request (expected_version)"
+   ],
+   "output_kinds": [
+    "record id@version",
+    "event"
+   ],
+   "operations": [
+    {
+     "method": "GET",
+     "path": "/"
+    },
+    {
+     "method": "GET",
+     "path": "/.well-known/purl"
+    },
+    {
+     "method": "POST",
+     "path": "/principals"
+    },
+    {
+     "method": "GET",
+     "path": "/principals/me"
+    },
+    {
+     "method": "GET",
+     "path": "/r"
+    },
+    {
+     "method": "POST",
+     "path": "/r"
+    },
+    {
+     "method": "GET",
+     "path": "/experiments"
+    },
+    {
+     "method": "GET",
+     "path": "/lab"
+    },
+    {
+     "method": "GET",
+     "path": "/schemas/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/principals/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/experiments/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/static/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/manifest"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/status"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/events"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/lineage"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/verify"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/continuity"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/state"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/diff"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/transitions"
+    },
+    {
+     "method": "POST",
+     "path": "/r/{id}/ops/{name}"
+    }
+   ],
+   "operations_note": "extracted by regex from purl/src/transport/server.js; completeness not proven",
+   "safe_operations": [
+    "GET /",
+    "GET /.well-known/purl",
+    "GET /principals/me",
+    "GET /r",
+    "GET /experiments",
+    "GET /lab",
+    "GET /schemas/{id}",
+    "GET /principals/{id}",
+    "GET /experiments/{id}",
+    "GET /static/{id}",
+    "GET /r/{id}",
+    "GET /r/{id}/manifest",
+    "GET /r/{id}/status",
+    "GET /r/{id}/events",
+    "GET /r/{id}/lineage",
+    "GET /r/{id}/verify",
+    "GET /r/{id}/continuity",
+    "GET /r/{id}/state",
+    "GET /r/{id}/diff",
+    "GET /r/{id}/transitions"
+   ],
+   "mutating_operations": [
+    "POST /principals",
+    "POST /r",
+    "POST /r/{id}/ops/{name}"
+   ],
+   "constitutional_artifact": [
+    {
+     "path": "purl/PRINCIPLES.md",
+     "exists": true,
+     "content_id": "sha256:2a284254ef12f79ddbdf2c2b9ca3ecbd85a027609706c60de9fd71447c554af0"
+    },
+    {
+     "path": "purl/SPEC.md",
+     "exists": true,
+     "content_id": "sha256:1844b4e11fbced7a46bdf772bd329754c2ed7f6e6522d8ee08788e7546720648"
+    },
+    {
+     "path": "purl/SECURITY.md",
+     "exists": true,
+     "content_id": "sha256:fac3362d16d8ac8659820a1d1f7080ce763be8c037b1dc7c93bd22c409a03fce"
+    }
+   ],
+   "nomenclature_artifact": [
+    {
+     "path": "purl/NOMENCLATURE.md",
+     "exists": true,
+     "content_id": "sha256:d3757a82d9e54f7b86bb04c1727ecf05b3fc85ad613858efd430042efef66b5c"
+    }
+   ],
+   "test_suite": {
+    "command": "npm test (purl)",
+    "files": [
+     "purl/test/architecture.test.js",
+     "purl/test/authority.test.js",
+     "purl/test/circle.test.js",
+     "purl/test/continuity.test.js",
+     "purl/test/demo.test.js",
+     "purl/test/experiment.test.js",
+     "purl/test/golden.test.js",
+     "purl/test/http.test.js",
+     "purl/test/musa.test.js",
+     "purl/test/research.test.js",
+     "purl/test/structure.test.js",
+     "purl/test/transition-model.test.js"
+    ]
+   },
+   "research_status": "IMPLEMENTED, TESTED",
+   "projection_boundaries": [
+    {
+     "id": "B3a",
+     "from": "circle Scroll record",
+     "to": "SEURL program text (π)",
+     "edge": "PROJECT",
+     "n": 40,
+     "loss_bits": 1.6707,
+     "spurious_bits": 0
+    },
+    {
+     "id": "B3b",
+     "from": "SEURL program text",
+     "to": "circle Scroll record (σ, COMMIT)",
+     "edge": "RECORD",
+     "n": 40,
+     "loss_bits": 0,
+     "spurious_bits": 1.6707
+    }
+   ],
+   "known_information_loss": [
+    "B3a circle Scroll record -> SEURL program text (π): 1.6707 bits"
+   ],
+   "security_boundary": "owner grants authorise in-place update: the K-12 conflict (OBSERVED, experiments/axes/record-2.json)",
+   "deployment": [],
+   "reconstruction_method": "event replay from the store files (checkpoint snapshots)",
+   "provenance": {
+    "generated": [
+     "branch",
+     "commit",
+     "operations",
+     "safe_operations",
+     "mutating_operations",
+     "constitutional_artifact.exists/content_id",
+     "nomenclature_artifact.exists/content_id",
+     "test_suite.files",
+     "projection_boundaries (values)",
+     "known_information_loss",
+     "deployment"
+    ],
+    "declared": [
+     "name",
+     "repository",
+     "scope",
+     "protocol",
+     "role",
+     "input_kinds",
+     "output_kinds",
+     "routes_from",
+     "artifact paths",
+     "test_suite.command",
+     "research_status",
+     "projection_boundaries (ids)",
+     "security_boundary",
+     "reconstruction_method"
+    ],
+    "declared_in": "circle/components.json",
+    "safe_rule": "safe = GET/HEAD by method; exceptions are listed in security_boundary (e.g. GET /ws upgrade)"
+   }
+  },
+  {
+   "name": "seurl",
+   "repository": "seurl",
+   "scope": "index.html (halt page); executable FSM in purl/src/circle/seurl.js",
+   "branch": "ccr-d0887a23-30wf63",
+   "commit": "620ff95",
+   "protocol": "SEURL move words (MUSA url-machine.md)",
+   "role": "program / transition notation",
+   "input_kinds": [
+    "text"
+   ],
+   "output_kinds": [
+    "SEURL move word"
+   ],
+   "operations": null,
+   "operations_note": "static page; no server",
+   "safe_operations": null,
+   "mutating_operations": null,
+   "constitutional_artifact": [
+    {
+     "path": "MUSA/luna-agent/protocols/url-machine.md",
+     "exists": true,
+     "content_id": "sha256:6d0370010abfae55e45553267398dddb83d3757c8d86a4c4386ad2f1a8c5083b"
+    }
+   ],
+   "nomenclature_artifact": [
+    {
+     "path": "substrateIO/research/registries/nomenclature.json#C-043",
+     "exists": true,
+     "content_id": "sha256:2bc74a6cedb07aba305146106bb24b81573cb2318e4330485f0b363650e0d67d"
+    }
+   ],
+   "test_suite": {
+    "command": "npm test (purl): test/musa.test.js, test/transition-model.test.js",
+    "files": [
+     "purl/test/musa.test.js"
+    ]
+   },
+   "research_status": "SPECIFIED (MUSA), IMPLEMENTED in the circle",
+   "projection_boundaries": [
+    {
+     "id": "B1",
+     "from": "SEURL move word (program)",
+     "to": "value address",
+     "edge": "PARSE",
+     "n": 255,
+     "loss_bits": 1.3412,
+     "spurious_bits": 0
+    },
+    {
+     "id": "B2",
+     "from": "raw SEURL text",
+     "to": "canonical program text",
+     "edge": "PARSE",
+     "n": 1020,
+     "loss_bits": 1.9941,
+     "spurious_bits": 0
+    }
+   ],
+   "known_information_loss": [
+    "B1 SEURL move word (program) -> value address: 1.3412 bits",
+    "B2 raw SEURL text -> canonical program text: 1.9941 bits"
+   ],
+   "security_boundary": "a URL is a program, never a credential: possession of a SEURL grants nothing",
+   "deployment": [
+    {
+     "url": "https://seurl.vercel.app",
+     "repo": "seurl",
+     "commit": null,
+     "mapping": "content hash = index.html @620ff95 (no git metadata)"
+    }
+   ],
+   "reconstruction_method": "deployment content hash = index.html @620ff95 (no git metadata on the deployment)",
+   "provenance": {
+    "generated": [
+     "branch",
+     "commit",
+     "operations",
+     "safe_operations",
+     "mutating_operations",
+     "constitutional_artifact.exists/content_id",
+     "nomenclature_artifact.exists/content_id",
+     "test_suite.files",
+     "projection_boundaries (values)",
+     "known_information_loss",
+     "deployment"
+    ],
+    "declared": [
+     "name",
+     "repository",
+     "scope",
+     "protocol",
+     "role",
+     "input_kinds",
+     "output_kinds",
+     "routes_from",
+     "artifact paths",
+     "test_suite.command",
+     "research_status",
+     "projection_boundaries (ids)",
+     "security_boundary",
+     "reconstruction_method"
+    ],
+    "declared_in": "circle/components.json",
+    "safe_rule": "safe = GET/HEAD by method; exceptions are listed in security_boundary (e.g. GET /ws upgrade)"
+   }
+  },
+  {
+   "name": "substrate",
+   "repository": "substrateIO",
+   "scope": "substrate/, tools/purl_server.py",
+   "branch": "ccr-d0887a23-30wf63",
+   "commit": "da503a4",
+   "protocol": "substrate-purl/0 (provisional)",
+   "role": "values, typed terms, executions, projections, observations; research registries",
+   "input_kinds": [
+    "address",
+    "typed term",
+    "observation request"
+   ],
+   "output_kinds": [
+    "value",
+    "derivation_id",
+    "value_id",
+    "execution",
+    "observation"
+   ],
+   "operations": [
+    {
+     "method": "GET",
+     "path": "/"
+    },
+    {
+     "method": "GET",
+     "path": "/operations"
+    },
+    {
+     "method": "GET",
+     "path": "/operations/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/environment"
+    },
+    {
+     "method": "GET",
+     "path": "/term"
+    },
+    {
+     "method": "GET",
+     "path": "/executions"
+    },
+    {
+     "method": "GET",
+     "path": "/executions/{id}"
+    },
+    {
+     "method": "POST",
+     "path": "/observations"
+    },
+    {
+     "method": "GET",
+     "path": "/observations/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/projections"
+    },
+    {
+     "method": "POST",
+     "path": "/continuations"
+    },
+    {
+     "method": "GET",
+     "path": "/continuations/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "<value address> (resolve)"
+    },
+    {
+     "method": "POST",
+     "path": "<value address> (record execution)"
+    }
+   ],
+   "operations_note": "extracted by regex from substrateIO/tools/purl_server.py; completeness not proven",
+   "safe_operations": [
+    "GET /",
+    "GET /operations",
+    "GET /operations/{id}",
+    "GET /environment",
+    "GET /term",
+    "GET /executions",
+    "GET /executions/{id}",
+    "GET /observations/{id}",
+    "GET /projections",
+    "GET /continuations/{id}",
+    "GET <value address> (resolve)"
+   ],
+   "mutating_operations": [
+    "POST /observations",
+    "POST /continuations",
+    "POST <value address> (record execution)"
+   ],
+   "constitutional_artifact": [
+    {
+     "path": "substrateIO/PROTOCOL.md",
+     "exists": true,
+     "content_id": "sha256:5282b45a987c4f2f7b6f118bcb7a840e6da43c6fe2c34a9783833339bebf4324"
+    },
+    {
+     "path": "substrateIO/CLAUDE.md",
+     "exists": true,
+     "content_id": "sha256:b9770ee0623c7f23dfbb82f9a568cd2ca7fc618703eb2808fdb88ddc51b7ad22"
+    }
+   ],
+   "nomenclature_artifact": [
+    {
+     "path": "substrateIO/research/registries/nomenclature.json",
+     "exists": true,
+     "content_id": "sha256:2bc74a6cedb07aba305146106bb24b81573cb2318e4330485f0b363650e0d67d"
+    }
+   ],
+   "test_suite": {
+    "command": "python3 -m unittest discover -s tests -t . ; python3 -m tools.validate",
+    "files": [
+     "substrateIO/tests/test_acsp_events.py",
+     "substrateIO/tests/test_acsp_projection.py",
+     "substrateIO/tests/test_epistemic_guards.py",
+     "substrateIO/tests/test_instruments.py",
+     "substrateIO/tests/test_purl.py",
+     "substrateIO/tests/test_purl_terms.py",
+     "substrateIO/tests/test_recurrence_terms.py",
+     "substrateIO/tests/test_reproducibility.py"
+    ]
+   },
+   "research_status": "IMPLEMENTED, TESTED; outputs of models are SIMULATED",
+   "projection_boundaries": [
+    {
+     "id": "B4a",
+     "from": "value address",
+     "to": "value_id",
+     "edge": "RESOLVE",
+     "n": 55,
+     "loss_bits": 0.6026,
+     "spurious_bits": 0
+    },
+    {
+     "id": "B4b",
+     "from": "value address",
+     "to": "derivation_id",
+     "edge": "PARSE",
+     "n": 70,
+     "loss_bits": 0,
+     "spurious_bits": 0
+    },
+    {
+     "id": "B5a",
+     "from": "substrate execution record",
+     "to": "addressed transition (with content_id)",
+     "edge": "PROJECT",
+     "n": 70,
+     "loss_bits": 0,
+     "spurious_bits": 0.3822
+    },
+    {
+     "id": "B5b",
+     "from": "substrate execution record",
+     "to": "addressed transition (identifiers removed)",
+     "edge": "PROJECT",
+     "n": 70,
+     "loss_bits": 1.6243,
+     "spurious_bits": 0
+    }
+   ],
+   "known_information_loss": [
+    "B4a value address -> value_id: 0.6026 bits",
+    "B5b substrate execution record -> addressed transition (identifiers removed): 1.6243 bits"
+   ],
+   "security_boundary": "runs locally; no credentials; runs/ is content-addressed and never edited",
+   "deployment": [],
+   "reconstruction_method": "clone, run tests and tools.validate; executions are re-derivable (execution_hash per occurrence)",
+   "provenance": {
+    "generated": [
+     "branch",
+     "commit",
+     "operations",
+     "safe_operations",
+     "mutating_operations",
+     "constitutional_artifact.exists/content_id",
+     "nomenclature_artifact.exists/content_id",
+     "test_suite.files",
+     "projection_boundaries (values)",
+     "known_information_loss",
+     "deployment"
+    ],
+    "declared": [
+     "name",
+     "repository",
+     "scope",
+     "protocol",
+     "role",
+     "input_kinds",
+     "output_kinds",
+     "routes_from",
+     "artifact paths",
+     "test_suite.command",
+     "research_status",
+     "projection_boundaries (ids)",
+     "security_boundary",
+     "reconstruction_method"
+    ],
+    "declared_in": "circle/components.json",
+    "safe_rule": "safe = GET/HEAD by method; exceptions are listed in security_boundary (e.g. GET /ws upgrade)"
+   }
+  },
+  {
+   "name": "acsp",
+   "repository": "NetGovComEduGovOrgEduGovComNet",
+   "scope": "src/transport/handler.ts",
+   "branch": "ccr-d0887a23-30wf63",
+   "commit": "e8d989a",
+   "protocol": "ACSP/0.1 (deployed); 0.1+program-001 and 0.2 on branches",
+   "role": "agent continuity: shared resources, proposals, capabilities, owner resolution",
+   "input_kinds": [
+    "prepared intent",
+    "capability (header)"
+   ],
+   "output_kinds": [
+    "record id@version",
+    "event",
+    "proposal"
+   ],
+   "operations": [
+    {
+     "method": "GET",
+     "path": "/"
+    },
+    {
+     "method": "GET",
+     "path": "/index"
+    },
+    {
+     "method": "GET",
+     "path": "/.well-known/acsp"
+    },
+    {
+     "method": "GET",
+     "path": "/protocol"
+    },
+    {
+     "method": "GET",
+     "path": "/health"
+    },
+    {
+     "method": "GET",
+     "path": "/new"
+    },
+    {
+     "method": "POST",
+     "path": "/r"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}?action=inspect"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}?action=status"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}?action=prepare_* (prepares an intent; performs nothing)"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/operations"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/events"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/knowledge"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/checkpoints"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/diff"
+    },
+    {
+     "method": "GET",
+     "path": "/r/{id}/explorer"
+    },
+    {
+     "method": "POST",
+     "path": "/r/{id}/operations"
+    }
+   ],
+   "operations_note": "extracted by regex from NetGovComEduGovOrgEduGovComNet/src/transport/handler.ts; completeness not proven",
+   "safe_operations": [
+    "GET /",
+    "GET /index",
+    "GET /.well-known/acsp",
+    "GET /protocol",
+    "GET /health",
+    "GET /new",
+    "GET /r/{id}",
+    "GET /r/{id}?action=inspect",
+    "GET /r/{id}?action=status",
+    "GET /r/{id}?action=prepare_* (prepares an intent; performs nothing)",
+    "GET /r/{id}/operations",
+    "GET /r/{id}/events",
+    "GET /r/{id}/knowledge",
+    "GET /r/{id}/checkpoints",
+    "GET /r/{id}/diff",
+    "GET /r/{id}/explorer"
+   ],
+   "mutating_operations": [
+    "POST /r",
+    "POST /r/{id}/operations"
+   ],
+   "constitutional_artifact": [
+    {
+     "path": "NetGovComEduGovOrgEduGovComNet/CONSTITUTIONANDDIRECTIVE.md",
+     "exists": true,
+     "content_id": "sha256:49884e259dbc8522ea72f20c2318e6c5e0fe772b2eb499a6d2ea936f5bae3fc0"
+    },
+    {
+     "path": "NetGovComEduGovOrgEduGovComNet/PROTOCOL.md",
+     "exists": true,
+     "content_id": "sha256:ae16f7554a0f55a813d06e1a6aab2f3188d0f11d1a4e9ffc501b126dec4fc36a"
+    }
+   ],
+   "nomenclature_artifact": [
+    {
+     "path": "NetGovComEduGovOrgEduGovComNet/PROTOCOL.md",
+     "exists": true,
+     "content_id": "sha256:ae16f7554a0f55a813d06e1a6aab2f3188d0f11d1a4e9ffc501b126dec4fc36a"
+    }
+   ],
+   "test_suite": {
+    "command": "npx vitest run",
+    "files": [
+     "NetGovComEduGovOrgEduGovComNet/tests/scenarios.test.ts",
+     "NetGovComEduGovOrgEduGovComNet/tests/unit.test.ts"
+    ]
+   },
+   "research_status": "IMPLEMENTED, DEPLOYED (production predates every integration)",
+   "projection_boundaries": [
+    {
+     "id": "B6a",
+     "from": "ACSP event",
+     "to": "P-ACSP-EV-1 transition (with t, request_hash)",
+     "edge": "OBSERVE",
+     "n": 12,
+     "loss_bits": 0,
+     "spurious_bits": 0
+    },
+    {
+     "id": "B6b",
+     "from": "ACSP event",
+     "to": "P-ACSP-EV-1 transition (label, actor only)",
+     "edge": "OBSERVE",
+     "n": 12,
+     "loss_bits": 0.7296,
+     "spurious_bits": 0
+    },
+    {
+     "id": "D1",
+     "from": "circle Scroll + build",
+     "to": "ACSP TOK in a proposal",
+     "edge": "PUBLISH",
+     "lost": [
+      "execution ids",
+      "environment_id",
+      "code hash",
+      "PURL event log (URL kept)"
+     ],
+     "status": "DECLARED, not measured: the TOK text is built from the record; no corpus of TOKs with their records exists in committed data"
+    }
+   ],
+   "known_information_loss": [
+    "B6b ACSP event -> P-ACSP-EV-1 transition (label, actor only): 0.7296 bits",
+    "D1 circle Scroll + build -> ACSP TOK in a proposal: execution ids, environment_id, code hash, PURL event log (URL kept)"
+   ],
+   "security_boundary": "capabilities in headers, never in URLs or logs; propose needs none; resolution is owner authority (K-18 UNRESOLVED)",
+   "deployment": [
+    {
+     "url": "https://acsp-one.vercel.app",
+     "repo": "NetGovComEduGovOrgEduGovComNet",
+     "branch": "claude/agent-continuity-protocol-doi4bn",
+     "commit": "9fcf2e1",
+     "mapping": "Vercel git metadata",
+     "protocol": "ACSP/0.1"
+    }
+   ],
+   "reconstruction_method": "clone, npm ci, npm run serve:local, vitest; live resource fixture circle/fixtures/acsp-live-*",
+   "provenance": {
+    "generated": [
+     "branch",
+     "commit",
+     "operations",
+     "safe_operations",
+     "mutating_operations",
+     "constitutional_artifact.exists/content_id",
+     "nomenclature_artifact.exists/content_id",
+     "test_suite.files",
+     "projection_boundaries (values)",
+     "known_information_loss",
+     "deployment"
+    ],
+    "declared": [
+     "name",
+     "repository",
+     "scope",
+     "protocol",
+     "role",
+     "input_kinds",
+     "output_kinds",
+     "routes_from",
+     "artifact paths",
+     "test_suite.command",
+     "research_status",
+     "projection_boundaries (ids)",
+     "security_boundary",
+     "reconstruction_method"
+    ],
+    "declared_in": "circle/components.json",
+    "safe_rule": "safe = GET/HEAD by method; exceptions are listed in security_boundary (e.g. GET /ws upgrade)"
+   }
+  },
+  {
+   "name": "golden-surface",
+   "repository": "golden-surface",
+   "scope": "relay/relay.py",
+   "branch": "ccr-d0887a23-30wf63",
+   "commit": "b113718",
+   "protocol": "relay HTTP/WS",
+   "role": "embodied client: phone, relay, bus; the human-controlled surface",
+   "input_kinds": [
+    "command (/cmd)",
+    "bus event"
+   ],
+   "output_kinds": [
+    "read {url,title,text}",
+    "state"
+   ],
+   "operations": [
+    {
+     "method": "GET",
+     "path": "/ws"
+    },
+    {
+     "method": "POST",
+     "path": "/cmd"
+    },
+    {
+     "method": "GET",
+     "path": "/state"
+    },
+    {
+     "method": "POST",
+     "path": "/state"
+    },
+    {
+     "method": "GET",
+     "path": "/sessions"
+    },
+    {
+     "method": "GET",
+     "path": "/sync"
+    },
+    {
+     "method": "POST",
+     "path": "/sync/resync"
+    },
+    {
+     "method": "GET",
+     "path": "/bus/stream"
+    },
+    {
+     "method": "POST",
+     "path": "/bus/event"
+    },
+    {
+     "method": "GET",
+     "path": "/events"
+    },
+    {
+     "method": "GET",
+     "path": "/suggested"
+    },
+    {
+     "method": "POST",
+     "path": "/suggested"
+    },
+    {
+     "method": "POST",
+     "path": "/twin/check"
+    },
+    {
+     "method": "POST",
+     "path": "/twin/testsite-login"
+    },
+    {
+     "method": "GET",
+     "path": "/health"
+    },
+    {
+     "method": "GET",
+     "path": "/testsite/"
+    },
+    {
+     "method": "GET",
+     "path": "/testsite/login"
+    },
+    {
+     "method": "POST",
+     "path": "/testsite/login"
+    },
+    {
+     "method": "DELETE",
+     "path": "/testsite/sessions"
+    }
+   ],
+   "operations_note": "extracted by regex from golden-surface/relay/relay.py; completeness not proven",
+   "safe_operations": [
+    "GET /ws",
+    "GET /state",
+    "GET /sessions",
+    "GET /sync",
+    "GET /bus/stream",
+    "GET /events",
+    "GET /suggested",
+    "GET /health",
+    "GET /testsite/",
+    "GET /testsite/login"
+   ],
+   "mutating_operations": [
+    "POST /cmd",
+    "POST /state",
+    "POST /sync/resync",
+    "POST /bus/event",
+    "POST /suggested",
+    "POST /twin/check",
+    "POST /twin/testsite-login",
+    "POST /testsite/login",
+    "DELETE /testsite/sessions"
+   ],
+   "constitutional_artifact": [
+    {
+     "path": "golden-surface/SPEC.md",
+     "exists": true,
+     "content_id": "sha256:6ba809014a2b418c68aa2600055219d55ae7af8e30d913fd34cafa53b682c8d3"
+    },
+    {
+     "path": "golden-surface/AMENDMENTS.md",
+     "exists": true,
+     "content_id": "sha256:56c6b7e7a5ffa568f502d9c821e1008c88ac77e4f3ffaf5bc759f6ec26ba8e31"
+    }
+   ],
+   "nomenclature_artifact": [
+    {
+     "path": "golden-surface/docs/PROTOCOL.md",
+     "exists": true,
+     "content_id": "sha256:c85d12088d974ae6a7a09df5a6ae9cc1d6523cf1b1cb2764a14b43327703a478"
+    }
+   ],
+   "test_suite": {
+    "command": "python3 tests/*.py against a relay; npm test (purl) test/golden.test.js with FakePhone",
+    "files": [
+     "golden-surface/tests/test_relay.py",
+     "golden-surface/tests/test_sync_loud.py",
+     "golden-surface/tests/test_watchers.py"
+    ]
+   },
+   "research_status": "BOUNDARY: FakePhone-tested only; a real Android WebView is not tested (not faked)",
+   "projection_boundaries": [
+    {
+     "id": "D2",
+     "from": "Golden Surface tab",
+     "to": "read {url,title,text}",
+     "edge": "RESOLVE",
+     "lost": [
+      "DOM structure",
+      "affordances",
+      "scroll position"
+     ],
+     "status": "DECLARED; FakePhone text is synthetic, so no measurement is possible here"
+    }
+   ],
+   "known_information_loss": [
+    "D2 Golden Surface tab -> read {url,title,text}: DOM structure, affordances, scroll position"
+   ],
+   "security_boundary": "passwords never leave the phone; the agent loop (POST /bridge with a decider) is excluded; GET /ws upgrades to a bidirectional channel, so 'GET is safe' does not hold for it",
+   "deployment": [
+    {
+     "url": "http://40.64.120.87:8490",
+     "repo": "golden-surface",
+     "commit": null,
+     "mapping": "NOT MAPPABLE (unreachable from the build environment)"
+    }
+   ],
+   "reconstruction_method": "relay is NOT MAPPABLE from the build environment (40.64.120.87 unreachable); FakePhone reproduces the protocol only",
+   "provenance": {
+    "generated": [
+     "branch",
+     "commit",
+     "operations",
+     "safe_operations",
+     "mutating_operations",
+     "constitutional_artifact.exists/content_id",
+     "nomenclature_artifact.exists/content_id",
+     "test_suite.files",
+     "projection_boundaries (values)",
+     "known_information_loss",
+     "deployment"
+    ],
+    "declared": [
+     "name",
+     "repository",
+     "scope",
+     "protocol",
+     "role",
+     "input_kinds",
+     "output_kinds",
+     "routes_from",
+     "artifact paths",
+     "test_suite.command",
+     "research_status",
+     "projection_boundaries (ids)",
+     "security_boundary",
+     "reconstruction_method"
+    ],
+    "declared_in": "circle/components.json",
+    "safe_rule": "safe = GET/HEAD by method; exceptions are listed in security_boundary (e.g. GET /ws upgrade)"
+   }
+  },
+  {
+   "name": "musa",
+   "repository": "MUSA",
+   "scope": "luna-agent/",
+   "branch": "ccr-d0887a23-30wf63",
+   "commit": "d797135",
+   "protocol": "-",
+   "role": "specification sources and prototypes, outside the bridge",
+   "input_kinds": [
+    "text"
+   ],
+   "output_kinds": [
+    "specification"
+   ],
+   "operations": null,
+   "operations_note": "research/spec artifact; not executed by the bridge",
+   "safe_operations": null,
+   "mutating_operations": null,
+   "constitutional_artifact": [
+    {
+     "path": "MUSA/luna-agent/genesis/CONSTITUTION.md",
+     "exists": true,
+     "content_id": "sha256:3c2089b1eb5dacb05aa19e6d15c376a8d8675f1bd83bdbee031be83919a02295"
+    }
+   ],
+   "nomenclature_artifact": [
+    {
+     "path": "MUSA/luna-agent/najwa-conference/nomenclature-protocol.md",
+     "exists": true,
+     "content_id": "sha256:00211d457dafe98212028e77ae50f06d8afc76b25665c7a45a39d5238a490d36"
+    }
+   ],
+   "test_suite": {
+    "command": "npm test (purl) test/musa.test.js (spec conformance of the circle)",
+    "files": [
+     "purl/test/musa.test.js"
+    ]
+   },
+   "research_status": "SPECIFICATION; ramz seal accepts a recomputed forgery (SECURITY-FINDINGS SF-1)",
+   "projection_boundaries": [],
+   "known_information_loss": [],
+   "security_boundary": "never executed with credentials; ramz is not an integrity mechanism",
+   "deployment": [],
+   "reconstruction_method": "clone; files are read as specification",
+   "provenance": {
+    "generated": [
+     "branch",
+     "commit",
+     "operations",
+     "safe_operations",
+     "mutating_operations",
+     "constitutional_artifact.exists/content_id",
+     "nomenclature_artifact.exists/content_id",
+     "test_suite.files",
+     "projection_boundaries (values)",
+     "known_information_loss",
+     "deployment"
+    ],
+    "declared": [
+     "name",
+     "repository",
+     "scope",
+     "protocol",
+     "role",
+     "input_kinds",
+     "output_kinds",
+     "routes_from",
+     "artifact paths",
+     "test_suite.command",
+     "research_status",
+     "projection_boundaries (ids)",
+     "security_boundary",
+     "reconstruction_method"
+    ],
+    "declared_in": "circle/components.json",
+    "safe_rule": "safe = GET/HEAD by method; exceptions are listed in security_boundary (e.g. GET /ws upgrade)"
+   }
+  },
+  {
+   "name": "luna-foundry",
+   "repository": "luna-foundry",
+   "scope": "api/",
+   "branch": "ccr-d0887a23-30wf63",
+   "commit": "6a260ef",
+   "protocol": "-",
+   "role": "text-window service; source of the scroll@luna-foundry sense; not integrated with the circle",
+   "input_kinds": [
+    "text"
+   ],
+   "output_kinds": [
+    "text window"
+   ],
+   "operations": null,
+   "operations_note": "not integrated; routes not enumerated",
+   "safe_operations": null,
+   "mutating_operations": null,
+   "constitutional_artifact": [],
+   "nomenclature_artifact": [
+    {
+     "path": "luna-foundry/NOMENCLATURE.md",
+     "exists": true,
+     "content_id": "sha256:56a2a68e28dae0b1689d29c9032b04096c07ed9fce7a664e5345a3c9df7c9955"
+    }
+   ],
+   "test_suite": {
+    "command": "npm test (luna-foundry)",
+    "files": [
+     "luna-foundry/test/foundry.test.js"
+    ]
+   },
+   "research_status": "OUTSIDE THE BRIDGE",
+   "projection_boundaries": [],
+   "known_information_loss": [],
+   "security_boundary": "-",
+   "deployment": [
+    {
+     "url": "https://lunar-foundry.vercel.app",
+     "repo": "luna-foundry",
+     "branch": "claude/golden-surface-locked-tabs-yf57of",
+     "commit": "6a260ef",
+     "mapping": "Vercel git metadata"
+    }
+   ],
+   "reconstruction_method": "clone; Vercel deployment maps to 6a260ef by git metadata",
+   "provenance": {
+    "generated": [
+     "branch",
+     "commit",
+     "operations",
+     "safe_operations",
+     "mutating_operations",
+     "constitutional_artifact.exists/content_id",
+     "nomenclature_artifact.exists/content_id",
+     "test_suite.files",
+     "projection_boundaries (values)",
+     "known_information_loss",
+     "deployment"
+    ],
+    "declared": [
+     "name",
+     "repository",
+     "scope",
+     "protocol",
+     "role",
+     "input_kinds",
+     "output_kinds",
+     "routes_from",
+     "artifact paths",
+     "test_suite.command",
+     "research_status",
+     "projection_boundaries (ids)",
+     "security_boundary",
+     "reconstruction_method"
+    ],
+    "declared_in": "circle/components.json",
+    "safe_rule": "safe = GET/HEAD by method; exceptions are listed in security_boundary (e.g. GET /ws upgrade)"
+   }
+  }
+ ],
  "repositories": {
   "seurl": {
    "role": "program / transition notation (halt page); executable FSM lives in purl src/circle/seurl.js",
@@ -27,7 +1585,6 @@
    "research_branch": "ccr-d0887a23-30wf63",
    "head": "620ff95",
    "branches": {
-    "ccr-d0887a23-30wf63": "620ff95",
     "master": "620ff95"
    }
   },
@@ -37,9 +1594,9 @@
    "url": "https://github.com/akadaan310/purl",
    "default_branch": "claude/purl-protocol-research-bxevq5",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "9341d2f",
+   "head": "b7e6558",
    "branches": {
-    "ccr-d0887a23-30wf63": "9341d2f",
+    "ccr-d0887a23-30wf63": "c0ead8b",
     "claude/acsp-purl-composition-adsbn6": "18c85bf",
     "claude/purl-protocol-research-bxevq5": "3df4452"
    }
@@ -64,7 +1621,7 @@
    "url": "https://github.com/akadaan310/substrateIO",
    "default_branch": "claude/research-substrate-bootstrap-bfd02a",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "16657b5",
+   "head": "da503a4",
    "branches": {
     "ccr-d0887a23-30wf63": "16657b5",
     "claude/acsp-program-001-k616hw": "5073595",
@@ -79,7 +1636,6 @@
    "research_branch": "ccr-d0887a23-30wf63",
    "head": "b113718",
    "branches": {
-    "ccr-d0887a23-30wf63": "b113718",
     "claude/golden-surface-locked-tabs-yf57of": "48e995d",
     "main": "b113718"
    }
@@ -92,7 +1648,6 @@
    "research_branch": "ccr-d0887a23-30wf63",
    "head": "d797135",
    "branches": {
-    "ccr-d0887a23-30wf63": "d797135",
     "claude/golden-surface-locked-tabs-yf57of": "6337fd0",
     "master": "d797135"
    }
@@ -175,6 +1730,20 @@
    "edge": "RESOLVE",
    "effect": "pure",
    "description": "bridge constitution v1"
+  },
+  {
+   "method": "GET",
+   "path": "/constitution/model",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "constitution / enforcement / implementation / evidence / authority identities and the three axes"
+  },
+  {
+   "method": "GET",
+   "path": "/constitution/axes",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "recorded quadrant probes of conformance x authority"
   },
   {
    "method": "GET",
@@ -608,7 +2177,7 @@
  "constitution": {
   "clauses": "circle/constitution/constitution-v1.json",
   "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
-  "enforcement": "sha256:d042a1dc2915ec3f78b0f0ebfbcdc1ef5bcb9441e32aecd0deeab893f9ec7496",
+  "enforcement": "sha256:fb01c43b3f0e441d66f4455baffea6eb7e13fe5a74b416f7066a5fabc7ea9678",
   "sdk": "sha256:e7a8a5cb84576f57c721036a738a7bc78248892ed9315de25d041b3eae3c13d1"
  },
  "historical_states": [
@@ -662,7 +2231,8 @@
   "cold": [
    "report-1.json",
    "report-2.json",
-   "report-3.json"
+   "report-3.json",
+   "report-4.json"
   ],
   "differential": [
    "results-2.json",

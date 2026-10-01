@@ -33,19 +33,92 @@ for (const [name, meta] of Object.entries(REPOS)) {
     branches: Object.fromEntries(remotes.map((b) => [b.replace('origin/', ''), g(d, 'rev-parse', '--short', b)])) };
 }
 
+// ---- components (XXIV): declared fields from circle/components.json, the rest generated ----------
+const GLOB = (pat) => { const [dir, f] = [dirname(pat), pat.split('/').pop()]; const re = new RegExp('^' + f.replace(/\./g, '\\.').replace(/\*/g, '.*') + '$');
+  return existsSync(join(P, dir)) ? readdirSync(join(P, dir)).filter((x) => re.test(x)).sort() : []; };
+const src = (f) => (existsSync(join(P, f)) ? readFileSync(join(P, f), 'utf8') : null);
+// regex route literal -> path template: ^\/r\/([..]+)\/(a|b)$ -> /r/{id}/a, /r/{id}/b
+const tmpl = (re) => {
+  let out = [re.replace(/^\^/, '').replace(/\$$/, '').replace(/\\\//g, '/')];
+  for (;;) {
+    const i = out[0].indexOf('('); if (i < 0) break;
+    out = out.flatMap((t) => { const k = t.indexOf('('), e = t.indexOf(')', k); const body = t.slice(k + 1, e);
+      return /^[a-z_]+(\|[a-z_]+)+$/.test(body) ? body.split('|').map((a) => t.slice(0, k) + a + t.slice(e + 1)) : [t.slice(0, k) + '{id}' + t.slice(e + 1)]; });
+  }
+  return out.map((t) => t.replace(/\{id\}(.*)\{id\}/, '{id}$1{name}'));
+};
+const EXTRACT = {
+  'circle-ROUTES': () => ROUTES.map((r) => ({ method: r.method, path: r.path })),
+  'purl/src/transport/server.js': (t) => [
+    ...[...t.matchAll(/path === '([^']+)' && (isGet|req\.method === '(\w+)')/g)].map((m) => ({ method: m[3] ?? 'GET', path: m[1] })),
+    ...[...t.matchAll(/\(m = \/(\^[^\n]*?\$)\/\.exec\(path\)\)( && isGet)?\)/g)].flatMap((m) => tmpl(m[1]).map((p) => ({ method: m[2] ? 'GET' : 'POST', path: p }))),
+  ],
+  'substrateIO/tools/purl_server.py': (t) => [
+    ...[...t.matchAll(/method == "(\w+)" and \(?path ?(==|\.startswith\() ?"([^"]+)"|path == "([^"]+)" and method == "(\w+)"/g)]
+      .map((m) => (m[4] ? { method: m[5], path: m[4] } : { method: m[1], path: m[2] === '==' ? m[3] : m[3] + '{id}' })),
+    ...(/if method == "GET":\s+return P\.get\(path\)/.test(t) ? [{ method: 'GET', path: '<value address> (resolve)' }] : []),
+    ...(/if method == "POST":\s+return 201, store\.record\(path\)/.test(t) ? [{ method: 'POST', path: '<value address> (record execution)' }] : []),
+  ],
+  'NetGovComEduGovOrgEduGovComNet/src/transport/handler.ts': (t) => {
+    const at = (re) => t.search(re); const get0 = at(/async function handleGet/), post0 = at(/async function handlePost/), end = at(/function withCapabilityUrls/);
+    const ops = [];
+    for (const m of t.matchAll(/path === '([^']+)'/g)) ops.push({ method: m.index > post0 && m.index < end ? 'POST' : 'GET', path: m[1] });
+    if (/ROUTES\.resource\.exec\(path\)/.test(t)) ops.push({ method: 'GET', path: '/r/{id}' });
+    for (const m of t.slice(get0, post0).matchAll(/action === '([a-z_]+)'/g)) ops.push({ method: 'GET', path: `/r/{id}?action=${m[1]}` });
+    if (/action\.startsWith\('prepare_'\)/.test(t)) ops.push({ method: 'GET', path: '/r/{id}?action=prepare_* (prepares an intent; performs nothing)' });
+    for (const m of t.slice(get0, post0).matchAll(/case '([a-z_]+)'/g)) ops.push({ method: 'GET', path: `/r/{id}/${m[1]}` });
+    if (/\\\/operations\$\//.test(t.slice(post0, end))) ops.push({ method: 'POST', path: '/r/{id}/operations' });
+    return ops;
+  },
+  'golden-surface/relay/relay.py': (t) => [...t.matchAll(/web\.(get|post|put|delete)\("([^"]+)"/g)].map((m) => ({ method: m[1].toUpperCase(), path: m[2] })),
+};
+const uniq = (ops) => [...new Map(ops.map((o) => [o.method + ' ' + o.path, o])).values()];
+const MATRIX = existsSync(join(ROOT, 'circle/PROJECTION-MATRIX.json')) ? J('circle/PROJECTION-MATRIX.json') : { measured: [], declared: [] };
+const DEPLOY = (repo) => manifestDeployments.filter((d) => d.repo === repo);
+const manifestDeployments = [
+  { url: 'https://acsp-one.vercel.app', repo: 'NetGovComEduGovOrgEduGovComNet', branch: 'claude/agent-continuity-protocol-doi4bn', commit: '9fcf2e1', mapping: 'Vercel git metadata', protocol: 'ACSP/0.1' },
+  { url: 'https://seurl.vercel.app', repo: 'seurl', commit: null, mapping: 'content hash = index.html @620ff95 (no git metadata)' },
+  { url: 'https://lunar-foundry.vercel.app', repo: 'luna-foundry', branch: 'claude/golden-surface-locked-tabs-yf57of', commit: '6a260ef', mapping: 'Vercel git metadata' },
+  { url: 'http://40.64.120.87:8490', repo: 'golden-surface', commit: null, mapping: 'NOT MAPPABLE (unreachable from the build environment)' },
+];
+const COMP = J('circle/components.json');
+const components = COMP.components.map((c) => {
+  const d = join(P, c.repository);
+  let ops = null, opsNote;
+  if (c.routes_from.kind === 'none') opsNote = c.routes_from.reason;
+  else if (c.routes_from.kind === 'circle-ROUTES') ops = EXTRACT['circle-ROUTES']();
+  else { const t = src(c.routes_from.file); ops = t == null ? null : uniq(EXTRACT[c.routes_from.file](t)); opsNote = t == null ? 'source absent' : `extracted by regex from ${c.routes_from.file}; completeness not proven`; }
+  const artifact = (f) => { const [path] = f.split('#'); return { path: f, exists: existsSync(join(P, path)), content_id: existsSync(join(P, path)) ? sha(join(P, path)) : null }; };
+  const boundaries = c.projection_boundaries.map((id) => { const m = MATRIX.measured.find((x) => x.id === id) ?? MATRIX.declared.find((x) => x.id === id);
+    return m ? { id, from: m.from, to: m.to, edge: m.edge, ...(m.n != null ? { n: m.n, loss_bits: m.loss_H_source_given_output_bits, spurious_bits: m.H_output_given_source_bits } : { lost: m.lost, status: m.status }) } : { id, missing: true }; });
+  const [tdir, tpat] = [dirname(c.test_suite.files), c.test_suite.files];
+  return {
+    name: c.name, repository: c.repository, scope: c.scope,
+    branch: g(d, 'branch', '--show-current'), commit: g(d, 'rev-parse', '--short', 'HEAD'),
+    protocol: c.protocol, role: c.role, input_kinds: c.input_kinds, output_kinds: c.output_kinds,
+    operations: ops, operations_note: opsNote ?? 'circle route table (src/circle/bridge.js ROUTES)',
+    safe_operations: ops?.filter((o) => o.method === 'GET' || o.method === 'HEAD').map((o) => `${o.method} ${o.path}`) ?? null,
+    mutating_operations: ops?.filter((o) => !['GET', 'HEAD'].includes(o.method)).map((o) => `${o.method} ${o.path}`) ?? null,
+    constitutional_artifact: c.constitutional_artifact.map(artifact), nomenclature_artifact: c.nomenclature_artifact.map(artifact),
+    test_suite: { command: c.test_suite.command, files: GLOB(tpat).map((f) => `${tdir}/${f}`) },
+    research_status: c.research_status, projection_boundaries: boundaries,
+    known_information_loss: boundaries.filter((b) => b.loss_bits > 0 || b.lost?.length).map((b) => `${b.id} ${b.from} -> ${b.to}: ` + (b.loss_bits != null ? `${b.loss_bits} bits` : b.lost.join(', '))),
+    security_boundary: c.security_boundary, deployment: DEPLOY(c.repository), reconstruction_method: c.reconstruction_method,
+    provenance: { generated: ['branch', 'commit', 'operations', 'safe_operations', 'mutating_operations', 'constitutional_artifact.exists/content_id', 'nomenclature_artifact.exists/content_id', 'test_suite.files', 'projection_boundaries (values)', 'known_information_loss', 'deployment'],
+      declared: ['name', 'repository', 'scope', 'protocol', 'role', 'input_kinds', 'output_kinds', 'routes_from', 'artifact paths', 'test_suite.command', 'research_status', 'projection_boundaries (ids)', 'security_boundary', 'reconstruction_method'], declared_in: 'circle/components.json',
+      safe_rule: 'safe = GET/HEAD by method; exceptions are listed in security_boundary (e.g. GET /ws upgrade)' },
+  };
+});
+
 const records = (dir) => (existsSync(join(ROOT, dir)) ? readdirSync(join(ROOT, dir)).sort() : []);
 const manifest = {
-  format: 'bridge-manifest/2', generated_at: new Date().toISOString(), generator: 'scripts/bridge-manifest.js',
+  format: 'bridge-manifest/3', generated_at: new Date().toISOString(), generator: 'scripts/bridge-manifest.js',
   secrets: 'none: commit ids, paths, names and hashes only',
   start_here: ['circle/CURRENT-STATE.md', 'circle/BRIDGE-RECONSTRUCTION.md', 'circle/BRIDGE-CONTRACT.md', 'GET / (circle entry)', 'GET /sdk'],
   protocols: { circle: CIRCLE_PROTOCOL, sdk: SDK_VERSION, purl: 'PURL/0.1', substrate: 'substrate-purl/0 (provisional)', acsp: 'ACSP/0.1', seurl: 'seurl move words (MUSA url-machine.md)' },
+  components,
   repositories: repos,
-  deployments: [
-    { url: 'https://acsp-one.vercel.app', repo: 'NetGovComEduGovOrgEduGovComNet', branch: 'claude/agent-continuity-protocol-doi4bn', commit: '9fcf2e1', mapping: 'Vercel git metadata', protocol: 'ACSP/0.1' },
-    { url: 'https://seurl.vercel.app', repo: 'seurl', commit: null, mapping: 'content hash = index.html @620ff95 (no git metadata)' },
-    { url: 'https://lunar-foundry.vercel.app', repo: 'luna-foundry', branch: 'claude/golden-surface-locked-tabs-yf57of', commit: '6a260ef', mapping: 'Vercel git metadata' },
-    { url: 'http://40.64.120.87:8490', repo: 'golden-surface', commit: null, mapping: 'NOT MAPPABLE (unreachable from the build environment)' },
-  ],
+  deployments: manifestDeployments,
   entrypoints: { circle: 'npm run circle (purl)', substrate: 'python3 -m tools.purl_server (substrateIO)', acsp_local: 'npm run serve:local (ACSP)', relay: 'python3 relay/relay.py (golden-surface)' },
   operations: ROUTES,
   schemas: ['addressed-transition', 'prompt-contract', 'test-artifact', 'perturbation', 'program-transformation'].map((n) => `/sdk/schemas/${n}`),

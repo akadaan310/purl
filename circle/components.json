@@ -1,0 +1,110 @@
+{
+ "format": "circle-components/1",
+ "about": "DECLARED fields of each bridge component (what cannot be generated). scripts/bridge-manifest.js joins these with GENERATED fields (git refs, route tables extracted from source, test file counts, artifact hashes, projection-matrix losses) and marks the provenance of every field. Paths are relative to the parent directory of the repositories.",
+ "components": [
+  {
+   "name": "circle", "repository": "purl", "scope": "src/circle",
+   "protocol": "circle/0 + SDK", "role": "the bridge: stateless composition of the other systems through SEURL move words; holds no records and no authority",
+   "input_kinds": ["SEURL move word", "address", "session (asserted)"], "output_kinds": ["view", "record (via PURL)", "execution (via substrate)", "proposal (via ACSP)"],
+   "routes_from": {"kind": "circle-ROUTES"},
+   "constitutional_artifact": ["purl/circle/constitution/constitution-v1.json", "purl/circle/constitution/enforcement.json", "purl/circle/constitution/sdk-constitution.json"],
+   "nomenclature_artifact": ["purl/circle/BRIDGE-NOMENCLATURE.md", "substrateIO/research/registries/nomenclature.json"],
+   "test_suite": {"command": "npm test (purl)", "files": "purl/test/*.test.js"},
+   "research_status": "IMPLEMENTED, TESTED; addressed transition (C-052) and recursive program construction (C-053) are HYPOTHESES",
+   "projection_boundaries": ["B1", "B2", "B3a", "B3b", "D1"],
+   "security_boundary": "never holds credentials; rejects ?cap= (K-06); mutation only by POST; TALK = propose only; authority stays with PURL grants, ACSP capabilities, Golden seats, git rights",
+   "reconstruction_method": "clone purl@branch, npm ci, npm test, resume checkpoint (scripts/bridge-cold-reconstruct.js)"
+  },
+  {
+   "name": "purl-core", "repository": "purl", "scope": "src/{core,continuity,transport}",
+   "protocol": "PURL/0.1", "role": "persistent versioned records (resources, events, grants); the circle's record store",
+   "input_kinds": ["operation request (expected_version)"], "output_kinds": ["record id@version", "event"],
+   "routes_from": {"kind": "regex", "file": "purl/src/transport/server.js", "pattern": "path === '<p>' && (isGet|req.method === '<M>')"},
+   "constitutional_artifact": ["purl/PRINCIPLES.md", "purl/SPEC.md", "purl/SECURITY.md"],
+   "nomenclature_artifact": ["purl/NOMENCLATURE.md"],
+   "test_suite": {"command": "npm test (purl)", "files": "purl/test/*.test.js"},
+   "research_status": "IMPLEMENTED, TESTED",
+   "projection_boundaries": ["B3a", "B3b"],
+   "security_boundary": "owner grants authorise in-place update: the K-12 conflict (OBSERVED, experiments/axes/record-2.json)",
+   "reconstruction_method": "event replay from the store files (checkpoint snapshots)"
+  },
+  {
+   "name": "seurl", "repository": "seurl", "scope": "index.html (halt page); executable FSM in purl/src/circle/seurl.js",
+   "protocol": "SEURL move words (MUSA url-machine.md)", "role": "program / transition notation",
+   "input_kinds": ["text"], "output_kinds": ["SEURL move word"],
+   "routes_from": {"kind": "none", "reason": "static page; no server"},
+   "constitutional_artifact": ["MUSA/luna-agent/protocols/url-machine.md"],
+   "nomenclature_artifact": ["substrateIO/research/registries/nomenclature.json#C-043"],
+   "test_suite": {"command": "npm test (purl): test/musa.test.js, test/transition-model.test.js", "files": "purl/test/musa.test.js"},
+   "research_status": "SPECIFIED (MUSA), IMPLEMENTED in the circle",
+   "projection_boundaries": ["B1", "B2"],
+   "security_boundary": "a URL is a program, never a credential: possession of a SEURL grants nothing",
+   "reconstruction_method": "deployment content hash = index.html @620ff95 (no git metadata on the deployment)"
+  },
+  {
+   "name": "substrate", "repository": "substrateIO", "scope": "substrate/, tools/purl_server.py",
+   "protocol": "substrate-purl/0 (provisional)", "role": "values, typed terms, executions, projections, observations; research registries",
+   "input_kinds": ["address", "typed term", "observation request"], "output_kinds": ["value", "derivation_id", "value_id", "execution", "observation"],
+   "routes_from": {"kind": "regex", "file": "substrateIO/tools/purl_server.py", "pattern": "method == \"<M>\" and path == \"<p>\""},
+   "constitutional_artifact": ["substrateIO/PROTOCOL.md", "substrateIO/CLAUDE.md"],
+   "nomenclature_artifact": ["substrateIO/research/registries/nomenclature.json"],
+   "test_suite": {"command": "python3 -m unittest discover -s tests -t . ; python3 -m tools.validate", "files": "substrateIO/tests/test_*.py"},
+   "research_status": "IMPLEMENTED, TESTED; outputs of models are SIMULATED",
+   "projection_boundaries": ["B4a", "B4b", "B5a", "B5b"],
+   "security_boundary": "runs locally; no credentials; runs/ is content-addressed and never edited",
+   "reconstruction_method": "clone, run tests and tools.validate; executions are re-derivable (execution_hash per occurrence)"
+  },
+  {
+   "name": "acsp", "repository": "NetGovComEduGovOrgEduGovComNet", "scope": "src/transport/handler.ts",
+   "protocol": "ACSP/0.1 (deployed); 0.1+program-001 and 0.2 on branches", "role": "agent continuity: shared resources, proposals, capabilities, owner resolution",
+   "input_kinds": ["prepared intent", "capability (header)"], "output_kinds": ["record id@version", "event", "proposal"],
+   "routes_from": {"kind": "regex", "file": "NetGovComEduGovOrgEduGovComNet/src/transport/handler.ts", "pattern": "path === '<p>' in handleGet/handlePost; case '<sub>' in dispatchSub (/r/{id}/<sub>); POST regex /r/{id}/operations"},
+   "constitutional_artifact": ["NetGovComEduGovOrgEduGovComNet/CONSTITUTIONANDDIRECTIVE.md", "NetGovComEduGovOrgEduGovComNet/PROTOCOL.md"],
+   "nomenclature_artifact": ["NetGovComEduGovOrgEduGovComNet/PROTOCOL.md"],
+   "test_suite": {"command": "npx vitest run", "files": "NetGovComEduGovOrgEduGovComNet/tests/*.test.ts"},
+   "research_status": "IMPLEMENTED, DEPLOYED (production predates every integration)",
+   "projection_boundaries": ["B6a", "B6b", "D1"],
+   "security_boundary": "capabilities in headers, never in URLs or logs; propose needs none; resolution is owner authority (K-18 UNRESOLVED)",
+   "reconstruction_method": "clone, npm ci, npm run serve:local, vitest; live resource fixture circle/fixtures/acsp-live-*"
+  },
+  {
+   "name": "golden-surface", "repository": "golden-surface", "scope": "relay/relay.py",
+   "protocol": "relay HTTP/WS", "role": "embodied client: phone, relay, bus; the human-controlled surface",
+   "input_kinds": ["command (/cmd)", "bus event"], "output_kinds": ["read {url,title,text}", "state"],
+   "routes_from": {"kind": "regex", "file": "golden-surface/relay/relay.py", "pattern": "web.<m>(\"<p>\""},
+   "constitutional_artifact": ["golden-surface/SPEC.md", "golden-surface/AMENDMENTS.md"],
+   "nomenclature_artifact": ["golden-surface/docs/PROTOCOL.md"],
+   "test_suite": {"command": "python3 tests/*.py against a relay; npm test (purl) test/golden.test.js with FakePhone", "files": "golden-surface/tests/test_*.py"},
+   "research_status": "BOUNDARY: FakePhone-tested only; a real Android WebView is not tested (not faked)",
+   "projection_boundaries": ["D2"],
+   "security_boundary": "passwords never leave the phone; the agent loop (POST /bridge with a decider) is excluded; GET /ws upgrades to a bidirectional channel, so 'GET is safe' does not hold for it",
+   "reconstruction_method": "relay is NOT MAPPABLE from the build environment (40.64.120.87 unreachable); FakePhone reproduces the protocol only"
+  },
+  {
+   "name": "musa", "repository": "MUSA", "scope": "luna-agent/",
+   "protocol": "-", "role": "specification sources and prototypes, outside the bridge",
+   "input_kinds": ["text"], "output_kinds": ["specification"],
+   "routes_from": {"kind": "none", "reason": "research/spec artifact; not executed by the bridge"},
+   "constitutional_artifact": ["MUSA/luna-agent/genesis/CONSTITUTION.md"],
+   "nomenclature_artifact": ["MUSA/luna-agent/najwa-conference/nomenclature-protocol.md"],
+   "test_suite": {"command": "npm test (purl) test/musa.test.js (spec conformance of the circle)", "files": "purl/test/musa.test.js"},
+   "research_status": "SPECIFICATION; ramz seal accepts a recomputed forgery (SECURITY-FINDINGS SF-1)",
+   "projection_boundaries": [],
+   "security_boundary": "never executed with credentials; ramz is not an integrity mechanism",
+   "reconstruction_method": "clone; files are read as specification"
+  },
+  {
+   "name": "luna-foundry", "repository": "luna-foundry", "scope": "api/",
+   "protocol": "-", "role": "text-window service; source of the scroll@luna-foundry sense; not integrated with the circle",
+   "input_kinds": ["text"], "output_kinds": ["text window"],
+   "routes_from": {"kind": "none", "reason": "not integrated; routes not enumerated"},
+   "constitutional_artifact": [],
+   "nomenclature_artifact": ["luna-foundry/NOMENCLATURE.md"],
+   "test_suite": {"command": "npm test (luna-foundry)", "files": "luna-foundry/test/*.test.js"},
+   "research_status": "OUTSIDE THE BRIDGE",
+   "projection_boundaries": [],
+   "security_boundary": "-",
+   "reconstruction_method": "clone; Vercel deployment maps to 6a260ef by git metadata"
+  }
+ ]
+}
