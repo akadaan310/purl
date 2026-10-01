@@ -1,0 +1,29 @@
+{
+ "check": "PH-1",
+ "pre_registered": false,
+ "reason": "record-2 falsified P2 (code arm executable fraction 0.8635)",
+ "groups": {
+  "damage after (source) | 404 no_baseline": {
+   "count": 16,
+   "example": "/seurl/START/map/eca/90/8/state/5/WRITE/damage/1",
+   "message": "damage applies to a perturbed state: /…/state/{x}/flip/{bit}/damage/{horizon}."
+  },
+  "damage after next | 404 no_baseline": {
+   "count": 16,
+   "example": "/seurl/START/map/eca/90/8/state/5/WRITE/next/WRITE/damage/1",
+   "message": "damage applies to a perturbed state: /…/state/{x}/flip/{bit}/damage/{horizon}."
+  },
+  "at after trace | 422 out_of_range": {
+   "count": 56,
+   "example": "/seurl/START/map/eca/90/8/state/5/WRITE/trace/1/WRITE/at/7",
+   "message": "t must be < 2"
+  },
+  "at after orbit | 422 out_of_range": {
+   "count": 13,
+   "example": "/seurl/START/map/eca/90/8/state/5/WRITE/orbit/WRITE/at/7",
+   "message": "t must be < 4"
+  }
+ },
+ "total": 740,
+ "non_executable": 101
+}

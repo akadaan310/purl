@@ -1,0 +1,326 @@
+{
+ "experiment": "EXP-PROGRAM-CLOSURE-1",
+ "spec": "circle/experiments/program-closure/SPEC.md",
+ "started": "2026-10-01T16:02:10.370Z",
+ "commits": {
+  "purl": "e8eaf362d3bd951519064c7418acc7fb8ff881fc",
+  "substrateIO": "da503a432aafebbdd0bc453789fbb0f4e099f3fa"
+ },
+ "catalog_version": [
+  "sha256:cd577842312193ec69be648d7aa6160bf0fc7d0330eda77da1dc61f7c2e56a32",
+  "sha256:ae182de7a1aad6f1236c33dceeb54888247b05c429ea4e98e28605ad389d92da",
+  "sha256:762c3bed5c5a577151a70a6ab8866c27afcecfe1f18e00c104a3cd316e82c622",
+  "sha256:d982ae668f904f9e26e07160b108168191e9a50bd424bc688efb8f53f2065c83",
+  "sha256:2005d6a6def336839ae9af5aee5258d146536055622f8dbdf6d4f33ca9517c72",
+  "sha256:6e655362d4431ad842bf8070646abbe653106a9de39e97661290d6bb42cf939b",
+  "sha256:67f8d8e7cca680230fc4cea180fcff3fa3284c7adeb3a4df2fb86b9888b5ef10",
+  "sha256:909c161eddef0b554808a416dc4d4c96ee491867e9bd52d9bad02b67ae737f61",
+  "sha256:2dde3233a77bdb31634fca1ec9e0695544e017521668f13c141aa5835a435e0f",
+  "sha256:052ab86f833a7407e8feffcdd4283945c7868fb594ce04d67696a94cc71decd3",
+  "sha256:9997e8f103b05e349ff6500fd8085c0f24cefc31138905652d2c5d85b7f65843",
+  "sha256:919dcd5bd9b6cbcd2a8a5eb216587d2c95e32312d9e15cd460bde673afe5f268",
+  "sha256:c2bce4e5c8b8f7d17e96a9b14117b321de918e43ba7a004e76b52baf8493254c",
+  "sha256:5b33533fe9cc28e85add3f4dc46f6fa1b71f56e75a8efe473d1dba925d232f8b",
+  "sha256:616b09a682a1df0b58daad77f93b513654e21990069a14551ab11f3e6434884f",
+  "sha256:3ca03b7abfd8e78ed3582a86371a8a2c690ee982305503afbc1d1a23b1a233be",
+  "sha256:8e3fa0cd0bae27c168dda8a3dc42db2dbef2ebdf5cfa9d65dc279af3ddbcd136",
+  "sha256:aa003aa1bb5bc6e90d8bb014a00826c8e770f922e65e29101c7d73cca8bd8a1b",
+  "sha256:59b6b6d11c9cdb14886d19a6c0458dc67fb2dfb82b031a65f55b90b21d568a85",
+  "sha256:2e70dd3a590e457808f3f3a7612bf0757851f96789394a34d29aa9d450898f85",
+  "sha256:6dcf31d13b99855ac92149c332ed7a9a7cd83c9fdce7434c1e3f276e5c9f51a3"
+ ],
+ "limits_read_from_code": {
+  "table_states": 65536,
+  "max_bits": 64,
+  "trace_steps": 4096,
+  "orbit_steps": 65536,
+  "power": 1048576,
+  "links": 16
+ },
+ "alphabet_size": 122,
+ "arms": {
+  "untyped": {
+   "generated": 60024,
+   "by_depth": {
+    "1": 488,
+    "2": 59536
+   },
+   "fsm_legal": 60024,
+   "well_typed": 2016,
+   "executable": 639,
+   "executable_fraction": 0.010645741703318673,
+   "typing_gap": 1377,
+   "typing_gap_reasons": {
+    "422 out_of_range": 1329,
+    "404 no_baseline": 48
+   },
+   "not_typed_reasons": {
+    "404 unknown_operation": 56904,
+    "422 out_of_range": 1104
+   },
+   "coverage_segments": [
+    "at",
+    "damage",
+    "flip",
+    "next",
+    "orbit",
+    "trace",
+    "transitions"
+   ],
+   "non_executable_examples": [
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/state/0",
+     "term": 404,
+     "value": 404,
+     "code": "unknown_operation"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/state/1",
+     "term": 404,
+     "value": 404,
+     "code": "unknown_operation"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/state/7",
+     "term": 404,
+     "value": 404,
+     "code": "unknown_operation"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/state/8",
+     "term": 404,
+     "value": 404,
+     "code": "unknown_operation"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/state/9",
+     "term": 404,
+     "value": 404,
+     "code": "unknown_operation"
+    }
+   ],
+   "executable_programs": 639
+  },
+  "typed": {
+   "generated": 2144,
+   "by_depth": {
+    "1": 120,
+    "2": 2024
+   },
+   "fsm_legal": 2144,
+   "well_typed": 2016,
+   "executable": 639,
+   "executable_fraction": 0.2980410447761194,
+   "typing_gap": 1377,
+   "typing_gap_reasons": {
+    "422 out_of_range": 1329,
+    "404 no_baseline": 48
+   },
+   "not_typed_reasons": {
+    "422 out_of_range": 128
+   },
+   "coverage_segments": [
+    "at",
+    "damage",
+    "flip",
+    "next",
+    "orbit",
+    "trace",
+    "transitions"
+   ],
+   "non_executable_examples": [
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/flip/8",
+     "term": 200,
+     "value": 422,
+     "code": "out_of_range"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/PERTURB/8",
+     "term": 200,
+     "value": 422,
+     "code": "out_of_range"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/flip/9",
+     "term": 200,
+     "value": 422,
+     "code": "out_of_range"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/PERTURB/9",
+     "term": 200,
+     "value": 422,
+     "code": "out_of_range"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/flip/4097",
+     "term": 200,
+     "value": 422,
+     "code": "out_of_range"
+    }
+   ],
+   "executable_programs": 639
+  },
+  "constitution": {
+   "generated": 2016,
+   "by_depth": {
+    "1": 112,
+    "2": 1904
+   },
+   "fsm_legal": 2016,
+   "well_typed": 2016,
+   "executable": 639,
+   "executable_fraction": 0.3169642857142857,
+   "typing_gap": 1377,
+   "typing_gap_reasons": {
+    "422 out_of_range": 1329,
+    "404 no_baseline": 48
+   },
+   "not_typed_reasons": {},
+   "coverage_segments": [
+    "at",
+    "damage",
+    "flip",
+    "next",
+    "orbit",
+    "trace",
+    "transitions"
+   ],
+   "non_executable_examples": [
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/flip/8",
+     "term": 200,
+     "value": 422,
+     "code": "out_of_range"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/PERTURB/8",
+     "term": 200,
+     "value": 422,
+     "code": "out_of_range"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/flip/9",
+     "term": 200,
+     "value": 422,
+     "code": "out_of_range"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/PERTURB/9",
+     "term": 200,
+     "value": 422,
+     "code": "out_of_range"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/flip/4097",
+     "term": 200,
+     "value": 422,
+     "code": "out_of_range"
+    }
+   ],
+   "executable_programs": 639
+  },
+  "code": {
+   "generated": 740,
+   "by_depth": {
+    "1": 66,
+    "2": 674
+   },
+   "fsm_legal": 740,
+   "well_typed": 740,
+   "executable": 639,
+   "executable_fraction": 0.8635135135135135,
+   "typing_gap": 101,
+   "typing_gap_reasons": {
+    "404 no_baseline": 32,
+    "422 out_of_range": 69
+   },
+   "not_typed_reasons": {},
+   "coverage_segments": [
+    "at",
+    "damage",
+    "flip",
+    "next",
+    "orbit",
+    "trace",
+    "transitions"
+   ],
+   "non_executable_examples": [
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/damage/1",
+     "term": 200,
+     "value": 404,
+     "code": "no_baseline"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/damage/7",
+     "term": 200,
+     "value": 404,
+     "code": "no_baseline"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/damage/8",
+     "term": 200,
+     "value": 404,
+     "code": "no_baseline"
+    },
+    {
+     "text": "/seurl/START/map/eca/90/8/state/5/WRITE/damage/9",
+     "term": 200,
+     "value": 404,
+     "code": "no_baseline"
+    },
+    {
+     "text": "/seurl/START/map/eca/30/8/state/1/WRITE/damage/1",
+     "term": 200,
+     "value": 404,
+     "code": "no_baseline"
+    }
+   ],
+   "executable_programs": 639
+  }
+ },
+ "laws": {
+  "instances": 165,
+  "L1_counterexamples": [],
+  "L1_not_checked": 0,
+  "L2_counterexamples": [],
+  "L2_not_checked": [],
+  "L2_not_checked_count": 0
+ },
+ "information_loss": [
+  {
+   "id": "closure-untyped",
+   "n": 639,
+   "H_program": 9.3197,
+   "loss_H_program_given_value_id": 1.976
+  },
+  {
+   "id": "closure-typed",
+   "n": 639,
+   "H_program": 9.3197,
+   "loss_H_program_given_value_id": 1.976
+  },
+  {
+   "id": "closure-constitution",
+   "n": 639,
+   "H_program": 9.3197,
+   "loss_H_program_given_value_id": 1.976
+  },
+  {
+   "id": "closure-code",
+   "n": 639,
+   "H_program": 9.3197,
+   "loss_H_program_given_value_id": 1.976
+  }
+ ],
+ "verdicts": {
+  "P1": "held",
+  "P2": "FALSIFIED (code arm executable fraction 0.8635135135135135)",
+  "P3": "held",
+  "P4": "held",
+  "P5": "held"
+ },
+ "finished": "2026-10-01T16:19:06.903Z"
+}
