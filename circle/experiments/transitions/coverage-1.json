@@ -1,0 +1,453 @@
+{
+ "protocol": "circle/0 (provisional)",
+ "kind": "transition-coverage",
+ "schema": "/sdk/schemas/addressed-transition",
+ "fields": [
+  "source_ref",
+  "operation",
+  "target_ref",
+  "actor",
+  "clock",
+  "content_id"
+ ],
+ "matrix": [
+  {
+   "system": "purl-event",
+   "n": 3,
+   "source_ref": 1,
+   "operation": 1,
+   "target_ref": 1,
+   "actor": 1,
+   "clock": 1,
+   "content_id": 1
+  },
+  {
+   "system": "substrate-execution",
+   "n": 3,
+   "source_ref": 1,
+   "operation": 1,
+   "target_ref": 1,
+   "actor": 0,
+   "clock": 1,
+   "content_id": 1
+  },
+  {
+   "system": "seurl-move",
+   "n": 3,
+   "source_ref": 1,
+   "operation": 1,
+   "target_ref": 1,
+   "actor": 0,
+   "clock": 1,
+   "content_id": 1
+  },
+  {
+   "system": "acsp-event",
+   "n": 4,
+   "source_ref": 1,
+   "operation": 1,
+   "target_ref": 1,
+   "actor": 1,
+   "clock": 1,
+   "content_id": 1
+  },
+  {
+   "system": "git-commit",
+   "n": 3,
+   "source_ref": 1,
+   "operation": 1,
+   "target_ref": 1,
+   "actor": 1,
+   "clock": 0,
+   "content_id": 1
+  },
+  {
+   "system": "golden-action",
+   "n": 8,
+   "source_ref": 0,
+   "operation": 1,
+   "target_ref": 0,
+   "actor": 1,
+   "clock": 0,
+   "content_id": 0
+  },
+  {
+   "system": "circle-checkpoint",
+   "n": 1,
+   "source_ref": 1,
+   "operation": 1,
+   "target_ref": 1,
+   "actor": 1,
+   "clock": 1,
+   "content_id": 1
+  }
+ ],
+ "rows": [
+  {
+   "system": "purl-event",
+   "source_ref": "purl:/r/r_722WQGQRKB@0",
+   "operation": "create",
+   "target_ref": "purl:/r/r_722WQGQRKB@1",
+   "actor": "p_Y6YRTK4SK1",
+   "clock": {
+    "domain": "purl:/r/r_722WQGQRKB",
+    "position": 1
+   },
+   "content_id": "sha256:c93e2421b7c642ff331ec8e1ee31a75502a0e13c60a9d4b95c33ea9cfc495fcc",
+   "lost": []
+  },
+  {
+   "system": "purl-event",
+   "source_ref": "purl:/r/r_722WQGQRKB@1",
+   "operation": "create",
+   "target_ref": "purl:/r/r_722WQGQRKB@2",
+   "actor": "p_Y6YRTK4SK1",
+   "clock": {
+    "domain": "purl:/r/r_722WQGQRKB",
+    "position": 2
+   },
+   "content_id": "sha256:3a3ad0726818eff02b93d9c52b07c0e3627c03f1e0d900baba0e6916bf914741",
+   "lost": []
+  },
+  {
+   "system": "purl-event",
+   "source_ref": "purl:/r/r_722WQGQRKB@2",
+   "operation": "append",
+   "target_ref": "purl:/r/r_722WQGQRKB@3",
+   "actor": "p_Y6YRTK4SK1",
+   "clock": {
+    "domain": "purl:/r/r_722WQGQRKB",
+    "position": 3
+   },
+   "content_id": "sha256:f85ed7884aee1e55f8e754649e9ed48f6a24f80f85b9901b371eaba21717ded1",
+   "lost": []
+  },
+  {
+   "system": "substrate-execution",
+   "source_ref": "substrate:/map/eca/30/6/state/1",
+   "operation": "execute",
+   "target_ref": "value:sha256:8f5269805483bd4a1e78c2bbba29ca65fe0d57604ed31d37d8abdbbfae311413",
+   "actor": null,
+   "clock": {
+    "domain": "substrate:store",
+    "position": 20
+   },
+   "content_id": "sha256:36eb797083d8bee889fc142908b9df7af900a415fa7961082d9bb256ef95a417",
+   "lost": [
+    "actor"
+   ]
+  },
+  {
+   "system": "substrate-execution",
+   "source_ref": "substrate:/map/eca/30/6/state/1/next",
+   "operation": "execute",
+   "target_ref": "value:sha256:0b50f4057f551ad75c24c728072adbc46510ecb811d4e455dce8f5658dc8cb85",
+   "actor": null,
+   "clock": {
+    "domain": "substrate:store",
+    "position": 21
+   },
+   "content_id": "sha256:52cc7d95260d6e4cb40a2095f0f5780160d896ff4240ab335f802fd79aaabc4f",
+   "lost": [
+    "actor"
+   ]
+  },
+  {
+   "system": "substrate-execution",
+   "source_ref": "substrate:/map/eca/30/6/state/1/next/next",
+   "operation": "execute",
+   "target_ref": "value:sha256:2e3a2ee266019361e9397c1a19f5f3ee0b4bf7f0f14ec99e3231808c743bf33c",
+   "actor": null,
+   "clock": {
+    "domain": "substrate:store",
+    "position": 22
+   },
+   "content_id": "sha256:1fd36b2fbaa33ccfb88ec8a43e2f3e4f2dc5e64815880f1122b26b75e487395a",
+   "lost": [
+    "actor"
+   ]
+  },
+  {
+   "system": "seurl-move",
+   "source_ref": "seurl:(IDLE)",
+   "operation": "START",
+   "target_ref": "seurl:/seurl/START/map/eca/30/6/state/1",
+   "actor": null,
+   "clock": {
+    "domain": "seurl:/seurl/START/map/eca/30/6/state/1/WRITE/next/WRITE/next",
+    "position": 1
+   },
+   "content_id": "sha256:ef37f0fc5ea17a244acc7ad170638b03468092b4eed42cb36345a217bf1044aa",
+   "lost": [
+    "actor"
+   ]
+  },
+  {
+   "system": "seurl-move",
+   "source_ref": "seurl:/seurl/START/map/eca/30/6/state/1",
+   "operation": "WRITE",
+   "target_ref": "seurl:/seurl/START/map/eca/30/6/state/1/WRITE/next",
+   "actor": null,
+   "clock": {
+    "domain": "seurl:/seurl/START/map/eca/30/6/state/1/WRITE/next/WRITE/next",
+    "position": 2
+   },
+   "content_id": "sha256:d2646db6f474c899c8a72068a29e6925676ba56cc13585c27a0219ab9dc2b8f3",
+   "lost": [
+    "actor"
+   ]
+  },
+  {
+   "system": "seurl-move",
+   "source_ref": "seurl:/seurl/START/map/eca/30/6/state/1/WRITE/next",
+   "operation": "WRITE",
+   "target_ref": "seurl:/seurl/START/map/eca/30/6/state/1/WRITE/next/WRITE/next",
+   "actor": null,
+   "clock": {
+    "domain": "seurl:/seurl/START/map/eca/30/6/state/1/WRITE/next/WRITE/next",
+    "position": 3
+   },
+   "content_id": "sha256:21cc07aa08ab750a6d7acf40a4bde596d03bc0755df83782acc3f0b7bcebc634",
+   "lost": [
+    "actor"
+   ]
+  },
+  {
+   "system": "acsp-event",
+   "source_ref": "acsp:EWHFG2ST3J8E@0",
+   "operation": "create",
+   "target_ref": "acsp:EWHFG2ST3J8E@1",
+   "actor": "owner-human",
+   "clock": {
+    "domain": "acsp:EWHFG2ST3J8E",
+    "position": 1
+   },
+   "content_id": "sha256:2188e43ce86fc582cdfbb64b22c7513739eedf9dd6812643a57a295a973cc6aa",
+   "lost": []
+  },
+  {
+   "system": "acsp-event",
+   "source_ref": "acsp:EWHFG2ST3J8E@1",
+   "operation": "propose",
+   "target_ref": "acsp:EWHFG2ST3J8E@2",
+   "actor": "claude-recon-2026-10-01",
+   "clock": {
+    "domain": "acsp:EWHFG2ST3J8E",
+    "position": 2
+   },
+   "content_id": "sha256:bd97b4fb88c2be8b991fb227d6b291dbb97a48c1e2ce58859131d6bd9287a703",
+   "lost": []
+  },
+  {
+   "system": "acsp-event",
+   "source_ref": "acsp:EWHFG2ST3J8E@2",
+   "operation": "propose",
+   "target_ref": "acsp:EWHFG2ST3J8E@3",
+   "actor": "claude-recon-session-001",
+   "clock": {
+    "domain": "acsp:EWHFG2ST3J8E",
+    "position": 3
+   },
+   "content_id": "sha256:8ae8c8742b4f43b4805d3c9e19fec5c0f6efc2bf0689238cded5d6454c627524",
+   "lost": []
+  },
+  {
+   "system": "acsp-event",
+   "source_ref": "acsp:EWHFG2ST3J8E@3",
+   "operation": "propose",
+   "target_ref": "acsp:EWHFG2ST3J8E@4",
+   "actor": "claude-recon-session-001",
+   "clock": {
+    "domain": "acsp:EWHFG2ST3J8E",
+    "position": 4
+   },
+   "content_id": "sha256:cd2bc4be5b3c942992b5e011fb0060d3b879f0e4caa7ab88883ae4cd53816dfc",
+   "lost": []
+  },
+  {
+   "system": "git-commit",
+   "source_ref": "git:purl@c6bd0bd9c2bbaea8846ada903b6866565381e82b",
+   "operation": "commit",
+   "target_ref": "git:purl@8edcec5726656dae96d12a9d7dc186cc6701df5d",
+   "actor": "Claude",
+   "clock": {
+    "domain": "git:purl",
+    "position": null
+   },
+   "content_id": "git-tree:d7dc405ad2bbe6a0607f664338ba2b73d62c2d39",
+   "lost": [
+    "clock"
+   ]
+  },
+  {
+   "system": "git-commit",
+   "source_ref": "git:substrateIO@07e15d0e431d8f3e7c99ac8ff38625100e02faed",
+   "operation": "commit",
+   "target_ref": "git:substrateIO@16657b50dabf260cf8320cfb43abf33b69d55ea9",
+   "actor": "Claude",
+   "clock": {
+    "domain": "git:substrateIO",
+    "position": null
+   },
+   "content_id": "git-tree:a1bd59fa2027c8b442977dd0e2a12578f1f800f2",
+   "lost": [
+    "clock"
+   ]
+  },
+  {
+   "system": "git-commit",
+   "source_ref": "git:NetGovComEduGovOrgEduGovComNet@29b4911924f53e51011d50d4701cfb54ea5ab6d9",
+   "operation": "commit",
+   "target_ref": "git:NetGovComEduGovOrgEduGovComNet@e8d989afee2025e2315605b4349ccfa833db13bf",
+   "actor": "Claude",
+   "clock": {
+    "domain": "git:NetGovComEduGovOrgEduGovComNet",
+    "position": null
+   },
+   "content_id": "git-tree:c09865d72fef532243f8816269eb89f005288071",
+   "lost": [
+    "clock"
+   ]
+  },
+  {
+   "system": "golden-action",
+   "source_ref": null,
+   "operation": "health",
+   "target_ref": null,
+   "actor": "seat:r",
+   "clock": null,
+   "content_id": null,
+   "lost": [
+    "source_ref",
+    "target_ref",
+    "clock",
+    "content_id"
+   ]
+  },
+  {
+   "system": "golden-action",
+   "source_ref": null,
+   "operation": "newtab (seat r)",
+   "target_ref": null,
+   "actor": "seat:r",
+   "clock": null,
+   "content_id": null,
+   "lost": [
+    "source_ref",
+    "target_ref",
+    "clock",
+    "content_id"
+   ]
+  },
+  {
+   "system": "golden-action",
+   "source_ref": null,
+   "operation": "open circle URL in own tab",
+   "target_ref": null,
+   "actor": "seat:r",
+   "clock": null,
+   "content_id": null,
+   "lost": [
+    "source_ref",
+    "target_ref",
+    "clock",
+    "content_id"
+   ]
+  },
+  {
+   "system": "golden-action",
+   "source_ref": null,
+   "operation": "read own tab",
+   "target_ref": null,
+   "actor": "seat:r",
+   "clock": null,
+   "content_id": null,
+   "lost": [
+    "source_ref",
+    "target_ref",
+    "clock",
+    "content_id"
+   ]
+  },
+  {
+   "system": "golden-action",
+   "source_ref": null,
+   "operation": "open seurl:// scheme",
+   "target_ref": null,
+   "actor": "seat:r",
+   "clock": null,
+   "content_id": null,
+   "lost": [
+    "source_ref",
+    "target_ref",
+    "clock",
+    "content_id"
+   ]
+  },
+  {
+   "system": "golden-action",
+   "source_ref": null,
+   "operation": "drive the pilot tab abed1 (not owned)",
+   "target_ref": null,
+   "actor": "seat:r",
+   "clock": null,
+   "content_id": null,
+   "lost": [
+    "source_ref",
+    "target_ref",
+    "clock",
+    "content_id"
+   ]
+  },
+  {
+   "system": "golden-action",
+   "source_ref": null,
+   "operation": "read the pilot tab abed1",
+   "target_ref": null,
+   "actor": "seat:r",
+   "clock": null,
+   "content_id": null,
+   "lost": [
+    "source_ref",
+    "target_ref",
+    "clock",
+    "content_id"
+   ]
+  },
+  {
+   "system": "golden-action",
+   "source_ref": null,
+   "operation": "no token",
+   "target_ref": null,
+   "actor": "seat:r",
+   "clock": null,
+   "content_id": null,
+   "lost": [
+    "source_ref",
+    "target_ref",
+    "clock",
+    "content_id"
+   ]
+  },
+  {
+   "system": "circle-checkpoint",
+   "source_ref": "purl:/r/r_722WQGQRKB",
+   "operation": "checkpoint",
+   "target_ref": "purl:/r/r_W4P3KM7Z0C@1",
+   "actor": "claude-recon-2026-10-01",
+   "clock": {
+    "domain": "circle:checkpoints",
+    "position": 1
+   },
+   "content_id": "sha256:64998323c096028bf74edc5e09ae8560f67be0d371f33170d5b68396ab0794f8",
+   "lost": []
+  }
+ ],
+ "reading": "A field below 1.0 is information the system does not carry in its own records: the projection loses it. Equal schemas do not make the transitions identical.",
+ "constitution": {
+  "version": 1,
+  "content_id": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "href": "/constitution"
+ },
+ "moves": []
+}
