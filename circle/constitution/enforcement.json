@@ -13,7 +13,8 @@
    "scrolls_publicly_readable",
    "build_does_not_change_source",
    "checkpoint_keeps_body_fields",
-   "checkpoint_records_continuity_resource"
+   "checkpoint_records_continuity_resource",
+   "scroll_program_immutable"
   ],
   "K-15": [
    "sdk_describes_itself",
@@ -31,6 +32,7 @@
    "F-C2"
   ],
   "stasis_2": "identity, build, SDK and prompt-contract checks added with the bridge surfaces (BRIDGE-CONSTITUTION.md)",
-  "exp_bridge_recon": "F-R1..F-R4 found by EXP-BRIDGE-RECON participants"
+  "exp_bridge_recon": "F-R1..F-R4 found by EXP-BRIDGE-RECON participants",
+  "stasis_3": "scroll_program_immutable: the quadrant (authorized by PURL, non-conformant by K-12) needs a check that sees in-place program changes"
  }
 }

@@ -1,0 +1,76 @@
+{
+ "experiment": "EXP-AXES-1",
+ "started": "2026-10-01T15:18:05.776Z",
+ "commit": {
+  "purl": "d96d4ca",
+  "substrateIO": "da503a4",
+  "acsp": "e8d989a"
+ },
+ "quadrants": {
+  "conformant_authorized": {
+   "operation": "TALK (ACSP propose)",
+   "http": 201,
+   "acsp_stage": "submitted",
+   "proposal": "P-001",
+   "authority": "granted (propose requires none)",
+   "conformance_check": {
+    "ok": true,
+    "detail": "this talk: submitted (P-002); all stages: submitted"
+   }
+  },
+  "conformant_unauthorized": {
+   "operation": "ACSP append (prepared intent, submitted without capability)",
+   "prepared_valid": true,
+   "http": 401,
+   "authority": "refused (authentication_required)",
+   "conformance": "the request is schema-valid (ACSP validation.valid) and violates no bridge clause: it was not sent through the circle (K-04 binds the circle, not the participant)"
+  },
+  "nonconformant_authorized": {
+   "operation": "PURL update of a scroll program in place, by the scroll owner (the circle principal)",
+   "http": 200,
+   "authority": "granted (owner rights in PURL)",
+   "conformance_check": {
+    "ok": false,
+    "detail": "27 scrolls checked at every version; program changed in place: r_G5F23X02CK@v3"
+   }
+  },
+  "nonconformant_unauthorized": {
+   "operations": [
+    {
+     "op": "POST /constitution",
+     "http": 405,
+     "code": "not_writable"
+    },
+    {
+     "op": "COMMIT with ?cap=",
+     "http": 400,
+     "code": "credential_in_url"
+    }
+   ],
+   "authority": "none exists for either",
+   "conformance": "K-13 and K-06 forbid them"
+  }
+ },
+ "evidence_axis": {
+  "before_tamper": {
+   "ok": true,
+   "detail": "17 scrolls checked at every version; program changed in place: none"
+  },
+  "latest_run_after_tamper_without_rerun": {
+   "run": "r_MV1PGZHFM1",
+   "check": {
+    "ok": true,
+    "detail": "17 scrolls checked at every version; program changed in place: none"
+   }
+  },
+  "meaning": "conformance evidence is about the (constitution, enforcement, implementation, DATA) at run time; after the data changed, the recorded TESTED is stale until a new run",
+  "verdict": "stale evidence observed: a third axis (evidence currency) is needed"
+ },
+ "produced": {
+  "conformant_authorized": true,
+  "conformant_unauthorized": true,
+  "nonconformant_authorized": true,
+  "nonconformant_unauthorized": true
+ },
+ "verdict": "all four quadrants produced by actual operations: conformance and authority are independent axes (model NOT falsified)"
+}

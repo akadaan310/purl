@@ -1,0 +1,70 @@
+{
+ "format": "circle-enforcement/2",
+ "for_constitution": "constitution-v2.candidate.json",
+ "checks": {
+  "K-01": [
+   "get_sweep_changes_nothing",
+   "acsp_prepare_changes_nothing",
+   "prompt_conversation_not_executed"
+  ],
+  "K-02": [
+   "mutation_requires_declared_session",
+   "author_assurance_is_asserted"
+  ],
+  "K-03": [
+   "fork_leaves_parent_unchanged",
+   "fork_does_not_inherit_records"
+  ],
+  "K-04": [
+   "adapter_refuses_non_propose"
+  ],
+  "K-05": [],
+  "K-06": [
+   "credentials_in_url_refused"
+  ],
+  "K-07": [
+   "no_secret_in_records"
+  ],
+  "K-08": [
+   "talk_stage_never_committed"
+  ],
+  "K-09": [
+   "no_observed_claims"
+  ],
+  "K-10": [
+   "dead_adapter_is_explicit"
+  ],
+  "K-11": [
+   "shared_value_distinct_records",
+   "aliases_only_from_own_builds",
+   "identity_kinds_stay_distinct"
+  ],
+  "K-12": [
+   "fork_leaves_parent_unchanged",
+   "scroll_log_verifies",
+   "scrolls_publicly_readable",
+   "build_does_not_change_source",
+   "checkpoint_keeps_body_fields",
+   "checkpoint_records_continuity_resource",
+   "scroll_program_immutable"
+  ],
+  "K-13": [
+   "constitution_not_writable",
+   "amendment_is_proposal_only"
+  ],
+  "K-14": [
+   "seurl_vocabulary_closed",
+   "seurl_fsm_enforced"
+  ],
+  "K-15": [
+   "every_document_has_moves",
+   "sdk_describes_itself",
+   "observatory_states_running_code",
+   "projection_discoverable"
+  ],
+  "K-16": [],
+  "K-17": [],
+  "K-18": [],
+  "K-19": []
+ }
+}

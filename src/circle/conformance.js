@@ -45,6 +45,7 @@ async function crawl(api, limit = 60) {
 }
 
 export const CHECK_SPECS = {
+ "scroll_program_immutable": {"input": "every scroll's state at every version (PURL /r/{id}/state?at=v)", "expected": "from the first version written by the record's own commit, seurl and content_id never change; content_id = H(seurl)"},
  "checkpoint_keeps_body_fields": {"input": "POST /checkpoints with JSON body {next}; then with an unknown body field", "expected": "next recorded from the body; unknown field refused 422"},
  "checkpoint_records_continuity_resource": {"input": "POST /checkpoints with no acsp_resource, continuity resource configured", "expected": "checkpoint.acsp = configured resource and its version"},
  "observatory_states_running_code": {"input": "GET /observatory", "expected": "current_commit has running and head and running_differs_from_head"},
@@ -263,6 +264,24 @@ export async function runConformance(api, author, { acspResource = api.cfg.acspT
     }
     return { ok: ids.length > 0 && bad.length === 0, detail: `${ids.length} scrolls verified without credentials; failures: ${bad.join(',') || 'none'}` };
   });
+  await check('scroll_program_immutable', async () => {
+    const bad = [];
+    let n = 0;
+    for (const { id, version } of await api.purlList('scroll')) {
+      const states = [];
+      for (let v = 1; v <= version; v++) {
+        const r = await api.purl.request('GET', `/r/${id}/state?at=${v}`);
+        states.push(r.json?.state?.state ?? null); // state-at-version returns the whole resource record; the scroll's own state is .state
+      }
+      const final = states.at(-1) ?? {};
+      // the anchor: the first state written by this record's own commit (a fork's genesis carries the parent's program)
+      const anchor = states.findIndex((st) => st && st.seurl && (st.parent ?? null) === (final.parent ?? null) && st.content_id === sha256(st.seurl));
+      if (anchor < 0) { bad.push(`${id}:no-anchor`); continue; }
+      n++;
+      for (let i = anchor + 1; i < states.length; i++) if (states[i].seurl !== states[anchor].seurl || states[i].content_id !== states[anchor].content_id) { bad.push(`${id}@v${i + 1}`); break; }
+    }
+    return { ok: n > 0 && bad.length === 0, detail: `${n} scrolls checked at every version; program changed in place: ${bad.join(',') || 'none'}` };
+  });
   await check('no_observed_claims', async () => {
     const claims = [];
     for (const { id } of await api.purlList('scroll')) {
@@ -392,5 +411,5 @@ export async function runConformance(api, author, { acspResource = api.cfg.acspT
   });
   const summary = {};
   for (const k of clauses) summary[k.status] = (summary[k.status] ?? 0) + 1;
-  return { ran_at: new Date().toISOString(), commit: api.cfg.commits?.purl ?? null, constitution: c.content_id, enforcement: enf.content_id, by: author, acsp_resource: acspResource, checks: results, clauses, summary };
+  return { ran_at: new Date().toISOString(), commit: api.cfg.commits?.purl ?? null, constitution: c.content_id, enforcement: enf.content_id, implementation_id: api.bridge?.implementationId?.().implementation_id ?? null, by: author, acsp_resource: acspResource, checks: results, clauses, summary };
 }

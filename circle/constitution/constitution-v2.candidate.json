@@ -1,0 +1,342 @@
+{
+ "format": "circle-constitution/1",
+ "version": 2,
+ "title": "Constitution of the circle (v1): clauses consolidated from the governing documents that already exist",
+ "principle": "No clause here is new authority. Each is a citation of an existing source, given an id so it can be checked. Where sources conflict the conflict is a clause with enforcement kind 'conflict'.",
+ "sources": [
+  "NetGovComEduGovOrgEduGovComNet/CONSTITUTIONANDDIRECTIVE.md",
+  "NetGovComEduGovOrgEduGovComNet/PROTOCOL.md",
+  "MUSA/luna-agent/genesis/CONSTITUTION.md (v1)",
+  "the 2026-10-01 'Finalize the computational circle' directive",
+  "substrateIO/CLAUDE.md",
+  "purl/PRINCIPLES.md"
+ ],
+ "statuses": {
+  "DECLARED": "stated; no mechanism or check exists",
+  "IMPLEMENTED": "a mechanism exists; no check ran in the recorded run",
+  "TESTED": "its checks passed against a live circle in the recorded run",
+  "FAILED": "at least one of its checks failed in the recorded run",
+  "CONFLICTING": "sources disagree; recorded, not resolved",
+  "EXTERNAL": "enforced by another system's own tests; cited",
+  "HUMAN_REVIEWED": "enforced by review, not mechanically",
+  "PROPOSED": "an amendment candidate, not adopted"
+ },
+ "amendment": {
+  "path": [
+   "constitution_vN",
+   "amendment proposal (POST /constitution/amendments; stored as a PURL resource of type 'amendment', status 'proposed')",
+   "evidence (refs on the proposal)",
+   "authorized adoption: a human-authored git commit to this file",
+   "constitution_vN+1 (version = content hash of this file)",
+   "verification: POST /conformance/runs against vN+1"
+  ],
+  "the_circle_can": [
+   "prepare",
+   "propose",
+   "attach evidence"
+  ],
+  "the_circle_cannot": [
+   "adopt",
+   "edit this file",
+   "change a clause's status by hand"
+  ]
+ },
+ "clauses": [
+  {
+   "id": "K-01",
+   "text": "A GET never changes state. Preparing is not performing.",
+   "source": [
+    "ACSP PROTOCOL.md §3, §7",
+    "PURL SPEC §3.2",
+    "directive §26"
+   ],
+   "governs": [
+    "circle HTTP surface",
+    "adapters"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "GET handlers are pure functions of upstream state; mutations exist only under POST"
+   }
+  },
+  {
+   "id": "K-02",
+   "text": "Continuity does not imply identity.",
+   "source": [
+    "ACSP PROTOCOL.md §0 / every ACSP document"
+   ],
+   "governs": [
+    "scroll author",
+    "TALK actor"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "session_id is declared by the caller and recorded with assurance 'asserted'; the circle never infers it"
+   }
+  },
+  {
+   "id": "K-03",
+   "text": "Reference does not imply ownership.",
+   "source": [
+    "ACSP PROTOCOL.md §0 / every ACSP document",
+    "PURL PRINCIPLES invariants"
+   ],
+   "governs": [
+    "scrolls"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "a new version of someone's scroll is a fork owned by the forker; the parent is never written"
+   }
+  },
+  {
+   "id": "K-04",
+   "text": "Awareness does not imply authority.",
+   "source": [
+    "ACSP PROTOCOL.md §0 / every ACSP document",
+    "directive §27"
+   ],
+   "governs": [
+    "adapter.acsp"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "the circle holds no ACSP capability and submits only propose"
+   }
+  },
+  {
+   "id": "K-05",
+   "text": "Handoff does not imply merger.",
+   "source": [
+    "ACSP PROTOCOL.md §0 / every ACSP document"
+   ],
+   "governs": [
+    "ACSP handoff"
+   ],
+   "enforcement": {
+    "kind": "external",
+    "mechanism": "enforced and tested by ACSP itself (harness scenario handoff); the circle performs no handoff"
+   },
+   "interpretation": "Not exercised by the circle. Its status is ACSP's, cited, not re-derived here."
+  },
+  {
+   "id": "K-06",
+   "text": "Possessing a URL never confers mutation authority; credentials never travel in URLs.",
+   "source": [
+    "directive §27",
+    "PURL http.js bearer(): token-in-url refused"
+   ],
+   "governs": [
+    "circle HTTP surface"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "requests carrying cap/token/capability query parameters are refused with 400"
+   }
+  },
+  {
+   "id": "K-07",
+   "text": "Capability secrets never appear in logs or records.",
+   "source": [
+    "directive §27",
+    "golden-surface 6e590b0 (redaction at relay boundary)"
+   ],
+   "governs": [
+    "all persisted records"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "secrets are held in process memory only; a scan of every persisted record finds none"
+   }
+  },
+  {
+   "id": "K-08",
+   "text": "Prepared is not submitted; submitted is not committed.",
+   "source": [
+    "NEWDIRECTIVE §4",
+    "ACSP PROTOCOL §7"
+   ],
+   "governs": [
+    "TALK",
+    "adapter.acsp"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "every ACSP step reports its stage; the circle can reach 'submitted' at most"
+   }
+  },
+  {
+   "id": "K-09",
+   "text": "Executing a model produces SIMULATED or computational results, never OBSERVED.",
+   "source": [
+    "substrateIO CLAUDE.md",
+    "epistemic_statuses.json"
+   ],
+   "governs": [
+    "build records",
+    "observations"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "epistemic labels are copied from the substrate, never set by the circle; no record claims OBSERVED"
+   }
+  },
+  {
+   "id": "K-10",
+   "text": "An unavailable capability is reported as unavailable; no result is substituted.",
+   "source": [
+    "directive §30",
+    "substrate purl.py 501 unavailable_here"
+   ],
+   "governs": [
+    "adapters"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "adapter returns unavailable_here (503) when the system is unreachable"
+   }
+  },
+  {
+   "id": "K-11",
+   "text": "One canonical value has one value identity, whoever computes it; the records of computing it stay separate.",
+   "source": [
+    "CONSTITUTIONANDDIRECTIVE §16",
+    "NEWDIRECTIVE §6"
+   ],
+   "governs": [
+    "build records"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "value_id comes from the substrate's canonical value; two builds of equal values share value_id and keep distinct execution records"
+   }
+  },
+  {
+   "id": "K-12",
+   "text": "History is not destroyed: versions, forks and superseded artifacts stay addressable.",
+   "source": [
+    "PURL PRINCIPLES (forking does not destroy lineage; supersession does not require deletion)",
+    "directive §21"
+   ],
+   "governs": [
+    "scrolls",
+    "checkpoints"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "scroll versions are PURL forks; the parent remains resolvable and verifiable"
+   }
+  },
+  {
+   "id": "K-13",
+   "text": "The constitution changes only through an explicit amendment path; it is never rewritten by the system it governs.",
+   "source": [
+    "CONSTITUTIONANDDIRECTIVE §5",
+    "MUSA genesis/CONSTITUTION.md art. VIII"
+   ],
+   "governs": [
+    "constitution"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "the circle exposes no write to the constitution; amendments are stored as proposals; adoption is a human-authored git commit whose hash becomes the new version"
+   }
+  },
+  {
+   "id": "K-14",
+   "text": "The SEURL vocabulary is finite: START SWITCH WRITE COMMIT BUILD TALK PERTURB.",
+   "source": [
+    "seurl index.html",
+    "MUSA url-machine.md §3",
+    "directive §4"
+   ],
+   "governs": [
+    "SEURL parser"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "unknown upper-case verbs are refused; illegal transitions are refused with the legal set"
+   }
+  },
+  {
+   "id": "K-15",
+   "text": "An agent-facing page offers structures (legal moves), not prose.",
+   "source": [
+    "seurl NAI-CI.md standing rule",
+    "MUSA NAI-CI.md"
+   ],
+   "governs": [
+    "circle documents"
+   ],
+   "enforcement": {
+    "kind": "mechanical",
+    "mechanism": "every circle document carries machine-readable moves {rel, method, href}"
+   }
+  },
+  {
+   "id": "K-16",
+   "text": "No automation of third-party AI or browser providers.",
+   "source": [
+    "directive §28"
+   ],
+   "governs": [
+    "adapters"
+   ],
+   "enforcement": {
+    "kind": "human-reviewed",
+    "mechanism": "adapters reach only configured endpoints of our own services; reviewed in code"
+   }
+  },
+  {
+   "id": "K-17",
+   "text": "A browser or phone is a client of the substrate, never its source of truth.",
+   "source": [
+    "directive §29"
+   ],
+   "governs": [
+    "adapter.golden-surface"
+   ],
+   "enforcement": {
+    "kind": "human-reviewed",
+    "mechanism": "the Golden Surface adapter has no write path into scrolls, values or records"
+   }
+  },
+  {
+   "id": "K-18",
+   "text": "Nothing waits for approval to think, prepare, write, prove or publish within the universe.",
+   "source": [
+    "MUSA genesis/CONSTITUTION.md art. I",
+    "golden-surface AMENDMENTS 1"
+   ],
+   "governs": [
+    "circle",
+    "ACSP propose path"
+   ],
+   "enforcement": {
+    "kind": "conflict",
+    "mechanism": "—"
+   },
+   "interpretation": "CONFLICTS with K-04 and ACSP's owner-resolved proposals when 'publish' means a shared ACSP record: in the circle, preparing, writing, building and proposing never wait; committing to a resource someone else owns does. Unresolved; needs an amendment decision by the operator."
+  },
+  {
+   "id": "K-19",
+   "text": "The engine spends nothing.",
+   "source": [
+    "MUSA genesis/CONSTITUTION.md art. V"
+   ],
+   "governs": [
+    "deployment"
+   ],
+   "enforcement": {
+    "kind": "human-reviewed",
+    "mechanism": "the circle uses only local processes and existing free deployments"
+   }
+  }
+ ],
+ "status": "CANDIDATE (A-001 applied). NOT ADOPTED: adoption is a human-authored commit renaming this file (K-13).",
+ "derived_from": {
+  "constitution_v1": "sha256:319402d8efca5b2bbab32d78b898fe200ace7886cbf2d4db89ada598f73b8cb4",
+  "amendment": "A-001"
+ },
+ "enforcement": "separate artifact: enforcement-v2.candidate.json (checks are verification, not governance)"
+}

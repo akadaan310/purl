@@ -11,6 +11,7 @@
 //   /stases …           cross-repository baselines (C-049)
 
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -33,6 +34,8 @@ export const ROUTES = [
   ['GET', '/sdk/schemas', 'ADDRESS', 'pure', 'schemas of the documents the SDK returns'],
   ['GET', '/sdk/schemas/{name}', 'ADDRESS', 'pure', 'one schema'],
   ['GET', '/constitution', 'RESOLVE', 'pure', 'bridge constitution v1'],
+  ['GET', '/constitution/model', 'RESOLVE', 'pure', 'constitution / enforcement / implementation / evidence / authority identities and the three axes'],
+  ['GET', '/constitution/axes', 'RESOLVE', 'pure', 'recorded quadrant probes of conformance x authority'],
   ['GET', '/constitution/clauses/{id}', 'RESOLVE', 'pure', 'one clause'],
   ['POST', '/constitution/amendments?session={s}', 'RECORD', 'append-only', 'propose an amendment (never adopts)'],
   ['GET', '/conformance', 'RESOLVE', 'pure', 'latest conformance run'],
@@ -300,6 +303,35 @@ export function createBridge(x) {
     'program-transformation': { type: 'object', required: ['source', 'transformer', 'build_id', 'build', 'result'] },
   };
 
+  function implementationId() {
+    const p = sdkProvenance();
+    return { implementation_id: sha256(p.files), files: p.files, commit: p.commit };
+  }
+
+  async function constitutionModel() {
+    const c = constitution();
+    const enfBytes = readFileSync(join(ROOT, 'circle', 'constitution', 'enforcement.json'));
+    const runs = await purlList('conformance-run');
+    const last = runs.length ? (await purlRead(runs.at(-1).id)).state : null;
+    return {
+      model: 'Five things, five identities. Each changes for a different reason; none is derived from another.',
+      identities: {
+        constitution: { id: c.content_id, version: c.doc.version, changes_when: 'a clause, a source or the amendment rule changes; only by amendment (K-13)', href: '/constitution' },
+        enforcement: { id: 'sha256:' + createHash('sha256').update(enfBytes).digest('hex'), changes_when: 'a check is attached to a clause; no amendment needed (verification is not governance)', href: '/sdk/schemas' },
+        implementation: { ...implementationId(), changes_when: 'code changes; recorded as a git transition (/git) and a dev iteration (/dev/iterations)' },
+        evidence: last ? { id: sha256(last), run: runs.at(-1).id, ran_at: last.ran_at, against: { constitution: last.constitution, enforcement: last.enforcement ?? null, implementation: last.implementation_id ?? null }, changes_when: 'a conformance run is recorded; evidence is about one (constitution, enforcement, implementation, data) tuple at one time' } : null,
+        authority: { id: null, note: 'Authority has no identity in the bridge. It is held by other systems: ACSP capabilities (owner/delegation), PURL grants, Golden Surface seats, git push rights. The bridge records which authority an operation needed and whether it was present; it never holds or grants it.' },
+      },
+      axes: {
+        conformance: 'does the operation/result satisfy the constitution as checked by enforcement (TESTED / FAILED / IMPLEMENTED / …)',
+        authority: 'did the system that owns the target permit it (granted / refused / not required)',
+        evidence: 'is the conformance status backed by a run that covers the current implementation and data (current / stale / none)',
+      },
+      quadrant_probes: '/constitution/axes (recorded by scripts/axes-probe.js)',
+      stale: last ? (last.implementation_id ?? null) !== implementationId().implementation_id : null,
+    };
+  }
+
   function sdkDoc() {
     const sc = JSON.parse(readFileSync(join(ROOT, 'circle', 'constitution', 'sdk-constitution.json'), 'utf8'));
     return {
@@ -362,6 +394,12 @@ export function createBridge(x) {
   async function dispatch(method, path, q, body) {
     if (method === 'GET') {
       if (path === '/sdk') return envelope('sdk', sdkDoc(), [move('constitution', 'GET', '/sdk/constitution', 'read'), move('schemas', 'GET', '/sdk/schemas', 'read'), move('entry', 'GET', '/', 'read')]);
+      if (path === '/constitution/model') return envelope('constitution-model', await constitutionModel(), [move('constitution', 'GET', '/constitution', 'read'), move('axes', 'GET', '/constitution/axes', 'read')]);
+      if (path === '/constitution/axes') {
+        let rec = null;
+        try { rec = JSON.parse(readFileSync(join(ROOT, 'circle', 'experiments', 'axes', 'record-1.json'), 'utf8')); } catch { /* not recorded yet */ }
+        return envelope('constitution-axes', { recorded: rec, note: rec ? 'Recorded probes (committed). Re-run: node scripts/axes-probe.js' : 'No probe recorded yet.' }, [move('model', 'GET', '/constitution/model', 'read')]);
+      }
       if (path === '/sdk/constitution') return envelope('sdk-constitution', { document: JSON.parse(readFileSync(join(ROOT, 'circle', 'constitution', 'sdk-constitution.json'), 'utf8')) }, [move('sdk', 'GET', '/sdk', 'read')]);
       if (path === '/sdk/schemas') return envelope('schemas', { schemas: Object.keys(SCHEMAS) }, Object.keys(SCHEMAS).map((n) => move(n, 'GET', `/sdk/schemas/${n}`, 'read')));
       if (path.startsWith('/sdk/schemas/')) { const s = SCHEMAS[path.split('/').pop()]; if (!s) throw new CircleError(404, 'not_found', 'No such schema.'); return envelope('schema', { schema: s }, [move('sdk', 'GET', '/sdk', 'read')]); }
@@ -430,5 +468,5 @@ export function createBridge(x) {
     return null;
   }
 
-  return { dispatch, perturbations, routeOf, classify };
+  return { dispatch, perturbations, routeOf, classify, implementationId };
 }
