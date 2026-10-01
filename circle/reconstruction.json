@@ -1,0 +1,160 @@
+{
+ "format": "circle-reconstruction/1",
+ "date": "2026-10-01",
+ "heads": {
+  "substrateIO": "7ace119",
+  "purl": "3df4452",
+  "acsp": "9fcf2e1",
+  "seurl": "620ff95",
+  "golden-surface": "b113718",
+  "MUSA": "d797135",
+  "luna-foundry": "6a260ef"
+ },
+ "tests": {
+  "substrateIO": "58 OK; validate 0",
+  "purl": "58 pass",
+  "acsp": "24 pass; tsc clean",
+  "luna-foundry": "9 pass",
+  "golden-surface": {
+   "store": "ok",
+   "relay": "PHASE 2 OK",
+   "sync_loud": "FAIL: convergence watcher not running",
+   "watchers": "FAIL: relay 500, python playwright absent"
+  }
+ },
+ "live_acsp": {
+  "resource": "8N2RXG1MW79S",
+  "version": 12,
+  "toks": 3,
+  "proposals_pending": 7,
+  "checkpoints": 2,
+  "transitions_endpoint": "404"
+ },
+ "components": [
+  {
+   "component": "acsp.continuity",
+   "status": "EXISTS",
+   "evidence": "ACSP src/continuity, 24 tests, live"
+  },
+  {
+   "component": "acsp.operation_intents",
+   "status": "EXISTS",
+   "evidence": "src/transport/intents.ts"
+  },
+  {
+   "component": "acsp.local_server",
+   "status": "MISSING",
+   "evidence": "createHandler only"
+  },
+  {
+   "component": "acsp.program-001",
+   "status": "CONFLICTING",
+   "evidence": "read by substrateIO; absent from ACSP source and live (404)"
+  },
+  {
+   "component": "acsp.commit-417da6c",
+   "status": "MISSING",
+   "evidence": "not in any repo"
+  },
+  {
+   "component": "purl.resource_protocol",
+   "status": "EXISTS",
+   "evidence": "purl 58 tests"
+  },
+  {
+   "component": "substrate.value_addresses",
+   "status": "EXISTS",
+   "evidence": "substrate/purl.py 14 tests"
+  },
+  {
+   "component": "substrate.typed_terms",
+   "status": "MISSING",
+   "evidence": "resolve() fuses parse/type/eval"
+  },
+  {
+   "component": "substrate.identity_decomposition",
+   "status": "PARTIAL",
+   "evidence": "deterministic_sha256 mixes address and value"
+  },
+  {
+   "component": "seurl.vocabulary",
+   "status": "PARTIAL",
+   "evidence": "named in index.html; FSM in MUSA url-machine.md; no implementation"
+  },
+  {
+   "component": "seurl.purl_relation",
+   "status": "MISSING",
+   "evidence": "no code"
+  },
+  {
+   "component": "naici.primitives",
+   "status": "PARTIAL",
+   "evidence": "luna-foundry /lens tested; MUSA browser-hand source absent"
+  },
+  {
+   "component": "golden_surface.browser",
+   "status": "EXISTS",
+   "evidence": "relay+FakePhone tests; needs phone for real pages"
+  },
+  {
+   "component": "golden_surface.computational_url",
+   "status": "MISSING",
+   "evidence": "scheme seam empty by owner's spec"
+  },
+  {
+   "component": "substrate.acsp_projection",
+   "status": "PARTIAL",
+   "evidence": "reads only acsp-transition-history/1"
+  },
+  {
+   "component": "constitution.clauses",
+   "status": "MISSING",
+   "evidence": "directive has no clause ids"
+  },
+  {
+   "component": "constitution.conformance",
+   "status": "MISSING",
+   "evidence": ""
+  },
+  {
+   "component": "scroll",
+   "status": "CONFLICTING",
+   "evidence": "NEWDIRECTIVE vs luna-foundry NOMENCLATURE vs MUSA"
+  },
+  {
+   "component": "aliases",
+   "status": "PARTIAL",
+   "evidence": "C-040 equivalence observation; Q-013 not run"
+  },
+  {
+   "component": "circle.entry_url",
+   "status": "MISSING",
+   "evidence": ""
+  },
+  {
+   "component": "circle.ide_surface",
+   "status": "MISSING",
+   "evidence": ""
+  },
+  {
+   "component": "circle.checkpoint",
+   "status": "MISSING",
+   "evidence": ""
+  },
+  {
+   "component": "adapters.external_compilers",
+   "status": "MISSING",
+   "evidence": "not needed yet; requires/unavailable_here exists"
+  }
+ ],
+ "discrepancies": [
+  "two constitutions (MUSA v1 vs COP directive)",
+  "luna-foundry GET mutates ident",
+  "golden-surface shared sessions vs no ambient authority",
+  "MUSA automation against google.com vs directive 28",
+  "deterministic_sha256 mixes address and value",
+  "program-001/417da6c/browser-hand referenced but absent",
+  "golden-surface commits Android build output",
+  "PURL names resource addresses and value addresses"
+ ]
+}
