@@ -31,6 +31,21 @@ export function killTree(child) {
   try { process.kill(-child.pid, 'SIGTERM'); } catch { child.kill('SIGTERM'); }
 }
 
+function parseRepos(v) {
+  if (!v) return null;
+  return Object.fromEntries(v.split(',').map((x) => x.split('=')).filter((x) => x.length === 2));
+}
+
+/** Sibling repositories next to this one, if they exist (read-only git access for /git and /transitions). */
+function defaultRepos() {
+  const out = { purl: ROOT };
+  for (const n of ['substrateIO', 'NetGovComEduGovOrgEduGovComNet', 'seurl', 'golden-surface', 'MUSA']) {
+    const d = join(ROOT, '..', n);
+    if (existsSync(join(d, '.git'))) out[n] = d;
+  }
+  return out;
+}
+
 function commitOf(dir) {
   try { return execFileSync('git', ['-C', dir, 'rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim(); } catch { return null; }
 }
@@ -80,6 +95,8 @@ export async function startCircle(o = {}) {
     commits: { purl: commitOf(ROOT), substrateIO: substrateDir ? commitOf(substrateDir) : null, acsp: acspDir ? commitOf(acspDir) : null },
     unresolved: [...recon.discrepancies, ...(o.unresolved ?? [])],
     runConformance,
+    gitRepos: o.gitRepos ?? parseRepos(env.GIT_REPOS) ?? defaultRepos(),
+    currentTask: o.currentTask ?? env.CIRCLE_TASK ?? null,
     purlToken,
     onPrincipal: (t) => { if (tokenFile) writeFileSync(tokenFile, t + '\n', { mode: 0o600 }); },
   };
