@@ -92,6 +92,7 @@ export function createCircle(cfg) {
       grammar: {
         seurl: '/seurl/START/{value address}[/WRITE/{op...}][/PERTURB/{bit}][/COMMIT][/BUILD][/TALK/acsp/{resource_id}]',
         value_address: 'root constructor then operations, e.g. /map/eca/90/8/state/5/next (see /operations)',
+        value: '/v/{value address} resolves a value; /term/{value address} shows its typed term without evaluating it',
         rule: 'GET any URL to see what it would do. POST the same URL to do it. Mutations need ?session=<your declared session id>.',
       },
       systems: { substrate: substrate.describe(), acsp: { ...acsp.describe(), continuity_resource: cfg.acspResource ?? null }, golden_surface: golden.describe(), purl: { id: 'purl/0.1', base: cfg.purlBase } },
@@ -99,6 +100,8 @@ export function createCircle(cfg) {
       ...(cfg.acspResource ? [move('continuity', 'GET', `/acsp/r/${cfg.acspResource}`, 'read', { note: 'the ACSP resource TALK publishes to here' })] : []),
       move('constitution', 'GET', '/constitution', 'read'),
       move('operations', 'GET', '/operations', 'read'),
+      move('value', 'GET', '/v/map/eca/90/8/state/5/next', 'read'),
+      move('term', 'GET', '/term/map/eca/90/8/state/5/next', 'read'),
       move('start', 'GET', '/seurl/START/map/eca/90/8/state/5', 'read', { note: 'a session bound to a value' }),
       move('example-program', 'GET', '/seurl/START/map/eca/90/8/state/5/WRITE/next/WRITE/orbit/COMMIT/BUILD', 'read (prepares; POST performs)'),
       move('scrolls', 'GET', '/scrolls', 'read'),
@@ -201,6 +204,8 @@ export function createCircle(cfg) {
       const pdoc = await scrollDoc(parent); // must exist; never written
       const f = await purlOp(parent, 'fork', { note: `new version by ${author.session_id}` });
       id = f.resource.id;
+      // PURL forks copy no grants (by design); a scroll version must be readable like its parent (F-C2)
+      await purlOp(id, 'grant', { grantee: '*', rights: 'reader', purpose: 'public visibility (scroll version)' });
       const after = await purlOp(id, 'update', { merge_patch: state });
       version = after.resource.version;
       state.version_of = pdoc.id;
@@ -214,7 +219,12 @@ export function createCircle(cfg) {
   async function scrollDoc(id) {
     const d = await purlRead(id);
     if (d.type !== 'scroll') throw new CircleError(404, 'not_found', `${id} is not a scroll.`);
-    return { id: d.id, version: d.version, state: d.state, collections: d.collections ?? null, lineage: d.links?.lineage ?? null, owner: d.owner, raw: d };
+    // PURL fork copies collection entries (by design). A scroll's own records are those it made (F-C1).
+    const own = (name) => (d.collections?.[name] ?? []).map((e) => e.body ?? e).filter((b) => b.scroll === d.id);
+    const inherited = (name) => (d.collections?.[name] ?? []).map((e) => e.body ?? e).filter((b) => b.scroll !== d.id).length;
+    return { id: d.id, version: d.version, state: d.state, owner: d.owner, raw: d,
+      builds: own('builds'), talks: own('talks'), observations: own('observations'),
+      inherited: { builds: inherited('builds'), talks: inherited('talks'), observations: inherited('observations') } };
   }
 
   async function buildScroll(id, author) {
@@ -256,14 +266,14 @@ export function createCircle(cfg) {
 
   async function talk(resourceId, scroll, author, s) {
     if (!scroll) throw new CircleError(409, 'nothing_to_talk', 'TALK needs a committed scroll in the same program (…/COMMIT[/BUILD]/TALK/acsp/{id}).');
-    const builds = (await scrollDoc(scroll.id)).raw.collections?.builds?.map((e) => e.body ?? e) ?? [];
+    const builds = (await scrollDoc(scroll.id)).builds;
     const tok = scrollTok(scroll, s, builds);
     const prep = await acsp.prepare(resourceId, { session_id: author.session_id, agent_id: author.agent_id ?? undefined, tok, rationale: 'Publish a circle Scroll build as continuity.' });
     if (!prep.available) return { stage: null, error: unavailable('adapter.acsp', prep) };
     if (!prep.ok) return { stage: null, error: prep.json?.error ?? prep.json, prepare_url: prep.prepare_url };
     if (!prep.json.validation?.valid) return { stage: 'prepared', valid: false, validation: prep.json.validation, prepare_url: prep.prepare_url };
     const sub = await acsp.submit(prep.json);
-    const record = { system: 'acsp', resource_id: resourceId, stage: sub.stage ?? 'prepared', proposal_id: sub.proposal_id, status: sub.status, prepare_url: prep.prepare_url,
+    const record = { scroll: scroll.id, system: 'acsp', resource_id: resourceId, stage: sub.stage ?? 'prepared', proposal_id: sub.proposal_id, status: sub.status, prepare_url: prep.prepare_url,
       note: 'submitted = a pending proposal. Committed only if the resource owner accepts it; the circle cannot do that.' };
     await purlOp(scroll.id, 'append', { collection: 'talks', body: record });
     let observation = null;
@@ -271,8 +281,8 @@ export function createCircle(cfg) {
       const ev = await acsp.events(resourceId);
       if (ev.ok) {
         const o = await substrate.observe('P-ACSP-EV-1', cfg.acspOrigin ?? 'harness', ev.json);
-        observation = o.ok ? { observation_id: o.json.observation.observation_id, epistemic_status: o.json.observation.epistemic_status,
-          measurements: o.json.observation.measurements, deterministic_sha256: o.json.observation.deterministic_sha256 } : { error: o.json ?? o.reason };
+        observation = o.ok ? { scroll: scroll.id, observation_id: o.json.observation.observation_id, epistemic_status: o.json.observation.epistemic_status,
+          measurements: o.json.observation.measurements, deterministic_sha256: o.json.observation.deterministic_sha256 } : { scroll: scroll.id, error: o.json ?? o.reason };
         await purlOp(scroll.id, 'append', { collection: 'observations', body: observation });
       }
     }
@@ -300,9 +310,9 @@ export function createCircle(cfg) {
       stage: 'observed_recurrence', next_stage: 'candidate concept (needs a formal description and a nomenclature entry; never named automatically)' }))
       .sort((a, b) => b.recurrence - a.recurrence || b.sequence.length - a.sequence.length);
     const byValue = new Map();
-    for (const d of docs) for (const b of (d.raw.collections?.builds ?? []).map((e) => e.body ?? e)) {
-      const last = b.records?.at(-1);
-      if (last?.value_id) { if (!byValue.has(last.value_id)) byValue.set(last.value_id, new Set()); byValue.get(last.value_id).add(d.state.address); }
+    for (const d of docs) {
+      const last = d.builds.at(-1)?.records?.at(-1); // only the scroll's own latest build (F-C1)
+      if (last?.value_id && last.address === d.state.address) { if (!byValue.has(last.value_id)) byValue.set(last.value_id, new Set()); byValue.get(last.value_id).add(d.state.address); }
     }
     const equivalences = [...byValue].filter(([, s]) => s.size >= 2).map(([v, s]) => ({ value_id: v, addresses: [...s].sort(), relation: 'equal canonical value (substrate value_id)', status: 'computational' }));
     return envelope('alias-candidates', { scrolls_examined: docs.length, method: 'contiguous WRITE/PERTURB operation subsequences (length >= 2) occurring in >= 2 distinct scrolls; plus final-value equality across scrolls', candidates, equivalences }, [move('scrolls', 'GET', '/scrolls', 'read')]);
@@ -426,8 +436,7 @@ export function createCircle(cfg) {
     const scrollDocs = [];
     for (const it of scrolls.slice(-10)) {
       const d = await scrollDoc(it.id);
-      const builds = (d.raw.collections?.builds ?? []).map((e) => e.body ?? e);
-      scrollDocs.push({ id: d.id, version: d.version, address: d.state.address, author: d.state.author?.session_id, parent: d.state.parent, builds: builds.map((b) => b.outcome), talks: (d.raw.collections?.talks ?? []).map((e) => (e.body ?? e).stage) });
+      scrollDocs.push({ id: d.id, version: d.version, address: d.state.address, author: d.state.author?.session_id, parent: d.state.parent, builds: d.builds.map((b) => b.outcome), talks: d.talks.map((t) => t.stage) });
     }
     return envelope('ide-state', {
       derived_from: 'live reads of PURL resources, the substrate, ACSP and the relay at request time; nothing here is stored by the circle',
@@ -501,7 +510,8 @@ export function createCircle(cfg) {
       }
       if (/^\/scrolls\/[^/]+$/.test(path)) {
         const d = await scrollDoc(path.split('/')[2]);
-        return { status: 200, doc: envelope('scroll', { id: d.id, version: d.version, owner: d.owner, ...d.state, builds: (d.raw.collections?.builds ?? []).map((e) => e.body ?? e), talks: (d.raw.collections?.talks ?? []).map((e) => e.body ?? e), observations: (d.raw.collections?.observations ?? []).map((e) => e.body ?? e), purl: `${cfg.purlBase}/r/${d.id}` }, [
+        return { status: 200, doc: envelope('scroll', { id: d.id, version: d.version, owner: d.owner, ...d.state, builds: d.builds, talks: d.talks, observations: d.observations, inherited_from_parent: d.inherited, purl: `${cfg.purlBase}/r/${d.id}`,
+          version_semantics: 'version is the PURL event count of this record (genesis, grant, each build/talk/observation append). A build records the version it ran against. Scroll *versions* in the program sense are forks (parent).' }, [
           move('rebuild', 'POST', `/scrolls/${d.id}/build?session={id}`, 'executes every step again and records it'),
           move('new-version', 'POST', `/seurl${d.state.seurl.slice('/seurl'.length)}/COMMIT?session={id}&parent=${d.id}`, 'commits a fork as the next version; this one is untouched', { template: true }),
           move('replay', 'GET', `${cfg.purlBase}/r/${d.id}/verify`, 'read', { system: 'purl' }),

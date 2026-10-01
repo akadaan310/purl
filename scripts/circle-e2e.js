@@ -6,7 +6,7 @@ import { writeFileSync, mkdirSync, readdirSync, mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { startCircle } from './circle-lib.js';
+import { startCircle, killTree } from './circle-lib.js';
 import { ownerResource } from './circle-conformance.js';
 import { sha256 } from '../src/circle/adapters.js';
 
@@ -55,7 +55,7 @@ try {
   await step('resume (new process)', 'GET', `/resume/${cp.id}`, (d) => ({ det: { intact: d.intact, constitution_changed: d.constitution_changed, next: d.next, changed: d.scrolls.map((s) => s.changed_since) }, observed: {} }));
   await step('rebuild from resumed state', 'POST', `/scrolls/${sid}/build?session=exp-e2e-later`, (d) => (d.build ? { det: { outcome: d.build.outcome, value_ids: d.build.records.map((r) => r.value_id), reruns: d.build.records.map((r) => r.rerun) }, observed: {} }
     : { det: { error: d.error.code }, observed: { error: d.error }, allowFailure: true }));
-  for (const ch of neighbours.children) ch.kill('SIGTERM');
+  for (const ch of neighbours.children) killTree(ch);
 
   const dir = join(ROOT, 'circle', 'experiments', 'e2e');
   mkdirSync(dir, { recursive: true });

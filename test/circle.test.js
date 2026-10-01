@@ -8,7 +8,7 @@ import { tmpdir } from 'node:os';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { run, parseMoves, SeurlError } from '../src/circle/seurl.js';
-import { startCircle } from '../scripts/circle-lib.js';
+import { startCircle, killTree } from '../scripts/circle-lib.js';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SUBSTRATE_DIR = process.env.SUBSTRATE_DIR ?? resolve(HERE, '..', '..', 'substrateIO');
@@ -62,7 +62,7 @@ describe('the circle end to end (substrate + PURL + ACSP, real processes)', { sk
     acspResource = created.resource_id;
     c.cfg.acspTestResource = acspResource;
   }, { timeout: 180000 });
-  after(async () => { await c?.close(); for (const ch of first?.children ?? []) ch.kill('SIGTERM'); });
+  after(async () => { await c?.close(); for (const ch of first?.children ?? []) killTree(ch); });
 
   test('a fresh participant learns the environment from the entry URL alone', async () => {
     const { status, doc } = await get('/');

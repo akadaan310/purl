@@ -1,0 +1,132 @@
+{
+ "adapter": {
+  "id": "adapter.golden-surface",
+  "version": "circle-adapters/0",
+  "base": "http://127.0.0.1:8490",
+  "configured": true,
+  "requires": [
+   "golden-surface relay (aiohttp) on its port",
+   "a seat token (GOLDEN_TOKEN_R) in the environment",
+   "a connected phone or FakePhone to execute commands"
+  ],
+  "inputs": "circle URL (http)",
+  "outputs": "tab id; read {url,title,text}",
+  "effect_class": {
+   "newtab": "creates a tab owned by the seat",
+   "open": "navigates an owned tab",
+   "read": "pure"
+  },
+  "authority": "seat token: per seat, not per resource. Ownership checks are the relay's (403 on another seat's tab).",
+  "limits": [
+   "read returns text, not NAI-CI structures",
+   "http/https only: seurl:// and purl:// are explained, not opened (routing.ts seam)"
+  ]
+ },
+ "steps": [
+  {
+   "name": "health",
+   "available": true,
+   "status": 200,
+   "body": {
+    "ok": true,
+    "phone": true,
+    "twinRev": 10,
+    "lastSeq": 28
+   },
+   "url": "http://127.0.0.1:8490/health"
+  },
+  {
+   "name": "newtab (seat r)",
+   "available": true,
+   "status": 200,
+   "body": {
+    "ok": true,
+    "cmd": "newtab",
+    "tab": "t747d8eca"
+   },
+   "url": "http://127.0.0.1:8490/cmd"
+  },
+  {
+   "name": "open circle URL in own tab",
+   "available": true,
+   "status": 200,
+   "body": {
+    "ok": true,
+    "cmd": "open",
+    "tab": "t747d8eca"
+   },
+   "url": "http://127.0.0.1:8490/cmd"
+  },
+  {
+   "name": "read own tab",
+   "available": true,
+   "status": 200,
+   "body": {
+    "ok": true,
+    "cmd": "read",
+    "tab": "t747d8eca",
+    "data": {
+     "url": "http://127.0.0.1:8484/scrolls",
+     "title": "",
+     "text": "hello from http://127.0.0.1:8484/scrolls"
+    }
+   },
+   "url": "http://127.0.0.1:8490/cmd"
+  },
+  {
+   "name": "open seurl:// scheme",
+   "available": true,
+   "status": 422,
+   "body": {
+    "ok": false,
+    "cmd": "open",
+    "tab": "t747d8eca",
+    "error": "scheme not supported"
+   },
+   "url": "http://127.0.0.1:8490/cmd"
+  },
+  {
+   "name": "drive the pilot tab abed1 (not owned)",
+   "available": true,
+   "status": 403,
+   "body": {
+    "ok": false,
+    "error": "tab is owned by abed"
+   },
+   "url": "http://127.0.0.1:8490/cmd"
+  },
+  {
+   "name": "read the pilot tab abed1",
+   "available": true,
+   "status": 200,
+   "body": {
+    "ok": true,
+    "cmd": "read",
+    "tab": "abed1",
+    "data": {
+     "url": "https://example.com/",
+     "title": "Example",
+     "text": "hello from https://example.com/"
+    }
+   },
+   "url": "http://127.0.0.1:8490/cmd"
+  },
+  {
+   "name": "no token",
+   "available": false
+  }
+ ],
+ "token_in_any_url": false,
+ "token_in_any_body": false,
+ "experiment": "EXP-CIRCLE-GOLDEN",
+ "date": "2026-10-01",
+ "phone": "golden-surface tests/fake_phone.py (protocol-faithful stand-in; does not load pages)",
+ "relay_commit": "b113718",
+ "epistemic_status": "SIMULATED: the phone is a test double; 'read' text is synthetic ('hello from <url>'). Tests transport, ownership and scheme routing only.",
+ "findings": [
+  "seat r can create and drive its own tab and open a circle URL in it",
+  "seurl:// is refused by the phone side (routing seam: http/https only), as the owner's spec requires",
+  "driving the pilot's tab is refused (403); READING it is allowed for any seat by relay policy: visibility is broader than control",
+  "the seat token never appeared in a URL or response"
+ ]
+}

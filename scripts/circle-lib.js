@@ -26,6 +26,11 @@ async function waitFor(url, ms = 60000) {
   throw new Error(`timed out waiting for ${url}`);
 }
 
+/** npx/tsx spawn grandchildren: kill the whole process group, not only the direct child. */
+export function killTree(child) {
+  try { process.kill(-child.pid, 'SIGTERM'); } catch { child.kill('SIGTERM'); }
+}
+
 function commitOf(dir) {
   try { return execFileSync('git', ['-C', dir, 'rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim(); } catch { return null; }
 }
@@ -40,7 +45,7 @@ export async function startCircle(o = {}) {
   if (!substrateBase && substrateDir) {
     const port = o.substratePort ?? 18765;
     const store = o.substrateStore ?? mkdtempSync(join(tmpdir(), 'circle-substrate-'));
-    children.push(spawn('python3', ['-m', 'tools.purl_server', '--port', String(port), '--store', store], { cwd: substrateDir, stdio: 'ignore' }));
+    children.push(spawn('python3', ['-m', 'tools.purl_server', '--port', String(port), '--store', store], { cwd: substrateDir, stdio: 'ignore', detached: true }));
     substrateBase = `http://127.0.0.1:${port}`;
     await waitFor(substrateBase + '/');
   }
@@ -48,7 +53,7 @@ export async function startCircle(o = {}) {
   const acspDir = o.acspDir ?? env.ACSP_DIR;
   if (!acspBase && acspDir) {
     const port = o.acspPort ?? 18787;
-    children.push(spawn('npx', ['tsx', 'scripts/serve-local.ts', '--port', String(port)], { cwd: acspDir, stdio: 'ignore' }));
+    children.push(spawn('npx', ['tsx', 'scripts/serve-local.ts', '--port', String(port)], { cwd: acspDir, stdio: 'ignore', detached: true }));
     acspBase = `http://127.0.0.1:${port}`;
     await waitFor(acspBase + '/.well-known/acsp', 120000);
   }
@@ -88,7 +93,7 @@ export async function startCircle(o = {}) {
     children,
     async close({ children: killChildren = true } = {}) {
       for (const s of servers) { s.closeAllConnections?.(); await new Promise((r) => s.close(r)); }
-      if (killChildren) for (const c of children) c.kill('SIGTERM');
+      if (killChildren) for (const c of children) killTree(c);
     },
   };
 }

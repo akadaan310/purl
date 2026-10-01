@@ -3,11 +3,21 @@
 // No status is ever set by hand. A check that cannot run is "not_run", and its
 // clause stays IMPLEMENTED (mechanism exists, unverified) rather than passing.
 
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { AcspAdapter, SubstrateAdapter } from './adapters.js';
 import { createCircle } from './server.js';
 import { sha256 } from './adapters.js';
 
 const NOT_RUN = Symbol('not_run');
+const ENFORCEMENT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'circle', 'constitution', 'enforcement.json');
+
+export function loadEnforcement(path = ENFORCEMENT) {
+  const bytes = readFileSync(path);
+  return { doc: JSON.parse(bytes), content_id: 'sha256:' + createHash('sha256').update(bytes).digest('hex') };
+}
 
 async function snapshot(api, acspResource) {
   const types = ['scroll', 'circle-checkpoint', 'conformance-run', 'amendment'];
@@ -34,7 +44,7 @@ async function crawl(api, limit = 60) {
   return seen;
 }
 
-export async function runConformance(api, author, { acspResource = api.cfg.acspTestResource ?? null } = {}) {
+export async function runConformance(api, author, { acspResource = api.cfg.acspTestResource ?? api.cfg.acspResource ?? null } = {}) {
   const results = {};
   const h = (m, p, b) => api.handle(m, p, b);
   const session = `?session=${author.session_id}`;
@@ -117,6 +127,35 @@ export async function runConformance(api, author, { acspResource = api.cfg.acspT
     for (const id of ids) { const rec = await api.purl.reconstruct(`/r/${id}`); if (!rec.all_ok) bad.push(id); }
     return { ok: ids.length > 0 && bad.length === 0, detail: `${ids.length} scrolls replayed client-side; failures: ${bad.join(',') || 'none'}` };
   });
+  await check('fork_does_not_inherit_records', async () => {
+    // build the parent, fork it, do not build the fork: the fork must show no builds of its own
+    const p = await h('POST', `/seurl/START/map/eca/150/4/state/3/WRITE/next/COMMIT/BUILD${session}`, null);
+    if (!p.doc.scroll) return { ok: false, detail: `parent: ${p.status}` };
+    const f = await h('POST', `/seurl/START/map/eca/30/4/state/3/WRITE/next/COMMIT?session=${author.session_id}-fork&parent=${p.doc.scroll.id}`, null);
+    const fd = (await h('GET', `/scrolls/${f.doc.scroll?.id}`, null)).doc;
+    return { ok: f.status === 201 && fd.builds.length === 0 && fd.inherited_from_parent.builds >= 1, detail: `fork own builds=${fd.builds?.length}, inherited=${fd.inherited_from_parent?.builds}` };
+  });
+  await check('aliases_only_from_own_builds', async () => {
+    // independent oracle: each listed address's value_id, resolved directly from the substrate
+    const al = (await h('GET', '/aliases', null)).doc;
+    const wrong = [];
+    for (const e of al.equivalences ?? []) for (const a of e.addresses) {
+      const v = (await api.substrate.resolve(a)).json?.identity?.value_id;
+      if (v !== e.value_id) wrong.push(`${a}: ${v} != ${e.value_id}`);
+    }
+    return { ok: wrong.length === 0, detail: `${(al.equivalences ?? []).length} equivalence(s); wrong: ${wrong.join('; ') || 'none'}` };
+  });
+  await check('scrolls_publicly_readable', async () => {
+    // read as an outsider: no token
+    const bad = [];
+    const ids = (await api.purlList('scroll')).map((x) => x.id);
+    for (const id of ids) {
+      const r = await fetch(`${api.cfg.purlBase}/r/${id}/verify`, { headers: { Accept: 'application/purl+json' } });
+      const j = r.ok ? await r.json() : null;
+      if (!r.ok || j?.valid !== true) bad.push(`${id}:${r.status}`);
+    }
+    return { ok: ids.length > 0 && bad.length === 0, detail: `${ids.length} scrolls verified without credentials; failures: ${bad.join(',') || 'none'}` };
+  });
   await check('no_observed_claims', async () => {
     const claims = [];
     for (const { id } of await api.purlList('scroll')) {
@@ -170,7 +209,9 @@ export async function runConformance(api, author, { acspResource = api.cfg.acspT
   });
 
   const c = api.constitution();
+  const enf = loadEnforcement();
   const clauses = c.doc.clauses.map((k) => {
+    k = { ...k, checks: [...k.checks, ...(enf.doc.additional_checks[k.id] ?? [])] };
     const kind = k.enforcement.kind;
     if (kind === 'external') return { id: k.id, status: 'EXTERNAL', checks: [] };
     if (kind === 'human-reviewed') return { id: k.id, status: 'HUMAN_REVIEWED', checks: [] };
@@ -181,5 +222,5 @@ export async function runConformance(api, author, { acspResource = api.cfg.acspT
   });
   const summary = {};
   for (const k of clauses) summary[k.status] = (summary[k.status] ?? 0) + 1;
-  return { ran_at: new Date().toISOString(), commit: api.cfg.commits?.purl ?? null, constitution: c.content_id, by: author, acsp_resource: acspResource, checks: results, clauses, summary };
+  return { ran_at: new Date().toISOString(), commit: api.cfg.commits?.purl ?? null, constitution: c.content_id, enforcement: enf.content_id, by: author, acsp_resource: acspResource, checks: results, clauses, summary };
 }
