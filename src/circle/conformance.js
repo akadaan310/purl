@@ -28,7 +28,7 @@ export function loadEnforcement(path = ENFORCEMENT) {
 }
 
 async function snapshot(api, acspResource) {
-  const types = ['scroll', 'circle-checkpoint', 'conformance-run', 'amendment'];
+  const types = ['scroll', 'circle-checkpoint', 'conformance-run', 'amendment', 'dev-iteration'];
   const purl = {};
   for (const t of types) purl[t] = (await api.purlList(t)).map((x) => [x.id, x.version]);
   const addrs = new Set();

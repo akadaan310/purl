@@ -535,7 +535,7 @@ export function createCircle(cfg) {
   }
 
   // ---- router -----------------------------------------------------------------------
-  const bridge = createBridge({ substrate, acsp, purl, purlRead, purlList, envelope, move, CircleError, constitution, cfg, scrollDoc, requireSession, commitScroll, handle: (...a) => handle(...a) });
+  const bridge = createBridge({ substrate, acsp, purl, purlRead, purlList, purlCreate, envelope, move, CircleError, constitution, cfg, scrollDoc, requireSession, commitScroll, handle: (...a) => handle(...a) });
 
   async function dispatch(method, rawPath, body) {
     const u = new URL(rawPath, 'http://circle.invalid');

@@ -1,6 +1,6 @@
 {
  "format": "bridge-manifest/3",
- "generated_at": "2026-10-01T15:53:28.156Z",
+ "generated_at": "2026-10-01T15:56:36.328Z",
  "generator": "scripts/bridge-manifest.js",
  "secrets": "none: commit ids, paths, names and hashes only",
  "start_here": [
@@ -24,7 +24,7 @@
    "repository": "purl",
    "scope": "src/circle",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "716edfa",
+   "commit": "707c777",
    "protocol": "circle/0 + SDK",
    "role": "the bridge: stateless composition of the other systems through SEURL move words; holds no records and no authority",
    "input_kinds": [
@@ -94,6 +94,22 @@
     {
      "method": "GET",
      "path": "/code/{module}"
+    },
+    {
+     "method": "GET",
+     "path": "/self"
+    },
+    {
+     "method": "GET",
+     "path": "/dev/iterations"
+    },
+    {
+     "method": "GET",
+     "path": "/dev/iterations/{id}"
+    },
+    {
+     "method": "POST",
+     "path": "/dev/iterations?session={s}"
     },
     {
      "method": "GET",
@@ -296,6 +312,9 @@
     "GET /examples",
     "GET /code",
     "GET /code/{module}",
+    "GET /self",
+    "GET /dev/iterations",
+    "GET /dev/iterations/{id}",
     "GET /ide?program={seurl}",
     "GET /ide/{stage}?program={seurl}",
     "GET /constitution",
@@ -336,6 +355,7 @@
     "GET /naici/{surface|read|legal|trace}?url={circle url}"
    ],
    "mutating_operations": [
+    "POST /dev/iterations?session={s}",
     "POST /constitution/amendments?session={s}",
     "POST /conformance/runs?session={s}",
     "POST /prompts/classify",
@@ -382,6 +402,7 @@
      "purl/test/circle.test.js",
      "purl/test/continuity.test.js",
      "purl/test/demo.test.js",
+     "purl/test/dev.test.js",
      "purl/test/experiment.test.js",
      "purl/test/golden.test.js",
      "purl/test/http.test.js",
@@ -495,7 +516,7 @@
    "repository": "purl",
    "scope": "src/{core,continuity,transport}",
    "branch": "ccr-d0887a23-30wf63",
-   "commit": "716edfa",
+   "commit": "707c777",
    "protocol": "PURL/0.1",
    "role": "persistent versioned records (resources, events, grants); the circle's record store",
    "input_kinds": [
@@ -659,6 +680,7 @@
      "purl/test/circle.test.js",
      "purl/test/continuity.test.js",
      "purl/test/demo.test.js",
+     "purl/test/dev.test.js",
      "purl/test/experiment.test.js",
      "purl/test/golden.test.js",
      "purl/test/http.test.js",
@@ -1657,9 +1679,9 @@
    "url": "https://github.com/akadaan310/purl",
    "default_branch": "claude/purl-protocol-research-bxevq5",
    "research_branch": "ccr-d0887a23-30wf63",
-   "head": "716edfa",
+   "head": "707c777",
    "branches": {
-    "ccr-d0887a23-30wf63": "de9fca1",
+    "ccr-d0887a23-30wf63": "bd0d280",
     "claude/acsp-purl-composition-adsbn6": "18c85bf",
     "claude/purl-protocol-research-bxevq5": "3df4452"
    }
@@ -1849,6 +1871,34 @@
    "edge": "RESOLVE",
    "effect": "pure",
    "description": "one module descriptor and its verification"
+  },
+  {
+   "method": "GET",
+   "path": "/self",
+   "edge": "ADDRESS",
+   "effect": "pure",
+   "description": "six self-* concepts, each with where it lives, how it is tested, and its limit"
+  },
+  {
+   "method": "GET",
+   "path": "/dev/iterations",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "development iterations recorded as transitions with evidence"
+  },
+  {
+   "method": "GET",
+   "path": "/dev/iterations/{id}",
+   "edge": "RESOLVE",
+   "effect": "pure",
+   "description": "one dev iteration"
+  },
+  {
+   "method": "POST",
+   "path": "/dev/iterations?session={s}",
+   "edge": "RECORD",
+   "effect": "append-only",
+   "description": "record that a commit happened, with reported evidence; the circle computes evidence currency. Writes no code"
   },
   {
    "method": "GET",

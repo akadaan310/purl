@@ -19,13 +19,14 @@ import { run, parseMoves, pathOf, MUTATING } from './seurl.js';
 import { sha256 } from './adapters.js';
 import { CHECK_SPECS } from './conformance.js';
 import { createIde, IDE_STAGES } from './ide.js';
+import { createDev } from './dev.js';
 
 export const DESCRIPTOR = {
   module: 'src/circle/bridge.js',
   claims: ['ROUTES is the complete route table of the circle (routeOf classifies against it)', 'transformers are pure functions over moves, versioned by the hash of their source', 'GET handlers here change nothing; POST /programs/transform commits a new Scroll only if the result is well-typed'],
-  requires: { modules: ['./seurl.js', './adapters.js', './conformance.js', './ide.js'], services: ['substrate (typing)', 'PURL (records)', 'ACSP (projections)'], files: ['circle/constitution/*.json', 'circle/stases.json', 'circle/experiments/axes/*'] },
+  requires: { modules: ['./seurl.js', './adapters.js', './conformance.js', './ide.js', './dev.js'], services: ['substrate (typing)', 'PURL (records)', 'ACSP (projections)'], files: ['circle/constitution/*.json', 'circle/stases.json', 'circle/experiments/axes/*'] },
   produces: ['DESCRIPTOR', 'SDK_VERSION', 'SDK_GREETING', 'ROUTES', 'routeOf', 'transformerVersion', 'createBridge'],
-  changes: ['PURL scroll records (POST /programs/transform)'],
+  changes: ['PURL scroll records (POST /programs/transform)', 'PURL dev-iteration records (POST /dev/iterations, via dev.js)'],
 };
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -52,6 +53,10 @@ export const ROUTES = [
   ['GET', '/examples', 'ADDRESS', 'pure', 'worked examples, each a URL to GET'],
   ['GET', '/code', 'RESOLVE', 'pure', 'module descriptors (claims, requires, produces, changes) verified against the source'],
   ['GET', '/code/{module}', 'RESOLVE', 'pure', 'one module descriptor and its verification'],
+  ['GET', '/self', 'ADDRESS', 'pure', 'six self-* concepts, each with where it lives, how it is tested, and its limit'],
+  ['GET', '/dev/iterations', 'RESOLVE', 'pure', 'development iterations recorded as transitions with evidence'],
+  ['GET', '/dev/iterations/{id}', 'RESOLVE', 'pure', 'one dev iteration'],
+  ['POST', '/dev/iterations?session={s}', 'RECORD', 'append-only', 'record that a commit happened, with reported evidence; the circle computes evidence currency. Writes no code'],
   ['GET', '/ide?program={seurl}', 'ADDRESS', 'pure', 'the eight IDE stages for a program, each a URL'],
   ['GET', '/ide/{stage}?program={seurl}', 'PARSE', 'pure', 'one stage: discover, parse, type, plan, build, execute (pure value), observe, record (described, never performed)'],
   ['GET', '/constitution', 'RESOLVE', 'pure', 'bridge constitution v1'],
@@ -122,7 +127,7 @@ const CLOSURE_SET = [['extend', ['next']], ['extend', ['orbit']], ['perturb', ['
 const programText = (moves) => pathOf(moves.filter((m) => !MUTATING.has(m.verb)));
 
 export function createBridge(x) {
-  const { substrate, acsp, purl, purlRead, purlList, envelope, move, CircleError, constitution, cfg, scrollDoc, requireSession, commitScroll, handle } = x;
+  const { substrate, acsp, purl, purlRead, purlList, purlCreate, envelope, move, CircleError, constitution, cfg, scrollDoc, requireSession, commitScroll, handle } = x;
 
   // ---- programs -------------------------------------------------------------
   async function sourceOf(q) {
@@ -417,9 +422,13 @@ export function createBridge(x) {
   // ---- dispatch ---------------------------------------------------------------
   const ide = createIde({ envelope, move, CircleError, cfg, substrate, typed: (t) => typed(t), P: { seurl: (t, i) => P.seurl(t, i) } });
 
+  const dev = createDev({ envelope, move, CircleError, cfg, purlCreate, purlRead, purlList, requireSession, gitCommit: (r, c) => gitCommit(r, c), transitionOf: (r, c) => P.git(r, c) });
+
   async function dispatch(method, path, q, body) {
     const fromIde = await ide.dispatch(method, path, q);
     if (fromIde) return fromIde;
+    const fromDev = await dev.dispatch(method, path, q, body);
+    if (fromDev) return fromDev;
     if (method === 'GET') {
       if (path === '/sdk') return envelope('sdk', sdkDoc(), [move('constitution', 'GET', '/sdk/constitution', 'read'), move('schemas', 'GET', '/sdk/schemas', 'read'), move('entry', 'GET', '/', 'read')]);
       if (path === '/constitution/model') return envelope('constitution-model', await constitutionModel(), [move('constitution', 'GET', '/constitution', 'read'), move('axes', 'GET', '/constitution/axes', 'read')]);
