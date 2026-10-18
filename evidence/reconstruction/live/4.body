@@ -1,0 +1,11 @@
+{
+  "ok": false,
+  "protocol": "ACSP/0.1",
+  "error": {
+    "code": "internal_error",
+    "message": "An internal error occurred. No partial changes were applied."
+  },
+  "links": {
+    "protocol": "https://acsp-one.vercel.app/protocol"
+  }
+}

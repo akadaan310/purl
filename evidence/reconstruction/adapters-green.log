@@ -1,0 +1,16 @@
+✔ alternate source adapters exist as explicit pure compatibility interfaces (0.638097ms)
+✔ actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK target, and rejects illegal moves (1.603996ms)
+✔ Substrate term mapping matches Python registry fixtures including optional and unmaterialized terms (1.510626ms)
+✔ composition imports re-evaluate pinned snapshots and emit compiler source without claiming event-chain verification (1.368472ms)
+✔ composition rejects malformed operators, width mismatches and ambiguous snapshot versions (0.815093ms)
+✔ all six imported bit operators match fixtures produced by original composition algebra (1.536574ms)
+✔ composition bounds complete snapshot metadata before recursive hashing (19.178836ms)
+✔ imported sources execute in the safe compiler with the original six operator values (19.996002ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 101.676474

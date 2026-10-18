@@ -1,0 +1,743 @@
+{
+  "protocol": "substrate-purl/0 (provisional)",
+  "kind": "operation_registry",
+  "semantics": "Operations are looked up here, never evaluated. A PURL is a root constructor followed by operations; each operation applies to the kind of object its prefix denotes.",
+  "roots": [
+    "space/{n}",
+    "map/eca/{rule}/{n}",
+    "map/increment/{n}",
+    "map/random/{n}/{seed}",
+    "map/permutation/{n}/{seed}"
+  ],
+  "kinds": [
+    "cycle",
+    "damage",
+    "graph",
+    "map",
+    "projection",
+    "root",
+    "space",
+    "spectrum",
+    "state",
+    "trace"
+  ],
+  "operations": [
+    {
+      "id": "substrate.space",
+      "segment": "space",
+      "applies_to": "root",
+      "yields": "space",
+      "params": [
+        {
+          "name": "n",
+          "type": "int",
+          "minimum": 1,
+          "choices": null,
+          "description": "number of bits"
+        }
+      ],
+      "template": "space/{n}",
+      "description": "The state space X_n = {0,1}^n.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_space",
+          "digest": "sha256:210d31b911341e216651e0fe555af3e0b603262774bdeb9ab309472f65ba841a"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/core.py#StateSpace",
+          "digest": "sha256:75e44fe441122ac900d4c813ae0f578e9a1502b9be324a050c7983120afbcdd2"
+        }
+      ],
+      "version": "sha256:cd577842312193ec69be648d7aa6160bf0fc7d0330eda77da1dc61f7c2e56a32",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.map.eca",
+      "segment": "map/eca",
+      "applies_to": "root",
+      "yields": "map",
+      "params": [
+        {
+          "name": "rule",
+          "type": "int",
+          "minimum": 0,
+          "choices": null,
+          "description": "Wolfram rule 0..255"
+        },
+        {
+          "name": "n",
+          "type": "int",
+          "minimum": 1,
+          "choices": null,
+          "description": "ring size"
+        }
+      ],
+      "template": "map/eca/{rule}/{n}",
+      "description": "Elementary cellular automaton on a ring of n cells. Steps are computed without a table (eca_step).",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_map_eca",
+          "digest": "sha256:cfb1d1638f2fcca719c2cbce6310fd874e1f2c196126383c625b17b5b81f3b26"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/core.py#eca",
+          "digest": "sha256:cfeeaf719052113f79e0e92c5ad892b76528b94d6ab63c0fc4c203fc57ed0afc"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/core.py#eca_step",
+          "digest": "sha256:d1b89f04f2770bd1c1ab9ffdba6c6dbcebdd28b86a6b9c8e62990af1ab6005f4"
+        }
+      ],
+      "version": "sha256:ae182de7a1aad6f1236c33dceeb54888247b05c429ea4e98e28605ad389d92da",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.map.increment",
+      "segment": "map/increment",
+      "applies_to": "root",
+      "yields": "map",
+      "params": [
+        {
+          "name": "n",
+          "type": "int",
+          "minimum": 1,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "map/increment/{n}",
+      "description": "x -> x + 1 mod 2^n. Steps need no table.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_map_inc",
+          "digest": "sha256:586292dae18a879a46ceafb2989176f600399081fea130c6b22527ced3fc2338"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/core.py#increment",
+          "digest": "sha256:a9c18143fda9e7c99c226e1cee516a3e40ae382412f7ee22a53317dbf417fdd9"
+        }
+      ],
+      "version": "sha256:762c3bed5c5a577151a70a6ab8866c27afcecfe1f18e00c104a3cd316e82c622",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.map.random",
+      "segment": "map/random",
+      "applies_to": "root",
+      "yields": "map",
+      "params": [
+        {
+          "name": "n",
+          "type": "int",
+          "minimum": 1,
+          "choices": null,
+          "description": ""
+        },
+        {
+          "name": "seed",
+          "type": "int",
+          "minimum": 0,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "map/random/{n}/{seed}",
+      "description": "Uniform random mapping (seeded). Every step needs the full table.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "table (for any step)",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_seeded.<locals>.impl",
+          "digest": "sha256:c92c707c82ad254eb6f3d73b0a0340c0c53ab3901e5d4e8fe587bc012254a450"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/core.py#random_map",
+          "digest": "sha256:ffb9f8070a8d66ca6d3de747c661060a8b9fe6036e3a94bbb41d92c4e8887f34"
+        }
+      ],
+      "version": "sha256:d982ae668f904f9e26e07160b108168191e9a50bd424bc688efb8f53f2065c83",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.map.permutation",
+      "segment": "map/permutation",
+      "applies_to": "root",
+      "yields": "map",
+      "params": [
+        {
+          "name": "n",
+          "type": "int",
+          "minimum": 1,
+          "choices": null,
+          "description": ""
+        },
+        {
+          "name": "seed",
+          "type": "int",
+          "minimum": 0,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "map/permutation/{n}/{seed}",
+      "description": "Uniform random permutation (seeded). Every step needs the full table.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "table (for any step)",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_seeded.<locals>.impl",
+          "digest": "sha256:c92c707c82ad254eb6f3d73b0a0340c0c53ab3901e5d4e8fe587bc012254a450"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/core.py#random_permutation",
+          "digest": "sha256:ddd8db5078db0e439a05bff963140180489cb2753e797aa4a992745a04b11d68"
+        }
+      ],
+      "version": "sha256:2005d6a6def336839ae9af5aee5258d146536055622f8dbdf6d4f33ca9517c72",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.space.state",
+      "segment": "state",
+      "applies_to": "space",
+      "yields": "state",
+      "params": [
+        {
+          "name": "x",
+          "type": "int",
+          "minimum": 0,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "state/{x}",
+      "description": "A state of the space, without dynamics.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_space_state",
+          "digest": "sha256:d20ba6763e95834b487272fdb3348c717e9734ea1de779704b3894acace78977"
+        }
+      ],
+      "version": "sha256:6e655362d4431ad842bf8070646abbe653106a9de39e97661290d6bb42cf939b",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.map.state",
+      "segment": "state",
+      "applies_to": "map",
+      "yields": "state",
+      "params": [
+        {
+          "name": "x",
+          "type": "int",
+          "minimum": 0,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "state/{x}",
+      "description": "A state of the map's space, under the map's dynamics.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_map_state",
+          "digest": "sha256:e855d4245f4610fe92a50b259d8f71e2bdfd20f02c403aff979fc86fbc1de02c"
+        }
+      ],
+      "version": "sha256:67f8d8e7cca680230fc4cea180fcff3fa3284c7adeb3a4df2fb86b9888b5ef10",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.state.next",
+      "segment": "next",
+      "applies_to": "state",
+      "yields": "state",
+      "params": [],
+      "template": "next",
+      "description": "The successor f(x): one transition of the map.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_next",
+          "digest": "sha256:5e550c862bda35efd557324ec095488031c530fc7884f7cd033a03bcdb7f8644"
+        }
+      ],
+      "version": "sha256:909c161eddef0b554808a416dc4d4c96ee491867e9bd52d9bad02b67ae737f61",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.state.flip",
+      "segment": "flip",
+      "applies_to": "state",
+      "yields": "state",
+      "params": [
+        {
+          "name": "bit",
+          "type": "int",
+          "minimum": 0,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "flip/{bit}",
+      "description": "State perturbation: x XOR 2^bit. A recorded, SIMULATED intervention on a model, not a physical event.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "simulated intervention on a computational model",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_flip",
+          "digest": "sha256:03641aadfa1b74d5fa83d30b8eae0a673bcb31434e09c416375a2bb8d431c4b7"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/perturb.py#Intervention",
+          "digest": "sha256:cfb7f0f3b255d833feffa1964fb35dfc8501550cf7d272abca2700463efb18d5"
+        }
+      ],
+      "version": "sha256:2dde3233a77bdb31634fca1ec9e0695544e017521668f13c141aa5835a435e0f",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.state.trace",
+      "segment": "trace",
+      "applies_to": "state",
+      "yields": "trace",
+      "params": [
+        {
+          "name": "steps",
+          "type": "int",
+          "minimum": 1,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "trace/{steps}",
+      "description": "The trace of `steps` transitions from this state (logical time only).",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_trace",
+          "digest": "sha256:477fecf588bbfa86c620f3ff0be459b98efde1971aaa3e8a9664443b68824869"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/trace.py#run",
+          "digest": "sha256:0579c2415b282ae8efa8cb67e27a644330332d327ac1c3c0966db3baeacb3a65"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/trace.py#step_states",
+          "digest": "sha256:1c53b3030b0fb8fb06fdab15a0c01457660aab198caaad13612967b087be8b5d"
+        }
+      ],
+      "version": "sha256:052ab86f833a7407e8feffcdd4283945c7868fb594ce04d67696a94cc71decd3",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.state.orbit",
+      "segment": "orbit",
+      "applies_to": "state",
+      "yields": "trace",
+      "params": [],
+      "template": "orbit",
+      "description": "Iterate until a state repeats: transient (tail) + cycle. Needs no table.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_orbit",
+          "digest": "sha256:4bffea81f6fafe2f08ada64f1e04f1a199540771b5690b3648f9f271e05895c8"
+        }
+      ],
+      "version": "sha256:9997e8f103b05e349ff6500fd8085c0f24cefc31138905652d2c5d85b7f65843",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.state.damage",
+      "segment": "damage",
+      "applies_to": "state",
+      "yields": "damage",
+      "params": [
+        {
+          "name": "horizon",
+          "type": "int",
+          "minimum": 1,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "damage/{horizon}",
+      "description": "Compare the orbit of this (perturbed) state with the orbit of the state it was perturbed from, over `horizon` steps.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "simulated intervention on a computational model",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_damage",
+          "digest": "sha256:6105425d473f97542ffae7cd29dbffe6694dad4d880a112277b74189d4d72668"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/perturb.py#compare_state_sequences",
+          "digest": "sha256:ee473cc04add46cb7e194830de50b467d4230d94c9d4e7c6afb9e7fd8a20c558"
+        }
+      ],
+      "version": "sha256:919dcd5bd9b6cbcd2a8a5eb216587d2c95e32312d9e15cd460bde673afe5f268",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.map.table",
+      "segment": "table",
+      "applies_to": "map",
+      "yields": "map",
+      "params": [],
+      "template": "table",
+      "description": "Materialize the map: the same map, now with its lookup table (its extension) computed and hashed. KNOWN -> MATERIALIZED as an explicit, addressable step.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "table",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_table",
+          "digest": "sha256:2b181204d50cac2e608e62f9c3c432ce9e8ce8d0bdcf2a408db24b8ec58e348c"
+        }
+      ],
+      "version": "sha256:c2bce4e5c8b8f7d17e96a9b14117b321de918e43ba7a004e76b52baf8493254c",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.map.graph",
+      "segment": "graph",
+      "applies_to": "map",
+      "yields": "graph",
+      "params": [],
+      "template": "graph",
+      "description": "The functional graph of f: cycles (attractors), basins, transients, Garden-of-Eden states.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "table",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_graph",
+          "digest": "sha256:d4de99f6ed2828e1638b6edee5c7ea8991ffd2177a4361dfc5c2a7ed62f8d717"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/graph.py#functional_graph_analysis",
+          "digest": "sha256:296268b74f107459abbcf9a1d7154d7913c22c61e66208213c1698eb8fdb3641"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/graph.py#public",
+          "digest": "sha256:10f4284732b0c0d222d129a134481fd0b0e2512ad58944d6c38d7b1366fee7c2"
+        }
+      ],
+      "version": "sha256:5b33533fe9cc28e85add3f4dc46f6fa1b71f56e75a8efe473d1dba925d232f8b",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.graph.cycle",
+      "segment": "cycle",
+      "applies_to": "graph",
+      "yields": "cycle",
+      "params": [
+        {
+          "name": "k",
+          "type": "int",
+          "minimum": 0,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "cycle/{k}",
+      "description": "The k-th attractor (cycle) of the functional graph.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_cycle",
+          "digest": "sha256:d82a18d97a9514c067a76f29e100c7b78c9a3724db781d92402aa4849f483c34"
+        }
+      ],
+      "version": "sha256:616b09a682a1df0b58daad77f93b513654e21990069a14551ab11f3e6434884f",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.map.power",
+      "segment": "power",
+      "applies_to": "map",
+      "yields": "map",
+      "params": [
+        {
+          "name": "k",
+          "type": "int",
+          "minimum": 1,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "power/{k}",
+      "description": "The derived map f^k (k-fold composition). Steps need no table if f's steps need none.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_power",
+          "digest": "sha256:a425a65c540510b5f4c3ef4038505ff9eed0426a983bab9cdb6f7a31075b6db5"
+        }
+      ],
+      "version": "sha256:3ca03b7abfd8e78ed3582a86371a8a2c690ee982305503afbc1d1a23b1a233be",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.map.rewire",
+      "segment": "rewire",
+      "applies_to": "map",
+      "yields": "map",
+      "params": [
+        {
+          "name": "src",
+          "type": "int",
+          "minimum": 0,
+          "choices": null,
+          "description": ""
+        },
+        {
+          "name": "dst",
+          "type": "int",
+          "minimum": 0,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "rewire/{src}/{dst}",
+      "description": "Structural perturbation: the map equal to f except f(src) = dst. A SIMULATED intervention on f.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "table",
+      "epistemic_status": "simulated intervention on a computational model",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_rewire",
+          "digest": "sha256:657d9936bc23cce8cd77512ab602eaeb2bb9da353900d7b5ef3a802790fe6347"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/perturb.py#Intervention",
+          "digest": "sha256:cfb7f0f3b255d833feffa1964fb35dfc8501550cf7d272abca2700463efb18d5"
+        }
+      ],
+      "version": "sha256:8e3fa0cd0bae27c168dda8a3dc42db2dbef2ebdf5cfa9d65dc279af3ddbcd136",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.map.project",
+      "segment": "project",
+      "applies_to": "map",
+      "yields": "projection",
+      "params": [
+        {
+          "name": "observable",
+          "type": "choice",
+          "minimum": null,
+          "choices": [
+            "popcount",
+            "parity",
+            "bit0"
+          ],
+          "description": ""
+        }
+      ],
+      "template": "project/{observable}",
+      "description": "Project X_n through an observable O: information lost, and the coarsest congruence of f refining ker O.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "table",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_project",
+          "digest": "sha256:b4805aaf31a40330a4708cf1e57751101695ed04aeaa077277e2e6f9a7ded2c1"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/projection.py#information_loss",
+          "digest": "sha256:6789b479ceeac763d7be8bb1682c0e54bf7866166626974b2e3a8c55af0e9c8c"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/projection.py#congruence_summary",
+          "digest": "sha256:a8e45455b7c75d401e462bed39b5061d3adf37e3ee2facc39243a9abda4337a2"
+        }
+      ],
+      "version": "sha256:aa003aa1bb5bc6e90d8bb014a00826c8e770f922e65e29101c7d73cca8bd8a1b",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.trace.transitions",
+      "segment": "transitions",
+      "applies_to": "trace",
+      "yields": "trace",
+      "params": [],
+      "template": "transitions",
+      "description": "Change of representation: states -> XOR transitions d_t = x_t XOR x_{t+1}.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_transitions",
+          "digest": "sha256:d72e94fa2fb76122189c7063c87a9ba537867fb775e3896d6c33e4fe337a5b85"
+        },
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/projection.py#to_transitions",
+          "digest": "sha256:954d4b283c954a3ed0e3bfe0b0da5a6110e349f9567cabdfc947aa2908a6d881"
+        }
+      ],
+      "version": "sha256:59b6b6d11c9cdb14886d19a6c0458dc67fb2dfb82b031a65f55b90b21d568a85",
+      "executable_here": true
+    },
+    {
+      "id": "substrate.trace.at",
+      "segment": "at",
+      "applies_to": "trace",
+      "yields": "state",
+      "params": [
+        {
+          "name": "t",
+          "type": "int",
+          "minimum": 0,
+          "choices": null,
+          "description": ""
+        }
+      ],
+      "template": "at/{t}",
+      "description": "The state at logical time t of the trace.",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [],
+      "materializes": "nothing",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_trace_at",
+          "digest": "sha256:bd2d327f6d97d2893354a5e0acfcd1db5d163f539fc5f0ce38d134f4a4865e25"
+        }
+      ],
+      "version": "sha256:2e70dd3a590e457808f3f3a7612bf0757851f96789394a34d29aa9d450898f85",
+      "executable_here": true
+    },
+    {
+      "id": "numpy.map.spectrum",
+      "segment": "spectrum",
+      "applies_to": "map",
+      "yields": "spectrum",
+      "params": [],
+      "template": "spectrum",
+      "description": "Eigenvalues of the 0/1 transition matrix of f (numpy.linalg.eigvals).",
+      "effects": "pure",
+      "determinism": "deterministic",
+      "requires": [
+        "numpy"
+      ],
+      "materializes": "table and a 2^n x 2^n matrix",
+      "epistemic_status": "computational",
+      "implementation": [
+        {
+          "surface": "git:substrateIO",
+          "locator": "substrate/purl.py#_spectrum",
+          "digest": "sha256:a8c4233d69a7a9a6e54c8b439ff426d20fb1199d734aced52c85d615a5c357a2"
+        }
+      ],
+      "version": "sha256:6dcf31d13b99855ac92149c332ed7a9a7cd83c9fdce7434c1e3f276e5c9f51a3",
+      "executable_here": true
+    }
+  ]
+}

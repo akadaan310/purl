@@ -1,0 +1,35 @@
+✔ alternate source adapters exist as explicit pure compatibility interfaces (0.558507ms)
+✔ actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK target, and rejects illegal moves (1.383995ms)
+✔ Substrate term mapping matches Python registry fixtures including optional and unmaterialized terms (1.122664ms)
+✔ composition imports re-evaluate pinned snapshots and emit compiler source without claiming event-chain verification (1.044416ms)
+✔ composition rejects malformed operators, width mismatches and ambiguous snapshot versions (0.65953ms)
+✔ all six imported bit operators match fixtures produced by original composition algebra (0.822183ms)
+✖ composition bounds complete snapshot metadata before recursive hashing (40.625457ms)
+✔ imported sources execute in the safe compiler with the original six operator values (14.278682ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 119.011722
+
+✖ failing tests:
+
+test at test/adapters.test.js:97:1
+✖ composition bounds complete snapshot metadata before recursive hashing (40.625457ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///workspace/purl/test/adapters.test.js:108:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'throws',
+    diff: 'simple'
+  }

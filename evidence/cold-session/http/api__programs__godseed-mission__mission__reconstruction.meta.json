@@ -1,0 +1,18 @@
+{
+  "url": "http://127.0.0.1:8080/api/programs/godseed-mission/mission/reconstruction",
+  "status": 200,
+  "headers": {
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "no-referrer",
+    "X-Frame-Options": "DENY",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+    "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+    "Cache-Control": "no-store",
+    "Vary": "Accept, Authorization",
+    "Content-Type": "application/purl+json; charset=utf-8",
+    "Date": "Sun, 18 Oct 2026 13:57:30 GMT",
+    "Connection": "close",
+    "Transfer-Encoding": "chunked"
+  },
+  "body_file": "/workspace/purl/evidence/cold-session/http/api__programs__godseed-mission__mission__reconstruction.body"
+}

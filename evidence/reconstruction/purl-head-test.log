@@ -1,0 +1,75 @@
+
+> purl@0.1.0 test
+> node --test "test/**/*.test.js"
+
+✔ layer import rule (2.238317ms)
+✔ reader cannot mutate; observer cannot read content (I3) (3.937736ms)
+✔ no observe right → not found (existence is not leaked) (0.949604ms)
+✔ the §10 scenario: owner A, observer B, delegated operator C (1.381952ms)
+✔ delegation chain is recorded, attenuated, and revocation cascades (I8) (1.72049ms)
+✔ grant holders may revoke only grants descending from their own (0.90692ms)
+✔ grants expire (0.595473ms)
+✔ public grants are limited to observe/read and apply to anonymous requesters (0.525108ms)
+✔ ownership transfer is owner-only and not delegable (0.820311ms)
+✔ administrators can archive and revoke but cannot read or edit content (0.698628ms)
+✔ forward is available only to the current assignee (1.512379ms)
+✔ replay reconstructs every version and matches recorded state hashes (5.296023ms)
+✔ every event and resource state validates against the published schemas (4.733749ms)
+✔ tampering with an event is detected by verify (1.175473ms)
+✔ handoff does not change identity or ownership (I1, I5) (1.295433ms)
+✔ handoff is atomic: a failing component aborts every event (0.95345ms)
+✔ expected_version is required and enforced (optimistic concurrency, replay defence) (1.035423ms)
+✔ Idempotency-Key returns the original result and rejects a different body (0.569914ms)
+✔ lifecycle state machine gates operations; revoke is always available (1.407371ms)
+✔ checkpoint packages are validated; server-verified facts are kept apart from claims (2.005758ms)
+✔ communication profile: declared vs measured is explicit and the disclaimer is mandatory (0.427962ms)
+✔ JSON Merge Patch follows RFC 7396 examples (0.22002ms)
+✔ reducer rejects non-genesis first events and out-of-order versions (0.890335ms)
+✔ persistence: a reloaded store replays and verifies the log (4.853354ms)
+✔ the §23 end-to-end demonstration runs over HTTP and every invariant holds (216.675143ms)
+✔ an experiment rerun from its definition reproduces the output hash (97.212366ms)
+✔ the committed exp-0001 record validates and its hypotheses were not edited after registration (2.962834ms)
+✔ instance manifest validates and describes the protocol (24.494279ms)
+✔ the protocol describes itself as a public PURL resource (8.868832ms)
+✔ GET is safe: ?action=<mutation> and GET on an operation URL never mutate (I4) (15.368241ms)
+✔ credentials in the URL are rejected; mutations need JSON and a token (15.087589ms)
+✔ content negotiation: HTML embeds the machine document and links to the manifest (7.093719ms)
+✔ resource manifest validates, is evaluated for the requester, and hides private resources (11.857885ms)
+✔ invoke over HTTP: expected_version, If-Match, idempotency, problem details (19.775095ms)
+✔ projections: events (observer sees headers only), state?at, diff, verify, lineage, transitions (32.345975ms)
+✔ subscribe: SSE stream delivers new events (11.305396ms)
+✔ unknown routes and schemas are problems; schemas are served (5.607021ms)
+✔ entropy of known distributions (1.292809ms)
+✔ LZ76 reproduces the Lempel–Ziv (1976) textbook example (0·001·10·100·1000·101 → 6) (8.972357ms)
+✔ transition matrix, changes and runs on a hand-checked sequence (1.925579ms)
+✔ entropy profile: periodic sequence has zero conditional entropy once the period is covered (2.357667ms)
+✔ lag2copy: invisible to the first-order transition matrix, visible to h_3 (7.050315ms)
+✔ autocorrelation finds the period of a noiseless periodic sequence (2.081041ms)
+✔ temporal measures: burstiness −1 for a regular clock, ≈0 for Poisson; Fano, differences (11.859578ms)
+✔ transition graph: SCCs, closed classes, periods and boundary artefacts (1.218066ms)
+✔ Re-Pair compresses repetition, is deterministic, and never interprets (1.994441ms)
+✔ motifs report expectations under stated null models (0.366569ms)
+✔ surrogates: shuffle preserves counts; Markov surrogate preserves transition structure; p-values in (0,1] (26.218635ms)
+✔ seeded generators are reproducible (0.512119ms)
+✔ projection alphabet matches the Layer 1 primitive list; boundaries come from invocations (0.438979ms)
+✔ hypothesis criteria evaluate to supported / not_supported / indeterminate (0.451938ms)
+✔ fork preserves lineage, copies no authority, and leaves the source untouched (I9) (4.604375ms)
+✔ supersede keeps the original (I10) (1.146659ms)
+✔ linking to a resource grants nothing and does not mutate the target (I2) (1.470716ms)
+✔ merge: three-way over state, union over entries, provenance kept, conflicts explicit (1.583545ms)
+✔ merge requires a recorded fork relationship (0.512459ms)
+✔ threeWayMerge and diff unit cases (0.252549ms)
+✔ append with a client-chosen entry id is idempotent; entries are immutable (0.84652ms)
+ℹ tests 58
+ℹ suites 0
+ℹ pass 58
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 381.893167
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

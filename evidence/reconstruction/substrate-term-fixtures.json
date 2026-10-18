@@ -1,0 +1,127 @@
+[
+  {
+    "address": "/map/eca/90/8/state/5/next",
+    "kind": "state",
+    "steps": [
+      {
+        "op": "substrate.map.eca",
+        "args": [
+          90,
+          8
+        ],
+        "sort": "root -> map",
+        "prefix": "/map/eca/90/8"
+      },
+      {
+        "op": "substrate.map.state",
+        "args": [
+          5
+        ],
+        "sort": "map -> state",
+        "prefix": "/map/eca/90/8/state/5"
+      },
+      {
+        "op": "substrate.state.next",
+        "args": [],
+        "sort": "state -> state",
+        "prefix": "/map/eca/90/8/state/5/next"
+      }
+    ],
+    "requires": [],
+    "derivation_id": "sha256:0b9b178ddf322027168e754f8b273f66feb65d5039d366bd5c78c483331a545a"
+  },
+  {
+    "address": "/map/increment/3/power/8/state/0/trace/4/transitions",
+    "kind": "trace",
+    "steps": [
+      {
+        "op": "substrate.map.increment",
+        "args": [
+          3
+        ],
+        "sort": "root -> map",
+        "prefix": "/map/increment/3"
+      },
+      {
+        "op": "substrate.map.power",
+        "args": [
+          8
+        ],
+        "sort": "map -> map",
+        "prefix": "/map/increment/3/power/8"
+      },
+      {
+        "op": "substrate.map.state",
+        "args": [
+          0
+        ],
+        "sort": "map -> state",
+        "prefix": "/map/increment/3/power/8/state/0"
+      },
+      {
+        "op": "substrate.state.trace",
+        "args": [
+          4
+        ],
+        "sort": "state -> trace",
+        "prefix": "/map/increment/3/power/8/state/0/trace/4"
+      },
+      {
+        "op": "substrate.trace.transitions",
+        "args": [],
+        "sort": "trace -> trace",
+        "prefix": "/map/increment/3/power/8/state/0/trace/4/transitions"
+      }
+    ],
+    "requires": [],
+    "derivation_id": "sha256:4f6cc6738ec95b2e0f599a3d7d4c0b97359b7cbd682850b32392caa596090405"
+  },
+  {
+    "address": "/map/eca/30/40/graph",
+    "kind": "graph",
+    "steps": [
+      {
+        "op": "substrate.map.eca",
+        "args": [
+          30,
+          40
+        ],
+        "sort": "root -> map",
+        "prefix": "/map/eca/30/40"
+      },
+      {
+        "op": "substrate.map.graph",
+        "args": [],
+        "sort": "map -> graph",
+        "prefix": "/map/eca/30/40/graph"
+      }
+    ],
+    "requires": [],
+    "derivation_id": "sha256:7ba8bcb6c9e76dcb0c47ed263f91df44dd64202605c80c6afefe7e5eb91e57c8"
+  },
+  {
+    "address": "/map/eca/90/8/spectrum",
+    "kind": "spectrum",
+    "steps": [
+      {
+        "op": "substrate.map.eca",
+        "args": [
+          90,
+          8
+        ],
+        "sort": "root -> map",
+        "prefix": "/map/eca/90/8"
+      },
+      {
+        "op": "numpy.map.spectrum",
+        "args": [],
+        "sort": "map -> spectrum",
+        "prefix": "/map/eca/90/8/spectrum"
+      }
+    ],
+    "requires": [
+      "numpy"
+    ],
+    "derivation_id": "sha256:62006a13c7976d69e2456389c0544f49a4e391b800426c7428f998b512a3d5da"
+  }
+]

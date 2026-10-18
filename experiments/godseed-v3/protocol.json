@@ -1,0 +1,79 @@
+{
+  "protocol": "purl-godseed-experiments/1",
+  "registered_at": "2026-10-18T13:47:36.679832+00:00",
+  "registration_class": "Local file saved before GODSEED harness execution; not an externally timestamped preregistration",
+  "baseline_revision": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+  "source_revision_policy": "Every run captures git revision and SHA256 manifest of implementation/protocol files; preserve failed run directories",
+  "experiments": [
+    {
+      "id": "E01",
+      "hypothesis": "Separate address/derivation/value/run identities are stable and distinct",
+      "controls": "Same value from different programs; reordered JSON; NaN/unsafe numeric negative controls",
+      "falsification_threshold": "All defined equalities hold, zero conflations",
+      "script": "scripts/godseed-experiments.js"
+    },
+    {
+      "id": "E02",
+      "hypothesis": "Typed composition/effects normalize and execute deterministically",
+      "controls": "Valid/invalid types, branches, repeats, unknown operators, rights negatives",
+      "falsification_threshold": "Zero invalid acceptances in specified corpus; identical pure replay",
+      "script": "scripts/godseed-experiments.js"
+    },
+    {
+      "id": "E03",
+      "hypothesis": "Seven SEURL labels require contextual, loss-aware mappings",
+      "controls": "All seven verbs from actual historical parser and handoff",
+      "falsification_threshold": "No false universal equivalence; all ambiguity/loss explicitly preserved",
+      "script": "scripts/godseed-experiments.js"
+    },
+    {
+      "id": "E04",
+      "hypothesis": "Projection compilation requires congruent enabledness/effects/successors",
+      "controls": "Exhaustive 2-bit positive toggle/negative swap; definedness/effect negatives",
+      "falsification_threshold": "Positive accepted; negative witnesses returned and compiler rejects",
+      "script": "scripts/godseed-experiments.js"
+    },
+    {
+      "id": "E05",
+      "hypothesis": "An AI-authored program can be built/tested/published and reused via URL",
+      "controls": "Pure PURL and authored JS through restricted Docker; fresh HTTP client",
+      "falsification_threshold": "Same expected output, immutable release and discoverable provenance",
+      "script": "scripts/godseed-experiments.js"
+    },
+    {
+      "id": "E06",
+      "hypothesis": "Execution and authority boundaries fail closed",
+      "controls": "Docker file/network/process/credential/CPU/output attacks; SSRF/forged/revoked/stale/idempotency",
+      "falsification_threshold": "Zero unauthorized writes or host accesses; resource attacks terminated; unavailable checks marked blocked",
+      "script": "scripts/godseed-experiments.js"
+    },
+    {
+      "id": "E07",
+      "hypothesis": "Three isolated clients reconstruct and continue persisted checkpoint state lawfully",
+      "controls": "A owner, B attenuated proposal/checkpoint grants, C read-only reconstruction",
+      "falsification_threshold": "Replay valid, revoked/grant negatives refused; same-provider process/agent class explicit",
+      "script": "scripts/godseed-experiments.js"
+    },
+    {
+      "id": "E08",
+      "hypothesis": "Concurrent tic-tac-toe validates turns and survives restart",
+      "controls": "Two authenticated players, stale race, illegal turn, winner and replay",
+      "falsification_threshold": "One concurrent winner commit, illegal writes rejected, replay matches after restart",
+      "script": "scripts/godseed-experiments.js"
+    },
+    {
+      "id": "E09",
+      "hypothesis": "God-seed PURL exposes typed mission graph and reconstructible cursor",
+      "controls": "Fresh no-transcript agent sees one URL; compare plain directive and static graph",
+      "falsification_threshold": "Directive accessible, ready nodes derivable, checkpoint/version discoverable; no fabricated advantage",
+      "script": "scripts/godseed-experiments.js"
+    },
+    {
+      "id": "E10",
+      "hypothesis": "Cold product/container/UI rebuild preserves persistence and core flows",
+      "controls": "Clean checkout, migrations, API/worker images, Playwright desktop+Android, reduced motion, axe, restart/interrupted jobs",
+      "falsification_threshold": "Working compile/build/run/publish and copy paths; no serious/critical a11y; no mobile overflow; measured local performance; production blockers explicit",
+      "script": "scripts/cold-rebuild.js + tests/ui/product.spec.js"
+    }
+  ]
+}

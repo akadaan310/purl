@@ -1,0 +1,8 @@
+................................................/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py:589: ResourceWarning: unclosed <socket.socket fd=3, family=2, type=1, proto=0, laddr=('127.0.0.1', 41101)>
+  if method() is not None:
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..............................
+----------------------------------------------------------------------
+Ran 78 tests in 25.861s
+
+OK

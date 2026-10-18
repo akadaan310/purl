@@ -1,0 +1,61 @@
+{
+  "schema": "purl-mission/0-draft",
+  "status": "CONTRACT EXAMPLE ONLY - NOT DEPLOYED OR EXECUTABLE",
+  "resource": {
+    "id": "mission-example-001",
+    "url": "https://example.invalid/r/mission-example-001",
+    "version": 3,
+    "immutable_definition_digest": "sha256:<replaced-by-builder>",
+    "public_discovery": true
+  },
+  "origin": {
+    "program_family": "typed-mission-graph",
+    "research_lineage": ["PURL/0.1", "CGT-DEF-003", "GIN-DEF-061"],
+    "scope": "toy build-test mission",
+    "intention": "Demonstrate structurally reconstructible state without transferring chat state"
+  },
+  "operators": {
+    "parse": {"input_type": "text", "output_type": "ast", "effects": [], "requires": [], "operator_version": "toy/0"},
+    "typecheck": {"input_type": "ast", "output_type": "checked-ast", "effects": [], "requires": [], "operator_version": "toy/0"},
+    "build": {"input_type": "checked-ast", "output_type": "artifact", "effects": ["local-process"], "requires": ["execute"], "operator_version": "not-installed"},
+    "test": {"input_type": "artifact", "output_type": "test-report", "effects": ["local-process"], "requires": ["execute"], "operator_version": "not-installed"},
+    "checkpoint": {"input_type": "test-report", "output_type": "checkpoint", "effects": ["mutation"], "requires": ["append"], "operator_version": "not-installed"}
+  },
+  "graph": {
+    "nodes": [
+      {"id": "n1", "op": "parse", "depends_on": []},
+      {"id": "n2", "op": "typecheck", "depends_on": ["n1"]},
+      {"id": "n3", "op": "build", "depends_on": ["n2"]},
+      {"id": "n4", "op": "test", "depends_on": ["n3"]},
+      {"id": "n5", "op": "checkpoint", "depends_on": ["n4"]}
+    ],
+    "completion_condition": "n5 has a committed version-bound receipt AND n4 report passes"
+  },
+  "state": {
+    "completed_nodes": ["n1", "n2"],
+    "ready_nodes": ["n3"],
+    "artifact_refs": [],
+    "events": [
+      {"kind": "toy", "version": 2, "node": "n1", "verified": false},
+      {"kind": "toy", "version": 3, "node": "n2", "verified": false}
+    ]
+  },
+  "discovery": {
+    "bootstrap": "/r/mission-example-001/manifest",
+    "history": "/r/mission-example-001/events",
+    "continuity": "/r/mission-example-001/continuity",
+    "operations": "/r/mission-example-001/ops/{op}"
+  },
+  "authorization": {
+    "principal": "anonymous-read-only",
+    "write_or_execute_permission": "not-granted-by-url",
+    "credentials": "out-of-band-only",
+    "execution_method": "POST",
+    "expected_version": 3
+  },
+  "replay_policy": {
+    "pure_nodes": "reconstruct from fixed inputs and versioned operator",
+    "effectful_nodes": "verify receipt, never automatically reissue external effects",
+    "uncaptured_external_dependencies": "replay-incomplete"
+  }
+}

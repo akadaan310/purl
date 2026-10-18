@@ -1,126 +1,33 @@
-# Architecture
+# PURL integrated architecture
 
-PURL is three layers that can be understood — and replaced — independently.
+The original continuity/research/transport layers in `src/` remain intact with their dependency tests. The product extension resides in `service/`; it reuses original canonical hashing, differences and proven authority patterns without merging ACSP databases or granting authority through mathematical validity. Original architecture documentation is in `docs/legacy/ARCHITECTURE.md`.
 
-```
-┌───────────────────────────────────────────────────────────────────────┐
-│ Layer 0 — Transport            src/transport/                         │
-│   URLs · HTTP methods · content negotiation · manifests · HTML views  │
-│   SSE subscription · problem details · limits                         │
-├───────────────────────────────────────────────────────────────────────┤
-│ Layer 1 — Continuity           src/continuity/                        │
-│   resources · event log · reducer · authority (grants, chains)        │
-│   operations (primitives, compositions, aliases) · lineage · diff     │
-│   continuity packages · communication profiles                        │
-├───────────────────────────────────────────────────────────────────────┤
-│ Layer 2 — Research             src/research/                          │
-│   symbol sequences · measures · temporal analysis · transition graphs │
-│   grammar compression · surrogates · experiment records               │
-└───────────────────────────────────────────────────────────────────────┘
-                 src/core/  canonical JSON, hashing, ids, schema validation
-```
+## Execution path
 
-## Dependency rule
+`URL discovery → source → parser → typed/effect/capability checker → versioned IR → immutable tested build → durable queue → worker authority/environment recheck → bounded execution → immutable artifact → receipt → checkpoint → replay`
 
-| Module | May import |
-|--------|------------|
-| `src/core` | Node stdlib only |
-| `src/continuity` | `core` |
-| `src/research` | `core` |
-| `src/transport` | `core`, `continuity`, `research` |
-| `src/client` | `core`, `continuity` (the reducer, for independent replay) — talks to a server only over HTTP |
-| `scripts/`, `test/` | anything |
+- `service/http.js`: HTTP/body/origin/rate/credential boundary; static browser assets; read-only metadata and compatibility adapters. Every durable mutation uses POST. No user-supplied URL is fetched.
+- `service/domain.js`, `service/domain/`: principals, optional provider-verified identity exchange, scoped/attenuated grants, optimistic versions, proposals, immutable builds/releases/artifacts, games, mission graph, queue leases, replay and evidence. Request-bound idempotency is persisted and rechecks current authority before returning a prior mutation.
+- `service/compiler.js`, `service/language/`: a closed bounded operator language. Plans are data and are checked again at execution. Registry/source/dependency digests prevent silently accepting a changed interpreter. Pure computations have empty effect rows. External adapters remain unavailable.
+- `service/adapters.js`, `service/compat/`: pinned original SEURL FSM, parse-only Substrate term registry, independent re-evaluation of pinned bit-composition snapshots. No token/grant import and no networking.
+- `service/repository.js`: transactional memory/file development adapters and authoritative Supabase REST CAS adapter. Mutators are synchronous and side-effect-free; retries never repeat external effects. File mode uses locks, fsync and atomic rename on one host.
+- `service/worker.js`: separate worker process, persisted claims with expiring leases and claim-ID fencing, current authority at claim/completion, heartbeat and graceful draining. Only bounded pure computation runs in default deployments.
+- `service/sandbox.js`: opt-in isolated authored-code adapter with pinned JS/TS/Python images and recorded actual runtime environment. Not a public shell or an ambient-cloud-credential subprocess.
+- `web/`: self-hosted responsive browser UI. Its counts, diagnostics, traces, history and outputs come from the API. Tokens stay in per-tab session storage; nonce-bound optional account callbacks clear provider tokens immediately.
+- `sdk/`: dependency-free browser/Node SDK, TypeScript declarations and CLI. Off-origin manifest operation links cannot receive a bearer token.
 
-Layer 1 knows nothing about HTTP. Layer 2 knows nothing about resources:
-it consumes plain arrays of `{t, symbol}`. The *bridge* between Layer 1
-and Layer 2 is a **projection** — a declared, documented function from an
-event list to a symbol sequence (`src/research/projection.js`). Because
-projections are explicit, the choice of projection is visible in every
-experiment record, and different projections of the same log can be
-compared.
+## Persistence and atomicity
 
-`test/architecture.test.js` parses every import in `src/` and fails if
-the rule is violated.
+Production state lives in `public.purl_documents`, a revisioned JSON document updated by restricted SQL CAS RPCs. The migration also projects normalized entities and audit rows in the same transaction. Server-only roles can access the persistence API; anonymous/authenticated direct access is revoked and RLS is enabled. Immutable result objects are uploaded to the private Supabase Storage bucket before success acknowledgement and referenced by persisted artifacts. A failed upload yields a failed job, not false success. CAS failures can leave an unreferenced immutable object; conservative garbage collection requires a separate review.
 
-## Request flow (mutation)
+This coarse document transaction favors correctness and a reviewable integration over high write throughput. The default capacity is10,000 programs with bounded per-program history. Document copies, snapshots and global serialization are scaling limits; separate indexed queue/entity repositories are future work, not a claimed production scale result. Build/replay aggregate work budgets reject expensive synchronous work; this is not a distributed fairness or billing system.
 
-```
-POST /r/{id}/ops/handoff            Layer 0: parse, size-limit, content-type check,
-  Authorization: Bearer …                    authenticate → principal
-  {"expected_version": 7, "input": {…}}
-        │
-        ▼
-store.invoke(actor, id, "handoff", body)    Layer 1
-        │  1. look up operation in registry (unknown → 404, never eval)
-        │  2. validate input against the operation's JSON Schema
-        │  3. check lifecycle gate (e.g. archived resources reject writes)
-        │  4. check expected_version (409 on mismatch — also replay defence)
-        │  5. plan(): operation → list of primitive events
-        │  6. authorise: ONE authority source must cover the rights of
-        │     every primitive AND permit the operation name
-        │  7. apply each primitive with the reducer on a copy; any failure
-        │     aborts the whole invocation (atomicity)
-        │  8. hash-chain, append, persist, notify subscribers
-        ▼
-201/200 operation-result (events, new version, links)
-```
+## Restart and portability
 
-## Storage: event sourcing
+API and workers are interchangeable placements of the same image and configuration. Containers contain no essential production state. After interruption, an expired lease is claimable by a replacement worker; a stale worker cannot commit through a superseded claim ID. Exact pure replay checks captured inputs, seeds, versions, traces and environment; an environment change is explicit, never silently claimed equivalent. Portability tests compare specified pure values across host Node24 and container Node22; ARM execution is not verified.
 
-The event log is the source of truth. State is a left fold:
+Railway runs API and worker separately. Moving workers to Oracle retains Supabase and public addresses and drains or recovers leases. See DEPLOYMENT.md. Hosted deployment, object backup/restore and actual Oracle execution remain blocked without configured targets.
 
-```
-state_n = reduce(apply, events[1..n], ∅)
-```
+## Evidence and trust
 
-Consequences, each used somewhere in the implementation:
-
-- **Time travel** — `GET /r/{id}/state?at=n` replays to version *n*.
-- **Diff** — `GET /r/{id}/diff?from=a&to=b` compares two replays.
-- **Verification** — every event carries `prev` (previous event hash),
-  `state_before`, `state_after` and its own `hash`. `GET /r/{id}/verify`
-  replays the log and checks all four, which detects tampering with
-  either events or stored state.
-- **Research substrate** — the log *is* a time-indexed sequence of state
-  transitions, which is exactly Layer 2's input type.
-
-Trade-off acknowledged: replay cost grows with log length. The store keeps
-the current state cached; `state?at=` replays from genesis (O(n)). Snapshots
-are an obvious optimisation, deliberately not implemented yet (see
-[RESEARCH_QUESTIONS.md](RESEARCH_QUESTIONS.md)).
-
-Persistence is an append-only JSON-Lines file (`PURL_DATA_DIR`). On start
-the log is replayed and verified; a broken hash chain refuses to load.
-
-## Why these technology choices
-
-- **Zero runtime dependencies.** The implementation must be small enough
-  to read completely. Node's standard library provides HTTP, SHA-256,
-  randomness and a test runner.
-- **JSON Schema (2020-12 subset)** for every wire format, with a ~150-line
-  validator in `src/core/schema.js`, so the schemas in `schemas/` are
-  enforced rather than decorative.
-- **Canonical JSON** (sorted keys; compatible with RFC 8785 JCS for the
-  value space PURL uses) so hashes are reproducible across runs.
-
-## Directory map
-
-```
-PRINCIPLES.md  SPEC.md  SECURITY.md  NOMENCLATURE.md  RESEARCH_QUESTIONS.md
-docs/
-  decisions/        architecture decision records (URL form, discovery, storage…)
-  operations.md     operation algebra: primitives, compositions, aliases, properties
-  authority.md      rights, roles, grants, delegation chains
-  continuity.md     checkpoints, handoff, continuity packages, communication profiles
-  prior-art.md      what PURL borrows and what (if anything) is new
-  research/         measure definitions, experiment protocol
-schemas/            JSON Schemas (resource, event, manifests, packages, records)
-src/core            canonical JSON, ids, schema validator, errors
-src/continuity      Layer 1
-src/transport       Layer 0
-src/research        Layer 2
-public/             browser visualisations (driven by the machine interface)
-experiments/        experiment definitions, raw data, run records, reports
-scripts/            demo, experiment runner, reproducer
-test/               node:test suites
-```
+Hash chains establish internal self-consistency relative to an existing trusted head. They do not prove historical authenticity against a malicious server who can rewrite all state and hashes. Mission statuses and submitted evidence remain claims; artifact existence/hashes do not establish all requirement predicates. No external transparency witness, signature authority, general semantic-equivalence procedure, cross-provider continuity advantage or arbitrary sandbox safety certificate is claimed.

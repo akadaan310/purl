@@ -1,0 +1,39 @@
+{
+  "url": "https://supabase.com/changelog.md",
+  "checked_at": "2026-10-18T14:07:04.685811+00:00",
+  "sha256": "15b3d0d1a7dc3b3f2c0af4788e49acfdf2d2edbd2613f22de0705fa43b1cf58b",
+  "breaking_lines": [
+    "2026-10-12 \u00b7 Breaking Change \u00b7 Auth, Data APIs, Storage, Realtime, Edge Functions \u00b7 [supabase.com/changelog/cbc-tls-ciphers-deprecated](https://supabase.com/changelog/cbc-tls-ciphers-deprecated)",
+    "2026-09-25 \u00b7 Breaking Change \u00b7 Database \u00b7 [supabase.com/changelog/postgres-15-19-17-11-breaking-changes](https://supabase.com/changelog/postgres-15-19-17-11-breaking-changes)",
+    "2026-07-23 \u00b7 Breaking Change \u00b7 Platform \u00b7 [supabase.com/changelog/48235-migration-of-supabase-management-api-logs-all-analytics-endpoint-to-logs-endpoint](https://supabase.com/changelog/48235-migration-of-supabase-management-api-logs-all-analytics-endpoint-to-logs-endpoint)",
+    "2026-07-22 \u00b7 Breaking Change \u00b7 Database, Security \u00b7 [supabase.com/changelog/extension-version-pinning-ignored](https://supabase.com/changelog/extension-version-pinning-ignored)",
+    "## Self-hosted Supabase: Envoy becomes the default API gateway (breaking change)",
+    "2026-07-17 \u00b7 Breaking Change \u00b7 Platform \u00b7 [supabase.com/changelog/48048-self-hosted-supabase-envoy-becomes-the-default-api-gateway-b](https://supabase.com/changelog/48048-self-hosted-supabase-envoy-becomes-the-default-api-gateway-b)",
+    "2026-07-14 \u00b7 Breaking Change \u00b7 Realtime \u00b7 [supabase.com/changelog/realtime-schema-locked-down-against-modification](https://supabase.com/changelog/realtime-schema-locked-down-against-modification)",
+    "2026-06-18 \u00b7 Breaking Change \u00b7 Auth \u00b7 [supabase.com/changelog/47093-self-hosted-supabase-api-external-url-to-include-auth-v1](https://supabase.com/changelog/47093-self-hosted-supabase-api-external-url-to-include-auth-v1)",
+    "2026-06-03 \u00b7 Breaking Change \u00b7 Platform \u00b7 [supabase.com/changelog/46599-changes-to-email-template-customisation-on-free-tier](https://supabase.com/changelog/46599-changes-to-email-template-customisation-on-free-tier)",
+    "## Breaking change in pg_graphql 1.6.0 \u2014 GraphQL introspection disabled by default",
+    "2026-05-25 \u00b7 Breaking Change \u00b7 Database \u00b7 [supabase.com/changelog/46320-breaking-change-in-pg-graphql-1-6-0-graphql-introspection-disabled-by-default](https://supabase.com/changelog/46320-breaking-change-in-pg-graphql-1-6-0-graphql-introspection-disabled-by-default)",
+    "2026-05-18 \u00b7 Breaking Change \u00b7 Observability \u00b7 [supabase.com/changelog/46084-self-hosted-supabase-making-analytics-and-vector-opt-in](https://supabase.com/changelog/46084-self-hosted-supabase-making-analytics-and-vector-opt-in)",
+    "## Self-hosted Supabase: switching Studio from supabase_admin to postgres (breaking change)",
+    "2026-05-18 \u00b7 Breaking Change \u00b7 Database \u00b7 [supabase.com/changelog/46081-self-hosted-supabase-switching-studio-from-supabase-admin-to-postgres-breaking-change](https://supabase.com/changelog/46081-self-hosted-supabase-switching-studio-from-supabase-admin-to-postgres-breaking-change)",
+    "## Self-hosted Supabase: upgrading from PG 15 to 17 (breaking change)",
+    "2026-05-18 \u00b7 Breaking Change \u00b7 Database \u00b7 [supabase.com/changelog/46080-self-hosted-supabase-upgrading-from-pg-15-to-17-breaking-change](https://supabase.com/changelog/46080-self-hosted-supabase-upgrading-from-pg-15-to-17-breaking-change)",
+    "## Breaking Change: OAuth token endpoint will return HTTP 200 instead of 201",
+    "2026-05-01 \u00b7 Breaking Change \u00b7 Platform \u00b7 [supabase.com/changelog/45468-breaking-change-oauth-token-endpoint-will-return-http-200-instead-of-201](https://supabase.com/changelog/45468-breaking-change-oauth-token-endpoint-will-return-http-200-instead-of-201)",
+    "## Breaking Change: Tables not exposed to Data and GraphQL API automatically",
+    "2026-04-28 \u00b7 Breaking Change \u00b7 Data APIs, Database \u00b7 [supabase.com/changelog/45329-breaking-change-tables-not-exposed-to-data-and-graphql-api-automatically](https://supabase.com/changelog/45329-breaking-change-tables-not-exposed-to-data-and-graphql-api-automatically)",
+    "## Breaking Change: Removing access to OpenAPI spec via the anon key",
+    "2026-02-17 \u00b7 Breaking Change \u00b7 Data APIs \u00b7 [supabase.com/changelog/42949-breaking-change-removing-access-to-openapi-spec-via-the-anon-key](https://supabase.com/changelog/42949-breaking-change-removing-access-to-openapi-spec-via-the-anon-key)",
+    "## Breaking Change: pg_graphql no longer enabled automatically (within approx 3 weeks from today)",
+    "2026-01-26 \u00b7 Breaking Change \u00b7 Platform \u00b7 [supabase.com/changelog/42180-breaking-change-pg-graphql-no-longer-enabled-automatically-within-approx-3-weeks-from-today](https://supabase.com/changelog/42180-breaking-change-pg-graphql-no-longer-enabled-automatically-within-approx-3-weeks-from-today)",
+    "The Data API is upgrading to PostgREST v14 worldwide, starting in `ap-northeast-1`. GET throughput rises ~20% via a JWT cache, and schema cache loading is faster. No breaking changes."
+  ],
+  "implementation_topics": [
+    "REST RPC CAS",
+    "private Storage immutable upload",
+    "Auth /user verification",
+    "OTP redirect_to query"
+  ],
+  "auth_source_verified": "https://github.com/supabase/auth-js/blob/master/src/GoTrueClient.ts#signInWithOtp"
+}

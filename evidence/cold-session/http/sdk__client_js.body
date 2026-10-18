@@ -1,0 +1,49 @@
+/** Portable browser/Node SDK, discoverable from /.well-known/purl. No dependencies. */
+export class PurlClient {
+  constructor(address,{token=null,fetch:fetcher=globalThis.fetch}={}){
+    const url=new URL(address);if(!['http:','https:'].includes(url.protocol)||url.username||url.password)throw Error('PURL must be an HTTP(S) address without embedded credentials');
+    for(const key of url.searchParams.keys())if(/token|secret|password|api_key/i.test(key))throw Error('Credentials must not appear in PURL addresses');
+    this.origin=url.origin;this.address=url.href;this.programId=/\/p\/([\w-]+)/.exec(url.pathname)?.[1]??null;
+    this.token=token;this.fetch=fetcher;
+  }
+  async request(path,{method='GET',body,idempotencyKey,signal}={}){
+    const url=new URL(path,this.origin);
+    if(url.origin!==this.origin)throw Error('Refusing cross-origin operation link or credential forwarding');
+    const response=await this.fetch(url.href,{method,headers:{Accept:'application/purl+json',...(this.token?{Authorization:`Bearer ${this.token}`} :{}),...(body!==undefined?{'Content-Type':'application/json'}:{}),...(idempotencyKey?{'Idempotency-Key':idempotencyKey}:{})},...(body!==undefined?{body:JSON.stringify(body)}:{}),signal});
+    const data=await response.json();
+    if(!response.ok){const error=Error(data.error?.message??data.detail??`HTTP ${response.status}`);error.status=response.status;error.code=data.error?.code??data.code;error.details=data;throw error;}
+    return data;
+  }
+  discover(){return this.request('/.well-known/purl');}
+  async session(label='AI session',kind='agent'){
+    const result=await this.request('/api/session',{method:'POST',body:{label,kind}});this.token=result.token;return result;
+  }
+  me(){return this.request('/api/session');}
+  list(){return this.request('/api/programs');}
+  templates(){return this.request('/api/templates');}
+  operators(){return this.request('/api/operators');}
+  create(definition){return this.request('/api/programs',{method:'POST',body:definition});}
+  get(id=this.programId){return this.request(`/api/programs/${encodeURIComponent(id)}`);}
+  manifest(id=this.programId){return this.request(`/api/programs/${encodeURIComponent(id)}/manifest`);}
+  continuity(id=this.programId){return this.request(`/api/programs/${encodeURIComponent(id)}/continuity`);}
+  history(id=this.programId){return this.request(`/api/programs/${encodeURIComponent(id)}/history`);}
+  replay(id=this.programId){return this.request(`/api/programs/${encodeURIComponent(id)}/replay`);}
+  invoke(id,operation,body,{idempotencyKey}={}){
+    if(!/^[a-z][a-z_-]*$/.test(operation))throw Error('Invalid operation name');
+    return this.request(`/api/programs/${encodeURIComponent(id)}/${operation}`,{method:'POST',body,idempotencyKey});
+  }
+  async act(id,operation,input={},options={}){
+    const {program}=await this.get(id);return this.invoke(id,operation,{...input,expected_version:program.version},options);
+  }
+  execution(id){return this.request(`/api/executions/${encodeURIComponent(id)}`);}
+  artifact(id){return this.request(`/api/artifacts/${encodeURIComponent(id)}`);}
+  async awaitExecution(id,{timeoutMs=30000,pollMs=100,signal}={}){
+    const deadline=Date.now()+timeoutMs;
+    while(Date.now()<deadline){
+      signal?.throwIfAborted();const result=await this.execution(id);const execution=result.execution??result;
+      if(['succeeded','completed','failed','cancelled','denied','blocked'].includes(execution.status))return execution;
+      await new Promise(resolve=>setTimeout(resolve,pollMs));
+    }
+    throw Error(`Execution ${id} did not finish within ${timeoutMs}ms`);
+  }
+}

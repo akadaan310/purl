@@ -1,138 +1,29 @@
-# Security
+# Security model
 
-Programmable URLs are dangerous by default: a URL that *does* something
-turns every link preview, crawler, prefetcher, chat log and curious agent
-into an actor. PURL's position is that **opening a URL never implies
-authority**, and that discoverability, authentication, authorisation and
-execution are four separate steps.
+This extension retains the original PURL safe-GET and separate-authority principles. The historical security document remains in `docs/legacy/SECURITY.md`. This file describes the product boundary and its tested limits.
 
-This document is a threat model for the reference implementation. Each
-threat lists the mitigation **as implemented** and what remains open.
+## Implemented boundaries
 
-To report a vulnerability, open a private security advisory on the
-repository.
+- Read-only GET/HEAD; explicit POST mutation; JSON body/size checks; same-origin browser mutation checks; header-only bearer credentials; no cookies granting ambient write authority. CSP permits same-origin scripts and self-hosted assets.
+- Server-issued random bearer tokens stored as hashes. Guest/AI labels are self-declared. Optional Supabase Auth verifies the provider subject server-side; editable user metadata never grants authority. Browser-initiated email flows bind an unguessable nonce for ten minutes and reject unsolicited callback tokens.
+- Resource visibility, live scoped grants, delegation attenuation/revocation, version conflicts and payload-bound persisted idempotency. A revoked grant cannot recover a cached successful mutation response as fresh authority.
+- Strict bounded stateless product schema validation with own-property checks, valid keyword shapes, canonical JSON const/enum equality and boolean schemas. References and arbitrary regular expressions are rejected. The historical reference validator is preserved for its original protocol; the product uses the stricter wrapper.
+- Closed pure operator registry, bounded repetition/values/work/allocation, normalized plans checked again before execution. URLs are never treated as process strings, imports or network fetch permissions.
+- Durable job authority/build/environment checks, leases and claim fencing. Immutable Storage writes occur before successful job acknowledgement. Replay checks hashes and bindings and recomputes the deterministic recorded fragment without reissuing external effects.
+- Restricted Docker authored-code adapter: pinned images, UID10001, read-only filesystem,16MiB temporary filesystem, no network/host mounts, dropped capabilities, no-new-privileges,32PIDs,128MiB RAM,0.5CPU, bounded wall time/output. Docker proxy environment is cleared inside the sandbox. Default deployment profiles disable authored code and mount no Docker socket.
 
-## Separation of steps
+## Verified locally
 
-| Step | Mechanism |
-|------|-----------|
-| Discoverability | Manifests are public for anything you can observe. Knowing an operation exists grants nothing. |
-| Authentication | `Authorization: Bearer` only. No cookies, no tokens in URLs. |
-| Authorisation | One authority source must cover all rights of the planned primitives *and* permit the operation name. |
-| Execution | `POST` only, with an `expected_version` precondition, schema-validated input, atomic apply. |
+The evidence includes nine actual Docker checks for Python/JS results, host-file/root-write denial, metadata-network denial, absent cloud credentials, privilege/PID limits, CPU timeout, output termination and default-disabled behavior. HTTP/domain checks cover forged principals, revoked grants, stale versions, private artifacts, idempotency, multiplayer races and interrupted jobs. Independent review found schema/cache, quota, account-callback and replay issues; regression tests and a scoped re-review record their remediation. Browser tests include denial fallback, keyboard/touch/native clipboard, account-callback rejection, accessibility and responsive layouts.
 
-## Threats
+These are specified attack tests and bounded code review. They are not an independent penetration-test certification or a proof that Docker/kernel/container escape is impossible. Public unrestricted execution remains disabled.
 
-### Unauthorised state mutation via GET / link prefetch
-- **Mitigation:** the router has no path from `GET` to `store.invoke`.
-  `?action=<mutation>` and `GET …/ops/{op}` return `405`. Tested in
-  `test/http.test.js` ("GET is safe").
+## Remaining limits
 
-### CSRF
-- **Mitigation:** there are no cookies or ambient credentials; tokens are
-  sent explicitly in a header that browsers never attach automatically.
-  Mutations additionally require `Content-Type: application/json` (HTML
-  forms cannot send it cross-origin without a CORS preflight), else `415`.
-- CORS allows `*` origins because no ambient credential exists for another
-  origin to ride on. If cookie auth is ever added, this must change.
+- No hosted Railway deployment, real provider sign-in, hosted Storage persistence/backup restore, Oracle/ARM execution or cross-provider AI trial was verified.
+- Docker shares its host kernel and the worker's orchestration process needs access to its own daemon when authored code is enabled. Use a dedicated execution host and vetted microVM/container isolation before admitting arbitrary public workloads.
+- Build/replay endpoints have bounded aggregate work but no mature multi-tenant billing, distributed abuse protection, admission scheduler or dependency-install supply-chain service. Strict guest quotas and trusted primitives are the supported surface.
+- Hashes are not signatures or external timestamps. Server administrators retain control of database and Storage credentials. Separate backups and an external trusted checkpoint/witness are needed for stronger authenticity.
+- Self-declared agents are not authenticated model identities. A bare public URL does not confer mutation rights, private context or third-party automation permission.
 
-### Capability leakage (tokens in URLs, logs, Referer, transcripts)
-- **Mitigation:** requests with `token`, `access_token`, `auth`, `key`,
-  `api_key`, `apikey`, `bearer` or `password` query parameters are rejected
-  with `400 token-in-url`. `Referrer-Policy: no-referrer` on all responses.
-  Tokens are stored only as SHA-256 hashes; shown once at registration.
-  The browser console keeps its token in `sessionStorage` (tab-scoped),
-  not `localStorage`.
-- **Open:** bearer tokens are still bearer tokens — anyone holding one is
-  that principal. Proof-of-possession (DPoP, HTTP message signatures) is
-  not implemented.
-
-### Replay
-- **Mitigation:** every mutation must state `expected_version`. A captured
-  request cannot be replayed once the resource has moved on (`409`).
-  `Idempotency-Key` makes intentional retries safe and rejects a different
-  body under the same key.
-- **Open:** a request captured and replayed *before* the resource changes
-  would still apply once; TLS is assumed to prevent capture.
-
-### Privilege escalation through delegation
-- **Mitigation:** attenuation is enforced on every grant event
-  (rights ⊆, operation allow-list ⊆, expiry ≤ the delegator's); the `own`
-  power (ownership transfer) is not a grantable right; public grants are
-  capped at observe/read; revocation cascades down the chain.
-  Tested in `test/authority.test.js`.
-
-### Confused deputy
-- **Mitigation:** grants are bound to a specific principal id, not to a
-  bearer capability, so a deputy cannot be tricked into exercising a
-  capability it was merely shown. Each invocation is authorised by one
-  source, recorded on the event, so any action can be traced to the chain
-  that permitted it. Composite operations require the *union* of their
-  primitives' rights, so composition cannot launder authority.
-- **Open:** an agent acting on behalf of several principals must hold a
-  separate token per principal; PURL does not yet model "acting for".
-
-### SSRF and malicious redirects
-- **Mitigation:** the server never dereferences a client-supplied URL.
-  `link` targets are local resource ids that must be observable by the
-  caller; there are no webhooks (subscription is SSE, pulled by the
-  client); the only redirects (`303` for safe `?action=` aliases) are
-  server-constructed same-origin paths.
-- **Open:** cross-instance references are not supported partly for this
-  reason (see RESEARCH_QUESTIONS.md).
-
-### Operation injection
-- **Mitigation:** operation names are looked up in a fixed registry
-  (`Map`), never evaluated or used to build paths; unknown names → `404`.
-  Inputs are validated against JSON Schemas with
-  `additionalProperties: false`. The schema validator rejects unsupported
-  keywords at load time so no schema silently validates less than it
-  claims.
-
-### Untrusted content and agent instructions (prompt injection)
-- **Mitigation:** every representation carries a `notice` that state,
-  collections and entry bodies are data written by principals, not
-  instructions, and grant no authority; the manifest repeats this as
-  `content_trust`. Continuity packages are labelled *claims by the
-  preparer; not verified by the server*, next to server-verified facts.
-  HTML escapes all content; JSON embedded in HTML escapes `<`, `>`, `&`,
-  U+2028/9. A strict CSP (`script-src 'self'`, no inline script) applies
-  to all pages.
-- **Open:** labels cannot force a downstream agent to respect them. An
-  agent that follows instructions found in `state` is still vulnerable;
-  PURL only makes the provenance of that text explicit (who wrote it,
-  under which authority, at which version).
-
-### Existence disclosure
-- **Mitigation:** a requester without `observe` gets `404` for both
-  missing and hidden resources; `link` to an unobservable target fails
-  with the same `404`; search lists only observable resources.
-
-### Resource exhaustion
-- **Mitigation:** 64 KiB request bodies; per-resource limits on events
-  (5 000), entries per collection (1 000) and state size (256 KiB);
-  instance limits on resources and principals; token-bucket rate limiting
-  per principal (mutations) and per IP (registration); at most 100
-  concurrent SSE streams; listing pages capped at 1 000 events.
-- **Open:** limits are in-process; there is no distributed quota.
-  Principal registration is open (rate-limited only).
-
-### Tampering with history
-- **Mitigation:** per-resource hash chain over events, plus state hashes
-  before/after each event; `GET /r/{id}/verify` replays and checks; the
-  persisted log refuses to load if the chain is broken. Clients can
-  verify independently (`src/client/client.js#reconstruct`).
-- **Open:** the chain is not signed; a server operator could rewrite the
-  whole chain consistently. Signed events and external anchoring are
-  future work.
-
-### Authority re-evaluation on long-lived connections
-- **Mitigation:** SSE streams re-check the subscriber's rights on every
-  push and close when `observe` is lost (e.g. after revocation).
-
-## Things PURL deliberately does not claim
-
-- A principal is an account on an instance, not a verified identity.
-- A Communication Profile is a style specification; it does not
-  authenticate or identify anything.
-- Hash chains prove internal consistency, not truth of content.
+Production requires a dedicated reviewed Supabase project, server-only secrets, verified isolation policy, restore rehearsal and deployment smoke evidence. The repository deliberately refuses production filesystem persistence.

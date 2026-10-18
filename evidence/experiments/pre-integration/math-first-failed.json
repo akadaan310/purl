@@ -1,0 +1,121 @@
+[
+  {
+    "id": "E01",
+    "status": "PASS",
+    "metrics": {
+      "stable_canonicalization_cases": 100,
+      "distinct_namespaces": 7,
+      "value": 3,
+      "derivations": [
+        "derivation:84a962baa8e3fc840b9fc8304b0abd43450423aace27d95858f5a9a3ec47c793",
+        "derivation:c418e52ba74b43349036dba5b10537931dc55c1cb4d3bfde5425015a8c08800b"
+      ],
+      "value_id": "value:50ca3d7375c1fe90ee0e28a536d90d9e229dc7a93ca28f7e95fad190a400a54d"
+    },
+    "controls": [
+      "Same mathematical integer from distinct derivations",
+      "Reordered object keys"
+    ],
+    "negative_evidence": "Hash equality is encoding equality; no semantic equivalence or authenticity claim"
+  },
+  {
+    "id": "E02",
+    "status": "PASS",
+    "metrics": {
+      "typed_pair_corpus": 25,
+      "accepted": 15,
+      "rejected": 10,
+      "false_acceptances": 0,
+      "false_rejections": 0,
+      "registry_size": 70,
+      "toggle_steps": 40,
+      "cycle_labels": 3
+    },
+    "controls": [
+      "Independently declared operator input/output table",
+      "Unknown operation, missing capability, loop bound and divide-by-zero"
+    ],
+    "negative_evidence": "Bounded contract corpus, not universal type-system soundness or intelligence benchmark"
+  },
+  {
+    "id": "E03",
+    "status": "FAIL",
+    "error": "Error: START needs an address, e.g. START/map/eca/90/8/state/5.\n    at run (file:///workspace/purl/service/compat/seurl.js:95:35)\n    at parseSeurl (file:///workspace/purl/service/adapters.js:51:15)\n    at file:///workspace/purl/scripts/math-experiments.js:29:15\n    at experiment (file:///workspace/purl/scripts/math-experiments.js:5:78)\n    at runMathExperiments (file:///workspace/purl/scripts/math-experiments.js:27:8)\n    at async file:///workspace/purl/scripts/math-experiments.js:50:83"
+  },
+  {
+    "id": "E04",
+    "status": "PASS",
+    "metrics": {
+      "finite_full_states": 4,
+      "positive_projected_states": 2,
+      "rejected_negative_classes": 5
+    },
+    "positive": {
+      "class": "complete-finite-domain",
+      "scope": "Exhaustive for the explicitly declared closed finite model only.",
+      "states": 2,
+      "fibers": 2,
+      "checked_pairs": 0,
+      "transitions": 3
+    },
+    "witness": {
+      "reason": "successor",
+      "operation": "swap",
+      "left": [
+        0,
+        0
+      ],
+      "right": [
+        0,
+        1
+      ],
+      "observed": 0,
+      "left_enabled": true,
+      "right_enabled": true,
+      "left_effects": [],
+      "right_effects": [],
+      "left_successor": 0,
+      "right_successor": 1
+    },
+    "definedness_witness": {
+      "reason": "enabledness",
+      "operation": "partial",
+      "left": {
+        "a": 0,
+        "b": 0
+      },
+      "right": {
+        "a": 0,
+        "b": 1
+      },
+      "observed": 0,
+      "left_enabled": true,
+      "right_enabled": false,
+      "left_effects": [],
+      "right_effects": [],
+      "left_successor": 0
+    },
+    "effect_witness": {
+      "reason": "effects",
+      "operation": "effect",
+      "left": {
+        "a": 0,
+        "b": 0
+      },
+      "right": {
+        "a": 0,
+        "b": 1
+      },
+      "observed": 0,
+      "left_enabled": true,
+      "right_enabled": true,
+      "left_effects": [],
+      "right_effects": [
+        "mutation"
+      ],
+      "left_successor": 0,
+      "right_successor": 0
+    },
+    "negative_evidence": "Completeness of the submitted finite universe is a caller/model assertion. No induction from sampled traces or general-program congruence proof."
+  }
+]

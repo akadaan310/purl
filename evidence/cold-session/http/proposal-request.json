@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:8080/api/programs/godseed-mission/propose",
+  "method": "POST",
+  "idempotency_key": "cold-session-reconstruction-2026-10-18-v1",
+  "payload": {
+    "expected_version": 1,
+    "source": "input json",
+    "summary": "Cold-session reconstruction from http://127.0.0.1:8080/p/godseed-mission using HTTP discovery only: protocol PURL/0.2; program version 1, source_revision 1, source \"input json\". Mission graph purl.mission-graph/1 has 52 nodes and 65 dependency edges, every node NOT_RUN, 0 evidence entries; completion is NOT_RUN and unverified. Initial continuity checkpoint is null; seed-only replay is service-reported valid, not independent proof of requirements. Instance reports development-file persistence, arbitrary_code_execution false, sandbox_adapter null, and no verified human accounts. The stored directive and deployment amendment are requirements, not authorization or proof. Current wildcard grant allows read/run/propose; this session cannot edit, commit, grant or checkpoint the original. Useful next action for an authorized maintainer: retain this reconstruction and collect addressable verified evidence before changing statuses; checkpoint needs a current checkpoint grant or an owned fork. No external repositories, deployment targets, local application source or predecessor reports were inspected. This proposal preserves executable source unchanged and requests review only; it does not assert mission completion."
+  }
+}

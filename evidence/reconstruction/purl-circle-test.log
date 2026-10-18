@@ -1,0 +1,131 @@
+
+> purl@0.1.0 test
+> node --test "test/**/*.test.js"
+
+✔ layer import rule (3.46438ms)
+✔ reader cannot mutate; observer cannot read content (I3) (6.4489ms)
+✔ no observe right → not found (existence is not leaked) (1.124528ms)
+✔ the §10 scenario: owner A, observer B, delegated operator C (1.99198ms)
+✔ delegation chain is recorded, attenuated, and revocation cascades (I8) (1.850708ms)
+✔ grant holders may revoke only grants descending from their own (0.912901ms)
+✔ grants expire (0.917187ms)
+✔ public grants are limited to observe/read and apply to anonymous requesters (0.553511ms)
+✔ ownership transfer is owner-only and not delegable (0.899871ms)
+✔ administrators can archive and revoke but cannot read or edit content (1.270066ms)
+✔ forward is available only to the current assignee (1.529456ms)
+▶ SEURL finite move language
+  ✔ a path is a program; state is a function of the path (1.558449ms)
+  ✔ mutations are prepared, never reached, by evaluation (2.290748ms)
+  ✔ the vocabulary is closed (0.395153ms)
+  ✔ the transition system of url-machine.md §4 is enforced (0.187672ms)
+  ✔ arguments are checked (0.158849ms)
+✔ SEURL finite move language (5.366335ms)
+﹣ the circle end to end (substrate + PURL + ACSP, real processes) (0.057446ms) # needs /workspace/recon-evidence/substrateIO and /workspace/recon-evidence/NetGovComEduGovOrgEduGovComNet with node_modules
+▶ STASIS-2 checkpoint is recoverable from the committed snapshot alone
+  ✔ content id verifies; every scroll replays; the body note survived (336.749954ms)
+✔ STASIS-2 checkpoint is recoverable from the committed snapshot alone (339.143276ms)
+▶ final checkpoint is recoverable from the committed snapshot alone
+  ✔ content id verifies and every scroll log replays (no live services) (116.801779ms)
+✔ final checkpoint is recoverable from the committed snapshot alone (117.020937ms)
+▶ STASIS-3 checkpoint is recoverable from the committed snapshot alone
+  ✔ content id verifies; every scroll replays; the next note survived (88.002205ms)
+✔ STASIS-3 checkpoint is recoverable from the committed snapshot alone (88.174994ms)
+✔ replay reconstructs every version and matches recorded state hashes (14.308868ms)
+✔ every event and resource state validates against the published schemas (5.223981ms)
+✔ tampering with an event is detected by verify (5.054757ms)
+✔ handoff does not change identity or ownership (I1, I5) (1.003256ms)
+✔ handoff is atomic: a failing component aborts every event (0.932089ms)
+✔ expected_version is required and enforced (optimistic concurrency, replay defence) (1.599271ms)
+✔ Idempotency-Key returns the original result and rejects a different body (0.505038ms)
+✔ lifecycle state machine gates operations; revoke is always available (1.939602ms)
+✔ checkpoint packages are validated; server-verified facts are kept apart from claims (5.107386ms)
+✔ communication profile: declared vs measured is explicit and the disclaimer is mandatory (0.354452ms)
+✔ JSON Merge Patch follows RFC 7396 examples (0.163005ms)
+✔ reducer rejects non-genesis first events and out-of-order versions (3.784111ms)
+✔ persistence: a reloaded store replays and verifies the log (1.920473ms)
+✔ the §23 end-to-end demonstration runs over HTTP and every invariant holds (333.889366ms)
+fatal: not a git repository (or any of the parent directories): .git
+✖ implementation_id at a commit is computed like the running one (4.933425ms)
+✔ six self-* concepts, each with where, how tested, status and limit (0.560581ms)
+✔ an experiment rerun from its definition reproduces the output hash (167.536559ms)
+✔ the committed exp-0001 record validates and its hypotheses were not edited after registration (2.121184ms)
+﹣ Golden Surface boundary (relay + FakePhone) (0.303465ms) # needs /workspace/recon-evidence/golden-surface and python aiohttp
+✔ instance manifest validates and describes the protocol (23.226914ms)
+✔ the protocol describes itself as a public PURL resource (15.560476ms)
+✔ GET is safe: ?action=<mutation> and GET on an operation URL never mutate (I4) (21.512912ms)
+✔ credentials in the URL are rejected; mutations need JSON and a token (13.112813ms)
+✔ content negotiation: HTML embeds the machine document and links to the manifest (15.784083ms)
+✔ resource manifest validates, is evaluated for the requester, and hides private resources (12.382677ms)
+✔ invoke over HTTP: expected_version, If-Match, idempotency, problem details (19.490757ms)
+✔ projections: events (observer sees headers only), state?at, diff, verify, lineage, transitions (25.440457ms)
+✔ subscribe: SSE stream delivers new events (11.333483ms)
+✔ unknown routes and schemas are problems; schemas are served (7.575361ms)
+✔ implementation_id is the loaded code, not the disk at request time (65.798587ms)
+✔ every component carries every XXIV field, with provenance (1.122865ms)
+✔ declared projection boundaries exist in the measured matrix (0.172859ms)
+✔ safe and mutating operations partition the extracted operations (0.157247ms)
+✔ declared artifact paths exist (0.114722ms)
+﹣ MUSA url-machine.md ↔ circle SEURL (0.604127ms) # needs ../MUSA and ../seurl
+✔ a participant cannot declare the origin of the configured ACSP (1.846492ms)
+✔ a PURL rate limit is reported as a limit, never as an empty result (72.856029ms)
+✔ entropy of known distributions (0.744758ms)
+✔ LZ76 reproduces the Lempel–Ziv (1976) textbook example (0·001·10·100·1000·101 → 6) (8.615072ms)
+✔ transition matrix, changes and runs on a hand-checked sequence (0.715463ms)
+✔ entropy profile: periodic sequence has zero conditional entropy once the period is covered (0.494502ms)
+✔ lag2copy: invisible to the first-order transition matrix, visible to h_3 (6.931995ms)
+✔ autocorrelation finds the period of a noiseless periodic sequence (1.812381ms)
+✔ temporal measures: burstiness −1 for a regular clock, ≈0 for Poisson; Fano, differences (12.195406ms)
+✔ transition graph: SCCs, closed classes, periods and boundary artefacts (6.328148ms)
+✔ Re-Pair compresses repetition, is deterministic, and never interprets (2.207103ms)
+✔ motifs report expectations under stated null models (0.343616ms)
+✔ surrogates: shuffle preserves counts; Markov surrogate preserves transition structure; p-values in (0,1] (23.59715ms)
+✔ seeded generators are reproducible (0.403346ms)
+✔ projection alphabet matches the Layer 1 primitive list; boundaries come from invocations (0.356445ms)
+✔ hypothesis criteria evaluate to supported / not_supported / indeterminate (0.289385ms)
+✔ every circle module carries a descriptor that matches its source (2.386352ms)
+✔ greeting and version (0.152228ms)
+✔ the eight IDE stages are addressable, and the new discovery routes are GET-only (1.103988ms)
+✔ fork preserves lineage, copies no authority, and leaves the source untouched (I9) (4.761797ms)
+✔ supersede keeps the original (I10) (1.486682ms)
+✔ linking to a resource grants nothing and does not mutate the target (I2) (2.368826ms)
+✔ merge: three-way over state, union over entries, provenance kept, conflicts explicit (1.441935ms)
+✔ merge requires a recorded fork relationship (0.553791ms)
+✔ threeWayMerge and diff unit cases (0.212679ms)
+✔ append with a client-chosen entry id is idempotent; entries are immutable (1.078468ms)
+﹣ a refused ACSP submission is recorded as refused, not prepared (0.431848ms) # needs ../substrateIO
+﹣ a multi-step POST that fails part-way reports the steps and effects already performed (0.085889ms) # needs ../substrateIO
+﹣ a TOK cites a scroll version that contains the build it describes (0.046239ms) # needs ../substrateIO
+✔ B1: program -> address loses exactly the verb label PERTURB/b vs WRITE/flip/b (6.123262ms)
+✔ B2: canonicalization is idempotent and erases only spelling (9.218878ms)
+ℹ tests 83
+ℹ suites 7
+ℹ pass 79
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 3
+ℹ todo 0
+ℹ duration_ms 1058.787306
+
+✖ failing tests:
+
+test at test/dev.test.js:13:1
+✖ implementation_id at a commit is computed like the running one (4.933425ms)
+  Error: Command failed: git -C /workspace/recon-evidence/purl-circle status --porcelain -- src/circle
+  fatal: not a git repository (or any of the parent directories): .git
+  
+      at genericNodeError (node:internal/errors:985:15)
+      at wrappedFn (node:internal/errors:539:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at TestContext.<anonymous> (file:///workspace/recon-evidence/purl-circle/test/dev.test.js:14:17)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 128,
+    signal: null,
+    output: [ null, '', 'fatal: not a git repository (or any of the parent directories): .git\n' ],
+    pid: 1221,
+    stdout: '',
+    stderr: 'fatal: not a git repository (or any of the parent directories): .git\n'
+  }

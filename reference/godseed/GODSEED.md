@@ -1,0 +1,52 @@
+# PURL — FULL PRODUCT GOD SEED
+
+## Mission and naming
+Canonical name **PURL (P-U-R-L), Programmable URLs**, pronounced pearl. Build the fully functional public PURL service and AI-native computational programming environment. One integrated mission: product, compiler, SDK, persistent continuity, sandbox runtime, mathematical instrumentation, 10 experiments, gorgeous public UI, and end-to-end deployment where authorized. Do not stop at research, a plan, static screenshots, or a toy MVP. Preserve historical projects; no Golden Surface/Netscape dependency. A PURL is an addressable executable program with state, transitions, authority, history, and discoverable operations.
+
+## Existing systems — reconstruct before changing
+Inspect actual branches, code, specs, tests and deployments for https://github.com/akadaan310/purl, https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet (ACSP), https://github.com/akadaan310/seurl and https://github.com/akadaan310/substrateIO. Read the **original mathematicians' handoff included in `reference/math_handoff/`**. Do not accept claims without checking source and proof status. Reconcile duplicated definitions, migration collisions and deployment versions. Make PURL the public language/namespace; ACSP supplies continuity and authority semantics; SubstrateIO supplies transition mathematics, observation and projections; SEURL's seven verbs START, SWITCH, WRITE, COMMIT, BUILD, TALK, PERTURB are historical candidate grammar primitives/macros and must be compared, not blindly imported. Produce a source-grounded reconstruction and compatibility matrix.
+
+## Formal computational contract
+Typed configurations <program, state, environment, authority> with transitions labelled by operation and effects. Parse → typed term → effect/capability check → normalized execution plan → execute → observe → artifact → checkpoint. Distinguish pure, local effect, external read, external mutation. GET must not cause durable effects. Distinguish address_id, derivation_id, value_id, content_id, environment_id, build_id, execution_id, and principal/session identity. Hash equality is not semantic equivalence or authenticity. A transition projection π can compile deterministically only when projected-equivalent states have compatible operation definedness/effects and equal projected successors. Produce a counterexample witness otherwise. Replay records capture inputs, seeds, dependencies, versions, environment, nondeterminism and effects. Test binary toggles and 007 cycles without pretending finite-state toggles contain infinite information. Treat the independent research as evidence to verify, not proof of every production claim.
+
+## Complete feature set
+1. Public landing, Create/Explore/Program Detail/Workspace/IDE/Observatory/Docs with readable and machine-readable manifests. Beautiful mobile/desktop UI, not an admin dashboard.
+2. Human accounts, optional guests, principals, claimed AI identities, capabilities, grants, public/private/unlisted resources, session continuation, proposals, checkpoint/replay and scoped authority.
+3. PURL-native typed programming grammar: operations, composition, branching, bounded repetition, pure computations, explicit effects, versioned IR and a compiler with understandable diagnostics.
+4. AI-first IDE: source editor, program graph, templates, typed errors, test runner, build/run, logs, artifact browser, diff, fork, publish, history and observatory. SDK must be discoverable through PURL alone.
+5. AI self-extension: identify missing capability → author Python/JavaScript/TypeScript (Julia/Octave adapters where available) → define schemas/tests → sandbox build/run → publish personal reusable program → return immutable PURL → second AI discovers/reuses/forks. Shared registry promotion gated by actual authority and checks.
+6. Nano/micro performer library: typed inputs/outputs, requirements, effects, determinism, dependencies, version, provenance and tests. Start with strong primitives for math, JSON, strings, graph, parsing, state machines, artifacts, build/test, games. No fake thousands-of-packages claim.
+7. SubstrateIO transition-to-program compiler: produce executable replayable programs from sufficient pure typed traces; reject underdetermined/effectful histories with explicit reasons. Preserve history as first-class addressable data.
+8. Persistent Supabase/Postgres schema: users, workspaces, principals, grants, programs, versions, transitions, proposals, executions, checkpoints, blobs, research artifacts, provenance, logs. Migrations, RLS, indices, backups and rollback. Immutable objects in Storage.
+9. Oracle ARM VM computational worker: **inventory first, never wipe**. Sandboxed, quota-bound job queue with Python, JS/TS, Julia/Octave and graph/compiler tools as feasible; record architecture, versions, resources, logs and result artifacts. No unrestricted public shell or ambient cloud credentials. If safe isolation isn't achievable, block public arbitrary code execution and document that limitation honestly.
+10. Real examples: computational workspace, diagnostic PURL, tic-tac-toe multiplayer PURL with backend-validated turns, mathematical program, and a **God-seed mission PURL** containing this entire directive as typed mission graph with dependencies, operations, tests, checkpoints and completion predicates.
+11. Cross-session protocol: fresh AI given one PURL discovers allowed operations, reads state, proposes or executes according to actual access, and another session reconstructs. Browser-read-only clients get prepare links rather than pretend mutations. No unauthorized third-party automation.
+12. Observability: streaming/polling job states, execution graph, program dependencies, traces, errors, capability checks, evidence, provenance and reproducibility. Label LIVE, FIXTURE, SIMULATED and UNAVAILABLE honestly.
+
+## Cinematic design contract
+Premium minimalist glass-like depth, strong editorial typography, generous negative space, subtle dynamic color, elegant motion, exceptional Android portrait and desktop, accessible contrast, reduced motion, fast load. Do not copy Apple proprietary assets. Every PURL has an expressive **capsule** with its own visual identity derived from kind, state and program semantics; consistency of interaction across all capsules. **Click/tap anywhere on the entire capsule copies the canonical URL** and gives clear feedback. Keyboard Enter/Space also copies. Provide a separate accessible Open/Inspect control; don't confuse navigation with copying. Handle clipboard denial gracefully. Test copy, touch, keyboard, screen reader, visual identity, mobile overflow and performance. Deliver real Playwright screenshots and visual regression evidence.
+
+## Ten required pre-registered experiments
+E01 Identity: same value/different address/derivation; stable canonical hashing and no accidental equivalence.
+E02 Grammar: parse/type/compose/normalize; valid/invalid operations, effect and capability errors, deterministic pure results.
+E03 SEURL reconciliation: measure seven-verb mappings against actual PURL grammar; preserve lossy cases and reject false equivalences.
+E04 SubstrateIO projection: construct positive replay and negative noncongruent projection counterexample; compiler must reject unsound trace.
+E05 AI-authored program: author/test/build/publish Python or JS and reuse in independent session via PURL.
+E06 Security: sandbox file/network/process escape attempts, SSRF, forged principal, revoked grant, stale version, idempotency.
+E07 Continuity: sessions A/B/C read/propose/commit/reconstruct with proper authority; mark simulated if not truly independent.
+E08 Game: multiplayer tic-tac-toe through URLs, backend validates turns, handles races, replays after restart.
+E09 God-seed PURL: encode this mission as typed executable graph, navigate it from fresh session, produce checkpoint and compare with plain text URL.
+E10 Cold rebuild + UI: clean checkout/migrations/worker/app, full Playwright flow, click-anywhere capsule copy, IDE compile/run, persistence, replay, screenshots, responsive accessibility and measured performance.
+For each: hypothesis, controls, exact source revision, metrics, falsification threshold, scripts, negative evidence, and machine-readable results. Preserve failed runs.
+
+## Infrastructure and security
+Vercel public web/control plane; Supabase auth/database/storage; Oracle isolated workers; optional graph projections in Postgres first, Neo4j only if justified. No destructive cleanup without approval. No raw tokens in repos or URLs. Strong SSRF protection, rate limits, CSRF/XSS defense, safe dependency policy, CPU/RAM/time quotas, no default network access for untrusted code, user-scoped permissions, audit trails. Constitutional validity does not replace authority. Existing live ACSP data cannot be mutated without explicit authorization. Third-party AI platforms only via supported APIs or human-mediated URL transfer.
+
+## Work plan
+Reconnaissance and source-of-truth matrix → contracts/migrations → minimal running vertical slice → parser/IR/compiler → continuity → sandbox/queue → SDK/IDE → transition compiler → beautiful public UI and capsules → ten experiments → security adversarial suite → cold reconstruction → deploy/smoke test → evidence report. Continuously dogfood the actual PURL product to author, compile, test, publish and resume its own components. Prefer testable working software to speculative prose. Use subagents only with isolated ownership and verified integration.
+
+## Required delivery artifacts
+README, ARCHITECTURE, FORMAL_SEMANTICS, LANGUAGE_SPEC, SDK, NOMENCLATURE, CONSTITUTION, SECURITY, DEPLOYMENT, RECONSTRUCTION, MIGRATIONS, EXPERIMENTS, ACCEPTANCE.json, PROGRAM_GRAPH.json, handoff.json, Playwright screenshots, code, tests, example PURLs, build hashes, deployed URL (only if actually deployed), and exact blockers. End with PASS/FAIL/BLOCKED/NOT_RUN per feature and experiment; never claim successful production deployment or independent cross-provider test without proof.
+
+## Execution directive
+Begin immediately after reading the bundled research and inspecting the repos. Design your own mathematical and systems harness while preserving these invariants. Don't stop at planning; execute, test, correct, and finish. Routine local changes are authorized; ask before destructive or consequential external actions. Deliver an end-to-end product and an honest evidence trail.

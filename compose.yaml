@@ -1,0 +1,45 @@
+name: purl
+x-runtime: &runtime
+  image: purl:${PURL_IMAGE_TAG:-local}
+  build:
+    context: .
+    secrets: [proxy_ca]
+  init: true
+  restart: unless-stopped
+  read_only: true
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  stop_grace_period: 45s
+  environment: &environment
+    NODE_ENV: production
+    PURL_PERSISTENCE: supabase
+    SUPABASE_URL: ${SUPABASE_URL:?SUPABASE_URL is required}
+    SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY:?SUPABASE_SERVICE_ROLE_KEY is required}
+    SUPABASE_ARTIFACT_BUCKET: ${SUPABASE_ARTIFACT_BUCKET:-purl-artifacts}
+    PURL_DOCUMENT_ID: ${PURL_DOCUMENT_ID:-main}
+    PURL_BASE_URL: ${PURL_BASE_URL:-http://localhost:3000}
+    PURL_SANDBOX_ENABLED: "0"
+    PURL_SANDBOX_VERIFIED: "0"
+services:
+  api:
+    <<: *runtime
+    command: [node, service/main.js]
+    environment:
+      <<: *environment
+      PORT: 3000
+      PURL_ROLE: api
+    ports: ["${PURL_PORT:-3000}:3000"]
+  worker:
+    <<: *runtime
+    command: [node, service/worker.js]
+    environment:
+      <<: *environment
+      PURL_ROLE: worker
+      PURL_WORKER_POLL_MS: ${PURL_WORKER_POLL_MS:-500}
+      PURL_JOB_LEASE_MS: ${PURL_JOB_LEASE_MS:-30000}
+      PURL_WORKER_HEARTBEAT_FILE: /tmp/purl-worker-heartbeat.json
+secrets:
+  proxy_ca:
+    file: ${CODEX_PROXY_CERT:-/etc/ssl/certs/ca-certificates.crt}

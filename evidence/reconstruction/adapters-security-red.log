@@ -1,0 +1,66 @@
+✔ alternate source adapters exist as explicit pure compatibility interfaces (0.435373ms)
+✖ actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK target, and rejects illegal moves (2.032469ms)
+✔ Substrate term mapping matches Python registry fixtures including optional and unmaterialized terms (1.232889ms)
+✔ composition imports re-evaluate pinned snapshots and emit compiler source without claiming event-chain verification (0.678678ms)
+✔ composition rejects malformed operators, width mismatches and ambiguous snapshot versions (0.204076ms)
+✔ all six imported bit operators match fixtures produced by original composition algebra (0.636004ms)
+✖ composition bounds complete snapshot metadata before recursive hashing (2.942934ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 5
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48.697089
+
+✖ failing tests:
+
+test at test/adapters.test.js:12:1
+✖ actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK target, and rejects illegal moves (2.032469ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///workspace/purl/test/adapters.test.js:22:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /credential/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at test/adapters.test.js:96:1
+✖ composition bounds complete snapshot metadata before recursive hashing (2.942934ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  RangeError: Maximum call stack size exceeded
+      at TestContext.<anonymous> (file:///workspace/purl/test/adapters.test.js:101:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: RangeError: Maximum call stack size exceeded
+        at canonicalize (file:///workspace/purl/src/core/canonical.js:8:29)
+        at file:///workspace/purl/src/core/canonical.js:21:62
+        at Array.map (<anonymous>)
+        at canonicalize (file:///workspace/purl/src/core/canonical.js:21:25)
+        at file:///workspace/purl/src/core/canonical.js:21:62
+        at Array.map (<anonymous>)
+        at canonicalize (file:///workspace/purl/src/core/canonical.js:21:25)
+        at file:///workspace/purl/src/core/canonical.js:21:62
+        at Array.map (<anonymous>)
+        at canonicalize (file:///workspace/purl/src/core/canonical.js:21:25),
+    operator: 'throws',
+    diff: 'simple'
+  }

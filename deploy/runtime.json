@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "protocol": "PURL/0.2",
+  "image": "Dockerfile",
+  "runtime": { "node": ">=20", "uid": 1000, "stop_signal": "SIGTERM", "stop_grace_seconds": 45 },
+  "roles": {
+    "api": { "command": ["node", "service/main.js"], "port_env": "PORT", "health_path": "/healthz", "railway_config": "railway.toml" },
+    "worker": { "command": ["node", "service/worker.js"], "health_command": ["node", "deploy/healthcheck.js"], "railway_config": "deploy/railway-worker.toml" }
+  },
+  "production_persistence": "supabase",
+  "required_secrets": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"],
+  "shared_configuration": ["PURL_DOCUMENT_ID", "SUPABASE_ARTIFACT_BUCKET", "PURL_BASE_URL"],
+  "worker_state": "Supabase CAS document: durable queue, expiring leases, persisted results before acknowledgement",
+  "execution_default": "pure interpreter; authored code requires an explicit isolated adapter",
+  "placement": { "first": "Railway API + worker", "later": "Oracle worker using the same Supabase authority" }
+}

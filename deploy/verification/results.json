@@ -1,0 +1,21 @@
+{
+  "schema": "purl.infrastructure-verification/1",
+  "verified_at": "2026-10-18T13:57:09Z",
+  "source_base_revision": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+  "workspace_changes": "Uncommitted integrated implementation; this is not a published release digest",
+  "checks": {
+    "repository_tests": { "status": "PASS", "count": 9, "command": "node --test test/product/repository.test.js", "coverage": ["detached snapshots", "abort/async mutator rejection", "restart", "four-process serialization", "SIGKILL during atomic staging", "dead/incomplete lock recovery", "live-lock protection", "production fail closed", "CAS retry bounds", "Storage helper hash integrity"] },
+    "full_test_suite": { "status": "PASS", "count": 123, "command": "npm test", "evidence": "tests.log" },
+    "sql": { "status": "PASS", "command": "sh deploy/verify-schema.sh", "backend": "PostgreSQL 17.7", "evidence": "schema.log" },
+    "rest_adapter": { "status": "PASS", "command": "sh deploy/verify-rest.sh", "backend": "PostgreSQL 17.7 + PostgREST 13.0.4", "real_sql_cas_conflicts_observed": 1, "committed_revision": 2, "evidence": "rest.log", "qualification": "Only /rest/v1 URL prefix forwarding and deterministic read scheduling; database responses are real" },
+    "docker_build": { "status": "PASS", "image": "sha256:13ea9884960aaf5abb814dd1389ca0c820e814d9439d95a4ffdb07548c021f1b", "evidence": "image-build.log", "qualification": "Rebuild after any subsequent source changes before publishing" },
+    "container_restart_smoke": { "status": "PASS", "command": "sh deploy/verify-image.sh", "execution_class": "LOCAL_CONTAINER_DEVELOPMENT_FILE", "value": 18, "evidence": "image-smoke.log", "coverage": ["separate API and worker", "UID 1000", "read-only root filesystem", "network disabled", "build and queued execution", "persisted result after both containers restart", "role health checks"] },
+    "compose_configuration": { "status": "PASS", "files": ["compose.yaml", "deploy/oracle-worker.compose.yaml"], "qualification": "docker compose config --quiet with placeholder credentials; no provider deployment" },
+    "railway_configuration": { "status": "PASS", "qualification": "TOML syntax and fields checked against current backboard.railway.app/railway.schema.json; service deployment not run" },
+    "hosted_supabase": { "status": "BLOCKED", "reason": "No dedicated hosted project credentials; no real projects changed" },
+    "supabase_storage_http": { "status": "BLOCKED", "reason": "No Supabase Storage service or project configured; helper transport/hash checks and SQL policies do not prove hosted object durability" },
+    "railway_deployment": { "status": "BLOCKED", "reason": "No Railway deployment credentials/service; no public production URL" },
+    "oracle_migration": { "status": "BLOCKED", "reason": "No Oracle target credentials; migration and lease-draining procedure prepared only" },
+    "hosted_backup_restore": { "status": "NOT_RUN", "reason": "Requires dedicated Supabase project and object backups" }
+  }
+}

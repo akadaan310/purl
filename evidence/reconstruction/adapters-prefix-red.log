@@ -1,0 +1,41 @@
+✔ alternate source adapters exist as explicit pure compatibility interfaces (0.496895ms)
+✖ actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK target, and rejects illegal moves (0.475593ms)
+✔ Substrate term mapping matches Python registry fixtures including optional and unmaterialized terms (2.416304ms)
+✔ composition imports re-evaluate pinned snapshots and emit compiler source without claiming event-chain verification (0.740421ms)
+✔ composition rejects malformed operators, width mismatches and ambiguous snapshot versions (0.226459ms)
+✔ all six imported bit operators match fixtures produced by original composition algebra (0.695994ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 49.238262
+
+✖ failing tests:
+
+test at test/adapters.test.js:12:1
+✖ actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK target, and rejects illegal moves (0.475593ms)
+  Error: A SEURL program starts with a verb (START).
+      at parseMoves (file:///workspace/purl/service/compat/seurl.js:60:32)
+      at run (file:///workspace/purl/service/compat/seurl.js:77:17)
+      at Module.parseSeurl (file:///workspace/purl/service/adapters.js:45:15)
+      at TestContext.<anonymous> (file:///workspace/purl/test/adapters.test.js:13:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    status: 400,
+    code: 'no_verb',
+    details: {
+      verbs: [
+        'START',   'SWITCH',
+        'WRITE',   'COMMIT',
+        'BUILD',   'TALK',
+        'PERTURB'
+      ]
+    }
+  }

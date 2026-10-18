@@ -1,0 +1,40 @@
+{
+  "byte_identical_results": true,
+  "commands": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/research-evidence/commission-rerun/commission_checks.py",
+        "--write"
+      ],
+      "cwd": "/workspace",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Wrote /workspace/research-evidence/commission-rerun/results.json (9 categories)\n"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments",
+        "-p",
+        "commission_checks.py",
+        "-v"
+      ],
+      "cwd": "/workspace/PURL_GODSEED_V3/reference/math_handoff",
+      "exit_code": 0,
+      "stderr": "test_007_cycle (commission_checks.CommissionChecks.test_007_cycle) ... ok\ntest_007_cycle_fixed_count (commission_checks.CommissionChecks.test_007_cycle_fixed_count) ... ok\ntest_bad_composition_rejected (commission_checks.CommissionChecks.test_bad_composition_rejected) ... ok\ntest_bootstrap (commission_checks.CommissionChecks.test_bootstrap) ... ok\ntest_composition_associativity (commission_checks.CommissionChecks.test_composition_associativity) ... ok\ntest_determinism (commission_checks.CommissionChecks.test_determinism) ... ok\ntest_effects_union (commission_checks.CommissionChecks.test_effects_union) ... ok\ntest_equal_values_not_equal_terms (commission_checks.CommissionChecks.test_equal_values_not_equal_terms) ... ok\ntest_identity (commission_checks.CommissionChecks.test_identity) ... ok\ntest_local_rehash_not_independent_authentication (commission_checks.CommissionChecks.test_local_rehash_not_independent_authentication) ... ok\ntest_projection_congruent (commission_checks.CommissionChecks.test_projection_congruent) ... ok\ntest_projection_not_congruent (commission_checks.CommissionChecks.test_projection_not_congruent) ... ok\ntest_pure_replay (commission_checks.CommissionChecks.test_pure_replay) ... ok\ntest_replay_unknown_rejected (commission_checks.CommissionChecks.test_replay_unknown_rejected) ... ok\ntest_rights (commission_checks.CommissionChecks.test_rights) ... ok\ntest_toggle_periodic (commission_checks.CommissionChecks.test_toggle_periodic) ... ok\ntest_two_fixed_length_toggle_traces (commission_checks.CommissionChecks.test_two_fixed_length_toggle_traces) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.002s\n\nOK\n",
+      "stdout": ""
+    }
+  ],
+  "original_results_sha256": "695f673f14d277d0862dc1b177aeba6e6909726e6335ab1a7d531324440c126c",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "rerun_results_sha256": "695f673f14d277d0862dc1b177aeba6e6909726e6335ab1a7d531324440c126c",
+  "source_files_count": 16,
+  "source_unchanged": true
+}

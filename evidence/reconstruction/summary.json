@@ -1,0 +1,78 @@
+{
+  "measured_at": "2026-10-18T13:48:48.864675+00:00",
+  "runtime": {
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "python": "3.12.14"
+  },
+  "original_repositories_unchanged": true,
+  "external_writes": 0,
+  "runs": [
+    {
+      "source": "purl",
+      "sha": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+      "command": "npm test",
+      "tests": 58,
+      "pass": 58,
+      "fail": 0,
+      "skip": 0,
+      "exit": 0,
+      "log": "purl-head-test.log"
+    },
+    {
+      "source": "purl-composition",
+      "sha": "18c85bf2960685ce8903937598e3ac0506409673",
+      "command": "npm test",
+      "tests": 77,
+      "pass": 76,
+      "fail": 0,
+      "skip": 1,
+      "exit": 0,
+      "log": "purl-composition-test.log"
+    },
+    {
+      "source": "purl-circle",
+      "sha": "83d6bcaf8b811e9d2744fb15a6d42ae5d899de1c",
+      "command": "npm test",
+      "tests": 83,
+      "pass": 80,
+      "fail": 0,
+      "skip": 3,
+      "optional_suites_skipped": true,
+      "exit": 0,
+      "log": "purl-circle-git-test.log"
+    },
+    {
+      "source": "substrate-head",
+      "sha": "7ace119a544fc736f0d4ec1d72cded9dad0a83e3",
+      "command": "python3 -m unittest discover -s tests -t .",
+      "tests": 58,
+      "pass": 58,
+      "fail": 0,
+      "exit": 0,
+      "log": "substrate-head-test.log",
+      "validate_violations": 0
+    },
+    {
+      "source": "substrate-circle",
+      "sha": "165712038643f306f3ec882d9c50da84477de534",
+      "command": "python3 -m unittest discover -s tests -t .",
+      "tests": 78,
+      "pass": 78,
+      "fail": 0,
+      "exit": 0,
+      "log": "substrate-circle-test.log",
+      "validate_violations": 0
+    },
+    {
+      "source": "original-plus-compatibility",
+      "tests": 66,
+      "pass": 66,
+      "fail": 0,
+      "skip": 0,
+      "exit": 0,
+      "log": "original-plus-adapters-test.log",
+      "safe_compiler_interop": true
+    }
+  ]
+}

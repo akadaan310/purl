@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "package": "purl-0.2.0.tgz",
+  "shasum": "3b36bf1756b5c45fd0120f7a27d557c59e2dfcf7",
+  "integrity": "sha512-9uzWmesGn3Yq+g5avO8OlrNW4NmJtryUg5bKcL21+gRUJSq11Olr/FvZ1X2VRDocPlMmMM+FMg9G/gliIF9h+g==",
+  "files": 77,
+  "bytes": 303362,
+  "clean_consumer": {
+    "sdk": "function",
+    "compiled": true,
+    "value": 18
+  },
+  "published_to_npm": false
+}

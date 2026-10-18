@@ -1,0 +1,41 @@
+{
+  "findings": [
+    {
+      "path": "/",
+      "violations": [],
+      "serious": 0
+    },
+    {
+      "path": "/explore",
+      "violations": [],
+      "serious": 0
+    },
+    {
+      "path": "/create",
+      "violations": [],
+      "serious": 0
+    },
+    {
+      "path": "/p/godseed-mission",
+      "violations": [],
+      "serious": 0
+    },
+    {
+      "path": "/observatory",
+      "violations": [],
+      "serious": 0
+    },
+    {
+      "path": "/docs",
+      "violations": [],
+      "serious": 0
+    }
+  ],
+  "performance": {
+    "dom_content_loaded_ms": 14.100000000093132,
+    "response_ms": 2.1000000000931323,
+    "load_ms": 23.199999999953434,
+    "transferred_bytes": 162127,
+    "reduced_motion": true
+  }
+}

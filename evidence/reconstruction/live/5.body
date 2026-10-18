@@ -1,0 +1,11 @@
+{
+  "ok": false,
+  "protocol": "ACSP/0.1",
+  "error": {
+    "code": "not_found",
+    "message": "No ACSP endpoint at /r/8N2RXG1MW79S/transitions. Start at https://acsp-one.vercel.app/."
+  },
+  "links": {
+    "protocol": "https://acsp-one.vercel.app/protocol"
+  }
+}

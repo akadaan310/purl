@@ -1,0 +1,127 @@
+{
+  "E1": {
+    "binary_external_annotation_upper_family": {
+      "0": 2,
+      "1": 4,
+      "2": 8,
+      "3": 16,
+      "4": 32,
+      "5": 64,
+      "6": 128,
+      "7": 256,
+      "8": 512
+    },
+    "fixed_n_toggle_traces": {
+      "0": 2,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 2,
+      "6": 2,
+      "7": 2,
+      "8": 2
+    },
+    "observation": "unbounded trace lengths do not make a bare toggle Turing-complete"
+  },
+  "E2": {
+    "fixed_n_three_cycle_traces": {
+      "0": 3,
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "4": 3,
+      "5": 3,
+      "6": 3,
+      "7": 3,
+      "8": 3
+    },
+    "sample": [
+      "007",
+      "070",
+      "700",
+      "007",
+      "070",
+      "700",
+      "007"
+    ]
+  },
+  "E3": {
+    "ill_typed": 118,
+    "limitation": "the declared type rules also define the test oracle; no production comparison",
+    "permissive_baseline_false_acceptances_vs_declared_types": 118,
+    "reference_typed_checker_false_acceptances_vs_declared_types": 0,
+    "tested_op_triples": 125,
+    "well_typed": 7,
+    "well_typed_needing_write": 5
+  },
+  "E4": {
+    "expressions": [
+      {
+        "address_id": "7ebcad01696699cec44597a108f8838b86519543a3bc9887ca3e917ab7b1a763",
+        "derivation_id": "8fa31ae4c1b74e5b406661fef254618c0a8d21377ad1ae660db6c422d4844e9d",
+        "execution_id": "4375c2ef0aabda0efc4abdf91b6afc38ac1629bdaef50947ec01efcc9d57f1d1",
+        "value_id": "66325f9c1b71c06d478b49d8c602f35a60780cc7b3b9fc493635bbe15c2e1da2"
+      },
+      {
+        "address_id": "9c5e1534e1e6d3e29634abb24455d818e560863b02a5dfc263d650824bb7bbb8",
+        "derivation_id": "4492d0c3242aa9264cd8876d9cc948f11fa2bc9096eed8e5137c620251c00f43",
+        "execution_id": "24adedb52d9eedd63b6839df1c665b28d8a30ca13edbd49aa251a1f977474e00",
+        "value_id": "66325f9c1b71c06d478b49d8c602f35a60780cc7b3b9fc493635bbe15c2e1da2"
+      }
+    ],
+    "same_derivation_id": false,
+    "same_value_id": true
+  },
+  "E5": {
+    "external_read_replayable_without_input_capture": false,
+    "initial": 2,
+    "pure_trace": [
+      {
+        "amount": 4,
+        "op": "add"
+      },
+      {
+        "amount": 3,
+        "op": "mul"
+      }
+    ],
+    "replay_result": 18
+  },
+  "E6": {
+    "cross_provider_http_trial": "NOT RUN",
+    "offline_client_view": {
+      "artifact_count": 1,
+      "authenticated": false,
+      "id": "toy-mission",
+      "next": "eval",
+      "next_source": "Checked",
+      "requirements": [],
+      "version": 4
+    },
+    "reason": "no live program URL, identity registration, independent provider test or permissioned worker supplied"
+  },
+  "E7": {
+    "baseline": "blind acceptance of all operation sequences",
+    "checker": "type/rights declaration model; measured in E3",
+    "production_accuracy_and_cost": "NOT RUN"
+  },
+  "extra": {
+    "first_obstructing_pair": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "hash_chain_rewritten_has_different_root": true,
+    "obstructing_pair_count": 4,
+    "projection_quotient_congruent_first_bit_toggle": true,
+    "projection_quotient_congruent_swap_first": false,
+    "rewritten_chain_locally_valid": true
+  },
+  "scope": "toy-model checks; not production repository test execution"
+}

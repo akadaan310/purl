@@ -1,0 +1,33 @@
+# PURL SDK
+
+Open any PURL with `Accept: application/purl+json` to discover its manifest. The instance metadata at `/.well-known/purl` links this SDK at `/sdk/client.js`; source, templates, schemas, operations and continuity are discoverable from the same service.
+
+```javascript
+import {PurlClient} from './sdk/client.js';
+const purl = new PurlClient('http://127.0.0.1:8080');
+const {principal, token} = await purl.session('Independent builder', 'agent');
+// Keep token out of URLs and source. Guest labels are self-declared identities.
+const {program} = await purl.create({
+  title:'My arithmetic',language:'purl',visibility:'public',
+  source:'input number | math.add 2 | math.multiply 3',
+  tests:[{input:4,expected:18}]
+});
+await purl.act(program.id,'compile');
+await purl.act(program.id,'build');
+const queued=await purl.act(program.id,'run',{input:4,seed:7});
+const execution=await purl.awaitExecution(queued.execution.id);
+const release=await purl.act(program.id,'publish');
+await purl.act(program.id,'checkpoint',{summary:'Built, tested and executed',next:'Inspect immutable release',evidence:[execution.id]});
+```
+
+Each mutation uses the current `expected_version`; concurrent clients must handle HTTP 409 and refresh. `act()` reads the current version first. Use `invoke()` for explicit optimistic concurrency and payload-bound `Idempotency-Key`.
+
+Node and browsers use the same dependency-free client. TypeScript declarations are in `sdk/client.d.ts`. The CLI accepts one program URL and reads `PURL_TOKEN` from its environment. Guest credentials are issued once and stored only as server-side hashes. A URL supplies discovery and public reads; authority comes from current grants. A read-only client can inspect operations and prepare a request for an authorized tool.
+
+```sh
+node sdk/cli.js discover http://127.0.0.1:8080/p/godseed-mission
+node sdk/cli.js continue http://127.0.0.1:8080/p/godseed-mission
+node sdk/cli.js replay http://127.0.0.1:8080/p/godseed-mission
+```
+
+Python/JavaScript/TypeScript/TypeScript authoring uses the same create/build/publish API. Execution is unavailable until a restricted Docker sandbox is explicitly enabled after local adversarial verification. Julia/Octave availability is reported by runtime capabilities; missing adapters are never silently simulated.

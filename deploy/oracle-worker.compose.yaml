@@ -1,0 +1,29 @@
+name: purl-oracle-worker
+services:
+  worker:
+    # Set PURL_IMAGE to a pushed image@sha256:digest from the verified release.
+    image: ${PURL_IMAGE:?Set PURL_IMAGE to the release image digest}
+    command: [node, service/worker.js]
+    init: true
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    stop_grace_period: 45s
+    environment:
+      NODE_ENV: production
+      PURL_ROLE: worker
+      PURL_PERSISTENCE: supabase
+      SUPABASE_URL: ${SUPABASE_URL:?SUPABASE_URL is required}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY:?SUPABASE_SERVICE_ROLE_KEY is required}
+      SUPABASE_ARTIFACT_BUCKET: ${SUPABASE_ARTIFACT_BUCKET:-purl-artifacts}
+      PURL_DOCUMENT_ID: ${PURL_DOCUMENT_ID:-main}
+      PURL_BASE_URL: ${PURL_BASE_URL:?Set the existing public API URL}
+      PURL_WORKER_ID: ${PURL_WORKER_ID:-oracle-worker-1}
+      PURL_WORKER_POLL_MS: ${PURL_WORKER_POLL_MS:-500}
+      PURL_JOB_LEASE_MS: ${PURL_JOB_LEASE_MS:-30000}
+      PURL_WORKER_HEARTBEAT_FILE: /tmp/purl-worker-heartbeat.json
+      PURL_SANDBOX_ENABLED: "0"
+      PURL_SANDBOX_VERIFIED: "0"

@@ -1,0 +1,2 @@
+{"stage":"PASS","checks":["non-root image","read-only API + distinct worker","build/queue/execute/result"],"execution_class":"LOCAL_CONTAINER_DEVELOPMENT_FILE","value":18}
+{"verification":"PASS","checks":["API + worker restart","persisted result recovery","fresh role healthchecks"],"execution_class":"LOCAL_CONTAINER_DEVELOPMENT_FILE","hosted_supabase":"NOT_RUN"}

@@ -1,0 +1,134 @@
+{
+  "protocol": "purl-sandbox-verification/1",
+  "run_id": "2026-10-18T14-08-41.086Z",
+  "execution_class": "LIVE_LOCAL_DOCKER",
+  "images": {
+    "node": "node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+    "python": "python:3.12.9-slim-bookworm@sha256:48a11b7ba705fd53bf15248d1f94d36c39549903c5d59edcfa2f3f84126e7b44"
+  },
+  "public_arbitrary_execution_enabled": false,
+  "assurance": "Defense-in-depth configuration and specified attacks only; not a kernel/container security certification. Shared-kernel Docker and daemon privileges remain in the threat model.",
+  "checks": [
+    {
+      "name": "javascript-real-result",
+      "status": "PASS",
+      "elapsed_ms": 2073,
+      "result": {
+        "adapter": "docker-restricted/1",
+        "image": "node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+        "network": "none",
+        "filesystem": "read-only + 16MiB tmpfs",
+        "uid": 10001,
+        "memory_bytes": 134217728,
+        "pids": 32,
+        "cpus": 0.5,
+        "timeout_ms": 3500,
+        "elapsed_ms": 2073,
+        "determinism": "seeded-random; clock/process/files not deterministic",
+        "source_digest": "sha256:38ca8776706cdd76f1c98c64f8f6ee19767d0bfc9a8cfcdacd04be8949a6270b"
+      }
+    },
+    {
+      "name": "typescript-real-result",
+      "status": "PASS",
+      "elapsed_ms": 831,
+      "result": {
+        "adapter": "docker-restricted/1",
+        "image": "node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+        "network": "none",
+        "filesystem": "read-only + 16MiB tmpfs",
+        "uid": 10001,
+        "memory_bytes": 134217728,
+        "pids": 32,
+        "cpus": 0.5,
+        "timeout_ms": 3500,
+        "elapsed_ms": 831,
+        "determinism": "seeded-random; clock/process/files not deterministic",
+        "source_digest": "sha256:82b2395d74b7581efcd5fe46a3f1745999d83cab80d10041985614fef0127934"
+      }
+    },
+    {
+      "name": "python-real-result",
+      "status": "PASS",
+      "elapsed_ms": 1941,
+      "result": {
+        "adapter": "docker-restricted/1",
+        "image": "python:3.12.9-slim-bookworm@sha256:48a11b7ba705fd53bf15248d1f94d36c39549903c5d59edcfa2f3f84126e7b44",
+        "network": "none",
+        "filesystem": "read-only + 16MiB tmpfs",
+        "uid": 10001,
+        "memory_bytes": 134217728,
+        "pids": 32,
+        "cpus": 0.5,
+        "timeout_ms": 3500,
+        "elapsed_ms": 1941,
+        "determinism": "seeded-random; clock/process/files not deterministic",
+        "source_digest": "sha256:69d73e784bf56007cff3a3eb22a99b6806ab217ac5f40c6b67c982f66b6f571f"
+      }
+    },
+    {
+      "name": "filesystem-host-paths-and-root-write",
+      "status": "PASS",
+      "elapsed_ms": 1762,
+      "result": {
+        "host": false,
+        "rootWrite": false,
+        "uid": 10001,
+        "tmp": true
+      }
+    },
+    {
+      "name": "network-ssrf-cloud-metadata",
+      "status": "PASS",
+      "elapsed_ms": 1242,
+      "result": {
+        "connected": false,
+        "error": "ENETUNREACH"
+      }
+    },
+    {
+      "name": "environment-credentials-absent",
+      "status": "PASS",
+      "elapsed_ms": 1696,
+      "result": []
+    },
+    {
+      "name": "process-budget-and-no-privileges",
+      "status": "PASS",
+      "elapsed_ms": 825,
+      "result": {
+        "pids": "32",
+        "status": [
+          "CapEff:\t0000000000000000",
+          "NoNewPrivs:\t1"
+        ]
+      }
+    },
+    {
+      "name": "cpu-infinite-loop-terminated",
+      "status": "PASS",
+      "elapsed_ms": 3505,
+      "result": {
+        "terminated": true
+      }
+    },
+    {
+      "name": "output-flood-terminated",
+      "status": "PASS",
+      "elapsed_ms": 539,
+      "result": {
+        "terminated": true
+      }
+    },
+    {
+      "name": "unconfigured-adapter-denied",
+      "status": "PASS",
+      "elapsed_ms": 0,
+      "result": {
+        "denied": true
+      }
+    }
+  ],
+  "passed": 10,
+  "failed": 0
+}

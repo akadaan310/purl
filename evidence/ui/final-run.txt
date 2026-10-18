@@ -1,0 +1,128 @@
+
+> purl@0.2.0 test:ui
+> playwright test
+
+
+Running 12 tests using 1 worker
+
+(node:20176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › tests/ui/product.spec.js:8:1 › capsule surface copies canonical URL, keyboard copies, Open navigates independently (877ms)
+  ✓   2 [desktop] › tests/ui/product.spec.js:18:1 › clipboard denial offers selectable canonical URL and touch remains usable (472ms)
+  ✓   3 [desktop] › tests/ui/product.spec.js:23:1 › IDE creates, compiles, builds, tests, runs, publishes and checkpoints through live API (2.9s)
+  ✓   4 [desktop] › tests/ui/product.spec.js:35:1 › invalid types produce visible diagnostics and do not report a successful build (641ms)
+  ✓   5 [desktop] › tests/ui/product.spec.js:39:1 › landing, mission, docs and observatory meet responsive accessibility and screenshot checks (4.4s)
+  ✓   6 [desktop] › tests/ui/product.spec.js:49:1 › unsolicited provider token is rejected and removed without changing account (330ms)
+(node:20413) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [android] › tests/ui/product.spec.js:8:1 › capsule surface copies canonical URL, keyboard copies, Open navigates independently (853ms)
+  ✓   8 [android] › tests/ui/product.spec.js:18:1 › clipboard denial offers selectable canonical URL and touch remains usable (597ms)
+  ✓   9 [android] › tests/ui/product.spec.js:23:1 › IDE creates, compiles, builds, tests, runs, publishes and checkpoints through live API (2.8s)
+  ✓  10 [android] › tests/ui/product.spec.js:35:1 › invalid types produce visible diagnostics and do not report a successful build (567ms)
+  ✘  11 [android] › tests/ui/product.spec.js:39:1 › landing, mission, docs and observatory meet responsive accessibility and screenshot checks (3.3s)
+(node:20602) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [android] › tests/ui/product.spec.js:49:1 › unsolicited provider token is rejected and removed without changing account (603ms)
+
+
+  1) [android] › tests/ui/product.spec.js:39:1 › landing, mission, docs and observatory meet responsive accessibility and screenshot checks 
+
+    Error: [{"id":"color-contrast","nodes":[["button[data-template=\"typescript\"] > .template-icon[aria-hidden=\"true\"]"]]}]
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 64
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#f8f6f3",
+    +               "contrastRatio": 2.38,
+    +               "expectedContrastRatio": "3:1",
+    +               "fgColor": "#a79fa8",
+    +               "fontSize": "27.0pt (36px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<button class=\"template-card\" data-template=\"typescript\"><span class=\"template-icon\" aria-hidden=\"true\">↗︎</span><h3>TypeScript performer</h3><p>Erasable TypeScript types run inside the restricted Node worker; no package installs.</p><small>program <span aria-hidden=\"true\">↗︎</span></small></button>",
+    +                 "target": Array [
+    +                   "button[data-template=\"typescript\"]",
+    +                 ],
+    +               },
+    +               Object {
+    +                 "html": "<body>",
+    +                 "target": Array [
+    +                   "body",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1",
+    +         "html": "<span class=\"template-icon\" aria-hidden=\"true\">↗︎</span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "button[data-template=\"typescript\"] > .template-icon[aria-hidden=\"true\"]",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      40 |  const findings=[];
+      41 |  for(const path of ['/','/explore','/create','/p/godseed-mission','/observatory','/docs']){
+    > 42 |   await ready(page,path);await noOverflow(page);const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();const serious=result.violations.filter(x=>['critical','serious'].includes(x.impact));findings.push({path,violations:result.violations.map(x=>({id:x.id,impact:x.impact,nodes:x.nodes.length})),serious:serious.length});expect(serious,JSON.stringify(serious.map(x=>({id:x.id,nodes:x.nodes.map(n=>n.target)})))).toEqual([]);
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^
+      43 |   if(path==='/'){await expect(page).toHaveScreenshot('landing.png',{fullPage:true});await page.screenshot({path:`evidence/ui/landing-${test.info().project.name}.png`,fullPage:true,animations:'disabled'});}
+      44 |  }
+      45 |  const performance=await page.evaluate(()=>{const n=performance.getEntriesByType('navigation')[0];return {dom_content_loaded_ms:n.domContentLoadedEventEnd,response_ms:n.responseEnd,load_ms:n.loadEventEnd,transferred_bytes:performance.getEntriesByType('resource').reduce((s,x)=>s+x.transferSize,0),reduced_motion:matchMedia('(prefers-reduced-motion: reduce)').matches};});
+        at /workspace/purl/tests/ui/product.spec.js:42:450
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/product-landing-mission-do-eaa37-ility-and-screenshot-checks-android/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/product-landing-mission-do-eaa37-ility-and-screenshot-checks-android/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/product-landing-mission-do-eaa37-ility-and-screenshot-checks-android/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/product-landing-mission-do-eaa37-ility-and-screenshot-checks-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [android] › tests/ui/product.spec.js:39:1 › landing, mission, docs and observatory meet responsive accessibility and screenshot checks 
+  11 passed (19.9s)

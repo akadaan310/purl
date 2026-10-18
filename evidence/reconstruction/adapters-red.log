@@ -1,0 +1,100 @@
+✖ alternate source adapters exist as explicit pure compatibility interfaces (0.915423ms)
+✖ actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK target, and rejects illegal moves (0.110566ms)
+✖ Substrate term mapping matches Python registry fixtures including optional and unmaterialized terms (0.287751ms)
+✖ composition imports re-evaluate pinned snapshots and emit compiler source without claiming event-chain verification (0.527541ms)
+✖ composition rejects malformed operators, width mismatches and ambiguous snapshot versions (0.389304ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 43.430629
+
+✖ failing tests:
+
+test at test/adapters.test.js:8:1
+✖ alternate source adapters exist as explicit pure compatibility interfaces (0.915423ms)
+  AssertionError [ERR_ASSERTION]: parseSeurl
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/adapters.test.js:9:133)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/adapters.test.js:12:1
+✖ actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK target, and rejects illegal moves (0.110566ms)
+  TypeError: adapter.parseSeurl is not a function
+      at TestContext.<anonymous> (file:///workspace/purl/test/adapters.test.js:13:26)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at test/adapters.test.js:23:1
+✖ Substrate term mapping matches Python registry fixtures including optional and unmaterialized terms (0.287751ms)
+  TypeError: adapter.mapSubstrateTerm is not a function
+      at TestContext.<anonymous> (file:///workspace/purl/test/adapters.test.js:26:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/adapters.test.js:47:1
+✖ composition imports re-evaluate pinned snapshots and emit compiler source without claiming event-chain verification (0.527541ms)
+  TypeError: adapter.importComposition is not a function
+      at TestContext.<anonymous> (file:///workspace/purl/test/adapters.test.js:52:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/adapters.test.js:69:1
+✖ composition rejects malformed operators, width mismatches and ambiguous snapshot versions (0.389304ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /equal length/. Input:
+  
+  'TypeError: adapter.importComposition is not a function'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/adapters.test.js:73:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: adapter.importComposition is not a function
+        at file:///workspace/purl/test/adapters.test.js:73:31
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (file:///workspace/purl/test/adapters.test.js:73:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+        at Test.postRun (node:internal/test_runner/test:1522:19)
+        at Test.run (node:internal/test_runner/test:1447:12)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7),
+    expected: /equal length/,
+    operator: 'throws',
+    diff: 'simple'
+  }

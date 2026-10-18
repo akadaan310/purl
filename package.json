@@ -1,14 +1,30 @@
 {
   "name": "purl",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "PURL — Programmable URL Protocol: addressable, stateful, self-describing resources with an experimental substrate for studying state transitions.",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "exports": { ".": "./sdk/client.js", "./compiler": "./service/compiler.js" },
+  "types": "./sdk/client.d.ts",
+  "bin": { "purl": "./sdk/cli.js" },
+  "files": ["sdk", "service", "src", "schemas", "web", "README.md", "SDK.md", "LANGUAGE_SPEC.md", "FORMAL_SEMANTICS.md", "reference/godseed/GODSEED.md", "reference/godseed/DEPLOYMENT_AMENDMENT.md", "deploy/runtime.json"],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "start": "node src/transport/main.js",
+    "start": "node service/main.js",
+    "start:legacy": "node src/transport/main.js",
+    "worker": "node service/worker.js",
+    "test:product": "node --test test/product/*.test.js",
+    "test:ui": "playwright test",
+    "experiments:godseed": "node scripts/godseed-experiments.js",
+    "sandbox:verify": "node scripts/verify-sandbox.js",
     "test": "node --test \"test/**/*.test.js\"",
     "demo": "node scripts/demo.js",
     "experiment": "node scripts/run-experiment.js",
     "reproduce": "node scripts/reproduce.js"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.1",
+    "@playwright/test": "1.64.1"
   }
 }

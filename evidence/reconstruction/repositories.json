@@ -1,0 +1,53 @@
+{
+  "checked_at": "2026-10-18T13:42:52.465498+00:00",
+  "repositories": {
+    "purl": {
+      "head": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+      "branch": "claude/purl-protocol-research-bxevq5",
+      "status_porcelain": "",
+      "branches": [
+        "claude/purl-protocol-research-bxevq5 3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+        "codex/godseed-v3 3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+        "origin 3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+        "origin/ccr-d0887a23-30wf63 83d6bcaf8b811e9d2744fb15a6d42ae5d899de1c",
+        "origin/claude/acsp-purl-composition-adsbn6 18c85bf2960685ce8903937598e3ac0506409673",
+        "origin/claude/purl-protocol-research-bxevq5 3df4452a3624b3f5492bf23c2dacc49d8d2b33c7"
+      ]
+    },
+    "NetGovComEduGovOrgEduGovComNet": {
+      "head": "9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b",
+      "branch": "claude/agent-continuity-protocol-doi4bn",
+      "status_porcelain": "",
+      "branches": [
+        "claude/agent-continuity-protocol-doi4bn 9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b",
+        "origin 9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b",
+        "origin/ccr-d0887a23-30wf63 e8d989afee2025e2315605b4349ccfa833db13bf",
+        "origin/claude/acsp-program-001-k616hw 417da6c740de22aaa497e10a09251c4c2af7b948",
+        "origin/claude/acsp-purl-composition-adsbn6 edd1963750d1fc839cc350797b6a9bc9da8f6a20",
+        "origin/claude/agent-continuity-protocol-doi4bn 9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b"
+      ]
+    },
+    "seurl": {
+      "head": "620ff955b87857c3eb7a7700a81b6a4d0217400a",
+      "branch": "master",
+      "status_porcelain": "",
+      "branches": [
+        "master 620ff955b87857c3eb7a7700a81b6a4d0217400a",
+        "origin 620ff955b87857c3eb7a7700a81b6a4d0217400a",
+        "origin/master 620ff955b87857c3eb7a7700a81b6a4d0217400a"
+      ]
+    },
+    "substrateIO": {
+      "head": "7ace119a544fc736f0d4ec1d72cded9dad0a83e3",
+      "branch": "claude/research-substrate-bootstrap-bfd02a",
+      "status_porcelain": "",
+      "branches": [
+        "claude/research-substrate-bootstrap-bfd02a 7ace119a544fc736f0d4ec1d72cded9dad0a83e3",
+        "origin 7ace119a544fc736f0d4ec1d72cded9dad0a83e3",
+        "origin/ccr-d0887a23-30wf63 165712038643f306f3ec882d9c50da84477de534",
+        "origin/claude/acsp-program-001-k616hw 5073595f1c7197392d77b7fb612479084ad5a268",
+        "origin/claude/research-substrate-bootstrap-bfd02a 7ace119a544fc736f0d4ec1d72cded9dad0a83e3"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "source": "deploy/verification/results.json",
+  "image": "sha256:13ea9884960aaf5abb814dd1389ca0c820e814d9439d95a4ffdb07548c021f1b",
+  "checks": {
+    "status": "PASS",
+    "command": "sh deploy/verify-image.sh",
+    "execution_class": "LOCAL_CONTAINER_DEVELOPMENT_FILE",
+    "value": 18,
+    "evidence": "image-smoke.log",
+    "coverage": [
+      "separate API and worker",
+      "UID 1000",
+      "read-only root filesystem",
+      "network disabled",
+      "build and queued execution",
+      "persisted result after both containers restart",
+      "role health checks"
+    ]
+  },
+  "qualification": "Will rebuild final source before release; see latest build evidence."
+}

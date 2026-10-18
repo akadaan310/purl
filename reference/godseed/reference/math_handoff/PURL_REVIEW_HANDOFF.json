@@ -1,0 +1,450 @@
+{
+  "book_proposals": [
+    {
+      "classification": "companion volume / chapter candidate",
+      "publication_gate": "independent proof review and pedagogy",
+      "title": "The Number: Representation, Distinction and Execution"
+    },
+    {
+      "classification": "research note now, potential book later",
+      "publication_gate": "live cross-provider evidence and security review",
+      "title": "Executable Addresses: Typed Programs, Capabilities and Recoverable Histories"
+    }
+  ],
+  "claims": [
+    {
+      "evidence": "CLASSICAL+TOY_EXECUTED",
+      "id": "C1",
+      "limitations": "not effectful runtime associativity",
+      "sources": [
+        "CGT-PROP-001",
+        "experiments/commission_checks.py"
+      ],
+      "statement": "A typed pure operation fragment has identities and associative composition where types match"
+    },
+    {
+      "evidence": "SOURCE_IMPLEMENTATION",
+      "id": "C2",
+      "limitations": "no independent integration or crash/recovery verification",
+      "sources": [
+        "purl/src/continuity/store.js",
+        "purl/src/continuity/operations.js",
+        "purl/SPEC.md"
+      ],
+      "statement": "PURL/0.1 store includes declared per-requester manifests, dynamic rights, expected-version validation and atomic planned events in its abstract execution path"
+    },
+    {
+      "evidence": "CLASSICAL+TOY_EXECUTED",
+      "id": "C3",
+      "limitations": "proved for deterministic functions on image; more conditions for nondeterministic LTS",
+      "sources": [
+        "PURL_INDEPENDENT_DISCOVERIES.md"
+      ],
+      "statement": "A projection induces a deterministic transition iff projection-equivalent states have equivalent projected successors"
+    },
+    {
+      "evidence": "CLASSICAL+TOY_EXECUTED",
+      "id": "C4",
+      "limitations": "value hashing requires a specified canonical typed encoding",
+      "sources": [
+        "GiN-DEF-001..004",
+        "experiments/commission_checks.py"
+      ],
+      "statement": "Canonical syntax, value and run identities must be distinguished"
+    },
+    {
+      "evidence": "SOURCE_IMPLEMENTATION",
+      "id": "C5",
+      "limitations": "real fresh-session trial NOT RUN",
+      "sources": [
+        "purl/SECURITY.md",
+        "purl/src/continuity/store.js"
+      ],
+      "statement": "A bare URL does not authenticate a session or grant arbitrary execute rights"
+    },
+    {
+      "evidence": "CLASSICAL+TOY_EXECUTED",
+      "id": "C6",
+      "limitations": "real adversarial hosted threat model untested",
+      "sources": [
+        "PURL_INDEPENDENT_DISCOVERIES.md",
+        "experiments/commission_checks.py"
+      ],
+      "statement": "Local hash-chain consistency does not by itself anchor historical authenticity"
+    },
+    {
+      "evidence": "CLASSICAL+TOY_EXECUTED",
+      "id": "C7",
+      "limitations": "extrinsic labels/times enlarge record space, not internal state count",
+      "sources": [
+        "PURL_TRANSITION_LANGUAGE.md",
+        "experiments/commission_checks.py"
+      ],
+      "statement": "Fixed-length deterministic 2-state toggle has two histories; 007 3-cycle has three"
+    },
+    {
+      "evidence": "SOURCE_IMPLEMENTATION",
+      "id": "C8",
+      "limitations": "separate extensions may exist outside inspected sources",
+      "sources": [
+        "purl/SPEC.md",
+        "purl/ARCHITECTURE.md"
+      ],
+      "statement": "Current PURL/0.1 source is not evidence of a general-purpose sandboxed program runner"
+    }
+  ],
+  "commissioner": "Abed Kadan",
+  "core_verdict": "Retain PURL/0.1 as discovery/authority/event continuity; add typed/effect-checked mission graph as a versioned extension; do not treat URL or compressed trace as universal program.",
+  "counterexamples": [
+    {
+      "evidence": "COUNTEREXAMPLE+TOY_EXECUTED",
+      "id": "K1",
+      "model": "X={0,1}², pi(a,b)=a, swap(a,b)=(b,a)",
+      "target": "all projections yield executable deterministic grammar",
+      "witness": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "evidence": "COUNTEREXAMPLE+TOY_EXECUTED",
+      "id": "K2",
+      "model": "add(1,2) and add(2,1), both value 3",
+      "target": "same value implies same URL/AST"
+    },
+    {
+      "evidence": "COUNTEREXAMPLE+TOY_EXECUTED",
+      "id": "K3",
+      "model": "recompute chain after rewriting payload",
+      "target": "local hash-chain validity alone certifies server honesty"
+    },
+    {
+      "evidence": "COUNTEREXAMPLE+CLASSICAL",
+      "id": "K4",
+      "model": "deterministic 007→070→700→007",
+      "target": "a three-state cycle contains universal computation"
+    }
+  ],
+  "decision_matrix": [
+    {
+      "decision": "IMPORT NOW",
+      "item": "PURL existing safe reads, op registry, grants, versioned events",
+      "qualification": "retain, integrate only via tests"
+    },
+    {
+      "decision": "IMPORT NOW",
+      "item": "CGT pure relational path composition",
+      "qualification": "restricted to well-typed/declared operators"
+    },
+    {
+      "decision": "IMPORT NOW",
+      "item": "GiN representation-vs-value distinctions and layered failures",
+      "qualification": "do not equate values and programs"
+    },
+    {
+      "decision": "EXPERIMENT",
+      "item": "Typed mission DAG and hermetic workers",
+      "qualification": "new extension, not existing product"
+    },
+    {
+      "decision": "EXPERIMENT",
+      "item": "Projection-to-program induction",
+      "qualification": "check kernel congruence or keep hidden state"
+    },
+    {
+      "decision": "KEEP SEPARATE",
+      "item": "ACSP direct database and actor ID merger",
+      "qualification": "cross-contract adapter required"
+    },
+    {
+      "decision": "REJECT",
+      "item": "SEURL seven verbs as unrestricted production primitives",
+      "qualification": "no enforceable semantics or rights evidence"
+    },
+    {
+      "decision": "REJECT",
+      "item": "GET-triggered mutations / authorization from bare URL",
+      "qualification": "unsafe and contrary to RFC 9110"
+    }
+  ],
+  "evidence_legend": {
+    "CLASSICAL": "a known mathematical law with a proof or recognized model",
+    "COUNTEREXAMPLE": "explicit model falsifying a broad proposition",
+    "NOT_RUN": "intended empirical trial not run",
+    "PROPOSAL": "architecture not deployed",
+    "SOURCE_IMPLEMENTATION": "verified presence of source mechanism, not deployed behavior",
+    "TOY_EXECUTED": "our isolated local experiment code ran and passed"
+  },
+  "experiment_summaries": {
+    "E1": {
+      "label_assumption": "external independent binary labels",
+      "status": "TOY_EXECUTED",
+      "toggle_fixed_length_count": 2
+    },
+    "E2": {
+      "status": "TOY_EXECUTED",
+      "three_cycle_fixed_length_count": 3
+    },
+    "E3": {
+      "all_triples": 125,
+      "ill_typed": 118,
+      "status": "TOY_EXECUTED",
+      "well_typed": 7
+    },
+    "E4": {
+      "same_value_not_same_derivation": true,
+      "status": "TOY_EXECUTED"
+    },
+    "E5": {
+      "external_effects": "NOT_RUN",
+      "pure_replay_result": 18,
+      "status": "TOY_EXECUTED"
+    },
+    "E6": {
+      "external_fresh_session_trial": "NOT_RUN",
+      "status": "TOY_EXECUTED_OFFLINE_ONLY"
+    },
+    "E7": {
+      "benchmark_against_real_clients": "NOT_RUN",
+      "status": "TOY_EXECUTED_CONTRACT_ONLY"
+    },
+    "extra_hash_anchor": {
+      "external_anchor_test": "NOT_RUN",
+      "status": "TOY_EXECUTED"
+    },
+    "extra_projection": {
+      "counterexample_found": true,
+      "status": "TOY_EXECUTED"
+    }
+  },
+  "handoff_files": [
+    "PURL_BOOK_PROPOSALS.md",
+    "PURL_CGT_GIN_THEORY_MAP.md",
+    "PURL_EXPERIMENTS.md",
+    "PURL_FORMAL_SEMANTICS.md",
+    "PURL_GRAMMAR_RECOMMENDATIONS.md",
+    "PURL_INDEPENDENT_DISCOVERIES.md",
+    "PURL_MISSION_EXAMPLE.json",
+    "PURL_NEW_RESEARCH_DIRECTIONS.md",
+    "PURL_NEXT_SESSION_SEED.md",
+    "PURL_OPEN_CONJECTURES.md",
+    "PURL_TRANSITION_LANGUAGE.md",
+    "README_HANDOFF.md",
+    "experiments/commission_checks.py",
+    "experiments/results.json"
+  ],
+  "local_tests": {
+    "command": "python -m unittest discover -s experiments -p commission_checks.py -v",
+    "failed": 0,
+    "passed": 17,
+    "path": "experiments/commission_checks.py",
+    "results": "experiments/results.json"
+  },
+  "next_integration_order": [
+    "Freeze purl-mission/0 schema and static typed checker",
+    "Test pure deterministic worker and receipts; no shell/network",
+    "Bind to PURL/0.1 rights, version and checkpoint flow",
+    "Add effect-aware sandboxed build node",
+    "Run blinded independent provider benchmark against text and DAG baselines",
+    "Commission external proof/implementation audit before public claims"
+  ],
+  "open_floor": [
+    {
+      "confidence": "high",
+      "evidence": "finite counterexample and short proof",
+      "next": "test on PURL projections",
+      "status": "CLASSICAL/ENGINEERING",
+      "title": "Projection-congruence admission checker"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "source composition + toy type tests",
+      "next": "independent integration",
+      "status": "PROPOSAL",
+      "title": "Versioned typed mission program with receipts"
+    },
+    {
+      "confidence": "unknown",
+      "evidence": "toy offline manifest only",
+      "next": "blind external benchmark",
+      "status": "NOT_RUN",
+      "title": "Fresh session URL-only reconstruction advantage"
+    },
+    {
+      "confidence": "high",
+      "evidence": "classical finite-state periodicity",
+      "next": "none until a nontrivial falsifiable result",
+      "status": "REJECT",
+      "title": "A new field built from toggle bit or 007 cycle"
+    }
+  ],
+  "open_questions": [
+    "full effect inference soundness",
+    "bounded compiled projection equivalence",
+    "timing and hidden state capture",
+    "log external anchoring",
+    "fresh provider permissions",
+    "comparing against workflow-engine baselines"
+  ],
+  "prepared_utc_date": "2026-10-18",
+  "production_mutations": [],
+  "recipient": "7u / independent engineering research session",
+  "record_type": "purl-cgt-gin-independent-commission-handoff",
+  "schema_version": "0.2-research-only",
+  "source_integrity": {
+    "external_peer_review": false,
+    "pinned": true,
+    "repository_suites_rerun": false,
+    "source_inspection_only": true,
+    "sources": [
+      {
+        "commit": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+        "files": [
+          {
+            "path": "SPEC.md",
+            "url": "https://github.com/akadaan310/purl/blob/3df4452a3624b3f5492bf23c2dacc49d8d2b33c7/SPEC.md"
+          },
+          {
+            "path": "ARCHITECTURE.md",
+            "url": "https://github.com/akadaan310/purl/blob/3df4452a3624b3f5492bf23c2dacc49d8d2b33c7/ARCHITECTURE.md"
+          },
+          {
+            "path": "PRINCIPLES.md",
+            "url": "https://github.com/akadaan310/purl/blob/3df4452a3624b3f5492bf23c2dacc49d8d2b33c7/PRINCIPLES.md"
+          },
+          {
+            "path": "SECURITY.md",
+            "url": "https://github.com/akadaan310/purl/blob/3df4452a3624b3f5492bf23c2dacc49d8d2b33c7/SECURITY.md"
+          },
+          {
+            "path": "src/continuity/operations.js",
+            "url": "https://github.com/akadaan310/purl/blob/3df4452a3624b3f5492bf23c2dacc49d8d2b33c7/src/continuity/operations.js"
+          },
+          {
+            "path": "src/continuity/store.js",
+            "url": "https://github.com/akadaan310/purl/blob/3df4452a3624b3f5492bf23c2dacc49d8d2b33c7/src/continuity/store.js"
+          },
+          {
+            "path": "src/research/projection.js",
+            "url": "https://github.com/akadaan310/purl/blob/3df4452a3624b3f5492bf23c2dacc49d8d2b33c7/src/research/projection.js"
+          },
+          {
+            "path": "test/http.test.js",
+            "url": "https://github.com/akadaan310/purl/blob/3df4452a3624b3f5492bf23c2dacc49d8d2b33c7/test/http.test.js"
+          }
+        ],
+        "inspection": "GitHub read-only contents and source snippets",
+        "repository": "akadaan310/purl"
+      },
+      {
+        "commit": "620ff955b87857c3eb7a7700a81b6a4d0217400a",
+        "files": [
+          {
+            "path": "README.md",
+            "url": "https://github.com/akadaan310/seurl/blob/620ff955b87857c3eb7a7700a81b6a4d0217400a/README.md"
+          },
+          {
+            "path": "NAI-CI.md",
+            "url": "https://github.com/akadaan310/seurl/blob/620ff955b87857c3eb7a7700a81b6a4d0217400a/NAI-CI.md"
+          }
+        ],
+        "inspection": "GitHub read-only contents and source snippets",
+        "repository": "akadaan310/seurl"
+      },
+      {
+        "commit": "7ace119a544fc736f0d4ec1d72cded9dad0a83e3",
+        "files": [
+          {
+            "path": "PROTOCOL.md",
+            "url": "https://github.com/akadaan310/substrateIO/blob/7ace119a544fc736f0d4ec1d72cded9dad0a83e3/PROTOCOL.md"
+          },
+          {
+            "path": "research/ONTOLOGY.md",
+            "url": "https://github.com/akadaan310/substrateIO/blob/7ace119a544fc736f0d4ec1d72cded9dad0a83e3/research/ONTOLOGY.md"
+          },
+          {
+            "path": "substrate/purl.py",
+            "url": "https://github.com/akadaan310/substrateIO/blob/7ace119a544fc736f0d4ec1d72cded9dad0a83e3/substrate/purl.py"
+          }
+        ],
+        "inspection": "GitHub read-only contents and source snippets",
+        "repository": "akadaan310/substrateIO"
+      },
+      {
+        "commit": "9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b",
+        "files": [
+          {
+            "path": "PROTOCOL.md",
+            "url": "https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet/blob/9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b/PROTOCOL.md"
+          },
+          {
+            "path": "src/protocol/operations.ts",
+            "url": "https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet/blob/9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b/src/protocol/operations.ts"
+          }
+        ],
+        "inspection": "GitHub read-only contents and source snippets",
+        "repository": "akadaan310/NetGovComEduGovOrgEduGovComNet"
+      },
+      {
+        "commit": "bfe32fc37f7fa61d50da50ecd2aa7fa97c0dd5a1",
+        "files": [
+          {
+            "path": "DEFINITIONS.md",
+            "url": "https://github.com/akadaan310/computationalgrammartheory/blob/bfe32fc37f7fa61d50da50ecd2aa7fa97c0dd5a1/DEFINITIONS.md"
+          },
+          {
+            "path": "FORMAL_MODELS.md",
+            "url": "https://github.com/akadaan310/computationalgrammartheory/blob/bfe32fc37f7fa61d50da50ecd2aa7fa97c0dd5a1/FORMAL_MODELS.md"
+          },
+          {
+            "path": "RESULTS.md",
+            "url": "https://github.com/akadaan310/computationalgrammartheory/blob/bfe32fc37f7fa61d50da50ecd2aa7fa97c0dd5a1/RESULTS.md"
+          }
+        ],
+        "inspection": "GitHub read-only contents and source snippets",
+        "repository": "akadaan310/computationalgrammartheory"
+      },
+      {
+        "commit": "2a94f8a6be686078a9dad88863be9aafc5e6379b",
+        "files": [
+          {
+            "path": "DEFINITIONS.md",
+            "url": "https://github.com/akadaan310/grammarinnumbers/blob/2a94f8a6be686078a9dad88863be9aafc5e6379b/DEFINITIONS.md"
+          },
+          {
+            "path": "CGT_CONCEPT_MAP.md",
+            "url": "https://github.com/akadaan310/grammarinnumbers/blob/2a94f8a6be686078a9dad88863be9aafc5e6379b/CGT_CONCEPT_MAP.md"
+          },
+          {
+            "path": "ARITHMETIC_GRAMMAR.md",
+            "url": "https://github.com/akadaan310/grammarinnumbers/blob/2a94f8a6be686078a9dad88863be9aafc5e6379b/ARITHMETIC_GRAMMAR.md"
+          }
+        ],
+        "inspection": "GitHub read-only contents and source snippets",
+        "repository": "akadaan310/grammarinnumbers"
+      },
+      {
+        "commit": "5c96ddca7b032ff76ab11d1c8306d2aef4bcf211",
+        "files": [
+          {
+            "path": "research/the-number/FOUNDATIONS.md",
+            "url": "https://github.com/akadaan310/grammarinnumbers/blob/5c96ddca7b032ff76ab11d1c8306d2aef4bcf211/research/the-number/FOUNDATIONS.md"
+          },
+          {
+            "path": "research/the-number/FALSIFICATION_MATRIX.md",
+            "url": "https://github.com/akadaan310/grammarinnumbers/blob/5c96ddca7b032ff76ab11d1c8306d2aef4bcf211/research/the-number/FALSIFICATION_MATRIX.md"
+          }
+        ],
+        "inspection": "research branch previously retrieved in this conversation; PR unmerged at that inspection",
+        "repository": "akadaan310/grammarinnumbers"
+      }
+    ]
+  },
+  "status": "complete-for-isolated-theory-and-toy-tests; no live PURL service integration"
+}

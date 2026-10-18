@@ -1,5 +1,13 @@
 node_modules/
 data/
+.purl/
+playwright-report/
+test-results/
+.env
+.env.*
+!.env.example
 *.log
+!deploy/verification/*.log
+!evidence/**/*.log
 .DS_Store
 experiments/*/runs/

@@ -1,0 +1,12 @@
+{"check":"schema-prototype","input":{},"status":422,"error":"input_schema_mismatch"}
+{"check":"schema-prototype","input":{"constructor":"untyped property"},"status":422,"error":"input_schema_mismatch"}
+{"check":"schema-shape","candidate":false,"accepted":false,"error":"input_schema_mismatch"}
+{"check":"schema-shape","candidate":{"items":42},"accepted":false,"error":"invalid_schema"}
+{"check":"schema-shape","candidate":{"properties":{"x":42}},"accepted":false,"error":"invalid_schema"}
+{"check":"schema-shape","candidate":{"propertyNames":false},"accepted":false,"error":"input_schema_mismatch"}
+{"check":"fork-capacity","create":429,"fork":429,"programs":10000}
+{"check":"replay-tampering","field":"receipt.seed","programValid":false,"executionValid":false}
+{"check":"replay-tampering","field":"trace.steps","programValid":false,"executionValid":false}
+{"check":"replay-tampering","field":"build.source","programValid":false,"executionValid":false}
+{"check":"failed-create-schema-retention","rejected":80,"persistedPrograms":0,"retainedHeapIncrease":3760}
+{"check":"aggregate-build-work","status":422,"elapsedMs":2,"eventLoopTimerFired":false}
