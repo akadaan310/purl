@@ -55,6 +55,7 @@ export function createLaunchServer({app}={}){
     const bucket=entry&&now-entry.at<60000?entry:{at:now,count:0};if(++bucket.count>120)error(429,'rate_limit','Mutation limit reached; retry after one minute');rates.set(key,bucket);
     if(rates.size>10000)for(const[k,v]of rates)if(now-v.at>60000)rates.delete(k);
    }
+   if(path==='/api/compiler'&&method==='GET')return reply({body:{protocol:'purl-compiler/1',language:'purl',operations:[{name:'compile',method:'POST',href:app.resources.url('/api/compiler'),available:true,requires:[],effects:[],input_schema:{type:'object',properties:{source:{anyOf:[{type:'string'},{type:'object'}]}},required:['source']},output:'Compilation diagnostics and bounded plan; no execution or state mutation'}],limits:{request_bytes:262144,native_resource_source_bytes:65536,authored_code:'disabled'},next:'Use the resource manifest for authenticated build, run, publish and checkpoint operations.'}});
    if(path==='/api/compiler'&&method==='POST')return reply({body:compile(body.source)});
    const profile=/^\/api\/profile\/([a-z0-9-]+)$/.exec(path);
    if(profile&&method==='GET'){
