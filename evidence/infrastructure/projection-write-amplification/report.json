@@ -1,0 +1,109 @@
+{
+  "schema": "purl.projection-write-amplification-verification/1",
+  "verified_at_utc": "2026-10-18T15:24:08.478937Z",
+  "status": "PASS",
+  "scope": "Local disposable PostgreSQL only; no remote database mutations or application runtime changes",
+  "migration": "supabase/migrations/20261018152259_purl_skip_unchanged_projection_writes.sql",
+  "migration_sha256": "67ea524c9a4528f3e2f1d175c161250a09764bc17c773384793c273bb22fc572",
+  "historical_migration": "supabase/migrations/20261018134521_purl_durable_repository.sql",
+  "historical_migration_unchanged": true,
+  "historical_migration_sha256": "4506cfa8398348f8ebb0c3fa75cddb6d97c8d140551a2bd7f13d21a245c74792",
+  "function": "public.purl_compare_and_swap(text,bigint,jsonb)",
+  "query_change": "Both projection INSERTs use alias existing and ON CONFLICT DO UPDATE SET data = excluded.data WHERE existing.data IS DISTINCT FROM excluded.data",
+  "other_function_body_changes": false,
+  "retained_security": [
+    "SECURITY INVOKER",
+    "empty search_path",
+    "public/anon/authenticated EXECUTE revoked",
+    "service_role EXECUTE granted"
+  ],
+  "docker_image": "postgres:17.7-bookworm@sha256:86e0b703649d7a792bd9243ee28afc9d8f7c6b2b5638077c9d6882d4d472bbfd",
+  "network": "none; no host ports",
+  "commands": {
+    "red": "sh deploy/verify-schema.sh > evidence/infrastructure/projection-write-amplification/red.log 2>&1 (before creating upgrade migration)",
+    "green": "sh deploy/verify-schema.sh > evidence/infrastructure/projection-write-amplification/green.log 2>&1 (fresh bootstrap plus upgrade migration)",
+    "generation": "npx --yes supabase@2.121.0 migration new purl_skip_unchanged_projection_writes"
+  },
+  "red": {
+    "exit_code": 3,
+    "error": "Unchanged entity projection was rewritten",
+    "before_xmin": "752",
+    "after_xmin": "755",
+    "unchanged_rows_rewritten": [
+      "principal owner",
+      "program unchanged",
+      "audit ordinal 1"
+    ],
+    "evidence": "red.log"
+  },
+  "green": {
+    "exit_code": 0,
+    "stable_rows": {
+      "principal owner": [
+        "753",
+        "753"
+      ],
+      "program unchanged": [
+        "753",
+        "753"
+      ],
+      "audit ordinal 1": [
+        "753",
+        "753"
+      ]
+    },
+    "changed_rows": {
+      "program changed": [
+        "753",
+        "756"
+      ],
+      "audit ordinal 2": [
+        "753",
+        "756"
+      ]
+    },
+    "final_revision": 2,
+    "evidence": "green.log",
+    "checks": [
+      "Fresh bootstrap and additive upgrade apply successfully",
+      "Original read purity, CAS, projection deletion, role grants, RLS and restrictive Storage-policy checks pass",
+      "Separate committed transactions prove unchanged entity and audit xmin remain stable",
+      "Changed entity and audit JSON update with new xmin",
+      "Stale CAS returns committed=false without altering authoritative document or projections",
+      "Injected projection CHECK failure after document UPDATE rolls back revision, document/projection JSON, projection cardinality and xmin"
+    ]
+  },
+  "source_files_changed": [
+    "supabase/migrations/20261018152259_purl_skip_unchanged_projection_writes.sql",
+    "deploy/verify-projection-writes.sql",
+    "deploy/verify-schema.sh"
+  ],
+  "limits": [
+    "No hosted availability or latency improvement measured by this local regression",
+    "The authoritative document still updates on every successful CAS; projection scans/conflict checks/delete scans remain",
+    "Existing evidence files preserved; remote upgrade/application verification belongs to the coordinating agent"
+  ],
+  "rest_adapter": {
+    "verification": "PASS",
+    "backend": "real local PostgreSQL17.7 + PostgREST13.0.4",
+    "revision": 2,
+    "observed_sql_cas_conflicts": 1,
+    "checks": [
+      "HTTP adapter roundtrip",
+      "concurrent CAS retry",
+      "restart/read",
+      "mutator abort rollback",
+      "anonymous RPC denied"
+    ],
+    "storage": "NOT_RUN: no Supabase Storage service in this disposable database harness",
+    "exit_code": 0,
+    "verified_at_utc": "2026-10-18T15:25:18.528434Z",
+    "command": "sh deploy/verify-rest.sh > evidence/infrastructure/projection-write-amplification/rest.log 2>&1",
+    "applied_migrations": [
+      "supabase/migrations/20261018134521_purl_durable_repository.sql",
+      "supabase/migrations/20261018152259_purl_skip_unchanged_projection_writes.sql"
+    ],
+    "evidence": "rest.log",
+    "qualification": "Actual local SQL/PostgREST responses; only /rest/v1 prefix forwarding and deterministic initial-read scheduling occur in the harness. No hosted mutation or Storage HTTP verification."
+  }
+}

@@ -30,3 +30,4 @@ for purl_migration in supabase/migrations/*.sql; do
   purl_docker exec -i "$purl_schema_container" psql -U postgres -v ON_ERROR_STOP=1 < "$purl_migration"
 done
 purl_docker exec -i "$purl_schema_container" psql -U postgres -v ON_ERROR_STOP=1 < deploy/verify-schema.sql
+purl_docker exec -i "$purl_schema_container" psql -U postgres -v ON_ERROR_STOP=1 < deploy/verify-projection-writes.sql
