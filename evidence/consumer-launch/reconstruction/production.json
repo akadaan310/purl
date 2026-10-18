@@ -1,0 +1,1255 @@
+{
+  "schema": "purls-cgit.production-reconstruction/1",
+  "observed_at": "2026-10-18T16:31:12Z",
+  "scope": "Read-only baseline before consumer launch changes; no mutations/restarts/deployments or secret values, token hashes, principal records or private document bodies read.",
+  "railway": {
+    "project": {
+      "id": "7b6d6969-ebfe-4823-ac60-6370fb068458",
+      "name": "purl-godseed",
+      "workspaceName": "Abed Kadaan's Projects"
+    },
+    "environment": {
+      "id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+      "name": "production",
+      "isEphemeral": false
+    },
+    "staged": null,
+    "region": null,
+    "services": [
+      {
+        "id": "063e5f3b-9953-44d2-b479-84dab49bb7f1",
+        "name": "purl-worker",
+        "state": "live",
+        "source": null,
+        "regions": [
+          "iad"
+        ],
+        "numReplicas": 1,
+        "cronSchedule": null,
+        "volumeMounts": [],
+        "latestDeployment": {
+          "id": "b5e7671e-115f-48f2-9b78-d3fe6586c0db",
+          "status": "SUCCESS",
+          "createdAt": "2026-10-18T14:57:48.782Z",
+          "url": null
+        },
+        "stagedChangeCount": 0
+      },
+      {
+        "id": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+        "name": "purl-api",
+        "state": "live",
+        "source": null,
+        "regions": [
+          "iad"
+        ],
+        "numReplicas": 1,
+        "cronSchedule": null,
+        "volumeMounts": [],
+        "latestDeployment": {
+          "id": "69cdb20a-69eb-4245-9d26-d347e5080a00",
+          "status": "SUCCESS",
+          "createdAt": "2026-10-18T14:57:47.377Z",
+          "url": null
+        },
+        "stagedChangeCount": 0
+      }
+    ],
+    "volumes": [],
+    "buckets": [],
+    "sharedVariableNames": [
+      "HOST",
+      "NODE_ENV",
+      "PORT",
+      "PURL_BASE_URL",
+      "PURL_DOCUMENT_ID",
+      "PURL_PERSISTENCE",
+      "PURL_SANDBOX_ENABLED",
+      "PURL_SANDBOX_VERIFIED",
+      "SUPABASE_ARTIFACT_BUCKET",
+      "SUPABASE_SERVICE_ROLE_KEY",
+      "SUPABASE_URL"
+    ],
+    "api": {
+      "service": {
+        "id": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+        "name": "purl-api",
+        "state": "live"
+      },
+      "environment": {
+        "id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "name": "production"
+      },
+      "staged": null,
+      "config": {
+        "networking": {
+          "serviceDomains": {
+            "purl-api-production.up.railway.app": {
+              "port": 3000
+            }
+          }
+        },
+        "build": {
+          "builder": "DOCKERFILE",
+          "buildEnvironment": "V3",
+          "dockerfilePath": "Dockerfile"
+        },
+        "deploy": {
+          "startCommand": "node service/main.js",
+          "healthcheckPath": "/healthz",
+          "healthcheckTimeout": 120,
+          "restartPolicyMaxRetries": 3,
+          "useLegacyStacker": false,
+          "ipv6EgressEnabled": false,
+          "runtime": "V2",
+          "multiRegionConfig": {
+            "iad": {
+              "numReplicas": 1
+            }
+          }
+        }
+      },
+      "stagedChanges": [],
+      "variableNames": [
+        "HOST",
+        "NODE_ENV",
+        "PORT",
+        "PURL_BASE_URL",
+        "PURL_DOCUMENT_ID",
+        "PURL_PERSISTENCE",
+        "PURL_ROLE",
+        "PURL_SANDBOX_ENABLED",
+        "PURL_SANDBOX_VERIFIED",
+        "SUPABASE_ARTIFACT_BUCKET",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "SUPABASE_URL"
+      ],
+      "volumes": [],
+      "domains": {
+        "serviceDomains": [
+          {
+            "id": "a4796c0e-31ad-42fd-8ae4-7a08494b1913",
+            "domain": "purl-api-production.up.railway.app",
+            "targetPort": 3000
+          }
+        ],
+        "customDomains": []
+      },
+      "tcpProxies": [],
+      "latestDeployment": {
+        "id": "69cdb20a-69eb-4245-9d26-d347e5080a00",
+        "status": "SUCCESS",
+        "createdAt": "2026-10-18T14:57:47.377Z",
+        "url": null
+      },
+      "tracing": {
+        "tracingEnabled": false,
+        "autoInstrumentationEnabled": false,
+        "autoInstrumentationActive": false
+      }
+    },
+    "worker": {
+      "service": {
+        "id": "063e5f3b-9953-44d2-b479-84dab49bb7f1",
+        "name": "purl-worker",
+        "state": "live"
+      },
+      "environment": {
+        "id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "name": "production"
+      },
+      "staged": null,
+      "config": {
+        "build": {
+          "builder": "DOCKERFILE",
+          "buildEnvironment": "V3",
+          "dockerfilePath": "Dockerfile"
+        },
+        "deploy": {
+          "startCommand": "node service/worker.js",
+          "restartPolicyMaxRetries": 3,
+          "useLegacyStacker": false,
+          "ipv6EgressEnabled": false,
+          "runtime": "V2",
+          "multiRegionConfig": {
+            "iad": {
+              "numReplicas": 1
+            }
+          }
+        }
+      },
+      "stagedChanges": [],
+      "variableNames": [
+        "HOST",
+        "NODE_ENV",
+        "PORT",
+        "PURL_BASE_URL",
+        "PURL_DOCUMENT_ID",
+        "PURL_PERSISTENCE",
+        "PURL_ROLE",
+        "PURL_SANDBOX_ENABLED",
+        "PURL_SANDBOX_VERIFIED",
+        "PURL_WORKER_POLL_MS",
+        "SUPABASE_ARTIFACT_BUCKET",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "SUPABASE_URL"
+      ],
+      "volumes": [],
+      "domains": {
+        "serviceDomains": [],
+        "customDomains": []
+      },
+      "tcpProxies": [],
+      "latestDeployment": {
+        "id": "b5e7671e-115f-48f2-9b78-d3fe6586c0db",
+        "status": "SUCCESS",
+        "createdAt": "2026-10-18T14:57:48.782Z",
+        "url": null
+      },
+      "tracing": {
+        "tracingEnabled": false,
+        "autoInstrumentationEnabled": false,
+        "autoInstrumentationActive": false
+      }
+    },
+    "runtime_health": {
+      "environment": {
+        "id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "name": "production"
+      },
+      "services": [
+        {
+          "serviceId": "063e5f3b-9953-44d2-b479-84dab49bb7f1",
+          "serviceName": "purl-worker",
+          "state": "online",
+          "statusText": "Online",
+          "activeDeployments": [
+            {
+              "id": "b5e7671e-115f-48f2-9b78-d3fe6586c0db",
+              "status": "SUCCESS",
+              "createdAt": "2026-10-18T14:57:48.782Z",
+              "statusUpdatedAt": "2026-10-18T15:06:18.607Z"
+            }
+          ],
+          "replicaStatus": {
+            "running": 1,
+            "crashed": 0,
+            "total": 1
+          },
+          "cronJob": null,
+          "issues": {
+            "warningCount": 0,
+            "criticalCount": 0
+          },
+          "recentFailures": 1,
+          "recentFailedDeployments": [
+            {
+              "id": "59a73a93-7f42-4b62-984c-1f0f2ea2e7e7",
+              "status": "FAILED",
+              "createdAt": "2026-10-18T14:52:21.821Z"
+            }
+          ],
+          "hasIssues": true,
+          "isCronJob": false,
+          "hasVolume": false
+        },
+        {
+          "serviceId": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+          "serviceName": "purl-api",
+          "state": "online",
+          "statusText": "Online",
+          "activeDeployments": [
+            {
+              "id": "69cdb20a-69eb-4245-9d26-d347e5080a00",
+              "status": "SUCCESS",
+              "createdAt": "2026-10-18T14:57:47.377Z",
+              "statusUpdatedAt": "2026-10-18T15:06:20.564Z"
+            }
+          ],
+          "replicaStatus": {
+            "running": 1,
+            "crashed": 0,
+            "total": 1
+          },
+          "cronJob": null,
+          "issues": {
+            "warningCount": 0,
+            "criticalCount": 0
+          },
+          "recentFailures": 1,
+          "recentFailedDeployments": [
+            {
+              "id": "928c065e-5373-4683-82be-c8b6a0d68f2c",
+              "status": "FAILED",
+              "createdAt": "2026-10-18T14:52:20.377Z"
+            }
+          ],
+          "hasIssues": true,
+          "isCronJob": false,
+          "hasVolume": false
+        }
+      ],
+      "pendingWork": [],
+      "summary": {
+        "totalServices": 2,
+        "servicesWithIssues": 2,
+        "totalFailures": 2
+      }
+    },
+    "deployments": [
+      {
+        "id": "b5e7671e-115f-48f2-9b78-d3fe6586c0db",
+        "status": "SUCCESS",
+        "createdAt": "2026-10-18T14:57:48.782Z",
+        "updatedAt": "2026-10-18T15:06:18.608Z",
+        "serviceId": "063e5f3b-9953-44d2-b479-84dab49bb7f1",
+        "environmentId": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "url": null,
+        "snapshotId": "c8a0ebef-a0b0-4383-bddd-38c6f4da7521",
+        "canRollback": true,
+        "canRedeploy": true,
+        "regions": [
+          "iad"
+        ],
+        "meta": {
+          "reason": "deploy"
+        }
+      },
+      {
+        "id": "69cdb20a-69eb-4245-9d26-d347e5080a00",
+        "status": "SUCCESS",
+        "createdAt": "2026-10-18T14:57:47.377Z",
+        "updatedAt": "2026-10-18T15:06:20.565Z",
+        "serviceId": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+        "environmentId": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "url": null,
+        "snapshotId": "835054fe-f948-42b2-a714-f6ae63b3e63a",
+        "canRollback": true,
+        "canRedeploy": true,
+        "regions": [
+          "iad"
+        ],
+        "meta": {
+          "reason": "deploy"
+        }
+      },
+      {
+        "id": "59a73a93-7f42-4b62-984c-1f0f2ea2e7e7",
+        "status": "FAILED",
+        "createdAt": "2026-10-18T14:52:21.821Z",
+        "updatedAt": "2026-10-18T14:52:41.232Z",
+        "serviceId": "063e5f3b-9953-44d2-b479-84dab49bb7f1",
+        "environmentId": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "url": null,
+        "snapshotId": "8ba85e63-6175-4e9e-b889-5fa5da8c7694",
+        "canRollback": false,
+        "canRedeploy": true,
+        "regions": [],
+        "meta": {
+          "reason": "deploy"
+        }
+      },
+      {
+        "id": "928c065e-5373-4683-82be-c8b6a0d68f2c",
+        "status": "FAILED",
+        "createdAt": "2026-10-18T14:52:20.377Z",
+        "updatedAt": "2026-10-18T14:52:37.330Z",
+        "serviceId": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+        "environmentId": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "url": null,
+        "snapshotId": "201d4dd7-ef47-4e3a-b7a3-d7ce77df9233",
+        "canRollback": false,
+        "canRedeploy": true,
+        "regions": [],
+        "meta": {
+          "reason": "deploy"
+        }
+      }
+    ],
+    "domain": {
+      "service": {
+        "id": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+        "name": "purl-api"
+      },
+      "environment": {
+        "id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "name": "production"
+      },
+      "domain": {
+        "id": "a4796c0e-31ad-42fd-8ae4-7a08494b1913",
+        "domain": "purl-api-production.up.railway.app",
+        "kind": "service",
+        "targetPort": 3000
+      },
+      "railwayManaged": true,
+      "verified": null,
+      "certificate": null,
+      "dnsRecords": []
+    },
+    "deployment_access": {
+      "cli_path": "/tmp/purl-railway-cli/railway",
+      "version": "5.70.0",
+      "whoami_success": true,
+      "in_PATH": false,
+      "workspace_id": "a6d09ac2-e79d-47e1-9f02-c89f47ef1479",
+      "deployment_not_attempted": true
+    }
+  },
+  "supabase": {
+    "project": {
+      "id": "frxufmwwbegconolevkw",
+      "ref": "frxufmwwbegconolevkw",
+      "organization_id": "wesmazatlddlwofnmgbf",
+      "organization_slug": "wesmazatlddlwofnmgbf",
+      "name": "itachis-corner",
+      "region": "eu-central-1",
+      "status": "ACTIVE_HEALTHY",
+      "database": {
+        "host": "db.frxufmwwbegconolevkw.supabase.co",
+        "version": "17.11.0.003",
+        "postgres_engine": "17",
+        "release_channel": "ga"
+      },
+      "created_at": "2026-10-17T22:13:17.344758Z"
+    },
+    "schema": "public",
+    "tables": [
+      "purl_documents",
+      "purl_entities",
+      "purl_audit"
+    ],
+    "baseline": {
+      "documents": [
+        {
+          "data_md5": "4d8b98fcf8a4d6bf0a6aed1cb60d6fcd",
+          "revision": 70,
+          "updated_at": "2026-10-18T15:25:45.909805+00:00",
+          "data_octets": 5462714,
+          "document_id": "godseed-v3-production",
+          "top_level_keys": [
+            "artifacts",
+            "audit",
+            "executions",
+            "idempotency",
+            "principals",
+            "programs",
+            "releases"
+          ]
+        }
+      ],
+      "audit_count": 56,
+      "storage_objects": {
+        "count": 9,
+        "metadata_fingerprint": "e0c0c6a3c0caecc2d282394407e85376"
+      },
+      "entities_by_kind": [
+        {
+          "kind": "artifact",
+          "count": 8
+        },
+        {
+          "kind": "execution",
+          "count": 8
+        },
+        {
+          "kind": "principal",
+          "count": 7
+        },
+        {
+          "kind": "program",
+          "count": 12
+        }
+      ]
+    },
+    "after_public_gets": [
+      {
+        "document_id": "godseed-v3-production",
+        "revision": 70,
+        "updated_at": "2026-10-18 15:25:45.909805+00",
+        "data_md5": "4d8b98fcf8a4d6bf0a6aed1cb60d6fcd",
+        "data_octets": 5462714
+      }
+    ],
+    "unchanged_after_public_gets": true,
+    "access": {
+      "rls": [
+        {
+          "rls": true,
+          "owner": "postgres",
+          "table": "purl_audit",
+          "schema": "public",
+          "force_rls": false
+        },
+        {
+          "rls": true,
+          "owner": "postgres",
+          "table": "purl_documents",
+          "schema": "public",
+          "force_rls": false
+        },
+        {
+          "rls": true,
+          "owner": "postgres",
+          "table": "purl_entities",
+          "schema": "public",
+          "force_rls": false
+        }
+      ],
+      "grants": [
+        {
+          "grantee": "postgres",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "DELETE"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "INSERT"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "REFERENCES"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "SELECT"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "TRIGGER"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "TRUNCATE"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "UPDATE"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "DELETE"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "INSERT"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "REFERENCES"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "SELECT"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "TRIGGER"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "TRUNCATE"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_audit",
+          "table_schema": "public",
+          "privilege_type": "UPDATE"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "DELETE"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "INSERT"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "REFERENCES"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "SELECT"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "TRIGGER"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "TRUNCATE"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "UPDATE"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "DELETE"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "INSERT"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "REFERENCES"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "SELECT"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "TRIGGER"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "TRUNCATE"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_documents",
+          "table_schema": "public",
+          "privilege_type": "UPDATE"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "DELETE"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "INSERT"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "REFERENCES"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "SELECT"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "TRIGGER"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "TRUNCATE"
+        },
+        {
+          "grantee": "postgres",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "UPDATE"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "DELETE"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "INSERT"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "REFERENCES"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "SELECT"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "TRIGGER"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "TRUNCATE"
+        },
+        {
+          "grantee": "service_role",
+          "table_name": "purl_entities",
+          "table_schema": "public",
+          "privilege_type": "UPDATE"
+        }
+      ],
+      "policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "(bucket_id <> 'purl-artifacts'::text)",
+          "roles": [
+            "anon",
+            "authenticated"
+          ],
+          "tablename": "objects",
+          "policyname": "purl_artifacts_private_select",
+          "schemaname": "storage",
+          "with_check": null
+        },
+        {
+          "cmd": "INSERT",
+          "qual": null,
+          "roles": [
+            "anon",
+            "authenticated"
+          ],
+          "tablename": "objects",
+          "policyname": "purl_artifacts_private_insert",
+          "schemaname": "storage",
+          "with_check": "(bucket_id <> 'purl-artifacts'::text)"
+        },
+        {
+          "cmd": "UPDATE",
+          "qual": "(bucket_id <> 'purl-artifacts'::text)",
+          "roles": [
+            "anon",
+            "authenticated"
+          ],
+          "tablename": "objects",
+          "policyname": "purl_artifacts_private_update",
+          "schemaname": "storage",
+          "with_check": "(bucket_id <> 'purl-artifacts'::text)"
+        },
+        {
+          "cmd": "DELETE",
+          "qual": "(bucket_id <> 'purl-artifacts'::text)",
+          "roles": [
+            "anon",
+            "authenticated"
+          ],
+          "tablename": "objects",
+          "policyname": "purl_artifacts_private_delete",
+          "schemaname": "storage",
+          "with_check": null
+        }
+      ],
+      "functions": [
+        {
+          "acl": "{postgres=X/postgres,service_role=X/postgres}",
+          "schema": "public",
+          "proname": "purl_compare_and_swap",
+          "body_md5": "409ffc1c432b3eae456de4871277f066",
+          "arguments": "p_document_id text, p_expected_revision bigint, p_data jsonb",
+          "security_definer": false
+        },
+        {
+          "acl": "{postgres=X/postgres,service_role=X/postgres}",
+          "schema": "public",
+          "proname": "purl_read_document",
+          "body_md5": "5e9f71dc9a5f8858e063b68ede34e50c",
+          "arguments": "p_document_id text DEFAULT 'main'::text",
+          "security_definer": false
+        }
+      ]
+    },
+    "integrity": {
+      "purl_indexes": [
+        {
+          "name": "purl_audit_pkey",
+          "table": "purl_audit",
+          "definition": "CREATE UNIQUE INDEX purl_audit_pkey ON public.purl_audit USING btree (document_id, ordinal)"
+        },
+        {
+          "name": "purl_documents_pkey",
+          "table": "purl_documents",
+          "definition": "CREATE UNIQUE INDEX purl_documents_pkey ON public.purl_documents USING btree (document_id)"
+        },
+        {
+          "name": "purl_entities_pkey",
+          "table": "purl_entities",
+          "definition": "CREATE UNIQUE INDEX purl_entities_pkey ON public.purl_entities USING btree (document_id, kind, entity_id)"
+        },
+        {
+          "name": "purl_entities_owner_idx",
+          "table": "purl_entities",
+          "definition": "CREATE INDEX purl_entities_owner_idx ON public.purl_entities USING btree (document_id, kind, owner_id)"
+        },
+        {
+          "name": "purl_entities_visibility_idx",
+          "table": "purl_entities",
+          "definition": "CREATE INDEX purl_entities_visibility_idx ON public.purl_entities USING btree (document_id, visibility) WHERE (kind = 'program'::text)"
+        },
+        {
+          "name": "purl_entities_execution_status_idx",
+          "table": "purl_entities",
+          "definition": "CREATE INDEX purl_entities_execution_status_idx ON public.purl_entities USING btree (document_id, status) WHERE (kind = 'execution'::text)"
+        },
+        {
+          "name": "purl_entities_data_idx",
+          "table": "purl_entities",
+          "definition": "CREATE INDEX purl_entities_data_idx ON public.purl_entities USING gin (data jsonb_path_ops)"
+        }
+      ],
+      "storage_policies": [
+        {
+          "cmd": "SELECT",
+          "qual": "((bucket_id = 'private-corpus'::text) AND ( SELECT research.has_role(ARRAY['reviewer'::text, 'creator'::text, 'admin'::text]) AS has_role))",
+          "roles": [
+            "authenticated"
+          ],
+          "permissive": "PERMISSIVE",
+          "policyname": "corpus_staff_read",
+          "with_check": null
+        },
+        {
+          "cmd": "ALL",
+          "qual": "((bucket_id = 'private-corpus'::text) AND ( SELECT research.has_role(ARRAY['admin'::text]) AS has_role))",
+          "roles": [
+            "authenticated"
+          ],
+          "permissive": "PERMISSIVE",
+          "policyname": "corpus_operator_write",
+          "with_check": "((bucket_id = 'private-corpus'::text) AND ( SELECT research.has_role(ARRAY['admin'::text]) AS has_role))"
+        },
+        {
+          "cmd": "SELECT",
+          "qual": "(bucket_id <> 'purl-artifacts'::text)",
+          "roles": [
+            "anon",
+            "authenticated"
+          ],
+          "permissive": "RESTRICTIVE",
+          "policyname": "purl_artifacts_private_select",
+          "with_check": null
+        },
+        {
+          "cmd": "INSERT",
+          "qual": null,
+          "roles": [
+            "anon",
+            "authenticated"
+          ],
+          "permissive": "RESTRICTIVE",
+          "policyname": "purl_artifacts_private_insert",
+          "with_check": "(bucket_id <> 'purl-artifacts'::text)"
+        },
+        {
+          "cmd": "UPDATE",
+          "qual": "(bucket_id <> 'purl-artifacts'::text)",
+          "roles": [
+            "anon",
+            "authenticated"
+          ],
+          "permissive": "RESTRICTIVE",
+          "policyname": "purl_artifacts_private_update",
+          "with_check": "(bucket_id <> 'purl-artifacts'::text)"
+        },
+        {
+          "cmd": "DELETE",
+          "qual": "(bucket_id <> 'purl-artifacts'::text)",
+          "roles": [
+            "anon",
+            "authenticated"
+          ],
+          "permissive": "RESTRICTIVE",
+          "policyname": "purl_artifacts_private_delete",
+          "with_check": null
+        }
+      ],
+      "audit_fingerprint": "395ad51d4ef60ed7160849681fcdfb03",
+      "entities_fingerprint": "24caecb1fa94dc3f14fe753b0f9224a6",
+      "effective_public_table_privileges": [
+        {
+          "role": "anon",
+          "table": "purl_documents",
+          "delete": false,
+          "insert": false,
+          "select": false,
+          "update": false
+        },
+        {
+          "role": "authenticated",
+          "table": "purl_documents",
+          "delete": false,
+          "insert": false,
+          "select": false,
+          "update": false
+        },
+        {
+          "role": "anon",
+          "table": "purl_entities",
+          "delete": false,
+          "insert": false,
+          "select": false,
+          "update": false
+        },
+        {
+          "role": "authenticated",
+          "table": "purl_entities",
+          "delete": false,
+          "insert": false,
+          "select": false,
+          "update": false
+        },
+        {
+          "role": "anon",
+          "table": "purl_audit",
+          "delete": false,
+          "insert": false,
+          "select": false,
+          "update": false
+        },
+        {
+          "role": "authenticated",
+          "table": "purl_audit",
+          "delete": false,
+          "insert": false,
+          "select": false,
+          "update": false
+        }
+      ]
+    },
+    "bucket": {
+      "id": "purl-artifacts",
+      "name": "purl-artifacts",
+      "public": false,
+      "file_size_limit": 52428800,
+      "allowed_mime_types": null,
+      "created_at": "2026-10-18 14:42:37.463895+00",
+      "updated_at": "2026-10-18 14:42:37.463895+00"
+    },
+    "migrations": [
+      {
+        "version": "20261018013721",
+        "name": "evidence_first_foundation"
+      },
+      {
+        "version": "20261018014553",
+        "name": "evidence_query_performance"
+      },
+      {
+        "version": "20261018144237",
+        "name": "purl_godseed_durable_repository"
+      },
+      {
+        "version": "20261018152346",
+        "name": "purl_skip_unchanged_projection_writes"
+      }
+    ],
+    "fingerprint_methods": {
+      "document": "md5(data::text); octet_length(data::text); JSONB Postgres serialization",
+      "entities": "md5(coalesce(string_agg(kind || ':' || entity_id || ':' || md5(data::text) || ':' || coalesce(owner_id,'') || ':' || coalesce(visibility,'') || ':' || coalesce(status,''), E'\\n' order by kind, entity_id), '')) for document_id godseed-v3-production",
+      "audit": "md5(coalesce(string_agg(ordinal::text || ':' || md5(data::text), E'\\n' order by ordinal), '')) for document_id godseed-v3-production",
+      "storage_metadata": "md5(coalesce(string_agg(id::text || ':' || name || ':' || coalesce(metadata::text,''), E'\\n' order by name), '')) where bucket_id purl-artifacts"
+    }
+  },
+  "performance": {
+    "railway_api_last_hour": {
+      "service": {
+        "id": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+        "name": "purl-api"
+      },
+      "environment": {
+        "id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "name": "production"
+      },
+      "metrics": [
+        {
+          "measurement": "CPU_USAGE",
+          "current": 1.6333333333333333e-06,
+          "average": 0.0006705092896174861,
+          "min": 1.5666666666666666e-06,
+          "max": 0.01898725,
+          "sampleCount": 61
+        },
+        {
+          "measurement": "MEMORY_USAGE_GB",
+          "current": 0.162308096,
+          "average": 0.16101574085245915,
+          "min": 0.138084352,
+          "max": 0.162312192,
+          "sampleCount": 61
+        }
+      ]
+    },
+    "railway_worker_last_hour": {
+      "service": {
+        "id": "063e5f3b-9953-44d2-b479-84dab49bb7f1",
+        "name": "purl-worker"
+      },
+      "environment": {
+        "id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "name": "production"
+      },
+      "metrics": [
+        {
+          "measurement": "CPU_USAGE",
+          "current": 0.0011630166666666668,
+          "average": 0.0023728784153005463,
+          "min": 0,
+          "max": 0.008267533333333334,
+          "sampleCount": 61
+        },
+        {
+          "measurement": "MEMORY_USAGE_GB",
+          "current": 0.123080704,
+          "average": 0.12683495659016394,
+          "min": 0,
+          "max": 0.161808384,
+          "sampleCount": 61
+        }
+      ]
+    },
+    "railway_http_latency_last_24h": {
+      "service": {
+        "id": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+        "name": "purl-api"
+      },
+      "environment": {
+        "id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "name": "production"
+      },
+      "window": {
+        "hoursBack": 24,
+        "bucketCount": 1
+      },
+      "slowestBucket": {
+        "ts": 1792332000,
+        "p50": 983,
+        "p90": 4417,
+        "p95": 6765,
+        "p99": 11079
+      },
+      "samples": [
+        {
+          "ts": 1792332000,
+          "p50": 983,
+          "p90": 4417,
+          "p95": 6765,
+          "p99": 11079
+        }
+      ]
+    },
+    "railway_http_errors_last_24h": {
+      "service": {
+        "id": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+        "name": "purl-api"
+      },
+      "environment": {
+        "id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+        "name": "production"
+      },
+      "window": {
+        "hoursBack": 24,
+        "bucketCount": 1
+      },
+      "overall": {
+        "errorRate": 0.2506265664160401,
+        "totalRequests": 399,
+        "errorCount": 1,
+        "clientErrorCount": 10
+      },
+      "worstBucket": {
+        "ts": 1792332000,
+        "errorRate": 0.2506265664160401,
+        "totalRequests": 399,
+        "errorCount": 1,
+        "clientErrorCount": 10
+      },
+      "samples": [
+        {
+          "ts": 1792332000,
+          "errorRate": 0.2506265664160401,
+          "totalRequests": 399,
+          "errorCount": 1,
+          "clientErrorCount": 10
+        }
+      ]
+    },
+    "interpretation": "Low CPU/memory do not establish low latency. One 24h traffic bucket reports p95 6765ms/p99 11079ms. Public metadata/program GETs mostly 0.9\u20131.7s; runtime/auth config ~0.3s. Source domain reads load the 5.46MB CAS document; potential bottleneck requires profiling."
+  },
+  "oracle": {
+    "gateway_inventory": {
+      "servers": [],
+      "nextCursor": null
+    },
+    "status": "BLOCKED_NO_OWNED_GATEWAY_TARGET",
+    "reason": "Authenticated list_servers returned servers:[] and nextCursor:null. No target exists for auth-state or uname/CPU/RAM/Docker checks. No server created, guessed or modified."
+  },
+  "current_public_product": {
+    "origin": "https://purl-api-production.up.railway.app",
+    "protocol": "PURL/0.2",
+    "persistence": "supabase",
+    "verified_human_accounts": false,
+    "human_auth_config": {
+      "available": false
+    },
+    "template_count": 6,
+    "operator_descriptors": 71,
+    "available_pure_operators": 68,
+    "unavailable_adapters": [
+      "network.fetch",
+      "artifact.write",
+      "state.commit"
+    ],
+    "auth_session_get_404": "Expected POST-only endpoint; no POST attempted.",
+    "sandbox_enabled": false,
+    "runtime": {
+      "node": "22.14.0",
+      "architecture": "x64"
+    },
+    "consumer_catalog_status": "Six technical templates/71 operator descriptors are not evidence of 40\u201360 differentiated consumer experiences."
+  },
+  "native_continuation": {
+    "url": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2",
+    "program_id": "program_ad56405463bfaa72e9bbddf2",
+    "version": 6,
+    "visibility": "public",
+    "source": "input json | mission.inspect",
+    "source_revision": 1,
+    "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d",
+    "active_build": "build_9de64a19ba21e977fce4c9f2",
+    "release_id": "release_b6b37a667a51bd6724156430",
+    "execution_id": "execution_a0a362996c4a1c6bf7685c21",
+    "checkpoint_id": "checkpoint_e6bb9be7402ae4de632e47a2",
+    "graph": {
+      "nodes": 52,
+      "edges": 65,
+      "status_counts": {
+        "NOT_RUN": 52
+      },
+      "completion": "NOT_RUN",
+      "verified": false
+    },
+    "checkpoint_evidence_verified": false,
+    "authority": {
+      "authenticated": false,
+      "owner": false,
+      "rights": [
+        "read"
+      ],
+      "permitted": [
+        "inspect",
+        "history",
+        "continuity",
+        "replay",
+        "diff"
+      ]
+    },
+    "replay": {
+      "valid": true,
+      "program_valid": true,
+      "execution_valid": true,
+      "head": "sha256:c6e9561212d5adc0cf33ef9ca32f1383f080144f06f4885757852254c9cdb06e",
+      "state_hash": "sha256:ed222dff6edd1fcf8e97d8407d7ae234e2b79b804ff05dec02cf08b9f5dd3451"
+    },
+    "limitation": "Embeds prior service/IDE God Seed, not current 00\u201307 consumer PURLs \u00d7 CGIT mission. Hash/replay validity establishes internal consistency, not requirement truth.",
+    "public_evidence": "production-public-sanitized.json"
+  },
+  "prior_history_crosscheck": {
+    "local_sources": [
+      "/workspace/purl/ACCEPTANCE.json",
+      "/workspace/purl/handoff.json",
+      "/workspace/purl/evidence/deployment/public-recovery/after-restart-report.json",
+      "/workspace/purl/evidence/deployment/database-reliability/upgrade.json",
+      "/workspace/purl/deploy/railway-services.json"
+    ],
+    "runtime_implementation_revision": "0670baddefba9635af8fc71c3b96c85960227315",
+    "delivery_implementation_revision": "2ca63233cedcbce427da89bc5ee82a190a7b9687",
+    "runtime_image": "sha256:f464b235bbc0e788223ba6eaad6281d34197364ea19977fc35c561109a5d0ea0",
+    "unchanged_deployment_ids": true,
+    "source_transport": "Prior docs report direct CLI upload; current source null and no deployment commit hash. Runtime commit identity is prior evidence, not independently attested by Railway.",
+    "stale_assumptions": [
+      "Railway CLI exists authenticated at /tmp/purl-railway-cli/railway v5.70.0, absent from PATH; initial PATH failure corrected.",
+      "Delivery revision 2ca6323 differs from deployed runtime 0670bad; later SQL/evidence changes did not redeploy runtime.",
+      "Prior migration-proof revision63 is stale for whole-document preservation; later work advanced production to revision70.",
+      "Supabase itachis-corner is a shared healthy project, not a dedicated new PURL project.",
+      "Historical 197/197, 57/57 recovery, 34/34 handoff counts are scoped historical evidence, not consumer launch acceptance.",
+      "Existing native continuation is previous mission; all 52 statuses NOT_RUN.",
+      "Git source connector remains unlinked, so commits alone do not deploy.",
+      "Verified human Auth remains unavailable and guest/claimed identities self-declared.",
+      "Public authored execution unavailable; Gateway has no owned Oracle target."
+    ]
+  },
+  "preservation_requirements": [
+    "Retain Railway project/environment/services/domain and deployments until tested rollback-capable rollout.",
+    "Retain shared Supabase and unrelated resources; consumer changes additive and isolated.",
+    "Preserve godseed-v3-production rev70 baseline and all existing program/release/execution/artifact identities and private Storage bytes.",
+    "Never grant anon/authenticated access to legacy CAS tables/RPCs or protected purl-artifacts bucket.",
+    "Keep arbitrary authored execution disabled until independently validated isolation.",
+    "Preserve existing public continuation; use separately versioned/forked consumer mission."
+  ],
+  "verification_limits": [
+    "Only GET/metadata SELECT operations; no mutation or deploy exercised.",
+    "Whole private CAS document hashed/sized in SQL but never returned; principal/token records never selected.",
+    "Railway tools returned secret names only.",
+    "Storage privacy checked from bucket flag/restrictive policies/effective privileges, without private bytes.",
+    "Performance history/probes are not a load benchmark."
+  ]
+}

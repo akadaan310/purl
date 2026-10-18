@@ -1,0 +1,480 @@
+{
+  "schema": "consumer.identity-provider-recon/1",
+  "observed_at_utc": "2026-10-18T16:31:51.750034+00:00",
+  "mission_requirement": "/workspace/consumer-mission-input/purls_godseed/02_IDENTITY.md",
+  "scope": {
+    "read_only_provider_research": true,
+    "production_mutations": false,
+    "secret_values_read_or_printed": false,
+    "credentials_login": false,
+    "local_in_memory_mock_tests": true
+  },
+  "inspected_repository": {
+    "path": "/workspace/purl",
+    "sha": "d6fbc666890f85913fac3553be055a44cb9ec620"
+  },
+  "recommendation": {
+    "primary": "Supabase established OAuth2.1/OIDC server, conditional on safe central consent hosting",
+    "fallback": "One Auth0 tenant, Universal Login, two first-party clients; see identity-alternative.md",
+    "do_not_build": "Homegrown OAuth authorization server",
+    "status": "BLOCKED_EXTERNAL_PROVIDER_CONFIGURATION_AND_PENDING_APPLICATION_IMPLEMENTATION"
+  },
+  "public_observations": [
+    {
+      "method": "GET",
+      "url": "https://frxufmwwbegconolevkw.supabase.co/auth/v1/.well-known/openid-configuration",
+      "authentication": "none",
+      "status": 200,
+      "body": {
+        "issuer": "https://frxufmwwbegconolevkw.supabase.co/auth/v1",
+        "authorization_endpoint": "https://frxufmwwbegconolevkw.supabase.co/auth/v1/oauth/authorize",
+        "token_endpoint": "https://frxufmwwbegconolevkw.supabase.co/auth/v1/oauth/token",
+        "jwks_uri": "https://frxufmwwbegconolevkw.supabase.co/auth/v1/.well-known/jwks.json",
+        "userinfo_endpoint": "https://frxufmwwbegconolevkw.supabase.co/auth/v1/oauth/userinfo",
+        "scopes_supported": [
+          "openid",
+          "profile",
+          "email",
+          "phone",
+          "offline_access"
+        ],
+        "response_types_supported": [
+          "code"
+        ],
+        "response_modes_supported": [
+          "query"
+        ],
+        "grant_types_supported": [
+          "authorization_code",
+          "refresh_token"
+        ],
+        "subject_types_supported": [
+          "public"
+        ],
+        "id_token_signing_alg_values_supported": [
+          "RS256",
+          "HS256",
+          "ES256"
+        ],
+        "token_endpoint_auth_methods_supported": [
+          "client_secret_basic",
+          "client_secret_post",
+          "none"
+        ],
+        "claims_supported": [
+          "sub",
+          "aud",
+          "iss",
+          "exp",
+          "iat",
+          "auth_time",
+          "nonce",
+          "email",
+          "email_verified",
+          "phone_number",
+          "phone_number_verified",
+          "name",
+          "picture",
+          "preferred_username",
+          "updated_at"
+        ],
+        "code_challenge_methods_supported": [
+          "S256",
+          "plain"
+        ]
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://frxufmwwbegconolevkw.supabase.co/.well-known/oauth-authorization-server/auth/v1",
+      "authentication": "none",
+      "status": 404,
+      "body": {
+        "code": 404,
+        "error_code": "feature_disabled",
+        "msg": "OAuth server is disabled"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://frxufmwwbegconolevkw.supabase.co/auth/v1/.well-known/oauth-authorization-server",
+      "authentication": "none",
+      "status": 404,
+      "body": {
+        "code": 404,
+        "error_code": "feature_disabled",
+        "msg": "OAuth server is disabled"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://frxufmwwbegconolevkw.supabase.co/auth/v1/.well-known/jwks.json",
+      "authentication": "none",
+      "status": 200,
+      "body": {
+        "keys": [
+          {
+            "alg": "ES256",
+            "crv": "P-256",
+            "ext": true,
+            "key_ops": [
+              "verify"
+            ],
+            "kid": "aeb1e112-6230-4aa0-bf08-83d75f262149",
+            "kty": "EC",
+            "use": "sig",
+            "x": "Dxcro0OTTNMIzZY_sGJbAWFHecfgwfZbYWKV1KkSLEM",
+            "y": "tj17IshJsxzXJ6aKtqkzm9wmT8DXVBLJy9GCK_YjnmE"
+          }
+        ]
+      }
+    }
+  ],
+  "capabilities": {
+    "authorization_code": true,
+    "pkce": "Require S256 locally; metadata additionally advertises plain",
+    "openid_connect": true,
+    "id_token_requires_asymmetric_signing": true,
+    "published_key_algorithm": "ES256",
+    "active_signing_algorithm_and_token_issuance_tested": false,
+    "separate_clients": true,
+    "subject_type": "public",
+    "shared_identity_key": [
+      "iss",
+      "sub"
+    ],
+    "custom_oauth_scopes": false,
+    "standard_scopes_do_not_limit_database_authorization": true,
+    "supported_grants": [
+      "authorization_code",
+      "refresh_token"
+    ],
+    "client_credentials_grant": false,
+    "email_verified_claim": true,
+    "dynamic_registration_needed": false,
+    "end_session_endpoint_advertised": false,
+    "oauth_server_currently_enabled": false,
+    "current_project_site_url_known": false,
+    "site_url_preservation_required": true,
+    "absolute_authorization_path_supported_by_inspected_source": false
+  },
+  "settings": {
+    "dashboard_oauth_server": "https://supabase.com/dashboard/project/frxufmwwbegconolevkw/auth/oauth-server",
+    "dashboard_url_configuration": "https://supabase.com/dashboard/project/frxufmwwbegconolevkw/auth/url-configuration",
+    "dashboard_clients": "https://supabase.com/dashboard/project/frxufmwwbegconolevkw/auth/oauth-apps",
+    "minimal_operator_action": "Enable OAuth Server, keep dynamic registration disabled, preserve existing Site URL and Auth settings, record current Site URL. If path required, use /oauth/consent pending safe routing.",
+    "authorization_path": "/oauth/consent",
+    "site_url": "PRESERVE_EXISTING_VALUE; must safely serve central consent route or choose isolated provider",
+    "client_template": {
+      "client_type": "confidential",
+      "token_endpoint_auth_method": "client_secret_basic",
+      "redirect_uris": [
+        "https://<product-origin>/auth/callback"
+      ],
+      "clients": [
+        "newPURLs production",
+        "CGIT Hub production"
+      ],
+      "separate_clients_per_environment": true
+    },
+    "requested_identity_scopes": [
+      "openid",
+      "email",
+      "profile"
+    ],
+    "management_api": {
+      "method": "PATCH",
+      "url": "https://api.supabase.com/v1/projects/frxufmwwbegconolevkw/config/auth",
+      "fields": {
+        "oauth_server_enabled": true,
+        "oauth_server_allow_dynamic_registration": false,
+        "oauth_server_authorization_path": "/oauth/consent"
+      },
+      "site_url_update": "DO_NOT_CHANGE_SHARED_DEFAULT_BLINDLY",
+      "requires": "Platform management PAT/OAuth token with appropriate auth:write permission, not project service_role"
+    },
+    "client_admin_api": {
+      "method": "POST",
+      "url": "https://frxufmwwbegconolevkw.supabase.co/auth/v1/admin/oauth/clients",
+      "sdk": "supabase.auth.admin.oauth.createClient",
+      "requires": "server admin credential; secret key or legacy service_role with appropriate Auth admin permission",
+      "server_side_automation_possible": true,
+      "secrets_must_never_be_tool_output": true
+    },
+    "mcp": {
+      "direct_auth_config_tool_available": false,
+      "generic_supabase_management_request_tool_available": false,
+      "direct_oauth_client_management_tool_available": false,
+      "edge_function_deploy_tool_available": true,
+      "edge_admin_automation": "Technically possible using documented default server secrets, protected operator execution and direct secret-store delivery; not attempted",
+      "server_secrets_retrieved": false
+    }
+  },
+  "blockers": [
+    {
+      "id": "oauth-disabled",
+      "type": "external_configuration",
+      "confirmed": true,
+      "evidence": "Both OAuth authorization-server discovery endpoints return feature_disabled"
+    },
+    {
+      "id": "safe-consent-hosting",
+      "type": "external_configuration_and_routing",
+      "confirmed": true,
+      "evidence": "Site URL unknown; source concatenates Site URL and relative path; preserve existing app defaults"
+    },
+    {
+      "id": "clients-not-configured-or-unverified",
+      "type": "configuration",
+      "confirmed": false,
+      "evidence": "No client inventory accessed; needs two exact product clients and secure secret delivery"
+    },
+    {
+      "id": "production-email-delivery-unverified",
+      "type": "configuration",
+      "confirmed": false,
+      "evidence": "No login or email sent; SMTP/Send Email hook requirements must be verified without changing shared defaults"
+    },
+    {
+      "id": "application-oidc-and-session-lifecycle",
+      "type": "implementation",
+      "confirmed": true,
+      "evidence": "Inspected code has magic-link implicit token exchange only and detached nonexpiring product credentials"
+    }
+  ],
+  "existing_routes": [
+    {
+      "method": "GET",
+      "path": "/api/auth/config",
+      "behavior": "Optional Supabase URL/public key; presence is not OAuth readiness"
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/start",
+      "behavior": "Email OTP magic link with browser-created state, no code PKCE"
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/session",
+      "behavior": "Provider /user lookup to detached local token, stable issuer+id hash principal"
+    },
+    {
+      "method": "POST",
+      "path": "/api/session",
+      "behavior": "Self-declared guest/human/agent/service; opaque token hash persisted"
+    },
+    {
+      "method": "GET",
+      "path": "/api/session",
+      "behavior": "Hash authentication with principal revoked_at, no credential expiry"
+    },
+    {
+      "path": "browser disconnect",
+      "behavior": "Clears tab storage; no server/provider revocation"
+    }
+  ],
+  "verification": {
+    "existing_tests": {
+      "command": "node --test test/product/auth.test.js test/product/domain.test.js test/product/http.test.js test/product/security-regression.test.js",
+      "cwd": "/workspace/purl",
+      "exit_code": 0,
+      "passed": 78,
+      "failed": 0,
+      "skipped": 0
+    },
+    "existing_security_covered": [
+      "Unconfigured provider fails closed",
+      "Editable metadata ignored",
+      "Stable issuer+subject mapping",
+      "Forged tokens rejected",
+      "Stored secrets hashed",
+      "Private resources isolated",
+      "URL credentials rejected",
+      "Cross-origin writes rejected",
+      "Grant attenuation and ancestor revocation"
+    ],
+    "isolated_mock_observations": {
+      "unverified_email_exchange": {
+        "status": 201,
+        "identity_verified": true,
+        "security_requirement": "Must reject before verified identity session"
+      },
+      "past_local_expiry": {
+        "status": 200,
+        "security_requirement": "Must reject expired credential/session"
+      },
+      "provider_revoked_new_exchange": {
+        "status": 401
+      },
+      "existing_local_token_after_provider_revocation": {
+        "status": 200,
+        "security_requirement": "Must bind local lifecycle to explicit revocation semantics"
+      },
+      "self_declared_agent": {
+        "status": 200,
+        "identity_verified": false,
+        "owner": null,
+        "expires_at": null,
+        "security_requirement": "Add owner, expiry, delegation and individual credential revocation"
+      }
+    },
+    "live_signup_login_sso_logout_tested": false,
+    "acceptance_pending": [
+      "Both signup directions",
+      "CGIT opt-in and decline",
+      "Idempotent concurrent provisioning",
+      "Duplicate signup",
+      "Verified email rejection",
+      "Explicit verified account linking",
+      "Wrong issuer/audience/state/nonce",
+      "Wrong PKCE and code replay/expiry",
+      "Exact redirect allowlists",
+      "Session expiry and revocation",
+      "Consent removal",
+      "Account isolation",
+      "Cross-product artifact access allow/deny",
+      "Recovery/export/deletion",
+      "Handle rename",
+      "Signup/resource rate limits"
+    ]
+  },
+  "recommended_boundary": {
+    "provider": "Owns login verification, authorization codes, PKCE validation, token issuance and OAuth grants",
+    "central_identity": "Immutable internal ID and verified issuer+subject links; no email identity merge",
+    "products": "Independent profiles, handles, quotas, authorization scopes, resources and API sessions",
+    "browser": "Per-product Secure HttpOnly SameSite cookie to BFF; one-use CSRF and transaction state",
+    "provider_tokens": "Server-held by each product BFF; never share one client ID token with another product",
+    "integration_consent": "Explicit versioned consent record and idempotent opt-in CGIT profile provisioning; remove consent revokes related credentials/grants",
+    "logout": "Local persisted session invalidation plus documented provider signOut/revokeGrant; JWT expiry limitations explicit"
+  },
+  "ai_principal_requirements": {
+    "distinct_from_human": true,
+    "required_fields": [
+      "principal_id",
+      "owner_id",
+      "product",
+      "scopes",
+      "resource_restrictions",
+      "delegation_parent",
+      "attestation_status",
+      "attestation_method",
+      "attestation_evidence",
+      "attestation_expiry",
+      "credential_id",
+      "credential_hash",
+      "created_at",
+      "expires_at",
+      "revoked_at"
+    ],
+    "provider_labels_are_unverified_claims": true,
+    "individual_credential_expiry_and_revocation": true,
+    "ancestor_and_owner_revocation_cascade": true,
+    "check_at_request_and_worker_commit": true,
+    "audit_events": [
+      "issued",
+      "delegated",
+      "refreshed",
+      "revoked",
+      "used"
+    ],
+    "raw_credentials_in_audit": false
+  },
+  "sources": [
+    {
+      "id": "supabase-overview",
+      "url": "https://supabase.com/docs/guides/auth/oauth-server",
+      "supports": "Official OAuth2.1/OIDC support",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-setup",
+      "url": "https://supabase.com/docs/guides/auth/oauth-server/getting-started",
+      "supports": "Beta, central UI, path+SiteURL, clients, admin API",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-flows",
+      "url": "https://supabase.com/docs/guides/auth/oauth-server/oauth-flows",
+      "supports": "PKCE, token claims, ID token signing, grant restrictions, scopes, grants revocation",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-security",
+      "url": "https://supabase.com/docs/guides/auth/oauth-server/token-security",
+      "supports": "Scopes do not restrict DB access; client_id and RLS",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-sessions",
+      "url": "https://supabase.com/docs/guides/auth/sessions",
+      "supports": "Session revocation and JWT expiry boundary",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-signout",
+      "url": "https://supabase.com/docs/reference/javascript/auth-signout",
+      "supports": "Local/global signout and access JWT limitations",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-linking",
+      "url": "https://supabase.com/docs/guides/auth/auth-identity-linking",
+      "supports": "Identity linking and verified ownership",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-functions-secrets",
+      "url": "https://supabase.com/docs/guides/functions/secrets",
+      "supports": "Default server-side credentials permit admin automation without extracting secrets",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-management-config",
+      "url": "https://supabase.com/docs/reference/api/v1-update-auth-service-config",
+      "supports": "Hosted config Management API",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-management-schema",
+      "url": "https://api.supabase.com/api/v1-json",
+      "supports": "Exact config fields and auth scopes",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-auth-path-source",
+      "url": "https://github.com/supabase/auth/blob/ce9a8eee0cc042be8c7a42981a7ddae631e41d91/internal/api/oauthserver/authorize.go#L596",
+      "supports": "Path concatenates with SiteURL, does not override origin",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-studio-source",
+      "url": "https://github.com/supabase/supabase/blob/master/apps/studio/components/interfaces/Auth/OAuthApps/OAuthServerSettingsForm.tsx",
+      "supports": "Same central path behavior, field required",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-changelog",
+      "url": "https://supabase.com/changelog.md",
+      "supports": "Checked current change index before provider selection",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-tls-change",
+      "url": "https://supabase.com/changelog/cbc-tls-ciphers-deprecated",
+      "supports": "2026-11-10 TLS cipher change",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "supabase-smtp",
+      "url": "https://supabase.com/docs/guides/auth/auth-smtp",
+      "supports": "Default email restrictions and SMTP/Send Email hook",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "auth0-fallback",
+      "url": "https://auth0.com/docs/authenticate/single-sign-on",
+      "supports": "Established alternative central cross-domain SSO; detailed sources in identity-alternative.md",
+      "observed_date": "2026-10-18"
+    }
+  ]
+}

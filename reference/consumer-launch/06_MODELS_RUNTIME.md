@@ -1,0 +1,5 @@
+# Models, Pricing, Compute and Isolation
+
+Provide bounded free AI chat with PURL memory/continuity, BYOK model provider configuration with encrypted server-side secrets, and hosted paid models through a supported provider such as OpenRouter after verifying current pricing, APIs and terms. Proposed pricing hypothesis: provider cost + transparent ~15% fee, subject to payment costs, abuse, minimums and user approval. Preflight estimates, quotas, spending caps, audit and billing tests. Do not advertise unlimited free inference.
+
+Keep existing Railway API/worker and Supabase Postgres/Storage as baseline. Inventory Oracle ARM VM before changes; use it for isolated background computation (graphs, compilers, Julia/Octave, safe parsers, program builds) if feasible. Sandboxed user code must remain disabled until independently tested isolation: rootless/VM confinement, CPU/RAM/time/disk quotas, restricted egress, no host mounts, no secrets, escape tests, tenant isolation. No public unrestricted shell. PURL native IDE exposes typed commands and safe authorized execution. Provide async job queues, retries, idempotency, observability and failure recovery.

@@ -1,0 +1,476 @@
+{
+  "schema": "purl.consumer-repository-reconstruction/1",
+  "observed_at_utc": "2026-10-18T16:29:49.707841+00:00",
+  "scope": "Read-only reconstruction. No repository or production mutations; writes restricted to this report and its Markdown twin.",
+  "mission_inputs": {
+    "directory": "/workspace/consumer-mission-input/purls_godseed",
+    "read": [
+      "00_START.md",
+      "01_CONSUMER.md",
+      "02_IDENTITY.md",
+      "03_PROTOCOLS.md",
+      "04_MEMORY_CONSTELLATIONS.md",
+      "05_CGIT.md",
+      "06_MODELS_RUNTIME.md",
+      "07_ACCEPTANCE.md",
+      "CODEX_MASTER.md"
+    ]
+  },
+  "instructions": {
+    "AGENTS_found": [],
+    "substrate_instructions_read": [
+      "CLAUDE.md",
+      "PROTOCOL.md",
+      "research/state/HANDOFF.md"
+    ]
+  },
+  "local_repositories": [
+    {
+      "path": "/workspace/purl",
+      "repository": "https://github.com/akadaan310/purl.git",
+      "head": "d6fbc666890f85913fac3553be055a44cb9ec620",
+      "branch": "codex/godseed-v3",
+      "status_porcelain": "",
+      "clean": true,
+      "remote_tracking_branches": {
+        "ccr-d0887a23-30wf63": "83d6bcaf8b811e9d2744fb15a6d42ae5d899de1c",
+        "claude/acsp-purl-composition-adsbn6": "18c85bf2960685ce8903937598e3ac0506409673",
+        "claude/purl-protocol-research-bxevq5": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+        "codex/godseed-v3": "d6fbc666890f85913fac3553be055a44cb9ec620"
+      },
+      "github_live_branch_map_confirmed": true,
+      "final_head": "d6fbc666890f85913fac3553be055a44cb9ec620",
+      "final_status_porcelain": "",
+      "unchanged_at_completion": true
+    },
+    {
+      "path": "/workspace/repos/purl",
+      "repository": "https://github.com/akadaan310/purl.git",
+      "head": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+      "branch": "claude/purl-protocol-research-bxevq5",
+      "status_porcelain": "",
+      "clean": true,
+      "remote_tracking_branches": {
+        "ccr-d0887a23-30wf63": "83d6bcaf8b811e9d2744fb15a6d42ae5d899de1c",
+        "claude/acsp-purl-composition-adsbn6": "18c85bf2960685ce8903937598e3ac0506409673",
+        "claude/purl-protocol-research-bxevq5": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+        "codex/godseed-v3": "d6fbc666890f85913fac3553be055a44cb9ec620"
+      },
+      "github_live_branch_map_confirmed": true,
+      "final_head": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+      "final_status_porcelain": "",
+      "unchanged_at_completion": true
+    },
+    {
+      "path": "/workspace/repos/NetGovComEduGovOrgEduGovComNet",
+      "repository": "https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet.git",
+      "head": "9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b",
+      "branch": "claude/agent-continuity-protocol-doi4bn",
+      "status_porcelain": "",
+      "clean": true,
+      "remote_tracking_branches": {
+        "ccr-d0887a23-30wf63": "e8d989afee2025e2315605b4349ccfa833db13bf",
+        "claude/acsp-program-001-k616hw": "417da6c740de22aaa497e10a09251c4c2af7b948",
+        "claude/acsp-purl-composition-adsbn6": "edd1963750d1fc839cc350797b6a9bc9da8f6a20",
+        "claude/agent-continuity-protocol-doi4bn": "9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b"
+      },
+      "github_live_branch_map_confirmed": true,
+      "final_head": "9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b",
+      "final_status_porcelain": "",
+      "unchanged_at_completion": true
+    },
+    {
+      "path": "/workspace/repos/seurl",
+      "repository": "https://github.com/akadaan310/seurl.git",
+      "head": "620ff955b87857c3eb7a7700a81b6a4d0217400a",
+      "branch": "master",
+      "status_porcelain": "",
+      "clean": true,
+      "remote_tracking_branches": {
+        "master": "620ff955b87857c3eb7a7700a81b6a4d0217400a"
+      },
+      "github_live_branch_map_confirmed": true,
+      "final_head": "620ff955b87857c3eb7a7700a81b6a4d0217400a",
+      "final_status_porcelain": "",
+      "unchanged_at_completion": true
+    },
+    {
+      "path": "/workspace/repos/substrateIO",
+      "repository": "https://github.com/akadaan310/substrateIO.git",
+      "head": "7ace119a544fc736f0d4ec1d72cded9dad0a83e3",
+      "branch": "claude/research-substrate-bootstrap-bfd02a",
+      "status_porcelain": "",
+      "clean": true,
+      "remote_tracking_branches": {
+        "ccr-d0887a23-30wf63": "165712038643f306f3ec882d9c50da84477de534",
+        "claude/acsp-program-001-k616hw": "5073595f1c7197392d77b7fb612479084ad5a268",
+        "claude/research-substrate-bootstrap-bfd02a": "7ace119a544fc736f0d4ec1d72cded9dad0a83e3"
+      },
+      "github_live_branch_map_confirmed": true,
+      "final_head": "7ace119a544fc736f0d4ec1d72cded9dad0a83e3",
+      "final_status_porcelain": "",
+      "unchanged_at_completion": true
+    }
+  ],
+  "github_inventory": {
+    "authenticated_actor": "akadaan310",
+    "owner_repository_count": 91,
+    "all_owner_pages_read": true,
+    "research_candidates": [
+      "computationalgrammartheory",
+      "grammarinnumbers"
+    ],
+    "cgit": {
+      "named_repository_found": false,
+      "case_insensitive_name_search_found": false,
+      "direct_repo_lookup": "GET /repos/akadaan310/CGIT -> HTTP 404",
+      "scope_limit": "No CGIT repository visible within the authenticated owned-repository inventory; not proof of global absence or absence of unrecognized code inside another repository."
+    },
+    "research_detail_status": "complete bounded pinned README/spec/tree review",
+    "research_repositories": [
+      {
+        "name": "akadaan310/computationalgrammartheory",
+        "url": "https://github.com/akadaan310/computationalgrammartheory",
+        "visibility": "public",
+        "default_branch": "ccr-04ad16b1-q42wck",
+        "head": "bfe32fc37f7fa61d50da50ecd2aa7fa97c0dd5a1",
+        "branches": {
+          "ccr-04ad16b1-q42wck": "bfe32fc37f7fa61d50da50ecd2aa7fa97c0dd5a1"
+        },
+        "implementation": "Python >=3.10 stdlib cgtsdk; operational grammars, syntax/semantics/execution outcomes, cost accounting, compiled move words and minimal-DAG sharing",
+        "api": {
+          "protocol": "cgt-gaas/0.1",
+          "reference_server": "localhost:8765",
+          "endpoints": [
+            "/v1/health",
+            "/v1/capabilities",
+            "/v1/execute"
+          ],
+          "hosted_endpoint": false,
+          "provenance": "canonical-request/result SHA-256; versioned registered grammar/operations"
+        },
+        "limitations": [
+          "local reference without auth or algorithm preemption",
+          "not a performance library; counted cost differs from wall-clock",
+          "tree SLP/top-tree compression unimplemented",
+          "no dead-rule GC beyond live-size counting"
+        ],
+        "compression_evidence": {
+          "source": "RESULTS.md THM-005/OBS-008; EXPERIMENTS.md EXP-004",
+          "dag_to_explicit_ratios": {
+            "template_forest": 0.0042,
+            "random_labelled_forest": 0.44,
+            "full_binary_tree": 0.0004,
+            "unary_path": 1.0
+          },
+          "rank_access_steps": {
+            "dag_typical": "16-22",
+            "explicit_array": 1,
+            "unary_path": 32710
+          },
+          "random_relabels": {
+            "full_binary_height": 15,
+            "initial_dag_nodes": 16,
+            "random_relabels": 200,
+            "final_dag_nodes": 1521
+          }
+        },
+        "license": {
+          "license_or_copying_file": false,
+          "github_license_metadata": null,
+          "package_metadata": "See repository"
+        },
+        "evidence_paths": [
+          "README.md",
+          "CGT_SDK_SPEC.md",
+          "GRAMMAR_AS_A_SERVICE.md",
+          "RESULTS.md",
+          "EXPERIMENTS.md",
+          "COUNTEREXAMPLES.md",
+          "sdk/README.md",
+          "sdk/pyproject.toml"
+        ]
+      },
+      {
+        "name": "akadaan310/grammarinnumbers",
+        "url": "https://github.com/akadaan310/grammarinnumbers",
+        "visibility": "public",
+        "default_branch": "claude/happy-newton-r2t17c",
+        "head": "2a94f8a6be686078a9dad88863be9aafc5e6379b",
+        "branches": {
+          "claude/happy-newton-r2t17c": "2a94f8a6be686078a9dad88863be9aafc5e6379b",
+          "ccr-95868bff-zq7rqu": "7c8dc9429ee53927a5a7b6f099665d8571253717",
+          "research/the-number-edition-1-completion": "5c96ddca7b032ff76ab11d1c8306d2aef4bcf211"
+        },
+        "branch_relationships": {
+          "ccr-95868bff-zq7rqu": "7 commits ahead of default",
+          "research/the-number-edition-1-completion": "11 commits ahead of default; README describes SDK 1.0 and complete 42-chapter book; website explicitly not deployed"
+        },
+        "implementation": "Default SDK 0.1.0 ginsdk; numeral grammars, affine compilation, arithmetic expression evaluation, converse admissibility, machine models and bit costs",
+        "limitations": [
+          "CGT_CONCEPT_MAP.md 2.4 describes positional notation as compression of unary terms",
+          "Compiled k-digit words still require Theta(k) bits (2.6)",
+          "Does not reproduce GaaS (section 4)",
+          "No arbitrary-payload/general URL compression established"
+        ],
+        "license": {
+          "license_or_copying_file": false,
+          "github_license_metadata": null,
+          "package_metadata": "MIT"
+        },
+        "evidence_paths": [
+          "README.md",
+          "CGT_CONCEPT_MAP.md",
+          "NUMBER_GRAMMAR.md",
+          "sdk/pyproject.toml",
+          "sdk/src/ginsdk/numerals.py",
+          "sdk/src/ginsdk/expr.py"
+        ]
+      }
+    ],
+    "evidence_routes": [
+      "GET /user/repos?affiliation=owner&per_page=100 (paginated)",
+      "GET /repos/akadaan310/{repository}",
+      "GET /repos/akadaan310/{repository}/branches?per_page=100 (paginated)",
+      "GET /repos/akadaan310/{repository}/git/trees/{headSHA}?recursive=1 (complete/non-truncated)",
+      "GET /repos/akadaan310/{repository}/contents/{path}?ref={headSHA}",
+      "GET /repos/akadaan310/grammarinnumbers/compare/{defaultSHA}...{otherBranchSHA}"
+    ]
+  },
+  "product": {
+    "protocol": "PURL/0.2",
+    "package_version": "0.2.0",
+    "base_sha": "d6fbc666890f85913fac3553be055a44cb9ec620",
+    "source_paths": [
+      "service/http.js",
+      "service/domain.js",
+      "service/domain/support.js",
+      "service/domain/schema.js",
+      "service/domain/seed.js",
+      "service/compiler.js",
+      "service/language/registry.js",
+      "service/language/projection.js",
+      "service/auth.js",
+      "service/repository.js",
+      "service/worker.js",
+      "service/registry.js",
+      "service/adapters.js",
+      "web/app.js",
+      "sdk/client.js"
+    ],
+    "implemented": [
+      "Typed bounded pure program language",
+      "program source/version/history/diff",
+      "immutable build/release/artifact records",
+      "durable worker jobs with lease fencing and authority rechecks",
+      "checkpoints/proposals/scoped grants/revocation",
+      "self describing manifests and SDK",
+      "private/public/unlisted resources",
+      "optional Supabase OTP/provider token verification",
+      "curator-only release registry",
+      "preserved PURL/0.1 reference and pure pinned compatibility adapters"
+    ],
+    "operator_count": 71,
+    "available_operator_count": 68,
+    "unavailable_operators": [
+      "network.fetch",
+      "artifact.write",
+      "state.commit"
+    ],
+    "template_count": 6,
+    "missing_new_mission_products": [
+      "Unique public handle claim/rename",
+      "OIDC Authorization Code+PKCE cross-product SSO",
+      "distinct CGIT product profiles and activation consent",
+      "consumer 40-60 tested experience catalog",
+      "memory atlas/passport consent lifecycle",
+      "independently initialized model Constellations",
+      "CGIT repositories/typed commits/branches/Git import-export",
+      "public GitHub AST/dependency lens",
+      "free/BYOK/hosted model gateway and spending limits"
+    ],
+    "persistence": {
+      "authority": "Supabase purl_documents JSON CAS document; purl_entities projections; private purl-artifacts Storage bucket",
+      "projected_entity_kinds": [
+        "principal",
+        "program",
+        "execution",
+        "artifact"
+      ],
+      "document_only_collections": [
+        "releases",
+        "idempotency",
+        "registry"
+      ],
+      "scaling_limits": [
+        "global serialized CAS",
+        "full document copies and full history snapshots",
+        "10000 principal/program capacity guards"
+      ],
+      "new_domain_advice": "Add versioned tenant-scoped schemas and explicit migration/upgrade tests; do not silently alter production document format or browser access."
+    },
+    "identity": {
+      "existing": "POST /api/auth/session maps server-verified issuer+subject to deterministic principal_human_<hash> and mints opaque PURL bearer tokens",
+      "flow": "Optional Supabase email OTP callback; not a standards-based cross-product OIDC server or Authorization Code+PKCE flow",
+      "gaps": [
+        "No public handle/product profile/activation consent",
+        "No explicit email_confirmed_at guard in service/auth.js",
+        "No session-expiry/logout/revocation API for minted PURL bearer tokens",
+        "AI kind is self-declared, not provider attested"
+      ]
+    },
+    "api": {
+      "discovery": [
+        "GET /.well-known/purl",
+        "GET /api/operators",
+        "GET /api/templates",
+        "GET /api/openapi",
+        "GET /api/runtime",
+        "GET /api/registry"
+      ],
+      "identity": [
+        "GET|POST /api/session",
+        "GET /api/auth/config",
+        "POST /api/auth/start",
+        "POST /api/auth/session"
+      ],
+      "program_read": [
+        "GET /api/programs",
+        "GET /api/programs/:id",
+        "GET /api/programs/:id/manifest",
+        "GET /api/programs/:id/history",
+        "GET /api/programs/:id/continuity",
+        "GET /api/programs/:id/replay",
+        "GET /api/programs/:id/diff",
+        "GET /api/programs/:id/mission"
+      ],
+      "program_write": [
+        "POST /api/programs",
+        "POST /api/programs/:id/{source,compile,build,run,publish,fork,checkpoint,propose,commit,grants,revoke,mission}",
+        "POST /api/programs/:id/{move,join} for games"
+      ],
+      "immutable_reads": [
+        "GET /api/executions/:id",
+        "GET /api/artifacts/:id",
+        "GET /api/releases/:id"
+      ],
+      "pure_compiler_compatibility": [
+        "POST /api/compiler",
+        "POST /api/transitions/check",
+        "POST /api/transitions/compile",
+        "GET /api/compatibility",
+        "GET /api/compatibility/substrate?path=...",
+        "GET /api/compatibility/seurl?path=...",
+        "POST /api/compatibility/composition"
+      ]
+    },
+    "mutation_invariants": [
+      "GET/HEAD do not mutate",
+      "Bearer credentials in headers; credential URL parameters rejected",
+      "expected_version required for existing program mutations",
+      "payload-bound persisted idempotency rechecks live authority",
+      "grants attenuate; only owner commits proposals",
+      "worker checks run authority at claim and result commit",
+      "default authored-code execution disabled unless explicitly enabled verified sandbox"
+    ],
+    "dataflow": [
+      "manifest discovery",
+      "source parse",
+      "type/effect/capability check",
+      "versioned IR with operator digests",
+      "immutable tested build",
+      "durable execution queue",
+      "worker lease/current-authority and environment checks",
+      "bounded execution",
+      "private immutable object upload",
+      "artifact/receipt",
+      "checkpoint/replay"
+    ],
+    "extension_points": [
+      {
+        "path": "service/http.js",
+        "use": "Separate consumer/CGIT APIs with existing bounded body/origin/credential checks; current server does not fetch user-selected URLs."
+      },
+      {
+        "path": "service/domain.js + service/domain/support.js",
+        "use": "Preserve program/grant semantics; add account and tenant boundaries explicitly."
+      },
+      {
+        "path": "service/registry.js + service/domain/seed.js",
+        "use": "Catalog entries should reference passing immutable releases and carry real outcomes, limits, provenance and availability."
+      },
+      {
+        "path": "service/language/registry.js + compiler.js",
+        "use": "Add versioned bounded typed operators; keep model/network effects outside pure registry until adapters and explicit authority exist."
+      },
+      {
+        "path": "service/repository.js + supabase/migrations",
+        "use": "Preserve current authoritative document and private Storage; new collections require explicit projection/schema changes."
+      },
+      {
+        "path": "service/worker.js + domain.workOnce",
+        "use": "Durable bounded background jobs; new effectful/model jobs require recorded inputs, costs, idempotency and appropriate isolation."
+      },
+      {
+        "path": "web/app.js",
+        "use": "Current Explore/Workspace/Observatory/Docs shell can host consumer navigation while program URLs/manifests remain stable."
+      },
+      {
+        "path": "service/domain/seed.js + reference/godseed",
+        "use": "Existing seed embeds previous mission. Create separate versioned consumer mission rather than overwriting prior public continuation."
+      }
+    ]
+  },
+  "compatibility": {
+    "purl_branches": "Original 3df4452 is common ancestor of composition 18c85bf, circle 83d6bca and product d6fbc66. Composition/circle are siblings; current product imports bounded compatibility, not a merged runtime.",
+    "purl_composition": "PURL/0.1 /r/:id/ops/:name; compute literal/application nodes pin resource/version/state_hash; NOT/AND/OR/XOR/CONCAT/HASH operate on 1..4096 binary digits. Existing product independently recomputes imported snapshots without importing authority or original derivation identity.",
+    "seurl": "seurl master is a 36-line static page without scripts. Executable FSM is purl circle branch src/circle/seurl.js, vendored in product service/compat/seurl.js. COMMIT/BUILD/TALK are prepared on GET, not committed. Product language mapSeurl is contextual migration guidance, explicitly lossless:false.",
+    "acsp": "Original ACSP/0.1 Fetch handler mounted in Next supports resources, capability authority, TOK/proposal/checkpoint/history. Program001 adds identities/embodiments/immutable Scrolls/transitions export. Separate composition branch ACSP/0.2 adds operation records/extensions while accepting both envelope versions. Divergent branches not semantically merged/tested.",
+    "acsp_migration_collision": "0003_program_001.sql and 0003_operation_records.sql share numeric prefix; migrator tracks full filename. Applying both SQL files is not proof of coherent merged code.",
+    "acsp_common_ancestor": "14b314712c0819ea7e0cfc1d7675a5f6475c125b",
+    "substrate": "Python stdlib research instruments. Program branch is included in original HEAD. ccr adds /term parse-only, /observations, /projections and identity decomposition. Original ACSP transition-history adapter differs from ccr plain-events projection; never interchange silently.",
+    "research_guards": [
+      "SIMULATED bit flips are not physical observations",
+      "original substrate universal history-prediction hypotheses disproven",
+      "projection adequacy is relative to chosen observables",
+      "current compileTrace accepts known versioned pure operator or complete finite closed model, not sample-based semantic inference"
+    ],
+    "integration_hazards": [
+      "Circle writes share server-held PURL principal; declared session attribution is not authority",
+      "Circle multi-system COMMIT/BUILD/TALK can partially succeed",
+      "substrate server is localhost research tool without authenticated public gateway",
+      "hash chain self-consistency does not establish outside truth/provider identity",
+      "No automatic production merge of divergent branches"
+    ],
+    "cgt_gin": "Specialized grammar/cost/structural-compression evidence supports bounded adapters and experiments. Neither is an existing production CGIT backend, tree-sitter repository indexer, arbitrary-payload compressor, or proven token/task improvement for consumer GitHub navigation."
+  },
+  "verification": {
+    "type": "Read-only inspection plus pure in-process smoke",
+    "commands": [
+      "git rev-parse HEAD; git branch --show-current; git status --porcelain; git for-each-ref",
+      "git show <pinned-ref>:<source-file>; git merge-base --is-ancestor",
+      "authenticated gh API owner repository/branches/tree/README reads",
+      "Node ESM import compiler, adapters and templates; compile/execute pure arithmetic and parse compatibility paths"
+    ],
+    "pure_smoke": {
+      "compile_ok": true,
+      "input": 4,
+      "output": 18,
+      "observed_effects": [],
+      "seurl_current_state": "WRITING",
+      "seurl_would_reach": "COMMITTED",
+      "substrate_evaluated": false,
+      "substrate_value_id": null
+    },
+    "tests_not_rerun": "Full suites not run in this reconstruction, because they can write artifacts/temporary data and the delegated scope limits writes. Existing committed evidence is historical evidence, not a newly claimed pass.",
+    "production_not_touched": true
+  },
+  "recommended_start": {
+    "base": "d6fbc666890f85913fac3553be055a44cb9ec620 on codex/godseed-v3",
+    "action": "After agreed design, use isolated new consumer branch/worktree from this base; preserve default branch/original checkouts/live URLs and data. No branch/worktree was created by this task.",
+    "first_slice": "Verified account + unique handle + explicit optional CGIT provisioning and reciprocal profile access on established provider, with tenant isolation and reversible migrations; preserve self-declared AI separation and current program APIs.",
+    "architecture": "Independent CGIT product module/service with shared identity subject and product-specific scopes/profiles; PURLs consume scoped CGIT API. Reuse immutable artifact and continuity semantics through explicit adapters.",
+    "research": "Pin CGT/GiN artifacts and benchmark compression/retrieval against ordinary source retrieval before product claims.",
+    "continuation": "New consumer God Seed becomes a separate executable mission PURL with input-file hashes, dependency graph, evidence, permissions and fresh-context test."
+  }
+}

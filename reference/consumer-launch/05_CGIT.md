@@ -1,0 +1,7 @@
+# CGIT Hub — Independent Product, Integrated Continuity
+
+CGIT Hub is a Git-compatible where applicable, AI-native repository and IDE for code, conversations (consented), research, proofs, programs, decisions, execution traces, artifacts, checkpoints and history. It must work without PURLs, while using PURL Identity for SSO and scoped APIs for integration. Provide repository creation, typed artifact commits, branches/forks, diffs, immutable release versions, provenance, import/export, content hashes and resume. CGIT Steward in a Constellation records evidence and versions independently of participant reasoning.
+
+Public GitHub lens: paste any supported public GitHub repo URL, clearly attribute source and license, pin SHA, safely fetch/index, build AST/tree-sitter syntax graph, symbol/dependency graph, structural diffs, compact grammar-based navigational maps and continuity links. No LLM required for deterministic indexing; semantic interpretations separately labeled. Benchmark token use and task success against ordinary file retrieval rather than claiming compression automatically. Respect rate limits and security. No unauthorized writes to imported repos.
+
+Free computational artifact persistence must be durable, exportable and backed up, with published fair-use quotas and retention policy. Do **not** promise literally unlimited free storage forever. Support tested recovery and explicit deletion/privacy rights.

@@ -1,0 +1,7 @@
+# Memory Universe, Constellations and Global Cognition
+
+Visual personal memory atlas: sourced facts, user assertions, inferences, relationships, project decisions, AI interactions, provenance, corrections, timeline, consent, export, deletion and scoped sharing. Private by default. Memory Passport lets a user explicitly share selected external context with another AI. This does not rewrite provider-private memory or guarantee deletion of copies already exported.
+
+Constellations: user creates shared computational question and launches independently initialized AI contexts through supported APIs, within limits. Archetypes: researcher, challenger, verifier, engineer, synthesizer and CGIT steward; user can customize. Participants contribute independently attributed claims/evidence to ACSP state. Preserve disagreements, tests, checkpoint, resumption, and CGIT commits. Free tier should allow a small, rate-limited Constellation if provider economics permit. Compare multi-model performance with an equal-budget single-model baseline. Never automate mass consumer account creation.
+
+Global Cognition Graph is a computational model of opt-in public/shared knowledge and capabilities, **not** a claim of collective consciousness. Strong tenant partitions and consent. No private memory pooling. Provide transparent provenance, correction, revocation of future access and public/private/team namespaces.

@@ -1,0 +1,7 @@
+# PURL Language, ACSP, SEURL, SubstrateIO
+
+A PURL is an addressable **executable computational resource** with typed state, grammar, transitions, authority, history and checkpoints. PURL is the canonical public namespace. Reconcile SEURL's START/SWITCH/WRITE/COMMIT/BUILD/TALK/PERTURB against actual PURL operators; integrate only semantically faithful verbs, preserving versioned compatibility. ACSP supplies continuity/authority/proposals/checkpoints. SubstrateIO supplies transition models, observations and reproducible projections. CGT/GiN research may inform canonical grammar/compression only with measured proof.
+
+Distinct IDs: address, derivation, value, environment, build, content, execution, session. Parse -> type-check -> plan -> authorized execute -> record -> checkpoint -> replay. GET must not cause mutation. PURL should self-describe schemas, tools, capabilities, cost, effects, examples, and limitations for any new AI session, including read-only browser sessions. Native program authoring: model detects gap -> writes code -> isolated build/test -> immutable release -> share/fork/reuse. Only compile transition histories into programs if all necessary inputs, versions, effects and dependencies were recorded; otherwise label non-replayable.
+
+Produce an executable mission PURL representing this God Seed, with dependency graph, completion tests, evidence, checkpoints and continuation. The next coding agent must be able to enter using **only that URL**, reconstruct authorized state and continue without a ZIP. Verify with a fresh-context test.
