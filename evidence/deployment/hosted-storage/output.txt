@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "started_at": "2026-10-18T14:55:09.785Z",
+  "execution_class": "ACTUAL_HOSTED_SUPABASE_PRIVATE_STORAGE_AND_ISOLATED_DOCUMENT_RESTORE",
+  "credentials_recorded": false,
+  "checks": [
+    {
+      "name": "arithmetic",
+      "private_download": "PASS",
+      "recovery_copy": "PASS",
+      "sha256": "a895c316939b3e0d26a1947996e23f516092e7c2653c4c89d50581d094655367",
+      "bytes": 3265
+    },
+    {
+      "name": "mission",
+      "private_download": "PASS",
+      "recovery_copy": "PASS",
+      "sha256": "c0bc9ce01089bd41d2d08fa94e5067e00955d3d6b96466598dfbdda38909bbbb",
+      "bytes": 71814
+    }
+  ],
+  "limits": "Same hosted project/private bucket; not a cross-project disaster-recovery exercise. Original authoritative document and content-addressed objects remain untouched.",
+  "snapshot": {
+    "source_revision": 16,
+    "restore_revision": 1,
+    "data_sha256": "203bcc0f3ca509c328192aa7491f95e518c37bb386b9dc25736a4515785d8916",
+    "programs": 6,
+    "executions": 2,
+    "artifacts": 2,
+    "restored_document": "verification-1792335309785-restore",
+    "source_unchanged": true
+  },
+  "cleanup": {
+    "temporary_private_copies_removed": true,
+    "restored_test_document_removed": true
+  },
+  "completed_at": "2026-10-18T14:55:14.104Z"
+}

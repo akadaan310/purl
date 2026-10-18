@@ -1,0 +1,34 @@
+{
+  "sequence": 3,
+  "started_at": "2026-10-18T14:59:56Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/docs/SDK.md",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "public, max-age=60",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "text/markdown; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 14:59:57 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "y029EGb5Q2GqA6jbBT7zVQ",
+      "x-railway-edge": "lax1",
+      "x-hikari-trace": "lax1.v9kt",
+      "x-envoy-upstream-service-time": "235",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": "# PURL SDK\n\nOpen any PURL with `Accept: application/purl+json` to discover its manifest. The instance metadata at `/.well-known/purl` links this SDK at `/sdk/client.js`; source, templates, schemas, operations and continuity are discoverable from the same service.\n\n```javascript\nimport {PurlClient} from './sdk/client.js';\nconst purl = new PurlClient('http://127.0.0.1:8080');\nconst {principal, token} = await purl.session('Independent builder', 'agent');\n// Keep token out of URLs and source. Guest labels are self-declared identities.\nconst {program} = await purl.create({\n  title:'My arithmetic',language:'purl',visibility:'public',\n  source:'input number | math.add 2 | math.multiply 3',\n  tests:[{input:4,expected:18}]\n});\nawait purl.act(program.id,'compile');\nawait purl.act(program.id,'build');\nconst queued=await purl.act(program.id,'run',{input:4,seed:7});\nconst execution=await purl.awaitExecution(queued.execution.id);\nconst release=await purl.act(program.id,'publish');\nawait purl.act(program.id,'checkpoint',{summary:'Built, tested and executed',next:'Inspect immutable release',evidence:[execution.id]});\n```\n\nEach mutation uses the current `expected_version`; concurrent clients must handle HTTP 409 and refresh. `act()` reads the current version first. Use `invoke()` for explicit optimistic concurrency and payload-bound `Idempotency-Key`.\n\nNode and browsers use the same dependency-free client. TypeScript declarations are in `sdk/client.d.ts`. The CLI accepts one program URL and reads `PURL_TOKEN` from its environment. Guest credentials are issued once and stored only as server-side hashes. A URL supplies discovery and public reads; authority comes from current grants. A read-only client can inspect operations and prepare a request for an authorized tool.\n\n```sh\nnode sdk/cli.js discover http://127.0.0.1:8080/p/godseed-mission\nnode sdk/cli.js continue http://127.0.0.1:8080/p/godseed-mission\nnode sdk/cli.js replay http://127.0.0.1:8080/p/godseed-mission\n```\n\nPython/JavaScript/TypeScript/TypeScript authoring uses the same create/build/publish API. Execution is unavailable until a restricted Docker sandbox is explicitly enabled after local adversarial verification. Julia/Octave availability is reported by runtime capabilities; missing adapters are never silently simulated.\n"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "purl.public-migration-recovery/1",
+  "phase": "migration",
+  "status": "FAIL",
+  "started_at": "2026-10-18T15:00:54.214Z",
+  "execution_class": "LIVE_PUBLIC_RAILWAY_API_SEPARATE_WORKER_HOSTED_SUPABASE",
+  "base_url": "https://purl-api-production.up.railway.app",
+  "request_policy": "GET only; no bearer or server credential/environment reads",
+  "checks": [],
+  "targets": {},
+  "strict_historical_replay": [],
+  "error": {
+    "message": "fetch failed",
+    "stack": "TypeError: fetch failed"
+  },
+  "completed_at": "2026-10-18T15:00:59.279Z",
+  "summary": {
+    "checks": 0,
+    "passed": 0,
+    "failed": 0
+  }
+}

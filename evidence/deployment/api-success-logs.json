@@ -1,0 +1,1794 @@
+{
+  "scope": "deployment",
+  "deploymentId": "69cdb20a-69eb-4245-9d26-d347e5080a00",
+  "serviceId": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+  "environmentId": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+  "status": "SUCCESS",
+  "deploy": [
+    {
+      "timestamp": "2026-10-18T14:58:29.018818151Z",
+      "severity": "info",
+      "message": "Starting Container",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:30.936208496Z",
+      "severity": "info",
+      "message": "",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "event",
+          "value": "\"purl_ready\""
+        },
+        {
+          "key": "protocol",
+          "value": "\"PURL/0.2\""
+        },
+        {
+          "key": "url",
+          "value": "\"https://purl-api-production.up.railway.app\""
+        },
+        {
+          "key": "persistence",
+          "value": "\"supabase\""
+        },
+        {
+          "key": "worker",
+          "value": "\"separate-process\""
+        },
+        {
+          "key": "sandbox",
+          "value": "\"disabled\""
+        }
+      ]
+    }
+  ],
+  "build": [
+    {
+      "timestamp": "2026-10-18T14:57:54.343976502Z",
+      "severity": "info",
+      "message": "scheduling build on Metal builder \"builder-ljrcfi\"",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:02.241556403Z",
+      "severity": "info",
+      "message": "scheduling build on Metal builder \"builder-ljrcfi\"",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:04.208256036Z",
+      "severity": "info",
+      "message": "fetched snapshot sha256:c9a7ee2489dc515ef8ab2284a14537915e5c5179a4df9b6f4e59aa8e37b49512 (24 MB bytes)",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:04.208360953Z",
+      "severity": "info",
+      "message": "fetching snapshot",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"railway.progress\""
+        },
+        {
+          "key": "status",
+          "value": "\"complete\""
+        },
+        {
+          "key": "size",
+          "value": "23921119"
+        },
+        {
+          "key": "duration_ms",
+          "value": "2429"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:04.596669198Z",
+      "severity": "info",
+      "message": "unpacking archive",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"railway.progress\""
+        },
+        {
+          "key": "status",
+          "value": "\"complete\""
+        },
+        {
+          "key": "size",
+          "value": "39481344"
+        },
+        {
+          "key": "duration_ms",
+          "value": "224"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:04.926246815Z",
+      "severity": "info",
+      "message": "[internal] load build definition from Dockerfile",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:ed88de9b72c7ad8155f3ba5a116335fdebd24fa9a4d8c39a7e307c69db690753\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:04.926405132Z",
+      "severity": "info",
+      "message": "[internal] load build definition from Dockerfile",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:ed88de9b72c7ad8155f3ba5a116335fdebd24fa9a4d8c39a7e307c69db690753\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:04.926089719Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:04.926135708Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:04.926592613Z",
+      "severity": "info",
+      "message": "[internal] load build definition from Dockerfile",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:ed88de9b72c7ad8155f3ba5a116335fdebd24fa9a4d8c39a7e307c69db690753\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:04.926328557Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:05.083184142Z",
+      "severity": "info",
+      "message": "[internal] load build definition from Dockerfile",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:ed88de9b72c7ad8155f3ba5a116335fdebd24fa9a4d8c39a7e307c69db690753\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:04.926328557Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:05.082691763Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:05.120892890Z",
+      "severity": "info",
+      "message": "resolve image config for docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:aad27143f19ea9dd9ae95821bf07bb195621aaf64e2637ff4bca014ccd58e291\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:05.120370366Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:05.288928890Z",
+      "severity": "info",
+      "message": "resolve image config for docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:aad27143f19ea9dd9ae95821bf07bb195621aaf64e2637ff4bca014ccd58e291\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:05.120370366Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:05.288449721Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:05.289175891Z",
+      "severity": "info",
+      "message": "docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:06c7962db14d732a30dc553a5e98ba5ca43aecad0030b30538a41a11af7b1b4a\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:05.289459677Z",
+      "severity": "info",
+      "message": "docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:06c7962db14d732a30dc553a5e98ba5ca43aecad0030b30538a41a11af7b1b4a\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:05.289239276Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:05.453813983Z",
+      "severity": "info",
+      "message": "docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:06c7962db14d732a30dc553a5e98ba5ca43aecad0030b30538a41a11af7b1b4a\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:05.289239276Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:05.453480132Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:05.454384569Z",
+      "severity": "info",
+      "message": "docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:06c7962db14d732a30dc553a5e98ba5ca43aecad0030b30538a41a11af7b1b4a\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:05.453925821Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:05.4539918Z\""
+        },
+        {
+          "key": "cached",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:05.703345028Z",
+      "severity": "info",
+      "message": "[internal] load metadata for docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:d09ff0062a4432af62a4bfbb83cfa04e6d4a934524f9c0e9220fa07a2e20a1e8\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:05.702858708Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:06.417532029Z",
+      "severity": "info",
+      "message": "[internal] load metadata for docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:d09ff0062a4432af62a4bfbb83cfa04e6d4a934524f9c0e9220fa07a2e20a1e8\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:05.702858708Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:06.416997347Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:06.421024259Z",
+      "severity": "info",
+      "message": "[internal] load .dockerignore",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:a2d88d7772671a16c2dbf5c18d1b8017b4ddb4556e251c855de5f1ae10973030\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:06.421048495Z",
+      "severity": "info",
+      "message": "[internal] load .dockerignore",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:a2d88d7772671a16c2dbf5c18d1b8017b4ddb4556e251c855de5f1ae10973030\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:06.420753152Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:06.420800213Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:06.421221034Z",
+      "severity": "info",
+      "message": "[internal] load .dockerignore",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:a2d88d7772671a16c2dbf5c18d1b8017b4ddb4556e251c855de5f1ae10973030\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:06.421024819Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:06.629660275Z",
+      "severity": "info",
+      "message": "[internal] load .dockerignore",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:a2d88d7772671a16c2dbf5c18d1b8017b4ddb4556e251c855de5f1ae10973030\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:06.421024819Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:06.62892403Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.039019264Z",
+      "severity": "info",
+      "message": "[5/5] COPY --chown=node:node . .",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:04d8e8db416604483d18ad00ac4fd46859da282302ca23ebff3951010f5d2a89\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:db467c6da34a267b5d022693be8949fbe967b9357a21fd1ac24527ce9f644313\",\"sha256:6989bc95c17dea1802e9bdc35298029228a7a58330ffcc1c2a1b372c822498fe\"]"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.039023180Z",
+      "severity": "info",
+      "message": "[4/5] RUN npm ci --omit=dev --ignore-scripts --strict-ssl=true --no-audit --no-fund --offline",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:db467c6da34a267b5d022693be8949fbe967b9357a21fd1ac24527ce9f644313\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:b2f3557aaf6637126a125852d5e39d6e531d7b06e5c4442d994bc68fcd982bef\"]"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.039025023Z",
+      "severity": "info",
+      "message": "[3/5] COPY package.json package-lock.json ./",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:b2f3557aaf6637126a125852d5e39d6e531d7b06e5c4442d994bc68fcd982bef\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:f7f2bc8f1d807b8e7726ad18dae843046c7f621ad820aee380c480aaded57f55\",\"sha256:6989bc95c17dea1802e9bdc35298029228a7a58330ffcc1c2a1b372c822498fe\"]"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.039027006Z",
+      "severity": "info",
+      "message": "[internal] load build context",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:6989bc95c17dea1802e9bdc35298029228a7a58330ffcc1c2a1b372c822498fe\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.039028268Z",
+      "severity": "info",
+      "message": "[2/5] WORKDIR /app",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:f7f2bc8f1d807b8e7726ad18dae843046c7f621ad820aee380c480aaded57f55\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\"]"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.039034067Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.039246886Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:07.038901057Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.039248077Z",
+      "severity": "info",
+      "message": "[internal] load build context",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:6989bc95c17dea1802e9bdc35298029228a7a58330ffcc1c2a1b372c822498fe\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:07.038939454Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:07.039034127Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.039609520Z",
+      "severity": "info",
+      "message": "[internal] load build context",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:6989bc95c17dea1802e9bdc35298029228a7a58330ffcc1c2a1b372c822498fe\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:07.039267086Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.253704116Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:07.038901057Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:07.253312949Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.253720390Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:07.253511076Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.253896334Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:07.253511076Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:07.253593159Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.253904477Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:07.253682644Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:07.316005462Z",
+      "severity": "info",
+      "message": "[internal] load build context",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:6989bc95c17dea1802e9bdc35298029228a7a58330ffcc1c2a1b372c822498fe\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:07.039267086Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:07.315645953Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:08.207479655Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:07.253682644Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:08.206954236Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:08.264124624Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:08.263729852Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:08.757561023Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:08.263729852Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:08.757001523Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:08.783694493Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:08.783284188Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:08.940629488Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:08.783284188Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:08.940203779Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:08.940684961Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:08.940295567Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:10.190825584Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:08.940295567Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:10.190388718Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:10.191032935Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:10.190553035Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:10.360101554Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:10.190553035Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:10.35971853Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:10.360255546Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:10.359882145Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:10.479474891Z",
+      "severity": "info",
+      "message": "[1/5] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:10.359882145Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:10.478832287Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:10.503470104Z",
+      "severity": "info",
+      "message": "[2/5] WORKDIR /app",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:f7f2bc8f1d807b8e7726ad18dae843046c7f621ad820aee380c480aaded57f55\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\"]"
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:10.503097825Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:11.046055024Z",
+      "severity": "info",
+      "message": "[2/5] WORKDIR /app",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:f7f2bc8f1d807b8e7726ad18dae843046c7f621ad820aee380c480aaded57f55\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:00e5edcb0d0e2a5a25a1ee575c9fb0b35d08be1b3dcdb73d4ff8079c38c15eeb\"]"
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:10.503097825Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:11.045488625Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:11.093175794Z",
+      "severity": "info",
+      "message": "[3/5] COPY package.json package-lock.json ./",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:b2f3557aaf6637126a125852d5e39d6e531d7b06e5c4442d994bc68fcd982bef\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:f7f2bc8f1d807b8e7726ad18dae843046c7f621ad820aee380c480aaded57f55\",\"sha256:6989bc95c17dea1802e9bdc35298029228a7a58330ffcc1c2a1b372c822498fe\"]"
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:11.092781252Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:11.535311211Z",
+      "severity": "info",
+      "message": "[3/5] COPY package.json package-lock.json ./",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:b2f3557aaf6637126a125852d5e39d6e531d7b06e5c4442d994bc68fcd982bef\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:f7f2bc8f1d807b8e7726ad18dae843046c7f621ad820aee380c480aaded57f55\",\"sha256:6989bc95c17dea1802e9bdc35298029228a7a58330ffcc1c2a1b372c822498fe\"]"
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:11.092781252Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:11.534806895Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:11.614974898Z",
+      "severity": "info",
+      "message": "[4/5] RUN npm ci --omit=dev --ignore-scripts --strict-ssl=true --no-audit --no-fund --offline",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:db467c6da34a267b5d022693be8949fbe967b9357a21fd1ac24527ce9f644313\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:b2f3557aaf6637126a125852d5e39d6e531d7b06e5c4442d994bc68fcd982bef\"]"
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:11.607444199Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:12.525130079Z",
+      "severity": "info",
+      "message": "\nup to date in 369ms\n",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"log\""
+        },
+        {
+          "key": "vertex",
+          "value": "\"sha256:db467c6da34a267b5d022693be8949fbe967b9357a21fd1ac24527ce9f644313\""
+        },
+        {
+          "key": "stream",
+          "value": "1"
+        },
+        {
+          "key": "data",
+          "value": "\"CnVwIHRvIGRhdGUgaW4gMzY5bXMK\""
+        },
+        {
+          "key": "timestamp",
+          "value": "\"2026-10-18T14:58:12.524672342Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:12.701193924Z",
+      "severity": "info",
+      "message": "[4/5] RUN npm ci --omit=dev --ignore-scripts --strict-ssl=true --no-audit --no-fund --offline",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:db467c6da34a267b5d022693be8949fbe967b9357a21fd1ac24527ce9f644313\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:b2f3557aaf6637126a125852d5e39d6e531d7b06e5c4442d994bc68fcd982bef\"]"
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:11.607444199Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:12.700703488Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:12.759440527Z",
+      "severity": "info",
+      "message": "[5/5] COPY --chown=node:node . .",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:04d8e8db416604483d18ad00ac4fd46859da282302ca23ebff3951010f5d2a89\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:db467c6da34a267b5d022693be8949fbe967b9357a21fd1ac24527ce9f644313\",\"sha256:6989bc95c17dea1802e9bdc35298029228a7a58330ffcc1c2a1b372c822498fe\"]"
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:12.758987317Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:13.444845464Z",
+      "severity": "info",
+      "message": "[5/5] COPY --chown=node:node . .",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:04d8e8db416604483d18ad00ac4fd46859da282302ca23ebff3951010f5d2a89\""
+        },
+        {
+          "key": "inputs",
+          "value": "[\"sha256:db467c6da34a267b5d022693be8949fbe967b9357a21fd1ac24527ce9f644313\",\"sha256:6989bc95c17dea1802e9bdc35298029228a7a58330ffcc1c2a1b372c822498fe\"]"
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:12.758987317Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:13.444234087Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:13.529287500Z",
+      "severity": "info",
+      "message": "exporting to docker image format",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:e8de8df3f8a61bd986c322e9d0f25886891678e0d21ee55d0d96477c5bb91b4a\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:13.528480419Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:15.823579441Z",
+      "severity": "info",
+      "message": "exporting to docker image format",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"buildkit\""
+        },
+        {
+          "key": "type",
+          "value": "\"vertex\""
+        },
+        {
+          "key": "digest",
+          "value": "\"sha256:e8de8df3f8a61bd986c322e9d0f25886891678e0d21ee55d0d96477c5bb91b4a\""
+        },
+        {
+          "key": "started",
+          "value": "\"2026-10-18T14:58:13.528480419Z\""
+        },
+        {
+          "key": "completed",
+          "value": "\"2026-10-18T14:58:15.823204418Z\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:16.327387741Z",
+      "severity": "info",
+      "message": "containerimage.digest: sha256:379eea141bd45b94ca5aa2178105d59a4ea3c4783749b34aae4768a6e5f4d5c8",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:16.327392328Z",
+      "severity": "info",
+      "message": "containerimage.descriptor: eyJtZWRpYVR5cGUiOiJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLm1hbmlmZXN0LnYxK2pzb24iLCJkaWdlc3QiOiJzaGEyNTY6Mzc5ZWVhMTQxYmQ0NWI5NGNhNWFhMjE3ODEwNWQ1OWE0ZWEzYzQ3ODM3NDliMzRhYWU0NzY4YTZlNWY0ZDVjOCIsInNpemUiOjIwMDMsImFubm90YXRpb25zIjp7Im9yZy5vcGVuY29udGFpbmVycy5pbWFnZS5jcmVhdGVkIjoiMjAyNi0xMC0xOFQxNDo1ODoxNVoifSwicGxhdGZvcm0iOnsiYXJjaGl0ZWN0dXJlIjoiYW1kNjQiLCJvcyI6ImxpbnV4In19",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:16.327393430Z",
+      "severity": "info",
+      "message": "containerimage.config.digest: sha256:cd2529e1acb0b4e25d32fd84012ec0f6033008c40b3c022938a53a230a3b43e1",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:22.144543594Z",
+      "severity": "info",
+      "message": "image push",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"railway.progress\""
+        },
+        {
+          "key": "status",
+          "value": "\"complete\""
+        },
+        {
+          "key": "size",
+          "value": "80797885"
+        },
+        {
+          "key": "total_size",
+          "value": "80797885"
+        },
+        {
+          "key": "duration_ms",
+          "value": "5423"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:29.214483508Z",
+      "severity": "info",
+      "message": "",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:29.214491212Z",
+      "severity": "info",
+      "message": "\u001b[35m====================\nStarting Healthcheck\n====================\n\u001b[0m",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:29.214492931Z",
+      "severity": "info",
+      "message": "\u001b[37mPath: /healthz\u001b[0m",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:29.214494581Z",
+      "severity": "info",
+      "message": "\u001b[37mRetry window: 2m0s\u001b[0m",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:29.214496078Z",
+      "severity": "info",
+      "message": "",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:58:30.661524169Z",
+      "severity": "info",
+      "message": "\u001b[92m[1/1] Healthcheck succeeded!\u001b[0m",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    }
+  ]
+}

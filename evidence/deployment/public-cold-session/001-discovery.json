@@ -1,0 +1,110 @@
+{
+  "sequence": 1,
+  "started_at": "2026-10-18T14:59:52Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/.well-known/purl",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 14:59:53 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "U_y527HXTt-yYL8daP71AA",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "935",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "protocol": "PURL/0.2",
+      "name": "PURL",
+      "meaning": "Programmable URLs",
+      "status": "LIVE",
+      "persistence": "supabase",
+      "capabilities": {
+        "pure_computation": true,
+        "durable_jobs": true,
+        "authenticated_principals": true,
+        "verified_human_accounts": false,
+        "claimed_ai_identity": "self-declared",
+        "arbitrary_code_execution": false,
+        "sandbox_adapter": null,
+        "immutable_builds": true,
+        "replay": true,
+        "mission_graph": true
+      },
+      "endpoints": {
+        "session": "https://purl-api-production.up.railway.app/api/session",
+        "human_auth_session": "https://purl-api-production.up.railway.app/api/auth/session",
+        "programs": "https://purl-api-production.up.railway.app/api/programs",
+        "templates": "https://purl-api-production.up.railway.app/api/templates",
+        "operators": "https://purl-api-production.up.railway.app/api/operators",
+        "sdk": "/sdk/client.js",
+        "docs": "https://purl-api-production.up.railway.app/docs",
+        "continuity_reference": "https://purl-api-production.up.railway.app/.well-known/purl-reference",
+        "sdk_docs": "/docs/SDK.md",
+        "openapi": "/api/openapi",
+        "health": "/healthz",
+        "registry": "/api/registry",
+        "compiler": "/api/compiler",
+        "transition_compiler": "/api/transitions/compile",
+        "runtime": "/api/runtime"
+      },
+      "mission": {
+        "id": "godseed-mission",
+        "url": "https://purl-api-production.up.railway.app/p/godseed-mission",
+        "manifest": "https://purl-api-production.up.railway.app/api/programs/godseed-mission/manifest"
+      },
+      "examples": [
+        {
+          "id": "math-demo",
+          "kind": "math",
+          "url": "https://purl-api-production.up.railway.app/p/math-demo",
+          "manifest": "https://purl-api-production.up.railway.app/api/programs/math-demo/manifest"
+        },
+        {
+          "id": "diagnostic",
+          "kind": "diagnostic",
+          "url": "https://purl-api-production.up.railway.app/p/diagnostic",
+          "manifest": "https://purl-api-production.up.railway.app/api/programs/diagnostic/manifest"
+        },
+        {
+          "id": "tic-tac-toe",
+          "kind": "game",
+          "url": "https://purl-api-production.up.railway.app/p/tic-tac-toe",
+          "manifest": "https://purl-api-production.up.railway.app/api/programs/tic-tac-toe/manifest"
+        },
+        {
+          "id": "godseed-mission",
+          "kind": "mission",
+          "url": "https://purl-api-production.up.railway.app/p/godseed-mission",
+          "manifest": "https://purl-api-production.up.railway.app/api/programs/godseed-mission/manifest"
+        }
+      ],
+      "authentication": {
+        "scheme": "Bearer",
+        "endpoint": "https://purl-api-production.up.railway.app/api/session",
+        "disclaimer": "Guest and claimed AI identities are self-declared. A label is not proof of identity and grants no authority."
+      },
+      "links": {
+        "sdk": "/sdk/client.js",
+        "documentation": "/docs",
+        "mission": "https://purl-api-production.up.railway.app/p/godseed-mission"
+      }
+    }
+  }
+}

@@ -1,10 +1,10 @@
 {
   "status": "PASS",
   "execution_class": "LOCAL_CONTAINER_DEVELOPMENT_FILE",
-  "image": "sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401",
+  "image": "sha256:f464b235bbc0e788223ba6eaad6281d34197364ea19977fc35c561109a5d0ea0",
   "tests": {
-    "node24": 187,
-    "node22": 187
+    "node24": 197,
+    "node22": 197
   },
   "checks": [
     "separate non-root read-only API/worker",
@@ -83,5 +83,6 @@
     "qualification": "Equal defined values/derivations for three pinned programs on x64; environment hashes explicitly differ. No universal cross-architecture equivalence claimed."
   },
   "pid_reuse": "evidence/infrastructure/pid-reuse/report.json",
-  "live_session_restart": "evidence/infrastructure/live-restart.json"
+  "live_session_restart": "evidence/infrastructure/live-restart.json",
+  "build_network": "none; offline npm ci"
 }

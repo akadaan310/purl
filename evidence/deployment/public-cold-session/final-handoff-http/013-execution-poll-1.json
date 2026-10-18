@@ -1,0 +1,39 @@
+{
+  "sequence": 13,
+  "started_at": "2026-10-18T15:15:22Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/executions/execution_a0a362996c4a1c6bf7685c21",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 500,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:15:33 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "pIlpBmh0TVqYrgkLozsQ6Q",
+      "x-railway-edge": "lax1",
+      "x-hikari-trace": "lax1.v9kt",
+      "x-envoy-upstream-service-time": "10910",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "error": {
+        "code": "internal_error",
+        "message": "The operation could not be completed"
+      }
+    }
+  }
+}

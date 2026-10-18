@@ -1,0 +1,173 @@
+{
+  "sequence": 50,
+  "started_at": "2026-10-18T15:05:24Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/continuity",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:05:25 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "aji7eUIPRF-Wk42QaP71AA",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "1076",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "protocol": "PURL/0.2",
+      "program_id": "program_5aa690946a1dc4638cc8a40a",
+      "version": 6,
+      "checkpoint": {
+        "id": "checkpoint_c02e5593180f8f136d7e43f5",
+        "next": "Inspect immutable release and replay this execution from a new session; compare artifacts after API and worker restart.",
+        "actor": "principal_e3b3006cd498c1fac8fae857",
+        "summary": "Public HTTP-only cold session authored native PURL arithmetic, compiled and built with three passing tests (4->18, 0->6, -2->0), and executed input 4 with result 18 on Node 22.14.0. This is bounded native PURL, not sandboxed arbitrary code.",
+        "version": 6,
+        "evidence": [
+          {
+            "claim": "Native arithmetic execution returned 18; evidence is a recorded claim pending independent requirement assessment.",
+            "build_id": "build_fead495ba2ddd82405405ced",
+            "execution_id": "execution_62a3543a5f2130b4b42cc24f"
+          }
+        ],
+        "created_at": "2026-10-18T15:03:13.495Z",
+        "program_id": "program_5aa690946a1dc4638cc8a40a",
+        "provenance": "author assertions; state hash verified by service",
+        "state_hash": "sha256:e266d21f12eaba53f76e059a6243a1d89237e94575b5f7e8e5236f1f06fc7364",
+        "evidence_verified": false,
+        "prepared_at_version": 5
+      },
+      "state": {},
+      "changes_since_checkpoint": [],
+      "next_operations": [
+        {
+          "name": "inspect",
+          "method": "GET",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a",
+          "available": true,
+          "requires": [
+            "read"
+          ],
+          "effects": [],
+          "input_schema": {}
+        },
+        {
+          "name": "history",
+          "method": "GET",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/history",
+          "available": true,
+          "requires": [
+            "read"
+          ],
+          "effects": [],
+          "input_schema": {}
+        },
+        {
+          "name": "continuity",
+          "method": "GET",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/continuity",
+          "available": true,
+          "requires": [
+            "read"
+          ],
+          "effects": [],
+          "input_schema": {}
+        },
+        {
+          "name": "replay",
+          "method": "GET",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/replay",
+          "available": true,
+          "requires": [
+            "read"
+          ],
+          "effects": [],
+          "input_schema": {}
+        },
+        {
+          "name": "diff",
+          "method": "GET",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/diff",
+          "available": true,
+          "requires": [
+            "read"
+          ],
+          "effects": [],
+          "input_schema": {}
+        }
+      ],
+      "authority": {
+        "authenticated": false,
+        "principal_id": null,
+        "owner": false,
+        "rights": [
+          "read"
+        ]
+      },
+      "links": {
+        "self": "https://purl-api-production.up.railway.app/p/program_5aa690946a1dc4638cc8a40a",
+        "source": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a",
+        "history": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/history",
+        "continuity": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/continuity",
+        "replay": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/replay",
+        "sdk": "https://purl-api-production.up.railway.app/sdk/client.js",
+        "operators": "https://purl-api-production.up.railway.app/api/operators"
+      },
+      "dependencies": [],
+      "continuation": {
+        "checkpoint": {
+          "id": "checkpoint_c02e5593180f8f136d7e43f5",
+          "next": "Inspect immutable release and replay this execution from a new session; compare artifacts after API and worker restart.",
+          "actor": "principal_e3b3006cd498c1fac8fae857",
+          "summary": "Public HTTP-only cold session authored native PURL arithmetic, compiled and built with three passing tests (4->18, 0->6, -2->0), and executed input 4 with result 18 on Node 22.14.0. This is bounded native PURL, not sandboxed arbitrary code.",
+          "version": 6,
+          "evidence": [
+            {
+              "claim": "Native arithmetic execution returned 18; evidence is a recorded claim pending independent requirement assessment.",
+              "build_id": "build_fead495ba2ddd82405405ced",
+              "execution_id": "execution_62a3543a5f2130b4b42cc24f"
+            }
+          ],
+          "created_at": "2026-10-18T15:03:13.495Z",
+          "program_id": "program_5aa690946a1dc4638cc8a40a",
+          "provenance": "author assertions; state hash verified by service",
+          "state_hash": "sha256:e266d21f12eaba53f76e059a6243a1d89237e94575b5f7e8e5236f1f06fc7364",
+          "evidence_verified": false,
+          "prepared_at_version": 5
+        },
+        "expected_version": 6,
+        "inspect": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a",
+        "permitted": [
+          "inspect",
+          "history",
+          "continuity",
+          "replay",
+          "diff"
+        ],
+        "steps": [
+          "GET this manifest and continuity",
+          "Read current state, source, dependencies and evidence",
+          "Authenticate only when authorized to mutate",
+          "Use expected_version and a payload-bound Idempotency-Key",
+          "Write a checkpoint with evidence and next operations"
+        ]
+      }
+    }
+  }
+}

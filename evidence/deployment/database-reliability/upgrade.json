@@ -1,0 +1,38 @@
+{
+  "schema": "purl.projection-upgrade/1",
+  "status": "PASS",
+  "project_id": "frxufmwwbegconolevkw",
+  "migration": "supabase/migrations/20261018152259_purl_skip_unchanged_projection_writes.sql",
+  "apply_result": "success",
+  "before": {
+    "anon_execute": false,
+    "service_execute": true,
+    "audit_fingerprint": "b5c0907776842eafcb3f9669b8915591",
+    "document_revision": 63,
+    "document_fingerprint": "67995fac11d1a9a08246697f267d028d",
+    "entities_fingerprint": "52a73ac4f4bb5e81eaff80722dc89295",
+    "function_fingerprint": "bc435e2fe562430e0d450309b6135627",
+    "authenticated_execute": false
+  },
+  "after": {
+    "anon_execute": false,
+    "service_execute": true,
+    "audit_fingerprint": "b5c0907776842eafcb3f9669b8915591",
+    "document_revision": 63,
+    "document_fingerprint": "67995fac11d1a9a08246697f267d028d",
+    "entities_fingerprint": "52a73ac4f4bb5e81eaff80722dc89295",
+    "function_fingerprint": "9d0a38ec266a171db5c1dc0cdaedbe96",
+    "authenticated_execute": false
+  },
+  "checks": {
+    "data_and_revision_unchanged": true,
+    "anon_denied": true,
+    "authenticated_denied": true,
+    "service_allowed": true,
+    "function_updated": true
+  },
+  "local_regression": "evidence/infrastructure/projection-write-amplification/report.json",
+  "limits": "Avoids rewriting identical projection rows. Does not replace whole-document CAS, establish load reliability or erase earlier timeouts. Fingerprints use PostgreSQL MD5 as change detectors, not authenticity proofs.",
+  "hosted_migration_version": "20261018152346",
+  "migration_sha256": "67ea524c9a4528f3e2f1d175c161250a09764bc17c773384793c273bb22fc572"
+}

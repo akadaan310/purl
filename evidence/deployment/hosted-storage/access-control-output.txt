@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "recorded_at": "2026-10-18T14:58:26.733Z",
+  "execution_class": "ACTUAL_HOSTED_HTTP_ANON_DENIAL_AND_PRIVATE_QUEUE_HINT",
+  "checks": [
+    {
+      "path": "/rest/v1/purl_documents?select=document_id",
+      "status": 401,
+      "anonymous_access": "DENIED"
+    },
+    {
+      "path": "/rest/v1/rpc/purl_read_document",
+      "status": 401,
+      "anonymous_access": "DENIED"
+    },
+    {
+      "path": "/storage/v1/object/purl-artifacts/a8/a895c316939b3e0d26a1947996e23f516092e7c2653c4c89d50581d094655367",
+      "status": 400,
+      "anonymous_access": "DENIED"
+    },
+    {
+      "path": "/storage/v1/object/public/purl-artifacts/a8/a895c316939b3e0d26a1947996e23f516092e7c2653c4c89d50581d094655367",
+      "status": 400,
+      "anonymous_access": "DENIED"
+    },
+    {
+      "name": "Actual hosted indexed idle query",
+      "pending": false
+    }
+  ],
+  "credentials_recorded": false
+}

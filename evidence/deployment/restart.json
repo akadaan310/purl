@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "recorded_at": "2026-10-18T15:10:49.196830+00:00",
+  "actions": [
+    "Restart Railway worker b5e7671e-115f-48f2-9b78-d3fe6586c0db",
+    "Restart Railway API69cdb20a-69eb-4245-9d26-d347e5080a00"
+  ],
+  "worker_success_updated_at": "2026-10-18T15:06:18.607Z",
+  "api_success_updated_at": "2026-10-18T15:06:20.564Z",
+  "replicas": {
+    "api": {
+      "running": 1,
+      "crashed": 0
+    },
+    "worker": {
+      "running": 1,
+      "crashed": 0
+    }
+  },
+  "health": "200; Supabase",
+  "verification": "evidence/deployment/public-recovery/after-restart-report.json",
+  "checks": 57,
+  "failed": 0,
+  "historical_build_failures_preserved": true
+}

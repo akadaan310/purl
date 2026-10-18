@@ -1,0 +1,45 @@
+{
+  "sequence": 47,
+  "started_at": "2026-10-18T15:05:17Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/godseed-mission/replay",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:05:19 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "-JgTmSCZQoCs4rzxU79b0g",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "1180",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "program_id": "godseed-mission",
+      "valid": true,
+      "version": 1,
+      "events": 1,
+      "head": "sha256:530121524c17b13cef42330ba702d7fa3b8939ec26a8f519a0fe724433f581a7",
+      "state_hash": "sha256:413d2439eaeea3b46241af717707a4d4e77a29ef288f4f9a89739538a04f23a1",
+      "problems": [],
+      "program_valid": true,
+      "executions": [],
+      "assurance": "Content hashes establish internal consistency, not external authenticity"
+    }
+  }
+}

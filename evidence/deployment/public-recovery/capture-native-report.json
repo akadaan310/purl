@@ -1,0 +1,184 @@
+{
+  "schema": "purl.public-migration-recovery/1",
+  "phase": "capture-native",
+  "status": "PASS",
+  "started_at": "2026-10-18T15:03:47.529Z",
+  "execution_class": "LIVE_PUBLIC_RAILWAY_API_SEPARATE_WORKER_HOSTED_SUPABASE",
+  "base_url": "https://purl-api-production.up.railway.app",
+  "request_policy": "GET only; no bearer or server credential/environment reads",
+  "checks": [
+    {
+      "health": {
+        "status": "ok",
+        "protocol": "PURL/0.2",
+        "service": "api",
+        "persistence": "supabase",
+        "untrusted_execution": "disabled-unless-verified-worker"
+      },
+      "name": "public Railway API reaches hosted Supabase authority",
+      "status": "PASS"
+    },
+    {
+      "name": "public arbitrary authored execution remains disabled",
+      "status": "PASS"
+    },
+    {
+      "name": "public canonical address matches transport origin",
+      "status": "PASS"
+    },
+    {
+      "name": "native public program and execution exist",
+      "status": "PASS"
+    },
+    {
+      "name": "native record has a release checkpoint and artifact",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "native: public program is accessible",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "native: public execution is accessible",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "native: public release is accessible",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "native: public continuity is accessible",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "native: public artifact is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "native: original execution remains succeeded",
+      "status": "PASS"
+    },
+    {
+      "name": "native: receipt and input content hashes verify",
+      "status": "PASS"
+    },
+    {
+      "name": "native: artifact and receipt binding verify",
+      "status": "PASS"
+    },
+    {
+      "name": "native: persisted private Storage reference is unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "native: checkpoint and release identities survive",
+      "status": "PASS"
+    },
+    {
+      "name": "native: program history replay remains valid",
+      "status": "PASS"
+    },
+    {
+      "node": "v22.14.0",
+      "name": "native: native Railway Node22 runtime is captured",
+      "status": "PASS"
+    },
+    {
+      "replay": {
+        "execution_id": "execution_62a3543a5f2130b4b42cc24f",
+        "valid": true,
+        "replayable": true,
+        "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd"
+      },
+      "name": "native: native strict deterministic replay actually passes",
+      "status": "PASS"
+    }
+  ],
+  "targets": {
+    "native": {
+      "program_id": "program_5aa690946a1dc4638cc8a40a",
+      "execution_id": "execution_62a3543a5f2130b4b42cc24f",
+      "release_id": "release_8ccbb23641acc20c22476791",
+      "checkpoint_id": "checkpoint_c02e5593180f8f136d7e43f5",
+      "artifact_id": "artifact_15bd735d0ff3d1b34080e413",
+      "paths": {
+        "program": "/api/programs/program_5aa690946a1dc4638cc8a40a",
+        "execution": "/api/executions/execution_62a3543a5f2130b4b42cc24f",
+        "release": "/api/releases/release_8ccbb23641acc20c22476791",
+        "continuity": "/api/programs/program_5aa690946a1dc4638cc8a40a/continuity",
+        "artifact": "/api/artifacts/artifact_15bd735d0ff3d1b34080e413"
+      },
+      "fingerprints": {
+        "program": "sha256:8623aadfd9450204ee4c0103b0723305fe33680eb0a7f96cf608ad250f33f9e4",
+        "execution": "sha256:c1a6d66c28d1e44edb81bc73f31869e5536e7a322c37ab48217f024cf9993564",
+        "release": "sha256:fbd09b596eb1c4189f468f1344e48fb0a9a039f96e734738b0c4777956d040cf",
+        "continuity": "sha256:ee2d7f531c6004df112cf6fd75c63d462282c5e51be67b184e63643a0385943f",
+        "artifact": "sha256:d321fd4c82a16bc343bdf4e6f14ca91f1a3fc57329a14e779aac9e6a1dc33836"
+      },
+      "captured_environment": {
+        "captured_build": {
+          "node": "22.14.0",
+          "network": false,
+          "runtime": "purl-bounded-interpreter",
+          "ir_version": "purl-ir/1",
+          "architecture": "x64",
+          "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+          "runtime_version": "1",
+          "external_effects": false
+        },
+        "captured_runtime": {
+          "limits": {
+            "depth": 32,
+            "nodes": 512,
+            "steps": 10000,
+            "repeat": 1000,
+            "workBytes": 16777216,
+            "graphEdges": 10000,
+            "graphNodes": 1000,
+            "valueBytes": 1048576,
+            "arrayLength": 10000,
+            "sourceBytes": 65536
+          },
+          "runtime": "node",
+          "platform": "linux",
+          "interpreter": "purl-ir/1",
+          "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+          "architecture": "x64",
+          "dependencies": [
+            {
+              "name": "math.add",
+              "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+              "version": "1.0.0"
+            },
+            {
+              "name": "math.multiply",
+              "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+              "version": "1.0.0"
+            }
+          ],
+          "runtime_version": "v22.14.0"
+        }
+      },
+      "value": 18,
+      "strict_replay": {
+        "execution_id": "execution_62a3543a5f2130b4b42cc24f",
+        "valid": true,
+        "replayable": true,
+        "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd"
+      }
+    }
+  },
+  "strict_historical_replay": [],
+  "scope": "Baseline frozen native Railway Node22 public records and strict replay before process restart.",
+  "completed_at": "2026-10-18T15:04:12.188Z",
+  "summary": {
+    "checks": 18,
+    "passed": 18,
+    "failed": 0
+  }
+}

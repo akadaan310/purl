@@ -1,0 +1,6 @@
+{
+  "issued_bearer_present_in_evidence_files": false,
+  "checked_all_files_under_output_directory": true,
+  "bearer_in_urls": false,
+  "method": "Compared memory-only issued credential with all own evidence files without outputting it."
+}

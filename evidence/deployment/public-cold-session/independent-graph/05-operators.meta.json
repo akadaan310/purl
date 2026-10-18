@@ -1,0 +1,24 @@
+{
+  "requested_url": "https://purl-api-production.up.railway.app/api/operators",
+  "resolved_url": "https://purl-api-production.up.railway.app/api/operators",
+  "status": 200,
+  "headers": {
+    "cache-control": "no-store",
+    "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+    "content-type": "application/purl+json; charset=utf-8",
+    "date": "Sun, 18 Oct 2026 15:01:30 GMT",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "referrer-policy": "no-referrer",
+    "server": "envoy",
+    "vary": "Accept, Authorization",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-railway-request-id": "28brmdFGT4uSUmBQBhdwDg",
+    "x-railway-edge": "ord1",
+    "x-hikari-trace": "ord1.zmv5",
+    "x-envoy-upstream-service-time": "441",
+    "connection": "close",
+    "transfer-encoding": "chunked"
+  },
+  "retrieved_at": "2026-10-18T15:01:30Z"
+}

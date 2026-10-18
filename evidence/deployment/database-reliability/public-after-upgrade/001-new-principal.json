@@ -1,0 +1,53 @@
+{
+  "sequence": 1,
+  "name": "new-principal",
+  "started_at": "2026-10-18T15:24:34.969280+00:00",
+  "duration_seconds": 6.200954,
+  "request": {
+    "method": "POST",
+    "url": "https://purl-api-production.up.railway.app/api/session",
+    "headers": {
+      "Accept": "application/purl+json",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "label": "Post-SQL-upgrade native arithmetic reliability check",
+      "kind": "agent"
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:24:41 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "tx9tiw0cT3ORETY-qmzx2A",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "6112",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "principal": {
+        "id": "principal_2850e90612eca2696e0777c0",
+        "label": "Post-SQL-upgrade native arithmetic reliability check",
+        "kind": "agent",
+        "identity_verified": false,
+        "identity_claim": "self-declared AI identity",
+        "created_at": "2026-10-18T15:24:35.376Z"
+      },
+      "token": "[REDACTED]",
+      "disclaimer": "This is a self-declared identity, not a verified account. Keep the bearer token private."
+    },
+    "raw_body": "{\"principal\":{\"id\":\"principal_2850e90612eca2696e0777c0\",\"label\":\"Post-SQL-upgrade native arithmetic reliability check\",\"kind\":\"agent\",\"identity_verified\":false,\"identity_claim\":\"self-declared AI identity\",\"created_at\":\"2026-10-18T15:24:35.376Z\"},\"token\":\"[REDACTED]\",\"disclaimer\":\"This is a self-declared identity, not a verified account. Keep the bearer token private.\"}"
+  },
+  "transport_error": null
+}

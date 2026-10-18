@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "path": "/healthz",
+      "status": 200,
+      "elapsed_ms": 2344,
+      "identity": null,
+      "persistence": "supabase"
+    },
+    {
+      "path": "/.well-known/purl",
+      "status": 200,
+      "elapsed_ms": 1714,
+      "identity": null,
+      "persistence": "supabase"
+    },
+    {
+      "path": "/p/program_ad56405463bfaa72e9bbddf2",
+      "status": 200,
+      "elapsed_ms": 1500,
+      "identity": "program_ad56405463bfaa72e9bbddf2",
+      "persistence": null
+    }
+  ]
+}

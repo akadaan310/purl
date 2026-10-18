@@ -1,14 +1,14 @@
 {
   "protocol": "purl-godseed-experiments/1",
-  "run_id": "2026-10-18T14-32-25.207Z",
+  "run_id": "2026-10-18T15-00-37.603Z",
   "registered_at": "2026-10-18T13:47:36.679832+00:00",
   "registration_class": "Local file saved before GODSEED harness execution; not an externally timestamped preregistration",
-  "source_revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
-  "source_snapshot_sha256": "85e37e46046175ba0ecda2908fd5711b008cb2e1b9aa8294fd0d84e39a33e65c",
+  "source_revision": "0670baddefba9635af8fc71c3b96c85960227315",
+  "source_snapshot_sha256": "b8feafbe7a958bbb4c2d693975ac023673b2343879a27a44812227e6e74a225d",
   "source_files": [
     {
       "path": "ACCEPTANCE.json",
-      "sha256": "27f0336752b01e646fcb456674d28b75afc50df9758c5805cb24e220d59cfa8d"
+      "sha256": "113eab8d69f0095631b29ad193b2eff2c12e56c50239ab8455de95f14a944d35"
     },
     {
       "path": "ARCHITECTURE.md",
@@ -19,12 +19,16 @@
       "sha256": "6fa8e8425c58b3c805ef16345453ea743f5dc807b7623b195347a29a7def304a"
     },
     {
+      "path": "DELIVERY_REPORT.md",
+      "sha256": "1251d4df8563f3d104d0dc882a7e1c9a94e041c1c041bfe22b4e4ab69b0ea885"
+    },
+    {
       "path": "DEPLOYMENT.md",
-      "sha256": "618a1ed9f7cac6e78603db8ad7540309aa1b314f0b93099cb1624c34991d2d7a"
+      "sha256": "c5c206f103877d03d6e1f54768f7417b3cc8e9ffcc12300fd042b41541332f74"
     },
     {
       "path": "Dockerfile",
-      "sha256": "f0fa7eb997c201e63b014cafe497dfa069ada708340f4fec13aeea7da9396474"
+      "sha256": "8d0dc150ad5580634ff184a004c0700efb695a34ce510d2f55cf75b18ac1be35"
     },
     {
       "path": "EXPERIMENTS.md",
@@ -56,7 +60,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "012ef2dec82bc59f9ad63a779a3abb0e101300c9f3d8a55937cd40a397bea46f"
+      "sha256": "728600efdca9aec2460e7491245de6ed69b631585b69b659909f54d917d4e2ba"
     },
     {
       "path": "RECONSTRUCTION.md",
@@ -95,12 +99,24 @@
       "sha256": "ca368025a6be002f37f35f6219340e4c955d880d39ea981fd318886114e00887"
     },
     {
-      "path": "deploy/railway-worker.toml",
+      "path": "deploy/railway-services.json",
+      "sha256": "8ecce39e40ffefeba36017b5ebc36ff3a76bf68849b1e7df69aa929d581ea826"
+    },
+    {
+      "path": "deploy/reference/README.md",
+      "sha256": "ebf16e8836e81d037cc1c7b815ea989d058e92aaa4271e676c11336ad3b35738"
+    },
+    {
+      "path": "deploy/reference/railway-api.legacy.toml",
+      "sha256": "5c4e2bbf3c6ae227a95aeec0d92915ecc89cbb339a61f71f4310dbf8ee0b4a6a"
+    },
+    {
+      "path": "deploy/reference/railway-worker.legacy.toml",
       "sha256": "7648b16539fa39e89edea53b6493bccd86aba27e4cdbdd475f37853009feb47d"
     },
     {
       "path": "deploy/runtime.json",
-      "sha256": "de97374824633a9f4b9c235ba06b2eae8863d9ba69e06487e8627ce3bbf022f4"
+      "sha256": "256249d9dab6c0501f6abc1a3c7713cdc8ea1e5a7ad48d3ae6e2075b87be368c"
     },
     {
       "path": "deploy/verification/results.json",
@@ -164,7 +180,7 @@
     },
     {
       "path": "docs/superpowers/plans/2026-10-18-godseed.md",
-      "sha256": "d4e1737ff3a0ccac4064daa2bb426ca1f509e46b2689ef4d77335301c89f4ab6"
+      "sha256": "c34a3f161784e4d9afa959f491298794c54438ec0c118104f903796867c21eb7"
     },
     {
       "path": "docs/superpowers/specs/2026-10-18-godseed-design.md",
@@ -196,7 +212,7 @@
     },
     {
       "path": "handoff.json",
-      "sha256": "0fda6307aea5e55e2742d25dfc43a61531a05a2b47f84b964d18f70dee05d6b5"
+      "sha256": "3cae6a09d1792276d29c6bf9939d8e1cb01d76b65ebf32a98bffef55c4205d11"
     },
     {
       "path": "package-lock.json",
@@ -229,10 +245,6 @@
     {
       "path": "public/resource.js",
       "sha256": "1242ad98a8bf980b24d316d7dde95b4fd25ae0eb323dd699016b492a5c42803f"
-    },
-    {
-      "path": "railway.toml",
-      "sha256": "5c4e2bbf3c6ae227a95aeec0d92915ecc89cbb339a61f71f4310dbf8ee0b4a6a"
     },
     {
       "path": "reference/godseed/DEPLOYMENT_AMENDMENT.md",
@@ -416,7 +428,7 @@
     },
     {
       "path": "service/domain.js",
-      "sha256": "066cc9ee7656a9578b1a6696d7a5c6eeecd730fe6f8e7cd648aa4659a42eac85"
+      "sha256": "ca54953fc84b21abfe7920ee84ee65af11f8bc2aea231c72454710191c368b16"
     },
     {
       "path": "service/http.js",
@@ -456,7 +468,7 @@
     },
     {
       "path": "service/repository.js",
-      "sha256": "2e0106d14d44558fef8a51bc0c2dc61030d09adef59710bb29d5e6d3f2ab4e5b"
+      "sha256": "b5cef89f80123efb64c72c96556ab9492cfaf1f1b223976172ca3badebf7b7d9"
     },
     {
       "path": "service/sandbox.js",
@@ -667,6 +679,10 @@
       "sha256": "8ff0ebbcfe5bd0bf72493cd8e4e627eeacd59ea5d57cef1352dfb030e01576ae"
     },
     {
+      "path": "test/product/worker-poll.test.js",
+      "sha256": "a37e7c3e3e66b1372026a20a68b128ba34c9ba5d2d723e3ae5187f8e7bb7caa8"
+    },
+    {
       "path": "test/research.test.js",
       "sha256": "c72a3fc99501f22793ca2db36a5bf7f654a28aff8d2d43cbc24e6c3b06eaa174"
     },
@@ -696,7 +712,7 @@
     "architecture": "x64",
     "platform": "linux"
   },
-  "base_url_during_run": "http://127.0.0.1:46377",
+  "base_url_during_run": "http://127.0.0.1:35183",
   "experiments": [
     {
       "id": "E01",
@@ -1097,21 +1113,21 @@
       "programs": [
         {
           "language": "purl",
-          "program_id": "program_53dba02a732a25f68a2c61f3",
-          "build_id": "build_dfef6cfda8eca07bf42fa203",
-          "build_hash": "sha256:581b18f77c8b111f7ee73eb7f488f749bc98461e14e1a11d0414bee7bbca909b",
-          "execution_id": "execution_5bdd39a2ad19566b7898d8b0",
+          "program_id": "program_d678d62ca5d608c85005f8ae",
+          "build_id": "build_5728a35b50ee2e238a3b1dac",
+          "build_hash": "sha256:42b5b1962ac8b55746ebefc6b9c6b3e6eefbe203a11d9be7e3f206ab3daff8a8",
+          "execution_id": "execution_e9c37149214b19b7de6ab762",
           "value": 18,
-          "release_id": "release_3204e3373de595af549296bf",
-          "release_url": "http://127.0.0.1:46377/api/releases/release_3204e3373de595af549296bf",
-          "reused_fork": "program_c34e9ef37c3decfa6fa4e245",
-          "reused_execution": "execution_fd854012139acd0ed28af487",
+          "release_id": "release_bb1be3ae33b579796b5bbf6e",
+          "release_url": "http://127.0.0.1:35183/api/releases/release_bb1be3ae33b579796b5bbf6e",
+          "reused_fork": "program_cb6713eef5a85f86660817f4",
+          "reused_execution": "execution_2a0ce5da22c0e567b697a48b",
           "cold_process": {
             "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-            "given_only_url": "http://127.0.0.1:46377/p/program_53dba02a732a25f68a2c61f3",
+            "given_only_url": "http://127.0.0.1:35183/p/program_d678d62ca5d608c85005f8ae",
             "previous_conversation_available": false,
-            "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
-            "program_id": "program_53dba02a732a25f68a2c61f3",
+            "sdk_discovered": "http://127.0.0.1:35183/sdk/client.js",
+            "program_id": "program_d678d62ca5d608c85005f8ae",
             "version": 5,
             "kind": "program",
             "source": "input number | math.add 2 | math.multiply 3",
@@ -1146,21 +1162,21 @@
         },
         {
           "language": "javascript",
-          "program_id": "program_9da2fb84726b5e1a0c306c9f",
-          "build_id": "build_dcc433e67e0b29e25fdd5800",
-          "build_hash": "sha256:f4d64291b54b7ed104f3951235ba40e3b1f68042b2d6d73417e966057adb8613",
-          "execution_id": "execution_5957f3065ec33d4f8144cae7",
+          "program_id": "program_f8fe36281ecd5ec4f69d364a",
+          "build_id": "build_2d5ac6ccfcfb49c7fc3645cf",
+          "build_hash": "sha256:a9aa2d648d2f8e71a01d07921660433fd7912ff45d32c22b26cbf0e4454a40e2",
+          "execution_id": "execution_e967d688c2dce5a54d76bacd",
           "value": 18,
-          "release_id": "release_e6a903d8691ed3f8064cdef9",
-          "release_url": "http://127.0.0.1:46377/api/releases/release_e6a903d8691ed3f8064cdef9",
-          "reused_fork": "program_8e1d3028c8787e2e3d76b241",
-          "reused_execution": "execution_1ddb4152e631d6e9f949f2f4",
+          "release_id": "release_4993d73fead45067ba284df1",
+          "release_url": "http://127.0.0.1:35183/api/releases/release_4993d73fead45067ba284df1",
+          "reused_fork": "program_791b900cf01659d21248e832",
+          "reused_execution": "execution_4d459fe08eef2988b2803f1f",
           "cold_process": {
             "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-            "given_only_url": "http://127.0.0.1:46377/p/program_9da2fb84726b5e1a0c306c9f",
+            "given_only_url": "http://127.0.0.1:35183/p/program_f8fe36281ecd5ec4f69d364a",
             "previous_conversation_available": false,
-            "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
-            "program_id": "program_9da2fb84726b5e1a0c306c9f",
+            "sdk_discovered": "http://127.0.0.1:35183/sdk/client.js",
+            "program_id": "program_f8fe36281ecd5ec4f69d364a",
             "version": 5,
             "kind": "program",
             "source": "function main(input){return (input+2)*3}",
@@ -1195,21 +1211,21 @@
         },
         {
           "language": "typescript",
-          "program_id": "program_e3c0731e2bf1b9c8e3bf9702",
-          "build_id": "build_122b34ea044af82aed6addd9",
-          "build_hash": "sha256:92ab6f452f4e0c0d4f367e0163adaf23c7f53cbde1af695c5416972f4dcf3b1b",
-          "execution_id": "execution_84eaf2dfdd6465c7b5fe833d",
+          "program_id": "program_d7f219ee78f7f90ff195fc58",
+          "build_id": "build_4169453123bb64f4e35d05da",
+          "build_hash": "sha256:220c40cea5d7a5618744d812ba3c067086feb584233782f4ff154b6704599ef8",
+          "execution_id": "execution_bd641573131ba327cd33ed46",
           "value": 18,
-          "release_id": "release_5fbf5f4b8bb4dcb7506bc6c9",
-          "release_url": "http://127.0.0.1:46377/api/releases/release_5fbf5f4b8bb4dcb7506bc6c9",
-          "reused_fork": "program_84cb0cfb00de70442b881817",
-          "reused_execution": "execution_708b99337ccbf88c36823406",
+          "release_id": "release_4508bb56ef5ef1f22ce871ca",
+          "release_url": "http://127.0.0.1:35183/api/releases/release_4508bb56ef5ef1f22ce871ca",
+          "reused_fork": "program_2a14c758cd22db44abe8ba3c",
+          "reused_execution": "execution_de3d79199c2a4cc7d7db7fb4",
           "cold_process": {
             "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-            "given_only_url": "http://127.0.0.1:46377/p/program_e3c0731e2bf1b9c8e3bf9702",
+            "given_only_url": "http://127.0.0.1:35183/p/program_d7f219ee78f7f90ff195fc58",
             "previous_conversation_available": false,
-            "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
-            "program_id": "program_e3c0731e2bf1b9c8e3bf9702",
+            "sdk_discovered": "http://127.0.0.1:35183/sdk/client.js",
+            "program_id": "program_d7f219ee78f7f90ff195fc58",
             "version": 5,
             "kind": "program",
             "source": "export default function main(input: number): number {return (input+2)*3}",
@@ -1244,21 +1260,21 @@
         },
         {
           "language": "python",
-          "program_id": "program_8952f356518afe5edf8b2a74",
-          "build_id": "build_5850c961b3df4c78329b5644",
-          "build_hash": "sha256:d4913b2ff0c78db08cc4089e72ef0153d81ee9fb4018fe2e29bf4faba0b684d0",
-          "execution_id": "execution_5d50f031234c3f799dc0d046",
+          "program_id": "program_e2778110564ab10ba149c396",
+          "build_id": "build_8dfe2d71b7c61b4332c554cc",
+          "build_hash": "sha256:130ba44c7db287a36fb25b0cb02b8ab9af75accbd0f94a6da708945c96dea9a6",
+          "execution_id": "execution_805b60cc7b71c6698ad8a34d",
           "value": 18,
-          "release_id": "release_4efb50be6aabb0a3eb0779ae",
-          "release_url": "http://127.0.0.1:46377/api/releases/release_4efb50be6aabb0a3eb0779ae",
-          "reused_fork": "program_534dc1ee3f57fc007c872bd1",
-          "reused_execution": "execution_b5da5f50f8186092b3372926",
+          "release_id": "release_8728e389c6540b20d1329247",
+          "release_url": "http://127.0.0.1:35183/api/releases/release_8728e389c6540b20d1329247",
+          "reused_fork": "program_a6e27bacd8c151942ad093a4",
+          "reused_execution": "execution_6c7a6364b16e6b2a76cbe885",
           "cold_process": {
             "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-            "given_only_url": "http://127.0.0.1:46377/p/program_8952f356518afe5edf8b2a74",
+            "given_only_url": "http://127.0.0.1:35183/p/program_e2778110564ab10ba149c396",
             "previous_conversation_available": false,
-            "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
-            "program_id": "program_8952f356518afe5edf8b2a74",
+            "sdk_discovered": "http://127.0.0.1:35183/sdk/client.js",
+            "program_id": "program_e2778110564ab10ba149c396",
             "version": 5,
             "kind": "program",
             "source": "def main(input):\n return (input+2)*3",
@@ -1296,7 +1312,7 @@
         "Fresh reuse is an independent HTTP client and Node process, not a cross-provider AI study",
         "Registry promotion beyond personal/public releases requires separate authority; no fake package-count claim"
       ],
-      "elapsed_ms": 15644
+      "elapsed_ms": 16344
     },
     {
       "id": "E06",
@@ -1313,7 +1329,7 @@
       },
       "sandbox_run": "2026-10-18T14-08-41.086Z",
       "negative_evidence": "These attacks do not certify kernel security, unrestricted dependency installs or multi-tenant safety. Authored runtime remains disabled in default public configuration.",
-      "elapsed_ms": 417
+      "elapsed_ms": 343
     },
     {
       "id": "E07",
@@ -1329,10 +1345,10 @@
       },
       "reconstruction": {
         "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-        "given_only_url": "http://127.0.0.1:46377/p/program_aebe36d07c95d6524ada8245",
+        "given_only_url": "http://127.0.0.1:35183/p/program_7e4c3c59ad3e69a852d4ded7",
         "previous_conversation_available": false,
-        "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
-        "program_id": "program_aebe36d07c95d6524ada8245",
+        "sdk_discovered": "http://127.0.0.1:35183/sdk/client.js",
+        "program_id": "program_7e4c3c59ad3e69a852d4ded7",
         "version": 6,
         "kind": "program",
         "source": "input number | math.multiply 3 | math.add 6",
@@ -1347,16 +1363,16 @@
         "amendment_characters": 0,
         "ready_nodes": [],
         "checkpoint": {
-          "id": "checkpoint_724d04e3707fc39491b1c6a1",
-          "program_id": "program_aebe36d07c95d6524ada8245",
+          "id": "checkpoint_d110b98c1864174066fbf26c",
+          "program_id": "program_7e4c3c59ad3e69a852d4ded7",
           "version": 6,
           "prepared_at_version": 5,
           "summary": "B: proposal accepted; next session rebuilds and executes",
           "next": "Build then run input4",
           "evidence": [],
-          "state_hash": "sha256:f1bedef7dd58a3180d59821e548342159c33f6c440521637e0a5bd1141c43cbc",
-          "actor": "principal_dcc2d427f0fc20ab0e4c57d1",
-          "created_at": "2026-10-18T14:32:41.593Z",
+          "state_hash": "sha256:8e42bd3df6ee2668b300e37c20c54ffe60a2830829029e949529229d0dee765a",
+          "actor": "principal_4742df8ad4e870d845b39e20",
+          "created_at": "2026-10-18T15:00:54.610Z",
           "evidence_verified": false,
           "provenance": "author assertions; state hash verified by service"
         },
@@ -1381,7 +1397,7 @@
         "Client sessions are programmatic, not three independent AI providers",
         "No claim of transferred private memory or model identity"
       ],
-      "elapsed_ms": 213
+      "elapsed_ms": 239
     },
     {
       "id": "E08",
@@ -1394,8 +1410,8 @@
         "winner": "X",
         "replay_after_restart": true
       },
-      "program_id": "program_f80b710b3b3dc971cda28c21",
-      "elapsed_ms": 179
+      "program_id": "program_5d745546347454c7eae917cc",
+      "elapsed_ms": 160
     },
     {
       "id": "E09",
@@ -1471,13 +1487,13 @@
           "verified": false,
           "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth."
         },
-        "checkpoint_id": "checkpoint_52aac8ac5d740fdd055f6ba3"
+        "checkpoint_id": "checkpoint_8c5e0e0eaa9a460420a6f616"
       },
       "single_purl": {
         "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-        "given_only_url": "http://127.0.0.1:46377/p/godseed-mission",
+        "given_only_url": "http://127.0.0.1:35183/p/godseed-mission",
         "previous_conversation_available": false,
-        "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
+        "sdk_discovered": "http://127.0.0.1:35183/sdk/client.js",
         "program_id": "godseed-mission",
         "version": 1,
         "kind": "mission",
@@ -1521,7 +1537,7 @@
         "Mission artifact integrity is checked; requirement truth still requires independent review",
         "Fresh same-provider AI reconstruction is recorded separately when available"
       ],
-      "elapsed_ms": 480
+      "elapsed_ms": 486
     },
     {
       "id": "E10",
@@ -1621,10 +1637,10 @@
       "containers": {
         "status": "PASS",
         "execution_class": "LOCAL_CONTAINER_DEVELOPMENT_FILE",
-        "image": "sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401",
+        "image": "sha256:f464b235bbc0e788223ba6eaad6281d34197364ea19977fc35c561109a5d0ea0",
         "tests": {
-          "node24": 187,
-          "node22": 187
+          "node24": 197,
+          "node22": 197
         },
         "checks": [
           "separate non-root read-only API/worker",
@@ -1703,38 +1719,39 @@
           "qualification": "Equal defined values/derivations for three pinned programs on x64; environment hashes explicitly differ. No universal cross-architecture equivalence claimed."
         },
         "pid_reuse": "evidence/infrastructure/pid-reuse/report.json",
-        "live_session_restart": "evidence/infrastructure/live-restart.json"
+        "live_session_restart": "evidence/infrastructure/live-restart.json",
+        "build_network": "none; offline npm ci"
       },
       "cold_rebuild": {
         "status": "PASS",
-        "run_id": "2026-10-18T14-32-07.699Z",
-        "source_revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
+        "run_id": "2026-10-18T14-58-27.106Z",
+        "source_revision": "0670baddefba9635af8fc71c3b96c85960227315",
         "execution_class": "CLEAN_LOCAL_GIT_CLONE_NO_NODE_MODULES_OR_STATE",
-        "checkout": "/tmp/purl-cold-wWQU4J",
-        "tests": 187,
+        "checkout": "/tmp/purl-cold-bQcQuB",
+        "tests": 197,
         "checks": [
           {
             "name": "clean-clone",
             "status": "PASS",
-            "elapsed_ms": 79,
+            "elapsed_ms": 98,
             "exit_code": 0
           },
           {
             "name": "dependencies",
             "status": "PASS",
-            "elapsed_ms": 264,
+            "elapsed_ms": 230,
             "exit_code": 0
           },
           {
             "name": "test",
             "status": "PASS",
-            "elapsed_ms": 1250,
+            "elapsed_ms": 1397,
             "exit_code": 0
           },
           {
             "name": "cold-client",
             "status": "PASS",
-            "elapsed_ms": 81,
+            "elapsed_ms": 96,
             "exit_code": 0
           }
         ],

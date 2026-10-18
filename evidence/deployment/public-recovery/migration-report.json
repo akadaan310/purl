@@ -1,0 +1,519 @@
+{
+  "schema": "purl.public-migration-recovery/1",
+  "phase": "migration",
+  "status": "PASS",
+  "started_at": "2026-10-18T15:01:38.110Z",
+  "execution_class": "LIVE_PUBLIC_RAILWAY_API_SEPARATE_WORKER_HOSTED_SUPABASE",
+  "base_url": "https://purl-api-production.up.railway.app",
+  "request_policy": "GET only; no bearer or server credential/environment reads",
+  "checks": [
+    {
+      "health": {
+        "status": "ok",
+        "protocol": "PURL/0.2",
+        "service": "api",
+        "persistence": "supabase",
+        "untrusted_execution": "disabled-unless-verified-worker"
+      },
+      "name": "public Railway API reaches hosted Supabase authority",
+      "status": "PASS"
+    },
+    {
+      "name": "public arbitrary authored execution remains disabled",
+      "status": "PASS"
+    },
+    {
+      "name": "public canonical address matches transport origin",
+      "status": "PASS"
+    },
+    {
+      "historical_evidence": "evidence/deployment/hosted-backend/report.json",
+      "historical_runtime": "Node24",
+      "historical_transport": "http://127.0.0.1:18183",
+      "name": "historical local-control-plane hosted dogfood proof is preserved",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "arithmetic: public program is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: program fingerprint is unchanged",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "arithmetic: public execution is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: execution fingerprint is unchanged",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "arithmetic: public release is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: release fingerprint is unchanged",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "arithmetic: public continuity is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: continuity fingerprint is unchanged",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "arithmetic: public artifact is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: artifact fingerprint is unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: original execution remains succeeded",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: receipt and input content hashes verify",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: artifact and receipt binding verify",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: persisted private Storage reference is unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: checkpoint and release identities survive",
+      "status": "PASS"
+    },
+    {
+      "name": "arithmetic: program history replay remains valid",
+      "status": "PASS"
+    },
+    {
+      "strict_execution_valid": false,
+      "problem": "Deterministic result, trace or environment differs from recomputation",
+      "name": "arithmetic: historical strict replay reports a concrete outcome",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "mission: public program is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: program fingerprint is unchanged",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "mission: public execution is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: execution fingerprint is unchanged",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "mission: public release is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: release fingerprint is unchanged",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "mission: public continuity is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: continuity fingerprint is unchanged",
+      "status": "PASS"
+    },
+    {
+      "http_status": 200,
+      "name": "mission: public artifact is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: artifact fingerprint is unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: original execution remains succeeded",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: receipt and input content hashes verify",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: artifact and receipt binding verify",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: persisted private Storage reference is unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: checkpoint and release identities survive",
+      "status": "PASS"
+    },
+    {
+      "name": "mission: program history replay remains valid",
+      "status": "PASS"
+    },
+    {
+      "strict_execution_valid": false,
+      "problem": "Deterministic result, trace or environment differs from recomputation",
+      "name": "mission: historical strict replay reports a concrete outcome",
+      "status": "PASS"
+    }
+  ],
+  "targets": {
+    "arithmetic": {
+      "program_id": "program_fc84742b63b04b216d4fe38a",
+      "execution_id": "execution_234527d8cf49be9a0cdcb889",
+      "release_id": "release_57c8cd2edb86bde892b07f2a",
+      "checkpoint_id": "checkpoint_516077542104bca3e36a4437",
+      "artifact_id": "artifact_687ea32eabd1d431bdc09754",
+      "paths": {
+        "program": "/api/programs/program_fc84742b63b04b216d4fe38a",
+        "execution": "/api/executions/execution_234527d8cf49be9a0cdcb889",
+        "release": "/api/releases/release_57c8cd2edb86bde892b07f2a",
+        "continuity": "/api/programs/program_fc84742b63b04b216d4fe38a/continuity",
+        "artifact": "/api/artifacts/artifact_687ea32eabd1d431bdc09754"
+      },
+      "fingerprints": {
+        "program": "sha256:ab9d3a2775d862fd8427ce055d9093719c34a3c99b82216cdfbfa3571a019700",
+        "execution": "sha256:2510800bb825e7ee1e4a420e458891cba1faf9c27610950b1efb4d9d54e32070",
+        "release": "sha256:722db92d7ffba352da0490dcef79c0d312f25f0fbae4e254daff60fc13e53c34",
+        "continuity": "sha256:9ecb9ca9eace3773d3c04042f72f06d1b9e54b847afac6943201221e202fa9e7",
+        "artifact": "sha256:3b90e88f925d82078a7a435b941d0e6f0f3190b015eba4a3f2d6ab99bd0fab61"
+      },
+      "storage": {
+        "id": "sha256:a895c316939b3e0d26a1947996e23f516092e7c2653c4c89d50581d094655367",
+        "key": "a8/a895c316939b3e0d26a1947996e23f516092e7c2653c4c89d50581d094655367",
+        "size": 3265,
+        "contentType": "application/purl+json"
+      },
+      "captured_environment": {
+        "captured_build": {
+          "node": "24.19.0",
+          "network": false,
+          "runtime": "purl-bounded-interpreter",
+          "ir_version": "purl-ir/1",
+          "architecture": "x64",
+          "environment_id": "sha256:cdbc504f820ea904474b3e8e357e5cea5610b3cee05c654db293d5ccd316f966",
+          "runtime_version": "1",
+          "external_effects": false
+        },
+        "captured_runtime": {
+          "limits": {
+            "depth": 32,
+            "nodes": 512,
+            "steps": 10000,
+            "repeat": 1000,
+            "workBytes": 16777216,
+            "graphEdges": 10000,
+            "graphNodes": 1000,
+            "valueBytes": 1048576,
+            "arrayLength": 10000,
+            "sourceBytes": 65536
+          },
+          "runtime": "node",
+          "platform": "linux",
+          "interpreter": "purl-ir/1",
+          "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+          "architecture": "x64",
+          "dependencies": [
+            {
+              "name": "math.add",
+              "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+              "version": "1.0.0"
+            },
+            {
+              "name": "math.multiply",
+              "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+              "version": "1.0.0"
+            }
+          ],
+          "runtime_version": "v24.19.0"
+        }
+      },
+      "value": 18,
+      "strict_replay": {
+        "execution_id": "execution_234527d8cf49be9a0cdcb889",
+        "valid": false,
+        "problem": "Deterministic result, trace or environment differs from recomputation"
+      }
+    },
+    "mission": {
+      "program_id": "program_84e129cb816aa284eed6df67",
+      "execution_id": "execution_ca316abab0f9735f1990de8c",
+      "release_id": "release_a0b937264ea6f08ccb3fac1d",
+      "checkpoint_id": "checkpoint_f9c236c8b12b2deb4e6f462e",
+      "artifact_id": "artifact_aa92b380435f9c75cbd4bd7f",
+      "paths": {
+        "program": "/api/programs/program_84e129cb816aa284eed6df67",
+        "execution": "/api/executions/execution_ca316abab0f9735f1990de8c",
+        "release": "/api/releases/release_a0b937264ea6f08ccb3fac1d",
+        "continuity": "/api/programs/program_84e129cb816aa284eed6df67/continuity",
+        "artifact": "/api/artifacts/artifact_aa92b380435f9c75cbd4bd7f"
+      },
+      "fingerprints": {
+        "program": "sha256:134e8908552fbb210e2bf5558bb36ae254131364c9916e41fbe71c455b0d952b",
+        "execution": "sha256:bea336c8723e3dc833fd25f4d2fff5de2116dc9bd000cc15decedc69d0e25088",
+        "release": "sha256:b9ad707c50b0d6f852f6e9f4ebb32ebfd44c80c5e76124b2f092fdf4d54a6097",
+        "continuity": "sha256:ad591bdb744edb535cf2bd9b0dcd8d0e5eade24e2ff7517ebdb091dbc9271a58",
+        "artifact": "sha256:8a63fd39f634b03be3261400c898ba3986907a7c3578c5c7ce72dbc6f76c79f0"
+      },
+      "storage": {
+        "id": "sha256:c0bc9ce01089bd41d2d08fa94e5067e00955d3d6b96466598dfbdda38909bbbb",
+        "key": "c0/c0bc9ce01089bd41d2d08fa94e5067e00955d3d6b96466598dfbdda38909bbbb",
+        "size": 71814,
+        "contentType": "application/purl+json"
+      },
+      "value": {
+        "verified": false,
+        "completion": "NOT_RUN",
+        "ready_nodes": [
+          "mission"
+        ],
+        "total_nodes": 52,
+        "waiting_nodes": [
+          "reconstruction",
+          "formal-contract",
+          "features",
+          "cinematic-design",
+          "experiments",
+          "infrastructure",
+          "work-plan",
+          "deliverables",
+          "execution",
+          "feature-1",
+          "feature-2",
+          "feature-3",
+          "feature-4",
+          "feature-5",
+          "feature-6",
+          "feature-7",
+          "feature-8",
+          "feature-9",
+          "feature-10",
+          "feature-11",
+          "feature-12",
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "E05",
+          "E06",
+          "E07",
+          "E08",
+          "E09",
+          "E10",
+          "artifact-readme",
+          "artifact-architecture",
+          "artifact-formal-semantics",
+          "artifact-language-spec",
+          "artifact-sdk",
+          "artifact-nomenclature",
+          "artifact-constitution",
+          "artifact-security",
+          "artifact-deployment",
+          "artifact-reconstruction",
+          "artifact-migrations",
+          "artifact-experiments",
+          "artifact-acceptance-json",
+          "artifact-program-graph-json",
+          "artifact-handoff-json",
+          "artifact-playwright-screenshots",
+          "artifact-example-purls",
+          "artifact-build-hashes",
+          "artifact-deployed-url",
+          "deployment-amendment"
+        ],
+        "completed_nodes": [],
+        "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth.",
+        "dependency_edges": 65
+      },
+      "captured_environment": {
+        "captured_build": {
+          "node": "24.19.0",
+          "network": false,
+          "runtime": "purl-bounded-interpreter",
+          "ir_version": "purl-ir/1",
+          "architecture": "x64",
+          "environment_id": "sha256:cdbc504f820ea904474b3e8e357e5cea5610b3cee05c654db293d5ccd316f966",
+          "runtime_version": "1",
+          "external_effects": false
+        },
+        "captured_runtime": {
+          "limits": {
+            "depth": 32,
+            "nodes": 512,
+            "steps": 10000,
+            "repeat": 1000,
+            "workBytes": 16777216,
+            "graphEdges": 10000,
+            "graphNodes": 1000,
+            "valueBytes": 1048576,
+            "arrayLength": 10000,
+            "sourceBytes": 65536
+          },
+          "runtime": "node",
+          "platform": "linux",
+          "interpreter": "purl-ir/1",
+          "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+          "architecture": "x64",
+          "dependencies": [
+            {
+              "name": "mission.inspect",
+              "digest": "sha256:ba4d120b87dd4e95881141f6af2ab42159b6db7dfd8d5c9d7c746df385718940",
+              "version": "1.0.0"
+            }
+          ],
+          "runtime_version": "v24.19.0"
+        }
+      },
+      "strict_replay": {
+        "execution_id": "execution_ca316abab0f9735f1990de8c",
+        "valid": false,
+        "problem": "Deterministic result, trace or environment differs from recomputation"
+      }
+    }
+  },
+  "strict_historical_replay": [
+    {
+      "label": "arithmetic",
+      "execution_id": "execution_234527d8cf49be9a0cdcb889",
+      "http_status": 200,
+      "overall_valid": false,
+      "program_valid": true,
+      "execution": {
+        "execution_id": "execution_234527d8cf49be9a0cdcb889",
+        "valid": false,
+        "problem": "Deterministic result, trace or environment differs from recomputation"
+      },
+      "environment": {
+        "captured_build": {
+          "node": "24.19.0",
+          "network": false,
+          "runtime": "purl-bounded-interpreter",
+          "ir_version": "purl-ir/1",
+          "architecture": "x64",
+          "environment_id": "sha256:cdbc504f820ea904474b3e8e357e5cea5610b3cee05c654db293d5ccd316f966",
+          "runtime_version": "1",
+          "external_effects": false
+        },
+        "captured_runtime": {
+          "limits": {
+            "depth": 32,
+            "nodes": 512,
+            "steps": 10000,
+            "repeat": 1000,
+            "workBytes": 16777216,
+            "graphEdges": 10000,
+            "graphNodes": 1000,
+            "valueBytes": 1048576,
+            "arrayLength": 10000,
+            "sourceBytes": 65536
+          },
+          "runtime": "node",
+          "platform": "linux",
+          "interpreter": "purl-ir/1",
+          "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+          "architecture": "x64",
+          "dependencies": [
+            {
+              "name": "math.add",
+              "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+              "version": "1.0.0"
+            },
+            {
+              "name": "math.multiply",
+              "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+              "version": "1.0.0"
+            }
+          ],
+          "runtime_version": "v24.19.0"
+        }
+      },
+      "interpretation": "Historical immutable content is preserved, but strict execution replay rejects this current runtime. Node/runtime environment must match the captured trace; this is not a claim that old strict replay passed."
+    },
+    {
+      "label": "mission",
+      "execution_id": "execution_ca316abab0f9735f1990de8c",
+      "http_status": 200,
+      "overall_valid": false,
+      "program_valid": true,
+      "execution": {
+        "execution_id": "execution_ca316abab0f9735f1990de8c",
+        "valid": false,
+        "problem": "Deterministic result, trace or environment differs from recomputation"
+      },
+      "environment": {
+        "captured_build": {
+          "node": "24.19.0",
+          "network": false,
+          "runtime": "purl-bounded-interpreter",
+          "ir_version": "purl-ir/1",
+          "architecture": "x64",
+          "environment_id": "sha256:cdbc504f820ea904474b3e8e357e5cea5610b3cee05c654db293d5ccd316f966",
+          "runtime_version": "1",
+          "external_effects": false
+        },
+        "captured_runtime": {
+          "limits": {
+            "depth": 32,
+            "nodes": 512,
+            "steps": 10000,
+            "repeat": 1000,
+            "workBytes": 16777216,
+            "graphEdges": 10000,
+            "graphNodes": 1000,
+            "valueBytes": 1048576,
+            "arrayLength": 10000,
+            "sourceBytes": 65536
+          },
+          "runtime": "node",
+          "platform": "linux",
+          "interpreter": "purl-ir/1",
+          "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+          "architecture": "x64",
+          "dependencies": [
+            {
+              "name": "mission.inspect",
+              "digest": "sha256:ba4d120b87dd4e95881141f6af2ab42159b6db7dfd8d5c9d7c746df385718940",
+              "version": "1.0.0"
+            }
+          ],
+          "runtime_version": "v24.19.0"
+        }
+      },
+      "interpretation": "Historical immutable content is preserved, but strict execution replay rejects this current runtime. Node/runtime environment must match the captured trace; this is not a claim that old strict replay passed."
+    }
+  ],
+  "scope": "Original programs, executions, releases, checkpoints and artifacts migrated from local production-configured processes to public Railway using the same hosted authority. Historical strict replay outcome is recorded separately.",
+  "completed_at": "2026-10-18T15:01:53.021Z",
+  "summary": {
+    "checks": 38,
+    "passed": 38,
+    "failed": 0
+  }
+}

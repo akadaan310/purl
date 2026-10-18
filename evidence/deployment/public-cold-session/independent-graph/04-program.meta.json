@@ -1,0 +1,24 @@
+{
+  "requested_url": "https://purl-api-production.up.railway.app/api/programs/godseed-mission",
+  "resolved_url": "https://purl-api-production.up.railway.app/api/programs/godseed-mission",
+  "status": 200,
+  "headers": {
+    "cache-control": "no-store",
+    "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+    "content-type": "application/purl+json; charset=utf-8",
+    "date": "Sun, 18 Oct 2026 15:01:15 GMT",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "referrer-policy": "no-referrer",
+    "server": "envoy",
+    "vary": "Accept, Authorization",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-railway-request-id": "f-t3swdEShGevKRZCx5-qw",
+    "x-railway-edge": "lax1",
+    "x-hikari-trace": "lax1.v9kt",
+    "x-envoy-upstream-service-time": "1078",
+    "connection": "close",
+    "transfer-encoding": "chunked"
+  },
+  "retrieved_at": "2026-10-18T15:01:15Z"
+}

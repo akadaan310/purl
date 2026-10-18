@@ -9,9 +9,23 @@ clients even when broader permissive policies already exist.
 An existing public bucket with the same name causes the entire migration to
 fail; review that collision and make the intended bucket private before retrying.
 
+The additive upgrade `20261018152259_purl_skip_unchanged_projection_writes.sql`
+retains the same RPC signature, invoker permissions and transaction semantics.
+Both entity and audit projection upserts skip physical updates when JSON is
+unchanged. The original migration is byte-preserved. Real PostgreSQL regression
+records a failing baseline and passing upgrade in
+`evidence/infrastructure/projection-write-amplification/`; production application
+and unchanged-data/security checks are in
+`evidence/deployment/database-reliability/upgrade.json`. The hosted migration
+version is `20261018152346` (the bootstrap version is `20261018144237`), because
+the management connector assigns application timestamps independently of local
+filenames. Reconcile these names/versions before using CLI `db push` against this
+already migrated production project; do not attempt to reapply the bootstrap.
+
 ## Apply
 
-Use a dedicated project. Review the SQL and take the backup below before applying
+Prefer a dedicated project. The current hosted free quota required isolated, additive
+PURL resources in the existing healthy project. Review the SQL and take the backup below before applying
 it to an existing deployment. CLI usage was verified with `--help`; preserve an
 explicit project/database selector rather than relying on whichever project is
 currently linked.
@@ -102,6 +116,9 @@ the same Supabase authority. Oracle placement does not require a database migrat
 
 Local PostgreSQL verification covers SQL syntax, CAS, projections, read purity,
 RLS/grants and restrictive private-bucket policies. Local PostgREST verification
-covers the real adapter's HTTP/CAS path. Hosted Supabase backup/PITR restore,
-Storage HTTP semantics and cross-provider failover remain BLOCKED until dedicated
-project/deployment credentials and provider environments are available.
+covers the real adapter's HTTP/CAS path. Actual hosted Supabase REST/CAS, private Storage byte retrieval and hash checks,
+copy recovery, and an isolated document restore in the same project passed; see
+`evidence/deployment/hosted-backend/` and `evidence/deployment/hosted-storage/`.
+Public records and native strict replay also survived restarting both Railway
+services (`evidence/deployment/public-recovery/`). Cross-project disaster restore,
+backup/PITR recovery and cross-provider failover remain NOT_RUN.

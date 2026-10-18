@@ -1,0 +1,15 @@
+{"event":"ide_verified","device":"desktop","program_id":"program_dc8dacd0fe2d0f20f3b815d9","output":18}
+{"event":"route_verified","device":"desktop","path":"/","axe_violations":0,"no_overflow":true}
+{"event":"route_verified","device":"desktop","path":"/explore","axe_violations":0,"no_overflow":true}
+{"event":"route_verified","device":"desktop","path":"/create","axe_violations":0,"no_overflow":true}
+{"event":"route_verified","device":"desktop","path":"/p/godseed-mission","axe_violations":0,"no_overflow":true}
+{"event":"route_verified","device":"desktop","path":"/observatory","axe_violations":0,"no_overflow":true}
+{"event":"route_verified","device":"desktop","path":"/docs","axe_violations":0,"no_overflow":true}
+{"event":"ide_verified","device":"android-pixel5","program_id":"program_ceaaa669723de3c1d8bf0b3a","output":18}
+{"event":"route_verified","device":"android-pixel5","path":"/","axe_violations":0,"no_overflow":true}
+{"event":"route_verified","device":"android-pixel5","path":"/explore","axe_violations":0,"no_overflow":true}
+{"event":"route_verified","device":"android-pixel5","path":"/create","axe_violations":0,"no_overflow":true}
+{"event":"route_verified","device":"android-pixel5","path":"/p/godseed-mission","axe_violations":0,"no_overflow":true}
+{"event":"route_verified","device":"android-pixel5","path":"/observatory","axe_violations":0,"no_overflow":true}
+{"event":"route_verified","device":"android-pixel5","path":"/docs","axe_violations":0,"no_overflow":true}
+{"event":"public_browser_completed","status":"PASS","devices":[{"device":"desktop","status":"PASS"},{"device":"android-pixel5","status":"PASS"}],"throttles":0,"report":"evidence/deployment/public-ui/report.json"}

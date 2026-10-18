@@ -1,0 +1,137 @@
+{
+  "sequence": 2,
+  "name": "create-private-arithmetic",
+  "started_at": "2026-10-18T15:24:42.270537+00:00",
+  "duration_seconds": 5.107806,
+  "request": {
+    "method": "POST",
+    "url": "https://purl-api-production.up.railway.app/api/programs",
+    "headers": {
+      "Accept": "application/purl+json",
+      "Content-Type": "application/json",
+      "Authorization": "[REDACTED]",
+      "Idempotency-Key": "sql-reliability-1dcb0e580f6343e8b36e2014d137f3ac-create-private-arithmetic-098465ab0ba8bbd35f62"
+    },
+    "body": {
+      "title": "Post-SQL-upgrade bounded arithmetic reliability check",
+      "kind": "program",
+      "language": "purl",
+      "visibility": "private",
+      "source": "input number | math.add 2 | math.multiply 3",
+      "input_schema": {
+        "type": "number"
+      },
+      "output_schema": {
+        "type": "number"
+      },
+      "tests": [
+        {
+          "input": 4,
+          "expected": 18
+        },
+        {
+          "input": 0,
+          "expected": 6
+        },
+        {
+          "input": -2,
+          "expected": 0
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:24:47 GMT",
+      "location": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "OxNPZrWeT_GIFywLH4GxDA",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.x8wt",
+      "x-envoy-upstream-service-time": "5034",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "program": {
+        "id": "program_86b16e4b30d9121e9f30d9c5",
+        "title": "Post-SQL-upgrade bounded arithmetic reliability check",
+        "kind": "program",
+        "language": "purl",
+        "source": "input number | math.add 2 | math.multiply 3",
+        "source_revision": 1,
+        "version": 1,
+        "visibility": "private",
+        "owner": "principal_2850e90612eca2696e0777c0",
+        "created_at": "2026-10-18T15:24:43.726Z",
+        "updated_at": "2026-10-18T15:24:43.726Z",
+        "input_schema": {
+          "type": "number"
+        },
+        "output_schema": {
+          "type": "number"
+        },
+        "tests": [
+          {
+            "input": 4,
+            "expected": 18
+          },
+          {
+            "input": 0,
+            "expected": 6
+          },
+          {
+            "input": -2,
+            "expected": 0
+          }
+        ],
+        "builds": [],
+        "active_build": null,
+        "compilation": null,
+        "state": {},
+        "grants": [],
+        "checkpoints": [],
+        "proposals": [],
+        "releases": [],
+        "dependencies": [],
+        "lineage": null,
+        "url": "https://purl-api-production.up.railway.app/p/program_86b16e4b30d9121e9f30d9c5",
+        "manifest_url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/manifest",
+        "history_url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/history",
+        "continuity_url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/continuity",
+        "replay_url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/replay",
+        "authority": {
+          "authenticated": true,
+          "principal_id": "principal_2850e90612eca2696e0777c0",
+          "owner": true,
+          "rights": [
+            "read",
+            "edit",
+            "build",
+            "run",
+            "publish",
+            "checkpoint",
+            "propose",
+            "grant",
+            "play"
+          ]
+        },
+        "execution_policy": {
+          "kind": "bounded-pure",
+          "available": true
+        }
+      }
+    },
+    "raw_body": "{\"program\":{\"id\":\"program_86b16e4b30d9121e9f30d9c5\",\"title\":\"Post-SQL-upgrade bounded arithmetic reliability check\",\"kind\":\"program\",\"language\":\"purl\",\"source\":\"input number | math.add 2 | math.multiply 3\",\"source_revision\":1,\"version\":1,\"visibility\":\"private\",\"owner\":\"principal_2850e90612eca2696e0777c0\",\"created_at\":\"2026-10-18T15:24:43.726Z\",\"updated_at\":\"2026-10-18T15:24:43.726Z\",\"input_schema\":{\"type\":\"number\"},\"output_schema\":{\"type\":\"number\"},\"tests\":[{\"input\":4,\"expected\":18},{\"input\":0,\"expected\":6},{\"input\":-2,\"expected\":0}],\"builds\":[],\"active_build\":null,\"compilation\":null,\"state\":{},\"grants\":[],\"checkpoints\":[],\"proposals\":[],\"releases\":[],\"dependencies\":[],\"lineage\":null,\"url\":\"https://purl-api-production.up.railway.app/p/program_86b16e4b30d9121e9f30d9c5\",\"manifest_url\":\"https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/manifest\",\"history_url\":\"https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/history\",\"continuity_url\":\"https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/continuity\",\"replay_url\":\"https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/replay\",\"authority\":{\"authenticated\":true,\"principal_id\":\"principal_2850e90612eca2696e0777c0\",\"owner\":true,\"rights\":[\"read\",\"edit\",\"build\",\"run\",\"publish\",\"checkpoint\",\"propose\",\"grant\",\"play\"]},\"execution_policy\":{\"kind\":\"bounded-pure\",\"available\":true}}}"
+  },
+  "transport_error": null
+}

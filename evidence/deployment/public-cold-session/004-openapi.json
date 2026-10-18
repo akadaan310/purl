@@ -1,0 +1,1676 @@
+{
+  "sequence": 4,
+  "started_at": "2026-10-18T14:59:58Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/openapi",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 14:59:58 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "AAa8kA2XTZO4RM5QezItjw",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "145",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "openapi": "3.1.0",
+      "info": {
+        "title": "PURL",
+        "version": "0.2.0",
+        "description": "Discovery does not convey authority. All mutations are explicit POST requests with current grants and expected versions."
+      },
+      "servers": [
+        {
+          "url": "/"
+        }
+      ],
+      "components": {
+        "securitySchemes": {
+          "bearer": "[REDACTED]"
+        }
+      },
+      "paths": {
+        "/.well-known/purl": {
+          "get": {
+            "summary": "Discover service, SDK, templates, operators and mission",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/session": {
+          "post": {
+            "summary": "Create a self-declared principal",
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          },
+          "get": {
+            "summary": "Inspect authenticated principal",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs": {
+          "get": {
+            "summary": "List visible programs",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          },
+          "post": {
+            "summary": "Create a typed program or authored performer",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}": {
+          "get": {
+            "summary": "Read visible program source and state",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/openapi": {
+          "get": {
+            "summary": "Read this API description",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/manifest": {
+          "get": {
+            "summary": "Read manifest",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/history": {
+          "get": {
+            "summary": "Read history",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/continuity": {
+          "get": {
+            "summary": "Read continuity",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/replay": {
+          "get": {
+            "summary": "Read replay",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/diff": {
+          "get": {
+            "summary": "Read diff",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/mission": {
+          "get": {
+            "summary": "Read mission",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          },
+          "post": {
+            "summary": "mission",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/source": {
+          "post": {
+            "summary": "source",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/compile": {
+          "post": {
+            "summary": "compile",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/build": {
+          "post": {
+            "summary": "build",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/run": {
+          "post": {
+            "summary": "run",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/publish": {
+          "post": {
+            "summary": "publish",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/fork": {
+          "post": {
+            "summary": "fork",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/checkpoint": {
+          "post": {
+            "summary": "checkpoint",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/propose": {
+          "post": {
+            "summary": "propose",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/commit": {
+          "post": {
+            "summary": "commit",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/grants": {
+          "post": {
+            "summary": "grants",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/revoke": {
+          "post": {
+            "summary": "revoke",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/join": {
+          "post": {
+            "summary": "join",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/programs/{id}/move": {
+          "post": {
+            "summary": "move",
+            "security": [
+              {
+                "bearer": "[REDACTED]"
+              }
+            ],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "expected_version": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "input": {},
+                      "source": {},
+                      "summary": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "expected_version"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/executions/{id}": {
+          "get": {
+            "summary": "Read authorized executions",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/artifacts/{id}": {
+          "get": {
+            "summary": "Read authorized artifacts",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        },
+        "/api/releases/{id}": {
+          "get": {
+            "summary": "Read authorized releases",
+            "responses": {
+              "200": {
+                "description": "Successful read",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Insufficient current authority"
+              },
+              "409": {
+                "description": "Version or idempotency conflict"
+              },
+              "422": {
+                "description": "Schema, build or runtime contract rejected"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

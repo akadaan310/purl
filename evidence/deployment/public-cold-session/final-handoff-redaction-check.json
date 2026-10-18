@@ -1,0 +1,5 @@
+{
+  "issued_bearer_present_in_evidence_files": false,
+  "bearer_in_urls": false,
+  "method": "Compared memory-only new credential against all files in own public-cold-session directory; no credential printed."
+}

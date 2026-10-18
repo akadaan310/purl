@@ -1,0 +1,6 @@
+Indexing...
+Uploading...
+  Deployment: https://railway.com/project/7b6d6969-ebfe-4823-ac60-6370fb068458/service/5ed93f79-e12c-4cb6-a835-b3158e8da5af?id=928c065e-5373-4683-82be-c8b6a0d68f2c
+
+This session is missing Railway's agent tooling. That includes Railway skills (use-railway) and the Railway MCP server, which provides tooling for deployments, logs, status, and docs.
+Setup: `railway setup agent`

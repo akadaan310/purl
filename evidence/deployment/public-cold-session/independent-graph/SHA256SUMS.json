@@ -1,0 +1,18 @@
+{
+  "01-entry.body": "12fba55e79522225e795cfd21777bcc6e4b352bd23a87a5b8718b3eb91ac9071",
+  "01-entry.meta.json": "1bceaddc5537598145c7ddfd19f0fdd1de331370bd15eceb35f2c3966a47ffee",
+  "02-manifest.json": "7df58ed514b364052f30e49cf2dc3712135ada68482bb2dde7d4069ff316cb6c",
+  "02-manifest.meta.json": "c829a5c62255b144fdbade42a4599eccbf7f81e1b9c424d815e1ce1386b5739f",
+  "03-mission-manifest.json": "1658597921181232df60d6f5603e5ae448f85db72cfdd08fc160f36bb9bce7a9",
+  "03-mission-manifest.meta.json": "065e1be9ffa741b6cb70ebd421c2f13f40e7dde8cd907a4f6df3afa885e009f8",
+  "04-program.json": "47883d49701121bfe70697a3a5cae62c39a18422790033a5c70690a301b0b00d",
+  "04-program.meta.json": "488e7927e755acfe12cc6f76dc36b29ac7870aad262608a022c063067a327bad",
+  "05-operators.json": "69c4520b6f82140405a34945fbc185f3376864d7bc2187041eda220958d1e190",
+  "05-operators.meta.json": "2f79dd8c399f4ef705d1ddc8215b13d3abdda594c5607d0aa9b7d295f6a795b2",
+  "REPORT.md": "de43b2d4e610d92fdb57f4bca46847d4e9e7f5681a4f6649f1bd2bd9092503eb",
+  "analysis.json": "221f04b122ccb50dc4656327edc95dd980cbacc88cdf4dfd8b76997e54f52148",
+  "analyze.py": "10f9d23bf53cc3f77326d77922e5c357ca2ff53b553686ca66bddc08c8907c13",
+  "graph.json": "f4199027e9765972edd904fd6f2633befaae2bc333dc32d0287e4ba1e5d331ce",
+  "node-status-dependencies.json": "c825b694905a4c8c82f4e488079a1dae914fb9c5ee6967936650282e7e2d8fad",
+  "source.purl": "a6901f40b81e444894158e828aa111c4de8bdfa40c53b0a3004870f0bb8c38a9"
+}

@@ -1,0 +1,399 @@
+{
+  "schema": "purl.public-browser-verification/1",
+  "started_at": "2026-10-18T15:01:44.041Z",
+  "base_url": "https://purl-api-production.up.railway.app",
+  "source_revision": "0670baddefba9635af8fc71c3b96c85960227315",
+  "execution_class": "LIVE_PUBLIC_RAILWAY_API_AND_WORKER",
+  "browser": "156.0.8078.4",
+  "devices": [
+    {
+      "device": "desktop",
+      "status": "PASS",
+      "started_at": "2026-10-18T15:01:44.082Z",
+      "page_errors": [],
+      "console_errors": [],
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+      "clipboard": {
+        "status": "PASS",
+        "canonical_url": "https://purl-api-production.up.railway.app/p/godseed-mission",
+        "surface_pointer_type": "mouse",
+        "native_clipboard": true,
+        "enter": true,
+        "space": true,
+        "surface_preserved_navigation": true,
+        "open_url": "https://purl-api-production.up.railway.app/p/godseed-mission",
+        "open_preserved_clipboard_sentinel": true,
+        "denial": {
+          "method": "Chromium Browser.setPermission: native read/write denial",
+          "permission_state": {
+            "write": "denied",
+            "read": "denied"
+          },
+          "selected_manual_url": "https://purl-api-production.up.railway.app/p/math-demo",
+          "selected_character_count": 54,
+          "screenshot": "clipboard-denial-desktop.png"
+        }
+      },
+      "ide": {
+        "status": "PASS",
+        "visibility": "private",
+        "program_id": "program_dc8dacd0fe2d0f20f3b815d9",
+        "program_url": "https://purl-api-production.up.railway.app/p/program_dc8dacd0fe2d0f20f3b815d9",
+        "compile_ok": true,
+        "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+        "build_id": "build_69d04d25f117ee73d8d017aa",
+        "build_status": "passed",
+        "declared_tests": 1,
+        "passed_tests": 1,
+        "execution_id": "execution_6e27b880c4cf2cd77df49e2b",
+        "worker_status": "succeeded",
+        "output": 18,
+        "worker_completion_observed_ms": 12144,
+        "artifact_id": "artifact_2f507bd5b7596213f0cfd965",
+        "release_id": "release_d3bf04270486ba9668978cc8",
+        "release_url": "https://purl-api-production.up.railway.app/api/releases/release_d3bf04270486ba9668978cc8",
+        "release_immutable": true,
+        "checkpoint_id": "checkpoint_13add3f0a1bbb7a7a0b4d4f9",
+        "checkpoint_version": 6,
+        "graph_nodes": 3,
+        "history_contains_checkpoint": true,
+        "screenshot": "ide-desktop.png"
+      },
+      "routes": [
+        {
+          "path": "/",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 282,
+            "response_ms": 269.40000000037253,
+            "load_ms": 283.70000000018626,
+            "first_contentful_paint_ms": 292,
+            "resource_transfer_bytes": 286637,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "document_width": 1440
+          },
+          "screenshots": [
+            "landing-desktop.png"
+          ]
+        },
+        {
+          "path": "/explore",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 270,
+            "response_ms": 261.29999999981374,
+            "load_ms": 271.20000000018626,
+            "first_contentful_paint_ms": 288,
+            "resource_transfer_bytes": 286637,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "document_width": 1440
+          },
+          "screenshots": []
+        },
+        {
+          "path": "/create",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 595.7999999998137,
+            "response_ms": 275.90000000037253,
+            "load_ms": 600,
+            "first_contentful_paint_ms": 616,
+            "resource_transfer_bytes": 408484,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "document_width": 1440
+          },
+          "screenshots": []
+        },
+        {
+          "path": "/p/godseed-mission",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 277.20000000018626,
+            "response_ms": 269.5,
+            "load_ms": 278.1000000005588,
+            "first_contentful_paint_ms": 296,
+            "resource_transfer_bytes": 367639,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "document_width": 1440
+          },
+          "screenshots": [
+            "mission-desktop.png"
+          ]
+        },
+        {
+          "path": "/observatory",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 287.29999999981374,
+            "response_ms": 267.8999999994412,
+            "load_ms": 288.09999999962747,
+            "first_contentful_paint_ms": 292,
+            "resource_transfer_bytes": 286671,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "document_width": 1440
+          },
+          "screenshots": []
+        },
+        {
+          "path": "/docs",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 285.90000000037253,
+            "response_ms": 277.09999999962747,
+            "load_ms": 289.90000000037253,
+            "first_contentful_paint_ms": 312,
+            "resource_transfer_bytes": 286671,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 1440,
+              "height": 1000
+            },
+            "document_width": 1440
+          },
+          "screenshots": []
+        }
+      ],
+      "completed_at": "2026-10-18T15:03:04.804Z"
+    },
+    {
+      "device": "android-pixel5",
+      "status": "PASS",
+      "started_at": "2026-10-18T15:03:04.809Z",
+      "page_errors": [],
+      "console_errors": [],
+      "user_agent": "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+      "clipboard": {
+        "status": "PASS",
+        "canonical_url": "https://purl-api-production.up.railway.app/p/godseed-mission",
+        "surface_pointer_type": "touch",
+        "native_clipboard": true,
+        "enter": true,
+        "space": true,
+        "surface_preserved_navigation": true,
+        "open_url": "https://purl-api-production.up.railway.app/p/godseed-mission",
+        "open_preserved_clipboard_sentinel": true,
+        "denial": {
+          "method": "Chromium Browser.setPermission: native read/write denial",
+          "permission_state": {
+            "write": "denied",
+            "read": "denied"
+          },
+          "selected_manual_url": "https://purl-api-production.up.railway.app/p/math-demo",
+          "selected_character_count": 54,
+          "screenshot": "clipboard-denial-android-pixel5.png"
+        }
+      },
+      "ide": {
+        "status": "PASS",
+        "visibility": "private",
+        "program_id": "program_ceaaa669723de3c1d8bf0b3a",
+        "program_url": "https://purl-api-production.up.railway.app/p/program_ceaaa669723de3c1d8bf0b3a",
+        "compile_ok": true,
+        "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+        "build_id": "build_62ca6ff29cfcb02f17bb8a6e",
+        "build_status": "passed",
+        "declared_tests": 1,
+        "passed_tests": 1,
+        "execution_id": "execution_2c1d4a211111b3d721b80977",
+        "worker_status": "succeeded",
+        "output": 18,
+        "worker_completion_observed_ms": 33613,
+        "artifact_id": "artifact_660136c6682656ef595c90f4",
+        "release_id": "release_af526e0b793fbbb382566d92",
+        "release_url": "https://purl-api-production.up.railway.app/api/releases/release_af526e0b793fbbb382566d92",
+        "release_immutable": true,
+        "checkpoint_id": "checkpoint_a839247a4dee0e539164c12c",
+        "checkpoint_version": 6,
+        "graph_nodes": 3,
+        "history_contains_checkpoint": true,
+        "screenshot": "ide-android-pixel5.png"
+      },
+      "routes": [
+        {
+          "path": "/",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 569.8999999994412,
+            "response_ms": 275.5,
+            "load_ms": 572,
+            "first_contentful_paint_ms": 564,
+            "resource_transfer_bytes": 410967,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 393,
+              "height": 727
+            },
+            "document_width": 393
+          },
+          "screenshots": [
+            "landing-android-pixel5.png"
+          ]
+        },
+        {
+          "path": "/explore",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 275.20000000018626,
+            "response_ms": 264.30000000074506,
+            "load_ms": 276.70000000018626,
+            "first_contentful_paint_ms": 288,
+            "resource_transfer_bytes": 289120,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 393,
+              "height": 727
+            },
+            "document_width": 393
+          },
+          "screenshots": []
+        },
+        {
+          "path": "/create",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 295.40000000037253,
+            "response_ms": 282.09999999962747,
+            "load_ms": 298.20000000018626,
+            "first_contentful_paint_ms": 304,
+            "resource_transfer_bytes": 289120,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 393,
+              "height": 727
+            },
+            "document_width": 393
+          },
+          "screenshots": []
+        },
+        {
+          "path": "/p/godseed-mission",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 286.3999999994412,
+            "response_ms": 273.79999999981374,
+            "load_ms": 286.8999999994412,
+            "first_contentful_paint_ms": 288,
+            "resource_transfer_bytes": 370088,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 393,
+              "height": 727
+            },
+            "document_width": 393
+          },
+          "screenshots": [
+            "mission-android-pixel5.png"
+          ]
+        },
+        {
+          "path": "/observatory",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 299.5,
+            "response_ms": 288.5,
+            "load_ms": 300.59999999962747,
+            "first_contentful_paint_ms": 316,
+            "resource_transfer_bytes": 289120,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 393,
+              "height": 727
+            },
+            "document_width": 393
+          },
+          "screenshots": []
+        },
+        {
+          "path": "/docs",
+          "status": "PASS",
+          "no_horizontal_overflow": true,
+          "axe_violations": [],
+          "performance": {
+            "dom_content_loaded_ms": 291.6000000005588,
+            "response_ms": 281.5,
+            "load_ms": 295.30000000074506,
+            "first_contentful_paint_ms": 300,
+            "resource_transfer_bytes": 289120,
+            "reduced_motion": true,
+            "viewport": {
+              "width": 393,
+              "height": 727
+            },
+            "document_width": 393
+          },
+          "screenshots": []
+        }
+      ],
+      "completed_at": "2026-10-18T15:05:16.521Z"
+    }
+  ],
+  "throttles": [],
+  "status": "PASS",
+  "credentials_persisted": false,
+  "limitations": [
+    "Android checks use Chromium Pixel 5 emulation, not a physical handset.",
+    "Performance values are single-browser navigation samples, not a load test.",
+    "Native clipboard permissions are explicitly granted for positive checks and denied for the fallback check."
+  ],
+  "completed_at": "2026-10-18T15:05:16.547Z",
+  "http_responses_recorded": 147,
+  "http_summary": {
+    "responses": 147,
+    "post_requests": 14,
+    "http_errors": 0,
+    "rate_limited_responses": 0
+  },
+  "service_discovery": {
+    "protocol": "PURL/0.2",
+    "status": "LIVE",
+    "persistence": "supabase",
+    "arbitrary_code_execution": false
+  },
+  "credential_audit": {
+    "bearer_token_pattern_matches": 0,
+    "authorization_headers_logged": false,
+    "session_tokens_redacted": true
+  }
+}

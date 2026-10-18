@@ -1,0 +1,98 @@
+{
+  "sequence": 9,
+  "name": "execution-poll-1",
+  "started_at": "2026-10-18T15:25:33.434000+00:00",
+  "duration_seconds": 8.436443,
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/executions/execution_5ccf7ab979e35929250fc697",
+    "headers": {
+      "Accept": "application/purl+json",
+      "Authorization": "[REDACTED]"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:25:41 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "qWXwpverQlmWuStDg4a9AQ",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "8370",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "execution": {
+        "id": "execution_5ccf7ab979e35929250fc697",
+        "logs": [
+          {
+            "at": "2026-10-18T15:25:19.733Z",
+            "level": "info",
+            "message": "Execution durably queued"
+          }
+        ],
+        "seed": 7,
+        "error": null,
+        "input": 4,
+        "lease": null,
+        "value": null,
+        "status": "queued",
+        "effects": [],
+        "receipt": null,
+        "attempts": 0,
+        "build_id": "build_323dfa5f5e9be122a824b034",
+        "input_id": "sha256:4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+        "artifacts": [],
+        "created_at": "2026-10-18T15:25:19.733Z",
+        "program_id": "program_86b16e4b30d9121e9f30d9c5",
+        "started_at": null,
+        "environment": {
+          "node": "22.14.0",
+          "network": false,
+          "runtime": "purl-bounded-interpreter",
+          "ir_version": "purl-ir/1",
+          "architecture": "x64",
+          "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+          "runtime_version": "1",
+          "external_effects": false
+        },
+        "completed_at": null,
+        "dependencies": [],
+        "requested_by": "principal_2850e90612eca2696e0777c0",
+        "authorization": {
+          "via": "owner",
+          "grant": null,
+          "rights": [
+            "read",
+            "edit",
+            "build",
+            "run",
+            "publish",
+            "checkpoint",
+            "propose",
+            "grant",
+            "play"
+          ]
+        },
+        "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+        "nondeterminism": [],
+        "program_version": 3,
+        "source_revision": 1,
+        "build_content_id": "sha256:98b8112717af6dfe88b54210bb8c75b826d3ab51e5be78c6aab4901001770dae"
+      }
+    },
+    "raw_body": "{\"execution\":{\"id\":\"execution_5ccf7ab979e35929250fc697\",\"logs\":[{\"at\":\"2026-10-18T15:25:19.733Z\",\"level\":\"info\",\"message\":\"Execution durably queued\"}],\"seed\":7,\"error\":null,\"input\":4,\"lease\":null,\"value\":null,\"status\":\"queued\",\"effects\":[],\"receipt\":null,\"attempts\":0,\"build_id\":\"build_323dfa5f5e9be122a824b034\",\"input_id\":\"sha256:4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a\",\"artifacts\":[],\"created_at\":\"2026-10-18T15:25:19.733Z\",\"program_id\":\"program_86b16e4b30d9121e9f30d9c5\",\"started_at\":null,\"environment\":{\"node\":\"22.14.0\",\"network\":false,\"runtime\":\"purl-bounded-interpreter\",\"ir_version\":\"purl-ir/1\",\"architecture\":\"x64\",\"environment_id\":\"sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd\",\"runtime_version\":\"1\",\"external_effects\":false},\"completed_at\":null,\"dependencies\":[],\"requested_by\":\"principal_2850e90612eca2696e0777c0\",\"authorization\":{\"via\":\"owner\",\"grant\":null,\"rights\":[\"read\",\"edit\",\"build\",\"run\",\"publish\",\"checkpoint\",\"propose\",\"grant\",\"play\"]},\"environment_id\":\"sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd\",\"nondeterminism\":[],\"program_version\":3,\"source_revision\":1,\"build_content_id\":\"sha256:98b8112717af6dfe88b54210bb8c75b826d3ab51e5be78c6aab4901001770dae\"}}"
+  },
+  "transport_error": null
+}

@@ -1,0 +1,5 @@
+{
+  "issued_bearer_in_any_evidence_file": false,
+  "token_in_urls": false,
+  "storage": "Memory only; cleared at process end."
+}

@@ -1,0 +1,2668 @@
+{
+  "sequence": 11,
+  "started_at": "2026-10-18T15:15:07Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2",
+    "headers": {
+      "Accept": "application/purl+json",
+      "Authorization": "[REDACTED]"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:15:09 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "PDjn8V6uRcaaruKIc9o55Q",
+      "x-railway-edge": "lax1",
+      "x-hikari-trace": "lax1.v9kt",
+      "x-envoy-upstream-service-time": "2097",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "program": {
+        "id": "program_ad56405463bfaa72e9bbddf2",
+        "kind": "mission",
+        "owner": "principal_77cf203e2fec52edbdcd06a8",
+        "state": {
+          "next": [
+            "Inspect the manifest",
+            "Read reconstruction and formal-contract nodes",
+            "Fork with your own authority",
+            "Attach evidence through checkpoints"
+          ],
+          "graph": {
+            "edges": [
+              {
+                "to": "reconstruction",
+                "from": "mission",
+                "relation": "requires"
+              },
+              {
+                "to": "formal-contract",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "features",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "cinematic-design",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "experiments",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "infrastructure",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "work-plan",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "deliverables",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "execution",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-1",
+                "from": "feature-3",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-1",
+                "from": "feature-8",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-2",
+                "from": "formal-contract",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-3",
+                "from": "formal-contract",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-4",
+                "from": "feature-1",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-4",
+                "from": "feature-3",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-5",
+                "from": "feature-2",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-5",
+                "from": "feature-3",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-5",
+                "from": "feature-9",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-6",
+                "from": "feature-3",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-7",
+                "from": "feature-3",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-8",
+                "from": "feature-2",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-9",
+                "from": "infrastructure",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-9",
+                "from": "feature-8",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-10",
+                "from": "feature-3",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-10",
+                "from": "feature-8",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-11",
+                "from": "feature-2",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-11",
+                "from": "feature-8",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-12",
+                "from": "feature-8",
+                "relation": "requires"
+              },
+              {
+                "to": "feature-12",
+                "from": "feature-9",
+                "relation": "requires"
+              },
+              {
+                "to": "E01",
+                "from": "feature-3",
+                "relation": "requires"
+              },
+              {
+                "to": "E02",
+                "from": "feature-3",
+                "relation": "requires"
+              },
+              {
+                "to": "E03",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "E03",
+                "from": "feature-3",
+                "relation": "requires"
+              },
+              {
+                "to": "E04",
+                "from": "feature-7",
+                "relation": "requires"
+              },
+              {
+                "to": "E05",
+                "from": "feature-5",
+                "relation": "requires"
+              },
+              {
+                "to": "E06",
+                "from": "feature-2",
+                "relation": "requires"
+              },
+              {
+                "to": "E06",
+                "from": "feature-9",
+                "relation": "requires"
+              },
+              {
+                "to": "E07",
+                "from": "feature-11",
+                "relation": "requires"
+              },
+              {
+                "to": "E08",
+                "from": "feature-10",
+                "relation": "requires"
+              },
+              {
+                "to": "E09",
+                "from": "feature-10",
+                "relation": "requires"
+              },
+              {
+                "to": "E09",
+                "from": "feature-11",
+                "relation": "requires"
+              },
+              {
+                "to": "E10",
+                "from": "feature-1",
+                "relation": "requires"
+              },
+              {
+                "to": "E10",
+                "from": "feature-4",
+                "relation": "requires"
+              },
+              {
+                "to": "E10",
+                "from": "feature-8",
+                "relation": "requires"
+              },
+              {
+                "to": "E10",
+                "from": "feature-9",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-readme",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-architecture",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-formal-semantics",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-language-spec",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-sdk",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-nomenclature",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-constitution",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-security",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-deployment",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-reconstruction",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-migrations",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-experiments",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-acceptance-json",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-program-graph-json",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-handoff-json",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-playwright-screenshots",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-example-purls",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-build-hashes",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "artifact-deployed-url",
+                "from": "reconstruction",
+                "relation": "requires"
+              },
+              {
+                "to": "deployment-amendment",
+                "from": "infrastructure",
+                "relation": "requires"
+              }
+            ],
+            "nodes": [
+              {
+                "id": "mission",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/mission",
+                "text": "Canonical name **PURL (P-U-R-L), Programmable URLs**, pronounced pearl. Build the fully functional public PURL service and AI-native computational programming environment. One integrated mission: product, compiler, SDK, persistent continuity, sandbox runtime, mathematical instrumentation, 10 experiments, gorgeous public UI, and end-to-end deployment where authorized. Do not stop at research, a plan, static screenshots, or a toy MVP. Preserve historical projects; no Golden Surface/Netscape dependency. A PURL is an addressable executable program with state, transitions, authority, history, and discoverable operations.",
+                "type": "directive-section",
+                "tests": [
+                  {
+                    "id": "mission:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Mission and naming",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "reconstruction",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/reconstruction",
+                "text": "Inspect actual branches, code, specs, tests and deployments for https://github.com/akadaan310/purl, https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet (ACSP), https://github.com/akadaan310/seurl and https://github.com/akadaan310/substrateIO. Read the **original mathematicians' handoff included in `reference/math_handoff/`**. Do not accept claims without checking source and proof status. Reconcile duplicated definitions, migration collisions and deployment versions. Make PURL the public language/namespace; ACSP supplies continuity and authority semantics; SubstrateIO supplies transition mathematics, observation and projections; SEURL's seven verbs START, SWITCH, WRITE, COMMIT, BUILD, TALK, PERTURB are historical candidate grammar primitives/macros and must be compared, not blindly imported. Produce a source-grounded reconstruction and compatibility matrix.",
+                "type": "directive-section",
+                "tests": [
+                  {
+                    "id": "reconstruction:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Existing systems \u2014 reconstruct before changing",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "mission"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "formal-contract",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/formal-contract",
+                "text": "Typed configurations <program, state, environment, authority> with transitions labelled by operation and effects. Parse \u2192 typed term \u2192 effect/capability check \u2192 normalized execution plan \u2192 execute \u2192 observe \u2192 artifact \u2192 checkpoint. Distinguish pure, local effect, external read, external mutation. GET must not cause durable effects. Distinguish address_id, derivation_id, value_id, content_id, environment_id, build_id, execution_id, and principal/session identity. Hash equality is not semantic equivalence or authenticity. A transition projection \u03c0 can compile deterministically only when projected-equivalent states have compatible operation definedness/effects and equal projected successors. Produce a counterexample witness otherwise. Replay records capture inputs, seeds, dependencies, versions, environment, nondeterminism and effects. Test binary toggles and 007 cycles without pretending finite-state toggles contain infinite information. Treat the independent research as evidence to verify, not proof of every production claim.",
+                "type": "directive-section",
+                "tests": [
+                  {
+                    "id": "formal-contract:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Formal computational contract",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "features",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/features",
+                "text": "1. Public landing, Create/Explore/Program Detail/Workspace/IDE/Observatory/Docs with readable and machine-readable manifests. Beautiful mobile/desktop UI, not an admin dashboard.\n2. Human accounts, optional guests, principals, claimed AI identities, capabilities, grants, public/private/unlisted resources, session continuation, proposals, checkpoint/replay and scoped authority.\n3. PURL-native typed programming grammar: operations, composition, branching, bounded repetition, pure computations, explicit effects, versioned IR and a compiler with understandable diagnostics.\n4. AI-first IDE: source editor, program graph, templates, typed errors, test runner, build/run, logs, artifact browser, diff, fork, publish, history and observatory. SDK must be discoverable through PURL alone.\n5. AI self-extension: identify missing capability \u2192 author Python/JavaScript/TypeScript (Julia/Octave adapters where available) \u2192 define schemas/tests \u2192 sandbox build/run \u2192 publish personal reusable program \u2192 return immutable PURL \u2192 second AI discovers/reuses/forks. Shared registry promotion gated by actual authority and checks.\n6. Nano/micro performer library: typed inputs/outputs, requirements, effects, determinism, dependencies, version, provenance and tests. Start with strong primitives for math, JSON, strings, graph, parsing, state machines, artifacts, build/test, games. No fake thousands-of-packages claim.\n7. SubstrateIO transition-to-program compiler: produce executable replayable programs from sufficient pure typed traces; reject underdetermined/effectful histories with explicit reasons. Preserve history as first-class addressable data.\n8. Persistent Supabase/Postgres schema: users, workspaces, principals, grants, programs, versions, transitions, proposals, executions, checkpoints, blobs, research artifacts, provenance, logs. Migrations, RLS, indices, backups and rollback. Immutable objects in Storage.\n9. Oracle ARM VM computational worker: **inventory first, never wipe**. Sandboxed, quota-bound job queue with Python, JS/TS, Julia/Octave and graph/compiler tools as feasible; record architecture, versions, resources, logs and result artifacts. No unrestricted public shell or ambient cloud credentials. If safe isolation isn't achievable, block public arbitrary code execution and document that limitation honestly.\n10. Real examples: computational workspace, diagnostic PURL, tic-tac-toe multiplayer PURL with backend-validated turns, mathematical program, and a **God-seed mission PURL** containing this entire directive as typed mission graph with dependencies, operations, tests, checkpoints and completion predicates.\n11. Cross-session protocol: fresh AI given one PURL discovers allowed operations, reads state, proposes or executes according to actual access, and another session reconstructs. Browser-read-only clients get prepare links rather than pretend mutations. No unauthorized third-party automation.\n12. Observability: streaming/polling job states, execution graph, program dependencies, traces, errors, capability checks, evidence, provenance and reproducibility. Label LIVE, FIXTURE, SIMULATED and UNAVAILABLE honestly.",
+                "type": "directive-section",
+                "tests": [
+                  {
+                    "id": "features:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Complete feature set",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "cinematic-design",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/cinematic-design",
+                "text": "Premium minimalist glass-like depth, strong editorial typography, generous negative space, subtle dynamic color, elegant motion, exceptional Android portrait and desktop, accessible contrast, reduced motion, fast load. Do not copy Apple proprietary assets. Every PURL has an expressive **capsule** with its own visual identity derived from kind, state and program semantics; consistency of interaction across all capsules. **Click/tap anywhere on the entire capsule copies the canonical URL** and gives clear feedback. Keyboard Enter/Space also copies. Provide a separate accessible Open/Inspect control; don't confuse navigation with copying. Handle clipboard denial gracefully. Test copy, touch, keyboard, screen reader, visual identity, mobile overflow and performance. Deliver real Playwright screenshots and visual regression evidence.",
+                "type": "directive-section",
+                "tests": [
+                  {
+                    "id": "cinematic-design:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Cinematic design contract",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "experiments",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/experiments",
+                "text": "E01 Identity: same value/different address/derivation; stable canonical hashing and no accidental equivalence.\nE02 Grammar: parse/type/compose/normalize; valid/invalid operations, effect and capability errors, deterministic pure results.\nE03 SEURL reconciliation: measure seven-verb mappings against actual PURL grammar; preserve lossy cases and reject false equivalences.\nE04 SubstrateIO projection: construct positive replay and negative noncongruent projection counterexample; compiler must reject unsound trace.\nE05 AI-authored program: author/test/build/publish Python or JS and reuse in independent session via PURL.\nE06 Security: sandbox file/network/process escape attempts, SSRF, forged principal, revoked grant, stale version, idempotency.\nE07 Continuity: sessions A/B/C read/propose/commit/reconstruct with proper authority; mark simulated if not truly independent.\nE08 Game: multiplayer tic-tac-toe through URLs, backend validates turns, handles races, replays after restart.\nE09 God-seed PURL: encode this mission as typed executable graph, navigate it from fresh session, produce checkpoint and compare with plain text URL.\nE10 Cold rebuild + UI: clean checkout/migrations/worker/app, full Playwright flow, click-anywhere capsule copy, IDE compile/run, persistence, replay, screenshots, responsive accessibility and measured performance.\nFor each: hypothesis, controls, exact source revision, metrics, falsification threshold, scripts, negative evidence, and machine-readable results. Preserve failed runs.",
+                "type": "directive-section",
+                "tests": [
+                  {
+                    "id": "experiments:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Ten required pre-registered experiments",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "infrastructure",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/infrastructure",
+                "text": "Vercel public web/control plane; Supabase auth/database/storage; Oracle isolated workers; optional graph projections in Postgres first, Neo4j only if justified. No destructive cleanup without approval. No raw tokens in repos or URLs. Strong SSRF protection, rate limits, CSRF/XSS defense, safe dependency policy, CPU/RAM/time quotas, no default network access for untrusted code, user-scoped permissions, audit trails. Constitutional validity does not replace authority. Existing live ACSP data cannot be mutated without explicit authorization. Third-party AI platforms only via supported APIs or human-mediated URL transfer.",
+                "type": "directive-section",
+                "tests": [
+                  {
+                    "id": "infrastructure:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Infrastructure and security",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "work-plan",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/work-plan",
+                "text": "Reconnaissance and source-of-truth matrix \u2192 contracts/migrations \u2192 minimal running vertical slice \u2192 parser/IR/compiler \u2192 continuity \u2192 sandbox/queue \u2192 SDK/IDE \u2192 transition compiler \u2192 beautiful public UI and capsules \u2192 ten experiments \u2192 security adversarial suite \u2192 cold reconstruction \u2192 deploy/smoke test \u2192 evidence report. Continuously dogfood the actual PURL product to author, compile, test, publish and resume its own components. Prefer testable working software to speculative prose. Use subagents only with isolated ownership and verified integration.",
+                "type": "directive-section",
+                "tests": [
+                  {
+                    "id": "work-plan:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Work plan",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "deliverables",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/deliverables",
+                "text": "README, ARCHITECTURE, FORMAL_SEMANTICS, LANGUAGE_SPEC, SDK, NOMENCLATURE, CONSTITUTION, SECURITY, DEPLOYMENT, RECONSTRUCTION, MIGRATIONS, EXPERIMENTS, ACCEPTANCE.json, PROGRAM_GRAPH.json, handoff.json, Playwright screenshots, code, tests, example PURLs, build hashes, deployed URL (only if actually deployed), and exact blockers. End with PASS/FAIL/BLOCKED/NOT_RUN per feature and experiment; never claim successful production deployment or independent cross-provider test without proof.",
+                "type": "directive-section",
+                "tests": [
+                  {
+                    "id": "deliverables:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Required delivery artifacts",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "execution",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/execution",
+                "text": "Begin immediately after reading the bundled research and inspecting the repos. Design your own mathematical and systems harness while preserving these invariants. Don't stop at planning; execute, test, correct, and finish. Routine local changes are authorized; ask before destructive or consequential external actions. Deliver an end-to-end product and an honest evidence trail.",
+                "type": "directive-section",
+                "tests": [
+                  {
+                    "id": "execution:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Execution directive",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-1",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-1",
+                "text": "Public landing, Create/Explore/Program Detail/Workspace/IDE/Observatory/Docs with readable and machine-readable manifests. Beautiful mobile/desktop UI, not an admin dashboard.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-1:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 1: Public landing, Create/Explore/Program Detail/Workspace/IDE/Observatory/Docs with readable and machine-readable manifests",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-3",
+                  "feature-8"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-2",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-2",
+                "text": "Human accounts, optional guests, principals, claimed AI identities, capabilities, grants, public/private/unlisted resources, session continuation, proposals, checkpoint/replay and scoped authority.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-2:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 2: Human accounts, optional guests, principals, claimed AI identities, capabilities, grants, public/private/unlisted resources, session continuation, proposals, checkpoint/replay and scoped authority",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "formal-contract"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-3",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-3",
+                "text": "PURL-native typed programming grammar: operations, composition, branching, bounded repetition, pure computations, explicit effects, versioned IR and a compiler with understandable diagnostics.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-3:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 3: PURL-native typed programming grammar: operations, composition, branching, bounded repetition, pure computations, explicit effects, versioned IR and a compiler with understandable diagnostics",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "formal-contract"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-4",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-4",
+                "text": "AI-first IDE: source editor, program graph, templates, typed errors, test runner, build/run, logs, artifact browser, diff, fork, publish, history and observatory. SDK must be discoverable through PURL alone.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-4:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 4: AI-first IDE: source editor, program graph, templates, typed errors, test runner, build/run, logs, artifact browser, diff, fork, publish, history and observatory",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-1",
+                  "feature-3"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-5",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-5",
+                "text": "AI self-extension: identify missing capability \u2192 author Python/JavaScript/TypeScript (Julia/Octave adapters where available) \u2192 define schemas/tests \u2192 sandbox build/run \u2192 publish personal reusable program \u2192 return immutable PURL \u2192 second AI discovers/reuses/forks. Shared registry promotion gated by actual authority and checks.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-5:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 5: AI self-extension: identify missing capability \u2192 author Python/JavaScript/TypeScript (Julia/Octave adapters where available) \u2192 define schemas/tests \u2192 sandbox build/run \u2192 publish personal reusable program \u2192 return immutable PURL \u2192 second AI discovers/reuses/forks",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-2",
+                  "feature-3",
+                  "feature-9"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-6",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-6",
+                "text": "Nano/micro performer library: typed inputs/outputs, requirements, effects, determinism, dependencies, version, provenance and tests. Start with strong primitives for math, JSON, strings, graph, parsing, state machines, artifacts, build/test, games. No fake thousands-of-packages claim.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-6:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 6: Nano/micro performer library: typed inputs/outputs, requirements, effects, determinism, dependencies, version, provenance and tests",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-3"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-7",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-7",
+                "text": "SubstrateIO transition-to-program compiler: produce executable replayable programs from sufficient pure typed traces; reject underdetermined/effectful histories with explicit reasons. Preserve history as first-class addressable data.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-7:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 7: SubstrateIO transition-to-program compiler: produce executable replayable programs from sufficient pure typed traces; reject underdetermined/effectful histories with explicit reasons",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-3"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-8",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-8",
+                "text": "Persistent Supabase/Postgres schema: users, workspaces, principals, grants, programs, versions, transitions, proposals, executions, checkpoints, blobs, research artifacts, provenance, logs. Migrations, RLS, indices, backups and rollback. Immutable objects in Storage.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-8:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 8: Persistent Supabase/Postgres schema: users, workspaces, principals, grants, programs, versions, transitions, proposals, executions, checkpoints, blobs, research artifacts, provenance, logs",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-2"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-9",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-9",
+                "text": "Oracle ARM VM computational worker: **inventory first, never wipe**. Sandboxed, quota-bound job queue with Python, JS/TS, Julia/Octave and graph/compiler tools as feasible; record architecture, versions, resources, logs and result artifacts. No unrestricted public shell or ambient cloud credentials. If safe isolation isn't achievable, block public arbitrary code execution and document that limitation honestly.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-9:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 9: Oracle ARM VM computational worker: **inventory first, never wipe**",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "infrastructure",
+                  "feature-8"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-10",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-10",
+                "text": "Real examples: computational workspace, diagnostic PURL, tic-tac-toe multiplayer PURL with backend-validated turns, mathematical program, and a **God-seed mission PURL** containing this entire directive as typed mission graph with dependencies, operations, tests, checkpoints and completion predicates.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-10:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 10: Real examples: computational workspace, diagnostic PURL, tic-tac-toe multiplayer PURL with backend-validated turns, mathematical program, and a **God-seed mission PURL** containing this entire directive as typed mission graph with dependencies, operations, tests, checkpoints and completion predicates",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-3",
+                  "feature-8"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-11",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-11",
+                "text": "Cross-session protocol: fresh AI given one PURL discovers allowed operations, reads state, proposes or executes according to actual access, and another session reconstructs. Browser-read-only clients get prepare links rather than pretend mutations. No unauthorized third-party automation.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-11:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 11: Cross-session protocol: fresh AI given one PURL discovers allowed operations, reads state, proposes or executes according to actual access, and another session reconstructs",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-2",
+                  "feature-8"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "feature-12",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/feature-12",
+                "text": "Observability: streaming/polling job states, execution graph, program dependencies, traces, errors, capability checks, evidence, provenance and reproducibility. Label LIVE, FIXTURE, SIMULATED and UNAVAILABLE honestly.",
+                "type": "requirement",
+                "tests": [
+                  {
+                    "id": "feature-12:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Feature 12: Observability: streaming/polling job states, execution graph, program dependencies, traces, errors, capability checks, evidence, provenance and reproducibility",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-8",
+                  "feature-9"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "E01",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/E01",
+                "text": "Identity: same value/different address/derivation; stable canonical hashing and no accidental equivalence.",
+                "type": "experiment",
+                "tests": [
+                  {
+                    "id": "E01:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "E01 Identity",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-3"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "E02",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/E02",
+                "text": "Grammar: parse/type/compose/normalize; valid/invalid operations, effect and capability errors, deterministic pure results.",
+                "type": "experiment",
+                "tests": [
+                  {
+                    "id": "E02:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "E02 Grammar",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-3"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "E03",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/E03",
+                "text": "SEURL reconciliation: measure seven-verb mappings against actual PURL grammar; preserve lossy cases and reject false equivalences.",
+                "type": "experiment",
+                "tests": [
+                  {
+                    "id": "E03:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "E03 SEURL reconciliation",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction",
+                  "feature-3"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "E04",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/E04",
+                "text": "SubstrateIO projection: construct positive replay and negative noncongruent projection counterexample; compiler must reject unsound trace.",
+                "type": "experiment",
+                "tests": [
+                  {
+                    "id": "E04:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "E04 SubstrateIO projection",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-7"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "E05",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/E05",
+                "text": "AI-authored program: author/test/build/publish Python or JS and reuse in independent session via PURL.",
+                "type": "experiment",
+                "tests": [
+                  {
+                    "id": "E05:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "E05 AI-authored program",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-5"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "E06",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/E06",
+                "text": "Security: sandbox file/network/process escape attempts, SSRF, forged principal, revoked grant, stale version, idempotency.",
+                "type": "experiment",
+                "tests": [
+                  {
+                    "id": "E06:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "E06 Security",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-2",
+                  "feature-9"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "E07",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/E07",
+                "text": "Continuity: sessions A/B/C read/propose/commit/reconstruct with proper authority; mark simulated if not truly independent.",
+                "type": "experiment",
+                "tests": [
+                  {
+                    "id": "E07:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "E07 Continuity",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-11"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "E08",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/E08",
+                "text": "Game: multiplayer tic-tac-toe through URLs, backend validates turns, handles races, replays after restart.",
+                "type": "experiment",
+                "tests": [
+                  {
+                    "id": "E08:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "E08 Game",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-10"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "E09",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/E09",
+                "text": "God-seed PURL: encode this mission as typed executable graph, navigate it from fresh session, produce checkpoint and compare with plain text URL.",
+                "type": "experiment",
+                "tests": [
+                  {
+                    "id": "E09:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "E09 God-seed PURL",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-10",
+                  "feature-11"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "E10",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/E10",
+                "text": "Cold rebuild + UI: clean checkout/migrations/worker/app, full Playwright flow, click-anywhere capsule copy, IDE compile/run, persistence, replay, screenshots, responsive accessibility and measured performance.",
+                "type": "experiment",
+                "tests": [
+                  {
+                    "id": "E10:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "E10 Cold rebuild + UI",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "feature-1",
+                  "feature-4",
+                  "feature-8",
+                  "feature-9"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-readme",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-readme",
+                "text": "Deliver README with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-readme:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "README",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-architecture",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-architecture",
+                "text": "Deliver ARCHITECTURE with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-architecture:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "ARCHITECTURE",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-formal-semantics",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-formal-semantics",
+                "text": "Deliver FORMAL_SEMANTICS with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-formal-semantics:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "FORMAL_SEMANTICS",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-language-spec",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-language-spec",
+                "text": "Deliver LANGUAGE_SPEC with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-language-spec:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "LANGUAGE_SPEC",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-sdk",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-sdk",
+                "text": "Deliver SDK with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-sdk:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "SDK",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-nomenclature",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-nomenclature",
+                "text": "Deliver NOMENCLATURE with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-nomenclature:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "NOMENCLATURE",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-constitution",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-constitution",
+                "text": "Deliver CONSTITUTION with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-constitution:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "CONSTITUTION",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-security",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-security",
+                "text": "Deliver SECURITY with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-security:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "SECURITY",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-deployment",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-deployment",
+                "text": "Deliver DEPLOYMENT with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-deployment:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "DEPLOYMENT",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-reconstruction",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-reconstruction",
+                "text": "Deliver RECONSTRUCTION with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-reconstruction:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "RECONSTRUCTION",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-migrations",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-migrations",
+                "text": "Deliver MIGRATIONS with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-migrations:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "MIGRATIONS",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-experiments",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-experiments",
+                "text": "Deliver EXPERIMENTS with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-experiments:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "EXPERIMENTS",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-acceptance-json",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-acceptance-json",
+                "text": "Deliver ACCEPTANCE.json with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-acceptance-json:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "ACCEPTANCE.json",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-program-graph-json",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-program-graph-json",
+                "text": "Deliver PROGRAM_GRAPH.json with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-program-graph-json:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "PROGRAM_GRAPH.json",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-handoff-json",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-handoff-json",
+                "text": "Deliver handoff.json with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-handoff-json:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "handoff.json",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-playwright-screenshots",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-playwright-screenshots",
+                "text": "Deliver Playwright screenshots with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-playwright-screenshots:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Playwright screenshots",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-example-purls",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-example-purls",
+                "text": "Deliver example PURLs with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-example-purls:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "example PURLs",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-build-hashes",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-build-hashes",
+                "text": "Deliver build hashes with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-build-hashes:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "build hashes",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "artifact-deployed-url",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/artifact-deployed-url",
+                "text": "Deliver deployed URL with verified evidence and explicit PASS/FAIL/BLOCKED/NOT_RUN status.",
+                "type": "artifact",
+                "tests": [
+                  {
+                    "id": "artifact-deployed-url:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "deployed URL",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "reconstruction"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              },
+              {
+                "id": "deployment-amendment",
+                "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission/deployment-amendment",
+                "text": "# PURL DEPLOYMENT AMENDMENT \u2014 RAILWAY FIRST, ORACLE LATER\n\nProceed immediately without Oracle credentials.\n\nContainerize the PURL computational runtime with reproducible Dockerfiles, health checks, runtime capability manifests, and environment-based configuration.\n\nSupport local Docker development and Railway deployment now, with an interchangeable Oracle VM deployment adapter later.\n\nKeep Supabase as the authoritative persistent backend. No essential program, execution, continuity record, or artifact may exist only inside an ephemeral container.\n\nDeploy the API/control plane and workers as separate services where practical. Do not expose unrestricted code execution publicly. Restrict untrusted execution until verified sandbox isolation exists.\n\nTest container restart, interrupted jobs, artifact persistence, checkpoint recovery, deterministic replay, and portability.\n\nPreserve the complete God Seed scope. Oracle unavailability must not block implementing the compiler, IDE, SDK, programs, games, transition runtime, or cinematic PURL interface.\n\nDeliver the working Railway URL if deployment access is available, and report the exact steps for migrating execution workers to Oracle without losing persisted state.\n\nContinue the mission.\n",
+                "type": "amendment",
+                "tests": [
+                  {
+                    "id": "deployment-amendment:evidence",
+                    "assertion": "Evidence is addressable, verified and meets the stated requirement"
+                  }
+                ],
+                "title": "Railway first, Oracle later",
+                "status": "NOT_RUN",
+                "effects": [
+                  "local-state"
+                ],
+                "evidence": [],
+                "operations": [
+                  "inspect",
+                  "propose",
+                  "checkpoint"
+                ],
+                "dependencies": [
+                  "infrastructure"
+                ],
+                "completion_predicate": {
+                  "clauses": [
+                    {
+                      "operator": "dependencies_pass"
+                    },
+                    {
+                      "operator": "evidence_verified"
+                    },
+                    {
+                      "operator": "tests_pass"
+                    }
+                  ],
+                  "operator": "all"
+                }
+              }
+            ],
+            "schema": "purl.mission-graph/1",
+            "completion_predicate": {
+              "operator": "all_nodes_pass",
+              "exception": "Blocked work must retain exact blockers; blocking is not completion"
+            }
+          },
+          "amendment": "# PURL DEPLOYMENT AMENDMENT \u2014 RAILWAY FIRST, ORACLE LATER\n\nProceed immediately without Oracle credentials.\n\nContainerize the PURL computational runtime with reproducible Dockerfiles, health checks, runtime capability manifests, and environment-based configuration.\n\nSupport local Docker development and Railway deployment now, with an interchangeable Oracle VM deployment adapter later.\n\nKeep Supabase as the authoritative persistent backend. No essential program, execution, continuity record, or artifact may exist only inside an ephemeral container.\n\nDeploy the API/control plane and workers as separate services where practical. Do not expose unrestricted code execution publicly. Restrict untrusted execution until verified sandbox isolation exists.\n\nTest container restart, interrupted jobs, artifact persistence, checkpoint recovery, deterministic replay, and portability.\n\nPreserve the complete God Seed scope. Oracle unavailability must not block implementing the compiler, IDE, SDK, programs, games, transition runtime, or cinematic PURL interface.\n\nDeliver the working Railway URL if deployment access is available, and report the exact steps for migrating execution workers to Oracle without losing persisted state.\n\nContinue the mission.\n",
+          "directive": "# PURL \u2014 FULL PRODUCT GOD SEED\n\n## Mission and naming\nCanonical name **PURL (P-U-R-L), Programmable URLs**, pronounced pearl. Build the fully functional public PURL service and AI-native computational programming environment. One integrated mission: product, compiler, SDK, persistent continuity, sandbox runtime, mathematical instrumentation, 10 experiments, gorgeous public UI, and end-to-end deployment where authorized. Do not stop at research, a plan, static screenshots, or a toy MVP. Preserve historical projects; no Golden Surface/Netscape dependency. A PURL is an addressable executable program with state, transitions, authority, history, and discoverable operations.\n\n## Existing systems \u2014 reconstruct before changing\nInspect actual branches, code, specs, tests and deployments for https://github.com/akadaan310/purl, https://github.com/akadaan310/NetGovComEduGovOrgEduGovComNet (ACSP), https://github.com/akadaan310/seurl and https://github.com/akadaan310/substrateIO. Read the **original mathematicians' handoff included in `reference/math_handoff/`**. Do not accept claims without checking source and proof status. Reconcile duplicated definitions, migration collisions and deployment versions. Make PURL the public language/namespace; ACSP supplies continuity and authority semantics; SubstrateIO supplies transition mathematics, observation and projections; SEURL's seven verbs START, SWITCH, WRITE, COMMIT, BUILD, TALK, PERTURB are historical candidate grammar primitives/macros and must be compared, not blindly imported. Produce a source-grounded reconstruction and compatibility matrix.\n\n## Formal computational contract\nTyped configurations <program, state, environment, authority> with transitions labelled by operation and effects. Parse \u2192 typed term \u2192 effect/capability check \u2192 normalized execution plan \u2192 execute \u2192 observe \u2192 artifact \u2192 checkpoint. Distinguish pure, local effect, external read, external mutation. GET must not cause durable effects. Distinguish address_id, derivation_id, value_id, content_id, environment_id, build_id, execution_id, and principal/session identity. Hash equality is not semantic equivalence or authenticity. A transition projection \u03c0 can compile deterministically only when projected-equivalent states have compatible operation definedness/effects and equal projected successors. Produce a counterexample witness otherwise. Replay records capture inputs, seeds, dependencies, versions, environment, nondeterminism and effects. Test binary toggles and 007 cycles without pretending finite-state toggles contain infinite information. Treat the independent research as evidence to verify, not proof of every production claim.\n\n## Complete feature set\n1. Public landing, Create/Explore/Program Detail/Workspace/IDE/Observatory/Docs with readable and machine-readable manifests. Beautiful mobile/desktop UI, not an admin dashboard.\n2. Human accounts, optional guests, principals, claimed AI identities, capabilities, grants, public/private/unlisted resources, session continuation, proposals, checkpoint/replay and scoped authority.\n3. PURL-native typed programming grammar: operations, composition, branching, bounded repetition, pure computations, explicit effects, versioned IR and a compiler with understandable diagnostics.\n4. AI-first IDE: source editor, program graph, templates, typed errors, test runner, build/run, logs, artifact browser, diff, fork, publish, history and observatory. SDK must be discoverable through PURL alone.\n5. AI self-extension: identify missing capability \u2192 author Python/JavaScript/TypeScript (Julia/Octave adapters where available) \u2192 define schemas/tests \u2192 sandbox build/run \u2192 publish personal reusable program \u2192 return immutable PURL \u2192 second AI discovers/reuses/forks. Shared registry promotion gated by actual authority and checks.\n6. Nano/micro performer library: typed inputs/outputs, requirements, effects, determinism, dependencies, version, provenance and tests. Start with strong primitives for math, JSON, strings, graph, parsing, state machines, artifacts, build/test, games. No fake thousands-of-packages claim.\n7. SubstrateIO transition-to-program compiler: produce executable replayable programs from sufficient pure typed traces; reject underdetermined/effectful histories with explicit reasons. Preserve history as first-class addressable data.\n8. Persistent Supabase/Postgres schema: users, workspaces, principals, grants, programs, versions, transitions, proposals, executions, checkpoints, blobs, research artifacts, provenance, logs. Migrations, RLS, indices, backups and rollback. Immutable objects in Storage.\n9. Oracle ARM VM computational worker: **inventory first, never wipe**. Sandboxed, quota-bound job queue with Python, JS/TS, Julia/Octave and graph/compiler tools as feasible; record architecture, versions, resources, logs and result artifacts. No unrestricted public shell or ambient cloud credentials. If safe isolation isn't achievable, block public arbitrary code execution and document that limitation honestly.\n10. Real examples: computational workspace, diagnostic PURL, tic-tac-toe multiplayer PURL with backend-validated turns, mathematical program, and a **God-seed mission PURL** containing this entire directive as typed mission graph with dependencies, operations, tests, checkpoints and completion predicates.\n11. Cross-session protocol: fresh AI given one PURL discovers allowed operations, reads state, proposes or executes according to actual access, and another session reconstructs. Browser-read-only clients get prepare links rather than pretend mutations. No unauthorized third-party automation.\n12. Observability: streaming/polling job states, execution graph, program dependencies, traces, errors, capability checks, evidence, provenance and reproducibility. Label LIVE, FIXTURE, SIMULATED and UNAVAILABLE honestly.\n\n## Cinematic design contract\nPremium minimalist glass-like depth, strong editorial typography, generous negative space, subtle dynamic color, elegant motion, exceptional Android portrait and desktop, accessible contrast, reduced motion, fast load. Do not copy Apple proprietary assets. Every PURL has an expressive **capsule** with its own visual identity derived from kind, state and program semantics; consistency of interaction across all capsules. **Click/tap anywhere on the entire capsule copies the canonical URL** and gives clear feedback. Keyboard Enter/Space also copies. Provide a separate accessible Open/Inspect control; don't confuse navigation with copying. Handle clipboard denial gracefully. Test copy, touch, keyboard, screen reader, visual identity, mobile overflow and performance. Deliver real Playwright screenshots and visual regression evidence.\n\n## Ten required pre-registered experiments\nE01 Identity: same value/different address/derivation; stable canonical hashing and no accidental equivalence.\nE02 Grammar: parse/type/compose/normalize; valid/invalid operations, effect and capability errors, deterministic pure results.\nE03 SEURL reconciliation: measure seven-verb mappings against actual PURL grammar; preserve lossy cases and reject false equivalences.\nE04 SubstrateIO projection: construct positive replay and negative noncongruent projection counterexample; compiler must reject unsound trace.\nE05 AI-authored program: author/test/build/publish Python or JS and reuse in independent session via PURL.\nE06 Security: sandbox file/network/process escape attempts, SSRF, forged principal, revoked grant, stale version, idempotency.\nE07 Continuity: sessions A/B/C read/propose/commit/reconstruct with proper authority; mark simulated if not truly independent.\nE08 Game: multiplayer tic-tac-toe through URLs, backend validates turns, handles races, replays after restart.\nE09 God-seed PURL: encode this mission as typed executable graph, navigate it from fresh session, produce checkpoint and compare with plain text URL.\nE10 Cold rebuild + UI: clean checkout/migrations/worker/app, full Playwright flow, click-anywhere capsule copy, IDE compile/run, persistence, replay, screenshots, responsive accessibility and measured performance.\nFor each: hypothesis, controls, exact source revision, metrics, falsification threshold, scripts, negative evidence, and machine-readable results. Preserve failed runs.\n\n## Infrastructure and security\nVercel public web/control plane; Supabase auth/database/storage; Oracle isolated workers; optional graph projections in Postgres first, Neo4j only if justified. No destructive cleanup without approval. No raw tokens in repos or URLs. Strong SSRF protection, rate limits, CSRF/XSS defense, safe dependency policy, CPU/RAM/time quotas, no default network access for untrusted code, user-scoped permissions, audit trails. Constitutional validity does not replace authority. Existing live ACSP data cannot be mutated without explicit authorization. Third-party AI platforms only via supported APIs or human-mediated URL transfer.\n\n## Work plan\nReconnaissance and source-of-truth matrix \u2192 contracts/migrations \u2192 minimal running vertical slice \u2192 parser/IR/compiler \u2192 continuity \u2192 sandbox/queue \u2192 SDK/IDE \u2192 transition compiler \u2192 beautiful public UI and capsules \u2192 ten experiments \u2192 security adversarial suite \u2192 cold reconstruction \u2192 deploy/smoke test \u2192 evidence report. Continuously dogfood the actual PURL product to author, compile, test, publish and resume its own components. Prefer testable working software to speculative prose. Use subagents only with isolated ownership and verified integration.\n\n## Required delivery artifacts\nREADME, ARCHITECTURE, FORMAL_SEMANTICS, LANGUAGE_SPEC, SDK, NOMENCLATURE, CONSTITUTION, SECURITY, DEPLOYMENT, RECONSTRUCTION, MIGRATIONS, EXPERIMENTS, ACCEPTANCE.json, PROGRAM_GRAPH.json, handoff.json, Playwright screenshots, code, tests, example PURLs, build hashes, deployed URL (only if actually deployed), and exact blockers. End with PASS/FAIL/BLOCKED/NOT_RUN per feature and experiment; never claim successful production deployment or independent cross-provider test without proof.\n\n## Execution directive\nBegin immediately after reading the bundled research and inspecting the repos. Design your own mathematical and systems harness while preserving these invariants. Don't stop at planning; execute, test, correct, and finish. Routine local changes are authorized; ask before destructive or consequential external actions. Deliver an end-to-end product and an honest evidence trail.\n",
+          "completion": {
+            "status": "NOT_RUN",
+            "verified": false
+          },
+          "evidence_class": "LIVE_LOCAL",
+          "directive_content_id": "sha256:1819920b23dcf16f5bbfe901d66f4919b3772e602c43c39213bf408417e3f315"
+        },
+        "tests": [],
+        "title": "PURL public continuation handoff \u2014 verified progress and remaining work",
+        "builds": [
+          {
+            "id": "build_9de64a19ba21e977fce4c9f2",
+            "plan": {
+              "cost": 1,
+              "steps": [
+                {
+                  "op": "mission.inspect",
+                  "args": {},
+                  "version": "1.0.0"
+                }
+              ],
+              "limits": {
+                "depth": 32,
+                "nodes": 512,
+                "steps": 10000,
+                "repeat": 1000,
+                "workBytes": 16777216,
+                "graphEdges": 10000,
+                "graphNodes": 1000,
+                "valueBytes": 1048576,
+                "arrayLength": 10000,
+                "sourceBytes": 65536
+              },
+              "effects": [],
+              "language": "purl/1",
+              "requires": [],
+              "operators": [
+                {
+                  "name": "mission.inspect",
+                  "digest": "sha256:ba4d120b87dd4e95881141f6af2ab42159b6db7dfd8d5c9d7c746df385718940",
+                  "version": "1.0.0"
+                }
+              ],
+              "input_type": "json",
+              "ir_version": "purl-ir/1",
+              "output_type": "json",
+              "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+              "derivation_id": "derivation:4d12ef8ee13287816fb43bcb05e748623bfddfdb3976a90889d0280e4c81f3f5"
+            },
+            "tests": [],
+            "source": "input json | mission.inspect",
+            "status": "passed",
+            "build_id": "sha256:74354d7e0c2bf507e0dfa5c0927f00847fd2460c55f7008dc648d15350bf69ea",
+            "language": "purl",
+            "immutable": true,
+            "content_id": "sha256:f26d03ed66f9f699c1fe9dc0f260efae2e530eaa052e383db42f1d7b55c1d333",
+            "created_at": "2026-10-18T15:14:30.160Z",
+            "created_by": "principal_77cf203e2fec52edbdcd06a8",
+            "program_id": "program_ad56405463bfaa72e9bbddf2",
+            "diagnostics": [],
+            "environment": {
+              "node": "22.14.0",
+              "network": false,
+              "runtime": "purl-bounded-interpreter",
+              "ir_version": "purl-ir/1",
+              "architecture": "x64",
+              "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+              "runtime_version": "1",
+              "external_effects": false
+            },
+            "input_schema": {
+              "type": "object",
+              "required": [
+                "graph"
+              ]
+            },
+            "tests_passed": true,
+            "derivation_id": "derivation:4d12ef8ee13287816fb43bcb05e748623bfddfdb3976a90889d0280e4c81f3f5",
+            "output_schema": {
+              "type": "object",
+              "required": [
+                "ready_nodes",
+                "completion",
+                "verified"
+              ]
+            },
+            "source_revision": 1,
+            "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d"
+          }
+        ],
+        "grants": [],
+        "source": "input json | mission.inspect",
+        "lineage": {
+          "url": "https://purl-api-production.up.railway.app/p/program_c8298dd282f72d1420cd15f8",
+          "version": 6,
+          "program_id": "program_c8298dd282f72d1420cd15f8",
+          "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d"
+        },
+        "version": 3,
+        "language": "purl",
+        "releases": [],
+        "proposals": [],
+        "created_at": "2026-10-18T15:14:07.090Z",
+        "updated_at": "2026-10-18T15:14:31.712Z",
+        "visibility": "public",
+        "checkpoints": [],
+        "compilation": {
+          "ok": true,
+          "plan": {
+            "cost": 1,
+            "steps": [
+              {
+                "op": "mission.inspect",
+                "args": {},
+                "version": "1.0.0"
+              }
+            ],
+            "limits": {
+              "depth": 32,
+              "nodes": 512,
+              "steps": 10000,
+              "repeat": 1000,
+              "workBytes": 16777216,
+              "graphEdges": 10000,
+              "graphNodes": 1000,
+              "valueBytes": 1048576,
+              "arrayLength": 10000,
+              "sourceBytes": 65536
+            },
+            "effects": [],
+            "language": "purl/1",
+            "requires": [],
+            "operators": [
+              {
+                "name": "mission.inspect",
+                "digest": "sha256:ba4d120b87dd4e95881141f6af2ab42159b6db7dfd8d5c9d7c746df385718940",
+                "version": "1.0.0"
+              }
+            ],
+            "input_type": "json",
+            "ir_version": "purl-ir/1",
+            "output_type": "json",
+            "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+            "derivation_id": "derivation:4d12ef8ee13287816fb43bcb05e748623bfddfdb3976a90889d0280e4c81f3f5"
+          },
+          "diagnostics": [],
+          "derivation_id": "derivation:4d12ef8ee13287816fb43bcb05e748623bfddfdb3976a90889d0280e4c81f3f5"
+        },
+        "active_build": "build_9de64a19ba21e977fce4c9f2",
+        "dependencies": [],
+        "input_schema": {
+          "type": "object",
+          "required": [
+            "graph"
+          ]
+        },
+        "output_schema": {
+          "type": "object",
+          "required": [
+            "ready_nodes",
+            "completion",
+            "verified"
+          ]
+        },
+        "source_revision": 1,
+        "url": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2",
+        "manifest_url": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/manifest",
+        "history_url": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/history",
+        "continuity_url": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/continuity",
+        "replay_url": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/replay",
+        "authority": {
+          "authenticated": true,
+          "principal_id": "principal_77cf203e2fec52edbdcd06a8",
+          "owner": true,
+          "rights": [
+            "read",
+            "edit",
+            "build",
+            "run",
+            "publish",
+            "checkpoint",
+            "propose",
+            "grant",
+            "play"
+          ]
+        },
+        "execution_policy": {
+          "kind": "bounded-pure",
+          "available": true
+        }
+      }
+    }
+  }
+}

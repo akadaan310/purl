@@ -1,0 +1,110 @@
+[
+  {
+    "file": "001-new-principal.json",
+    "sequence": 1,
+    "started_at": "2026-10-18T15:24:34.969280+00:00",
+    "duration_seconds": 6.200954,
+    "method": "POST",
+    "url": "https://purl-api-production.up.railway.app/api/session",
+    "status": 201
+  },
+  {
+    "file": "002-create-private-arithmetic.json",
+    "sequence": 2,
+    "started_at": "2026-10-18T15:24:42.270537+00:00",
+    "duration_seconds": 5.107806,
+    "method": "POST",
+    "url": "https://purl-api-production.up.railway.app/api/programs",
+    "status": 201
+  },
+  {
+    "file": "003-compile-current-version.json",
+    "sequence": 3,
+    "started_at": "2026-10-18T15:24:48.478493+00:00",
+    "duration_seconds": 1.53587,
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5",
+    "status": 200
+  },
+  {
+    "file": "004-compile.json",
+    "sequence": 4,
+    "started_at": "2026-10-18T15:24:51.117775+00:00",
+    "duration_seconds": 7.284014,
+    "method": "POST",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/compile",
+    "status": 200
+  },
+  {
+    "file": "005-build-current-version.json",
+    "sequence": 5,
+    "started_at": "2026-10-18T15:24:59.501913+00:00",
+    "duration_seconds": 2.263233,
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5",
+    "status": 200
+  },
+  {
+    "file": "006-build.json",
+    "sequence": 6,
+    "started_at": "2026-10-18T15:25:02.865356+00:00",
+    "duration_seconds": 11.290992,
+    "method": "POST",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/build",
+    "status": 200
+  },
+  {
+    "file": "007-run-current-version.json",
+    "sequence": 7,
+    "started_at": "2026-10-18T15:25:15.256514+00:00",
+    "duration_seconds": 2.154944,
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5",
+    "status": 200
+  },
+  {
+    "file": "008-run.json",
+    "sequence": 8,
+    "started_at": "2026-10-18T15:25:18.511675+00:00",
+    "duration_seconds": 9.921347,
+    "method": "POST",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/run",
+    "status": 202
+  },
+  {
+    "file": "009-execution-poll-1.json",
+    "sequence": 9,
+    "started_at": "2026-10-18T15:25:33.434000+00:00",
+    "duration_seconds": 8.436443,
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/executions/execution_5ccf7ab979e35929250fc697",
+    "status": 200
+  },
+  {
+    "file": "010-execution-poll-2.json",
+    "sequence": 10,
+    "started_at": "2026-10-18T15:25:46.871261+00:00",
+    "duration_seconds": 7.377678,
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/executions/execution_5ccf7ab979e35929250fc697",
+    "status": 200
+  },
+  {
+    "file": "011-execution-poll-3.json",
+    "sequence": 11,
+    "started_at": "2026-10-18T15:25:59.249766+00:00",
+    "duration_seconds": 1.571299,
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/executions/execution_5ccf7ab979e35929250fc697",
+    "status": 200
+  },
+  {
+    "file": "012-strict-replay.json",
+    "sequence": 12,
+    "started_at": "2026-10-18T15:26:01.921227+00:00",
+    "duration_seconds": 2.357603,
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/replay",
+    "status": 200
+  }
+]

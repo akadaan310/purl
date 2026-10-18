@@ -1,0 +1,21 @@
+{
+  "schema": "purl.hosted-projection-write-verification/1",
+  "status": "PASS",
+  "before": {
+    "revision": 63,
+    "mission_xmin": "1359",
+    "audit_first_xmin": "1359"
+  },
+  "after": {
+    "revision": 70,
+    "mission_xmin": "1359",
+    "audit_first_xmin": "1359"
+  },
+  "checks": {
+    "new_public_lifecycle_committed": true,
+    "unmodified_mission_row_version_retained": true,
+    "unmodified_first_audit_row_version_retained": true
+  },
+  "scope": "Actual hosted database across separate public session/create/compile/build/run and worker claim/result CAS commits; no direct data mutation by this verifier.",
+  "public_lifecycle": "evidence/deployment/database-reliability/public-after-upgrade/report.json"
+}

@@ -1,0 +1,488 @@
+{
+  "principal": {
+    "id": "principal_2850e90612eca2696e0777c0",
+    "label": "Post-SQL-upgrade native arithmetic reliability check",
+    "kind": "agent",
+    "identity_verified": false,
+    "identity_claim": "self-declared AI identity",
+    "created_at": "2026-10-18T15:24:35.376Z"
+  },
+  "program": {
+    "id": "program_86b16e4b30d9121e9f30d9c5",
+    "url": "https://purl-api-production.up.railway.app/p/program_86b16e4b30d9121e9f30d9c5",
+    "visibility": "private",
+    "source": "input number | math.add 2 | math.multiply 3"
+  },
+  "build": {
+    "id": "build_323dfa5f5e9be122a824b034",
+    "program_id": "program_86b16e4b30d9121e9f30d9c5",
+    "source_revision": 1,
+    "source_content_id": "sha256:2f278983dc04ffb04b2f85e0358ab0d58a3ea1bdf71618ba49bc5326f54bd937",
+    "source": "input number | math.add 2 | math.multiply 3",
+    "language": "purl",
+    "plan": {
+      "language": "purl/1",
+      "ir_version": "purl-ir/1",
+      "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+      "input_type": "number",
+      "output_type": "number",
+      "effects": [],
+      "requires": [],
+      "steps": [
+        {
+          "op": "math.add",
+          "version": "1.0.0",
+          "args": {
+            "value": 2
+          }
+        },
+        {
+          "op": "math.multiply",
+          "version": "1.0.0",
+          "args": {
+            "value": 3
+          }
+        }
+      ],
+      "operators": [
+        {
+          "name": "math.add",
+          "version": "1.0.0",
+          "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af"
+        },
+        {
+          "name": "math.multiply",
+          "version": "1.0.0",
+          "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3"
+        }
+      ],
+      "cost": 2,
+      "limits": {
+        "sourceBytes": 65536,
+        "valueBytes": 1048576,
+        "workBytes": 16777216,
+        "arrayLength": 10000,
+        "depth": 32,
+        "nodes": 512,
+        "steps": 10000,
+        "repeat": 1000,
+        "graphNodes": 1000,
+        "graphEdges": 10000
+      },
+      "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57"
+    },
+    "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+    "diagnostics": [],
+    "status": "passed",
+    "tests": [
+      {
+        "index": 0,
+        "passed": true,
+        "input": 4,
+        "expected": 18,
+        "actual": 18
+      },
+      {
+        "index": 1,
+        "passed": true,
+        "input": 0,
+        "expected": 6,
+        "actual": 6
+      },
+      {
+        "index": 2,
+        "passed": true,
+        "input": -2,
+        "expected": 0,
+        "actual": 0
+      }
+    ],
+    "input_schema": {
+      "type": "number"
+    },
+    "output_schema": {
+      "type": "number"
+    },
+    "environment": {
+      "runtime": "purl-bounded-interpreter",
+      "runtime_version": "1",
+      "ir_version": "purl-ir/1",
+      "architecture": "x64",
+      "node": "22.14.0",
+      "network": false,
+      "external_effects": false,
+      "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd"
+    },
+    "created_at": "2026-10-18T15:25:03.942Z",
+    "created_by": "principal_2850e90612eca2696e0777c0",
+    "immutable": true,
+    "tests_passed": true,
+    "build_id": "sha256:86cf044c3a239f2bfd618a8c6920e5450a02911789fa899ed97050aefcbd0c24",
+    "content_id": "sha256:98b8112717af6dfe88b54210bb8c75b826d3ab51e5be78c6aab4901001770dae"
+  },
+  "execution": {
+    "id": "execution_5ccf7ab979e35929250fc697",
+    "logs": [
+      {
+        "at": "2026-10-18T15:25:19.733Z",
+        "level": "info",
+        "message": "Execution durably queued"
+      },
+      {
+        "at": "2026-10-18T15:25:31.459Z",
+        "level": "info",
+        "message": "Worker claimed execution attempt 1"
+      },
+      {
+        "at": "2026-10-18T15:25:43.291Z",
+        "level": "info",
+        "message": "Result and immutable artifact committed durably"
+      }
+    ],
+    "seed": 7,
+    "error": null,
+    "input": 4,
+    "lease": null,
+    "trace": {
+      "seed": 7,
+      "input": 4,
+      "steps": [
+        {
+          "op": "math.add",
+          "args": {
+            "value": 2
+          },
+          "path": "$.steps[0]",
+          "index": 0,
+          "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+          "effects": [],
+          "version": "1.0.0",
+          "input_id": "value:60bafb9c2493d36269d585b43b19bc2f7c4af88e0d82bee60a965b1362a32a92",
+          "output_id": "value:f08d751de5d8ea3408bac4020a0c5a55a5baf986cac6102e27c1822b3bf4690a"
+        },
+        {
+          "op": "math.multiply",
+          "args": {
+            "value": 3
+          },
+          "path": "$.steps[1]",
+          "index": 1,
+          "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+          "effects": [],
+          "version": "1.0.0",
+          "input_id": "value:f08d751de5d8ea3408bac4020a0c5a55a5baf986cac6102e27c1822b3bf4690a",
+          "output_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd"
+        }
+      ],
+      "protocol": "purl-replay/1",
+      "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+      "operators": [
+        {
+          "name": "math.add",
+          "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+          "version": "1.0.0"
+        },
+        {
+          "name": "math.multiply",
+          "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+          "version": "1.0.0"
+        }
+      ],
+      "receipt_id": "execution:1c2254fcb2dea012f4f2c7064ca0dd5a25f571dc72afe09d59521335b276922b",
+      "determinism": "deterministic",
+      "environment": {
+        "limits": {
+          "depth": 32,
+          "nodes": 512,
+          "steps": 10000,
+          "repeat": 1000,
+          "workBytes": 16777216,
+          "graphEdges": 10000,
+          "graphNodes": 1000,
+          "valueBytes": 1048576,
+          "arrayLength": 10000,
+          "sourceBytes": 65536
+        },
+        "runtime": "node",
+        "platform": "linux",
+        "interpreter": "purl-ir/1",
+        "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+        "architecture": "x64",
+        "dependencies": [
+          {
+            "name": "math.add",
+            "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+            "version": "1.0.0"
+          },
+          {
+            "name": "math.multiply",
+            "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+            "version": "1.0.0"
+          }
+        ],
+        "runtime_version": "v22.14.0"
+      },
+      "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+      "environment_id": "environment:6c5c1b748d5d8e07374329c4868415696990c60948f6e3beff506e0a55015b47",
+      "declared_effects": [],
+      "observed_effects": []
+    },
+    "value": 18,
+    "status": "succeeded",
+    "effects": [],
+    "receipt": {
+      "seed": 7,
+      "schema": "purl.execution-receipt/1",
+      "effects": [],
+      "build_id": "build_323dfa5f5e9be122a824b034",
+      "input_id": "sha256:4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+      "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+      "content_id": "sha256:c1b9fed79199a180494fcb3a44a1ea07743bece5a7dbd50bb60f3cada221ccad",
+      "completed_at": "2026-10-18T15:25:43.291Z",
+      "dependencies": [],
+      "execution_id": "execution_5ccf7ab979e35929250fc697",
+      "deterministic": true,
+      "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+      "nondeterminism": [],
+      "build_content_id": "sha256:98b8112717af6dfe88b54210bb8c75b826d3ab51e5be78c6aab4901001770dae",
+      "artifact_content_id": "sha256:368ff5d649c55c02affa445e7f3621d60cc6eb7a32b5f3da5fb280c997aa8dbc",
+      "runtime_environment_id": "sha256:05c667183246d0b1b61c40fda6a1c270f16a5393a32b8ef1da0c1576451b813c"
+    },
+    "attempts": 1,
+    "build_id": "build_323dfa5f5e9be122a824b034",
+    "input_id": "sha256:4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+    "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+    "artifacts": [
+      "artifact_64333a8668f3cfcfa8c61004"
+    ],
+    "created_at": "2026-10-18T15:25:19.733Z",
+    "program_id": "program_86b16e4b30d9121e9f30d9c5",
+    "started_at": "2026-10-18T15:25:31.459Z",
+    "environment": {
+      "node": "22.14.0",
+      "network": false,
+      "runtime": "purl-bounded-interpreter",
+      "ir_version": "purl-ir/1",
+      "architecture": "x64",
+      "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+      "runtime_version": "1",
+      "external_effects": false
+    },
+    "completed_at": "2026-10-18T15:25:43.291Z",
+    "dependencies": [],
+    "requested_by": "principal_2850e90612eca2696e0777c0",
+    "authorization": {
+      "via": "owner",
+      "grant": null,
+      "rights": [
+        "read",
+        "edit",
+        "build",
+        "run",
+        "publish",
+        "checkpoint",
+        "propose",
+        "grant",
+        "play"
+      ]
+    },
+    "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+    "nondeterminism": [],
+    "program_version": 3,
+    "source_revision": 1,
+    "build_content_id": "sha256:98b8112717af6dfe88b54210bb8c75b826d3ab51e5be78c6aab4901001770dae",
+    "claim_authorization": {
+      "via": "owner",
+      "grant": null,
+      "rights": [
+        "read",
+        "edit",
+        "build",
+        "run",
+        "publish",
+        "checkpoint",
+        "propose",
+        "grant",
+        "play"
+      ]
+    },
+    "runtime_environment": {
+      "limits": {
+        "depth": 32,
+        "nodes": 512,
+        "steps": 10000,
+        "repeat": 1000,
+        "workBytes": 16777216,
+        "graphEdges": 10000,
+        "graphNodes": 1000,
+        "valueBytes": 1048576,
+        "arrayLength": 10000,
+        "sourceBytes": 65536
+      },
+      "runtime": "node",
+      "platform": "linux",
+      "interpreter": "purl-ir/1",
+      "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+      "architecture": "x64",
+      "dependencies": [
+        {
+          "name": "math.add",
+          "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+          "version": "1.0.0"
+        },
+        {
+          "name": "math.multiply",
+          "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+          "version": "1.0.0"
+        }
+      ],
+      "runtime_version": "v22.14.0"
+    },
+    "runtime_environment_id": "sha256:05c667183246d0b1b61c40fda6a1c270f16a5393a32b8ef1da0c1576451b813c",
+    "completion_authorization": {
+      "via": "owner",
+      "grant": null,
+      "rights": [
+        "read",
+        "edit",
+        "build",
+        "run",
+        "publish",
+        "checkpoint",
+        "propose",
+        "grant",
+        "play"
+      ]
+    }
+  },
+  "replay": {
+    "program_id": "program_86b16e4b30d9121e9f30d9c5",
+    "valid": true,
+    "version": 4,
+    "events": 4,
+    "head": "sha256:acf747416d2b895be0a9f1a2f2ae165a55e15d865084ca5ca24852f636be985d",
+    "state_hash": "sha256:6a985cc48c093ccc3169c4118f3890f7f0f9a3e6334c58c26bf9538e8bb62617",
+    "problems": [],
+    "program_valid": true,
+    "executions": [
+      {
+        "execution_id": "execution_5ccf7ab979e35929250fc697",
+        "valid": true,
+        "replayable": true,
+        "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd"
+      }
+    ],
+    "assurance": "Content hashes establish internal consistency, not external authenticity"
+  },
+  "polls": 3,
+  "receipt_checks": {
+    "execution_matches": true,
+    "build_matches": true,
+    "content_id_present": true,
+    "artifact_content_id_present": true,
+    "value_id_matches": true
+  },
+  "status": "PASS",
+  "sql_upgrade_root_report": {
+    "supabase_version": "20261018152346",
+    "applied_at": "2026-10-18T15:23:46Z",
+    "fingerprints": "Root reports revision63/document/entities/audit fingerprints unchanged",
+    "rpc_authority": "Root reports anon/authenticated denied, service allowed",
+    "scope": "Function changed only conditional projection UPSERT; JavaScript deployment unchanged",
+    "verification_source": "Parent/root instruction, not an independent database read by this client"
+  },
+  "schema": "purl.post-sql-upgrade-public-arithmetic/1",
+  "run_id": "sql-reliability-1dcb0e580f6343e8b36e2014d137f3ac",
+  "program_id": "program_86b16e4b30d9121e9f30d9c5",
+  "execution_id": "execution_5ccf7ab979e35929250fc697",
+  "request_count": 12,
+  "errors_preserved": [],
+  "timings": [
+    {
+      "sequence": 1,
+      "method": "POST",
+      "url": "https://purl-api-production.up.railway.app/api/session",
+      "status": 201,
+      "seconds": 6.200954
+    },
+    {
+      "sequence": 2,
+      "method": "POST",
+      "url": "https://purl-api-production.up.railway.app/api/programs",
+      "status": 201,
+      "seconds": 5.107806
+    },
+    {
+      "sequence": 3,
+      "method": "GET",
+      "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5",
+      "status": 200,
+      "seconds": 1.53587
+    },
+    {
+      "sequence": 4,
+      "method": "POST",
+      "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/compile",
+      "status": 200,
+      "seconds": 7.284014
+    },
+    {
+      "sequence": 5,
+      "method": "GET",
+      "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5",
+      "status": 200,
+      "seconds": 2.263233
+    },
+    {
+      "sequence": 6,
+      "method": "POST",
+      "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/build",
+      "status": 200,
+      "seconds": 11.290992
+    },
+    {
+      "sequence": 7,
+      "method": "GET",
+      "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5",
+      "status": 200,
+      "seconds": 2.154944
+    },
+    {
+      "sequence": 8,
+      "method": "POST",
+      "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/run",
+      "status": 202,
+      "seconds": 9.921347
+    },
+    {
+      "sequence": 9,
+      "method": "GET",
+      "url": "https://purl-api-production.up.railway.app/api/executions/execution_5ccf7ab979e35929250fc697",
+      "status": 200,
+      "seconds": 8.436443
+    },
+    {
+      "sequence": 10,
+      "method": "GET",
+      "url": "https://purl-api-production.up.railway.app/api/executions/execution_5ccf7ab979e35929250fc697",
+      "status": 200,
+      "seconds": 7.377678
+    },
+    {
+      "sequence": 11,
+      "method": "GET",
+      "url": "https://purl-api-production.up.railway.app/api/executions/execution_5ccf7ab979e35929250fc697",
+      "status": 200,
+      "seconds": 1.571299
+    },
+    {
+      "sequence": 12,
+      "method": "GET",
+      "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/replay",
+      "status": 200,
+      "seconds": 2.357603
+    }
+  ],
+  "scope": "One private native arithmetic lifecycle over public API after root-authorized additive SQL upgrade; product JavaScript deployment unchanged according to root. No broad suite, source, database or environment-variable inspection. No publish/checkpoint/extra artifact fetch.",
+  "limits": "One successful narrow run cannot establish general database reliability or elimination of every statement timeout. Existing frozen programs and reports were not touched."
+}

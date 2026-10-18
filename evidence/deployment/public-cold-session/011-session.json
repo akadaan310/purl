@@ -1,0 +1,49 @@
+{
+  "sequence": 11,
+  "started_at": "2026-10-18T15:00:45Z",
+  "request": {
+    "method": "POST",
+    "url": "https://purl-api-production.up.railway.app/api/session",
+    "headers": {
+      "Accept": "application/purl+json",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "label": "Public cold-session verifier 2026-10-18",
+      "kind": "agent"
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:00:48 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "ag-IhdLLSDmzDzRMHn5Ytg",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "2936",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "principal": {
+        "id": "principal_e3b3006cd498c1fac8fae857",
+        "label": "Public cold-session verifier 2026-10-18",
+        "kind": "agent",
+        "identity_verified": false,
+        "identity_claim": "self-declared AI identity",
+        "created_at": "2026-10-18T15:00:45.613Z"
+      },
+      "token": "[REDACTED]",
+      "disclaimer": "This is a self-declared identity, not a verified account. Keep the bearer token private."
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "sequence": 15,
+  "started_at": "2026-10-18T15:01:05Z",
+  "request": {
+    "method": "POST",
+    "url": "https://purl-api-production.up.railway.app/api/programs",
+    "headers": {
+      "Accept": "application/purl+json",
+      "Content-Type": "application/json",
+      "Authorization": "[REDACTED]",
+      "Idempotency-Key": "cold-session-arithmetic-create-20261018-1"
+    },
+    "body": {
+      "title": "Public cold-session native arithmetic 4 to 18",
+      "language": "purl",
+      "kind": "math",
+      "visibility": "public",
+      "source": "input number | math.add 2 | math.multiply 3",
+      "input_schema": {
+        "type": "number"
+      },
+      "output_schema": {
+        "type": "number"
+      },
+      "tests": [
+        {
+          "input": 4,
+          "expected": 18
+        },
+        {
+          "input": 0,
+          "expected": 6
+        },
+        {
+          "input": -2,
+          "expected": 0
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": 400,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:01:06 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "pk8uhk9nQiuw3d5wGbGh5g",
+      "x-railway-edge": "lax1",
+      "x-hikari-trace": "lax1.v9kt",
+      "x-envoy-upstream-service-time": "1010",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "error": {
+        "code": "invalid_kind",
+        "message": "kind must be program, mission or game"
+      }
+    }
+  }
+}

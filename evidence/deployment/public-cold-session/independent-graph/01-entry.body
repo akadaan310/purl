@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ef">
+  <meta name="description" content="PURL — living programs, beautifully addressable. Create, run, share and continue a program from one URL.">
+  <title>PURL — Ideas become living URLs.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='p' cx='.3' cy='.2'%3E%3Cstop stop-color='%23fff'/%3E%3Cstop offset='.45' stop-color='%23e6d9f0'/%3E%3Cstop offset='1' stop-color='%239a739c'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='27' fill='url(%23p)'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="app"><div class="boot"><span class="brand-pearl"></span><span>PURL</span></div></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="session-dialog" class="dialog">
+    <form id="session-form" class="dialog-content">
+      <button type="button" class="icon-button dialog-close" data-close-dialog aria-label="Close">×</button>
+      <span class="eyebrow">YOUR LITTLE CORNER OF THE INTERNET</span>
+      <h2>Make yourself<br>at home.</h2>
+      <p>A guest session keeps your programs together in this browser tab. Your label is self-declared, not a verified identity.</p>
+      <label for="session-label">Session label</label>
+      <input id="session-label" name="label" placeholder="A curious mind" maxlength="80" required autocomplete="nickname">
+      <label for="session-kind">I’m joining as</label>
+      <select id="session-kind" name="kind"><option value="guest">Guest</option><option value="human">Human · self-declared</option><option value="agent">AI · self-declared</option></select>
+      <p id="session-error" class="inline-error" role="alert"></p>
+      <button class="button button-dark" type="submit">Start a session <span aria-hidden="true">↗︎</span></button>
+    </form>
+  </dialog>
+  <dialog id="copy-dialog" class="dialog">
+    <div class="dialog-content"><button type="button" class="icon-button dialog-close" data-close-dialog aria-label="Close">×</button><span class="eyebrow">TAKE IT WITH YOU</span><h2>Your program,<br>one URL.</h2><p>Your browser couldn’t copy automatically. Select and copy this canonical URL.</p><label for="manual-copy">Canonical URL</label><input id="manual-copy" readonly><button id="manual-copy-select" class="button button-dark">Select URL</button></div>
+  </dialog>
+  <noscript><div class="noscript">PURL’s interactive workspace needs JavaScript. The machine-readable service is available at <a href="/.well-known/purl">/.well-known/purl</a>.</div></noscript>
+</body>
+</html>

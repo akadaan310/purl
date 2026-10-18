@@ -1,0 +1,40 @@
+{
+  "sequence": 13,
+  "started_at": "2026-10-18T15:00:51Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/healthz",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:00:52 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "IAl3yfhMSK2rrvs8c9o55Q",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "428",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "status": "ok",
+      "protocol": "PURL/0.2",
+      "service": "api",
+      "persistence": "supabase",
+      "untrusted_execution": "disabled-unless-verified-worker"
+    }
+  }
+}

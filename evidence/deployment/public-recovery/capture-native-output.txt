@@ -1,0 +1,1 @@
+{"phase":"capture-native","status":"PASS","checks":18,"passed":18,"failed":0,"report":"evidence/deployment/public-recovery/capture-native-report.json","strict_historical_replay":[],"error":null}

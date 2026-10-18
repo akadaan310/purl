@@ -1,0 +1,24 @@
+{
+  "requested_url": "https://purl-api-production.up.railway.app/api/programs/program_c8298dd282f72d1420cd15f8/replay",
+  "resolved_url": "https://purl-api-production.up.railway.app/api/programs/program_c8298dd282f72d1420cd15f8/replay",
+  "http_status": 200,
+  "retrieved_at": "2026-10-18T15:18:58Z",
+  "headers": {
+    "cache-control": "no-store",
+    "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+    "content-type": "application/purl+json; charset=utf-8",
+    "date": "Sun, 18 Oct 2026 15:18:58 GMT",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "referrer-policy": "no-referrer",
+    "server": "envoy",
+    "vary": "Accept, Authorization",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "x-railway-request-id": "ZnMF20u4QfKgW7YxBhdwDg",
+    "x-railway-edge": "lax1",
+    "x-hikari-trace": "lax1.v9kt",
+    "x-envoy-upstream-service-time": "2339",
+    "connection": "close",
+    "transfer-encoding": "chunked"
+  }
+}

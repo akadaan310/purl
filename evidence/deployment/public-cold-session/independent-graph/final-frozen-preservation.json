@@ -1,0 +1,106 @@
+{
+  "scope": "Two public HTTP GET-only replay requests; no session, mutation, original run, local code, environment, database or other report access.",
+  "checks": [
+    {
+      "label": "mission",
+      "program_id": "program_c8298dd282f72d1420cd15f8",
+      "url": "https://purl-api-production.up.railway.app/api/programs/program_c8298dd282f72d1420cd15f8/replay",
+      "http_status": 200,
+      "retrieved_at": "2026-10-18T15:13:36Z",
+      "expected": {
+        "version": 6,
+        "valid": true,
+        "program_valid": true,
+        "problems": [],
+        "execution_valid": true,
+        "execution_replayable": true,
+        "state_hash": "sha256:e7fdf4d4d0a76999c8244f2729fc1d373e4d47e38c8156d320110ad98fd1c84f",
+        "head": "sha256:94a52e6b26fdea1cbd6e7c5e397612ffd42aa3d18eaddeb9b30bfb58954f1b13"
+      },
+      "response": {
+        "program_id": "program_c8298dd282f72d1420cd15f8",
+        "valid": true,
+        "version": 6,
+        "events": 6,
+        "head": "sha256:94a52e6b26fdea1cbd6e7c5e397612ffd42aa3d18eaddeb9b30bfb58954f1b13",
+        "state_hash": "sha256:e7fdf4d4d0a76999c8244f2729fc1d373e4d47e38c8156d320110ad98fd1c84f",
+        "problems": [],
+        "program_valid": true,
+        "executions": [
+          {
+            "execution_id": "execution_a4be0b1eef262766b8ae553c",
+            "valid": true,
+            "replayable": true,
+            "value_id": "value:a285ffd1b1a3a9147543c5260db2512745ba767014cd21397c57d5f4c2120e43"
+          }
+        ],
+        "assurance": "Content hashes establish internal consistency, not external authenticity"
+      },
+      "assertions": {
+        "http_200": true,
+        "program_id": true,
+        "version_6": true,
+        "valid_true": true,
+        "program_valid_true": true,
+        "no_problems": true,
+        "state_hash_matches": true,
+        "head_matches": true,
+        "execution_present": true,
+        "all_executions_valid": true,
+        "all_executions_replayable": true
+      },
+      "pass": true
+    },
+    {
+      "label": "arithmetic",
+      "program_id": "program_5aa690946a1dc4638cc8a40a",
+      "url": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/replay",
+      "http_status": 200,
+      "retrieved_at": "2026-10-18T15:13:38Z",
+      "expected": {
+        "version": 6,
+        "valid": true,
+        "program_valid": true,
+        "problems": [],
+        "execution_valid": true,
+        "execution_replayable": true,
+        "state_hash": "sha256:6a0c50e23a67ae72c6f5bef68e3e8b738e18dd129961dd9e21db7aaac2e5d38f",
+        "head": "sha256:65011774790ec02484c9ea1824791fb20f274486c31cc50b4831c6b18d839e55"
+      },
+      "response": {
+        "program_id": "program_5aa690946a1dc4638cc8a40a",
+        "valid": true,
+        "version": 6,
+        "events": 6,
+        "head": "sha256:65011774790ec02484c9ea1824791fb20f274486c31cc50b4831c6b18d839e55",
+        "state_hash": "sha256:6a0c50e23a67ae72c6f5bef68e3e8b738e18dd129961dd9e21db7aaac2e5d38f",
+        "problems": [],
+        "program_valid": true,
+        "executions": [
+          {
+            "execution_id": "execution_62a3543a5f2130b4b42cc24f",
+            "valid": true,
+            "replayable": true,
+            "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd"
+          }
+        ],
+        "assurance": "Content hashes establish internal consistency, not external authenticity"
+      },
+      "assertions": {
+        "http_200": true,
+        "program_id": true,
+        "version_6": true,
+        "valid_true": true,
+        "program_valid_true": true,
+        "no_problems": true,
+        "state_hash_matches": true,
+        "head_matches": true,
+        "execution_present": true,
+        "all_executions_valid": true,
+        "all_executions_replayable": true
+      },
+      "pass": true
+    }
+  ],
+  "pass": true
+}

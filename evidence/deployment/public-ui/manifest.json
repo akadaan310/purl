@@ -1,0 +1,71 @@
+{
+  "schema": "purl.evidence-manifest/1",
+  "source_revision": "0670baddefba9635af8fc71c3b96c85960227315",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 2811,
+      "sha256": "4172acea50953cf4aeacb0a2f0261b91e1db69617424fa3fa76a4dc0a58b8624"
+    },
+    {
+      "file": "clipboard-denial-android-pixel5.png",
+      "bytes": 2517826,
+      "sha256": "7570442b21a0a4e4977ca90e22d7beaab2979f507da76f6de66d2ca27f767b0d"
+    },
+    {
+      "file": "clipboard-denial-desktop.png",
+      "bytes": 406272,
+      "sha256": "774caebfeb5c9825d89f864c5aaacae124e83950b3820cb311e17d7ec7a3ecd2"
+    },
+    {
+      "file": "ide-android-pixel5.png",
+      "bytes": 1082254,
+      "sha256": "d3b458080e09c3e62b79a085684e75ca41c97843dec1a79d458257825f866d7e"
+    },
+    {
+      "file": "ide-desktop.png",
+      "bytes": 589364,
+      "sha256": "3de9d7668c747b75c506b25475a678a36935c84070f4654f4e759d79f692924c"
+    },
+    {
+      "file": "landing-android-pixel5.png",
+      "bytes": 2375129,
+      "sha256": "98d144d82b4194c967e44b5af138ace1417f4ee2871ccfa4f55f3482de51a01d"
+    },
+    {
+      "file": "landing-desktop.png",
+      "bytes": 900417,
+      "sha256": "93143a914707e4219937517f61981cf23b464f7709c3656abeab64c7b4eb743e"
+    },
+    {
+      "file": "mission-android-pixel5.png",
+      "bytes": 1893914,
+      "sha256": "11070a0d433efdc9a44b616dcf28e7afba4a13686d6a737b69cbf778f899dfe4"
+    },
+    {
+      "file": "mission-desktop.png",
+      "bytes": 830620,
+      "sha256": "af06e1ef88a1964af61f0c75492c25b9a64109cdd65076ebf933a937561a5c9d"
+    },
+    {
+      "file": "output.txt",
+      "bytes": 1700,
+      "sha256": "e331ad1181c570e3dd7d35275747b44b3bccf1eda2e3a432ad12cbdc6ff3906e"
+    },
+    {
+      "file": "raw-http.jsonl",
+      "bytes": 5570817,
+      "sha256": "d52c8edccba1075060877b6cbb12028fa9c9e37cdc130ecc7230ee3e6f19e51a"
+    },
+    {
+      "file": "report.json",
+      "bytes": 13638,
+      "sha256": "133b7716f0773119cbd21d94c6252ec6a23f3fe8bffccc0f2865750f5a25f07f"
+    },
+    {
+      "file": "verify.mjs",
+      "bytes": 14581,
+      "sha256": "37d264e67591c7074fce1f8a79de621276bcbd79ba62196915fe3372c4f54998"
+    }
+  ]
+}

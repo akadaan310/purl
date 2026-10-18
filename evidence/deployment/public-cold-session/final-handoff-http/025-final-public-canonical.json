@@ -1,0 +1,635 @@
+{
+  "sequence": 25,
+  "started_at": "2026-10-18T15:18:18Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:18:20 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "9PVUtV3nSL2-bNQKwoOzXw",
+      "x-railway-edge": "lax1",
+      "x-hikari-trace": "lax1.v9kt",
+      "x-envoy-upstream-service-time": "1512",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "protocol": "PURL/0.2",
+      "program": {
+        "id": "program_ad56405463bfaa72e9bbddf2",
+        "title": "PURL public continuation handoff \u2014 verified progress and remaining work",
+        "kind": "mission",
+        "version": 6,
+        "url": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2",
+        "language": "purl",
+        "input_schema": {
+          "type": "object",
+          "required": [
+            "graph"
+          ]
+        },
+        "output_schema": {
+          "type": "object",
+          "required": [
+            "ready_nodes",
+            "completion",
+            "verified"
+          ]
+        }
+      },
+      "operations": [
+        {
+          "name": "inspect",
+          "method": "GET",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2",
+          "available": true,
+          "requires": [
+            "read"
+          ],
+          "effects": [],
+          "input_schema": {}
+        },
+        {
+          "name": "history",
+          "method": "GET",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/history",
+          "available": true,
+          "requires": [
+            "read"
+          ],
+          "effects": [],
+          "input_schema": {}
+        },
+        {
+          "name": "continuity",
+          "method": "GET",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/continuity",
+          "available": true,
+          "requires": [
+            "read"
+          ],
+          "effects": [],
+          "input_schema": {}
+        },
+        {
+          "name": "replay",
+          "method": "GET",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/replay",
+          "available": true,
+          "requires": [
+            "read"
+          ],
+          "effects": [],
+          "input_schema": {}
+        },
+        {
+          "name": "diff",
+          "method": "GET",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/diff",
+          "available": true,
+          "requires": [
+            "read"
+          ],
+          "effects": [],
+          "input_schema": {}
+        },
+        {
+          "name": "source",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/source",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "edit"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              },
+              "source": {}
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=source",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "compile",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/compile",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "build"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              }
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=compile",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "build",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/build",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "build"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              }
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=build",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "run",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/run",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "run"
+          ],
+          "effects": [
+            "local-state",
+            "enqueue-job"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              },
+              "input": {
+                "type": "object",
+                "required": [
+                  "graph"
+                ]
+              },
+              "seed": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "expected_version",
+              "input"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=run",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "publish",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/publish",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "publish"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              }
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=publish",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "fork",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/fork",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "read"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              }
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=fork",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "checkpoint",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/checkpoint",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "checkpoint"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              },
+              "summary": {
+                "type": "string"
+              },
+              "next": {},
+              "evidence": {}
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=checkpoint",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "propose",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/propose",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "propose"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              },
+              "source": {},
+              "summary": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=propose",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "commit",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/commit",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "edit"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              },
+              "proposal_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=commit",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "grants",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/grants",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "grant"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              },
+              "principal_id": {
+                "type": "string"
+              },
+              "rights": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "read",
+                    "edit",
+                    "build",
+                    "run",
+                    "publish",
+                    "checkpoint",
+                    "propose",
+                    "grant",
+                    "play"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=grants",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "revoke",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/revoke",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "grant"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              },
+              "grant_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=revoke",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        },
+        {
+          "name": "mission",
+          "method": "POST",
+          "href": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission",
+          "available": false,
+          "requires": [
+            "authenticated",
+            "checkpoint"
+          ],
+          "effects": [
+            "local-state"
+          ],
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "expected_version": {
+                "type": "integer",
+                "const": 6
+              }
+            },
+            "required": [
+              "expected_version"
+            ]
+          },
+          "prepare": {
+            "href": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2?prepare=mission",
+            "mode": "human-mediated",
+            "description": "Read-only clients can prepare this operation in the browser; mutations require a bearer session."
+          }
+        }
+      ],
+      "links": {
+        "self": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2",
+        "source": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2",
+        "history": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/history",
+        "continuity": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/continuity",
+        "replay": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/replay",
+        "sdk": "https://purl-api-production.up.railway.app/sdk/client.js",
+        "operators": "https://purl-api-production.up.railway.app/api/operators",
+        "mission": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/mission"
+      },
+      "authority": {
+        "authenticated": false,
+        "principal_id": null,
+        "owner": false,
+        "rights": [
+          "read"
+        ]
+      },
+      "continuation": {
+        "checkpoint": {
+          "id": "checkpoint_e6bb9be7402ae4de632e47a2",
+          "next": "Read linked ACCEPTANCE.json and handoff.json first, then the latest public documentation and linked post-restart recovery report. Use their current evidence and exact remaining blockers to continue. Complete verified human Auth setup: configure and verify the intended production redirect flow and production email delivery, then run the relevant end-to-end account/session checks with authorized configuration. Preserve current deployments, frozen releases, execution receipts and recovery fingerprints. Plan the still-NOT_RUN independent cross-provider continuation, Oracle ARM inventory/isolated-worker validation and cross-project disaster restore as separate evidence-backed work. Keep public authored JS/TS/Python disabled until verified isolation exists. Use existing reconstruction/formal-contract evidence to select remaining work; graph statuses require substantive requirement evidence before any promotion. Record exact PASS/FAIL/BLOCKED/NOT_RUN scope and a new checkpoint after each material result.",
+          "actor": "principal_77cf203e2fec52edbdcd06a8",
+          "summary": "Public PURL continuation handoff, 2026-10-18. The API and separate worker are LIVE with Supabase persistence. Coordinated verification reports product revision 0670bad; host Node24 versus pinned/deployed Node22; clean cold checks 197/197; local experiments 10/10; 42 hosted checks; private Storage byte retrieval and same-project restore PASS; public UI two devices, 12 checks, zero axe findings; fresh public cold session 30/30; and public restart recovery 57/57 including native Node22 strict replay. Historical Node24 strict replay correctly reports an environment mismatch under Node22. Read linked current acceptance/handoff/recovery evidence for exact scope and limits. This final fresh-principal fork compiled, built and ran the unchanged native mission inspector over its cloned 52-node/65-edge graph; frontier remains [mission], all 52 statuses NOT_RUN, completion NOT_RUN, verified false. Graph statuses, checkpoint assertions and hash integrity do not establish requirement truth. Full scope remains incomplete: verified human Auth redirect and production email setup are pending; independent cross-provider continuity, Oracle ARM and cross-project disaster restore are NOT_RUN; public authored JavaScript/TypeScript/Python execution is disabled. Earlier frozen v6 mission/arithmetic programs and restart fingerprints are preserved.",
+          "version": 6,
+          "evidence": [
+            {
+              "url": "https://github.com/akadaan310/purl/blob/codex/godseed-v3/ACCEPTANCE.json",
+              "claim": "Current coordinated acceptance status and verification scope; root will publish latest evidence before final delivery.",
+              "provenance": "root-provided verification report reference; checkpoint author assertion"
+            },
+            {
+              "url": "https://github.com/akadaan310/purl/blob/codex/godseed-v3/handoff.json",
+              "claim": "Current deployment continuation handoff and remaining blockers; root will publish latest evidence before final delivery.",
+              "provenance": "root-provided verification report reference; checkpoint author assertion"
+            },
+            {
+              "url": "https://github.com/akadaan310/purl/blob/codex/godseed-v3/evidence/deployment/public-recovery/after-restart-report.json",
+              "claim": "Root reports public restart recovery 57/57, new Node22 native strict replay PASS, old Node24 replay expected environment mismatch.",
+              "provenance": "root-provided verification report reference; checkpoint author assertion"
+            },
+            {
+              "url": "https://purl-api-production.up.railway.app/docs",
+              "claim": "Current public protocol/product documentation.",
+              "provenance": "public-origin discovery"
+            },
+            {
+              "url": "https://purl-api-production.up.railway.app/p/program_5aa690946a1dc4638cc8a40a",
+              "claim": "Frozen public native arithmetic program v6, source input number | math.add 2 | math.multiply 3.",
+              "provenance": "direct prior public HTTP verification"
+            },
+            {
+              "url": "https://purl-api-production.up.railway.app/api/releases/release_8ccbb23641acc20c22476791",
+              "claim": "Immutable native arithmetic release with three passing build tests.",
+              "provenance": "direct prior public HTTP verification"
+            },
+            {
+              "url": "https://purl-api-production.up.railway.app/api/executions/execution_62a3543a5f2130b4b42cc24f",
+              "claim": "Actual native arithmetic worker input4 result18, runtime v22.14.0, strict replay valid.",
+              "provenance": "direct prior public HTTP verification"
+            },
+            {
+              "url": "https://purl-api-production.up.railway.app/api/artifacts/artifact_15bd735d0ff3d1b34080e413",
+              "claim": "Immutable result artifact for arithmetic execution.",
+              "provenance": "direct prior public HTTP verification"
+            },
+            {
+              "url": "https://purl-api-production.up.railway.app/p/program_c8298dd282f72d1420cd15f8",
+              "claim": "Frozen public parent mission v6; prior 30 client checks and original seed preservation are recorded in public-cold-session report.",
+              "provenance": "direct prior public HTTP verification"
+            },
+            {
+              "url": "https://purl-api-production.up.railway.app/api/releases/release_c9474f31ad7f07b0d02c733b",
+              "claim": "Published parent mission inspector release; full mission completion remains NOT_RUN.",
+              "provenance": "direct prior public HTTP verification"
+            },
+            {
+              "url": "https://purl-api-production.up.railway.app/api/executions/execution_a0a362996c4a1c6bf7685c21",
+              "claim": "This final public fork natively inspected cloned graph52nodes/65edges, ready_nodes[mission], completionNOT_RUN, verifiedfalse; actual worker Node22.14.0.",
+              "build_id": "build_9de64a19ba21e977fce4c9f2",
+              "provenance": "direct final public HTTP verification",
+              "execution_id": "execution_a0a362996c4a1c6bf7685c21"
+            },
+            {
+              "url": "https://purl-api-production.up.railway.app/api/releases/release_b6b37a667a51bd6724156430",
+              "claim": "Immutable final handoff mission inspector release; graph statuses remain unverified.",
+              "provenance": "direct final public HTTP publication",
+              "release_id": "release_b6b37a667a51bd6724156430"
+            }
+          ],
+          "created_at": "2026-10-18T15:17:39.064Z",
+          "program_id": "program_ad56405463bfaa72e9bbddf2",
+          "provenance": "author assertions; state hash verified by service",
+          "state_hash": "sha256:c8c5cb73472659b20c9d0995cc30609c98324d03394ad33bc9e92af38b1a217c",
+          "evidence_verified": false,
+          "prepared_at_version": 5
+        },
+        "expected_version": 6,
+        "inspect": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2",
+        "permitted": [
+          "inspect",
+          "history",
+          "continuity",
+          "replay",
+          "diff"
+        ],
+        "steps": [
+          "GET this manifest and continuity",
+          "Read current state, source, dependencies and evidence",
+          "Authenticate only when authorized to mutate",
+          "Use expected_version and a payload-bound Idempotency-Key",
+          "Write a checkpoint with evidence and next operations"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "sequence": 1,
+  "started_at": "2026-10-18T15:13:26Z",
+  "request": {
+    "method": "POST",
+    "url": "https://purl-api-production.up.railway.app/api/session",
+    "headers": {
+      "Accept": "application/purl+json",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "label": "Final public PURL mission handoff 2026-10-18",
+      "kind": "agent"
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:13:32 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "-u_ljGgHR2m5l87jyCLmYg",
+      "x-railway-edge": "lax1",
+      "x-hikari-trace": "lax1.v9kt",
+      "x-envoy-upstream-service-time": "6176",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "principal": {
+        "id": "principal_77cf203e2fec52edbdcd06a8",
+        "label": "Final public PURL mission handoff 2026-10-18",
+        "kind": "agent",
+        "identity_verified": false,
+        "identity_claim": "self-declared AI identity",
+        "created_at": "2026-10-18T15:13:26.693Z"
+      },
+      "token": "[REDACTED]",
+      "disclaimer": "This is a self-declared identity, not a verified account. Keep the bearer token private."
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "sequence": 3,
+  "name": "compile-current-version",
+  "started_at": "2026-10-18T15:24:48.478493+00:00",
+  "duration_seconds": 1.53587,
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5",
+    "headers": {
+      "Accept": "application/purl+json",
+      "Authorization": "[REDACTED]"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:24:49 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "C2PTe9wQTPaB7JxMozsQ6Q",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "1474",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "program": {
+        "id": "program_86b16e4b30d9121e9f30d9c5",
+        "kind": "program",
+        "owner": "principal_2850e90612eca2696e0777c0",
+        "state": {},
+        "tests": [
+          {
+            "input": 4,
+            "expected": 18
+          },
+          {
+            "input": 0,
+            "expected": 6
+          },
+          {
+            "input": -2,
+            "expected": 0
+          }
+        ],
+        "title": "Post-SQL-upgrade bounded arithmetic reliability check",
+        "builds": [],
+        "grants": [],
+        "source": "input number | math.add 2 | math.multiply 3",
+        "lineage": null,
+        "version": 1,
+        "language": "purl",
+        "releases": [],
+        "proposals": [],
+        "created_at": "2026-10-18T15:24:43.726Z",
+        "updated_at": "2026-10-18T15:24:43.726Z",
+        "visibility": "private",
+        "checkpoints": [],
+        "compilation": null,
+        "active_build": null,
+        "dependencies": [],
+        "input_schema": {
+          "type": "number"
+        },
+        "output_schema": {
+          "type": "number"
+        },
+        "source_revision": 1,
+        "url": "https://purl-api-production.up.railway.app/p/program_86b16e4b30d9121e9f30d9c5",
+        "manifest_url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/manifest",
+        "history_url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/history",
+        "continuity_url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/continuity",
+        "replay_url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/replay",
+        "authority": {
+          "authenticated": true,
+          "principal_id": "principal_2850e90612eca2696e0777c0",
+          "owner": true,
+          "rights": [
+            "read",
+            "edit",
+            "build",
+            "run",
+            "publish",
+            "checkpoint",
+            "propose",
+            "grant",
+            "play"
+          ]
+        },
+        "execution_policy": {
+          "kind": "bounded-pure",
+          "available": true
+        }
+      }
+    },
+    "raw_body": "{\"program\":{\"id\":\"program_86b16e4b30d9121e9f30d9c5\",\"kind\":\"program\",\"owner\":\"principal_2850e90612eca2696e0777c0\",\"state\":{},\"tests\":[{\"input\":4,\"expected\":18},{\"input\":0,\"expected\":6},{\"input\":-2,\"expected\":0}],\"title\":\"Post-SQL-upgrade bounded arithmetic reliability check\",\"builds\":[],\"grants\":[],\"source\":\"input number | math.add 2 | math.multiply 3\",\"lineage\":null,\"version\":1,\"language\":\"purl\",\"releases\":[],\"proposals\":[],\"created_at\":\"2026-10-18T15:24:43.726Z\",\"updated_at\":\"2026-10-18T15:24:43.726Z\",\"visibility\":\"private\",\"checkpoints\":[],\"compilation\":null,\"active_build\":null,\"dependencies\":[],\"input_schema\":{\"type\":\"number\"},\"output_schema\":{\"type\":\"number\"},\"source_revision\":1,\"url\":\"https://purl-api-production.up.railway.app/p/program_86b16e4b30d9121e9f30d9c5\",\"manifest_url\":\"https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/manifest\",\"history_url\":\"https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/history\",\"continuity_url\":\"https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/continuity\",\"replay_url\":\"https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/replay\",\"authority\":{\"authenticated\":true,\"principal_id\":\"principal_2850e90612eca2696e0777c0\",\"owner\":true,\"rights\":[\"read\",\"edit\",\"build\",\"run\",\"publish\",\"checkpoint\",\"propose\",\"grant\",\"play\"]},\"execution_policy\":{\"kind\":\"bounded-pure\",\"available\":true}}}"
+  },
+  "transport_error": null
+}

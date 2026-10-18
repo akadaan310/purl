@@ -1,0 +1,378 @@
+[
+  {
+    "id": "mission",
+    "status": "NOT_RUN",
+    "dependencies": []
+  },
+  {
+    "id": "reconstruction",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "mission"
+    ]
+  },
+  {
+    "id": "formal-contract",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "features",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "cinematic-design",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "experiments",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "infrastructure",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "work-plan",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "deliverables",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "execution",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "feature-1",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-3",
+      "feature-8"
+    ]
+  },
+  {
+    "id": "feature-2",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "formal-contract"
+    ]
+  },
+  {
+    "id": "feature-3",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "formal-contract"
+    ]
+  },
+  {
+    "id": "feature-4",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-1",
+      "feature-3"
+    ]
+  },
+  {
+    "id": "feature-5",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-2",
+      "feature-3",
+      "feature-9"
+    ]
+  },
+  {
+    "id": "feature-6",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-3"
+    ]
+  },
+  {
+    "id": "feature-7",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-3"
+    ]
+  },
+  {
+    "id": "feature-8",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-2"
+    ]
+  },
+  {
+    "id": "feature-9",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "infrastructure",
+      "feature-8"
+    ]
+  },
+  {
+    "id": "feature-10",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-3",
+      "feature-8"
+    ]
+  },
+  {
+    "id": "feature-11",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-2",
+      "feature-8"
+    ]
+  },
+  {
+    "id": "feature-12",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-8",
+      "feature-9"
+    ]
+  },
+  {
+    "id": "E01",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-3"
+    ]
+  },
+  {
+    "id": "E02",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-3"
+    ]
+  },
+  {
+    "id": "E03",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction",
+      "feature-3"
+    ]
+  },
+  {
+    "id": "E04",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-7"
+    ]
+  },
+  {
+    "id": "E05",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-5"
+    ]
+  },
+  {
+    "id": "E06",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-2",
+      "feature-9"
+    ]
+  },
+  {
+    "id": "E07",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-11"
+    ]
+  },
+  {
+    "id": "E08",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-10"
+    ]
+  },
+  {
+    "id": "E09",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-10",
+      "feature-11"
+    ]
+  },
+  {
+    "id": "E10",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "feature-1",
+      "feature-4",
+      "feature-8",
+      "feature-9"
+    ]
+  },
+  {
+    "id": "artifact-readme",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-architecture",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-formal-semantics",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-language-spec",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-sdk",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-nomenclature",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-constitution",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-security",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-deployment",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-reconstruction",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-migrations",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-experiments",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-acceptance-json",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-program-graph-json",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-handoff-json",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-playwright-screenshots",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-example-purls",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-build-hashes",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "artifact-deployed-url",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "reconstruction"
+    ]
+  },
+  {
+    "id": "deployment-amendment",
+    "status": "NOT_RUN",
+    "dependencies": [
+      "infrastructure"
+    ]
+  }
+]

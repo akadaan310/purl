@@ -1,0 +1,44 @@
+{
+  "schema": "purl.git-publication/1",
+  "started_at_utc": "2026-10-18T14:58:26.013903Z",
+  "repository": "akadaan310/purl",
+  "source_commit": "0670baddefba9635af8fc71c3b96c85960227315",
+  "target_ref": "refs/heads/codex/godseed-v3",
+  "previous_feature_head": "e970f6586f54b070cb482fc784a95747c04aca21",
+  "fast_forward_ancestor_verified": true,
+  "force": false,
+  "default_branch": "claude/purl-protocol-research-bxevq5",
+  "default_before": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+  "authentication": "Per-command gh auth git-credential; no credential values recorded",
+  "first_publication_record": "evidence/deployment/git-publication.json",
+  "commands": [
+    {
+      "command": "git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push --porcelain origin 0670baddefba9635af8fc71c3b96c85960227315:refs/heads/codex/godseed-v3",
+      "exit_code": 0,
+      "stdout": "To https://github.com/akadaan310/purl.git\n \t0670baddefba9635af8fc71c3b96c85960227315:refs/heads/codex/godseed-v3\te970f65..0670bad\nDone\n",
+      "stderr": "",
+      "environment_override": {
+        "GIT_TERMINAL_PROMPT": "0"
+      }
+    },
+    {
+      "command": "gh api repos/akadaan310/purl/git/ref/heads/codex/godseed-v3 --jq .object.sha",
+      "exit_code": 0,
+      "stdout": "0670baddefba9635af8fc71c3b96c85960227315\n",
+      "stderr": ""
+    },
+    {
+      "command": "gh api repos/akadaan310/purl/git/ref/heads/claude/purl-protocol-research-bxevq5 --jq .object.sha",
+      "exit_code": 0,
+      "stdout": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7\n",
+      "stderr": ""
+    }
+  ],
+  "remote_feature_head": "0670baddefba9635af8fc71c3b96c85960227315",
+  "default_after": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+  "feature_head_verified": true,
+  "default_unchanged": true,
+  "status": "PASS",
+  "finished_at_utc": "2026-10-18T14:58:31.673146Z",
+  "qualification": "Git source publication only; Railway CLI direct-upload deployment is verified separately by the coordinating agent. First publication evidence is preserved unchanged."
+}

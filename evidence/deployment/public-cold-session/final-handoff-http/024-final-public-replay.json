@@ -1,0 +1,52 @@
+{
+  "sequence": 24,
+  "started_at": "2026-10-18T15:18:15Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/replay",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:18:17 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "feuOpvHtRGqmtWygFFmdQQ",
+      "x-railway-edge": "lax1",
+      "x-hikari-trace": "lax1.v9kt",
+      "x-envoy-upstream-service-time": "1767",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "program_id": "program_ad56405463bfaa72e9bbddf2",
+      "valid": true,
+      "version": 6,
+      "events": 6,
+      "head": "sha256:c6e9561212d5adc0cf33ef9ca32f1383f080144f06f4885757852254c9cdb06e",
+      "state_hash": "sha256:ed222dff6edd1fcf8e97d8407d7ae234e2b79b804ff05dec02cf08b9f5dd3451",
+      "problems": [],
+      "program_valid": true,
+      "executions": [
+        {
+          "execution_id": "execution_a0a362996c4a1c6bf7685c21",
+          "valid": true,
+          "replayable": true,
+          "value_id": "value:a285ffd1b1a3a9147543c5260db2512745ba767014cd21397c57d5f4c2120e43"
+        }
+      ],
+      "assurance": "Content hashes establish internal consistency, not external authenticity"
+    }
+  }
+}

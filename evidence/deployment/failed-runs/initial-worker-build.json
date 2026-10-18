@@ -1,0 +1,108 @@
+{
+  "scope": "deployment",
+  "deploymentId": "59a73a93-7f42-4b62-984c-1f0f2ea2e7e7",
+  "serviceId": "063e5f3b-9953-44d2-b479-84dab49bb7f1",
+  "environmentId": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+  "status": "FAILED",
+  "deploy": [],
+  "build": [
+    {
+      "timestamp": "2026-10-18T14:52:28.605176416Z",
+      "severity": "info",
+      "message": "scheduling build on Metal builder \"builder-ejwjds\"",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:52:36.577357235Z",
+      "severity": "info",
+      "message": "fetched snapshot sha256:a7cf5f1aa8917eeeea9e592ba7b92e45e947089006697ed1f051705c74b7c12e (24 MB bytes)",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:52:36.577557745Z",
+      "severity": "info",
+      "message": "fetching snapshot",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"railway.progress\""
+        },
+        {
+          "key": "status",
+          "value": "\"complete\""
+        },
+        {
+          "key": "size",
+          "value": "23944862"
+        },
+        {
+          "key": "duration_ms",
+          "value": "1784"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:52:36.895068233Z",
+      "severity": "info",
+      "message": "unpacking archive",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"railway.progress\""
+        },
+        {
+          "key": "status",
+          "value": "\"complete\""
+        },
+        {
+          "key": "size",
+          "value": "39450112"
+        },
+        {
+          "key": "duration_ms",
+          "value": "150"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:52:36.933564330Z",
+      "severity": "info",
+      "message": "scheduling build on Metal builder \"builder-ejwjds\"",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:52:37.056283330Z",
+      "severity": "error",
+      "message": "dockerfile invalid: flag '--mount=type=secret,id=proxy_ca' is missing a type=cache argument (other mount types are not supported) at Line 8",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"error\""
+        }
+      ]
+    }
+  ]
+}

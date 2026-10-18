@@ -2,8 +2,9 @@
 
 This repository supplies portable deployment configuration. A Railway project
 and separate API/worker services have been configured through the authenticated
-Railway MCP. The allocated API domain is not yet verified live. Local HTTP and
-container checks do not establish a public deployment or hosted durability.
+Railway MCP. The public URL https://purl-api-production.up.railway.app is verified live. API and
+worker reached SUCCESS; public browser, freshAI and post-restart recovery evidence
+is in evidence/deployment/. Supabase remains the sole production authority.
 
 ## Run locally
 
@@ -102,10 +103,14 @@ Project: `7b6d6969-ebfe-4823-ac60-6370fb068458`; environment:
 `eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2`. The API service is
 `5ed93f79-e12c-4cb6-a835-b3158e8da5af`; worker service is
 `063e5f3b-9953-44d2-b479-84dab49bb7f1`. The allocated domain
-`https://purl-api-production.up.railway.app` is not yet verified live.
+`https://purl-api-production.up.railway.app` is verified live; native executions and immutable records survived restarting both services.
 
-Attach both services to `akadaan310/purl`, branch `codex/godseed-v3`, using the
-same release revision and the distinct commands above. Set shared production
+The Railway GitHub source connection reported no linked GitHub account. Both live
+services were deployed through authenticated Railway CLI direct uploads of the same
+verified release revision, using the distinct commands above. The source and evidence
+are independently published at `akadaan310/purl`, branch `codex/godseed-v3`. To
+automate future Git deployments, link that GitHub account in Railway and attach both
+services to that branch. Set shared production
 secrets and role variables separately; the field map contains no secret values.
 The image binds `0.0.0.0` and honors Railway's `PORT`. Monitor worker heartbeat,
 logs, queue age and execution failures in addition to process restarts.
@@ -172,3 +177,14 @@ exercise a hosted Supabase project or its Storage HTTP service. After building
 containers with a read-only root filesystem, a real queued computation and
 persisted result retrieval after restarting both containers. This last harness
 uses DEVELOPMENT file persistence and has no network connectivity.
+
+## Observed database limits
+
+The final continuation recovered automatically on attempt2 after actual SQLSTATE
+57014 statement timeouts. The additive migration20261018152346 avoids rewriting
+unchanged projection rows; local PostgreSQL/PostgREST and actual hosted row-version
+checks pass, followed by a public arithmetic run18/three tests/strict replay on
+attempt1 with no errors across12HTTP calls. That execution still took23.558seconds
+from enqueue to completion. The document remains one low-volume CAS authority;
+scans, full JSON transfer and serialized writes remain. See the exact incident,
+fix and limits in `evidence/deployment/database-reliability/`.

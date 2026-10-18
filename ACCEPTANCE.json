@@ -1,34 +1,37 @@
 {
   "schema": "purl-acceptance/1",
-  "recorded_at": "2026-10-18T14:33:10.653820+00:00",
+  "recorded_at": "2026-10-18T15:10:49.195493+00:00",
   "overall_status": "BLOCKED",
-  "scope": "Working locally verified implementation; complete public production mission remains blocked by external service access and unverified production operations",
-  "implementation_revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
+  "scope": "Public core service LIVE and verified; full God Seed scope retains explicitly blocked/not-run requirements",
+  "implementation_revision": "2ca63233cedcbce427da89bc5ee82a190a7b9687",
   "original_purl_revision": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
   "public_deployment": {
-    "status": "BLOCKED",
-    "railway_url": null,
-    "allocated_railway_url": "https://purl-api-production.up.railway.app",
-    "reason": "Railway project/services/domain configured; Supabase migration applied. Awaiting server-only SUPABASE_SERVICE_ROLE_KEY in shared Railway variables before deployment. Allocated domain is not a verified working URL.",
+    "status": "PASS",
+    "railway_url": "https://purl-api-production.up.railway.app",
+    "reason": "Both services SUCCESS; public browser, fresh AI and restart recovery verified.",
     "railway_project_id": "7b6d6969-ebfe-4823-ac60-6370fb068458",
     "supabase_project_id": "frxufmwwbegconolevkw",
     "backend_placement": "Isolated additive PURL resources in existing healthy Supabase project after free quota refused new project/ACSP restore",
-    "oracle": "Deferred by Railway-first amendment; no target credentials"
+    "oracle": "Deferred by Railway-first amendment; no target credentials",
+    "source_transport": "RailwayCLI direct upload; GitHub sourceconnector unlinked, featurebranch independently published",
+    "api_deployment_id": "69cdb20a-69eb-4245-9d26-d347e5080a00",
+    "worker_deployment_id": "b5e7671e-115f-48f2-9b78-d3fe6586c0db",
+    "evidence": "evidence/deployment/railway-success.json"
   },
   "features": [
     {
       "id": "F01",
       "name": "Public service and cinematic interface",
-      "status": "BLOCKED",
+      "status": "PASS",
       "local_status": "PASS",
-      "evidence": "All local routes and responsive capsules work; public Railway deployment is unavailable."
+      "evidence": "Public Railway service, cinematic desktop/Android flows and clipboard actions verified;12 route accessibility scans zero violations."
     },
     {
       "id": "F02",
       "name": "Accounts, principals and authority",
       "status": "BLOCKED",
       "local_status": "PASS",
-      "evidence": "Guests, self-declared agents, grants and verified-provider exchange are implemented/tested; hosted Supabase Auth sign-in is not exercised."
+      "evidence": "Guest/agent accounts and grants work publicly. Verified human email sign-in awaits Supabase Auth redirect/production email setup and actual sign-in verification."
     },
     {
       "id": "F03",
@@ -49,7 +52,7 @@
       "name": "AI self-extension and reuse",
       "status": "PASS",
       "local_status": "PASS",
-      "evidence": "PURL/JS/erasable TypeScript/Python build/run/publish/reuse through actual isolated execution; fresh AI reused JS in21checks. Shared promotion requires configured curator authority."
+      "evidence": "Public native PURL author/build/run/publish/reuse verified. JS/erasableTS/Python execute locally in restricted Docker; public authored execution intentionally disabled."
     },
     {
       "id": "F06",
@@ -68,30 +71,30 @@
     {
       "id": "F08",
       "name": "Authoritative persistent backend",
-      "status": "BLOCKED",
+      "status": "PASS",
       "local_status": "PASS",
-      "evidence": "Real PostgreSQL17.7/PostgREST13.0.4 CAS/RLS/migrations pass. Hosted Supabase Storage/Auth, backup and restore remain unavailable."
+      "evidence": "Actual authoritative hosted Supabase CAS/RLS/privateStorage and same-project document/byte recovery verified. Cross-project disaster restore NOT_RUN."
     },
     {
       "id": "F09",
       "name": "Computational worker placement",
-      "status": "BLOCKED",
+      "status": "PASS",
       "local_status": "PASS",
-      "evidence": "Separate restricted non-root API/worker images, restart/lease recovery and x64 Node22/24 portability pass. Railway/Oracle/ARM require provider targets."
+      "evidence": "Separate Railway API/worker deployed and restarted with no essential container-only state. Oracle adapter supplied; Oracle/ARM execution NOT_RUN."
     },
     {
       "id": "F10",
       "name": "Real examples and executable God-seed",
       "status": "PASS",
       "local_status": "PASS",
-      "evidence": "Math, diagnostic, game, workspace and52-node/65-edge full directive/amendment mission; inspector computes ready state; published fork/checkpoint and exported session."
+      "evidence": "Published public executable God-seed fork computes52nodes65edges and has immutable release/execution/checkpoint. Examples and local snapshot retained."
     },
     {
       "id": "F11",
       "name": "Fresh-session continuation",
       "status": "PASS",
       "local_status": "PASS",
-      "evidence": "Actual fresh same-provider AI HTTP discovery/proposal and independent AI fork/build/run/checkpoint/reuse; cross-provider controlled trial NOT_RUN."
+      "evidence": "Fresh HTTP-only public AI continuation30/30 plus persisted native execution strict replay after Railway restart57/57 recovery checks. Same provider; cross-provider trial NOT_RUN."
     },
     {
       "id": "F12",
@@ -106,7 +109,7 @@
       "id": "E01",
       "status": "PASS",
       "execution_scope": "LOCAL_VERIFIED",
-      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "evidence": "evidence/experiments/runs/2026-10-18T15-00-37.603Z/results.json",
       "limitations": "Hash equality is encoding equality; no semantic equivalence or authenticity claim",
       "hypothesis": "Separate address/derivation/value/run identities are stable and distinct"
     },
@@ -114,7 +117,7 @@
       "id": "E02",
       "status": "PASS",
       "execution_scope": "LOCAL_VERIFIED",
-      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "evidence": "evidence/experiments/runs/2026-10-18T15-00-37.603Z/results.json",
       "limitations": "Bounded contract corpus, not universal type-system soundness or intelligence benchmark",
       "hypothesis": "Typed composition/effects normalize and execute deterministically"
     },
@@ -122,7 +125,7 @@
       "id": "E03",
       "status": "PASS",
       "execution_scope": "LOCAL_VERIFIED",
-      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "evidence": "evidence/experiments/runs/2026-10-18T15-00-37.603Z/results.json",
       "limitations": "Static SEURL repository and later executable FSM are separate evidence. Contextual mapping is not protocol equivalence; external TALK does not acquire authority.",
       "hypothesis": "Seven SEURL labels require contextual, loss-aware mappings"
     },
@@ -130,7 +133,7 @@
       "id": "E04",
       "status": "PASS",
       "execution_scope": "LOCAL_VERIFIED",
-      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "evidence": "evidence/experiments/runs/2026-10-18T15-00-37.603Z/results.json",
       "limitations": "Completeness of the submitted finite universe is a caller/model assertion. No induction from sampled traces or general-program congruence proof.",
       "hypothesis": "Projection compilation requires congruent enabledness/effects/successors"
     },
@@ -138,7 +141,7 @@
       "id": "E05",
       "status": "PASS",
       "execution_scope": "LOCAL_VERIFIED",
-      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "evidence": "evidence/experiments/runs/2026-10-18T15-00-37.603Z/results.json",
       "limitations": [
         "Fresh reuse is an independent HTTP client and Node process, not a cross-provider AI study",
         "Registry promotion beyond personal/public releases requires separate authority; no fake package-count claim"
@@ -149,7 +152,7 @@
       "id": "E06",
       "status": "PASS",
       "execution_scope": "LOCAL_VERIFIED",
-      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "evidence": "evidence/experiments/runs/2026-10-18T15-00-37.603Z/results.json",
       "limitations": "These attacks do not certify kernel security, unrestricted dependency installs or multi-tenant safety. Authored runtime remains disabled in default public configuration.",
       "hypothesis": "Execution and authority boundaries fail closed"
     },
@@ -157,7 +160,7 @@
       "id": "E07",
       "status": "PASS",
       "execution_scope": "LOCAL_VERIFIED",
-      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "evidence": "evidence/experiments/runs/2026-10-18T15-00-37.603Z/results.json",
       "limitations": [
         "Client sessions are programmatic, not three independent AI providers",
         "No claim of transferred private memory or model identity"
@@ -168,7 +171,7 @@
       "id": "E08",
       "status": "PASS",
       "execution_scope": "LOCAL_VERIFIED",
-      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "evidence": "evidence/experiments/runs/2026-10-18T15-00-37.603Z/results.json",
       "limitations": null,
       "hypothesis": "Concurrent tic-tac-toe validates turns and survives restart"
     },
@@ -176,7 +179,7 @@
       "id": "E09",
       "status": "PASS",
       "execution_scope": "LOCAL_VERIFIED",
-      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "evidence": "evidence/experiments/runs/2026-10-18T15-00-37.603Z/results.json",
       "limitations": [
         "Feature structure comparison only; no randomized token/cost/success advantage measured",
         "Mission artifact integrity is checked; requirement truth still requires independent review",
@@ -188,9 +191,9 @@
       "id": "E10",
       "status": "PASS",
       "execution_scope": "LOCAL_VERIFIED",
-      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "evidence": "evidence/experiments/runs/2026-10-18T15-00-37.603Z/results.json",
       "limitations": [
-        "Hosted Supabase Storage/Auth integration and public Railway deployment cannot be exercised without configured service access."
+        "E10 local harness scope; actual hosted Supabase REST/Storage, Railway public browser and restart proofs are recorded separately under checks. Verified human Auth is pending."
       ],
       "hypothesis": "Cold product/container/UI rebuild preserves persistence and core flows"
     }
@@ -198,13 +201,13 @@
   "checks": {
     "host_node24": {
       "status": "PASS",
-      "tests": 187,
+      "tests": 197,
       "failed": 0,
       "evidence": "evidence/final-tests.txt"
     },
     "container_node22": {
       "status": "PASS",
-      "tests": 187,
+      "tests": 197,
       "failed": 0,
       "evidence": "evidence/infrastructure/node22-tests.txt"
     },
@@ -230,8 +233,8 @@
     },
     "cold_checkout": {
       "status": "PASS",
-      "revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
-      "tests": 187,
+      "revision": "0670baddefba9635af8fc71c3b96c85960227315",
+      "tests": 197,
       "evidence": "evidence/cold-rebuild/latest.json"
     },
     "postgres_and_rest": {
@@ -268,23 +271,76 @@
     "hosted_migration_security": {
       "status": "PASS",
       "evidence": "evidence/deployment/provisioning.json",
-      "scope": "Applied migration; real table/RPC denial and private bucket readback. Runtime REST/Storage pending credential."
+      "scope": "Applied migration; real table/RPC denial and private bucket readback; later actual REST/Storage proof in hosted-backend and hosted-storage"
     },
     "snapshot_restore": {
       "status": "PASS",
       "checks": 30,
       "failed": 0,
       "evidence": "evidence/infrastructure/snapshot-restore/report.json"
+    },
+    "hosted_backend": {
+      "status": "PASS",
+      "checks": 42,
+      "evidence": "evidence/deployment/hosted-backend/report.json"
+    },
+    "hosted_storage_restore": {
+      "status": "PASS",
+      "evidence": "evidence/deployment/hosted-storage/report.json",
+      "scope": "Actual privatebyte recovery and isolateddocument restore in sameproject; crossprojectdisasterrestore NOT_RUN"
+    },
+    "hosted_anon_denial": {
+      "status": "PASS",
+      "evidence": "evidence/deployment/hosted-storage/access-control.json"
+    },
+    "public_browser": {
+      "status": "PASS",
+      "devices": 2,
+      "axe_routes": 12,
+      "axe_violations": 0,
+      "http_errors": 0,
+      "posts": 14,
+      "evidence": "evidence/deployment/public-ui/report.json"
+    },
+    "public_fresh_AI": {
+      "status": "PASS",
+      "checks": 30,
+      "evidence": "evidence/deployment/public-cold-session/report.json"
+    },
+    "public_restart_recovery": {
+      "status": "PASS",
+      "checks": 57,
+      "evidence": "evidence/deployment/public-recovery/after-restart-report.json"
+    },
+    "public_migration_integrity": {
+      "status": "PASS",
+      "checks": 38,
+      "evidence": "evidence/deployment/public-recovery/migration-report.json"
+    },
+    "public_final_handoff": {
+      "status": "PASS",
+      "checks": 34,
+      "evidence": "evidence/deployment/public-cold-session/final-handoff-report.json",
+      "scope": "Fresh principal; public fork/compile/build/run/publish/checkpoint/replay; substantive progress and next actions"
+    },
+    "projection_upgrade_local": {
+      "status": "PASS",
+      "evidence": "evidence/infrastructure/projection-write-amplification/report.json",
+      "scope": "Real PostgreSQL/PostgREST; baseline failure preserved, conditional updates, staleCAS, atomic rollback and actual RESTCASconflict"
+    },
+    "projection_upgrade_hosted": {
+      "status": "PASS",
+      "evidence": "evidence/deployment/database-reliability/upgrade.json",
+      "scope": "Actual additive SQL application; data/revision and RPCpermissions unchanged, hosted rowversionsstable across7newCAScommits, public3tests/run18/strictreplay"
     }
   },
-  "runtime_image": "sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401",
+  "runtime_image": "sha256:f464b235bbc0e788223ba6eaad6281d34197364ea19977fc35c561109a5d0ea0",
   "remaining_not_run": [
-    "Hosted Supabase Storage persistence and backup/restore drill",
-    "Real provider email sign-in in a dedicated Supabase Auth project",
-    "Public Railway deployment/smoke/restart",
+    "Verified human Supabase Auth email sign-in; redirect allowlist and production email delivery setup pending",
+    "Cross-project disaster restore; same-project private-byte and isolateddocument restore did pass",
     "Oracle host inventory and ARM execution",
     "Cross-provider blinded comparison and token/cost advantage",
-    "External signature/transparency anchoring against a malicious full-history rewrite"
+    "External signature/transparency anchoring against malicious full-history rewrite"
   ],
   "execution_restrictions": [
     "Public unrestricted code execution disabled by default",
@@ -306,6 +362,44 @@
     "publicly_hosted": false,
     "persistence": "Local development file, exported in examples/live-session.snapshot.json"
   },
-  "implementation_frozen_since_verification": true,
-  "delivery_source_note": "Product source/test/config remains at the verified implementation revision; later commits add evidence, exported examples and delivery reports."
+  "implementation_frozen_since_verification": false,
+  "delivery_source_note": "Runtime JavaScript and pinned image remain at verified0670bad. A later additive SQL-only migration skips unchanged projection writes; its real PostgreSQL and hosted verification are separately recorded. Later delivery commits include that migration and evidence/docs.",
+  "overall_reason": "Verified human email-account setup remains pending; broader runtime and independent-provider requirements are not represented as completed.",
+  "performance_limits": {
+    "architecture": "Single authoritative CAS document; bounded low-volume implementation, not a throughput/SLA claim",
+    "public_worker_observed_completion_ms": {
+      "desktop": 12144,
+      "android": 33613
+    },
+    "evidence": "evidence/deployment/public-ui/report.json",
+    "database_reliability": {
+      "status": "NARROW_UPGRADE_VERIFIED",
+      "migration_version": "20261018152346",
+      "observed_failure": "One publicGET500 and workerstatementtimeouts, then automatic attempt2success",
+      "evidence": "evidence/deployment/database-reliability/upgrade.json",
+      "earlier_failures": "evidence/deployment/database-reliability/observed-timeouts.json",
+      "limits": "Avoids identical projection writes; whole-document CAS and scans remain. One passing run does not establish sustained reliability or elimination of all earlier timeout causes.",
+      "public_after_upgrade": {
+        "status": "PASS",
+        "http_calls": 12,
+        "http_errors": 0,
+        "build_tests": 3,
+        "execution_attempts": 1,
+        "value": 18,
+        "strict_replay": true,
+        "worker_queue_to_completion_ms": 23558,
+        "evidence": "evidence/deployment/database-reliability/public-after-upgrade/report.json"
+      },
+      "hosted_row_versions": {
+        "status": "PASS",
+        "revision_before": 63,
+        "revision_after": 70,
+        "unmodified_mission_xmin": "1359",
+        "unmodified_first_audit_xmin": "1359",
+        "evidence": "evidence/deployment/database-reliability/hosted-row-versions.json"
+      }
+    }
+  },
+  "replay_limits": "Strict replay is environment-specific: originalNode24 runs retain integrity but reject re-execution onNode22; nativeNode22 public run replays before/afterrestart.",
+  "runtime_implementation_revision": "0670baddefba9635af8fc71c3b96c85960227315"
 }

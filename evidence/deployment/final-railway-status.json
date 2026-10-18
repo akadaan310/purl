@@ -1,0 +1,42 @@
+{
+  "project": {
+    "id": "7b6d6969-ebfe-4823-ac60-6370fb068458",
+    "name": "purl-godseed"
+  },
+  "environment": {
+    "id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+    "name": "production",
+    "unmergedChangesCount": null,
+    "stagedChanges": null
+  },
+  "services": [
+    {
+      "id": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+      "name": "purl-api",
+      "numReplicas": null,
+      "cronSchedule": null,
+      "volumes": [],
+      "latestDeployment": {
+        "id": "69cdb20a-69eb-4245-9d26-d347e5080a00",
+        "status": "SUCCESS",
+        "createdAt": "2026-10-18T14:57:47.377Z",
+        "url": null
+      }
+    },
+    {
+      "id": "063e5f3b-9953-44d2-b479-84dab49bb7f1",
+      "name": "purl-worker",
+      "numReplicas": null,
+      "cronSchedule": null,
+      "volumes": [],
+      "latestDeployment": {
+        "id": "b5e7671e-115f-48f2-9b78-d3fe6586c0db",
+        "status": "SUCCESS",
+        "createdAt": "2026-10-18T14:57:48.782Z",
+        "url": null
+      }
+    }
+  ],
+  "buckets": [],
+  "pendingWork": []
+}

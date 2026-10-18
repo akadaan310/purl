@@ -1,0 +1,103 @@
+{
+  "sequence": 31,
+  "started_at": "2026-10-18T15:02:39Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/executions/execution_62a3543a5f2130b4b42cc24f",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:02:40 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "-mnsgVmRTFeiqxVAezItjw",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "806",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "execution": {
+        "id": "execution_62a3543a5f2130b4b42cc24f",
+        "logs": [
+          {
+            "at": "2026-10-18T15:02:28.251Z",
+            "level": "info",
+            "message": "Execution durably queued"
+          },
+          {
+            "at": "2026-10-18T15:02:35.919Z",
+            "level": "info",
+            "message": "Worker claimed execution attempt 1"
+          }
+        ],
+        "seed": 7,
+        "error": null,
+        "input": 4,
+        "lease": {
+          "claim_id": "claim_00bdae0944801ac53e49e3bb",
+          "worker_id": "b04f325126af-cde9347a-5e8d-4ce1-8dc7-05f0f2736493",
+          "expires_at": "2026-10-18T15:03:05.919Z"
+        },
+        "value": null,
+        "status": "running",
+        "effects": [],
+        "receipt": null,
+        "attempts": 1,
+        "build_id": "build_fead495ba2ddd82405405ced",
+        "input_id": "sha256:4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+        "artifacts": [],
+        "created_at": "2026-10-18T15:02:28.251Z",
+        "program_id": "program_5aa690946a1dc4638cc8a40a",
+        "started_at": "2026-10-18T15:02:35.919Z",
+        "environment": {
+          "node": "22.14.0",
+          "network": false,
+          "runtime": "purl-bounded-interpreter",
+          "ir_version": "purl-ir/1",
+          "architecture": "x64",
+          "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+          "runtime_version": "1",
+          "external_effects": false
+        },
+        "completed_at": null,
+        "dependencies": [],
+        "requested_by": "principal_e3b3006cd498c1fac8fae857",
+        "authorization": "[REDACTED]",
+        "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+        "nondeterminism": [],
+        "program_version": 3,
+        "source_revision": 1,
+        "build_content_id": "sha256:6af544fa9efc234b47b2fe3f7f31e606447efccdb0d667d6f8be8dee9558c73a",
+        "claim_authorization": {
+          "via": "owner",
+          "grant": null,
+          "rights": [
+            "read",
+            "edit",
+            "build",
+            "run",
+            "publish",
+            "checkpoint",
+            "propose",
+            "grant",
+            "play"
+          ]
+        }
+      }
+    }
+  }
+}

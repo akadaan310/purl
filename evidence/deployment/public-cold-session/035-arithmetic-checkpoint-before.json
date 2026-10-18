@@ -1,0 +1,269 @@
+{
+  "sequence": 35,
+  "started_at": "2026-10-18T15:03:10Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a",
+    "headers": {
+      "Accept": "application/purl+json",
+      "Authorization": "[REDACTED]"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:03:11 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "C8Tb_77pR0yGPraTo3UVLg",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "894",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "program": {
+        "id": "program_5aa690946a1dc4638cc8a40a",
+        "kind": "program",
+        "owner": "principal_e3b3006cd498c1fac8fae857",
+        "state": {},
+        "tests": [
+          {
+            "input": 4,
+            "expected": 18
+          },
+          {
+            "input": 0,
+            "expected": 6
+          },
+          {
+            "input": -2,
+            "expected": 0
+          }
+        ],
+        "title": "Public cold-session native arithmetic 4 to 18",
+        "builds": [
+          {
+            "id": "build_fead495ba2ddd82405405ced",
+            "plan": {
+              "cost": 2,
+              "steps": [
+                {
+                  "op": "math.add",
+                  "args": {
+                    "value": 2
+                  },
+                  "version": "1.0.0"
+                },
+                {
+                  "op": "math.multiply",
+                  "args": {
+                    "value": 3
+                  },
+                  "version": "1.0.0"
+                }
+              ],
+              "limits": {
+                "depth": 32,
+                "nodes": 512,
+                "steps": 10000,
+                "repeat": 1000,
+                "workBytes": 16777216,
+                "graphEdges": 10000,
+                "graphNodes": 1000,
+                "valueBytes": 1048576,
+                "arrayLength": 10000,
+                "sourceBytes": 65536
+              },
+              "effects": [],
+              "language": "purl/1",
+              "requires": [],
+              "operators": [
+                {
+                  "name": "math.add",
+                  "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+                  "version": "1.0.0"
+                },
+                {
+                  "name": "math.multiply",
+                  "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+                  "version": "1.0.0"
+                }
+              ],
+              "input_type": "number",
+              "ir_version": "purl-ir/1",
+              "output_type": "number",
+              "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+              "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57"
+            },
+            "tests": [
+              {
+                "index": 0,
+                "input": 4,
+                "actual": 18,
+                "passed": true,
+                "expected": 18
+              },
+              {
+                "index": 1,
+                "input": 0,
+                "actual": 6,
+                "passed": true,
+                "expected": 6
+              },
+              {
+                "index": 2,
+                "input": -2,
+                "actual": 0,
+                "passed": true,
+                "expected": 0
+              }
+            ],
+            "source": "input number | math.add 2 | math.multiply 3",
+            "status": "passed",
+            "build_id": "sha256:86cf044c3a239f2bfd618a8c6920e5450a02911789fa899ed97050aefcbd0c24",
+            "language": "purl",
+            "immutable": true,
+            "content_id": "sha256:6af544fa9efc234b47b2fe3f7f31e606447efccdb0d667d6f8be8dee9558c73a",
+            "created_at": "2026-10-18T15:01:55.457Z",
+            "created_by": "principal_e3b3006cd498c1fac8fae857",
+            "program_id": "program_5aa690946a1dc4638cc8a40a",
+            "diagnostics": [],
+            "environment": {
+              "node": "22.14.0",
+              "network": false,
+              "runtime": "purl-bounded-interpreter",
+              "ir_version": "purl-ir/1",
+              "architecture": "x64",
+              "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+              "runtime_version": "1",
+              "external_effects": false
+            },
+            "input_schema": {
+              "type": "number"
+            },
+            "tests_passed": true,
+            "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+            "output_schema": {
+              "type": "number"
+            },
+            "source_revision": 1,
+            "source_content_id": "sha256:2f278983dc04ffb04b2f85e0358ab0d58a3ea1bdf71618ba49bc5326f54bd937"
+          }
+        ],
+        "grants": [],
+        "source": "input number | math.add 2 | math.multiply 3",
+        "lineage": null,
+        "version": 5,
+        "language": "purl",
+        "releases": [
+          "release_8ccbb23641acc20c22476791"
+        ],
+        "proposals": [],
+        "created_at": "2026-10-18T15:01:32.496Z",
+        "updated_at": "2026-10-18T15:02:44.892Z",
+        "visibility": "public",
+        "checkpoints": [],
+        "compilation": {
+          "ok": true,
+          "plan": {
+            "cost": 2,
+            "steps": [
+              {
+                "op": "math.add",
+                "args": {
+                  "value": 2
+                },
+                "version": "1.0.0"
+              },
+              {
+                "op": "math.multiply",
+                "args": {
+                  "value": 3
+                },
+                "version": "1.0.0"
+              }
+            ],
+            "limits": {
+              "depth": 32,
+              "nodes": 512,
+              "steps": 10000,
+              "repeat": 1000,
+              "workBytes": 16777216,
+              "graphEdges": 10000,
+              "graphNodes": 1000,
+              "valueBytes": 1048576,
+              "arrayLength": 10000,
+              "sourceBytes": 65536
+            },
+            "effects": [],
+            "language": "purl/1",
+            "requires": [],
+            "operators": [
+              {
+                "name": "math.add",
+                "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+                "version": "1.0.0"
+              },
+              {
+                "name": "math.multiply",
+                "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+                "version": "1.0.0"
+              }
+            ],
+            "input_type": "number",
+            "ir_version": "purl-ir/1",
+            "output_type": "number",
+            "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+            "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57"
+          },
+          "diagnostics": [],
+          "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57"
+        },
+        "active_build": "build_fead495ba2ddd82405405ced",
+        "dependencies": [],
+        "input_schema": {
+          "type": "number"
+        },
+        "output_schema": {
+          "type": "number"
+        },
+        "source_revision": 1,
+        "url": "https://purl-api-production.up.railway.app/p/program_5aa690946a1dc4638cc8a40a",
+        "manifest_url": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/manifest",
+        "history_url": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/history",
+        "continuity_url": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/continuity",
+        "replay_url": "https://purl-api-production.up.railway.app/api/programs/program_5aa690946a1dc4638cc8a40a/replay",
+        "authority": {
+          "authenticated": true,
+          "principal_id": "principal_e3b3006cd498c1fac8fae857",
+          "owner": true,
+          "rights": [
+            "read",
+            "edit",
+            "build",
+            "run",
+            "publish",
+            "checkpoint",
+            "propose",
+            "grant",
+            "play"
+          ]
+        },
+        "execution_policy": {
+          "kind": "bounded-pure",
+          "available": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "id": "artifact_687ea32eabd1d431bdc09754",
+  "kind": "execution-result",
+  "trace": {
+    "seed": 7,
+    "input": 4,
+    "steps": [
+      {
+        "op": "math.add",
+        "args": {
+          "value": 2
+        },
+        "path": "$.steps[0]",
+        "index": 0,
+        "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+        "effects": [],
+        "version": "1.0.0",
+        "input_id": "value:60bafb9c2493d36269d585b43b19bc2f7c4af88e0d82bee60a965b1362a32a92",
+        "output_id": "value:f08d751de5d8ea3408bac4020a0c5a55a5baf986cac6102e27c1822b3bf4690a"
+      },
+      {
+        "op": "math.multiply",
+        "args": {
+          "value": 3
+        },
+        "path": "$.steps[1]",
+        "index": 1,
+        "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+        "effects": [],
+        "version": "1.0.0",
+        "input_id": "value:f08d751de5d8ea3408bac4020a0c5a55a5baf986cac6102e27c1822b3bf4690a",
+        "output_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd"
+      }
+    ],
+    "protocol": "purl-replay/1",
+    "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+    "operators": [
+      {
+        "name": "math.add",
+        "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+        "version": "1.0.0"
+      },
+      {
+        "name": "math.multiply",
+        "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+        "version": "1.0.0"
+      }
+    ],
+    "receipt_id": "execution:0be1250b982db7549cfe822eedc9584de87740817390c5227298adf093657e88",
+    "determinism": "deterministic",
+    "environment": {
+      "limits": {
+        "depth": 32,
+        "nodes": 512,
+        "steps": 10000,
+        "repeat": 1000,
+        "workBytes": 16777216,
+        "graphEdges": 10000,
+        "graphNodes": 1000,
+        "valueBytes": 1048576,
+        "arrayLength": 10000,
+        "sourceBytes": 65536
+      },
+      "runtime": "node",
+      "platform": "linux",
+      "interpreter": "purl-ir/1",
+      "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+      "architecture": "x64",
+      "dependencies": [
+        {
+          "name": "math.add",
+          "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+          "version": "1.0.0"
+        },
+        {
+          "name": "math.multiply",
+          "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+          "version": "1.0.0"
+        }
+      ],
+      "runtime_version": "v24.19.0"
+    },
+    "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+    "environment_id": "environment:8872c2d1ce661e0ac98dafa0f6d507f0edbb9412ccafef67b81e47ee08c646f6",
+    "declared_effects": [],
+    "observed_effects": []
+  },
+  "value": 18,
+  "storage": {
+    "id": "sha256:a895c316939b3e0d26a1947996e23f516092e7c2653c4c89d50581d094655367",
+    "key": "a8/a895c316939b3e0d26a1947996e23f516092e7c2653c4c89d50581d094655367",
+    "size": 3265,
+    "contentType": "application/purl+json"
+  },
+  "build_id": "build_1d308b803ea01a1c4d7ee627",
+  "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+  "immutable": true,
+  "content_id": "sha256:a895c316939b3e0d26a1947996e23f516092e7c2653c4c89d50581d094655367",
+  "created_at": "2026-10-18T14:51:00.235Z",
+  "program_id": "program_fc84742b63b04b216d4fe38a",
+  "execution_id": "execution_234527d8cf49be9a0cdcb889",
+  "runtime_environment": {
+    "limits": {
+      "depth": 32,
+      "nodes": 512,
+      "steps": 10000,
+      "repeat": 1000,
+      "workBytes": 16777216,
+      "graphEdges": 10000,
+      "graphNodes": 1000,
+      "valueBytes": 1048576,
+      "arrayLength": 10000,
+      "sourceBytes": 65536
+    },
+    "runtime": "node",
+    "platform": "linux",
+    "interpreter": "purl-ir/1",
+    "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+    "architecture": "x64",
+    "dependencies": [
+      {
+        "name": "math.add",
+        "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+        "version": "1.0.0"
+      },
+      {
+        "name": "math.multiply",
+        "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+        "version": "1.0.0"
+      }
+    ],
+    "runtime_version": "v24.19.0"
+  },
+  "runtime_environment_id": "sha256:a51e5f5f863290cad2e8bc3a250ac949e80cd2638e972e97ed07f269dd05b5e3"
+}

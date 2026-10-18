@@ -1,0 +1,57 @@
+{
+  "sequence": 12,
+  "name": "strict-replay",
+  "started_at": "2026-10-18T15:26:01.921227+00:00",
+  "duration_seconds": 2.357603,
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/api/programs/program_86b16e4b30d9121e9f30d9c5/replay",
+    "headers": {
+      "Accept": "application/purl+json",
+      "Authorization": "[REDACTED]"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 15:26:04 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "i8vM9qxiRq25oUcnjVra_w",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.x8wt",
+      "x-envoy-upstream-service-time": "2279",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "program_id": "program_86b16e4b30d9121e9f30d9c5",
+      "valid": true,
+      "version": 4,
+      "events": 4,
+      "head": "sha256:acf747416d2b895be0a9f1a2f2ae165a55e15d865084ca5ca24852f636be985d",
+      "state_hash": "sha256:6a985cc48c093ccc3169c4118f3890f7f0f9a3e6334c58c26bf9538e8bb62617",
+      "problems": [],
+      "program_valid": true,
+      "executions": [
+        {
+          "execution_id": "execution_5ccf7ab979e35929250fc697",
+          "valid": true,
+          "replayable": true,
+          "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd"
+        }
+      ],
+      "assurance": "Content hashes establish internal consistency, not external authenticity"
+    },
+    "raw_body": "{\"program_id\":\"program_86b16e4b30d9121e9f30d9c5\",\"valid\":true,\"version\":4,\"events\":4,\"head\":\"sha256:acf747416d2b895be0a9f1a2f2ae165a55e15d865084ca5ca24852f636be985d\",\"state_hash\":\"sha256:6a985cc48c093ccc3169c4118f3890f7f0f9a3e6334c58c26bf9538e8bb62617\",\"problems\":[],\"program_valid\":true,\"executions\":[{\"execution_id\":\"execution_5ccf7ab979e35929250fc697\",\"valid\":true,\"replayable\":true,\"value_id\":\"value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd\"}],\"assurance\":\"Content hashes establish internal consistency, not external authenticity\"}"
+  },
+  "transport_error": null
+}

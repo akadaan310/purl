@@ -1,0 +1,43 @@
+{
+  "schema": "purl.git-publication/1",
+  "started_at_utc": "2026-10-18T14:45:29.858777Z",
+  "repository": "akadaan310/purl",
+  "source_commit": "e970f6586f54b070cb482fc784a95747c04aca21",
+  "target_ref": "refs/heads/codex/godseed-v3",
+  "force": false,
+  "default_branch": "claude/purl-protocol-research-bxevq5",
+  "default_before": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+  "original_history_ancestor_verified": true,
+  "authentication": "Per-command gh auth git-credential helper; inherited GH_TOKEN value never printed",
+  "commands": [
+    {
+      "command": "git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push --porcelain origin e970f6586f54b070cb482fc784a95747c04aca21:refs/heads/codex/godseed-v3",
+      "exit_code": 0,
+      "stdout": "To https://github.com/akadaan310/purl.git\n*\te970f6586f54b070cb482fc784a95747c04aca21:refs/heads/codex/godseed-v3\t[new branch]\nDone\n",
+      "stderr": "remote: \nremote: Create a pull request for 'codex/godseed-v3' on GitHub by visiting:        \nremote:      https://github.com/akadaan310/purl/pull/new/codex/godseed-v3        \nremote: \n",
+      "environment_override": {
+        "GIT_TERMINAL_PROMPT": "0"
+      }
+    },
+    {
+      "command": "gh api repos/akadaan310/purl/git/ref/heads/codex/godseed-v3 --jq .object.sha",
+      "exit_code": 0,
+      "stdout": "e970f6586f54b070cb482fc784a95747c04aca21\n",
+      "stderr": ""
+    },
+    {
+      "command": "gh api repos/akadaan310/purl/git/ref/heads/claude/purl-protocol-research-bxevq5 --jq .object.sha",
+      "exit_code": 0,
+      "stdout": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7\n",
+      "stderr": ""
+    }
+  ],
+  "push_status": "PASS",
+  "remote_feature_head": "e970f6586f54b070cb482fc784a95747c04aca21",
+  "default_after": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+  "feature_head_verified": true,
+  "default_unchanged": true,
+  "status": "PASS",
+  "finished_at_utc": "2026-10-18T14:45:38.906905Z",
+  "qualification": "Source publication only; no Railway deployment success is implied. This evidence file remains uncommitted for the coordinating agent."
+}

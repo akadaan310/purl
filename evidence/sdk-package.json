@@ -1,16 +1,17 @@
 {
   "status": "PASS",
   "package": "purl-0.2.0.tgz",
-  "shasum": "48f7a42fadb8b02c871c18fc6331bde3c1b2dbe1",
-  "integrity": "sha512-QMa7b+UO3aJ4l3wfHBB2cGgYZIzzWEydhrEYpXN+AvqCd/lYf8ZYiFz85IE8FTZKzpsaRZjvVoNkK+q7k05D0A==",
+  "shasum": "148bc2534cdf8aecfc8a0f208003164941484a04",
+  "integrity": "sha512-MHg2APp+rtkbqH+bq+Vza4lme2wjKeH5Lqm92+Nv0czUKqWiJQtGCW7tZhasZ7sboIhuxTJFmvB+ozU+bh7uFA==",
   "files": 77,
-  "bytes": 303759,
+  "bytes": 304042,
   "clean_consumer": {
     "sdk": "function",
     "compiled": true,
     "value": 18
   },
   "published_to_npm": false,
-  "repack_reason": "Railway deployment metadata/documentation update; SDK/compiler unchanged",
-  "prior_harness_note": "Prior verification wrapper/plan call error corrected; retained in earlier commit evidence"
+  "runtime_implementation_revision": "0670baddefba9635af8fc71c3b96c85960227315",
+  "repack_reason": "Final canonical live handoff README; runtime source unchanged",
+  "prior_harness_note": "Earlier wrapper/plan call error corrected; preserved in Git evidence history"
 }

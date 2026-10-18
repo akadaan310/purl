@@ -1,0 +1,150 @@
+{
+  "scope": "Independent public HTTP GET-only check. No session, mutations, original run, repository code, environment files, or existing reports used. Reads only downloaded public responses and this analysis script.",
+  "program": {
+    "id": "godseed-mission",
+    "version": 1,
+    "source_revision": 1,
+    "source": "input json | mission.inspect",
+    "active_build": "build_seed_godseed-mission",
+    "state_completion": {
+      "status": "NOT_RUN",
+      "verified": false
+    },
+    "state_evidence_class": "LIVE_LOCAL"
+  },
+  "graph": {
+    "node_count": 52,
+    "edge_count": 65,
+    "unique_node_count": 52,
+    "explicit_dependency_count": 65,
+    "type_totals": {
+      "directive-section": 10,
+      "requirement": 12,
+      "experiment": 10,
+      "artifact": 19,
+      "amendment": 1
+    },
+    "status_totals": {
+      "NOT_RUN": 52
+    },
+    "relation_totals": {
+      "requires": 65
+    },
+    "evidence_entry_count": 0,
+    "test_assertion_count": 52
+  },
+  "ready_frontier": {
+    "criterion": "node.status != 'PASS' and every explicit node.dependencies reference resolves to a node with status exactly 'PASS'; zero dependencies satisfy this vacuously",
+    "node_ids": [
+      "mission"
+    ],
+    "nodes": [
+      {
+        "id": "mission",
+        "title": "Mission and naming",
+        "status": "NOT_RUN",
+        "dependencies": []
+      }
+    ]
+  },
+  "structural_consistency": {
+    "duplicate_node_ids": [],
+    "missing_dependency_targets": [],
+    "invalid_edge_endpoints": [],
+    "duplicate_edge_pairs": [],
+    "edges_without_explicit_dependency": [],
+    "explicit_dependencies_without_edge": [],
+    "edge_orientation": "edge.from is prerequisite, edge.to is dependent, checked against every explicit node.dependencies entry",
+    "acyclic": true,
+    "topologically_processed_nodes": 52,
+    "unprocessed_node_ids": [],
+    "empty_evidence_nodes": [
+      "mission",
+      "reconstruction",
+      "formal-contract",
+      "features",
+      "cinematic-design",
+      "experiments",
+      "infrastructure",
+      "work-plan",
+      "deliverables",
+      "execution",
+      "feature-1",
+      "feature-2",
+      "feature-3",
+      "feature-4",
+      "feature-5",
+      "feature-6",
+      "feature-7",
+      "feature-8",
+      "feature-9",
+      "feature-10",
+      "feature-11",
+      "feature-12",
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "E09",
+      "E10",
+      "artifact-readme",
+      "artifact-architecture",
+      "artifact-formal-semantics",
+      "artifact-language-spec",
+      "artifact-sdk",
+      "artifact-nomenclature",
+      "artifact-constitution",
+      "artifact-security",
+      "artifact-deployment",
+      "artifact-reconstruction",
+      "artifact-migrations",
+      "artifact-experiments",
+      "artifact-acceptance-json",
+      "artifact-program-graph-json",
+      "artifact-handoff-json",
+      "artifact-playwright-screenshots",
+      "artifact-example-purls",
+      "artifact-build-hashes",
+      "artifact-deployed-url",
+      "deployment-amendment"
+    ]
+  },
+  "advertised_operator": {
+    "args_schema": {},
+    "available": true,
+    "dependencies": [
+      {
+        "digest": "sha256:3868e20cb0e782a87571adcee188c36c8cf0fdc84f33b1f9e8f8a7a036ad8b5b",
+        "name": "purl-standard-library",
+        "version": "1.0.0"
+      }
+    ],
+    "determinism": "deterministic",
+    "digest": "sha256:ba4d120b87dd4e95881141f6af2ab42159b6db7dfd8d5c9d7c746df385718940",
+    "effects": [],
+    "input": "json",
+    "name": "mission.inspect",
+    "output": "json",
+    "provenance": {
+      "authority": "trusted-bundled-operator",
+      "license": "project",
+      "source": "service/language/registry.js"
+    },
+    "requires": [],
+    "tests": [
+      "test/product/compiler.test.js"
+    ],
+    "version": "1.0.0"
+  },
+  "limitations": [
+    "This check validates public response graph structure and calculates readiness from recorded statuses; it does not validate the truth or completeness of mission requirements, proofs, tests, or evidence.",
+    "No native mission.inspect execution or original mission program run was requested or performed. Its advertised metadata and persisted source/build were inspected only.",
+    "Every node is NOT_RUN with empty evidence in this snapshot; readiness of the mission root is an execution ordering result, not completion.",
+    "Recorded state.evidence_class is LIVE_LOCAL and completion is NOT_RUN/unverified; the check does not relabel these claims.",
+    "Observations cover the public snapshot retrieved at the response metadata timestamps, not future state."
+  ]
+}

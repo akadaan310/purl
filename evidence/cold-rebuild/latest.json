@@ -1,33 +1,33 @@
 {
   "status": "PASS",
-  "run_id": "2026-10-18T14-32-07.699Z",
-  "source_revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
+  "run_id": "2026-10-18T14-58-27.106Z",
+  "source_revision": "0670baddefba9635af8fc71c3b96c85960227315",
   "execution_class": "CLEAN_LOCAL_GIT_CLONE_NO_NODE_MODULES_OR_STATE",
-  "checkout": "/tmp/purl-cold-wWQU4J",
-  "tests": 187,
+  "checkout": "/tmp/purl-cold-bQcQuB",
+  "tests": 197,
   "checks": [
     {
       "name": "clean-clone",
       "status": "PASS",
-      "elapsed_ms": 79,
+      "elapsed_ms": 98,
       "exit_code": 0
     },
     {
       "name": "dependencies",
       "status": "PASS",
-      "elapsed_ms": 264,
+      "elapsed_ms": 230,
       "exit_code": 0
     },
     {
       "name": "test",
       "status": "PASS",
-      "elapsed_ms": 1250,
+      "elapsed_ms": 1397,
       "exit_code": 0
     },
     {
       "name": "cold-client",
       "status": "PASS",
-      "elapsed_ms": 81,
+      "elapsed_ms": 96,
       "exit_code": 0
     }
   ],

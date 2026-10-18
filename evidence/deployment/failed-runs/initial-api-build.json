@@ -1,0 +1,108 @@
+{
+  "scope": "deployment",
+  "deploymentId": "928c065e-5373-4683-82be-c8b6a0d68f2c",
+  "serviceId": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+  "environmentId": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+  "status": "FAILED",
+  "build": [
+    {
+      "timestamp": "2026-10-18T14:52:27.506475153Z",
+      "severity": "info",
+      "message": "scheduling build on Metal builder \"builder-ljrcfi\"",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:52:33.265263445Z",
+      "severity": "info",
+      "message": "scheduling build on Metal builder \"builder-ljrcfi\"",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:52:34.711405355Z",
+      "severity": "info",
+      "message": "fetched snapshot sha256:5db7553db4b2fca7f30582d8162fde2f9038f32016aaf700d93533520b3968d0 (24 MB bytes)",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:52:34.711485135Z",
+      "severity": "info",
+      "message": "fetching snapshot",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"railway.progress\""
+        },
+        {
+          "key": "status",
+          "value": "\"complete\""
+        },
+        {
+          "key": "size",
+          "value": "23946578"
+        },
+        {
+          "key": "duration_ms",
+          "value": "1939"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:52:35.062450581Z",
+      "severity": "info",
+      "message": "unpacking archive",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"info\""
+        },
+        {
+          "key": "source",
+          "value": "\"railway.progress\""
+        },
+        {
+          "key": "status",
+          "value": "\"complete\""
+        },
+        {
+          "key": "size",
+          "value": "39449088"
+        },
+        {
+          "key": "duration_ms",
+          "value": "190"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T14:52:35.227489745Z",
+      "severity": "error",
+      "message": "dockerfile invalid: flag '--mount=type=secret,id=proxy_ca' is missing a type=cache argument (other mount types are not supported) at Line 8",
+      "attributes": [
+        {
+          "key": "level",
+          "value": "\"error\""
+        }
+      ]
+    }
+  ],
+  "deploy": []
+}

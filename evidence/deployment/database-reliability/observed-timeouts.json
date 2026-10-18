@@ -1,0 +1,44 @@
+{
+  "schema": "purl.database-reliability-observation/1",
+  "status": "OBSERVED_FAILURE_RECOVERED",
+  "window": {
+    "start": "2026-10-18T15:14:00Z",
+    "end": "2026-10-18T15:18:30Z"
+  },
+  "project_id": "frxufmwwbegconolevkw",
+  "events": [
+    {
+      "timestamp": "2026-10-18T15:16:26.929000",
+      "message": "canceling statement due to statement timeout",
+      "code": "57014",
+      "context": "SQL statement \"insert into public.purl_entities(document_id, kind, entity_id, data)\n    select p_document_id, collection.kind, entity.key, entity.value\n    from (values ('principal', 'principals'), ('program', 'programs'),\n                 ('execution', 'executions'), ('artifact', 'artifacts')) collection(kind, key)\n    cross join lateral jsonb_each(p_data -> collection.key) entity\n    on conflict (document_id, kind, entity_id) do update set data = excluded.data\"\nPL/pgSQL function public.purl_compare_and_swap(text,bigint,jsonb) line 31 at SQL statement",
+      "postgres_version_client": "PostgREST 14.18"
+    },
+    {
+      "timestamp": "2026-10-18T15:16:03.773000",
+      "message": "canceling statement due to statement timeout",
+      "code": "57014",
+      "context": "SQL statement \"delete from public.purl_entities entity\n    where entity.document_id = p_document_id and not coalesce(\n      (p_data -> case entity.kind when 'principal' then 'principals' when 'program' then 'programs'\n        when 'execution' then 'executions' when 'artifact' then 'artifacts' end) ? entity.entity_id, false)\"\nPL/pgSQL function public.purl_compare_and_swap(text,bigint,jsonb) line 37 at SQL statement",
+      "postgres_version_client": "PostgREST 14.18"
+    },
+    {
+      "timestamp": "2026-10-18T15:15:32.422000",
+      "message": "canceling statement due to statement timeout",
+      "code": "57014",
+      "context": "purl_read_document RPC",
+      "postgres_version_client": "PostgREST 14.18"
+    },
+    {
+      "timestamp": "2026-10-18T15:15:31.658000",
+      "message": "canceling statement due to statement timeout",
+      "code": "57014",
+      "context": "SQL statement \"update public.purl_documents\n      set data = p_data, revision = revision + 1, updated_at = now()\n      where document_id = p_document_id and revision = p_expected_revision\n      returning revision\"\nPL/pgSQL function public.purl_compare_and_swap(text,bigint,jsonb) line 24 at SQL statement",
+      "postgres_version_client": "PostgREST 14.18"
+    }
+  ],
+  "public_http_failure": "evidence/deployment/public-cold-session/final-handoff-http/013-execution-poll-1.json",
+  "execution": "execution_a0a362996c4a1c6bf7685c21",
+  "eventual_status": "succeeded",
+  "attempts": 2,
+  "observation": "Postgres confirms statement-timeout57014 in document read/update and entity projection upsert/delete. CAS rewrites unchanged projection rows. An additive conditional-upsert migration is being verified; no throughput/SLA guarantee."
+}

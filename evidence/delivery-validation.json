@@ -1,0 +1,37 @@
+{
+  "schema": "purl.delivery-preparation-validation/1",
+  "status": "PASS",
+  "recorded_at": "2026-10-18T15:28:04.962054+00:00",
+  "scanned_text_files": 568,
+  "json_files_parsed": 252,
+  "historical_json_lines_preserved_and_validated": [
+    "evidence/security-review-final.json"
+  ],
+  "credential_findings": [],
+  "missing_report_links": [],
+  "runtime_source_identical_to_verified_0670bad": true,
+  "additive_sql_upgrade_source": "2ca63233cedcbce427da89bc5ee82a190a7b9687",
+  "original_repositories": {
+    "purl": {
+      "head": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+      "clean": true,
+      "shallow": "false"
+    },
+    "NetGovComEduGovOrgEduGovComNet": {
+      "head": "9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b",
+      "clean": true,
+      "shallow": "false"
+    },
+    "seurl": {
+      "head": "620ff955b87857c3eb7a7700a81b6a4d0217400a",
+      "clean": true,
+      "shallow": "false"
+    },
+    "substrateIO": {
+      "head": "7ace119a544fc736f0d4ec1d72cded9dad0a83e3",
+      "clean": true,
+      "shallow": "false"
+    }
+  },
+  "credential_scanning_limits": "Pattern and JWT role checks over deliverable text; no credential values emitted. Runtime SDK package includes only declared source/doc files."
+}

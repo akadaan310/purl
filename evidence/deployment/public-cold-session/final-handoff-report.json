@@ -1,0 +1,485 @@
+{
+  "schema": "purl.final-public-continuation-handoff/1",
+  "status": "PASS bounded final handoff lifecycle; full mission remains incomplete",
+  "canonical_url": "https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2",
+  "program_id": "program_ad56405463bfaa72e9bbddf2",
+  "version": 6,
+  "visibility": "public",
+  "principal": {
+    "id": "principal_77cf203e2fec52edbdcd06a8",
+    "label": "Final public PURL mission handoff 2026-10-18",
+    "kind": "agent",
+    "identity_verified": false,
+    "identity_claim": "self-declared AI identity",
+    "created_at": "2026-10-18T15:13:26.693Z"
+  },
+  "parent": {
+    "id": "program_c8298dd282f72d1420cd15f8",
+    "url": "https://purl-api-production.up.railway.app/p/program_c8298dd282f72d1420cd15f8",
+    "version": 6,
+    "published_release": "release_c9474f31ad7f07b0d02c733b",
+    "new_principal_rights": [
+      "read"
+    ]
+  },
+  "lineage": {
+    "url": "https://purl-api-production.up.railway.app/p/program_c8298dd282f72d1420cd15f8",
+    "version": 6,
+    "program_id": "program_c8298dd282f72d1420cd15f8",
+    "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d"
+  },
+  "source": "input json | mission.inspect",
+  "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d",
+  "state_preservation": {
+    "exact_source_clone": true,
+    "parent_state_rebased_only_for_new_mission_hrefs": true,
+    "fork_state_unchanged_after_clone": true,
+    "cloned_state_sha256": "sha256:322c40ef9d44186161c218ff53087241d19b666709abd301370d1bd1c41699c5",
+    "final_state_sha256": "sha256:322c40ef9d44186161c218ff53087241d19b666709abd301370d1bd1c41699c5",
+    "no_source_or_state_mutation_endpoint_called": true
+  },
+  "graph": {
+    "nodes": 52,
+    "edges": 65,
+    "status_counts": {
+      "NOT_RUN": 52
+    },
+    "evidence_entries": 0,
+    "ready_frontier": [
+      "mission"
+    ],
+    "native_output": {
+      "verified": false,
+      "completion": "NOT_RUN",
+      "ready_nodes": [
+        "mission"
+      ],
+      "total_nodes": 52,
+      "waiting_nodes": [
+        "reconstruction",
+        "formal-contract",
+        "features",
+        "cinematic-design",
+        "experiments",
+        "infrastructure",
+        "work-plan",
+        "deliverables",
+        "execution",
+        "feature-1",
+        "feature-2",
+        "feature-3",
+        "feature-4",
+        "feature-5",
+        "feature-6",
+        "feature-7",
+        "feature-8",
+        "feature-9",
+        "feature-10",
+        "feature-11",
+        "feature-12",
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "artifact-readme",
+        "artifact-architecture",
+        "artifact-formal-semantics",
+        "artifact-language-spec",
+        "artifact-sdk",
+        "artifact-nomenclature",
+        "artifact-constitution",
+        "artifact-security",
+        "artifact-deployment",
+        "artifact-reconstruction",
+        "artifact-migrations",
+        "artifact-experiments",
+        "artifact-acceptance-json",
+        "artifact-program-graph-json",
+        "artifact-handoff-json",
+        "artifact-playwright-screenshots",
+        "artifact-example-purls",
+        "artifact-build-hashes",
+        "artifact-deployed-url",
+        "deployment-amendment"
+      ],
+      "completed_nodes": [],
+      "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth.",
+      "dependency_edges": 65
+    },
+    "requirement_truth_verified": false
+  },
+  "build": {
+    "id": "build_9de64a19ba21e977fce4c9f2",
+    "build_id": "sha256:74354d7e0c2bf507e0dfa5c0927f00847fd2460c55f7008dc648d15350bf69ea",
+    "content_id": "sha256:f26d03ed66f9f699c1fe9dc0f260efae2e530eaa052e383db42f1d7b55c1d333",
+    "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d",
+    "status": "passed",
+    "tests": [],
+    "tests_passed": true,
+    "environment": {
+      "runtime": "purl-bounded-interpreter",
+      "runtime_version": "1",
+      "ir_version": "purl-ir/1",
+      "architecture": "x64",
+      "node": "22.14.0",
+      "network": false,
+      "external_effects": false,
+      "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd"
+    },
+    "immutable": true
+  },
+  "execution": {
+    "id": "execution_a0a362996c4a1c6bf7685c21",
+    "status": "succeeded",
+    "attempts": 2,
+    "value": {
+      "verified": false,
+      "completion": "NOT_RUN",
+      "ready_nodes": [
+        "mission"
+      ],
+      "total_nodes": 52,
+      "waiting_nodes": [
+        "reconstruction",
+        "formal-contract",
+        "features",
+        "cinematic-design",
+        "experiments",
+        "infrastructure",
+        "work-plan",
+        "deliverables",
+        "execution",
+        "feature-1",
+        "feature-2",
+        "feature-3",
+        "feature-4",
+        "feature-5",
+        "feature-6",
+        "feature-7",
+        "feature-8",
+        "feature-9",
+        "feature-10",
+        "feature-11",
+        "feature-12",
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "artifact-readme",
+        "artifact-architecture",
+        "artifact-formal-semantics",
+        "artifact-language-spec",
+        "artifact-sdk",
+        "artifact-nomenclature",
+        "artifact-constitution",
+        "artifact-security",
+        "artifact-deployment",
+        "artifact-reconstruction",
+        "artifact-migrations",
+        "artifact-experiments",
+        "artifact-acceptance-json",
+        "artifact-program-graph-json",
+        "artifact-handoff-json",
+        "artifact-playwright-screenshots",
+        "artifact-example-purls",
+        "artifact-build-hashes",
+        "artifact-deployed-url",
+        "deployment-amendment"
+      ],
+      "completed_nodes": [],
+      "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth.",
+      "dependency_edges": 65
+    },
+    "value_id": "value:a285ffd1b1a3a9147543c5260db2512745ba767014cd21397c57d5f4c2120e43",
+    "artifacts": [
+      "artifact_91337a7cb9c6307e4b8427a3"
+    ],
+    "logs": [
+      {
+        "at": "2026-10-18T15:15:12.225Z",
+        "level": "info",
+        "message": "Execution durably queued"
+      },
+      {
+        "at": "2026-10-18T15:15:41.508Z",
+        "level": "info",
+        "message": "Worker claimed execution attempt 1"
+      },
+      {
+        "at": "2026-10-18T15:16:36.115Z",
+        "level": "info",
+        "message": "Worker claimed execution attempt 2"
+      },
+      {
+        "at": "2026-10-18T15:16:46.997Z",
+        "level": "info",
+        "message": "Result and immutable artifact committed durably"
+      }
+    ],
+    "runtime_environment": {
+      "limits": {
+        "depth": 32,
+        "nodes": 512,
+        "steps": 10000,
+        "repeat": 1000,
+        "workBytes": 16777216,
+        "graphEdges": 10000,
+        "graphNodes": 1000,
+        "valueBytes": 1048576,
+        "arrayLength": 10000,
+        "sourceBytes": 65536
+      },
+      "runtime": "node",
+      "platform": "linux",
+      "interpreter": "purl-ir/1",
+      "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+      "architecture": "x64",
+      "dependencies": [
+        {
+          "name": "mission.inspect",
+          "digest": "sha256:ba4d120b87dd4e95881141f6af2ab42159b6db7dfd8d5c9d7c746df385718940",
+          "version": "1.0.0"
+        }
+      ],
+      "runtime_version": "v22.14.0"
+    },
+    "runtime_environment_id": "sha256:ade34bb53f88ffd4716c2fd5863a65008224ef823a19ad1fe748184d5ad0d047",
+    "receipt": {
+      "seed": 7,
+      "schema": "purl.execution-receipt/1",
+      "effects": [],
+      "build_id": "build_9de64a19ba21e977fce4c9f2",
+      "input_id": "sha256:322c40ef9d44186161c218ff53087241d19b666709abd301370d1bd1c41699c5",
+      "value_id": "value:a285ffd1b1a3a9147543c5260db2512745ba767014cd21397c57d5f4c2120e43",
+      "content_id": "sha256:3cbbafc5b293bc5780534a91baa986bcae1dc3fc20252f88b28462cf215ea918",
+      "completed_at": "2026-10-18T15:16:46.997Z",
+      "dependencies": [],
+      "execution_id": "execution_a0a362996c4a1c6bf7685c21",
+      "deterministic": true,
+      "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+      "nondeterminism": [],
+      "build_content_id": "sha256:f26d03ed66f9f699c1fe9dc0f260efae2e530eaa052e383db42f1d7b55c1d333",
+      "artifact_content_id": "sha256:8a3bece11aa7b199d8e7fe2f050f4188a6e78b130b872b5c5df899facbdebb28",
+      "runtime_environment_id": "sha256:ade34bb53f88ffd4716c2fd5863a65008224ef823a19ad1fe748184d5ad0d047"
+    }
+  },
+  "execution_url": "https://purl-api-production.up.railway.app/api/executions/execution_a0a362996c4a1c6bf7685c21",
+  "artifact_urls": [
+    "https://purl-api-production.up.railway.app/api/artifacts/artifact_91337a7cb9c6307e4b8427a3"
+  ],
+  "release": {
+    "id": "release_b6b37a667a51bd6724156430",
+    "url": "https://purl-api-production.up.railway.app/api/releases/release_b6b37a667a51bd6724156430",
+    "immutable": true,
+    "content_id": "sha256:824398c967e4a06943236fd38e508b7a3dc5e3d69dd7b74bcbda7870be311825",
+    "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d",
+    "build_id": "build_9de64a19ba21e977fce4c9f2",
+    "build_content_id": "sha256:f26d03ed66f9f699c1fe9dc0f260efae2e530eaa052e383db42f1d7b55c1d333"
+  },
+  "checkpoint": {
+    "id": "checkpoint_e6bb9be7402ae4de632e47a2",
+    "next": "Read linked ACCEPTANCE.json and handoff.json first, then the latest public documentation and linked post-restart recovery report. Use their current evidence and exact remaining blockers to continue. Complete verified human Auth setup: configure and verify the intended production redirect flow and production email delivery, then run the relevant end-to-end account/session checks with authorized configuration. Preserve current deployments, frozen releases, execution receipts and recovery fingerprints. Plan the still-NOT_RUN independent cross-provider continuation, Oracle ARM inventory/isolated-worker validation and cross-project disaster restore as separate evidence-backed work. Keep public authored JS/TS/Python disabled until verified isolation exists. Use existing reconstruction/formal-contract evidence to select remaining work; graph statuses require substantive requirement evidence before any promotion. Record exact PASS/FAIL/BLOCKED/NOT_RUN scope and a new checkpoint after each material result.",
+    "actor": "principal_77cf203e2fec52edbdcd06a8",
+    "summary": "Public PURL continuation handoff, 2026-10-18. The API and separate worker are LIVE with Supabase persistence. Coordinated verification reports product revision 0670bad; host Node24 versus pinned/deployed Node22; clean cold checks 197/197; local experiments 10/10; 42 hosted checks; private Storage byte retrieval and same-project restore PASS; public UI two devices, 12 checks, zero axe findings; fresh public cold session 30/30; and public restart recovery 57/57 including native Node22 strict replay. Historical Node24 strict replay correctly reports an environment mismatch under Node22. Read linked current acceptance/handoff/recovery evidence for exact scope and limits. This final fresh-principal fork compiled, built and ran the unchanged native mission inspector over its cloned 52-node/65-edge graph; frontier remains [mission], all 52 statuses NOT_RUN, completion NOT_RUN, verified false. Graph statuses, checkpoint assertions and hash integrity do not establish requirement truth. Full scope remains incomplete: verified human Auth redirect and production email setup are pending; independent cross-provider continuity, Oracle ARM and cross-project disaster restore are NOT_RUN; public authored JavaScript/TypeScript/Python execution is disabled. Earlier frozen v6 mission/arithmetic programs and restart fingerprints are preserved.",
+    "version": 6,
+    "evidence": [
+      {
+        "url": "https://github.com/akadaan310/purl/blob/codex/godseed-v3/ACCEPTANCE.json",
+        "claim": "Current coordinated acceptance status and verification scope; root will publish latest evidence before final delivery.",
+        "provenance": "root-provided verification report reference; checkpoint author assertion"
+      },
+      {
+        "url": "https://github.com/akadaan310/purl/blob/codex/godseed-v3/handoff.json",
+        "claim": "Current deployment continuation handoff and remaining blockers; root will publish latest evidence before final delivery.",
+        "provenance": "root-provided verification report reference; checkpoint author assertion"
+      },
+      {
+        "url": "https://github.com/akadaan310/purl/blob/codex/godseed-v3/evidence/deployment/public-recovery/after-restart-report.json",
+        "claim": "Root reports public restart recovery 57/57, new Node22 native strict replay PASS, old Node24 replay expected environment mismatch.",
+        "provenance": "root-provided verification report reference; checkpoint author assertion"
+      },
+      {
+        "url": "https://purl-api-production.up.railway.app/docs",
+        "claim": "Current public protocol/product documentation.",
+        "provenance": "public-origin discovery"
+      },
+      {
+        "url": "https://purl-api-production.up.railway.app/p/program_5aa690946a1dc4638cc8a40a",
+        "claim": "Frozen public native arithmetic program v6, source input number | math.add 2 | math.multiply 3.",
+        "provenance": "direct prior public HTTP verification"
+      },
+      {
+        "url": "https://purl-api-production.up.railway.app/api/releases/release_8ccbb23641acc20c22476791",
+        "claim": "Immutable native arithmetic release with three passing build tests.",
+        "provenance": "direct prior public HTTP verification"
+      },
+      {
+        "url": "https://purl-api-production.up.railway.app/api/executions/execution_62a3543a5f2130b4b42cc24f",
+        "claim": "Actual native arithmetic worker input4 result18, runtime v22.14.0, strict replay valid.",
+        "provenance": "direct prior public HTTP verification"
+      },
+      {
+        "url": "https://purl-api-production.up.railway.app/api/artifacts/artifact_15bd735d0ff3d1b34080e413",
+        "claim": "Immutable result artifact for arithmetic execution.",
+        "provenance": "direct prior public HTTP verification"
+      },
+      {
+        "url": "https://purl-api-production.up.railway.app/p/program_c8298dd282f72d1420cd15f8",
+        "claim": "Frozen public parent mission v6; prior 30 client checks and original seed preservation are recorded in public-cold-session report.",
+        "provenance": "direct prior public HTTP verification"
+      },
+      {
+        "url": "https://purl-api-production.up.railway.app/api/releases/release_c9474f31ad7f07b0d02c733b",
+        "claim": "Published parent mission inspector release; full mission completion remains NOT_RUN.",
+        "provenance": "direct prior public HTTP verification"
+      },
+      {
+        "url": "https://purl-api-production.up.railway.app/api/executions/execution_a0a362996c4a1c6bf7685c21",
+        "claim": "This final public fork natively inspected cloned graph52nodes/65edges, ready_nodes[mission], completionNOT_RUN, verifiedfalse; actual worker Node22.14.0.",
+        "build_id": "build_9de64a19ba21e977fce4c9f2",
+        "provenance": "direct final public HTTP verification",
+        "execution_id": "execution_a0a362996c4a1c6bf7685c21"
+      },
+      {
+        "url": "https://purl-api-production.up.railway.app/api/releases/release_b6b37a667a51bd6724156430",
+        "claim": "Immutable final handoff mission inspector release; graph statuses remain unverified.",
+        "provenance": "direct final public HTTP publication",
+        "release_id": "release_b6b37a667a51bd6724156430"
+      }
+    ],
+    "created_at": "2026-10-18T15:17:39.064Z",
+    "program_id": "program_ad56405463bfaa72e9bbddf2",
+    "provenance": "author assertions; state hash verified by service",
+    "state_hash": "sha256:c8c5cb73472659b20c9d0995cc30609c98324d03394ad33bc9e92af38b1a217c",
+    "evidence_verified": false,
+    "prepared_at_version": 5
+  },
+  "continuity_url": "https://purl-api-production.up.railway.app/api/programs/program_ad56405463bfaa72e9bbddf2/continuity",
+  "replay": {
+    "program_id": "program_ad56405463bfaa72e9bbddf2",
+    "valid": true,
+    "version": 6,
+    "events": 6,
+    "head": "sha256:c6e9561212d5adc0cf33ef9ca32f1383f080144f06f4885757852254c9cdb06e",
+    "state_hash": "sha256:ed222dff6edd1fcf8e97d8407d7ae234e2b79b804ff05dec02cf08b9f5dd3451",
+    "problems": [],
+    "program_valid": true,
+    "executions": [
+      {
+        "execution_id": "execution_a0a362996c4a1c6bf7685c21",
+        "valid": true,
+        "replayable": true,
+        "value_id": "value:a285ffd1b1a3a9147543c5260db2512745ba767014cd21397c57d5f4c2120e43"
+      }
+    ],
+    "assurance": "Content hashes establish internal consistency, not external authenticity"
+  },
+  "checks": {
+    "new_principal": true,
+    "new_principal_self_declared": true,
+    "parent_v6_public": true,
+    "new_principal_original_rights_only_read": true,
+    "fork_available_via_read": true,
+    "new_public_fork_created": true,
+    "parent_lineage_exact": true,
+    "native_source_cloned_unchanged": true,
+    "mission_state_cloned_with_only_automatic_href_rebase": true,
+    "source_unchanged_through_lifecycle": true,
+    "state_unchanged_through_lifecycle": true,
+    "compile_passed": true,
+    "build_passed": true,
+    "native_bounded_effects_empty": true,
+    "run_uses_entire_fork_state": true,
+    "execution_succeeded": true,
+    "actual_worker_node22": true,
+    "node_count52": true,
+    "edge_count65": true,
+    "frontier_agrees": true,
+    "all52_statuses_notrun": true,
+    "graph_evidence_empty": true,
+    "inspector_completion_notrun": true,
+    "inspector_verified_false": true,
+    "immutable_release_published": true,
+    "release_anonymously_readable": true,
+    "checkpoint_anonymously_readable": true,
+    "checkpoint_evidence_unverified": true,
+    "checkpoint_next_starts_with_current_evidence": true,
+    "checkpoint_next_targets_auth": true,
+    "summary_records_limitations": true,
+    "canonical_anonymous_manifest": true,
+    "replay_valid": true,
+    "final_version6": true
+  },
+  "checks_passed": 34,
+  "checks_failed": 0,
+  "coordinated_progress_provenance": "Progress beyond this final fork and earlier cold session was supplied by root as verified results. It is carried as explicitly attributed checkpoint author assertions, with references to current acceptance/handoff/recovery reports. This agent did not rerun those suites or read local product source/env/database/reports. Root publishes latest referenced reports before final delivery.",
+  "coordinated_progress": {
+    "api_and_worker": "LIVE, Supabase persistence",
+    "product_revision": "0670bad",
+    "host_node": "24",
+    "pinned_deployed_node": "22",
+    "clean_cold_checks": "197/197",
+    "local_experiments": "10/10",
+    "hosted_checks": 42,
+    "private_storage_byte_retrieval": "PASS",
+    "same_project_restore": "PASS",
+    "public_ui_devices": 2,
+    "public_ui_checks": 12,
+    "axe_findings": 0,
+    "prior_fresh_cold_session_checks": "30/30",
+    "public_restart_native_node22_strict_replay": "57/57 PASS",
+    "historical_node24_strict_replay": "Expected environment mismatch under Node22"
+  },
+  "remaining": {
+    "verified_human_auth_redirect": "PENDING",
+    "production_email": "PENDING",
+    "independent_cross_provider_continuity": "NOT_RUN",
+    "oracle_arm": "NOT_RUN",
+    "cross_project_disaster_restore": "NOT_RUN",
+    "public_authored_JS_TS_Python": "DISABLED",
+    "full_scope_complete": false
+  },
+  "frozen_v6_preservation": "Independent read-only agent reported both original programs at expected version 6/state_hash/head, valid and replayable both before and after this final fork lifecycle; after-handoff preservation PASS is recorded under independent-graph/final-frozen-preservation-after-handoff.json. No mutation targeted either frozen program except read-authorized fork creation, which does not change the parent program.",
+  "preservation_report": "independent-graph/final-frozen-preservation-after-handoff.json",
+  "http": {
+    "evidence_dir": "final-handoff-http",
+    "index": "final-handoff-http/http-index.json",
+    "calls": 26,
+    "max_calls_per_rolling_60_seconds": 8,
+    "post_count": 7,
+    "rate_limit": 60,
+    "rate_limit_errors": 0,
+    "errors_preserved": [
+      {
+        "file": "final-handoff-http/013-execution-poll-1.json",
+        "status": 500,
+        "body": {
+          "error": {
+            "code": "internal_error",
+            "message": "The operation could not be completed"
+          }
+        }
+      }
+    ],
+    "token": "New bearer held only in process memory and redacted; no recovery of old credentials. Final memory-to-files comparison performed separately."
+  },
+  "limitations": [
+    "Checkpoint evidence_verified remains false; graph statuses are recorded claims, not requirement truth.",
+    "Mission inherited zero embedded tests; narrow client checks assert actual API lifecycle and inspector output. No broad suite was rerun.",
+    "One anonymous status GET returned500 internal_error, followed by successful authenticated retries. Execution eventually succeeded on attempt2; failed status response and execution logs are retained.",
+    "Root-provided coordinated results are attributed, with pending publication of latest public GitHub references; this agent did not independently rerun them.",
+    "Frozen original cold-session report and v6 program releases/checkpoints were not overwritten."
+  ]
+}

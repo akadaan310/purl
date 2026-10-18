@@ -1,0 +1,46 @@
+{
+  "sequence": 5,
+  "started_at": "2026-10-18T14:59:59Z",
+  "request": {
+    "method": "GET",
+    "url": "https://purl-api-production.up.railway.app/.well-known/purl-reference",
+    "headers": {
+      "Accept": "application/purl+json"
+    },
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "cache-control": "no-store",
+      "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+      "content-type": "application/purl+json; charset=utf-8",
+      "date": "Sun, 18 Oct 2026 14:59:59 GMT",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "referrer-policy": "no-referrer",
+      "server": "envoy",
+      "vary": "Accept, Authorization",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-railway-request-id": "CrdN8bAFSz-PLr5tyCLmYg",
+      "x-railway-edge": "ord1",
+      "x-hikari-trace": "ord1.zmv5",
+      "x-envoy-upstream-service-time": "144",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    },
+    "body": {
+      "protocol": "PURL/0.1",
+      "execution_class": "PRESERVED_REFERENCE",
+      "source": {
+        "repository": "purl",
+        "branch": "claude/purl-protocol-research-bxevq5",
+        "sha": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+        "role": "original continuity implementation"
+      },
+      "start": "npm run start:legacy",
+      "available_at_product_origin": false,
+      "authority": "Separate reference instance; tokens and grants are not imported"
+    }
+  }
+}

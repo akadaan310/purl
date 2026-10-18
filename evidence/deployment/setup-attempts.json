@@ -1,0 +1,17 @@
+{
+  "schema": "purl.deployment-setup-attempts/1",
+  "preservation": "Failures are retained alongside the successful route, not reported as product runtime failures.",
+  "attempts": [
+    {"action":"Create dedicated Supabase project", "result":"BLOCKED", "reason":"Two-active-free-project quota"},
+    {"action":"Restore inactive ACSP project", "result":"BLOCKED", "reason":"Same free-project quota; no ACSP data modified"},
+    {"action":"Set Railway railwayConfigFile", "result":"REJECTED", "reason":"Config as Code deprecated; direct service configuration used"},
+    {"action":"Connect GitHub source through Railway MCP", "result":"REJECTED", "reason":"No GitHub account linked to Railway; independent Git push succeeded and CLI direct upload used"},
+    {"action":"Install @railway/cli5.70.0 through npm exec", "result":"FAILED", "reason":"Package postinstall returned1; npm log recorded registry downloads then failed postinstall"},
+    {"action":"Download official CLI5.70.0 Linuxmusl release", "result":"PASS", "asset_sha256":"f518230646acc7a6a7a67365e7642618f659d5d8cdd7cf8c180336140d0504eb", "reason":"Published GitHub release digest verified before execution"},
+    {"action":"Unauthenticated railway up", "result":"CANCELLED", "reason":"CLI warned about creating another project; switched to login-only then explicitly targeted the already-configured project"},
+    {"action":"CLI login", "result":"PASS", "reason":"User completed one-time authorization; login code/credential omitted"},
+    {"action":"Initial API and worker Docker builds", "result":"FAILED", "reason":"Railway rejects type=secret Docker mounts; bounded raw logs in failed-runs/"},
+    {"action":"Offline Dockerfile retry", "result":"PASS", "reason":"Both explicit target services reached SUCCESS and passed public restart checks"}
+  ],
+  "credentials_recorded": false
+}
