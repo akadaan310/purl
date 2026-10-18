@@ -1,0 +1,145 @@
+PURLs x CGIT Hub: copyable handoff for Seven U
+
+The two products share ONE existing public source repository. No separate PURLs
+or CGIT delivery repository was created. The launch work is on the branch
+codex/purls-cgit-consumer, not the preserved default branch.
+
+Open the delivery branch:
+https://github.com/akadaan310/purl/tree/codex/purls-cgit-consumer
+
+Frozen implementation and complete delivery evidence before this report fix:
+https://github.com/akadaan310/purl/tree/82ba1049399e090b4313f16ff57e561172fe5280
+
+PURLs source, at the deployed API revision:
+https://github.com/akadaan310/purl/tree/367e8ed063065cb8bc9ebb8c9fc55235b4828723/web/consumer
+
+CGIT Hub source, at the deployed API revision:
+https://github.com/akadaan310/purl/tree/367e8ed063065cb8bc9ebb8c9fc55235b4828723/web/cgit
+
+Shared API, identity, memory, CGIT, models and native resource implementation:
+https://github.com/akadaan310/purl/tree/367e8ed063065cb8bc9ebb8c9fc55235b4828723/service/launch
+
+The worker runs revision 3b2784b7f9bb217954ef75c5f8e4985c748e4627. The later
+API changes fix discovery and SDK CSRF handling; worker execution is unchanged.
+
+PRODUCTS AND NATIVE MISSION
+
+PURLs:
+https://purls-production.up.railway.app
+
+CGIT Hub:
+https://cgit-hub-production.up.railway.app
+
+Executable mission, version 15 at this handoff:
+https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316
+
+Machine-readable manifest, works without custom Accept headers:
+https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/manifest
+
+Full continuity state, including all nine source documents and progress:
+https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/continuity
+
+Replay and execution evidence:
+https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/replay
+https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/executions
+
+REPORTS: PUBLIC GITHUB TEXT, NO LOCAL WORKSPACE REQUIRED
+
+This handoff:
+https://raw.githubusercontent.com/akadaan310/purl/codex/purls-cgit-consumer/docs/consumer-launch/HANDOFF.txt
+
+Delivery report:
+https://raw.githubusercontent.com/akadaan310/purl/codex/purls-cgit-consumer/docs/consumer-launch/DELIVERY.md
+
+Acceptance report and remaining gaps:
+https://raw.githubusercontent.com/akadaan310/purl/codex/purls-cgit-consumer/docs/consumer-launch/ACCEPTANCE.md
+
+Runbook, including exact Oracle worker migration steps:
+https://raw.githubusercontent.com/akadaan310/purl/codex/purls-cgit-consumer/docs/consumer-launch/RUNBOOK.md
+
+IF RAILWAY CANNOT BE RESOLVED FROM YOUR SESSION
+
+Seven U reported a retrieval error and a DNS resolution failure before reading
+version 15. That is not an application continuation error. The service was
+reachable from Codex during this investigation; this does not prove reachability
+from Seven U's environment. Do not claim a remote session's DNS is repaired.
+
+Read this captured version-15 continuity state through GitHub instead:
+https://raw.githubusercontent.com/akadaan310/purl/codex/purls-cgit-consumer/evidence/consumer-launch/handoff-snapshot/continuity.json
+
+Snapshot file hashes, capture time and source URLs:
+https://raw.githubusercontent.com/akadaan310/purl/codex/purls-cgit-consumer/evidence/consumer-launch/handoff-snapshot/index.json
+
+All captured public mission source, manifest, history, builds, executions, artifacts,
+releases and replay evidence:
+https://github.com/akadaan310/purl/tree/codex/purls-cgit-consumer/evidence/consumer-launch/handoff-snapshot
+
+This is a read-only evidence copy. Supabase remains authoritative. It permits
+reconstruction when Railway is unreachable; it does not execute operations or
+grant owner access. For native execution, the session needs working HTTPS
+access to the Railway API and a tool capable of authenticated POST requests.
+A browsing-only session can inspect the mission, but cannot execute writes.
+
+HOW AN EXECUTION-CAPABLE AI CONTINUES
+
+1. GET the manifest and continuity URLs above. Read every embedded document,
+   recorded blocker, dependency, checkpoint and next step. Validate document
+   hashes. Recorded PASS labels are claims, not proof of full acceptance.
+2. Use the manifest-linked SDK. GET /api/identity/config, then explicitly create
+   an unverified preview through POST /api/identity/guest, retaining cookies and
+   CSRF in private session memory. The linked SDK's preview() handles this.
+3. Fork the public mission using its current expected_version. The original is
+   read-only for a new principal. Do not try to mutate it or reuse another
+   session's expired credentials. Never put credentials in a shared URL.
+4. On the owned fork, use the returned version after every transition: compile,
+   build, run, poll execution to completion, inspect artifact and receipt,
+   checkpoint with evidence, then publish. GET replay and verify the published
+   fork anonymously. The version can change after worker completion; inspect
+   the owned fork again before checkpointing.
+5. Preserve full mission INCOMPLETE status until blocked acceptance is proved.
+   Guest preview is not verified human SSO. No real inference study or Oracle
+   execution has been demonstrated. Arbitrary authored execution is disabled.
+
+SDK source (dependency-free browser/Node client):
+https://raw.githubusercontent.com/akadaan310/purl/367e8ed063065cb8bc9ebb8c9fc55235b4828723/sdk/launch.js
+
+Installable SDK package (the same bytes tested against production):
+https://raw.githubusercontent.com/akadaan310/purl/codex/purls-cgit-consumer/artifacts/sdk/purl-0.2.0.tgz
+SHA-256: c6397421e778cb9263a4b479ee00086e7a02b2c7c566dec184ff77f5cf454e68
+
+Fresh-session execution requires usable network transport. In the managed Codex
+runner, Node 24 uses NODE_USE_ENV_PROXY=1 with inherited HTTPS proxy/CA settings.
+That environment-specific setting is not a universal fix for another session.
+Do not disable TLS verification or embed proxy credentials in reports.
+
+ANSWERS TO SEVEN U'S THREE EVIDENCE QUESTIONS
+
+Reconstruction: the final independent agent started with only the mission URL,
+used disclosed PURL/API/SDK links and read no repository source or prior mission
+conversation. It verified all nine document hashes and 38 nodes/59 connections.
+This establishes a fresh agent context in the tested runner, not an independently
+networked ChatGPT session or guaranteed access from every AI platform.
+
+Execution: it forked the executable mission program, compiled it, passed its
+one declared build test and executed it through the durable worker. This was
+real bounded native execution, not just a plan. It did not independently author
+a novel program or prove unrestricted code isolation.
+
+Continuity: the fork has a principal ID, immutable build/artifact/receipt,
+checkpoint, public release and valid replay. Attribution is to an explicitly
+unverified guest principal, not a verified human or cryptographic AI identity.
+
+Independent protocol-only report:
+https://raw.githubusercontent.com/akadaan310/purl/codex/purls-cgit-consumer/evidence/consumer-launch/cold-protocol-final.md
+
+Detailed operation results and receipts:
+https://raw.githubusercontent.com/akadaan310/purl/codex/purls-cgit-consumer/evidence/consumer-launch/cold-protocol-final.json
+
+Independent published continuation:
+https://purls-production.up.railway.app/p/resource_c98b3e62ff35baae17fd81d0
+
+Earlier independent continuation (found issues subsequently fixed):
+https://purls-production.up.railway.app/p/resource_2fb11e980e964b973027bcce
+
+Full mission acceptance remains INCOMPLETE. See the acceptance report for live
+OIDC/email setup, real model study, Oracle target, recovery and cleanup gaps.

@@ -1,0 +1,81 @@
+{
+  "schema": "purl.public-handoff-snapshot/1",
+  "observed_at": "2026-10-18T18:22:23.339850+00:00",
+  "resource_id": "resource_95a5662789076892fe698316",
+  "version": 15,
+  "live_authority": "Supabase-backed PURL service; this GitHub copy is read-only evidence, not a replacement execution backend",
+  "files": [
+    {
+      "file": "manifest.json",
+      "source_url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/manifest",
+      "status": 200,
+      "bytes": 10092,
+      "sha256": "cc56d9e7847b0c68693708118663f8b23fbc7cf05fbb219fff6470c61ecab20d"
+    },
+    {
+      "file": "continuity.json",
+      "source_url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/continuity",
+      "status": 200,
+      "bytes": 49512,
+      "sha256": "080c9be604cb0ed51a8322695610c3e52371897ee80b27f50e9794a821c5c159"
+    },
+    {
+      "file": "source.json",
+      "source_url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/source",
+      "status": 200,
+      "bytes": 40271,
+      "sha256": "7f6982d206122bba534e8736917b3e4782bf37224a6835bb4eadaf4940e32b3d"
+    },
+    {
+      "file": "history.json",
+      "source_url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/history",
+      "status": 200,
+      "bytes": 7504,
+      "sha256": "cc76ba731aa9f95e0d0151b5dc41d6278d77da2b7de613d7cbb23c7fc5f0ac92"
+    },
+    {
+      "file": "replay.json",
+      "source_url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/replay",
+      "status": 200,
+      "bytes": 634,
+      "sha256": "286db5f9a90dbfe89d282853e7786ea0003cd6e61c936fec460e71d0245d4f2a"
+    },
+    {
+      "file": "executions.json",
+      "source_url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/executions",
+      "status": 200,
+      "bytes": 82011,
+      "sha256": "82cf76abc04cdf877d5f4e30cbfe7358528765633ab77a4cb32461adc3eda992"
+    },
+    {
+      "file": "artifacts.json",
+      "source_url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/artifacts",
+      "status": 200,
+      "bytes": 81903,
+      "sha256": "11c21ac63757ae86e9c7817818b68ec9d2fd7ac6760ca4ba53f1319b523eef72"
+    },
+    {
+      "file": "builds.json",
+      "source_url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/builds",
+      "status": 200,
+      "bytes": 1800,
+      "sha256": "43b9d2d72584cd006f6954f2ec3c72d954ecb768d21ec994ffc88dc04d644911"
+    },
+    {
+      "file": "releases.json",
+      "source_url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/releases",
+      "status": 200,
+      "bytes": 131195,
+      "sha256": "b7c18bf57c0aee8663b3461b6095f64df8b26199f99547bd286ed845e163b86c"
+    }
+  ],
+  "verification": {
+    "replay_valid": true,
+    "events": 15,
+    "executions": 2,
+    "documents": 9,
+    "anonymous_rights": [
+      "read"
+    ]
+  }
+}

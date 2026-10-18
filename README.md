@@ -1,5 +1,17 @@
 # PURL · Programmable URLs
 
+## PURLs × CGIT Hub consumer launch
+
+Both products live in this repository on `codex/purls-cgit-consumer`. The existing default branch is preserved. The consumer launch is a working public preview with documented acceptance gaps. Copy these literal URLs for another AI session:
+
+```text
+https://github.com/akadaan310/purl/tree/codex/purls-cgit-consumer
+https://raw.githubusercontent.com/akadaan310/purl/codex/purls-cgit-consumer/docs/consumer-launch/HANDOFF.txt
+https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316
+```
+
+The handoff includes direct report URLs, source revisions, executable continuation instructions and a public GitHub snapshot for sessions that cannot resolve Railway. The older PURL service below remains separate.
+
 A working local language, API, worker, SDK and browser IDE extending the original PURL/0.1 continuity implementation. PURL is pronounced **pearl**. Programs have discoverable operations, explicit authority, immutable builds, execution receipts, artifacts and continuation checkpoints.
 
 **Live service:** https://purl-api-production.up.railway.app — separate Railway API/worker, authoritative Supabase persistence, private artifacts and verified restart recovery. Open the [published executable God-seed](https://purl-api-production.up.railway.app/p/program_ad56405463bfaa72e9bbddf2). The full mission still has declared gaps, including verified human email-account setup and cross-provider/Oracle trials. See [DELIVERY_REPORT.md](DELIVERY_REPORT.md) and [ACCEPTANCE.json](ACCEPTANCE.json).

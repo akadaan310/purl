@@ -1,0 +1,49 @@
+{
+  "observed_at": "2026-10-18T18:24:52.552992+00:00",
+  "user_report": "Seven U reported web retrieval error and independent DNS lookup failure before reading version15.",
+  "diagnosis": "Transport failure in that session is reported; no application continuation error is evidenced. Exact remote DNS cause is unverified.",
+  "repository": {
+    "public": true,
+    "branch": "codex/purls-cgit-consumer",
+    "prior_delivery_commit": "82ba1049399e090b4313f16ff57e561172fe5280",
+    "default_branch_preserved": "claude/purl-protocol-research-bxevq5"
+  },
+  "codex_read_back": [
+    {
+      "url": "https://purls-production.up.railway.app/healthz",
+      "status": 200,
+      "bytes": 124
+    },
+    {
+      "url": "https://cgit-hub-production.up.railway.app/healthz",
+      "status": 200,
+      "bytes": 123
+    },
+    {
+      "url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/continuity",
+      "status": 200,
+      "bytes": 49512
+    },
+    {
+      "url": "https://raw.githubusercontent.com/akadaan310/purl/82ba1049399e090b4313f16ff57e561172fe5280/docs/consumer-launch/ACCEPTANCE.md",
+      "status": 200,
+      "bytes": 14619
+    }
+  ],
+  "dns_from_codex": {
+    "purls-production.up.railway.app": [
+      "69.46.46.115"
+    ],
+    "cgit-hub-production.up.railway.app": [
+      "69.46.46.53"
+    ]
+  },
+  "changes": [
+    "Literal public URLs replace label-only and local-file report references.",
+    "Added plain-text handoff, branch/source revision pointers and public SDK package.",
+    "Captured public version15 through9anonymousGETs; snapshot and9embedded document hashes checked.",
+    "Clarified fresh agent contexts share a runner; forked mission execution does not prove new program authorship or verified identity."
+  ],
+  "runtime_changes": false,
+  "remote_session_dns_repair_verified": false
+}
