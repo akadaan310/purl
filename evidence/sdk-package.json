@@ -1,14 +1,15 @@
 {
   "status": "PASS",
   "package": "purl-0.2.0.tgz",
-  "shasum": "3b36bf1756b5c45fd0120f7a27d557c59e2dfcf7",
-  "integrity": "sha512-9uzWmesGn3Yq+g5avO8OlrNW4NmJtryUg5bKcL21+gRUJSq11Olr/FvZ1X2VRDocPlMmMM+FMg9G/gliIF9h+g==",
+  "shasum": "82d840c60955d3c6c729320de9965a850c42e1d3",
+  "integrity": "sha512-+mjKqRD9EiBNdGtnFQtbyXYZReTDSimmxUFIyECX+eFH188X5nemgYreNf/xYNh+4s9uf6W4WLudBAO4yToVgQ==",
   "files": 77,
-  "bytes": 303362,
+  "bytes": 303396,
   "clean_consumer": {
     "sdk": "function",
     "compiled": true,
     "value": 18
   },
-  "published_to_npm": false
+  "published_to_npm": false,
+  "repack_reason": "Final TypeScript template contrast correction; SDK/compiler code unchanged"
 }

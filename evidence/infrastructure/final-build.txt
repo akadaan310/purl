@@ -5,7 +5,7 @@
 #1 DONE 0.0s
 
 #2 resolve image config for docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
-#2 DONE 1.6s
+#2 DONE 0.0s
 
 #3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
 #3 CACHED
@@ -21,24 +21,26 @@
 #6 DONE 0.0s
 
 #7 [internal] load build context
-#7 transferring context: 1.87MB 0.0s done
+#7 transferring context: 3.66MB 0.0s done
 #7 DONE 0.0s
 
 #8 [stage-0 2/5] WORKDIR /app
 #8 CACHED
 
 #9 [stage-0 3/5] COPY package.json package-lock.json ./
-#9 CACHED
+#9 DONE 1.3s
 
 #10 [stage-0 4/5] RUN --mount=type=secret,id=proxy_ca     if [ -f /run/secrets/proxy_ca ]; then export NODE_EXTRA_CA_CERTS=/run/secrets/proxy_ca; fi;     npm ci --omit=dev --ignore-scripts --strict-ssl=true --no-audit --no-fund
-#10 CACHED
+#10 1.224 
+#10 1.224 up to date in 182ms
+#10 DONE 1.3s
 
 #11 [stage-0 5/5] COPY --chown=node:node . .
-#11 DONE 1.0s
+#11 DONE 0.3s
 
 #12 exporting to image
 #12 exporting layers
-#12 exporting layers 0.2s done
-#12 writing image sha256:63fab5b57d73e67c1cc732b26c8fd7179208c3d846f422e76db4f1899cbee498 done
+#12 exporting layers 0.5s done
+#12 writing image sha256:968aba2c9626b3f97c02e63c0600d37d99d7b8bbdb079e3176c1e0b37eb47b81 done
 #12 naming to docker.io/library/purl:local done
-#12 DONE 0.2s
+#12 DONE 0.5s

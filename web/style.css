@@ -21,3 +21,5 @@
 .operation-pill.unavailable{opacity:1;color:#65566e;background:#e5dfe8;border-style:dashed}.button-link{color:#6b5e73}.intro-item,.intro-icon{color:#716576}.pearl-aura{max-width:100%}
 .editor-title{min-width:0}.editor-title h1,.detail-title{overflow-wrap:anywhere}.game-cell:disabled{opacity:1;cursor:default}.session-current+.button-link{font-size:9px}
 .capsule.state-published{border-color:#c8b2d6}.capsule.state-published .capsule-orb{box-shadow:inset -6px -8px 18px #52435a10,0 0 25px #a48bb340}.capsule.state-published .capsule-state:before{background:#8d6ca0;box-shadow:0 0 0 3px #a080b51c}.capsule.state-failed .capsule-state:before,.capsule.state-blocked .capsule-state:before{background:#ad756e}.capsule.state-failed,.capsule.state-blocked{border-color:#d7b9b4}.capsule.state-addressable .capsule-visual{opacity:.6}.capsule.state-queued .capsule-state:before,.capsule.state-running .capsule-state:before{background:#ac9868;box-shadow:0 0 0 3px #ac986817}
+/* Decorative template marks stay readable at narrow widths as well. */
+.template-icon{opacity:1!important;color:#67566f}

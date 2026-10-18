@@ -173,12 +173,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 877,
+                  "duration": 799,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:35.809Z",
+                  "startTime": "2026-10-18T14:15:53.000Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -207,12 +207,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 472,
+                  "duration": 502,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:36.748Z",
+                  "startTime": "2026-10-18T14:15:53.848Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -241,12 +241,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2896,
+                  "duration": 3197,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:37.229Z",
+                  "startTime": "2026-10-18T14:15:54.356Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -275,12 +275,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 641,
+                  "duration": 596,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:40.147Z",
+                  "startTime": "2026-10-18T14:15:57.573Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -309,12 +309,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4374,
+                  "duration": 4318,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:40.797Z",
+                  "startTime": "2026-10-18T14:15:58.180Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -343,12 +343,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 330,
+                  "duration": 370,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:45.178Z",
+                  "startTime": "2026-10-18T14:16:02.504Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -377,12 +377,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 853,
+                  "duration": 840,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:45.816Z",
+                  "startTime": "2026-10-18T14:16:03.180Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -411,12 +411,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 597,
+                  "duration": 526,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:46.725Z",
+                  "startTime": "2026-10-18T14:16:04.071Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -445,12 +445,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2772,
+                  "duration": 2878,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:47.328Z",
+                  "startTime": "2026-10-18T14:16:04.603Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -479,12 +479,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 567,
+                  "duration": 555,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:50.105Z",
+                  "startTime": "2026-10-18T14:16:07.493Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -499,7 +499,7 @@
         },
         {
           "title": "landing, mission, docs and observatory meet responsive accessibility and screenshot checks",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -512,58 +512,18 @@
                 {
                   "workerIndex": 1,
                   "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 3277,
-                  "error": {
-                    "message": "Error: [{\"id\":\"color-contrast\",\"nodes\":[[\"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\"]]}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 64\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#f8f6f3\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 2.38,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"3:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#a79fa8\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"27.0pt (36px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<button class=\\\"template-card\\\" data-template=\\\"typescript\\\"><span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span><h3>TypeScript performer</h3><p>Erasable TypeScript types run inside the restricted Node worker; no package installs.</p><small>program <span aria-hidden=\\\"true\\\">↗︎</span></small></button>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"button[data-template=\\\"typescript\\\"]\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<body>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"body\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
-                    "stack": "Error: [{\"id\":\"color-contrast\",\"nodes\":[[\"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\"]]}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 64\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#f8f6f3\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 2.38,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"3:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#a79fa8\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"27.0pt (36px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<button class=\\\"template-card\\\" data-template=\\\"typescript\\\"><span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span><h3>TypeScript performer</h3><p>Erasable TypeScript types run inside the restricted Node worker; no package installs.</p><small>program <span aria-hidden=\\\"true\\\">↗︎</span></small></button>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"button[data-template=\\\"typescript\\\"]\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<body>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"body\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /workspace/purl/tests/ui/product.spec.js:42:450",
-                    "location": {
-                      "file": "/workspace/purl/tests/ui/product.spec.js",
-                      "column": 450,
-                      "line": 42
-                    },
-                    "snippet": "  40 |  const findings=[];\n  41 |  for(const path of ['/','/explore','/create','/p/godseed-mission','/observatory','/docs']){\n> 42 |   await ready(page,path);await noOverflow(page);const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();const serious=result.violations.filter(x=>['critical','serious'].includes(x.impact));findings.push({path,violations:result.violations.map(x=>({id:x.id,impact:x.impact,nodes:x.nodes.length})),serious:serious.length});expect(serious,JSON.stringify(serious.map(x=>({id:x.id,nodes:x.nodes.map(n=>n.target)})))).toEqual([]);\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^\n  43 |   if(path==='/'){await expect(page).toHaveScreenshot('landing.png',{fullPage:true});await page.screenshot({path:`evidence/ui/landing-${test.info().project.name}.png`,fullPage:true,animations:'disabled'});}\n  44 |  }\n  45 |  const performance=await page.evaluate(()=>{const n=performance.getEntriesByType('navigation')[0];return {dom_content_loaded_ms:n.domContentLoadedEventEnd,response_ms:n.responseEnd,load_ms:n.loadEventEnd,transferred_bytes:performance.getEntriesByType('resource').reduce((s,x)=>s+x.transferSize,0),reduced_motion:matchMedia('(prefers-reduced-motion: reduce)').matches};});"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/workspace/purl/tests/ui/product.spec.js",
-                        "column": 450,
-                        "line": 42
-                      },
-                      "message": "Error: [{\"id\":\"color-contrast\",\"nodes\":[[\"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\"]]}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 64\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#f8f6f3\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 2.38,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"3:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#a79fa8\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"27.0pt (36px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<button class=\\\"template-card\\\" data-template=\\\"typescript\\\"><span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span><h3>TypeScript performer</h3><p>Erasable TypeScript types run inside the restricted Node worker; no package installs.</p><small>program <span aria-hidden=\\\"true\\\">↗︎</span></small></button>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"button[data-template=\\\"typescript\\\"]\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<body>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"body\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  40 |  const findings=[];\n  41 |  for(const path of ['/','/explore','/create','/p/godseed-mission','/observatory','/docs']){\n> 42 |   await ready(page,path);await noOverflow(page);const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();const serious=result.violations.filter(x=>['critical','serious'].includes(x.impact));findings.push({path,violations:result.violations.map(x=>({id:x.id,impact:x.impact,nodes:x.nodes.length})),serious:serious.length});expect(serious,JSON.stringify(serious.map(x=>({id:x.id,nodes:x.nodes.map(n=>n.target)})))).toEqual([]);\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^\n  43 |   if(path==='/'){await expect(page).toHaveScreenshot('landing.png',{fullPage:true});await page.screenshot({path:`evidence/ui/landing-${test.info().project.name}.png`,fullPage:true,animations:'disabled'});}\n  44 |  }\n  45 |  const performance=await page.evaluate(()=>{const n=performance.getEntriesByType('navigation')[0];return {dom_content_loaded_ms:n.domContentLoadedEventEnd,response_ms:n.responseEnd,load_ms:n.loadEventEnd,transferred_bytes:performance.getEntriesByType('resource').reduce((s,x)=>s+x.transferSize,0),reduced_motion:matchMedia('(prefers-reduced-motion: reduce)').matches};});\n    at /workspace/purl/tests/ui/product.spec.js:42:450"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 4547,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:50.685Z",
+                  "startTime": "2026-10-18T14:16:08.058Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/workspace/purl/test-results/product-landing-mission-do-eaa37-ility-and-screenshot-checks-android/test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/workspace/purl/test-results/product-landing-mission-do-eaa37-ility-and-screenshot-checks-android/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/workspace/purl/test-results/product-landing-mission-do-eaa37-ility-and-screenshot-checks-android/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/workspace/purl/tests/ui/product.spec.js",
-                    "column": 450,
-                    "line": 42
-                  }
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "acdf0ae4f62a43156007-e5d30d346a0684a92c16",
@@ -584,15 +544,15 @@
               "projectName": "android",
               "results": [
                 {
-                  "workerIndex": 2,
+                  "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 603,
+                  "duration": 493,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-10-18T14:14:54.565Z",
+                  "startTime": "2026-10-18T14:16:12.610Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -610,11 +570,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-18T14:14:35.443Z",
-    "duration": 19861.434999999998,
-    "expected": 11,
+    "startTime": "2026-10-18T14:15:52.690Z",
+    "duration": 20455.336,
+    "expected": 12,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }

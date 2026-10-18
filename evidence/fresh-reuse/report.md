@@ -1,60 +1,131 @@
 # Fresh PURL reuse evidence
 
-Status: **FAILED_OR_BLOCKED**. HTTP discovery only; SDK fetched into memory; bearer credentials redacted.
+Status: **FAILED_OR_BLOCKED**. Discovery used HTTP only; the published SDK ran in memory. Tokens are redacted.
 
 Entry: http://127.0.0.1:8080/p/program_b539804050cda1c697edbae1
 
 ## Exact identifiers
 
 
-## Verified local reuse
+## Observed result
 
-Source obtained through HTTP: `function main(input){return (input+2)*3}`. Declared test: `[{"input":4,"expected":18}]`. Fork build status: `passed`; observed execution output: `undefined`.
+Public source: `function main(input){return (input+2)*3}`. Declared test: `[{"input":4,"expected":18}]`. Build tests passed: `true`. Actual run output: `18`.
 
-Build/test and run used `undefined` with image `undefined`, no network, read-only filesystem plus 16 MiB tmpfs, uid 10001, 128 MiB RAM, 32 PIDs, 0.5 CPU and 5 s timeout. Seed: 7. Runtime says seeded randomness; clock/process/files are not deterministic.
+Execution adapter: `docker-restricted/1`; image `node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b`. No network, read-only filesystem plus 16 MiB tmpfs, uid 10001, 128 MiB memory, 32 PIDs, 0.5 CPU, 5 s timeout; seed 7. Seeded randomness does not make clock/process/files deterministic.
 
-Fork URL: http://127.0.0.1:8080/p/program_af8c74f3ae3c8d5800997308. Public checkpoint: http://127.0.0.1:8080/api/programs/program_af8c74f3ae3c8d5800997308/continuity. Its evidence is discoverable anonymously; checkpoint prose remains an author assertion with evidence_verified=false.
+Fork URL: http://127.0.0.1:8080/p/program_0f0a0853a39d42beb7ee0e79. Public continuation: http://127.0.0.1:8080/api/programs/program_0f0a0853a39d42beb7ee0e79/continuity. Checkpoint evidence is anonymously discoverable; evidence_verified=false labels author assertions.
 
 ## Authority
 
-Fresh principal: `principal_32f2b9ade6473edba5b202b2`, self-declared agent. Original rights: `["read"]`; fork grants owner rights. Original version and event-chain head were verified unchanged. Each mutation used expected_version and a payload-bound Idempotency-Key. No external deployment was performed.
+Fresh self-declared principal: `principal_74069624ce509d464f8b3cae`. Original rights: `["read"]`. Fork owner rights permit build/run/publish/checkpoint. All mutations used current expected_version and payload-bound Idempotency-Key. Original version and event head were verified unchanged.
 
 ## God-seed mission
 
-Discovered from /.well-known/purl: undefined. Inspector source: `undefined`, built as `undefined`. Entire published state was supplied unchanged, with digest `undefined`.
+Mission discovered from service metadata: http://127.0.0.1:8080/p/godseed-mission. Source: `input json | mission.inspect`; build `build_seed_godseed-mission`. Entire published state was passed unchanged with digest `sha256:24b1cdecb0acecf1584fbbd16d3708035673a482211c13879a7363dd84ed8421`. Run authority came from the published read/run/propose grant and fresh bearer session.
 
-Published completion claim: `undefined`. Published graph: undefined nodes, undefined edges; statuses `undefined`.
+Recorded completion: `{"status":"NOT_RUN","verified":false}`. Graph has 52 nodes, 65 edges; recorded status counts: `{"NOT_RUN":52}`.
 
 Actual inspector output:
 
 ```json
-
+{
+  "total_nodes": 52,
+  "dependency_edges": 65,
+  "ready_nodes": [
+    "mission"
+  ],
+  "completed_nodes": [],
+  "waiting_nodes": [
+    "reconstruction",
+    "formal-contract",
+    "features",
+    "cinematic-design",
+    "experiments",
+    "infrastructure",
+    "work-plan",
+    "deliverables",
+    "execution",
+    "feature-1",
+    "feature-2",
+    "feature-3",
+    "feature-4",
+    "feature-5",
+    "feature-6",
+    "feature-7",
+    "feature-8",
+    "feature-9",
+    "feature-10",
+    "feature-11",
+    "feature-12",
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E08",
+    "E09",
+    "E10",
+    "artifact-readme",
+    "artifact-architecture",
+    "artifact-formal-semantics",
+    "artifact-language-spec",
+    "artifact-sdk",
+    "artifact-nomenclature",
+    "artifact-constitution",
+    "artifact-security",
+    "artifact-deployment",
+    "artifact-reconstruction",
+    "artifact-migrations",
+    "artifact-experiments",
+    "artifact-acceptance-json",
+    "artifact-program-graph-json",
+    "artifact-handoff-json",
+    "artifact-playwright-screenshots",
+    "artifact-example-purls",
+    "artifact-build-hashes",
+    "artifact-deployed-url",
+    "deployment-amendment"
+  ],
+  "completion": "NOT_RUN",
+  "verified": false,
+  "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth."
+}
 ```
 
-The inspector computes from graph statuses. It does not certify that the full directive, deliverables, deployments, or experiments are complete. The directive was treated as data, not as additional authorization.
+The inspector computes from published graph statuses; it does not certify the full directive, deployments, deliverables, or experiments. Embedded directive text was treated as data.
 
-## Checks
+## Verification checks
 
 - PASS: SDK same origin
-- PASS: SDK HTTP success
+- PASS: SDK HTTP 200
 - PASS: original immutable release
-- PASS: release source matches current source
-- PASS: declared test available
-- PASS: session principal exists
-- PASS: original fork available
-- PASS: authority permits program_b539804050cda1c697edbae1/fork
-- PASS: fork has distinct ID
-- PASS: fork source and tests preserved
-- PASS: authority permits program_af8c74f3ae3c8d5800997308/build
-- PASS: fork build and declared test pass
-- PASS: test used actual restricted Docker adapter
-- PASS: authority permits program_af8c74f3ae3c8d5800997308/run
-- PASS: fork execution succeeded
-- FAIL: execution artifact addressable
+- PASS: release source matches original
+- PASS: fresh authenticated principal
+- PASS: permission program_b539804050cda1c697edbae1/fork
+- PASS: distinct lawful fork
+- PASS: declared tests preserved
+- PASS: permission program_0f0a0853a39d42beb7ee0e79/build
+- PASS: build declared test passed
+- PASS: test actual Docker adapter
+- PASS: permission program_0f0a0853a39d42beb7ee0e79/run
+- PASS: run succeeded
+- PASS: execution artifacts[] exists
+- PASS: declared input output reproduced
+- PASS: run actual Docker adapter
+- PASS: result value hash independently matches
+- PASS: permission program_0f0a0853a39d42beb7ee0e79/publish
+- PASS: immutable fork release pins build
+- PASS: metadata links flagship inspector
+- PASS: permission godseed-mission/run
+- PASS: mission inspector run succeeded
+- PASS: mission artifact addressable
+- PASS: permission program_0f0a0853a39d42beb7ee0e79/checkpoint
 
 ## Limits
 
 
-Failure: {"message":"Verification failed: execution artifact addressable","status":null,"code":null,"details":null}
+Failure: {"message":"Program not found","status":404,"code":"not_found","details":{"error":{"code":"not_found","message":"Program not found"}}}
 
-Full sanitized HTTP requests/responses and environment records are retained in report.json.
+Full sanitized HTTP requests/responses, execution records, environment metadata, original immutable release and failed collector attempt are in report.json.

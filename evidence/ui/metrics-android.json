@@ -32,10 +32,10 @@
     }
   ],
   "performance": {
-    "dom_content_loaded_ms": 14.100000000093132,
-    "response_ms": 2.1000000000931323,
-    "load_ms": 23.199999999953434,
-    "transferred_bytes": 162127,
+    "dom_content_loaded_ms": 12.699999999720603,
+    "response_ms": 2,
+    "load_ms": 18,
+    "transferred_bytes": 224870,
     "reduced_motion": true
   }
 }

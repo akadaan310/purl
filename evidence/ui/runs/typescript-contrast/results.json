@@ -1,0 +1,620 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/purl/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/workspace/purl/playwright.config.js",
+    "rootDir": "/workspace/purl/tests/ui",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/purl/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/workspace/purl/tests/ui",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "/workspace/purl/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "android",
+        "name": "android",
+        "testDir": "/workspace/purl/tests/ui",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/purl/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "/workspace/purl/tests/ui",
+        "snapshotDir": "/workspace/purl/tests/ui",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:8080",
+          "headless": true,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "reducedMotion": "reduce",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/purl/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "android",
+        "testDir": "/workspace/purl/tests/ui",
+        "snapshotDir": "/workspace/purl/tests/ui",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:8080",
+          "headless": true,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "reducedMotion": "reduce",
+          "userAgent": "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 393,
+            "height": 727
+          },
+          "screen": {
+            "width": 393,
+            "height": 851
+          },
+          "deviceScaleFactor": 2.75,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "android"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "evidence/ui/playwright-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "product.spec.js",
+      "file": "product.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "capsule surface copies canonical URL, keyboard copies, Open navigates independently",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 877,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:35.809Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-49251b920a9c55f29a4d",
+          "file": "product.spec.js",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "clipboard denial offers selectable canonical URL and touch remains usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:36.748Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-ec6d8d01125afa02e814",
+          "file": "product.spec.js",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "IDE creates, compiles, builds, tests, runs, publishes and checkpoints through live API",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2896,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:37.229Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-b3ca9751179202f3cf35",
+          "file": "product.spec.js",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "invalid types produce visible diagnostics and do not report a successful build",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 641,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:40.147Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-373ca68eda6c09e9e207",
+          "file": "product.spec.js",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "landing, mission, docs and observatory meet responsive accessibility and screenshot checks",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4374,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:40.797Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-38f15283b8f6ba7504c1",
+          "file": "product.spec.js",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "unsolicited provider token is rejected and removed without changing account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 330,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:45.178Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-04b86e2d4a8c25a28426",
+          "file": "product.spec.js",
+          "line": 49,
+          "column": 1
+        },
+        {
+          "title": "capsule surface copies canonical URL, keyboard copies, Open navigates independently",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 853,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:45.816Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-551f5430224641938cf2",
+          "file": "product.spec.js",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "clipboard denial offers selectable canonical URL and touch remains usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 597,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:46.725Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-625a4b80caed3556e6da",
+          "file": "product.spec.js",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "IDE creates, compiles, builds, tests, runs, publishes and checkpoints through live API",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2772,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:47.328Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-3dd6fb8c7788c82c0b72",
+          "file": "product.spec.js",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "invalid types produce visible diagnostics and do not report a successful build",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 567,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:50.105Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-d282f462779c2f94a5ee",
+          "file": "product.spec.js",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "landing, mission, docs and observatory meet responsive accessibility and screenshot checks",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3277,
+                  "error": {
+                    "message": "Error: [{\"id\":\"color-contrast\",\"nodes\":[[\"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\"]]}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 64\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#f8f6f3\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 2.38,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"3:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#a79fa8\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"27.0pt (36px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<button class=\\\"template-card\\\" data-template=\\\"typescript\\\"><span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span><h3>TypeScript performer</h3><p>Erasable TypeScript types run inside the restricted Node worker; no package installs.</p><small>program <span aria-hidden=\\\"true\\\">↗︎</span></small></button>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"button[data-template=\\\"typescript\\\"]\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<body>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"body\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: [{\"id\":\"color-contrast\",\"nodes\":[[\"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\"]]}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 64\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#f8f6f3\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 2.38,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"3:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#a79fa8\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"27.0pt (36px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<button class=\\\"template-card\\\" data-template=\\\"typescript\\\"><span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span><h3>TypeScript performer</h3><p>Erasable TypeScript types run inside the restricted Node worker; no package installs.</p><small>program <span aria-hidden=\\\"true\\\">↗︎</span></small></button>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"button[data-template=\\\"typescript\\\"]\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<body>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"body\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /workspace/purl/tests/ui/product.spec.js:42:450",
+                    "location": {
+                      "file": "/workspace/purl/tests/ui/product.spec.js",
+                      "column": 450,
+                      "line": 42
+                    },
+                    "snippet": "  40 |  const findings=[];\n  41 |  for(const path of ['/','/explore','/create','/p/godseed-mission','/observatory','/docs']){\n> 42 |   await ready(page,path);await noOverflow(page);const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();const serious=result.violations.filter(x=>['critical','serious'].includes(x.impact));findings.push({path,violations:result.violations.map(x=>({id:x.id,impact:x.impact,nodes:x.nodes.length})),serious:serious.length});expect(serious,JSON.stringify(serious.map(x=>({id:x.id,nodes:x.nodes.map(n=>n.target)})))).toEqual([]);\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^\n  43 |   if(path==='/'){await expect(page).toHaveScreenshot('landing.png',{fullPage:true});await page.screenshot({path:`evidence/ui/landing-${test.info().project.name}.png`,fullPage:true,animations:'disabled'});}\n  44 |  }\n  45 |  const performance=await page.evaluate(()=>{const n=performance.getEntriesByType('navigation')[0];return {dom_content_loaded_ms:n.domContentLoadedEventEnd,response_ms:n.responseEnd,load_ms:n.loadEventEnd,transferred_bytes:performance.getEntriesByType('resource').reduce((s,x)=>s+x.transferSize,0),reduced_motion:matchMedia('(prefers-reduced-motion: reduce)').matches};});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/purl/tests/ui/product.spec.js",
+                        "column": 450,
+                        "line": 42
+                      },
+                      "message": "Error: [{\"id\":\"color-contrast\",\"nodes\":[[\"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\"]]}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 64\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"description\": \"Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"help\": \"Elements must meet minimum color contrast ratio thresholds\",\u001b[39m\n\u001b[31m+     \"helpUrl\": \"https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright\",\u001b[39m\n\u001b[31m+     \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+     \"impact\": \"serious\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"all\": Array [],\u001b[39m\n\u001b[31m+         \"any\": Array [\u001b[39m\n\u001b[31m+           Object {\u001b[39m\n\u001b[31m+             \"data\": Object {\u001b[39m\n\u001b[31m+               \"bgColor\": \"#f8f6f3\",\u001b[39m\n\u001b[31m+               \"contrastRatio\": 2.38,\u001b[39m\n\u001b[31m+               \"expectedContrastRatio\": \"3:1\",\u001b[39m\n\u001b[31m+               \"fgColor\": \"#a79fa8\",\u001b[39m\n\u001b[31m+               \"fontSize\": \"27.0pt (36px)\",\u001b[39m\n\u001b[31m+               \"fontWeight\": \"normal\",\u001b[39m\n\u001b[31m+               \"messageKey\": null,\u001b[39m\n\u001b[31m+             },\u001b[39m\n\u001b[31m+             \"id\": \"color-contrast\",\u001b[39m\n\u001b[31m+             \"impact\": \"serious\",\u001b[39m\n\u001b[31m+             \"message\": \"Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+             \"relatedNodes\": Array [\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<button class=\\\"template-card\\\" data-template=\\\"typescript\\\"><span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span><h3>TypeScript performer</h3><p>Erasable TypeScript types run inside the restricted Node worker; no package installs.</p><small>program <span aria-hidden=\\\"true\\\">↗︎</span></small></button>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"button[data-template=\\\"typescript\\\"]\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+               Object {\u001b[39m\n\u001b[31m+                 \"html\": \"<body>\",\u001b[39m\n\u001b[31m+                 \"target\": Array [\u001b[39m\n\u001b[31m+                   \"body\",\u001b[39m\n\u001b[31m+                 ],\u001b[39m\n\u001b[31m+               },\u001b[39m\n\u001b[31m+             ],\u001b[39m\n\u001b[31m+           },\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+         \"failureSummary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element has insufficient color contrast of 2.38 (foreground color: #a79fa8, background color: #f8f6f3, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1\",\u001b[39m\n\u001b[31m+         \"html\": \"<span class=\\\"template-icon\\\" aria-hidden=\\\"true\\\">↗︎</span>\",\u001b[39m\n\u001b[31m+         \"impact\": \"serious\",\u001b[39m\n\u001b[31m+         \"none\": Array [],\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"button[data-template=\\\"typescript\\\"] > .template-icon[aria-hidden=\\\"true\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+     \"tags\": Array [\u001b[39m\n\u001b[31m+       \"cat.color\",\u001b[39m\n\u001b[31m+       \"wcag2aa\",\u001b[39m\n\u001b[31m+       \"wcag143\",\u001b[39m\n\u001b[31m+       \"TTv5\",\u001b[39m\n\u001b[31m+       \"TT13.c\",\u001b[39m\n\u001b[31m+       \"EN-301-549\",\u001b[39m\n\u001b[31m+       \"EN-9.1.4.3\",\u001b[39m\n\u001b[31m+       \"ACT\",\u001b[39m\n\u001b[31m+       \"RGAAv4\",\u001b[39m\n\u001b[31m+       \"RGAA-3.2.1\",\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  40 |  const findings=[];\n  41 |  for(const path of ['/','/explore','/create','/p/godseed-mission','/observatory','/docs']){\n> 42 |   await ready(page,path);await noOverflow(page);const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();const serious=result.violations.filter(x=>['critical','serious'].includes(x.impact));findings.push({path,violations:result.violations.map(x=>({id:x.id,impact:x.impact,nodes:x.nodes.length})),serious:serious.length});expect(serious,JSON.stringify(serious.map(x=>({id:x.id,nodes:x.nodes.map(n=>n.target)})))).toEqual([]);\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^\n  43 |   if(path==='/'){await expect(page).toHaveScreenshot('landing.png',{fullPage:true});await page.screenshot({path:`evidence/ui/landing-${test.info().project.name}.png`,fullPage:true,animations:'disabled'});}\n  44 |  }\n  45 |  const performance=await page.evaluate(()=>{const n=performance.getEntriesByType('navigation')[0];return {dom_content_loaded_ms:n.domContentLoadedEventEnd,response_ms:n.responseEnd,load_ms:n.loadEventEnd,transferred_bytes:performance.getEntriesByType('resource').reduce((s,x)=>s+x.transferSize,0),reduced_motion:matchMedia('(prefers-reduced-motion: reduce)').matches};});\n    at /workspace/purl/tests/ui/product.spec.js:42:450"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:50.685Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/purl/test-results/product-landing-mission-do-eaa37-ility-and-screenshot-checks-android/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/purl/test-results/product-landing-mission-do-eaa37-ility-and-screenshot-checks-android/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/workspace/purl/test-results/product-landing-mission-do-eaa37-ility-and-screenshot-checks-android/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/purl/tests/ui/product.spec.js",
+                    "column": 450,
+                    "line": 42
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-e5d30d346a0684a92c16",
+          "file": "product.spec.js",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "unsolicited provider token is rejected and removed without changing account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 603,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T14:14:54.565Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "acdf0ae4f62a43156007-07252c0b267386d4d62b",
+          "file": "product.spec.js",
+          "line": 49,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T14:14:35.443Z",
+    "duration": 19861.434999999998,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

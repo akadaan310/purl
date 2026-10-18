@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "class": "PURE_VALUES_AND_DERIVATIONS_ACROSS_NODE_VERSIONS",
+  "host": {
+    "node": "v24.19.0",
+    "arch": "x64",
+    "results": [
+      {
+        "source": "input number | math.add 2 | math.multiply 3",
+        "input": 4,
+        "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+        "value": 18,
+        "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+        "environment_id": "environment:8872c2d1ce661e0ac98dafa0f6d507f0edbb9412ccafef67b81e47ee08c646f6"
+      },
+      {
+        "source": "input string | string.trim | string.uppercase",
+        "input": " purl ",
+        "derivation_id": "derivation:a6fdac3cf1b62ed988ddada3aecbc8556aa30a9244c0f31eea5cd61ad6827091",
+        "value": "PURL",
+        "value_id": "value:21ea0609b14cb6e77e08b808875b66a090851691eec597bd9122ee30adb15b0c",
+        "environment_id": "environment:b4d03dcc8986ec82fd9b81e01b66133d5a53fe4f3353901f03177417ffd08148"
+      },
+      {
+        "source": "input string | repeat 3 { state.cycle007 }",
+        "input": "007",
+        "derivation_id": "derivation:e13ab82941e4726010667c2d6ff1db86424dc679c8eccbc4eefd08a832212913",
+        "value": "007",
+        "value_id": "value:280ec15c32961a0ceb8e1171dc659fc6e0be032f59fee42ab41de4403d0f79a8",
+        "environment_id": "environment:29b2decffb678f481dff29abbd204b0e7099dd254fa54210866b3d465a1725ba"
+      }
+    ]
+  },
+  "container": {
+    "node": "v22.14.0",
+    "arch": "x64",
+    "results": [
+      {
+        "source": "input number | math.add 2 | math.multiply 3",
+        "input": 4,
+        "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+        "value": 18,
+        "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+        "environment_id": "environment:6c5c1b748d5d8e07374329c4868415696990c60948f6e3beff506e0a55015b47"
+      },
+      {
+        "source": "input string | string.trim | string.uppercase",
+        "input": " purl ",
+        "derivation_id": "derivation:a6fdac3cf1b62ed988ddada3aecbc8556aa30a9244c0f31eea5cd61ad6827091",
+        "value": "PURL",
+        "value_id": "value:21ea0609b14cb6e77e08b808875b66a090851691eec597bd9122ee30adb15b0c",
+        "environment_id": "environment:60f3064f44d43879ddeec845594f303c88c947ca5a6c56910dcf8c6eff0fb110"
+      },
+      {
+        "source": "input string | repeat 3 { state.cycle007 }",
+        "input": "007",
+        "derivation_id": "derivation:e13ab82941e4726010667c2d6ff1db86424dc679c8eccbc4eefd08a832212913",
+        "value": "007",
+        "value_id": "value:280ec15c32961a0ceb8e1171dc659fc6e0be032f59fee42ab41de4403d0f79a8",
+        "environment_id": "environment:9ddce18db5635bbb3c8a06983fcc8fa9c47c2619c6210954e2a4907cd44f7f1f"
+      }
+    ]
+  },
+  "environment_ids_differ": true,
+  "arm": "NOT_RUN",
+  "qualification": "Equal defined values/derivations for three pinned programs on x64; environment hashes explicitly differ. No universal cross-architecture equivalence claimed."
+}

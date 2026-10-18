@@ -1,11 +1,11 @@
 {
-  "status": "FAIL",
-  "tests": 11,
-  "failures": 1,
-  "duration_ms": 19861.434999999998,
+  "status": "PASS",
+  "tests": 12,
+  "failures": 0,
+  "duration_ms": 20455.336,
   "execution_class": "REAL_CHROMIUM_DESKTOP_AND_PIXEL5_EMULATION",
-  "clipboard": "native read/write, pointer mouse/touch, Enter/Space, separate Open; explicit denial simulation fallback",
-  "visual_regression": "Repeated comparisons with captured local baselines, reduced motion and animations disabled",
+  "clipboard": "native read/write; pointer mouse/touch; Enter/Space; separate Open; explicit denial simulation fallback",
+  "visual_regression": "Repeated local baseline screenshot comparisons with reduced motion and animations disabled",
   "desktop": {
     "findings": [
       {
@@ -40,10 +40,10 @@
       }
     ],
     "performance": {
-      "dom_content_loaded_ms": 15.899999999906868,
-      "response_ms": 1.7999999998137355,
-      "load_ms": 19.09999999962747,
-      "transferred_bytes": 206498,
+      "dom_content_loaded_ms": 14.700000000186265,
+      "response_ms": 1.7000000001862645,
+      "load_ms": 16.600000000093132,
+      "transferred_bytes": 218746,
       "reduced_motion": true
     }
   },
@@ -81,10 +81,10 @@
       }
     ],
     "performance": {
-      "dom_content_loaded_ms": 14.100000000093132,
-      "response_ms": 2.1000000000931323,
-      "load_ms": 23.199999999953434,
-      "transferred_bytes": 162127,
+      "dom_content_loaded_ms": 12.699999999720603,
+      "response_ms": 2,
+      "load_ms": 18,
+      "transferred_bytes": 224870,
       "reduced_motion": true
     }
   }
