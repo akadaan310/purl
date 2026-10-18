@@ -1,0 +1,56 @@
+services:
+  init-data:
+    image: purl:local
+    build: .
+    user: "0:0"
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    cap_add: [CHOWN]
+    security_opt: [no-new-privileges:true]
+    command: [node, -e, "require('fs').chownSync('/data',1000,1000)"]
+    volumes: [purl-development:/data]
+  api:
+    hostname: purl-api-development
+    image: purl:local
+    build: .
+    depends_on:
+      init-data: {condition: service_completed_successfully}
+    environment:
+      NODE_ENV: development
+      PURL_PERSISTENCE: file
+      PURL_DATA_FILE: /data/state.json
+      PURL_BASE_URL: http://127.0.0.1:${PURL_DEV_PORT:-8080}
+      PURL_ROLE: api
+      PURL_SANDBOX_ENABLED: "0"
+      PURL_SANDBOX_VERIFIED: "0"
+    ports: ["127.0.0.1:${PURL_DEV_PORT:-8080}:3000"]
+    volumes: [purl-development:/data]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000"]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    stop_grace_period: 45s
+  worker:
+    hostname: purl-worker-development
+    image: purl:local
+    depends_on:
+      init-data: {condition: service_completed_successfully}
+    command: [node, service/worker.js]
+    network_mode: none
+    environment:
+      NODE_ENV: development
+      PURL_PERSISTENCE: file
+      PURL_DATA_FILE: /data/state.json
+      PURL_BASE_URL: http://127.0.0.1:${PURL_DEV_PORT:-8080}
+      PURL_ROLE: worker
+      PURL_SANDBOX_ENABLED: "0"
+      PURL_SANDBOX_VERIFIED: "0"
+    volumes: [purl-development:/data]
+    read_only: true
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000"]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    stop_grace_period: 45s
+volumes:
+  purl-development:

@@ -167,3 +167,20 @@ effect (statistics).
 | "transition velocity" | Rate (changes per unit time) is the established term; "velocity" implies a vector. |
 | "persona transfer" | Implies identity transfer; replaced by Communication Profile with a mandatory disclaimer. |
 | New names for entropy rate, LZ complexity, burstiness | Established names used. |
+
+## Product identity namespaces (PURL/0.2)
+
+| Identifier | Meaning |
+|---|---|
+| `address_id` | Hash of a version-normalized locator; not ownership or semantic identity |
+| `derivation_id` | Normalized typed IR and exact operator/dependency versions |
+| `value_id` | Canonical typed JSON value encoding in the declared numeric domain |
+| `content_id` | Canonical immutable bytes/object encoding under its namespace |
+| `environment_id` | Recorded interpreter, versions, architecture, dependencies and limits |
+| `build_id` | Specific source, plan, schemas, tests and captured environment |
+| `execution_id` | One separately recorded queued/run activity; not inferred from its value |
+| Principal/session | Authenticated server principal and bearer session; self-declared labels do not verify a model or grant rights |
+
+Equal hashes establish equality of the selected encoding under collision-resistance assumptions. They do not establish general program equivalence, historical authenticity, authority, or private-memory transfer. Runtime resource IDs, immutable content hashes and transport addresses remain distinct.
+
+TypeScript support means the erasable-syntax adapter provided by the pinned Node runtime, with JSON schema and declared behavior tests. It does not imply semantic `tsc` analysis, package installation or support for every TypeScript construct. Julia/Octave adapters are unavailable in the verified environment.

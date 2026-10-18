@@ -7,6 +7,17 @@ export const emptyData = () => ({ principals: {}, programs: {}, executions: {}, 
 const clone = value => structuredClone(value);
 const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 
+async function processStartTime(pid) {
+  if (process.platform !== 'linux') return undefined;
+  try {
+    const value = await readFile(`/proc/${pid}/stat`, 'utf8');
+    // comm (field 2) may contain spaces and parentheses. Fields after its final
+    // closing parenthesis start at state (3); starttime is field 22.
+    const startTime = value.slice(value.lastIndexOf(')') + 2).trim().split(/\s+/)[19];
+    return /^\d+$/.test(startTime || '') ? startTime : undefined;
+  } catch { return undefined; }
+}
+
 function document(value) {
   if (!value || !Number.isSafeInteger(value.revision) || value.revision < 0 || !value.data || typeof value.data !== 'object' || Array.isArray(value.data)) {
     throw new Error('Invalid persistence document; refusing to replace durable state');
@@ -79,7 +90,15 @@ export class FileRepository {
       }
       if (owner && owner.host && owner.host !== hostname()) return;
       if (owner && Number.isInteger(owner.pid) && owner.pid > 0) {
-        try { process.kill(owner.pid, 0); return; }
+        try {
+          process.kill(owner.pid, 0);
+          const recordedStart = typeof owner.startTime === 'string' && /^\d+$/.test(owner.startTime) ? owner.startTime : undefined;
+          const currentStart = recordedStart ? await processStartTime(owner.pid) : undefined;
+          // PID 1 is reused on container restart. Reap only when a recorded
+          // start marker proves this is a replacement process. Legacy locks and
+          // unavailable /proc information retain the conservative live-PID rule.
+          if (!recordedStart || !currentStart || recordedStart === currentStart) return;
+        }
         catch (error) { if (error.code !== 'ESRCH') return; }
       } else if (Date.now() - (await stat(ownerPath)).mtimeMs < this.staleLockMs) return;
       // The unique owner filename prevents a concurrent reaper from deleting a
@@ -96,7 +115,7 @@ export class FileRepository {
     const candidate = `${this.lockPath}-${token}`;
     await mkdir(candidate, { mode: 0o700 });
     const ownerFile = `${token}.json`;
-    await writeSynced(`${candidate}/${ownerFile}`, JSON.stringify({ pid: process.pid, host: hostname(), token }), 'wx');
+    await writeSynced(`${candidate}/${ownerFile}`, JSON.stringify({ pid: process.pid, host: hostname(), token, startTime: await processStartTime(process.pid) }), 'wx');
     const deadline = Date.now() + this.lockTimeoutMs;
     try {
       while (true) {

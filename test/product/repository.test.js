@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdir, mkdtemp, readFile, writeFile, utimes, rm } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
+import { mkdir, mkdtemp, readFile, readdir, writeFile, utimes, rm } from 'node:fs/promises';
+import { hostname, tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
@@ -117,6 +117,54 @@ test('an old live-process lock is never stolen', async t => {
   await assert.rejects(repository.transaction(data => { data.audit.push('stolen'); }), /lock timeout/);
   assert.deepEqual((await repository.read()).data.audit, []);
   assert.equal(JSON.parse(await readFile(`${path}.lock/live.json`, 'utf8')).pid, process.pid);
+});
+
+test('Linux locks record the owner process start time', { skip: process.platform !== 'linux' }, async t => {
+  const directory = await mkdtemp(join(tmpdir(), 'purl-owner-start-'));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const repository = new FileRepository(join(directory, 'state.json'));
+  const release = await repository.acquireLock();
+  try {
+    const [name] = await readdir(repository.lockPath);
+    const owner = JSON.parse(await readFile(`${repository.lockPath}/${name}`, 'utf8'));
+    const processStat = await readFile(`/proc/${process.pid}/stat`, 'utf8');
+    const startTime = processStat.slice(processStat.lastIndexOf(')') + 2).trim().split(/\s+/)[19];
+    assert.equal(owner.startTime, startTime);
+    assert.match(owner.startTime, /^\d+$/);
+  } finally { await release(); }
+});
+
+test('a reused live PID with a different start time does not retain an abandoned lock', { skip: process.platform !== 'linux' }, async t => {
+  const directory = await mkdtemp(join(tmpdir(), 'purl-reused-pid-'));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const path = join(directory, 'state.json');
+  const processStat = await readFile(`/proc/${process.pid}/stat`, 'utf8');
+  const startTime = processStat.slice(processStat.lastIndexOf(')') + 2).trim().split(/\s+/)[19];
+  await mkdir(`${path}.lock`);
+  await writeFile(`${path}.lock/reused.json`, JSON.stringify({ pid: process.pid, host: hostname(), token: 'reused', startTime: String(BigInt(startTime) + 1n) }));
+  const repository = new FileRepository(path, { lockTimeoutMs: 100 });
+  await repository.transaction(data => { data.audit.push('recovered reused PID'); });
+  assert.deepEqual((await repository.read()).data.audit, ['recovered reused PID']);
+});
+
+test('a matching process start time or foreign host keeps a live lock protected', { skip: process.platform !== 'linux' }, async t => {
+  const directory = await mkdtemp(join(tmpdir(), 'purl-owner-guard-'));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const processStat = await readFile(`/proc/${process.pid}/stat`, 'utf8');
+  const startTime = processStat.slice(processStat.lastIndexOf(')') + 2).trim().split(/\s+/)[19];
+  for (const [name, owner] of [
+    ['matching', { pid: process.pid, host: hostname(), startTime }],
+    ['foreign', { pid: process.pid, host: `${hostname()}-other-host`, startTime: String(BigInt(startTime) + 1n) }],
+    ['unavailable', { pid: process.pid, host: hostname(), startTime: 'unavailable' }],
+  ]) {
+    const path = join(directory, `${name}.json`);
+    await mkdir(`${path}.lock`);
+    await writeFile(`${path}.lock/${name}.json`, JSON.stringify({ ...owner, token: name }));
+    const repository = new FileRepository(path, { staleLockMs: 1, lockTimeoutMs: 25 });
+    await assert.rejects(repository.transaction(data => { data.audit.push('stolen'); }), /lock timeout/);
+    assert.deepEqual((await repository.read()).data.audit, []);
+    assert.equal(JSON.parse(await readFile(`${path}.lock/${name}.json`, 'utf8')).token, name);
+  }
 });
 
 test('production configuration fails closed and development persistence is explicit', () => {

@@ -18,6 +18,13 @@ must use the same `PURL_DATA_FILE`. This is explicitly DEVELOPMENT persistence,
 uses one host filesystem, and does not establish production database durability.
 Memory persistence (`PURL_PERSISTENCE=memory`) is for tests and disposable demos.
 
+For local Docker development, build `purl:local` and run
+`docker compose -f compose.dev.yaml up -d`. It exposes only loopback port8080
+(override with `PURL_DEV_PORT`), starts distinct API/worker services, and retains
+development state in the `purl-development` named volume. Ordinary `down` keeps
+that volume; deleting it would discard local state. This profile disables
+authored code and is deliberately distinct from Supabase-backed production.
+
 ## Production configuration
 
 Apply [MIGRATIONS.md](MIGRATIONS.md) to a dedicated Supabase project first. Set the
