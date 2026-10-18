@@ -27,6 +27,7 @@ test('launch discovery, catalog, native manifests and health are self-describing
  const runtime=await call('/api/runtime');assert.equal(runtime.data.untrusted_authored_execution,false);assert.equal(runtime.data.limits.row_bytes,262144);
  const catalog=await call('/api/catalog');assert.equal(catalog.status,200);assert.ok(catalog.data.catalog.length>=40);
  const purl=await call('/p/consumer-launch-mission',{headers:{accept:'application/purl+json'}});assert.equal(purl.data.program.id,'consumer-launch-mission');assert.match(purl.data.links.continuity,/\/api\/resources\//);
+ for(const name of ['executions','artifacts','builds','releases']){assert.equal(typeof purl.data.links[name],'string');const related=await call(new URL(purl.data.links[name]).pathname);assert.equal(related.status,200);assert.ok(Array.isArray(related.data.items));}
  const compiler=await call('/api/compiler');assert.equal(compiler.status,200);assert.equal(compiler.data.operations[0].method,'POST');assert.equal(compiler.data.operations[0].href,app.resources.url('/api/compiler'));
  const wellknown=await call('/.well-known/purl');assert.equal(wellknown.data.name,'PURLs');assert.ok(wellknown.data.endpoints.identity);
  assert.equal(JSON.stringify(store.state),before);

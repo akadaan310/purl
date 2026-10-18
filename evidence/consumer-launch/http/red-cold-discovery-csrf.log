@@ -1,0 +1,50 @@
+✖ launch discovery, catalog, native manifests and health are self-describing pure reads (55.01794ms)
+✔ browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous (19.21492ms)
+✔ native queued program persists execution through a freshly constructed application (30.317113ms)
+✔ HTTP rejects credential URLs, malformed payloads and arbitrary file paths (16.572847ms)
+✔ HTTP rejects JSON values incompatible with durable storage before domain writes (10.412008ms)
+✔ CGIT is independently usable in its own unverified bounded preview (22.277503ms)
+✖ fresh SDK reconstructs a URL-only mission and compiles, runs, publishes and checkpoints its own fork (61.000422ms)
+✔ SDK refuses cross-origin reconstruction and redirect following before leaking cookies (1.652949ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 241.789495
+
+✖ failing tests:
+
+test at test/launch/http.test.js:22:1
+✖ launch discovery, catalog, native manifests and health are self-describing pure reads (55.01794ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'string'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/http.test.js:30:75)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'string',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/sdk.test.js:9:1
+✖ fresh SDK reconstructs a URL-only mission and compiles, runs, publishes and checkpoints its own fork (61.000422ms)
+  Error: A bound CSRF token is required
+      at PurlLaunchClient.request (file:///workspace/purl/sdk/launch.js:10:58)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/sdk.test.js:15:151)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    status: 403,
+    code: 'csrf_required'
+  }

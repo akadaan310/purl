@@ -12,7 +12,7 @@ test('fresh SDK reconstructs a URL-only mission and compiles, runs, publishes an
  const base=`http://127.0.0.1:${server.address().port}`;app.configureOrigin(base);
  await app.resources.seedMission({id:'consumer-launch-mission',title:'Executable mission',source:'input number | math.add 7',tests:[{input:3,expected:10}],state:{documents:[{name:'CODEX_MASTER.md',markdown:'Continue using supported native operations'}],next:['Fork, build, run, inspect and checkpoint']}});
  const sdk=new PurlLaunchClient(base),cold=await sdk.reconstruct(`${base}/p/consumer-launch-mission`);assert.equal(cold.continuity.state.documents[0].name,'CODEX_MASTER.md');assert.equal(cold.permitted_operations.length,0);
- await sdk.preview({label:'SDK cold continuation'});let r=(await sdk.operation(cold.manifest.program.id,'fork',cold.manifest.program.version,{title:'SDK continuation'},'sdk-fork')).resource;
+ await sdk.preview({label:'SDK initial preview'});await sdk.preview({label:'SDK cold continuation'});await sdk.request('/api/identity/config');let r=(await sdk.operation(cold.manifest.program.id,'fork',cold.manifest.program.version,{title:'SDK continuation'},'sdk-fork')).resource;
  r=(await sdk.operation(r.id,'compile',r.version)).resource;r=(await sdk.operation(r.id,'build',r.version)).resource;
  const queued=await sdk.operation(r.id,'run',r.version,{input:3},'sdk-run');assert.equal(queued.execution.status,'queued');assert.equal((await app.resources.workOnce({workerId:'sdk-worker'})).value,10);
  r=(await sdk.inspect(r.id)).resource;r=(await sdk.operation(r.id,'publish',r.version,{visibility:'public'})).resource;
