@@ -1,0 +1,23 @@
+{
+  "observed_at": "2026-10-18T17:56:42.243Z",
+  "results": [
+    {
+      "base": "https://purls-production.up.railway.app",
+      "source": "367e8ed063065cb8bc9ebb8c9fc55235b4828723",
+      "node": "22.14.0",
+      "persistence": "supabase",
+      "compiler_get": "200",
+      "health": "200",
+      "untrusted_execution": false
+    },
+    {
+      "base": "https://cgit-hub-production.up.railway.app",
+      "source": "367e8ed063065cb8bc9ebb8c9fc55235b4828723",
+      "node": "22.14.0",
+      "persistence": "supabase",
+      "compiler_get": "200",
+      "health": "200",
+      "untrusted_execution": false
+    }
+  ]
+}

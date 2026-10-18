@@ -1,0 +1,14 @@
+{
+  "environment": "local",
+  "scope": "Frozen46-case final local browser evidence preserved before production run",
+  "report": "evidence/consumer-launch/verification/browser-local-final/06-frontends/playwright-results.json",
+  "stats": {
+    "startTime": "2026-10-18T17:27:47.131Z",
+    "duration": 23299.933,
+    "expected": 46,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "preservedAt": "2026-10-18T17:33:28.983Z"
+}

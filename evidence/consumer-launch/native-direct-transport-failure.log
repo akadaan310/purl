@@ -1,0 +1,16 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+[TypeError: fetch failed] {
+  [cause]: Error: connect ECONNREFUSED 69.46.46.115:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1864:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '69.46.46.115',
+    port: 443
+  }
+}
+
+Node.js v24.19.0

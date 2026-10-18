@@ -1,0 +1,933 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/purl/node_modules/.bin/playwright",
+      "test",
+      "--config=playwright.launch.config.js",
+      "test/launch/ui.spec.js",
+      "--timeout=90000"
+    ],
+    "configFile": "/workspace/purl/playwright.launch.config.js",
+    "rootDir": "/workspace/purl/test/launch",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "/workspace/purl/test/launch",
+        "testIgnore": [],
+        "testMatch": [
+          "ui.spec.js",
+          "provider-ui.spec.js"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "/workspace/purl/test/launch",
+        "testIgnore": [],
+        "testMatch": [
+          "ui.spec.js",
+          "provider-ui.spec.js"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "/workspace/purl/test/launch",
+        "snapshotDir": "/workspace/purl/test/launch",
+        "testIgnore": [],
+        "testMatch": [
+          "ui.spec.js",
+          "provider-ui.spec.js"
+        ],
+        "timeout": 90000,
+        "use": {
+          "headless": true,
+          "trace": "off",
+          "screenshot": "only-on-failure",
+          "reducedMotion": "reduce",
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "/workspace/purl/test/launch",
+        "snapshotDir": "/workspace/purl/test/launch",
+        "testIgnore": [],
+        "testMatch": [
+          "ui.spec.js",
+          "provider-ui.spec.js"
+        ],
+        "timeout": 90000,
+        "use": {
+          "headless": true,
+          "trace": "off",
+          "screenshot": "only-on-failure",
+          "reducedMotion": "reduce",
+          "userAgent": "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 393,
+            "height": 727
+          },
+          "screen": {
+            "width": 393,
+            "height": 851
+          },
+          "deviceScaleFactor": 2.75,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "evidence/consumer-launch/06-frontends/playwright-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "ui.spec.js",
+      "file": "ui.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "PURLs independent, accessible and responsive",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3155,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:33:29.904Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-d8ddfbed09bfca31aaf1",
+          "file": "ui.spec.js",
+          "line": 11,
+          "column": 2
+        },
+        {
+          "title": "CGIT independent, accessible and responsive",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1632,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:33:33.121Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-54175bf0ee5e91004eb0",
+          "file": "ui.spec.js",
+          "line": 11,
+          "column": 2
+        },
+        {
+          "title": "PURLs discovery runs an actual catalog sample and shows its receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5726,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:33:34.764Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-1491b69b2b39811f6a8f",
+          "file": "ui.spec.js",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "PURLs guest memory remains explicit and supports real create/edit/delete",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10780,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:33:40.500Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-79649de6b9b20bf4bed7",
+          "file": "ui.spec.js",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "CGIT first guest consent creates and commits an artifact",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7330,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:33:51.287Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-add976eadfd281ce35fe",
+          "file": "ui.spec.js",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "selected live memory sharing revokes future access and clipboard denial has a native fallback",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6989,
+                  "error": {
+                    "message": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/passports/oYhsSAyVKctODSfCt62Bva4fK7aZYIoC\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.64.1 (x64; debian 13) node/24.19\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/passports/oYhsSAyVKctODSfCt62Bva4fK7aZYIoC\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.64.1 (x64; debian 13) node/24.19\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at /workspace/purl/test/launch/ui.spec.js:58:29",
+                    "location": {
+                      "file": "/workspace/purl/test/launch/ui.spec.js",
+                      "column": 29,
+                      "line": 58
+                    },
+                    "snippet": "  56 |  await page.getByRole('checkbox',{name:/I consent to sharing only my selected memories/}).check();await page.getByRole('button',{name:'Create selected-memory passport'}).click();\n  57 |  const open=page.locator('.panel').filter({hasText:'Share a small piece.'}).getByRole('link',{name:'Open \u2197'}).first();await expect(open).toBeVisible();const url=await open.getAttribute('href');\n> 58 |  const before=await request.get(url);expect(before.ok()).toBe(true);expect(JSON.stringify(await before.json())).toContain('Share only this selected memory.');\n     |                             ^\n  59 |  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw new Error('Denied')}},configurable:true}));\n  60 |  await page.getByRole('button',{name:'Copy PURL',exact:true}).first().click();await expect(page.getByLabel('PURL',{exact:true})).toHaveValue(url);await page.getByRole('button',{name:'Close dialog'}).click();\n  61 |  const revoked=page.waitForResponse(r=>r.url().includes('/api/passports/')&&r.url().endsWith('/revoke')&&r.request().method()==='POST');await page.getByRole('button',{name:'Revoke future access'}).first().click();expect((await revoked).status()).toBe(200);await expect(page.getByRole('button',{name:'Revoke future access'})).toHaveCount(0);const after=await request.get(url);expect(after.status()).toBe(410);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/purl/test/launch/ui.spec.js",
+                        "column": 29,
+                        "line": 58
+                      },
+                      "message": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/passports/oYhsSAyVKctODSfCt62Bva4fK7aZYIoC\u001b[22m\n\u001b[2m    - user-agent: Playwright/1.64.1 (x64; debian 13) node/24.19\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  56 |  await page.getByRole('checkbox',{name:/I consent to sharing only my selected memories/}).check();await page.getByRole('button',{name:'Create selected-memory passport'}).click();\n  57 |  const open=page.locator('.panel').filter({hasText:'Share a small piece.'}).getByRole('link',{name:'Open \u2197'}).first();await expect(open).toBeVisible();const url=await open.getAttribute('href');\n> 58 |  const before=await request.get(url);expect(before.ok()).toBe(true);expect(JSON.stringify(await before.json())).toContain('Share only this selected memory.');\n     |                             ^\n  59 |  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw new Error('Denied')}},configurable:true}));\n  60 |  await page.getByRole('button',{name:'Copy PURL',exact:true}).first().click();await expect(page.getByLabel('PURL',{exact:true})).toHaveValue(url);await page.getByRole('button',{name:'Close dialog'}).click();\n  61 |  const revoked=page.waitForResponse(r=>r.url().includes('/api/passports/')&&r.url().endsWith('/revoke')&&r.request().method()==='POST');await page.getByRole('button',{name:'Revoke future access'}).first().click();expect((await revoked).status()).toBe(200);await expect(page.getByRole('button',{name:'Revoke future access'})).toHaveCount(0);const after=await request.get(url);expect(after.status()).toBe(410);\n    at /workspace/purl/test/launch/ui.spec.js:58:29"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:33:58.625Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-desktop/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-desktop/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/purl/test/launch/ui.spec.js",
+                    "column": 29,
+                    "line": 58
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-2480b62385a3c561e91b",
+          "file": "ui.spec.js",
+          "line": 52,
+          "column": 1
+        },
+        {
+          "title": "human sign-in and live inference show precise deployment availability",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3450,
+                  "error": {
+                    "message": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/models\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - cookie: [REDACTED]\n",
+                    "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/models\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - cookie: [REDACTED]\n\n    at /workspace/purl/test/launch/ui.spec.js:67:34",
+                    "location": {
+                      "file": "/workspace/purl/test/launch/ui.spec.js",
+                      "column": 34,
+                      "line": 67
+                    },
+                    "snippet": "  65 |  if(!readiness.available){await expect(page.getByText('Verified sign-in is unavailable',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Continue with your identity provider \u2197'})).toBeDisabled();}\n  66 |  await page.getByRole('button',{name:'Explore as a guest'}).click();await expect(page.getByRole('link',{name:'Guest preview \u00b7 unverified \u2197',exact:true})).toBeVisible();await page.getByRole('link',{name:'Constellations',exact:true}).click();\n> 67 |  const models=await page.request.get(`${purls}/api/models`);if(models.ok()&&!(await models.json()).available){await expect(page.getByText(/Live inference is unavailable/)).toBeVisible();await expect(page.getByRole('button',{name:'Create constellation',exact:true})).toBeDisabled();}\n     |                                  ^\n  68 | });\n  69 | test('catalog memory sharing requires explicit review before any mutation',async({page})=>{\n  70 |  await page.goto(`${purls}/my-purl`);await page.getByRole('button',{name:'Explore as a guest'}).click();await page.getByRole('link',{name:'Discover',exact:true}).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/purl/test/launch/ui.spec.js",
+                        "column": 34,
+                        "line": 67
+                      },
+                      "message": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/models\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - cookie: [REDACTED]\n\n\n  65 |  if(!readiness.available){await expect(page.getByText('Verified sign-in is unavailable',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Continue with your identity provider \u2197'})).toBeDisabled();}\n  66 |  await page.getByRole('button',{name:'Explore as a guest'}).click();await expect(page.getByRole('link',{name:'Guest preview \u00b7 unverified \u2197',exact:true})).toBeVisible();await page.getByRole('link',{name:'Constellations',exact:true}).click();\n> 67 |  const models=await page.request.get(`${purls}/api/models`);if(models.ok()&&!(await models.json()).available){await expect(page.getByText(/Live inference is unavailable/)).toBeVisible();await expect(page.getByRole('button',{name:'Create constellation',exact:true})).toBeDisabled();}\n     |                                  ^\n  68 | });\n  69 | test('catalog memory sharing requires explicit review before any mutation',async({page})=>{\n  70 |  await page.goto(`${purls}/my-purl`);await page.getByRole('button',{name:'Explore as a guest'}).click();await page.getByRole('link',{name:'Discover',exact:true}).click();\n    at /workspace/purl/test/launch/ui.spec.js:67:34"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:05.922Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results/ui-human-sign-in-and-live--d1d5f-ise-deployment-availability-desktop/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results/ui-human-sign-in-and-live--d1d5f-ise-deployment-availability-desktop/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/purl/test/launch/ui.spec.js",
+                    "column": 34,
+                    "line": 67
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-fa082be0ae3864be5e35",
+          "file": "ui.spec.js",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "catalog memory sharing requires explicit review before any mutation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1790,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:09.707Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-c32d003e47bc4d518b58",
+          "file": "ui.spec.js",
+          "line": 69,
+          "column": 1
+        },
+        {
+          "title": "native mission follows read-only manifest and continuity links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1936,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:11.559Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-38c6f3efad620db381dc",
+          "file": "ui.spec.js",
+          "line": 75,
+          "column": 1
+        },
+        {
+          "title": "PURLs independent, accessible and responsive",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2687,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:13.794Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-4045023923ef8f1901b7",
+          "file": "ui.spec.js",
+          "line": 11,
+          "column": 2
+        },
+        {
+          "title": "CGIT independent, accessible and responsive",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1993,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:16.539Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-63c70847bc3a4741bdc9",
+          "file": "ui.spec.js",
+          "line": 11,
+          "column": 2
+        },
+        {
+          "title": "PURLs discovery runs an actual catalog sample and shows its receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5402,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:18.539Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-67503e47f871fcda5c83",
+          "file": "ui.spec.js",
+          "line": 20,
+          "column": 1
+        },
+        {
+          "title": "PURLs guest memory remains explicit and supports real create/edit/delete",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9786,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:23.949Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-bcca9b249855164ef00f",
+          "file": "ui.spec.js",
+          "line": 27,
+          "column": 1
+        },
+        {
+          "title": "CGIT first guest consent creates and commits an artifact",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8180,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:33.745Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-5acc919640fdb8107107",
+          "file": "ui.spec.js",
+          "line": 42,
+          "column": 1
+        },
+        {
+          "title": "selected live memory sharing revokes future access and clipboard denial has a native fallback",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8773,
+                  "error": {
+                    "message": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/passports/QuWmXG3M8LDwn8c6m87Dl3FV1BGrHuLf\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/passports/QuWmXG3M8LDwn8c6m87Dl3FV1BGrHuLf\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at /workspace/purl/test/launch/ui.spec.js:58:29",
+                    "location": {
+                      "file": "/workspace/purl/test/launch/ui.spec.js",
+                      "column": 29,
+                      "line": 58
+                    },
+                    "snippet": "  56 |  await page.getByRole('checkbox',{name:/I consent to sharing only my selected memories/}).check();await page.getByRole('button',{name:'Create selected-memory passport'}).click();\n  57 |  const open=page.locator('.panel').filter({hasText:'Share a small piece.'}).getByRole('link',{name:'Open \u2197'}).first();await expect(open).toBeVisible();const url=await open.getAttribute('href');\n> 58 |  const before=await request.get(url);expect(before.ok()).toBe(true);expect(JSON.stringify(await before.json())).toContain('Share only this selected memory.');\n     |                             ^\n  59 |  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw new Error('Denied')}},configurable:true}));\n  60 |  await page.getByRole('button',{name:'Copy PURL',exact:true}).first().click();await expect(page.getByLabel('PURL',{exact:true})).toHaveValue(url);await page.getByRole('button',{name:'Close dialog'}).click();\n  61 |  const revoked=page.waitForResponse(r=>r.url().includes('/api/passports/')&&r.url().endsWith('/revoke')&&r.request().method()==='POST');await page.getByRole('button',{name:'Revoke future access'}).first().click();expect((await revoked).status()).toBe(200);await expect(page.getByRole('button',{name:'Revoke future access'})).toHaveCount(0);const after=await request.get(url);expect(after.status()).toBe(410);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/purl/test/launch/ui.spec.js",
+                        "column": 29,
+                        "line": 58
+                      },
+                      "message": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/passports/QuWmXG3M8LDwn8c6m87Dl3FV1BGrHuLf\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  56 |  await page.getByRole('checkbox',{name:/I consent to sharing only my selected memories/}).check();await page.getByRole('button',{name:'Create selected-memory passport'}).click();\n  57 |  const open=page.locator('.panel').filter({hasText:'Share a small piece.'}).getByRole('link',{name:'Open \u2197'}).first();await expect(open).toBeVisible();const url=await open.getAttribute('href');\n> 58 |  const before=await request.get(url);expect(before.ok()).toBe(true);expect(JSON.stringify(await before.json())).toContain('Share only this selected memory.');\n     |                             ^\n  59 |  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw new Error('Denied')}},configurable:true}));\n  60 |  await page.getByRole('button',{name:'Copy PURL',exact:true}).first().click();await expect(page.getByLabel('PURL',{exact:true})).toHaveValue(url);await page.getByRole('button',{name:'Close dialog'}).click();\n  61 |  const revoked=page.waitForResponse(r=>r.url().includes('/api/passports/')&&r.url().endsWith('/revoke')&&r.request().method()==='POST');await page.getByRole('button',{name:'Revoke future access'}).first().click();expect((await revoked).status()).toBe(200);await expect(page.getByRole('button',{name:'Revoke future access'})).toHaveCount(0);const after=await request.get(url);expect(after.status()).toBe(410);\n    at /workspace/purl/test/launch/ui.spec.js:58:29"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:41.931Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-mobile/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-mobile/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/purl/test/launch/ui.spec.js",
+                    "column": 29,
+                    "line": 58
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-922add7acc834f92ae69",
+          "file": "ui.spec.js",
+          "line": 52,
+          "column": 1
+        },
+        {
+          "title": "human sign-in and live inference show precise deployment availability",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3019,
+                  "error": {
+                    "message": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/models\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - cookie: [REDACTED]\n",
+                    "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/models\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - cookie: [REDACTED]\n\n    at /workspace/purl/test/launch/ui.spec.js:67:34",
+                    "location": {
+                      "file": "/workspace/purl/test/launch/ui.spec.js",
+                      "column": 34,
+                      "line": 67
+                    },
+                    "snippet": "  65 |  if(!readiness.available){await expect(page.getByText('Verified sign-in is unavailable',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Continue with your identity provider \u2197'})).toBeDisabled();}\n  66 |  await page.getByRole('button',{name:'Explore as a guest'}).click();await expect(page.getByRole('link',{name:'Guest preview \u00b7 unverified \u2197',exact:true})).toBeVisible();await page.getByRole('link',{name:'Constellations',exact:true}).click();\n> 67 |  const models=await page.request.get(`${purls}/api/models`);if(models.ok()&&!(await models.json()).available){await expect(page.getByText(/Live inference is unavailable/)).toBeVisible();await expect(page.getByRole('button',{name:'Create constellation',exact:true})).toBeDisabled();}\n     |                                  ^\n  68 | });\n  69 | test('catalog memory sharing requires explicit review before any mutation',async({page})=>{\n  70 |  await page.goto(`${purls}/my-purl`);await page.getByRole('button',{name:'Explore as a guest'}).click();await page.getByRole('link',{name:'Discover',exact:true}).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/purl/test/launch/ui.spec.js",
+                        "column": 34,
+                        "line": 67
+                      },
+                      "message": "Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443\nCall log:\n\u001b[2m  - \u2192 GET https://purls-production.up.railway.app/api/models\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - cookie: [REDACTED]\n\n\n  65 |  if(!readiness.available){await expect(page.getByText('Verified sign-in is unavailable',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Continue with your identity provider \u2197'})).toBeDisabled();}\n  66 |  await page.getByRole('button',{name:'Explore as a guest'}).click();await expect(page.getByRole('link',{name:'Guest preview \u00b7 unverified \u2197',exact:true})).toBeVisible();await page.getByRole('link',{name:'Constellations',exact:true}).click();\n> 67 |  const models=await page.request.get(`${purls}/api/models`);if(models.ok()&&!(await models.json()).available){await expect(page.getByText(/Live inference is unavailable/)).toBeVisible();await expect(page.getByRole('button',{name:'Create constellation',exact:true})).toBeDisabled();}\n     |                                  ^\n  68 | });\n  69 | test('catalog memory sharing requires explicit review before any mutation',async({page})=>{\n  70 |  await page.goto(`${purls}/my-purl`);await page.getByRole('button',{name:'Explore as a guest'}).click();await page.getByRole('link',{name:'Discover',exact:true}).click();\n    at /workspace/purl/test/launch/ui.spec.js:67:34"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:51.026Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results/ui-human-sign-in-and-live--d1d5f-ise-deployment-availability-mobile/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/purl/evidence/consumer-launch/06-frontends/test-results/ui-human-sign-in-and-live--d1d5f-ise-deployment-availability-mobile/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/purl/test/launch/ui.spec.js",
+                    "column": 34,
+                    "line": 67
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-84363ba0423d71b17af2",
+          "file": "ui.spec.js",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "catalog memory sharing requires explicit review before any mutation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1882,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:54.391Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-f948ba85370d2ef89901",
+          "file": "ui.spec.js",
+          "line": 69,
+          "column": 1
+        },
+        {
+          "title": "native mission follows read-only manifest and continuity links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2713,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T17:34:56.325Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6cacfa4b79c1be8f210f-3f69254488f7222fcf9d",
+          "file": "ui.spec.js",
+          "line": 75,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T17:33:29.526Z",
+    "duration": 89561.80399999999,
+    "expected": 14,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

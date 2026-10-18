@@ -21,7 +21,7 @@
 #6 DONE 0.0s
 
 #7 [internal] load build context
-#7 transferring context: 116.75kB 0.0s done
+#7 transferring context: 71.57kB 0.0s done
 #7 DONE 0.0s
 
 #8 [2/7] WORKDIR /app
@@ -37,14 +37,15 @@
 #11 CACHED
 
 #12 [6/7] COPY --chown=node:node . .
-#12 DONE 1.1s
+#12 DONE 1.3s
 
 #13 [7/7] RUN mkdir -p /app/.purl && chown node:node /app/.purl
-#13 DONE 0.9s
+#13 DONE 1.3s
 
 #14 exporting to image
 #14 exporting layers
-#14 exporting layers 0.7s done
-#14 writing image sha256:92be3d4e901e7f2dea4751f1c089f6883ae1ec9fa5cba83420e6370399a62909 done
-#14 naming to docker.io/library/purl-consumer:local done
-#14 DONE 0.7s
+#14 exporting layers 0.3s done
+#14 writing image sha256:1244149d56c60f8cce1104a2c46793ef255e37670a8fe6339bdc9f7edf525138
+#14 writing image sha256:1244149d56c60f8cce1104a2c46793ef255e37670a8fe6339bdc9f7edf525138 done
+#14 naming to docker.io/library/purl-consumer:local 0.0s done
+#14 DONE 0.4s

@@ -1,0 +1,59 @@
+{
+  "environment": "production",
+  "deployed_application_source_reported_by_root": "3b2784b",
+  "origins": {
+    "purls": "https://purls-production.up.railway.app",
+    "cgit": "https://cgit-hub-production.up.railway.app"
+  },
+  "command": "PURLS_BASE_URL=https://purls-production.up.railway.app CGIT_BASE_URL=https://cgit-hub-production.up.railway.app npx playwright test --config=playwright.launch.config.js test/launch/ui.spec.js --timeout=90000",
+  "initial_run": {
+    "stats": {
+      "startTime": "2026-10-18T17:33:29.526Z",
+      "duration": 89561.80399999999,
+      "expected": 14,
+      "skipped": 0,
+      "unexpected": 4,
+      "flaky": 0
+    },
+    "cause": "Four direct APIRequestContext ECONNREFUSED failures because managed networking requires HTTPS_PROXY. No application failure or 5xx was ignored.",
+    "evidence": "verification/browser-railway-initial"
+  },
+  "final_run": {
+    "stats": {
+      "startTime": "2026-10-18T17:37:31.126Z",
+      "duration": 101034.224,
+      "expected": 18,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "transport": "Root-approved inherited HTTPS_PROXY Playwright configuration; TLS verification preserved; NO_PROXY and loopback bypass. Frozen test source and all assertions unchanged.",
+    "network": {
+      "environment": "production",
+      "purls_origin": "https://purls-production.up.railway.app",
+      "cgit_origin": "https://cgit-hub-production.up.railway.app",
+      "cases": 18,
+      "responses": 243,
+      "unexpected": [],
+      "pageErrors": [],
+      "requestFailures": [],
+      "expectedAnonymous401": 18
+    }
+  },
+  "preserved_local_46": "verification/browser-local-final",
+  "production_log": "browser-railway.log",
+  "production_report": "06-frontends/playwright-results.json",
+  "production_screenshots": [
+    "06-frontends/purls-desktop.png",
+    "06-frontends/purls-mobile.png",
+    "06-frontends/cgit-desktop.png",
+    "06-frontends/cgit-mobile.png"
+  ],
+  "sanitization": {
+    "headers_and_proxy_credentials_redacted": true,
+    "test_statuses_and_assertions_unchanged": true,
+    "own_temporary_guest_sessions_revoked": 2,
+    "trace_capture": "off",
+    "note": "Failed APIRequestContext diagnostics printed own guest cookies; the two sessions were revoked and generated text/JSON artifacts sanitized. No provider credentials, real email login or model calls occurred."
+  }
+}

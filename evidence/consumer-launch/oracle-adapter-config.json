@@ -1,0 +1,7 @@
+{
+  "configuration_valid": true,
+  "production_supabase_required": true,
+  "no_published_ports": true,
+  "no_essential_volumes": true,
+  "actual_oracle_deployment": "BLOCKED: no connected server"
+}

@@ -27,22 +27,22 @@
     },
     {
       "method": "GET",
-      "path": "/api/config",
-      "status": 200
-    },
-    {
-      "method": "GET",
-      "path": "/api/identity/config",
-      "status": 200
-    },
-    {
-      "method": "GET",
       "path": "/api/identity/me",
       "status": 401
     },
     {
       "method": "GET",
       "path": "/api/catalog",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/config",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/identity/config",
       "status": 200
     },
     {
@@ -63,11 +63,6 @@
     {
       "method": "GET",
       "path": "/api/models/keys",
-      "status": 200
-    },
-    {
-      "method": "GET",
-      "path": "/api/models",
       "status": 200
     }
   ],

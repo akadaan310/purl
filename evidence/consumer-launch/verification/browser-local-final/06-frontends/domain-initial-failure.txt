@@ -1,0 +1,90 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(locator).toBeVisible() failed
+
+Locator: getByText('Guest preview · unverified', { exact: true })
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" getByText('Guest preview · unverified', { exact: true }) with timeout 5000ms
+  - waiting for getByText('Guest preview · unverified', { exact: true })
+
+    at captureRawStack (/workspace/purl/node_modules/playwright-core/lib/coreBundle.js:9282:17)
+    at callMatcherAsStep (/workspace/purl/node_modules/playwright/lib/matchers/expect.js:13316:57)
+    at Object.toBeVisible (/workspace/purl/node_modules/playwright/lib/matchers/expect.js:13308:23)
+    at /workspace/purl/evidence/consumer-launch/06-frontends/domain-check.mjs:23:75 {
+  matcherResult: {
+    message: 'expect(locator).toBeVisible() failed\n' +
+      '\n' +
+      "Locator: getByText('Guest preview · unverified', { exact: true })\n" +
+      'Expected: visible\n' +
+      'Timeout: 5000ms\n' +
+      'Error: element(s) not found\n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toBeVisible" getByText('Guest preview · unverified', { exact: true }) with timeout 5000ms\n` +
+      "  - waiting for getByText('Guest preview · unverified', { exact: true })\n",
+    pass: false,
+    actual: undefined,
+    name: 'toBeVisible',
+    expected: 'visible',
+    log: [
+      `  - Expect "toBeVisible" getByText('Guest preview · unverified', { exact: true }) with timeout 5000ms`,
+      "  - waiting for getByText('Guest preview · unverified', { exact: true })"
+    ],
+    timeout: 5000,
+    ariaSnapshot: '- link "Skip to content":\n' +
+      '  - /url: "#main"\n' +
+      '- banner:\n' +
+      '  - link "PURLs home":\n' +
+      '    - /url: /\n' +
+      '    - text: PURLs / pearls /\n' +
+      '  - navigation "Main navigation":\n' +
+      '    - link "Discover":\n' +
+      '      - /url: /\n' +
+      '    - link "My PURL":\n' +
+      '      - /url: /my-purl\n' +
+      '    - link "Memory":\n' +
+      '      - /url: /memory\n' +
+      '    - link "My AIs":\n' +
+      '      - /url: /ais\n' +
+      '    - link "Constellations":\n' +
+      '      - /url: /constellations\n' +
+      '    - link "My Worlds":\n' +
+      '      - /url: /worlds\n' +
+      '  - link "CGIT Hub ↗":\n' +
+      '    - /url: http://ui.test\n' +
+      '  - link "Claim your PURL ↗":\n' +
+      '    - /url: /my-purl\n' +
+      '- main:\n' +
+      '  - text: Your own little universe\n' +
+      '  - heading "Make it yours." [level=1]\n' +
+      '  - paragraph: One private identity. A handle that travels with you. Your email stays private by default.\n' +
+      '  - heading "Start with you." [level=2]\n' +
+      '  - paragraph: A familiar sign-in, a new kind of continuity.\n' +
+      '  - button "Continue with your identity provider ↗" [disabled]\n' +
+      '  - strong: Verified sign-in is unavailable\n' +
+      '  - text: PURL_OIDC_ISSUER is not configured · PURL_OIDC_CLIENT_ID is not configured · PURL_OIDC_CLIENT_SECRET is not configured\n' +
+      '  - paragraph: Want to look around first? Guest memories are private to your temporary session. A guest preview is unverified.\n' +
+      '  - button "Explore as a guest"\n' +
+      '  - text: At home, wherever you go\n' +
+      '  - heading "Your handle can change. Your identity stays yours." [level=2]\n' +
+      '  - paragraph: A public PURL is a way to find or continue something. It never grants permission to edit your private information.\n' +
+      '  - paragraph: 01 · Sign in with a verified provider\n' +
+      '  - paragraph: 02 · Choose a unique public handle\n' +
+      '  - paragraph: 03 · Decide whether to activate CGIT Hub\n' +
+      '  - paragraph: PURLs and CGIT are independent products. Each product requires your consent. Provider readiness is a real deployment requirement.\n' +
+      '- contentinfo:\n' +
+      '  - link "PURLs":\n' +
+      '    - /url: /\n' +
+      '  - paragraph: A little continuity. A world of possibility.\n' +
+      '  - text: Private by default. Yours to share.\n' +
+      '- status: crypto.randomUUID is not a function'
+  }
+}
+
+Node.js v24.19.0

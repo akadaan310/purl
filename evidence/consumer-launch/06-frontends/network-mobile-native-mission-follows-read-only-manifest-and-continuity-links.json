@@ -17,7 +17,12 @@
     },
     {
       "method": "GET",
-      "path": "/api/config",
+      "path": "/assets/dm-sans-semibold.ttf",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/dm-sans-regular.ttf",
       "status": 200
     },
     {
@@ -37,12 +42,7 @@
     },
     {
       "method": "GET",
-      "path": "/assets/dm-sans-semibold.ttf",
-      "status": 200
-    },
-    {
-      "method": "GET",
-      "path": "/assets/dm-sans-regular.ttf",
+      "path": "/api/config",
       "status": 200
     },
     {

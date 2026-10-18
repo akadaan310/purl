@@ -1,0 +1,73 @@
+
+Running 8 tests using 1 worker
+
+(node:55830) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › test/launch/ui.spec.js:11:2 › CGIT independent, accessible and responsive (493ms)
+  ✓  2 [desktop] › test/launch/ui.spec.js:42:1 › CGIT first guest consent creates and commits an artifact (433ms)
+  ✓  3 [desktop] › test/launch/ui.spec.js:52:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback (542ms)
+  ✘  4 [desktop] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability (183ms)
+(node:55962) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [mobile] › test/launch/ui.spec.js:11:2 › CGIT independent, accessible and responsive (605ms)
+  ✓  6 [mobile] › test/launch/ui.spec.js:42:1 › CGIT first guest consent creates and commits an artifact (470ms)
+  ✓  7 [mobile] › test/launch/ui.spec.js:52:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback (737ms)
+  ✘  8 [mobile] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability (173ms)
+
+
+  1) [desktop] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 6
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "path": "/api/identity/guest",
+    +     "status": 403,
+    +   },
+    + ]
+
+       6 | const observations=new WeakMap();
+       7 | test.beforeEach(async({page})=>{const record={responses:[],unexpected:[],pageErrors:[],requestFailures:[]};observations.set(page,record);page.on('pageerror',e=>record.pageErrors.push(e.message));page.on('requestfailed',r=>record.requestFailures.push({path:new URL(r.url()).pathname,error:r.failure()?.errorText}));page.on('response',r=>{const path=new URL(r.url()).pathname,status=r.status();record.responses.push({method:r.request().method(),path,status});if(status>=400&&!(status===401&&path==='/api/identity/me')&&!(status===410&&path.startsWith('/api/passports/')))record.unexpected.push({path,status})})});
+    >  8 | test.afterEach(async({page},info)=>{const record=observations.get(page);await writeFile(`evidence/consumer-launch/06-frontends/network-${info.project.name}-${info.title.slice(0,70).replace(/[^a-z0-9]+/gi,'-')}.json`,JSON.stringify(record,null,2));expect(record.unexpected).toEqual([]);expect(record.pageErrors).toEqual([]);expect(record.requestFailures).toEqual([])});
+         |                                                                                                                                                                                                                                                                                  ^
+       9 |
+      10 | for(const [name,url] of [['PURLs',purls],['CGIT',cgit]]){
+      11 |  test(`${name} independent, accessible and responsive`,async({page})=>{
+        at /workspace/purl/test/launch/ui.spec.js:8:274
+
+    Error Context: evidence/consumer-launch/06-frontends/browser-output/ui-human-sign-in-and-live--d1d5f-ise-deployment-availability-desktop/error-context.md
+
+  2) [mobile] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 6
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "path": "/api/identity/guest",
+    +     "status": 403,
+    +   },
+    + ]
+
+       6 | const observations=new WeakMap();
+       7 | test.beforeEach(async({page})=>{const record={responses:[],unexpected:[],pageErrors:[],requestFailures:[]};observations.set(page,record);page.on('pageerror',e=>record.pageErrors.push(e.message));page.on('requestfailed',r=>record.requestFailures.push({path:new URL(r.url()).pathname,error:r.failure()?.errorText}));page.on('response',r=>{const path=new URL(r.url()).pathname,status=r.status();record.responses.push({method:r.request().method(),path,status});if(status>=400&&!(status===401&&path==='/api/identity/me')&&!(status===410&&path.startsWith('/api/passports/')))record.unexpected.push({path,status})})});
+    >  8 | test.afterEach(async({page},info)=>{const record=observations.get(page);await writeFile(`evidence/consumer-launch/06-frontends/network-${info.project.name}-${info.title.slice(0,70).replace(/[^a-z0-9]+/gi,'-')}.json`,JSON.stringify(record,null,2));expect(record.unexpected).toEqual([]);expect(record.pageErrors).toEqual([]);expect(record.requestFailures).toEqual([])});
+         |                                                                                                                                                                                                                                                                                  ^
+       9 |
+      10 | for(const [name,url] of [['PURLs',purls],['CGIT',cgit]]){
+      11 |  test(`${name} independent, accessible and responsive`,async({page})=>{
+        at /workspace/purl/test/launch/ui.spec.js:8:274
+
+    Error Context: evidence/consumer-launch/06-frontends/browser-output/ui-human-sign-in-and-live--d1d5f-ise-deployment-availability-mobile/error-context.md
+
+  2 failed
+    [desktop] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability 
+    [mobile] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability 
+  6 passed (4.5s)

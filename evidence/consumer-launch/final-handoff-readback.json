@@ -1,0 +1,19 @@
+{
+  "observed_at": "2026-10-18T18:03:22.802632+00:00",
+  "url": "https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316",
+  "version": 15,
+  "documents": 9,
+  "graph_nodes": 38,
+  "dependency_connections": 59,
+  "anonymous_authority": {
+    "principal_id": null,
+    "owner": false,
+    "rights": [
+      "read"
+    ]
+  },
+  "replay_valid": true,
+  "events": 15,
+  "executions": 2,
+  "executions_replayable": true
+}

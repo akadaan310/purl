@@ -1,0 +1,11 @@
+
+Running 2 tests using 1 worker
+
+(node:56126) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability (266ms)
+(node:56204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [mobile] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability (280ms)
+
+  2 passed (1.4s)

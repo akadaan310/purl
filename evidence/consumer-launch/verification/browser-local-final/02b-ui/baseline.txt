@@ -1,0 +1,14 @@
+Error: ENOENT: no such file or directory, open '/workspace/purl/web/identity/index.html'
+
+   at provider-ui.spec.js:6
+
+  4 | import {readFile,writeFile} from 'node:fs/promises';
+  5 | const root=new URL('../../',import.meta.url),origin='http://identity.test';
+> 6 | const html=await readFile(new URL('web/identity/index.html',root));
+    |            ^
+  7 | const css=await readFile(new URL('web/identity/style.css',root));
+  8 | const js=await readFile(new URL('web/identity/app.js',root));
+  9 | async function fixture(page,options={}){
+    at /workspace/purl/test/launch/provider-ui.spec.js:6:12
+Error: No tests found
+

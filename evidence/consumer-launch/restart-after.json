@@ -1,0 +1,35 @@
+{
+  "observed_at": "2026-10-18T17:48:15.132Z",
+  "worker_restart_deployment": "cf5b4d9e-f826-4a6d-882e-8ab8ddcfb41a",
+  "new_api_deployment": "8c6db8d1-68e2-46a9-8d81-6ee315211fc7",
+  "version_unchanged": 8,
+  "state_sha256_unchanged": "da43f5dfa75c6713f3238e5693fa341e050b359878d8a8e73fcba4dfb879e23e",
+  "artifact_content_id_unchanged": "sha256:26a33cfd4806df6f59c3209c2139ce0324b7c306a979d86c0a0e7d7a17ed4313",
+  "replay": {
+    "resource_id": "resource_95a5662789076892fe698316",
+    "version": 8,
+    "valid": true,
+    "history_valid": true,
+    "events": 8,
+    "head": "sha256:6a854749d0ff72dfc960ad7f604ac3d2eba608729f19c5b7e933b776602f1ec1",
+    "problems": [],
+    "executions": [
+      {
+        "execution_id": "execution_aa7ced85a0031142160716d6",
+        "valid": true,
+        "replayable": true,
+        "reason": null
+      }
+    ],
+    "executions_complete": true,
+    "execution_status_counts": {
+      "total": 1,
+      "succeeded": 1,
+      "failed": 0,
+      "cancelled": 0,
+      "pending": 0
+    },
+    "assurance": "Hashes establish internal consistency, not external authenticity or requirement truth"
+  },
+  "legacy_services_restarted": false
+}

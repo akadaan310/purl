@@ -3,10 +3,10 @@
     "id": "purl@0.2.0",
     "name": "purl",
     "version": "0.2.0",
-    "size": 432949,
-    "unpackedSize": 1286153,
-    "shasum": "7835e57d46714020596f737cf22ad6873ee46334",
-    "integrity": "sha512-+KgPbomH2R1SAmN8UqVUgnzbqlzDD+fjsROB3P/z1828KBUEVxR7X4OO8fSAvaFHAQvR9p/iK4c08IOJvXzU3Q==",
+    "size": 433248,
+    "unpackedSize": 1287186,
+    "shasum": "ce92948fede90e0d943fa1897d33a3b66b2d56aa",
+    "integrity": "sha512-KTKDCDHOeajUkJpZgKhgm/N4ISXN+9CWK2zZHLud67Ih1vfezDORjfQn3dk3ix2ebz1V+HXcPfJkvJY4CHJ/pQ==",
     "filename": "purl-0.2.0.tgz",
     "files": [
       {
@@ -156,7 +156,7 @@
       },
       {
         "path": "sdk/launch.js",
-        "size": 2993,
+        "size": 3259,
         "mode": 384
       },
       {
@@ -261,7 +261,7 @@
       },
       {
         "path": "service/launch/constellations.js",
-        "size": 17301,
+        "size": 17299,
         "mode": 384
       },
       {
@@ -271,7 +271,7 @@
       },
       {
         "path": "service/launch/http.js",
-        "size": 13308,
+        "size": 13923,
         "mode": 384
       },
       {
@@ -306,7 +306,7 @@
       },
       {
         "path": "service/launch/resources.js",
-        "size": 40346,
+        "size": 40500,
         "mode": 384
       },
       {

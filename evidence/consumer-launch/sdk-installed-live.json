@@ -1,0 +1,84 @@
+{
+  "package_export": "purl/launch",
+  "node_client": "24.19.0",
+  "started_at": "2026-10-18T17:48:10.184Z",
+  "csrf_refresh_create": "PASS",
+  "csrf_refresh_checkpoint": "PASS",
+  "collections": {
+    "executions": 1,
+    "artifacts": 1,
+    "builds": 1,
+    "releases": 1
+  },
+  "compiler_discovery": "PASS",
+  "replay": {
+    "resource_id": "resource_feb2ece9bab6e943c7f5a139",
+    "version": 6,
+    "valid": true,
+    "history_valid": true,
+    "events": 6,
+    "head": "sha256:57b216d0dd7f1a5bccddbd5c8d03d2bf47e3a9548ab95618d49972d9c1e53257",
+    "problems": [],
+    "executions": [
+      {
+        "execution_id": "execution_8e114aa97c965cbcb8ac0e95",
+        "valid": true,
+        "replayable": true,
+        "reason": null
+      }
+    ],
+    "executions_complete": true,
+    "execution_status_counts": {
+      "total": 1,
+      "succeeded": 1,
+      "failed": 0,
+      "cancelled": 0,
+      "pending": 0
+    },
+    "assurance": "Hashes establish internal consistency, not external authenticity or requirement truth"
+  },
+  "installed_sdk_matches_served_sdk": true,
+  "sdk_sha256": "7e195c72e3db43f52bc1af07a4ec77b491dd2f30d942a3a88fdaa769254893d0",
+  "runtime": {
+    "protocol": "purl-runtime-capabilities/1",
+    "product": "purls",
+    "node": "22.14.0",
+    "architecture": "x64",
+    "source_revision": "367e8ed063065cb8bc9ebb8c9fc55235b4828723",
+    "persistence": "supabase",
+    "authority": "Supabase scoped CAS records; containers hold no essential state",
+    "languages": {
+      "purl": "bounded pure interpreter",
+      "catalog": "closed registered operators",
+      "javascript": "AST indexing only",
+      "typescript": "AST indexing only"
+    },
+    "untrusted_authored_execution": false,
+    "network": {
+      "model_provider": "fixed OpenRouter HTTPS origin, explicit credential and budget required",
+      "github": "fixed GitHub HTTPS origins, read-only, bounded"
+    },
+    "limits": {
+      "source_bytes": 65536,
+      "artifact_bytes": 65536,
+      "row_bytes": 262144,
+      "tenant_bytes": 10485760,
+      "history_versions": 200
+    },
+    "worker": {
+      "leases": "persisted CAS fencing",
+      "interrupted_native_jobs": "retryable deterministic pure execution",
+      "interrupted_model_calls": "ambiguous calls never automatically repeated"
+    },
+    "portability": {
+      "api_start": "node service/launch/main.js",
+      "worker_start": "node service/launch/worker-main.js",
+      "healthcheck": "node deploy/healthcheck.js",
+      "adapter": "Docker/Railway now; Oracle worker on same image and authoritative backend"
+    }
+  },
+  "resource_url": "https://purls-production.up.railway.app/p/resource_feb2ece9bab6e943c7f5a139",
+  "execution_id": "execution_8e114aa97c965cbcb8ac0e95",
+  "receipt_content_id": "sha256:b815125bd0673d08fc684f213c167af821aae8612590280e974bbc633f9dd491",
+  "completed_at": "2026-10-18T17:48:26.795Z"
+}

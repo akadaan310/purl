@@ -1,0 +1,167 @@
+{
+  "schema": "purl.consumer-dogfood/1",
+  "base": "http://localhost:8180",
+  "started_at": "2026-10-18T17:31:34.050Z",
+  "steps": [
+    {
+      "operation": "URL-only reconstruction",
+      "documents": [
+        {
+          "name": "00_START.md",
+          "sha256": "8a3aa0bdc24596dfc895c757df3dd0cc99c53fcb064a73ef692f8199de8887c6"
+        },
+        {
+          "name": "01_CONSUMER.md",
+          "sha256": "3d91afbd4c651bc8413e0ada71c37d8b24aa4b889e4f7ec96f3a5cbdaef2badf"
+        },
+        {
+          "name": "02_IDENTITY.md",
+          "sha256": "d557c95c8a8eb9eea998d7b93154c4220d1cdbf5a106508e2a7aba4fd778d457"
+        },
+        {
+          "name": "03_PROTOCOLS.md",
+          "sha256": "6787ffc3c87a328949257a70b62651e74ef5cbb2a47dba683e7368c54ecf3bea"
+        },
+        {
+          "name": "04_MEMORY_CONSTELLATIONS.md",
+          "sha256": "1ff54dbe10a2c0a451ecbbda97f2df754b321866d308b7866054940b8952419a"
+        },
+        {
+          "name": "05_CGIT.md",
+          "sha256": "fac0c9c351ff85270f3bb1e09253c2b4a405576446c567bd8c2d22969ddf28c9"
+        },
+        {
+          "name": "06_MODELS_RUNTIME.md",
+          "sha256": "a4f80be5020a58629b378fcaf7537b865f37dd055cb7b90ece72894b6962cc38"
+        },
+        {
+          "name": "07_ACCEPTANCE.md",
+          "sha256": "780f117b48d6847dac4301661507293de2a2e99ff75315e4caf13353c41bd95b"
+        },
+        {
+          "name": "CODEX_MASTER.md",
+          "sha256": "5ffd2530421a7416449923c498b6524a1b97f7d67e129db3c0c2176641413c2d"
+        }
+      ],
+      "nodes": 38,
+      "version": 1,
+      "anonymous_available_operations": []
+    },
+    {
+      "operation": "fork",
+      "id": "resource_d7eb01031976b5f4bd1c8355",
+      "version": 1,
+      "lineage": {
+        "resource_id": "consumer-launch-mission",
+        "url": "http://localhost:8180/p/consumer-launch-mission",
+        "version": 1,
+        "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d"
+      }
+    },
+    {
+      "operation": "compile",
+      "version": 2,
+      "ok": true
+    },
+    {
+      "operation": "build",
+      "version": 3,
+      "build_id": "build_bb307e23f27ad0b88c7ff107",
+      "status": "passed",
+      "tests": [
+        {
+          "index": 0,
+          "passed": true,
+          "actual": {
+            "total_nodes": 1,
+            "dependency_edges": 0,
+            "ready_nodes": [
+              "test"
+            ],
+            "completed_nodes": [],
+            "waiting_nodes": [],
+            "completion": "NOT_RUN",
+            "verified": false,
+            "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth."
+          },
+          "expected": {
+            "completed_nodes": [],
+            "completion": "NOT_RUN",
+            "dependency_edges": 0,
+            "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth.",
+            "ready_nodes": [
+              "test"
+            ],
+            "total_nodes": 1,
+            "verified": false,
+            "waiting_nodes": []
+          }
+        }
+      ]
+    },
+    {
+      "operation": "run",
+      "execution_id": "execution_1973cbb7967e6f12123825de",
+      "status": "queued"
+    },
+    {
+      "operation": "inspect durable execution",
+      "status": "succeeded",
+      "attempts": 1,
+      "value_id": "value:387e1b3d01b828a0b83805a3b0caadac554142e3b4128661c75609bfa002a846",
+      "artifact_id": "artifact_850c2a5ef81da98efab3bcbf",
+      "receipt": {
+        "artifact_content_id": "sha256:57e0cebfd7aa2295866e152af684bca4acaa3d4a87df0324e2ba828e41fc248a",
+        "build_content_id": "sha256:e38d7ec2089df23284cbcaa5fca259cbaf1fd92ce51e5c442511b377e32ae464",
+        "build_id": "build_bb307e23f27ad0b88c7ff107",
+        "completed_at": "2026-10-18T17:31:34.632Z",
+        "content_id": "sha256:f5c4795dacdb88b456f6476da3f671b4fbd304cd24ec0c8f5cb615ffb8f24f21",
+        "environment_id": "environment:60ecca9e09ed9e6c7c1d20645e0e2fbd4a9a6d308c53e1a7c882890d3d88ee76",
+        "execution_id": "execution_1973cbb7967e6f12123825de",
+        "input_id": "sha256:398b15109a65af6aa1d3a4f975df1b5e17a1783601179f1dbc79186f4a08236e",
+        "schema": "purl.launch-execution-receipt/1",
+        "value_id": "value:387e1b3d01b828a0b83805a3b0caadac554142e3b4128661c75609bfa002a846"
+      }
+    },
+    {
+      "operation": "publish",
+      "version": 7,
+      "release_id": "release_8789d4398c880f71c0fd59a6",
+      "url": "http://localhost:8180/p/resource_d7eb01031976b5f4bd1c8355"
+    },
+    {
+      "operation": "fresh unauthenticated continuation",
+      "documents": 9,
+      "checkpoint": "Native PURL dogfood: URL-only reconstruction, owner fork, compilation, passing declared build tests, durable worker execution and artifact inspection.",
+      "replay": {
+        "resource_id": "resource_d7eb01031976b5f4bd1c8355",
+        "version": 7,
+        "valid": true,
+        "history_valid": true,
+        "events": 7,
+        "head": "sha256:e1eaefd7ab95447eca55cec0a065fc1f525c77e5e341e3a95ce19b3bf0ec0e6d",
+        "problems": [],
+        "executions": [
+          {
+            "execution_id": "execution_1973cbb7967e6f12123825de",
+            "valid": true,
+            "replayable": true,
+            "reason": null
+          }
+        ],
+        "executions_complete": true,
+        "execution_status_counts": {
+          "total": 1,
+          "succeeded": 1,
+          "failed": 0,
+          "cancelled": 0,
+          "pending": 0
+        },
+        "assurance": "Hashes establish internal consistency, not external authenticity or requirement truth"
+      }
+    }
+  ],
+  "mission_url": "http://localhost:8180/p/resource_d7eb01031976b5f4bd1c8355",
+  "resource_id": "resource_d7eb01031976b5f4bd1c8355",
+  "completed_at": "2026-10-18T17:31:35.236Z"
+}

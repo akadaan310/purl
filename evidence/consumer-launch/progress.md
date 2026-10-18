@@ -32,3 +32,17 @@ Ruling: preserve existing Auth SiteURL/defaults and legacy CAS document; deploy 
 - Root HTTP6/6 and SDK2/2 pass, including cold URL-only fork/build/run/publish/checkpoint/replay. Native proposals and execution-fencing follow-up underway.
 - First digest-pinned Node22.14 container built with network disabled, using seven integrity-pinned official dependency archives. That frozen checkpoint passed351/351 tests with network disabled. Final source will be rebuilt and reverified after pending changes.
 - Railway additive `purls` service/domain allocated, no application deployed yet. CGIT and launch-worker creation workflows still applying; do not report them live. Legacy API/worker deployments unchanged.
+
+## Verified public preview, 2026-10-18 17:52 UTC
+
+All final scoped independent reviews PASS. API source367e8ed, worker3b2784b. New PURLs/CGIT APIs and separate worker are RailwaySUCCESS in Europe, authoritative Supabase scoped rows, no essential volumes. OldAPI/worker/defaultbranch and document70 fingerprint unchanged. Full source380/380, digest-pinned offline container380/380 and isolated cleancheckout380/380 pass with zero skips/failures; these are repeated environments of the same suite, not1140distincttests. Local browser46/46 and production browser18/18 pass. Production14CGIT checks and actual pinnedMITGitHub indexing pass.
+
+Independent freshAI starting only from native URL verified9documenthashes and38nodes/59edges, forked/compiled/passed1declaredtest/executed/inspected/checkpointed/published and anonymously replayed. It found three real discovery/SDK edges; compilerGET description, four child collection links and distinct bootstrap/session CSRF are now corrected, reviewed, regression-tested and verified by a fresh offline-installed SDK against production. Original cold failures are preserved.
+
+Container backup into a fresh volume resumes a queued job once and replays. New API container and worker restart preserve mission version/state hash/artifact content hash/receipts. The executable full mission is https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316 (version13 checkpoint,2executions,13events); follow current manifest for subsequent versions.
+
+Full mission remains INCOMPLETE: realOIDC/email/client+centralconsent/recovery setup, actualmodelinference/equalbudgetstudy, Oracle target and physicalorphan-shardcleanup. Nativegraph reports NOT_RUN overall, not a fake completion. Guestpreview is explicitly unverified and not a humanhandle. No paid inference or Oracle mutation occurred. Runtime/class/catalog wrapper limitations remain disclosed in acceptance report and mission state.
+
+## Delivery checkpoint, 2026-10-18 17:59 UTC
+
+Primary native mission nowv15,15events,2replayableexecutions. Second freshAI usedonlyPURL/API/SDK links, no repositorysource, verified9hashes/38nodes/59edges, stableCSRF afterdiscovery and published https://purls-production.up.railway.app/p/resource_c98b3e62ff35baae17fd81d0 . Expectedanonymousproposal401 and correctedlocalharnesserrors are preserved as such. Liveownmemoryexport/contextresume also passed, syntheticfactdeleted. Fullmissionnotcomplete; all remaining scope is in the nativegraph/checkpoint/acceptance report.

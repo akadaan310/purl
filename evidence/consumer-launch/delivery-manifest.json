@@ -1,0 +1,43 @@
+{
+  "schema": "purl.consumer-delivery/1",
+  "source_revision": "367e8ed063065cb8bc9ebb8c9fc55235b4828723",
+  "products": {
+    "purls": "https://purls-production.up.railway.app",
+    "cgit": "https://cgit-hub-production.up.railway.app"
+  },
+  "mission": "https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316",
+  "sdk": {
+    "file": "/workspace/consumer-sdk/purl-0.2.0.tgz",
+    "sha256": "c6397421e778cb9263a4b479ee00086e7a02b2c7c566dec184ff77f5cf454e68"
+  },
+  "legacy_unchanged": {
+    "document_revision": 70,
+    "md5": "4d8b98fcf8a4d6bf0a6aed1cb60d6fcd"
+  },
+  "final_status": "LIVE_PREVIEW_INCOMPLETE",
+  "verification": {
+    "node_tests": 380,
+    "offline_pinned_container_tests": 380,
+    "local_browser_tests": 46,
+    "live_cgit_checks": 14,
+    "production_browser_tests": 18,
+    "production_browser_unexpected_http": 0,
+    "cold_session_documents_verified": 9,
+    "cold_session_graph_nodes": 38,
+    "cold_session_graph_edges": 59,
+    "independent_continuation": "https://purls-production.up.railway.app/p/resource_2fb11e980e964b973027bcce",
+    "native_artifact_persisted_after_restart": true,
+    "installed_sdk_live_config_refresh": "PASS",
+    "compiler_and_child_discovery": "PASS",
+    "clean_checkout_tests": 380,
+    "final_protocol_only_continuation": "https://purls-production.up.railway.app/p/resource_c98b3e62ff35baae17fd81d0"
+  },
+  "remaining": [
+    "Live verified OIDC/email/client registration and safe central consent origin",
+    "Actual model inference and equal-budget multi-model study",
+    "Connected Oracle host inventory and target deployment",
+    "Physical orphan proposal/provider-session cleanup and full recovery password-change UI"
+  ],
+  "worker_source_revision": "3b2784b7f9bb217954ef75c5f8e4985c748e4627",
+  "mission_version": 15
+}

@@ -38,7 +38,7 @@ Restart does not renew a guest credential’s 30-minute expiry. Verify promptly 
 
 ## Production configuration
 
-Use the same reviewed image digest/revision for both APIs and the worker. Configure secrets through Railway shared variables and service references; never put service-role keys, OAuth secrets or model keys in source, browser code, CLI output or public URLs. Production has no essential container file state and **must** use `PURL_LAUNCH_PERSISTENCE=supabase`. It rejects file/memory persistence with `NODE_ENV=production`.
+Prefer the same reviewed image digest/revision for both APIs and the worker. At this checkpoint the APIs use `367e8ed` and the worker uses `3b2784b7`: the later changes affect API discovery and SDK CSRF handling, while worker execution is unchanged. Preserve these actual revision distinctions in deployment records. Configure secrets through Railway shared variables and service references; never put service-role keys, OAuth secrets or model keys in source, browser code, CLI output or public URLs. Production has no essential container file state and **must** use `PURL_LAUNCH_PERSISTENCE=supabase`. It rejects file/memory persistence with `NODE_ENV=production`.
 
 Allocation (deployment status must be checked separately): project `7b6d6969-ebfe-4823-ac60-6370fb068458`, environment `eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2`.
 
@@ -93,6 +93,8 @@ Test verified email delivery, real callback success, separate product consent, r
 
 ## Worker relocation to Oracle or another Docker host
 
+The consumer adapter is [oracle-launch-worker.compose.yaml](../../deploy/oracle-launch-worker.compose.yaml). Validate with `docker compose --env-file /protected/launch-worker.env -f deploy/oracle-launch-worker.compose.yaml config --quiet`, then start with the same command plus `up -d`. It requires an immutable image digest, the existing Supabase authority and encryption key, publishes no ports, and has no essential volume. No Oracle server is currently connected, so target execution has not been tested. The pinned Node base index includes ARM64, but actual ARM execution and complete trace replay across architectures remain unverified. Keep a matching replay environment for historical traces; a worker relocation alone does not establish cross-architecture trace equality.
+
 Use a pushed release `image@sha256:<digest>`, the same reviewed new worker command, and the same authoritative Supabase project and shared encryption/OIDC settings. Supply secrets through the target host’s protected secret mechanism. Run non-root with a read-only root filesystem, writable `/tmp`, no published port and no essential volume. Use `PURL_ROLE=worker`, `PURL_PRODUCT=purls`, and explicit `/tmp/purl-launch-worker.json` heartbeat. An external read-only check must confirm `/api/runtime` and the deployed source/image revision before cutover.
 
 1. Stop accepting new work on the old worker by sending SIGTERM. The entrypoint stops claiming new jobs and finishes its current iteration. Wait for `launch_worker_drained` and process exit. Do not delete jobs, checkpoints, leases or provider receipts.
@@ -119,3 +121,7 @@ Operational bounds: 256-KiB rows, 32 changes/transaction, 10-MiB active tenant d
 Actual model inference, fresh-model task comparison and equal-budget multi-model study remain **NOT_RUN** without an approved credential and budget. Protocol fixture tests are not model-quality evidence. Do not enable paid inference as a health check.
 
 Optional model settings are `OPENROUTER_MODEL_CATALOG_JSON` (verified `id`, `promptMicroUSDPerToken`, `completionMicroUSDPerToken`), `MODEL_DAILY_BUDGET_MICROUSD`, `MODEL_CALL_BUDGET_MICROUSD`, `MODEL_DAILY_CALL_LIMIT`, `MODEL_TIMEOUT_MS` and encrypted BYOK storage. Hosted inference additionally requires **all** `MODEL_HOSTED_ENABLED=true`, `OPENROUTER_API_KEY`, explicit positive daily/call budgets and configured models. The local Compose file forces hosted inference off. Provider keys, context export and Constellation baseline/steward spending need separate explicit consent. Unknown outcomes retain budget reservations; do not release or retry them without provider-side evidence. No payment collection is implemented; a 15% markup is only a proposal.
+
+The hosted scoped migration was applied through MCP as remote version `20261018171407` (`purl_launch_scoped_store`); its preserved generated local filename is `20261018163930_purl_launch_scoped_store.sql`. Reconcile local/remote history before any future CLI push. The shared project has unrelated migrations; never repair/drop them blindly.
+
+In this managed development runner, outbound HTTPS uses its inherited proxy. Use `NODE_USE_ENV_PROXY=1` for the Node24 SDK command, retaining injected CA trust. Playwright's launch config reads the inherited proxy with loopback bypass; it preserves TLS validation. Railway runtime networking works directly and needs no development proxy secrets.

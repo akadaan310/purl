@@ -1,0 +1,126 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(locator).toBeVisible() failed
+
+Locator: getByRole('link', { name: 'Open ↗' }).first()
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" getByRole('link', { name: 'Open ↗' }).first() with timeout 5000ms
+  - waiting for getByRole('link', { name: 'Open ↗' }).first()
+
+    at captureRawStack (/workspace/purl/node_modules/playwright-core/lib/coreBundle.js:9282:17)
+    at callMatcherAsStep (/workspace/purl/node_modules/playwright/lib/matchers/expect.js:13316:57)
+    at Object.toBeVisible (/workspace/purl/node_modules/playwright/lib/matchers/expect.js:13308:23)
+    at /workspace/purl/evidence/consumer-launch/06-frontends/domain-check.mjs:24:381 {
+  matcherResult: {
+    message: 'expect(locator).toBeVisible() failed\n' +
+      '\n' +
+      "Locator: getByRole('link', { name: 'Open ↗' }).first()\n" +
+      'Expected: visible\n' +
+      'Timeout: 5000ms\n' +
+      'Error: element(s) not found\n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toBeVisible" getByRole('link', { name: 'Open ↗' }).first() with timeout 5000ms\n` +
+      "  - waiting for getByRole('link', { name: 'Open ↗' }).first()\n",
+    pass: false,
+    actual: undefined,
+    name: 'toBeVisible',
+    expected: 'visible',
+    log: [
+      `  - Expect "toBeVisible" getByRole('link', { name: 'Open ↗' }).first() with timeout 5000ms`,
+      "  - waiting for getByRole('link', { name: 'Open ↗' }).first()"
+    ],
+    timeout: 5000,
+    ariaSnapshot: '- link "Skip to content":\n' +
+      '  - /url: "#main"\n' +
+      '- banner:\n' +
+      '  - link "PURLs home":\n' +
+      '    - /url: /\n' +
+      '    - text: PURLs / pearls /\n' +
+      '  - navigation "Main navigation":\n' +
+      '    - link "Discover":\n' +
+      '      - /url: /\n' +
+      '    - link "My PURL":\n' +
+      '      - /url: /my-purl\n' +
+      '    - link "Memory":\n' +
+      '      - /url: /memory\n' +
+      '    - link "My AIs":\n' +
+      '      - /url: /ais\n' +
+      '    - link "Constellations":\n' +
+      '      - /url: /constellations\n' +
+      '    - link "My Worlds":\n' +
+      '      - /url: /worlds\n' +
+      '  - link "CGIT Hub ↗":\n' +
+      '    - /url: http://ui.test\n' +
+      '  - link "Your PURL ↗":\n' +
+      '    - /url: /my-purl\n' +
+      '- main:\n' +
+      '  - text: Private by default\n' +
+      '  - heading "Your Memory Atlas." [level=1]\n' +
+      '  - paragraph: A living picture of what matters to you. Correct a detail, connect a thought, or share only what you choose.\n' +
+      '  - text: Only you, unless you share\n' +
+      '  - button "Export my memory ↓"\n' +
+      '  - text: Your universe\n' +
+      '  - button "Remember <img src=x onerror=alert(1)> as literal text."\n' +
+      '  - heading "The things that make you, you." [level=2]\n' +
+      '  - text: 1 memories\n' +
+      '  - article:\n' +
+      `    - 'checkbox "Select memory: Remember <img src=x onerror=alert(1)> as literal text." [checked]'\n` +
+      '    - text: user assertion research decision\n' +
+      '    - paragraph: Remember <img src=x onerror=alert(1)> as literal text.\n' +
+      '    - text: "Source: User"\n' +
+      '    - time: 10/18/2026\n' +
+      '    - button "Edit"\n' +
+      '    - button "Delete"\n' +
+      '  - complementary:\n' +
+      '    - heading "Keep a thought." [level=2]\n' +
+      '    - text: What would you like to remember?\n' +
+      '    - textbox "What would you like to remember?":\n' +
+      '      - /placeholder: I’m learning Japanese for a trip next spring…\n' +
+      '    - text: Category\n' +
+      '    - combobox "Category":\n' +
+      '      - option "Something I’m telling you" [selected]\n' +
+      '      - option "A sourced fact"\n' +
+      '      - option "An inference, not a confirmed fact"\n' +
+      '    - text: Source\n' +
+      '    - textbox "Source":\n' +
+      '      - /placeholder: Me, a book, meeting notes…\n' +
+      '    - text: Tags, separated by commas\n' +
+      '    - textbox "Tags, separated by commas":\n' +
+      '      - /placeholder: Goals, work, learning\n' +
+      '    - button "Save memory"\n' +
+      '    - heading "Share a small piece." [level=2]\n' +
+      '    - paragraph: Select individual memories, then create a read-only passport. Edits stay current. Revoking stops future reads; it cannot erase copies already exported.\n' +
+      '    - text: Purpose\n' +
+      '    - textbox "Purpose":\n' +
+      '      - /placeholder: Context for my next conversation\n' +
+      '      - text: Selected context\n' +
+      '    - text: Expires after\n' +
+      '    - combobox "Expires after":\n' +
+      '      - option "One day" [selected]\n' +
+      '      - option "One week"\n' +
+      '      - option "30 days"\n' +
+      '    - checkbox "I consent to sharing only my selected memories with anyone holding this read link." [checked]\n' +
+      '    - text: I consent to sharing only my selected memories with anyone holding this read link.\n' +
+      '    - button "Create selected-memory passport"\n' +
+      '    - alert: "Unexpected field: consent"\n' +
+      '    - heading "Opt-in public cognition" [level=3]\n' +
+      '    - paragraph: Private memories stay private. Publishing selected facts creates a separate public partition with sources. Public copies cannot be withdrawn after export.\n' +
+      '    - button "Review selected facts for publication"\n' +
+      '    - paragraph: Your private memory is never silently pooled into public cognition or sent to a model. Selected context needs separate, explicit consent.\n' +
+      '- contentinfo:\n' +
+      '  - link "PURLs":\n' +
+      '    - /url: /\n' +
+      '  - paragraph: A little continuity. A world of possibility.\n' +
+      '  - text: Private by default. Yours to share.\n' +
+      '- status: A thought, kept privately.'
+  }
+}
+
+Node.js v24.19.0

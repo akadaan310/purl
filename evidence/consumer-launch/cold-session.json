@@ -1,0 +1,2642 @@
+{
+  "schema": "purl.url-only-cold-session-evidence/1",
+  "recorded_at": "2026-10-18T17:43:20.981448+00:00",
+  "status": "bounded native continuation published; overall launch remains incomplete",
+  "initial_url": "https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316",
+  "continuation_url": "https://purls-production.up.railway.app/p/resource_2fb11e980e964b973027bcce",
+  "context_boundary": {
+    "mission_input": "Only initial live PURL; all mission context from it and disclosed links",
+    "local_existing_repository_or_reports_read": false,
+    "public_source_read": true,
+    "public_source_reason": "Disclosed source tree used to locate missing execution/artifact read routes",
+    "implementation_edits_or_commits": false,
+    "credentials_recorded": false,
+    "paid_models_email_infrastructure_changes_deletion": false,
+    "principal_kind": "explicitly unverified guest preview"
+  },
+  "mission": {
+    "title": "7u’s PURLs × CGIT Hub Consumer Launch Mission",
+    "objective": "Production consumer PURLs and independent CGIT Hub, shared established-provider OIDC identity, differentiated catalog, private consent-driven memory, bounded models/Constellations, typed computational artifacts and executable URL-only continuity. Preserve existing production and default branch.",
+    "source": "input json | mission.inspect",
+    "source_version": 8,
+    "document_count": 9,
+    "documents": [
+      {
+        "name": "00_START.md",
+        "url": "https://purls-production.up.railway.app/mission/documents/00_START.md",
+        "sha256": "8a3aa0bdc24596dfc895c757df3dd0cc99c53fcb064a73ef692f8199de8887c6",
+        "computed_sha256": "8a3aa0bdc24596dfc895c757df3dd0cc99c53fcb064a73ef692f8199de8887c6",
+        "matches": true,
+        "markdown": "# PURLs + CGIT Hub — Consumer Launch God Seed\n\n## Directive\nBuild a production-quality consumer PURLs application with a distinct CGIT Hub product, integrated through **PURL Identity**, a shared standards-based OIDC Single Sign-On system. PURL means **Programmable URLs**, pronounced pearl. Do not rename it or revive Golden Surface/Netscape. This is a build, test, and launch mission, not merely a planning assignment. Existing Railway PURL deployment and Supabase persistence must be inspected and preserved. Existing PURL, ACSP, SEURL, SubstrateIO and CGT/GiN repositories are the starting evidence; reconstruct their actual implementations, branches and compatibility before writing replacement code. Maintain existing production data, tests, resources, and public URLs.\n\n## Definition of done\nA human can claim a unique PURL, optionally activate CGIT Hub, sign into either product with the same account, browse and use a curated catalog of genuinely functional computational superpowers, use free bounded chat or BYOK/hosted models, manage a visual and consent-driven external memory, start an AI Constellation, hand a PURL to an independent session, and save/reopen computational artifacts in CGIT Hub. An AI opening a PURL can discover typed operations and, if authorized, execute and persist them. CGIT Hub can inspect public GitHub repositories with attribution through a computational lens. Ship with verifiable production evidence, not screenshots or mocks alone.\n\n## Engineering approach\nWork continuously in independently testable vertical slices. Preserve test failures and provenance. Do not claim that the user's existing ChatGPT session can be automatically attached to an external app, or that free inference/storage is unlimited. Do not clear the Oracle VM or deploy destructive migrations without explicit approval. Report precise blockers and honest completion status. Do not generate 400 filler cards. Aim for 40–60 functioning experiences; quality wins over count. Make the *next* God Seed a native executable PURL, ending manual ZIP relay.\n\nRead all numbered files and execute `CODEX_MASTER.md`.\n"
+      },
+      {
+        "name": "01_CONSUMER.md",
+        "url": "https://purls-production.up.railway.app/mission/documents/01_CONSUMER.md",
+        "sha256": "3d91afbd4c651bc8413e0ada71c37d8b24aa4b889e4f7ec96f3a5cbdaef2badf",
+        "computed_sha256": "3d91afbd4c651bc8413e0ada71c37d8b24aa4b889e4f7ec96f3a5cbdaef2badf",
+        "matches": true,
+        "markdown": "# Consumer Product, Claim Your PURL, and Catalog\n\nHero: **Claim your PURL**. Promise: **Your AI, uninterrupted.** Human-first discovery, Apple-like usability, compelling editorial shelves, personalized continue/resume, mobile and desktop accessibility. Consumer navigation: Discover, My PURL, Memory, My AIs, Constellations, My Worlds, CGIT Hub. Never expose manual URL syntax or a developer IDE as the default consumer experience.\n\nClaiming creates a stable principal ID plus a unique public handle; allow handle changes without identity loss. Keep phone/email private by default. Sign-in and claiming are one coherent onboarding flow. A separate AI principal type must show its self-declared or verified status, owner, capabilities, and consent. Never confuse a public PURL link with mutation authority.\n\nLaunch with 40–60 genuinely differentiated, tested PURL experiences, prioritizing 25–30 everyday AI superpowers, then small business, teams, developers, code intelligence, research, enterprise, collective AI and model/compute. Long-run target 300–500, not a quota for shallow clones. Each catalog entry has distinct typed operation graph, audience, user outcome, state, effects, permissions, free limits, tests, provenance and status (working/limited/coming soon). Include: Never Start Over, Memory Passport, Memory Atlas, AI Connections, Research Continuity, AI Inbox, Resume Here, Constellation Debate, Evidence Jury, Code Review Constellation, Program Forge, GitHub Computational Lens, Architecture Map, Structural Diff, Team Decision Memory, Business Context, Reproducible Research, CGIT Steward, Bring Your Own Model and Personal AI Workspace.\n\nFormal capability classes: C1 memory/cognition; C2 continuity/reconstruction; C3 computation; C4 program synthesis; C5 collective computation; C6 identity/authority; C7 transition intelligence; C8 environment projection. Classes share typed contracts and composition invariants, not merely marketing labels. Consumer sees results, not mathematical jargon.\n"
+      },
+      {
+        "name": "02_IDENTITY.md",
+        "url": "https://purls-production.up.railway.app/mission/documents/02_IDENTITY.md",
+        "sha256": "d557c95c8a8eb9eea998d7b93154c4220d1cdbf5a106508e2a7aba4fd778d457",
+        "computed_sha256": "d557c95c8a8eb9eea998d7b93154c4220d1cdbf5a106508e2a7aba4fd778d457",
+        "matches": true,
+        "markdown": "# PURL Identity — One Account, Two Products\n\nImplement **Single Sign-On** with an established OIDC provider, OAuth Authorization Code + PKCE, secure sessions, verified email and explicit consent. Check the actual capabilities of Supabase Auth or an appropriate supported identity provider before selecting. Do not invent a homegrown OAuth server.\n\nPURLs signup offers an optional **Activate CGIT Hub** checkbox. Idempotently provision a CGIT profile/namespace after consent. CGIT-first registration gives reciprocal access to PURLs with the same credentials. Shared immutable subject ID, distinct per-product profiles, scopes, quotas and authorization. Account linking must require verified ownership; never merge on unverified email alone. Support logout, revocation, account export/deletion, handle rename, account recovery, rate limits and redirect/CSRF defenses.\n\nAI principal identity is distinct from human identity, with delegated scopes, owner, attestation status, revocable expiring credentials and audit trail. A session claiming to be ChatGPT or Claude is not thereby provider-verified. Test signup both directions, opt-in provisioning, duplicate signup, expired token, consent removal, account isolation and cross-product artifact access.\n"
+      },
+      {
+        "name": "03_PROTOCOLS.md",
+        "url": "https://purls-production.up.railway.app/mission/documents/03_PROTOCOLS.md",
+        "sha256": "6787ffc3c87a328949257a70b62651e74ef5cbb2a47dba683e7368c54ecf3bea",
+        "computed_sha256": "6787ffc3c87a328949257a70b62651e74ef5cbb2a47dba683e7368c54ecf3bea",
+        "matches": true,
+        "markdown": "# PURL Language, ACSP, SEURL, SubstrateIO\n\nA PURL is an addressable **executable computational resource** with typed state, grammar, transitions, authority, history and checkpoints. PURL is the canonical public namespace. Reconcile SEURL's START/SWITCH/WRITE/COMMIT/BUILD/TALK/PERTURB against actual PURL operators; integrate only semantically faithful verbs, preserving versioned compatibility. ACSP supplies continuity/authority/proposals/checkpoints. SubstrateIO supplies transition models, observations and reproducible projections. CGT/GiN research may inform canonical grammar/compression only with measured proof.\n\nDistinct IDs: address, derivation, value, environment, build, content, execution, session. Parse -> type-check -> plan -> authorized execute -> record -> checkpoint -> replay. GET must not cause mutation. PURL should self-describe schemas, tools, capabilities, cost, effects, examples, and limitations for any new AI session, including read-only browser sessions. Native program authoring: model detects gap -> writes code -> isolated build/test -> immutable release -> share/fork/reuse. Only compile transition histories into programs if all necessary inputs, versions, effects and dependencies were recorded; otherwise label non-replayable.\n\nProduce an executable mission PURL representing this God Seed, with dependency graph, completion tests, evidence, checkpoints and continuation. The next coding agent must be able to enter using **only that URL**, reconstruct authorized state and continue without a ZIP. Verify with a fresh-context test.\n"
+      },
+      {
+        "name": "04_MEMORY_CONSTELLATIONS.md",
+        "url": "https://purls-production.up.railway.app/mission/documents/04_MEMORY_CONSTELLATIONS.md",
+        "sha256": "1ff54dbe10a2c0a451ecbbda97f2df754b321866d308b7866054940b8952419a",
+        "computed_sha256": "1ff54dbe10a2c0a451ecbbda97f2df754b321866d308b7866054940b8952419a",
+        "matches": true,
+        "markdown": "# Memory Universe, Constellations and Global Cognition\n\nVisual personal memory atlas: sourced facts, user assertions, inferences, relationships, project decisions, AI interactions, provenance, corrections, timeline, consent, export, deletion and scoped sharing. Private by default. Memory Passport lets a user explicitly share selected external context with another AI. This does not rewrite provider-private memory or guarantee deletion of copies already exported.\n\nConstellations: user creates shared computational question and launches independently initialized AI contexts through supported APIs, within limits. Archetypes: researcher, challenger, verifier, engineer, synthesizer and CGIT steward; user can customize. Participants contribute independently attributed claims/evidence to ACSP state. Preserve disagreements, tests, checkpoint, resumption, and CGIT commits. Free tier should allow a small, rate-limited Constellation if provider economics permit. Compare multi-model performance with an equal-budget single-model baseline. Never automate mass consumer account creation.\n\nGlobal Cognition Graph is a computational model of opt-in public/shared knowledge and capabilities, **not** a claim of collective consciousness. Strong tenant partitions and consent. No private memory pooling. Provide transparent provenance, correction, revocation of future access and public/private/team namespaces.\n"
+      },
+      {
+        "name": "05_CGIT.md",
+        "url": "https://purls-production.up.railway.app/mission/documents/05_CGIT.md",
+        "sha256": "fac0c9c351ff85270f3bb1e09253c2b4a405576446c567bd8c2d22969ddf28c9",
+        "computed_sha256": "fac0c9c351ff85270f3bb1e09253c2b4a405576446c567bd8c2d22969ddf28c9",
+        "matches": true,
+        "markdown": "# CGIT Hub — Independent Product, Integrated Continuity\n\nCGIT Hub is a Git-compatible where applicable, AI-native repository and IDE for code, conversations (consented), research, proofs, programs, decisions, execution traces, artifacts, checkpoints and history. It must work without PURLs, while using PURL Identity for SSO and scoped APIs for integration. Provide repository creation, typed artifact commits, branches/forks, diffs, immutable release versions, provenance, import/export, content hashes and resume. CGIT Steward in a Constellation records evidence and versions independently of participant reasoning.\n\nPublic GitHub lens: paste any supported public GitHub repo URL, clearly attribute source and license, pin SHA, safely fetch/index, build AST/tree-sitter syntax graph, symbol/dependency graph, structural diffs, compact grammar-based navigational maps and continuity links. No LLM required for deterministic indexing; semantic interpretations separately labeled. Benchmark token use and task success against ordinary file retrieval rather than claiming compression automatically. Respect rate limits and security. No unauthorized writes to imported repos.\n\nFree computational artifact persistence must be durable, exportable and backed up, with published fair-use quotas and retention policy. Do **not** promise literally unlimited free storage forever. Support tested recovery and explicit deletion/privacy rights.\n"
+      },
+      {
+        "name": "06_MODELS_RUNTIME.md",
+        "url": "https://purls-production.up.railway.app/mission/documents/06_MODELS_RUNTIME.md",
+        "sha256": "a4f80be5020a58629b378fcaf7537b865f37dd055cb7b90ece72894b6962cc38",
+        "computed_sha256": "a4f80be5020a58629b378fcaf7537b865f37dd055cb7b90ece72894b6962cc38",
+        "matches": true,
+        "markdown": "# Models, Pricing, Compute and Isolation\n\nProvide bounded free AI chat with PURL memory/continuity, BYOK model provider configuration with encrypted server-side secrets, and hosted paid models through a supported provider such as OpenRouter after verifying current pricing, APIs and terms. Proposed pricing hypothesis: provider cost + transparent ~15% fee, subject to payment costs, abuse, minimums and user approval. Preflight estimates, quotas, spending caps, audit and billing tests. Do not advertise unlimited free inference.\n\nKeep existing Railway API/worker and Supabase Postgres/Storage as baseline. Inventory Oracle ARM VM before changes; use it for isolated background computation (graphs, compilers, Julia/Octave, safe parsers, program builds) if feasible. Sandboxed user code must remain disabled until independently tested isolation: rootless/VM confinement, CPU/RAM/time/disk quotas, restricted egress, no host mounts, no secrets, escape tests, tenant isolation. No public unrestricted shell. PURL native IDE exposes typed commands and safe authorized execution. Provide async job queues, retries, idempotency, observability and failure recovery.\n"
+      },
+      {
+        "name": "07_ACCEPTANCE.md",
+        "url": "https://purls-production.up.railway.app/mission/documents/07_ACCEPTANCE.md",
+        "sha256": "780f117b48d6847dac4301661507293de2a2e99ff75315e4caf13353c41bd95b",
+        "computed_sha256": "780f117b48d6847dac4301661507293de2a2e99ff75315e4caf13353c41bd95b",
+        "matches": true,
+        "markdown": "# Acceptance and Evidence\n\nRequired E2E journeys:\n1. Claim PURL -> verify email -> optional CGIT activation -> login to CGIT with same account -> access own artifacts; inverse CGIT-first works.\n2. Free user discovers a working capability and gives its PURL to a new AI session -> receives real self-describing program/state, not marketing copy.\n3. Memory Atlas -> edit, selectively share, revoke future access, export, resume.\n4. Constellation -> three fresh model contexts -> evidence contributions -> disagreement -> checkpoint -> restart -> CGIT steward commits artifact -> replay.\n5. AI Program Forge -> write/test/publish reusable capability under sandbox rules; if isolation is not validated, feature visibly unavailable rather than unsafe.\n6. GitHub public repository lens -> pinned SHA -> AST and dependency graph -> structural query -> PURL continuation -> source attribution.\n7. Hosted/BYOK/free chat -> spending/rate limits, failure recovery and privacy.\n8. Mission God Seed PURL -> fresh context opens only URL -> reconstructs dependency graph, next steps, evidence and permitted operations.\n9. Cold reconstruction from clean checkout, backup restore, permission boundaries, mobile/desktop accessibility, production smoke tests.\n\nReport test commands, commit SHAs, deployed URLs, screenshots, errors, incomplete work, verified feature count, cost measurements and exact remaining blockers. No fake passes, no silent skipped tests. Keep existing default branch and production data safe until tested rollout. Use reversible migrations, staged deploys and rollback plan.\n"
+      },
+      {
+        "name": "CODEX_MASTER.md",
+        "url": "https://purls-production.up.railway.app/mission/documents/CODEX_MASTER.md",
+        "sha256": "5ffd2530421a7416449923c498b6524a1b97f7d67e129db3c0c2176641413c2d",
+        "computed_sha256": "5ffd2530421a7416449923c498b6524a1b97f7d67e129db3c0c2176641413c2d",
+        "matches": true,
+        "markdown": "# EXECUTE — PURLs Consumer Launch\n\nYou are the lead implementation agent for PURLs and CGIT Hub. Read `00_START.md` through `07_ACCEPTANCE.md`. Reconstruct the actual existing production, repositories, current branches and APIs before changing anything. This is one full-stack mission with measurable user outcomes, not an MVP-only plan. Build and test continuously. Do not stop at documentation, mockups or scaffolding. Create the real PURL Identity SSO, consumer catalog, memory experience, Constellations, CGIT integration, model gateway and native mission-PURL handoff. Use your own independent research harnesses to identify defects, preserve failures, and improve the implementation while respecting stated security and privacy boundaries. Use incremental commits and reversible deployments; never wipe production or Oracle without approval. Deploy where authorized and run real smoke tests. If a dependency blocks part of the mission, complete independent slices, label the blocked feature honestly, and provide exact next action. End with evidence-backed report and a **live executable continuation PURL** so the next session needs only a URL. Begin now.\n"
+      }
+    ],
+    "dependency_graph": {
+      "nodes": [
+        {
+          "id": "mission",
+          "title": "PURLs × CGIT Hub consumer launch authorization",
+          "status": "PASS",
+          "evidence": [
+            "User-supplied preserved directive"
+          ],
+          "dependencies": [],
+          "completion_tests": [
+            "All eight numbered documents and CODEX_MASTER are embedded with source hashes"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "reconstruct-repositories",
+          "title": "Pin source histories, branches and actual APIs",
+          "status": "PASS",
+          "evidence": [
+            "evidence/consumer-launch/reconstruction/repositories.json"
+          ],
+          "dependencies": [
+            "mission"
+          ],
+          "completion_tests": [
+            "Five original checkouts remain unchanged",
+            "CGT/GiN research and licensing inspected"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "reconstruct-production",
+          "title": "Preserve current public URLs, database and deployment baseline",
+          "status": "PASS",
+          "evidence": [
+            "evidence/consumer-launch/reconstruction/production.json"
+          ],
+          "dependencies": [
+            "mission"
+          ],
+          "completion_tests": [
+            "Railway bothSUCCESS",
+            "Supabase original document revision70 and digest preserved"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "identity-provider",
+          "title": "Enable established OIDC provider without breaking existing Auth defaults",
+          "status": "BLOCKED",
+          "evidence": [
+            "evidence/consumer-launch/reconstruction/identity-provider.json"
+          ],
+          "dependencies": [
+            "reconstruct-production"
+          ],
+          "completion_tests": [
+            "OAuth authorization server enabled",
+            "Existing SiteURL and redirectdefaults preserved",
+            "SeparateclientsandconsentUI configured"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "identity-pkce",
+          "title": "Shared identity code+PKCE",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "reconstruct-repositories"
+          ],
+          "completion_tests": [
+            "SignedIDtoken nonce/issuer/audience/expiry/verifiedemail checks",
+            "Independentproductcookies and matchingimmutable subject"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "identity-claim",
+          "title": "Claim and rename unique PURL handle",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "identity-provider",
+            "identity-pkce"
+          ],
+          "completion_tests": [
+            "Verifiedemailrequired",
+            "Rename preservesstableidentity and aliases",
+            "Duplicatehandle conflictsatomically"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "identity-lifecycle",
+          "title": "Consent, expiry, revocation, deletion, AI delegation",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "identity-pkce"
+          ],
+          "completion_tests": [
+            "Perproductconsent and scopeisolation",
+            "Agentowner/expiry/revoke",
+            "Deletionremoves owned andagentpublicmemory"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "tenant-storage",
+          "title": "Durable scoped persistence",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "reconstruct-production"
+          ],
+          "completion_tests": [
+            "AtomicCAS and idempotency",
+            "PrivateRLSand servicepermissions",
+            "Metadata/bytesquotas and actualPostgRESTrestart"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "consumer-interface",
+          "title": "Consumer PURLs home and accessible navigation",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "tenant-storage"
+          ],
+          "completion_tests": [
+            "Hero Claim your PURL / Your AI, uninterrupted.",
+            "Mobile/desktop WCAG AA and zerooverflow",
+            "Humanfirst resultsand clearstatus"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "catalog",
+          "title": "40–60 differentiated working experiences",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "consumer-interface",
+            "tenant-storage"
+          ],
+          "completion_tests": [
+            "Each workingentry has typedgraph/sampletests/effects/limits/provenance",
+            "Countactualworking, nofiller",
+            "All requiredtitlesrepresented honestly"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "memory-atlas",
+          "title": "Private visual sourced memory with correction history",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "tenant-storage",
+            "identity-lifecycle"
+          ],
+          "completion_tests": [
+            "Twoaccountisolation",
+            "Edit/delete/correct/timeline/relations",
+            "No privatepool"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "memory-passport",
+          "title": "Explicit selected memory transfer",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "memory-atlas"
+          ],
+          "completion_tests": [
+            "Consenttrue required",
+            "Selectedfacts only",
+            "Liveedits/deletes/revocation/expiry futuredenial",
+            "Exportcopylimitsdisclosed"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "public-cognition",
+          "title": "Opt-in shared knowledge graph",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "memory-atlas"
+          ],
+          "completion_tests": [
+            "Explicitpublicationconsent",
+            "Futureaccessrevoke",
+            "Tenantpartitions/provenance"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "cgit-repositories",
+          "title": "Independent CGIT typed artifact repository",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "tenant-storage",
+            "identity-lifecycle"
+          ],
+          "completion_tests": [
+            "CGIT-first usable",
+            "Immutabletypedcommits, branches/forks/diffs/releases",
+            "Import/export/tamper/restorequotas"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "cgit-interface",
+          "title": "Independent repository and IDE experience",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "cgit-repositories"
+          ],
+          "completion_tests": [
+            "Create/edit/commit/readhistory inbrowser",
+            "Separateproductprofile",
+            "No unauthorized upstreamwrites"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "github-lens",
+          "title": "Public GitHub computational lens",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "cgit-repositories"
+          ],
+          "completion_tests": [
+            "ActualpublicURL pinnedSHA/license",
+            "JS/TSAST symbols/dependencies and structuralquery",
+            "Safeorigins/file/AST/timebounds",
+            "Navigationestimate versusrawbaseline withlimits"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "model-gateway",
+          "title": "Encrypted BYOK and bounded model gateway",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "tenant-storage",
+            "identity-lifecycle"
+          ],
+          "completion_tests": [
+            "ServerAESGCMsecret",
+            "Allowlistedprovider/contextconsent",
+            "Atomicspending/call limits, actualcost receipts",
+            "Ambiguouscalls never silently repeated"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "real-models",
+          "title": "Actual free/BYOK/hosted provider inference",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "model-gateway"
+          ],
+          "completion_tests": [
+            "Approvedconfiguredcredentials",
+            "Realprivacy/rate/spend/failure proof",
+            "No unlimitedfree/paidmarkupactivation"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "constellations-runtime",
+          "title": "Durable independent-context orchestration",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "model-gateway",
+            "cgit-repositories"
+          ],
+          "completion_tests": [
+            "Three freshcontext requests",
+            "Attributedclaimsand disagreement preserved",
+            "Leases/idempotency/checkpoint/restart/replay",
+            "ConsentedCGITstewardcommit"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "constellations-provider-study",
+          "title": "Equal-budget actual model comparison",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "real-models",
+            "constellations-runtime"
+          ],
+          "completion_tests": [
+            "Independent supportedmodelAPIcontexts",
+            "Equalbudget singlebaseline",
+            "Measuredtokens/cost/taskrubric, nostatisticaloverclaim"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "program-forge",
+          "title": "Safe native PURL authoring and reuse",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "tenant-storage"
+          ],
+          "completion_tests": [
+            "Parse/typecheck/plan/buildtests/execute/receipt",
+            "Immutablepublication/fork/checkpoint",
+            "Publicauthoredcode unavailableuntilisolationverified"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "sandbox-isolation",
+          "title": "Independently verified untrusted-code confinement",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "reconstruct-production"
+          ],
+          "completion_tests": [
+            "CPU/RAM/time/disk/egress/tenant/escape tests",
+            "No hostmounts/secrets/shell",
+            "Enableonlyafter independentreview"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "oracle-inventory",
+          "title": "Inventory existing Oracle ARM without changes",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "reconstruct-production"
+          ],
+          "completion_tests": [
+            "Actualauthorizedserverconfigured",
+            "Read-onlyinventory CPU/arch/docker/state",
+            "No wipe"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "native-mission",
+          "title": "Executable full mission PURL",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "program-forge"
+          ],
+          "completion_tests": [
+            "Embed every numbered document/master",
+            "Dependencygraph, completiontests, progress,evidence,nextoperations",
+            "Nativecompile/build/run/checkpoint/replay"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "fresh-context",
+          "title": "URL-only fresh-context continuation",
+          "status": "NOT_RUN",
+          "evidence": [],
+          "dependencies": [
+            "native-mission"
+          ],
+          "completion_tests": [
+            "Freshagent startswithonlyliveURL",
+            "Reconstructsstate/evidence/authority",
+            "Fork/build/run/checkpoint undernewauthority"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "recovery",
+          "title": "Reconstructible export and interrupted-job recovery",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "tenant-storage",
+            "cgit-repositories",
+            "constellations-runtime"
+          ],
+          "completion_tests": [
+            "Cleancheckoutcontainer",
+            "Backuprestore",
+            "Interruptedjobs/leases/artifacts/replay"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "security-review",
+          "title": "Independent security/spec review",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "identity-lifecycle",
+            "memory-passport",
+            "github-lens",
+            "model-gateway",
+            "program-forge"
+          ],
+          "completion_tests": [
+            "Confirmedfindingsfixed withreprotests",
+            "No hiddenfailed/skippedchecks"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "public-rollout",
+          "title": "Reversible Railway consumer and CGIT deployment",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "security-review",
+            "consumer-interface",
+            "cgit-interface"
+          ],
+          "completion_tests": [
+            "SeparateproductURLs andworker",
+            "TerminalSUCCESS",
+            "Publicsmokeand originalproductionfingerprintunchanged"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "journey-1",
+          "title": "Acceptance journey 1",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "identity-claim",
+            "cgit-repositories"
+          ],
+          "completion_tests": [
+            "Run exact numbered journey from07_ACCEPTANCE.md against actual configured deployment"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "journey-2",
+          "title": "Acceptance journey 2",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "catalog",
+            "native-mission"
+          ],
+          "completion_tests": [
+            "Run exact numbered journey from07_ACCEPTANCE.md against actual configured deployment"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "journey-3",
+          "title": "Acceptance journey 3",
+          "status": "NOT_RUN",
+          "evidence": [],
+          "dependencies": [
+            "memory-atlas",
+            "memory-passport"
+          ],
+          "completion_tests": [
+            "Run exact numbered journey from07_ACCEPTANCE.md against actual configured deployment"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "journey-4",
+          "title": "Acceptance journey 4",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "constellations-provider-study",
+            "recovery"
+          ],
+          "completion_tests": [
+            "Run exact numbered journey from07_ACCEPTANCE.md against actual configured deployment"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "journey-5",
+          "title": "Acceptance journey 5",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "program-forge",
+            "sandbox-isolation"
+          ],
+          "completion_tests": [
+            "Run exact numbered journey from07_ACCEPTANCE.md against actual configured deployment"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "journey-6",
+          "title": "Acceptance journey 6",
+          "status": "PASS",
+          "evidence": [],
+          "dependencies": [
+            "github-lens"
+          ],
+          "completion_tests": [
+            "Run exact numbered journey from07_ACCEPTANCE.md against actual configured deployment"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "journey-7",
+          "title": "Acceptance journey 7",
+          "status": "BLOCKED",
+          "evidence": [],
+          "dependencies": [
+            "real-models"
+          ],
+          "completion_tests": [
+            "Run exact numbered journey from07_ACCEPTANCE.md against actual configured deployment"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "journey-8",
+          "title": "Acceptance journey 8",
+          "status": "NOT_RUN",
+          "evidence": [],
+          "dependencies": [
+            "fresh-context"
+          ],
+          "completion_tests": [
+            "Run exact numbered journey from07_ACCEPTANCE.md against actual configured deployment"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "journey-9",
+          "title": "Acceptance journey 9",
+          "status": "NOT_RUN",
+          "evidence": [],
+          "dependencies": [
+            "recovery",
+            "public-rollout"
+          ],
+          "completion_tests": [
+            "Run exact numbered journey from07_ACCEPTANCE.md against actual configured deployment"
+          ],
+          "evidence_verified": false
+        },
+        {
+          "id": "delivery",
+          "title": "Live executable continuation and measured delivery",
+          "status": "NOT_RUN",
+          "evidence": [],
+          "dependencies": [
+            "public-rollout",
+            "fresh-context"
+          ],
+          "completion_tests": [
+            "URLs/SHAs/testcommands/screenshots/costs/blockers reported",
+            "NextsessionneedsnoZIP",
+            "Existingproductionstate safe"
+          ],
+          "evidence_verified": false
+        }
+      ]
+    },
+    "graph_counts": {
+      "nodes": 38,
+      "edges": 59,
+      "recorded_statuses": {
+        "PASS": 21,
+        "BLOCKED": 12,
+        "NOT_RUN": 5
+      }
+    },
+    "inherited_progress_claims": {
+      "costs": {
+        "navigation_study": "Pinned tiny public repository, 3/3 lookups; estimated437map vs953raw tokens, not a general semantic/compression claim.",
+        "railway_invoice_measurement": "Unavailable; three new bounded services may incur platform usage. Do not claim free hosting.",
+        "actual_model_provider_spend_usd": 0
+      },
+      "scope": "Numbers refer to preserved task checkpoints; final combined verification and live rollout will be checkpointed by a continuing owner.",
+      "branch": "codex/purls-cgit-consumer",
+      "limits": [
+        "Anonymous guests are explicitly unverified, expire after30minutes, and cannot claim a human handle or use paid/BYOK inference. Their public native programs can be forked by another authorized preview principal.",
+        "Three Railway services have bounded resources; actual invoice/cost unavailable. Model spend0USD; no payment collection.",
+        "Physical cleanup of orphan resource proposal shards and expired provider-session shards is not automated. Account deletion removes live authority/owner data; do not claim universal physical erasure of external immutable shards.",
+        "Supabase grant-details endpoint may autoapprove an existing grant. Adapter refuses implicit redirect locally; strict fresh provider consent is still an upstream dependency. Real recovery password-change UI is incomplete.",
+        "The SDK package is delivered as an installable tarball and source export; no public npm registry publication was attempted."
+      ],
+      "status": "LIVE PREVIEW; full consumer launch remains blocked on verified OIDC, real model credentials/study and Oracle access",
+      "blockers": [
+        {
+          "id": "sso",
+          "detail": "Supabase OAuth server explicitly disabled (404 feature_disabled); established-provider code+PKCE and central consent adapters are implemented and locally tested, but live signup, verified email, registered product clients and shared login are not proved. Preserve existing shared Auth SiteURL; do not claim metadata alone means readiness."
+        },
+        {
+          "id": "provider-inference",
+          "detail": "No actual operator model API key configured. No paid inference dispatched; real three-context study and equal-budget baseline NOT_RUN. Hosted model access disabled; 15% markup remains a proposal only."
+        },
+        {
+          "id": "oracle",
+          "detail": "Gateway returned zero connected servers. No Oracle host was accessed or cleared. Docker worker migration uses the same Supabase backend and durable leases."
+        },
+        {
+          "id": "authored-execution",
+          "detail": "Public authored JavaScript/Python execution remains denied until independent sandbox isolation verification. Bounded pure native PURL compilation/build/execution is implemented."
+        }
+      ],
+      "deployed": {
+        "cgit": "https://cgit-hub-production.up.railway.app",
+        "node": "22.14.0",
+        "purls": "https://purls-production.up.railway.app",
+        "region": "europe-west4-drams3a",
+        "status": "SUCCESS",
+        "worker": "purls-launch-worker",
+        "services": [
+          {
+            "id": "04d2074f-04a7-4e71-a13b-fec10d865fc6",
+            "name": "purls",
+            "status": "SUCCESS",
+            "deployment": "1bed188b-456a-49f3-8a83-6787d73aea4d"
+          },
+          {
+            "id": "aef964aa-a994-466c-8fc0-d005bb8e465d",
+            "name": "cgit-hub",
+            "status": "SUCCESS",
+            "deployment": "c510af36-8a67-4b26-91be-eca4599924e3"
+          },
+          {
+            "id": "ec5d3ee8-552b-467b-b2df-0485684fa5d0",
+            "name": "purls-launch-worker",
+            "status": "SUCCESS",
+            "deployment": "cf5b4d9e-f826-4a6d-882e-8ab8ddcfb41a"
+          }
+        ],
+        "persistence": "supabase",
+        "source_revision": "3b2784b7f9bb217954ef75c5f8e4985c748e4627"
+      },
+      "evidence": [
+        {
+          "name": "Full Node and offline container checks",
+          "files": [
+            "evidence/consumer-launch/final-unit.log",
+            "evidence/consumer-launch/final-container-tests.log"
+          ]
+        },
+        {
+          "name": "Independent reviews",
+          "path": "evidence/consumer-launch/reviews/"
+        },
+        {
+          "name": "Local browser46/46",
+          "path": "evidence/consumer-launch/verification/browser-local-final/"
+        },
+        {
+          "pin": "666df7c10035f7e26f27ec214fe5ae3173435f34",
+          "name": "Live CGIT14/14 and pinned MIT GitHub lens",
+          "path": "evidence/consumer-launch/cgit-live.json",
+          "requests": 27,
+          "measured_checks": 14
+        },
+        {
+          "name": "Interrupted job backup restore into new containers/volume",
+          "path": "evidence/consumer-launch/backup-restore.json",
+          "sha256": "eaf3f4937df2eced7753e160568fbd303fd436f3a9a1b0aaa31cc44b70b1072c"
+        },
+        {
+          "name": "Native mission live dogfood",
+          "path": "evidence/consumer-launch/native-dogfood-railway.json"
+        }
+      ],
+      "verified": {
+        "backup_restore": {
+          "value": 10,
+          "new_volume": true,
+          "replay_valid": true,
+          "fresh_containers": true,
+          "pending_job_recovered": true
+        },
+        "baseline_tests": 197,
+        "identity_tests": 46,
+        "catalog_limited": 11,
+        "catalog_working": 40,
+        "cgit_lens_tests": 22,
+        "full_unit_skips": 0,
+        "store_local_tests": 19,
+        "full_unit_failures": 0,
+        "production_browser": "IN_PROGRESS: initial direct APIRequestContext transport requires the managed HTTPS proxy; browser product traffic succeeds. Do not treat harness ECONNREFUSED as an application pass.",
+        "root_http_sdk_tests": 8,
+        "memory_catalog_tests": 18,
+        "native_local_dogfood": {
+          "steps": 8,
+          "replay": true,
+          "documents": 9,
+          "worker_execution": "succeeded"
+        },
+        "final_full_node_tests": 380,
+        "native_resource_tests": 27,
+        "product_browser_tests": 18,
+        "production_cgit_checks": 14,
+        "production_cgit_source": "3b2784b7f9bb217954ef75c5f8e4985c748e4627",
+        "provider_browser_tests": 28,
+        "provider_consent_tests": 16,
+        "final_local_browser_tests": 46,
+        "models_constellation_tests": 27,
+        "final_local_browser_failures": 0,
+        "independent_security_reviews": "All final scoped reviews PASS; preserved initial findings and red/green regressions",
+        "production_cgit_http_requests": 27,
+        "store_real_postgres_rest_tests": 22,
+        "initial_offline_container_tests": 351,
+        "final_full_pinned_container_tests": 380
+      },
+      "acceptance": [
+        {
+          "detail": "Real verified email and shared login require enabled OIDC, distinct registered clients and safe central consent hosting.",
+          "status": "BLOCKED",
+          "journey": 1
+        },
+        {
+          "detail": "Public self-describing catalog/native program and typed source/state/operations are live; no marketing-only response.",
+          "status": "PASS",
+          "journey": 2
+        },
+        {
+          "detail": "Local browser memory CRUD/share/revoke passed; production browser/managed proxy verification in progress.",
+          "status": "NOT_RUN",
+          "journey": 3
+        },
+        {
+          "detail": "Orchestrator/restart/steward protocol fixtures pass; no real3-model request/baseline without provider credential.",
+          "status": "BLOCKED",
+          "journey": 4
+        },
+        {
+          "detail": "Pure native program authoring/build/test/worker execution/publish/reuse works; authored JS/Python unavailable with explicit isolation blocker.",
+          "status": "PASS",
+          "journey": 5
+        },
+        {
+          "detail": "Live fixed-origin publicGitHub pinnedSHA MIT AST/symbol/dependency lens persisted in Supabase; CGIT export/restore hash-preserving.",
+          "status": "PASS",
+          "journey": 6
+        },
+        {
+          "detail": "Bounded gateway/encryptedBYOK/provider failure fixtures pass; actual inference and spending study NOT_RUN.",
+          "status": "BLOCKED",
+          "journey": 7
+        },
+        {
+          "detail": "Full nine-document native mission live, fresh independent URL-only reconstruction next.",
+          "status": "NOT_RUN",
+          "journey": 8
+        },
+        {
+          "detail": "380Node+380pinnedcontainer+46localbrowser+backuprestore and permission checks pass; live restart and final production browser checks remain.",
+          "status": "NOT_RUN",
+          "journey": 9
+        }
+      ],
+      "source_base": "d6fbc666890f85913fac3553be055a44cb9ec620",
+      "preservation": {
+        "md5": "4d8b98fcf8a4d6bf0a6aed1cb60d6fcd",
+        "bytes": 5462714,
+        "revision": 70,
+        "legacy_url": "https://purl-api-production.up.railway.app",
+        "legacy_document": "godseed-v3-production",
+        "default_branch_unchanged": true
+      },
+      "checkpoint_at": "2026-10-18T17:36:31.622Z"
+    },
+    "inherited_checkpoint_claims": {
+      "id": "checkpoint_a1fc79a3d51880b827c2e0df",
+      "next": [
+        "Use this URL alone: GET with Accept:application/purl+json, then follow links.continuity and all embedded documents.",
+        "Read current progress, evidence references, authority and exact operations; this live preview is incomplete.",
+        "For a fresh authorized continuation, use disclosed guest preview or real configured identity; then fork at expected_version. Public access grants no owner write.",
+        "Compile/build/run the bounded native mission, inspect execution/artifact/receipt and replay, checkpoint findings and publish the new continuation URL.",
+        "Complete real SSO/email/client/central-origin configuration without changing unrelated shared Auth defaults. Real model credential/budget/study and Oracle inventory remain blocked.",
+        "Read the GitHub source branch and runbook for exact test commands, preserved history, Docker and worker migration. Never clear Oracle or restore an older database over active writes."
+      ],
+      "actor": "guest_7SpibOnucvlWpBmUr3P8dxYhwVn4R99P3oBz0-o56fA",
+      "summary": "Live PURLs and CGIT APIs plus separate worker deployed on Railway/Supabase. Full source380/380 tests and46/46local browser tests passed. Live CGIT14/14, immutable export/restore, pinned public MIT GitHub lens, and container backup recovery proved. Full mission remains incomplete: real OIDC/email, actual model inference/study, Oracle target and physical shard cleanup outstanding.",
+      "version": 7,
+      "evidence": [
+        {
+          "receipt": "sha256:ad2900a952b6eba394c4a4beef3b762f6cc0d46fb47e138bab0b4354f8aedc2a",
+          "build_id": "build_3edb8f6fdb39c4a7003f42ac",
+          "artifact_id": "artifact_ed79a9fadea873dc7ff99324",
+          "execution_id": "execution_aa7ced85a0031142160716d6",
+          "source_revision": "3b2784b7f9bb217954ef75c5f8e4985c748e4627"
+        },
+        {
+          "backup_restore": "eaf3f4937df2eced7753e160568fbd303fd436f3a9a1b0aaa31cc44b70b1072c",
+          "full_node_tests": 380,
+          "live_cgit_checks": 14,
+          "local_browser_tests": 46,
+          "full_container_tests": 380
+        }
+      ],
+      "created_at": "2026-10-18T17:36:47.045Z",
+      "provenance": "Author assertions; content integrity is checked independently",
+      "state_hash": "sha256:e9fac4d9c3afcc940fc4512e790b153f9b5ab8ff03bafd5648e7f2648efe7ce6",
+      "resource_id": "resource_95a5662789076892fe698316",
+      "evidence_verified": false
+    },
+    "claims_policy": "Evidence/statuses are recorded claims, not independent requirement truth. Model fixture tests are distinct from actualproviderinference.",
+    "links": {
+      "sdk": "/sdk/launch.js",
+      "cgit": "https://cgit-hub-production.up.railway.app",
+      "plan": "https://github.com/akadaan310/purl/blob/codex/purls-cgit-consumer/docs/superpowers/plans/2026-10-18-consumer-launch.md",
+      "spec": "https://github.com/akadaan310/purl/blob/codex/purls-cgit-consumer/docs/superpowers/specs/2026-10-18-consumer-launch-design.md",
+      "purls": "https://purls-production.up.railway.app",
+      "source": "https://github.com/akadaan310/purl/tree/codex/purls-cgit-consumer",
+      "reports": "https://github.com/akadaan310/purl/tree/codex/purls-cgit-consumer/docs/consumer-launch/tasks",
+      "runbook": "https://github.com/akadaan310/purl/blob/codex/purls-cgit-consumer/docs/consumer-launch/RUNBOOK.md",
+      "runtime": "/api/runtime",
+      "evidence": "https://github.com/akadaan310/purl/tree/codex/purls-cgit-consumer/evidence/consumer-launch",
+      "progress": "https://github.com/akadaan310/purl/blob/codex/purls-cgit-consumer/evidence/consumer-launch/progress.md",
+      "source_branch": "https://github.com/akadaan310/purl/tree/codex/purls-cgit-consumer"
+    }
+  },
+  "authority": {
+    "anonymous_original": {
+      "principal_id": null,
+      "owner": false,
+      "rights": [
+        "read"
+      ]
+    },
+    "preview_identity": {
+      "id": "guest_Xqu5C2G0VWLljtcVDu3l3w8p-FJTGsl8LljPKfqYJpw",
+      "kind": "guest",
+      "verified": false,
+      "product": "purls",
+      "products": [
+        "purls"
+      ],
+      "scopes": [
+        "catalog:run",
+        "memory:read",
+        "memory:write",
+        "memory:share",
+        "memory:publish",
+        "resources:read",
+        "resources:write",
+        "models:read"
+      ],
+      "handle": null,
+      "expiresAt": "2026-10-18T18:08:18.875Z"
+    },
+    "authenticated_original": {
+      "principal_id": "guest_Xqu5C2G0VWLljtcVDu3l3w8p-FJTGsl8LljPKfqYJpw",
+      "owner": false,
+      "rights": [
+        "read",
+        "fork"
+      ]
+    },
+    "original_available_operations": [
+      "fork",
+      "propose"
+    ],
+    "owned_fork": {
+      "principal_id": "guest_Xqu5C2G0VWLljtcVDu3l3w8p-FJTGsl8LljPKfqYJpw",
+      "owner": true,
+      "rights": [
+        "read",
+        "fork",
+        "source",
+        "compile",
+        "build",
+        "run",
+        "publish",
+        "checkpoint",
+        "propose",
+        "commit"
+      ]
+    },
+    "operation_contracts": [
+      {
+        "name": "source",
+        "method": "POST",
+        "href": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/source",
+        "available": false,
+        "requires": [
+          "active-principal",
+          "resources:write",
+          "resource-owner"
+        ],
+        "effects": [
+          "persisted-state"
+        ],
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "source": {
+              "type": [
+                "string",
+                "object"
+              ],
+              "description": "Closed pure native PURL source, at most 64 KiB"
+            },
+            "state": {
+              "description": "Finite persistable JSON, at most 64 KiB"
+            }
+          },
+          "required": [
+            "expected_version"
+          ],
+          "anyOf": [
+            {
+              "required": [
+                "source"
+              ]
+            },
+            {
+              "required": [
+                "state"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "compile",
+        "method": "POST",
+        "href": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/compile",
+        "available": false,
+        "requires": [
+          "active-principal",
+          "resources:write",
+          "resource-owner"
+        ],
+        "effects": [
+          "persisted-state"
+        ],
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "expected_version"
+          ]
+        }
+      },
+      {
+        "name": "build",
+        "method": "POST",
+        "href": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/build",
+        "available": false,
+        "requires": [
+          "active-principal",
+          "resources:write",
+          "resource-owner"
+        ],
+        "effects": [
+          "persisted-state"
+        ],
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "expected_version"
+          ]
+        }
+      },
+      {
+        "name": "run",
+        "method": "POST",
+        "href": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/run",
+        "available": false,
+        "requires": [
+          "active-principal",
+          "resources:write",
+          "resource-owner"
+        ],
+        "effects": [
+          "persisted-state",
+          "durable-job"
+        ],
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "input": {
+              "type": "object"
+            },
+            "seed": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "expected_version"
+          ]
+        }
+      },
+      {
+        "name": "publish",
+        "method": "POST",
+        "href": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/publish",
+        "available": false,
+        "requires": [
+          "active-principal",
+          "resources:write",
+          "resource-owner"
+        ],
+        "effects": [
+          "persisted-state"
+        ],
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "visibility": {
+              "type": "string",
+              "enum": [
+                "public",
+                "private"
+              ],
+              "default": "public"
+            }
+          },
+          "required": [
+            "expected_version"
+          ]
+        }
+      },
+      {
+        "name": "checkpoint",
+        "method": "POST",
+        "href": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/checkpoint",
+        "available": false,
+        "requires": [
+          "active-principal",
+          "resources:write",
+          "resource-owner"
+        ],
+        "effects": [
+          "persisted-state"
+        ],
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 6000,
+              "description": "Nonempty author assertion; evidence is not independently verified"
+            },
+            "next": {
+              "type": "array",
+              "description": "Suggested continuation steps; defaults to []"
+            },
+            "evidence": {
+              "type": "array",
+              "description": "Author-supplied evidence references; defaults to []"
+            }
+          },
+          "required": [
+            "expected_version",
+            "summary"
+          ]
+        }
+      },
+      {
+        "name": "fork",
+        "method": "POST",
+        "href": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/fork",
+        "available": false,
+        "requires": [
+          "active-principal",
+          "resources:write"
+        ],
+        "effects": [
+          "persisted-state"
+        ],
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 180,
+              "description": "Defaults to the original title with a continuation suffix"
+            },
+            "visibility": {
+              "type": "string",
+              "enum": [
+                "private",
+                "public"
+              ],
+              "default": "private"
+            }
+          },
+          "required": [
+            "expected_version"
+          ]
+        }
+      },
+      {
+        "name": "propose",
+        "method": "POST",
+        "href": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/propose",
+        "available": false,
+        "requires": [
+          "active-principal",
+          "resources:write"
+        ],
+        "effects": [
+          "persisted-state"
+        ],
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "source": {
+              "type": [
+                "string",
+                "object"
+              ],
+              "description": "Closed pure native PURL source, at most 64 KiB"
+            },
+            "state": {
+              "description": "Finite persistable JSON, at most 64 KiB"
+            },
+            "base_version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "summary": {
+              "type": "string",
+              "maxLength": 4000
+            }
+          },
+          "required": [
+            "expected_version"
+          ],
+          "anyOf": [
+            {
+              "required": [
+                "source"
+              ]
+            },
+            {
+              "required": [
+                "state"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "commit",
+        "method": "POST",
+        "href": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/commit",
+        "available": false,
+        "requires": [
+          "active-principal",
+          "resources:write",
+          "resource-owner"
+        ],
+        "effects": [
+          "persisted-state"
+        ],
+        "input_schema": {
+          "type": "object",
+          "properties": {
+            "expected_version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "proposal_id": {
+              "type": "string",
+              "pattern": "^proposal_[a-f0-9]{24}$"
+            },
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accept",
+                "reject"
+              ]
+            }
+          },
+          "required": [
+            "expected_version",
+            "proposal_id"
+          ]
+        }
+      }
+    ],
+    "observed_identity_config": {
+      "available": false,
+      "blockers": [
+        "PURL_OIDC_ISSUER is not configured",
+        "PURL_OIDC_CLIENT_ID is not configured",
+        "PURL_OIDC_CLIENT_SECRET is not configured"
+      ],
+      "product": "purls",
+      "callbackUrl": "https://purls-production.up.railway.app/auth/callback",
+      "guest_available": true,
+      "recovery_available": false
+    },
+    "published_anonymous": {
+      "principal_id": null,
+      "owner": false,
+      "rights": [
+        "read"
+      ]
+    }
+  },
+  "observed_continuation": {
+    "resource_id": "resource_2fb11e980e964b973027bcce",
+    "version": 7,
+    "lineage": {
+      "url": "https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316",
+      "version": 8,
+      "resource_id": "resource_95a5662789076892fe698316",
+      "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d"
+    },
+    "compile_ok": true,
+    "build": {
+      "id": "build_47bded932d0ef2e1e8cf49df",
+      "resource_id": "resource_2fb11e980e964b973027bcce",
+      "source_revision": 1,
+      "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d",
+      "plan": {
+        "language": "purl/1",
+        "ir_version": "purl-ir/1",
+        "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+        "input_type": "json",
+        "output_type": "json",
+        "effects": [],
+        "requires": [],
+        "steps": [
+          {
+            "op": "mission.inspect",
+            "version": "1.0.0",
+            "args": {}
+          }
+        ],
+        "operators": [
+          {
+            "name": "mission.inspect",
+            "version": "1.0.0",
+            "digest": "sha256:ba4d120b87dd4e95881141f6af2ab42159b6db7dfd8d5c9d7c746df385718940"
+          }
+        ],
+        "cost": 1,
+        "limits": {
+          "sourceBytes": 65536,
+          "valueBytes": 1048576,
+          "workBytes": 16777216,
+          "arrayLength": 10000,
+          "depth": 32,
+          "nodes": 512,
+          "steps": 10000,
+          "repeat": 1000,
+          "graphNodes": 1000,
+          "graphEdges": 10000
+        },
+        "derivation_id": "derivation:4d12ef8ee13287816fb43bcb05e748623bfddfdb3976a90889d0280e4c81f3f5"
+      },
+      "tests": [
+        {
+          "index": 0,
+          "passed": true,
+          "actual": {
+            "total_nodes": 1,
+            "dependency_edges": 0,
+            "ready_nodes": [
+              "test"
+            ],
+            "completed_nodes": [],
+            "waiting_nodes": [],
+            "completion": "NOT_RUN",
+            "verified": false,
+            "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth."
+          },
+          "expected": {
+            "verified": false,
+            "completion": "NOT_RUN",
+            "ready_nodes": [
+              "test"
+            ],
+            "total_nodes": 1,
+            "waiting_nodes": [],
+            "completed_nodes": [],
+            "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth.",
+            "dependency_edges": 0
+          }
+        }
+      ],
+      "status": "passed",
+      "immutable": true,
+      "environment": {
+        "node": "22.14.0",
+        "architecture": "x64",
+        "runtime": "purl-bounded-interpreter"
+      },
+      "created_at": "2026-10-18T17:39:00.287Z",
+      "content_id": "sha256:277426c689fb7d17ee7a3ed4b61bb3262cbe00f4167f3868763620cd040f09e3"
+    },
+    "execution": {
+      "id": "execution_046eae3e77127f6b6eedbe56",
+      "logs": [
+        {
+          "at": "2026-10-18T17:39:29.674Z",
+          "message": "Execution durably queued"
+        },
+        {
+          "at": "2026-10-18T17:39:30.718Z",
+          "message": "Worker claimed attempt 1"
+        },
+        {
+          "at": "2026-10-18T17:39:30.842Z",
+          "message": "Immutable result and receipt committed"
+        }
+      ],
+      "seed": 0,
+      "input": {
+        "graph": {
+          "nodes": [
+            {
+              "id": "mission",
+              "status": "PASS",
+              "dependencies": []
+            },
+            {
+              "id": "reconstruct-repositories",
+              "status": "PASS",
+              "dependencies": [
+                "mission"
+              ]
+            },
+            {
+              "id": "reconstruct-production",
+              "status": "PASS",
+              "dependencies": [
+                "mission"
+              ]
+            },
+            {
+              "id": "identity-provider",
+              "status": "BLOCKED",
+              "dependencies": [
+                "reconstruct-production"
+              ]
+            },
+            {
+              "id": "identity-pkce",
+              "status": "BLOCKED",
+              "dependencies": [
+                "reconstruct-repositories"
+              ]
+            },
+            {
+              "id": "identity-claim",
+              "status": "BLOCKED",
+              "dependencies": [
+                "identity-provider",
+                "identity-pkce"
+              ]
+            },
+            {
+              "id": "identity-lifecycle",
+              "status": "BLOCKED",
+              "dependencies": [
+                "identity-pkce"
+              ]
+            },
+            {
+              "id": "tenant-storage",
+              "status": "PASS",
+              "dependencies": [
+                "reconstruct-production"
+              ]
+            },
+            {
+              "id": "consumer-interface",
+              "status": "PASS",
+              "dependencies": [
+                "tenant-storage"
+              ]
+            },
+            {
+              "id": "catalog",
+              "status": "PASS",
+              "dependencies": [
+                "consumer-interface",
+                "tenant-storage"
+              ]
+            },
+            {
+              "id": "memory-atlas",
+              "status": "PASS",
+              "dependencies": [
+                "tenant-storage",
+                "identity-lifecycle"
+              ]
+            },
+            {
+              "id": "memory-passport",
+              "status": "PASS",
+              "dependencies": [
+                "memory-atlas"
+              ]
+            },
+            {
+              "id": "public-cognition",
+              "status": "PASS",
+              "dependencies": [
+                "memory-atlas"
+              ]
+            },
+            {
+              "id": "cgit-repositories",
+              "status": "PASS",
+              "dependencies": [
+                "tenant-storage",
+                "identity-lifecycle"
+              ]
+            },
+            {
+              "id": "cgit-interface",
+              "status": "PASS",
+              "dependencies": [
+                "cgit-repositories"
+              ]
+            },
+            {
+              "id": "github-lens",
+              "status": "PASS",
+              "dependencies": [
+                "cgit-repositories"
+              ]
+            },
+            {
+              "id": "model-gateway",
+              "status": "BLOCKED",
+              "dependencies": [
+                "tenant-storage",
+                "identity-lifecycle"
+              ]
+            },
+            {
+              "id": "real-models",
+              "status": "BLOCKED",
+              "dependencies": [
+                "model-gateway"
+              ]
+            },
+            {
+              "id": "constellations-runtime",
+              "status": "PASS",
+              "dependencies": [
+                "model-gateway",
+                "cgit-repositories"
+              ]
+            },
+            {
+              "id": "constellations-provider-study",
+              "status": "BLOCKED",
+              "dependencies": [
+                "real-models",
+                "constellations-runtime"
+              ]
+            },
+            {
+              "id": "program-forge",
+              "status": "PASS",
+              "dependencies": [
+                "tenant-storage"
+              ]
+            },
+            {
+              "id": "sandbox-isolation",
+              "status": "BLOCKED",
+              "dependencies": [
+                "reconstruct-production"
+              ]
+            },
+            {
+              "id": "oracle-inventory",
+              "status": "BLOCKED",
+              "dependencies": [
+                "reconstruct-production"
+              ]
+            },
+            {
+              "id": "native-mission",
+              "status": "PASS",
+              "dependencies": [
+                "program-forge"
+              ]
+            },
+            {
+              "id": "fresh-context",
+              "status": "NOT_RUN",
+              "dependencies": [
+                "native-mission"
+              ]
+            },
+            {
+              "id": "recovery",
+              "status": "PASS",
+              "dependencies": [
+                "tenant-storage",
+                "cgit-repositories",
+                "constellations-runtime"
+              ]
+            },
+            {
+              "id": "security-review",
+              "status": "PASS",
+              "dependencies": [
+                "identity-lifecycle",
+                "memory-passport",
+                "github-lens",
+                "model-gateway",
+                "program-forge"
+              ]
+            },
+            {
+              "id": "public-rollout",
+              "status": "PASS",
+              "dependencies": [
+                "security-review",
+                "consumer-interface",
+                "cgit-interface"
+              ]
+            },
+            {
+              "id": "journey-1",
+              "status": "BLOCKED",
+              "dependencies": [
+                "identity-claim",
+                "cgit-repositories"
+              ]
+            },
+            {
+              "id": "journey-2",
+              "status": "PASS",
+              "dependencies": [
+                "catalog",
+                "native-mission"
+              ]
+            },
+            {
+              "id": "journey-3",
+              "status": "NOT_RUN",
+              "dependencies": [
+                "memory-atlas",
+                "memory-passport"
+              ]
+            },
+            {
+              "id": "journey-4",
+              "status": "BLOCKED",
+              "dependencies": [
+                "constellations-provider-study",
+                "recovery"
+              ]
+            },
+            {
+              "id": "journey-5",
+              "status": "PASS",
+              "dependencies": [
+                "program-forge",
+                "sandbox-isolation"
+              ]
+            },
+            {
+              "id": "journey-6",
+              "status": "PASS",
+              "dependencies": [
+                "github-lens"
+              ]
+            },
+            {
+              "id": "journey-7",
+              "status": "BLOCKED",
+              "dependencies": [
+                "real-models"
+              ]
+            },
+            {
+              "id": "journey-8",
+              "status": "NOT_RUN",
+              "dependencies": [
+                "fresh-context"
+              ]
+            },
+            {
+              "id": "journey-9",
+              "status": "NOT_RUN",
+              "dependencies": [
+                "recovery",
+                "public-rollout"
+              ]
+            },
+            {
+              "id": "delivery",
+              "status": "NOT_RUN",
+              "dependencies": [
+                "public-rollout",
+                "fresh-context"
+              ]
+            }
+          ]
+        }
+      },
+      "owner": "guest_Xqu5C2G0VWLljtcVDu3l3w8p-FJTGsl8LljPKfqYJpw",
+      "value": {
+        "verified": false,
+        "completion": "NOT_RUN",
+        "ready_nodes": [
+          "fresh-context",
+          "journey-3",
+          "journey-9"
+        ],
+        "total_nodes": 38,
+        "waiting_nodes": [
+          "identity-provider",
+          "identity-pkce",
+          "identity-claim",
+          "identity-lifecycle",
+          "model-gateway",
+          "real-models",
+          "constellations-provider-study",
+          "sandbox-isolation",
+          "oracle-inventory",
+          "journey-1",
+          "journey-4",
+          "journey-7",
+          "journey-8",
+          "delivery"
+        ],
+        "completed_nodes": [
+          "mission",
+          "reconstruct-repositories",
+          "reconstruct-production",
+          "tenant-storage",
+          "consumer-interface",
+          "catalog",
+          "memory-atlas",
+          "memory-passport",
+          "public-cognition",
+          "cgit-repositories",
+          "cgit-interface",
+          "github-lens",
+          "constellations-runtime",
+          "program-forge",
+          "native-mission",
+          "recovery",
+          "security-review",
+          "public-rollout",
+          "journey-2",
+          "journey-5",
+          "journey-6"
+        ],
+        "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth.",
+        "dependency_edges": 59
+      },
+      "status": "succeeded",
+      "receipt": {
+        "schema": "purl.launch-execution-receipt/1",
+        "build_id": "build_47bded932d0ef2e1e8cf49df",
+        "input_id": "sha256:d75efb1a91ac6186368747499a773805b2911f292adf500ee41b9fb2e22fb31e",
+        "value_id": "value:ae065f3dc17a44008ecfd4c8d4cfde61772e021c854b55333bd19f16962905ec",
+        "content_id": "sha256:e091595da84db51ac780735642a58a612e0de3b0e215bc2f3f273fcda062bcb8",
+        "completed_at": "2026-10-18T17:39:30.842Z",
+        "execution_id": "execution_046eae3e77127f6b6eedbe56",
+        "environment_id": "environment:60ecca9e09ed9e6c7c1d20645e0e2fbd4a9a6d308c53e1a7c882890d3d88ee76",
+        "build_content_id": "sha256:277426c689fb7d17ee7a3ed4b61bb3262cbe00f4167f3868763620cd040f09e3",
+        "artifact_content_id": "sha256:d8e539cf93a3999f32f156281f86db0acb67dbb3ab5e57d55603d8dd641c96b8"
+      },
+      "attempts": 1,
+      "build_id": "build_47bded932d0ef2e1e8cf49df",
+      "value_id": "value:ae065f3dc17a44008ecfd4c8d4cfde61772e021c854b55333bd19f16962905ec",
+      "created_at": "2026-10-18T17:39:29.674Z",
+      "started_at": "2026-10-18T17:39:30.718Z",
+      "artifact_id": "artifact_6baa9550fcba0c33db9f4005",
+      "resource_id": "resource_2fb11e980e964b973027bcce",
+      "completed_at": "2026-10-18T17:39:30.842Z",
+      "build_content_id": "sha256:277426c689fb7d17ee7a3ed4b61bb3262cbe00f4167f3868763620cd040f09e3",
+      "runtime_environment": {
+        "node": "22.14.0",
+        "architecture": "x64",
+        "trace_environment_id": "environment:60ecca9e09ed9e6c7c1d20645e0e2fbd4a9a6d308c53e1a7c882890d3d88ee76"
+      }
+    },
+    "artifact": {
+      "id": "artifact_6baa9550fcba0c33db9f4005",
+      "trace": {
+        "seed": 0,
+        "input": {
+          "graph": {
+            "nodes": [
+              {
+                "id": "mission",
+                "status": "PASS",
+                "dependencies": []
+              },
+              {
+                "id": "reconstruct-repositories",
+                "status": "PASS",
+                "dependencies": [
+                  "mission"
+                ]
+              },
+              {
+                "id": "reconstruct-production",
+                "status": "PASS",
+                "dependencies": [
+                  "mission"
+                ]
+              },
+              {
+                "id": "identity-provider",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "reconstruct-production"
+                ]
+              },
+              {
+                "id": "identity-pkce",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "reconstruct-repositories"
+                ]
+              },
+              {
+                "id": "identity-claim",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "identity-provider",
+                  "identity-pkce"
+                ]
+              },
+              {
+                "id": "identity-lifecycle",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "identity-pkce"
+                ]
+              },
+              {
+                "id": "tenant-storage",
+                "status": "PASS",
+                "dependencies": [
+                  "reconstruct-production"
+                ]
+              },
+              {
+                "id": "consumer-interface",
+                "status": "PASS",
+                "dependencies": [
+                  "tenant-storage"
+                ]
+              },
+              {
+                "id": "catalog",
+                "status": "PASS",
+                "dependencies": [
+                  "consumer-interface",
+                  "tenant-storage"
+                ]
+              },
+              {
+                "id": "memory-atlas",
+                "status": "PASS",
+                "dependencies": [
+                  "tenant-storage",
+                  "identity-lifecycle"
+                ]
+              },
+              {
+                "id": "memory-passport",
+                "status": "PASS",
+                "dependencies": [
+                  "memory-atlas"
+                ]
+              },
+              {
+                "id": "public-cognition",
+                "status": "PASS",
+                "dependencies": [
+                  "memory-atlas"
+                ]
+              },
+              {
+                "id": "cgit-repositories",
+                "status": "PASS",
+                "dependencies": [
+                  "tenant-storage",
+                  "identity-lifecycle"
+                ]
+              },
+              {
+                "id": "cgit-interface",
+                "status": "PASS",
+                "dependencies": [
+                  "cgit-repositories"
+                ]
+              },
+              {
+                "id": "github-lens",
+                "status": "PASS",
+                "dependencies": [
+                  "cgit-repositories"
+                ]
+              },
+              {
+                "id": "model-gateway",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "tenant-storage",
+                  "identity-lifecycle"
+                ]
+              },
+              {
+                "id": "real-models",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "model-gateway"
+                ]
+              },
+              {
+                "id": "constellations-runtime",
+                "status": "PASS",
+                "dependencies": [
+                  "model-gateway",
+                  "cgit-repositories"
+                ]
+              },
+              {
+                "id": "constellations-provider-study",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "real-models",
+                  "constellations-runtime"
+                ]
+              },
+              {
+                "id": "program-forge",
+                "status": "PASS",
+                "dependencies": [
+                  "tenant-storage"
+                ]
+              },
+              {
+                "id": "sandbox-isolation",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "reconstruct-production"
+                ]
+              },
+              {
+                "id": "oracle-inventory",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "reconstruct-production"
+                ]
+              },
+              {
+                "id": "native-mission",
+                "status": "PASS",
+                "dependencies": [
+                  "program-forge"
+                ]
+              },
+              {
+                "id": "fresh-context",
+                "status": "NOT_RUN",
+                "dependencies": [
+                  "native-mission"
+                ]
+              },
+              {
+                "id": "recovery",
+                "status": "PASS",
+                "dependencies": [
+                  "tenant-storage",
+                  "cgit-repositories",
+                  "constellations-runtime"
+                ]
+              },
+              {
+                "id": "security-review",
+                "status": "PASS",
+                "dependencies": [
+                  "identity-lifecycle",
+                  "memory-passport",
+                  "github-lens",
+                  "model-gateway",
+                  "program-forge"
+                ]
+              },
+              {
+                "id": "public-rollout",
+                "status": "PASS",
+                "dependencies": [
+                  "security-review",
+                  "consumer-interface",
+                  "cgit-interface"
+                ]
+              },
+              {
+                "id": "journey-1",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "identity-claim",
+                  "cgit-repositories"
+                ]
+              },
+              {
+                "id": "journey-2",
+                "status": "PASS",
+                "dependencies": [
+                  "catalog",
+                  "native-mission"
+                ]
+              },
+              {
+                "id": "journey-3",
+                "status": "NOT_RUN",
+                "dependencies": [
+                  "memory-atlas",
+                  "memory-passport"
+                ]
+              },
+              {
+                "id": "journey-4",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "constellations-provider-study",
+                  "recovery"
+                ]
+              },
+              {
+                "id": "journey-5",
+                "status": "PASS",
+                "dependencies": [
+                  "program-forge",
+                  "sandbox-isolation"
+                ]
+              },
+              {
+                "id": "journey-6",
+                "status": "PASS",
+                "dependencies": [
+                  "github-lens"
+                ]
+              },
+              {
+                "id": "journey-7",
+                "status": "BLOCKED",
+                "dependencies": [
+                  "real-models"
+                ]
+              },
+              {
+                "id": "journey-8",
+                "status": "NOT_RUN",
+                "dependencies": [
+                  "fresh-context"
+                ]
+              },
+              {
+                "id": "journey-9",
+                "status": "NOT_RUN",
+                "dependencies": [
+                  "recovery",
+                  "public-rollout"
+                ]
+              },
+              {
+                "id": "delivery",
+                "status": "NOT_RUN",
+                "dependencies": [
+                  "public-rollout",
+                  "fresh-context"
+                ]
+              }
+            ]
+          }
+        },
+        "steps": [
+          {
+            "op": "mission.inspect",
+            "args": {},
+            "path": "$.steps[0]",
+            "index": 0,
+            "digest": "sha256:ba4d120b87dd4e95881141f6af2ab42159b6db7dfd8d5c9d7c746df385718940",
+            "effects": [],
+            "version": "1.0.0",
+            "input_id": "value:7ec7e703f8aa9858cac12799b76518d4f60d6904f416009512f90956aad93321",
+            "output_id": "value:ae065f3dc17a44008ecfd4c8d4cfde61772e021c854b55333bd19f16962905ec"
+          }
+        ],
+        "protocol": "purl-replay/1",
+        "value_id": "value:ae065f3dc17a44008ecfd4c8d4cfde61772e021c854b55333bd19f16962905ec",
+        "operators": [
+          {
+            "name": "mission.inspect",
+            "digest": "sha256:ba4d120b87dd4e95881141f6af2ab42159b6db7dfd8d5c9d7c746df385718940",
+            "version": "1.0.0"
+          }
+        ],
+        "receipt_id": "execution:90c023bd4ccb26e727c886ee6e4f6cfdca8f131cedcc6be8d99da4886c692be2",
+        "determinism": "deterministic",
+        "environment": {
+          "limits": {
+            "depth": 32,
+            "nodes": 512,
+            "steps": 10000,
+            "repeat": 1000,
+            "workBytes": 16777216,
+            "graphEdges": 10000,
+            "graphNodes": 1000,
+            "valueBytes": 1048576,
+            "arrayLength": 10000,
+            "sourceBytes": 65536
+          },
+          "runtime": "node",
+          "platform": "linux",
+          "interpreter": "purl-ir/1",
+          "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+          "architecture": "x64",
+          "dependencies": [
+            {
+              "name": "mission.inspect",
+              "digest": "sha256:ba4d120b87dd4e95881141f6af2ab42159b6db7dfd8d5c9d7c746df385718940",
+              "version": "1.0.0"
+            }
+          ],
+          "runtime_version": "v22.14.0"
+        },
+        "derivation_id": "derivation:4d12ef8ee13287816fb43bcb05e748623bfddfdb3976a90889d0280e4c81f3f5",
+        "environment_id": "environment:60ecca9e09ed9e6c7c1d20645e0e2fbd4a9a6d308c53e1a7c882890d3d88ee76",
+        "declared_effects": [],
+        "observed_effects": []
+      },
+      "value": {
+        "verified": false,
+        "completion": "NOT_RUN",
+        "ready_nodes": [
+          "fresh-context",
+          "journey-3",
+          "journey-9"
+        ],
+        "total_nodes": 38,
+        "waiting_nodes": [
+          "identity-provider",
+          "identity-pkce",
+          "identity-claim",
+          "identity-lifecycle",
+          "model-gateway",
+          "real-models",
+          "constellations-provider-study",
+          "sandbox-isolation",
+          "oracle-inventory",
+          "journey-1",
+          "journey-4",
+          "journey-7",
+          "journey-8",
+          "delivery"
+        ],
+        "completed_nodes": [
+          "mission",
+          "reconstruct-repositories",
+          "reconstruct-production",
+          "tenant-storage",
+          "consumer-interface",
+          "catalog",
+          "memory-atlas",
+          "memory-passport",
+          "public-cognition",
+          "cgit-repositories",
+          "cgit-interface",
+          "github-lens",
+          "constellations-runtime",
+          "program-forge",
+          "native-mission",
+          "recovery",
+          "security-review",
+          "public-rollout",
+          "journey-2",
+          "journey-5",
+          "journey-6"
+        ],
+        "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth.",
+        "dependency_edges": 59
+      },
+      "build_id": "build_47bded932d0ef2e1e8cf49df",
+      "immutable": true,
+      "content_id": "sha256:d8e539cf93a3999f32f156281f86db0acb67dbb3ab5e57d55603d8dd641c96b8",
+      "created_at": "2026-10-18T17:39:30.842Z",
+      "resource_id": "resource_2fb11e980e964b973027bcce",
+      "execution_id": "execution_046eae3e77127f6b6eedbe56"
+    },
+    "artifact_value_matches_execution": true,
+    "checkpoint": {
+      "id": "checkpoint_8775d8ed4d86f7a1792ab449",
+      "resource_id": "resource_2fb11e980e964b973027bcce",
+      "version": 6,
+      "summary": "Fresh URL-only continuation reconstructed nine embedded documents (9/9 SHA-256 match), 38 nodes/59 edges and recorded PASS21/BLOCKED12/NOT_RUN5. Fresh guest preview is explicitly unverified; original remains non-owned. Forked original v8, compiled, built 1/1 declared test, ran mission.inspect over all nodes' id/status/dependencies. Worker succeeded attempt1. Inspected matching immutable artifact/receipt and valid replay. Result NOT_RUN, verified=false; historical claims not independently validated. Identity config reports issuer/client ID/client secret missing; guest supported. Discovery gaps: /api/compiler GET404 and missing execution/artifact links; located supported reads through disclosed public GitHub source. Local client JSON truncation caused no HTTP request; compact input succeeded. Initial checkpoint403 csrf_required after config read; refreshed same identity before retry. No implementation edits, email, paid models, infrastructure changes or deletion.",
+      "next": [
+        "Open this URL with Accept:application/purl+json; read continuity and preserve all nine documents.",
+        "Inspect execution at /api/resources/resource_2fb11e980e964b973027bcce/executions/execution_046eae3e77127f6b6eedbe56; artifact at /api/resources/resource_2fb11e980e964b973027bcce/artifacts/artifact_6baa9550fcba0c33db9f4005; and replay.",
+        "Public read grants no owner write. Future authorized principal may fork latest published version. This checkpoint records bounded fresh-context success; inherited graph labels remain unchanged.",
+        "Repair compiler/discovery links and investigate config-read CSRF rotation; complete live memory/recovery checks and separately configured OIDC/model/Oracle blockers under appropriate authority."
+      ],
+      "evidence": [
+        {
+          "build_id": "build_47bded932d0ef2e1e8cf49df",
+          "execution_id": "execution_046eae3e77127f6b6eedbe56",
+          "artifact_id": "artifact_6baa9550fcba0c33db9f4005",
+          "receipt": "sha256:e091595da84db51ac780735642a58a612e0de3b0e215bc2f3f273fcda062bcb8",
+          "replay_valid": true,
+          "declared_tests_passed": 1,
+          "documents": 9,
+          "graph_nodes": 38,
+          "graph_edges": 59
+        }
+      ],
+      "state_hash": "sha256:e9fac4d9c3afcc940fc4512e790b153f9b5ab8ff03bafd5648e7f2648efe7ce6",
+      "created_at": "2026-10-18T17:42:07.869Z",
+      "actor": "guest_Xqu5C2G0VWLljtcVDu3l3w8p-FJTGsl8LljPKfqYJpw",
+      "evidence_verified": false,
+      "provenance": "Author assertions; content integrity is checked independently"
+    },
+    "release": {
+      "id": "release_549370e8f345e6e178103a4a",
+      "resource_id": "resource_2fb11e980e964b973027bcce",
+      "version": 7,
+      "build_id": "build_47bded932d0ef2e1e8cf49df",
+      "build_content_id": "sha256:277426c689fb7d17ee7a3ed4b61bb3262cbe00f4167f3868763620cd040f09e3",
+      "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d",
+      "immutable": true,
+      "created_at": "2026-10-18T17:42:20.680Z",
+      "content_id": "sha256:6996d702cdd6045b76c8ffa438e20b4b1b85568f34960622e9190d545e39704f"
+    },
+    "replay": {
+      "resource_id": "resource_2fb11e980e964b973027bcce",
+      "version": 7,
+      "valid": true,
+      "history_valid": true,
+      "events": 7,
+      "head": "sha256:8b57dc522c775daecceec3feb79bee8d7b96cc944f1566214a028df4f83a966c",
+      "problems": [],
+      "executions": [
+        {
+          "execution_id": "execution_046eae3e77127f6b6eedbe56",
+          "valid": true,
+          "replayable": true,
+          "reason": null
+        }
+      ],
+      "executions_complete": true,
+      "execution_status_counts": {
+        "total": 1,
+        "succeeded": 1,
+        "failed": 0,
+        "cancelled": 0,
+        "pending": 0
+      },
+      "assurance": "Hashes establish internal consistency, not external authenticity or requirement truth"
+    },
+    "runtime": {
+      "protocol": "purl-runtime-capabilities/1",
+      "product": "purls",
+      "node": "22.14.0",
+      "architecture": "x64",
+      "source_revision": "3b2784b7f9bb217954ef75c5f8e4985c748e4627",
+      "persistence": "supabase",
+      "authority": "Supabase scoped CAS records; containers hold no essential state",
+      "languages": {
+        "purl": "bounded pure interpreter",
+        "catalog": "closed registered operators",
+        "javascript": "AST indexing only",
+        "typescript": "AST indexing only"
+      },
+      "untrusted_authored_execution": false,
+      "network": {
+        "model_provider": "fixed OpenRouter HTTPS origin, explicit credential and budget required",
+        "github": "fixed GitHub HTTPS origins, read-only, bounded"
+      },
+      "limits": {
+        "source_bytes": 65536,
+        "artifact_bytes": 65536,
+        "row_bytes": 262144,
+        "tenant_bytes": 10485760,
+        "history_versions": 200
+      },
+      "worker": {
+        "leases": "persisted CAS fencing",
+        "interrupted_native_jobs": "retryable deterministic pure execution",
+        "interrupted_model_calls": "ambiguous calls never automatically repeated"
+      },
+      "portability": {
+        "api_start": "node service/launch/main.js",
+        "worker_start": "node service/launch/worker-main.js",
+        "healthcheck": "node deploy/healthcheck.js",
+        "adapter": "Docker/Railway now; Oracle worker on same image and authoritative backend"
+      }
+    },
+    "original_final_version": 8
+  },
+  "http_observations": [
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316",
+      "accept": "text/html",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/consumer/app.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316",
+      "accept": "application/json",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/continuity",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/manifest",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/source",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/history",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/replay",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/compiler",
+      "status": 404
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/sdk/launch.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/identity/config",
+      "status": 200,
+      "at": "2026-10-18T17:38:18.330Z"
+    },
+    {
+      "method": "POST",
+      "url": "https://purls-production.up.railway.app/api/identity/guest",
+      "status": 200,
+      "at": "2026-10-18T17:38:19.543Z"
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316",
+      "status": 200,
+      "at": "2026-10-18T17:38:20.379Z"
+    },
+    {
+      "method": "POST",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_95a5662789076892fe698316/fork",
+      "status": 201,
+      "at": "2026-10-18T17:38:30.689Z"
+    },
+    {
+      "method": "POST",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/compile",
+      "status": 200,
+      "at": "2026-10-18T17:38:48.522Z"
+    },
+    {
+      "method": "POST",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/build",
+      "status": 200,
+      "at": "2026-10-18T17:39:00.644Z"
+    },
+    {
+      "method": "POST",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/run",
+      "status": 202,
+      "at": "2026-10-18T17:39:30.080Z"
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/.well-known/purl",
+      "status": 200,
+      "at": "2026-10-18T17:39:46.670Z"
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce",
+      "status": 200,
+      "at": "2026-10-18T17:39:47.704Z"
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/p/resource_2fb11e980e964b973027bcce",
+      "status": 200,
+      "at": "2026-10-18T17:40:06.564Z"
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/replay",
+      "status": 200,
+      "at": "2026-10-18T17:40:07.879Z"
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/runtime",
+      "status": 200,
+      "at": "2026-10-18T17:40:09.585Z"
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/executions/execution_046eae3e77127f6b6eedbe56",
+      "status": 200,
+      "at": "2026-10-18T17:41:13.658Z"
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/artifacts/artifact_6baa9550fcba0c33db9f4005",
+      "status": 200,
+      "at": "2026-10-18T17:41:25.250Z"
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/identity/config",
+      "status": 200,
+      "at": "2026-10-18T17:41:25.550Z"
+    },
+    {
+      "method": "POST",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/checkpoint",
+      "status": 403,
+      "at": "2026-10-18T17:41:48.345Z"
+    },
+    {
+      "method": "GET",
+      "url": "https://purls-production.up.railway.app/api/identity/me",
+      "status": 200,
+      "at": "2026-10-18T17:41:52.476Z"
+    },
+    {
+      "method": "POST",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/checkpoint",
+      "status": 200,
+      "at": "2026-10-18T17:42:08.232Z"
+    },
+    {
+      "method": "POST",
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/publish",
+      "status": 200,
+      "at": "2026-10-18T17:42:21.146Z"
+    },
+    {
+      "url": "https://github.com/akadaan310/purl/blob/codex/purls-cgit-consumer/docs/consumer-launch/RUNBOOK.md",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/akadaan310/purl/tree/codex/purls-cgit-consumer",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/akadaan310/purl/blob/codex/purls-cgit-consumer/README.md",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/akadaan310/purl/tree/codex/purls-cgit-consumer/service",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/akadaan310/purl/tree/codex/purls-cgit-consumer/service/launch",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/akadaan310/purl/blob/codex/purls-cgit-consumer/service/launch/http.js",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/akadaan310/purl/blob/codex/purls-cgit-consumer/service/launch/resources.js",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://purls-production.up.railway.app/p/resource_2fb11e980e964b973027bcce",
+      "status": 200,
+      "name": "published-manifest",
+      "version": 7,
+      "authority": {
+        "principal_id": null,
+        "owner": false,
+        "rights": [
+          "read"
+        ]
+      },
+      "valid": null
+    },
+    {
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/replay",
+      "status": 200,
+      "name": "published-replay",
+      "version": 7,
+      "authority": null,
+      "valid": true
+    },
+    {
+      "url": "https://purls-production.up.railway.app/api/resources/resource_2fb11e980e964b973027bcce/continuity",
+      "status": 200,
+      "name": "published-continuity",
+      "version": 7,
+      "authority": {
+        "principal_id": null,
+        "owner": false,
+        "rights": [
+          "read"
+        ]
+      },
+      "valid": null
+    },
+    {
+      "url": "https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316",
+      "status": 200,
+      "name": "original-final",
+      "version": 8,
+      "authority": {
+        "principal_id": null,
+        "owner": false,
+        "rights": [
+          "read"
+        ]
+      },
+      "valid": null
+    }
+  ],
+  "failures_and_limitations": [
+    {
+      "kind": "disclosed_link",
+      "url": "https://purls-production.up.railway.app/api/compiler",
+      "method": "GET",
+      "status": 404,
+      "detail": "Compiler metadata link unavailable; resource compile operation succeeded."
+    },
+    {
+      "kind": "local_client",
+      "status": "no HTTP request",
+      "detail": "PTY canonical line truncation at4095 bytes prevented JSON parsing; compact projection preserving every node id/status/dependency succeeded."
+    },
+    {
+      "kind": "http",
+      "status": 403,
+      "code": "csrf_required",
+      "detail": "Checkpoint after identity/config read failed. Same identity refreshed via identity/me; retry expected_version5 succeeded. CSRF rotation mechanism not independently diagnosed."
+    },
+    {
+      "kind": "discoverability",
+      "detail": "Manifest and linked SDK omit execution/artifact child read URLs. Followed disclosed GitHub source tree to service/launch/resources.js, which documents their routing."
+    },
+    "Tests/status counts copied from the original mission were not independently re-run. One declared native build test and one graph execution were observed here.",
+    "All document hashes and replay consistency do not certify requirement truth. Native result verified=false and completion=NOT_RUN.",
+    "Original graph labels retained in fork; fresh-context completion evidence is in checkpoint.",
+    "Guest authority expires at reported timestamp; this is not a verified human identity.",
+    "Source navigation followed public branch links, whose current contents are not independently pinned against the live revision.",
+    "No live model study, real SSO/email, Oracle inventory, sandbox escape proof, physical shard cleanup, or full acceptance rerun was performed."
+  ],
+  "next_actions": [
+    "Open this URL with Accept:application/purl+json; read continuity and preserve all nine documents.",
+    "Inspect execution at /api/resources/resource_2fb11e980e964b973027bcce/executions/execution_046eae3e77127f6b6eedbe56; artifact at /api/resources/resource_2fb11e980e964b973027bcce/artifacts/artifact_6baa9550fcba0c33db9f4005; and replay.",
+    "Public read grants no owner write. Future authorized principal may fork latest published version. This checkpoint records bounded fresh-context success; inherited graph labels remain unchanged.",
+    "Repair compiler/discovery links and investigate config-read CSRF rotation; complete live memory/recovery checks and separately configured OIDC/model/Oracle blockers under appropriate authority."
+  ]
+}

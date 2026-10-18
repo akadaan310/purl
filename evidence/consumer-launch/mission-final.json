@@ -1,0 +1,111 @@
+{
+  "mission_url": "https://purls-production.up.railway.app/p/resource_95a5662789076892fe698316",
+  "version": 15,
+  "source_api": "367e8ed063065cb8bc9ebb8c9fc55235b4828723",
+  "source_worker": "3b2784b7f9bb217954ef75c5f8e4985c748e4627",
+  "documents": 9,
+  "nodes": 38,
+  "graph": {
+    "verified": false,
+    "completion": "NOT_RUN",
+    "ready_nodes": [
+      "delivery"
+    ],
+    "total_nodes": 38,
+    "waiting_nodes": [
+      "identity-provider",
+      "identity-pkce",
+      "identity-claim",
+      "identity-lifecycle",
+      "model-gateway",
+      "real-models",
+      "constellations-provider-study",
+      "sandbox-isolation",
+      "oracle-inventory",
+      "journey-1",
+      "journey-4",
+      "journey-7"
+    ],
+    "completed_nodes": [
+      "mission",
+      "reconstruct-repositories",
+      "reconstruct-production",
+      "tenant-storage",
+      "consumer-interface",
+      "catalog",
+      "memory-atlas",
+      "memory-passport",
+      "public-cognition",
+      "cgit-repositories",
+      "cgit-interface",
+      "github-lens",
+      "constellations-runtime",
+      "program-forge",
+      "native-mission",
+      "fresh-context",
+      "recovery",
+      "security-review",
+      "public-rollout",
+      "journey-2",
+      "journey-3",
+      "journey-5",
+      "journey-6",
+      "journey-8",
+      "journey-9"
+    ],
+    "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth.",
+    "dependency_edges": 59
+  },
+  "execution_id": "execution_7a410a58028bc67797f6ac51",
+  "artifact_id": "artifact_a5aed9895c575af43b38e0fe",
+  "receipt": {
+    "schema": "purl.launch-execution-receipt/1",
+    "build_id": "build_3edb8f6fdb39c4a7003f42ac",
+    "input_id": "sha256:1ed8093e2e5028fdb974d36cf626d4904cdb0a18b0ac0f72599886282d25e0b5",
+    "value_id": "value:85b5a66c03c49d34063b9ee865a345b0871a2fd7bb9e04370d2fa1f495d2bc4d",
+    "content_id": "sha256:c9234d340860abbf23cba3283dca8db5935ff453420d791543e60852db89dfc2",
+    "completed_at": "2026-10-18T17:51:31.601Z",
+    "execution_id": "execution_7a410a58028bc67797f6ac51",
+    "environment_id": "environment:60ecca9e09ed9e6c7c1d20645e0e2fbd4a9a6d308c53e1a7c882890d3d88ee76",
+    "build_content_id": "sha256:fb43046d3856edb9042b4455cb65186e8fe72f2d835529de0c77b7f8ee8584f3",
+    "artifact_content_id": "sha256:2a7a2b3ce32a1182ea5b32735a9e537c4b80f9e518d1d351e907524f7751f093"
+  },
+  "release_id": "release_773eae67a289a29cdfb3f1b4",
+  "replay": {
+    "resource_id": "resource_95a5662789076892fe698316",
+    "version": 15,
+    "valid": true,
+    "history_valid": true,
+    "events": 15,
+    "head": "sha256:55ba3a3efd231bd387d0387098fd011a73112ed33edc8e15e2c40776a83c79a9",
+    "problems": [],
+    "executions": [
+      {
+        "execution_id": "execution_aa7ced85a0031142160716d6",
+        "valid": true,
+        "replayable": true,
+        "reason": null
+      },
+      {
+        "execution_id": "execution_7a410a58028bc67797f6ac51",
+        "valid": true,
+        "replayable": true,
+        "reason": null
+      }
+    ],
+    "executions_complete": true,
+    "execution_status_counts": {
+      "total": 2,
+      "succeeded": 2,
+      "failed": 0,
+      "cancelled": 0,
+      "pending": 0
+    },
+    "assurance": "Hashes establish internal consistency, not external authenticity or requirement truth"
+  },
+  "state_bytes": 39806,
+  "published_at": "2026-10-18T17:57:35.965Z",
+  "overall": "INCOMPLETE",
+  "protocol_only_continuation": "https://purls-production.up.railway.app/p/resource_c98b3e62ff35baae17fd81d0",
+  "final_checkpoint_id": "checkpoint_8cb4c8a2fbd02f28df3d55ae"
+}

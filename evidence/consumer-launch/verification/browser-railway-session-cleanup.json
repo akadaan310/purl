@@ -1,0 +1,6 @@
+{
+  "reason": "Playwright APIRequestContext failure diagnostics included own temporary guest cookie headers; sessions revoked before sanitizing artifacts.",
+  "guestSessionsFound": 2,
+  "guestSessionsRevoked": 2,
+  "providerLogins": 0
+}

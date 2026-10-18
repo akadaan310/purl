@@ -1,0 +1,491 @@
+{
+  "startedAt": "2026-10-18T17:34:44.624Z",
+  "baseUrl": "https://cgit-hub-production.up.railway.app",
+  "scope": "Explicitly unverified guest-owned public-HTTP CGIT product smoke; no paid inference, email, legacy API, upstream GitHub writes or code execution",
+  "expectedDeploymentPrefix": "3b2784b",
+  "requests": [
+    {
+      "client": "anonymous",
+      "method": "GET",
+      "path": "/healthz",
+      "status": 200,
+      "durationMs": 378
+    },
+    {
+      "client": "anonymous",
+      "method": "GET",
+      "path": "/api/runtime",
+      "status": 200,
+      "durationMs": 284
+    },
+    {
+      "client": "owner-preview",
+      "method": "GET",
+      "path": "/api/identity/config",
+      "status": 200,
+      "durationMs": 257
+    },
+    {
+      "client": "owner-preview",
+      "method": "POST",
+      "path": "/api/identity/guest",
+      "status": 200,
+      "durationMs": 1388
+    },
+    {
+      "client": "owner-preview",
+      "method": "POST",
+      "path": "/api/cgit/repos/create",
+      "status": 201,
+      "durationMs": 801
+    },
+    {
+      "client": "owner-preview",
+      "method": "POST",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6/commit",
+      "status": 201,
+      "durationMs": 1020
+    },
+    {
+      "client": "owner-preview",
+      "method": "GET",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6",
+      "status": 200,
+      "durationMs": 714
+    },
+    {
+      "client": "owner-preview",
+      "method": "POST",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6/commit",
+      "status": 201,
+      "durationMs": 1174
+    },
+    {
+      "client": "owner-preview",
+      "method": "POST",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6/branch",
+      "status": 201,
+      "durationMs": 833
+    },
+    {
+      "client": "owner-preview",
+      "method": "GET",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6?branch=smoke-review",
+      "status": 200,
+      "durationMs": 673
+    },
+    {
+      "client": "owner-preview",
+      "method": "GET",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6/diff?from=a7f308fb4aadef11239d009065ebdee0f8a392c8c1978690b706dd046f8f25ea&to=df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861",
+      "status": 200,
+      "durationMs": 672
+    },
+    {
+      "client": "owner-preview",
+      "method": "POST",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6/release",
+      "status": 201,
+      "durationMs": 898
+    },
+    {
+      "client": "owner-preview",
+      "method": "GET",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6/export",
+      "status": 200,
+      "durationMs": 597
+    },
+    {
+      "client": "owner-preview",
+      "method": "POST",
+      "path": "/api/cgit/import",
+      "status": 201,
+      "durationMs": 1365
+    },
+    {
+      "client": "owner-preview",
+      "method": "GET",
+      "path": "/api/cgit/repos/9d4f6b26-b4d0-7891-d41d-9c041e9934a3/export",
+      "status": 200,
+      "durationMs": 545
+    },
+    {
+      "client": "anonymous",
+      "method": "GET",
+      "path": "/api/cgit/repos",
+      "status": 401,
+      "durationMs": 253
+    },
+    {
+      "client": "anonymous",
+      "method": "GET",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6",
+      "status": 401,
+      "durationMs": 246
+    },
+    {
+      "client": "foreign-preview",
+      "method": "GET",
+      "path": "/api/identity/config",
+      "status": 200,
+      "durationMs": 263
+    },
+    {
+      "client": "foreign-preview",
+      "method": "POST",
+      "path": "/api/identity/guest",
+      "status": 200,
+      "durationMs": 1148
+    },
+    {
+      "client": "foreign-preview",
+      "method": "GET",
+      "path": "/api/cgit/repos",
+      "status": 200,
+      "durationMs": 519
+    },
+    {
+      "client": "foreign-preview",
+      "method": "GET",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6",
+      "status": 404,
+      "durationMs": 491
+    },
+    {
+      "client": "foreign-preview",
+      "method": "GET",
+      "path": "/api/cgit/repos/ede9cfb8-58d9-42f9-b066-71f7e46e98f6/export",
+      "status": 404,
+      "durationMs": 500
+    },
+    {
+      "client": "owner-preview",
+      "method": "POST",
+      "path": "/api/cgit/github/index",
+      "status": 201,
+      "durationMs": 2531
+    },
+    {
+      "client": "owner-preview",
+      "method": "POST",
+      "path": "/api/cgit/lenses/a5277bb37aa3bd60be7f83045bb812e6dc634037fefae11ab4a9881d58289cdd/query",
+      "status": 200,
+      "durationMs": 870
+    },
+    {
+      "client": "owner-preview",
+      "method": "POST",
+      "path": "/api/cgit/lenses/a5277bb37aa3bd60be7f83045bb812e6dc634037fefae11ab4a9881d58289cdd/query",
+      "status": 200,
+      "durationMs": 938
+    },
+    {
+      "client": "owner-preview",
+      "method": "GET",
+      "path": "/api/cgit/lenses/a5277bb37aa3bd60be7f83045bb812e6dc634037fefae11ab4a9881d58289cdd",
+      "status": 200,
+      "durationMs": 607
+    },
+    {
+      "client": "foreign-preview",
+      "method": "GET",
+      "path": "/api/cgit/lenses/a5277bb37aa3bd60be7f83045bb812e6dc634037fefae11ab4a9881d58289cdd",
+      "status": 404,
+      "durationMs": 529
+    }
+  ],
+  "checks": [
+    {
+      "name": "live deployment and persistence",
+      "passed": true,
+      "durationMs": 664,
+      "status": "ok",
+      "product": "cgit",
+      "persistence": "supabase",
+      "sourceRevision": "3b2784b7f9bb217954ef75c5f8e4985c748e4627",
+      "node": "22.14.0"
+    },
+    {
+      "name": "explicit unverified owner preview",
+      "passed": true,
+      "durationMs": 1646,
+      "kind": "guest",
+      "verified": false,
+      "product": "cgit",
+      "credentialMaterialSaved": false
+    },
+    {
+      "name": "create own private repository",
+      "passed": true,
+      "durationMs": 803,
+      "repositoryId": "ede9cfb8-58d9-42f9-b066-71f7e46e98f6",
+      "format": "cgit-artifacts/1",
+      "hashAlgorithm": "sha256",
+      "gitWireProtocol": false
+    },
+    {
+      "name": "first typed immutable artifact commit",
+      "passed": true,
+      "durationMs": 1020,
+      "commitHash": "a7f308fb4aadef11239d009065ebdee0f8a392c8c1978690b706dd046f8f25ea",
+      "parentHashes": [],
+      "artifacts": [
+        {
+          "path": "evidence/research.json",
+          "type": "research",
+          "hash": "750b659d37b150e84c23cf59bef073ae470e5336a68bac0b48c57b93287ccbd1"
+        },
+        {
+          "path": "src/continuity.js",
+          "type": "code",
+          "hash": "2c544f1f0ab82cdd82e88d9a325ec3e587a923696943bb998e0c05db2e68e74d"
+        }
+      ],
+      "resumeCursor": {
+        "repositoryId": "ede9cfb8-58d9-42f9-b066-71f7e46e98f6",
+        "branch": "main",
+        "head": "a7f308fb4aadef11239d009065ebdee0f8a392c8c1978690b706dd046f8f25ea"
+      }
+    },
+    {
+      "name": "second typed immutable artifact commit",
+      "passed": true,
+      "durationMs": 1889,
+      "commitHash": "df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861",
+      "parentHashes": [
+        "a7f308fb4aadef11239d009065ebdee0f8a392c8c1978690b706dd046f8f25ea"
+      ],
+      "artifacts": [
+        {
+          "path": "src/continuity.js",
+          "type": "code",
+          "hash": "2ee9620f446e62fe303f3edb8a418762c493e05ee2b4a255d5e86daadbf2a0d0"
+        },
+        {
+          "path": "evidence/research.json",
+          "type": "research",
+          "hash": "a10418e2fea7d4dae8be512b67f531bfe2cc22eb4a8eb0c3a26a0943fc414048"
+        },
+        {
+          "path": "resume/checkpoint.json",
+          "type": "checkpoint",
+          "hash": "19dce2954a08217e2e5406196088693eb37968df0a18f5dd106fbaa35f988097"
+        }
+      ],
+      "resumeCursor": {
+        "repositoryId": "ede9cfb8-58d9-42f9-b066-71f7e46e98f6",
+        "branch": "main",
+        "head": "df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861"
+      }
+    },
+    {
+      "name": "branch at first immutable commit",
+      "passed": true,
+      "durationMs": 1506,
+      "branch": "smoke-review",
+      "head": "a7f308fb4aadef11239d009065ebdee0f8a392c8c1978690b706dd046f8f25ea",
+      "mainHead": "df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861"
+    },
+    {
+      "name": "diff actual immutable commits",
+      "passed": true,
+      "durationMs": 674,
+      "from": "a7f308fb4aadef11239d009065ebdee0f8a392c8c1978690b706dd046f8f25ea",
+      "to": "df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861",
+      "changes": [
+        {
+          "path": "evidence/research.json",
+          "kind": "modified",
+          "from": "750b659d37b150e84c23cf59bef073ae470e5336a68bac0b48c57b93287ccbd1",
+          "to": "a10418e2fea7d4dae8be512b67f531bfe2cc22eb4a8eb0c3a26a0943fc414048"
+        },
+        {
+          "path": "resume/checkpoint.json",
+          "kind": "added",
+          "from": null,
+          "to": "19dce2954a08217e2e5406196088693eb37968df0a18f5dd106fbaa35f988097"
+        },
+        {
+          "path": "src/continuity.js",
+          "kind": "modified",
+          "from": "2c544f1f0ab82cdd82e88d9a325ec3e587a923696943bb998e0c05db2e68e74d",
+          "to": "2ee9620f446e62fe303f3edb8a418762c493e05ee2b4a255d5e86daadbf2a0d0",
+          "structure": {
+            "path": "src/continuity.js",
+            "kind": "modified",
+            "from": "29f84020434e94f661905c0ac7c4501c2515b2404fc61ab480bc54e9ac1f21f7",
+            "to": "77bda119a5cb138c17d7a5c5a9e8d86cec8be4093c1d9350ade26df5fc0ec03f",
+            "hashAlgorithm": "sha256",
+            "addedSymbols": [],
+            "removedSymbols": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "immutable release",
+      "passed": true,
+      "durationMs": 898,
+      "release": {
+        "name": "smoke-v1",
+        "commit": "df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861",
+        "createdAt": "2026-10-18T17:34:53.570Z"
+      }
+    },
+    {
+      "name": "export complete owned snapshot",
+      "passed": true,
+      "durationMs": 598,
+      "format": "cgit-export/1",
+      "contentHash": "00ba954ebb2c630fad6e48006db29dba30334adeea281581b0dd2901d5cf8d2c",
+      "commitHashes": [
+        "a7f308fb4aadef11239d009065ebdee0f8a392c8c1978690b706dd046f8f25ea",
+        "df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861"
+      ],
+      "blobHashes": [
+        "19dce2954a08217e2e5406196088693eb37968df0a18f5dd106fbaa35f988097",
+        "2c544f1f0ab82cdd82e88d9a325ec3e587a923696943bb998e0c05db2e68e74d",
+        "2ee9620f446e62fe303f3edb8a418762c493e05ee2b4a255d5e86daadbf2a0d0",
+        "750b659d37b150e84c23cf59bef073ae470e5336a68bac0b48c57b93287ccbd1",
+        "a10418e2fea7d4dae8be512b67f531bfe2cc22eb4a8eb0c3a26a0943fc414048"
+      ],
+      "serializedBytes": 3373
+    },
+    {
+      "name": "restore into second owned repository preserving immutable objects",
+      "passed": true,
+      "durationMs": 1910,
+      "repositoryId": "9d4f6b26-b4d0-7891-d41d-9c041e9934a3",
+      "originalRepositoryId": "ede9cfb8-58d9-42f9-b066-71f7e46e98f6",
+      "head": "df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861",
+      "commitHashes": [
+        "a7f308fb4aadef11239d009065ebdee0f8a392c8c1978690b706dd046f8f25ea",
+        "df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861"
+      ],
+      "blobHashes": [
+        "19dce2954a08217e2e5406196088693eb37968df0a18f5dd106fbaa35f988097",
+        "2c544f1f0ab82cdd82e88d9a325ec3e587a923696943bb998e0c05db2e68e74d",
+        "2ee9620f446e62fe303f3edb8a418762c493e05ee2b4a255d5e86daadbf2a0d0",
+        "750b659d37b150e84c23cf59bef073ae470e5336a68bac0b48c57b93287ccbd1",
+        "a10418e2fea7d4dae8be512b67f531bfe2cc22eb4a8eb0c3a26a0943fc414048"
+      ],
+      "immutableHashesPreserved": true,
+      "branches": {
+        "main": "df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861",
+        "smoke-review": "a7f308fb4aadef11239d009065ebdee0f8a392c8c1978690b706dd046f8f25ea"
+      },
+      "releases": {
+        "smoke-v1": {
+          "name": "smoke-v1",
+          "commit": "df96c75cbf04df821137b2d2576badd8290f10d0040e129c4bb68ad93fddf861",
+          "createdAt": "2026-10-18T17:34:53.570Z"
+        }
+      }
+    },
+    {
+      "name": "anonymous private repository denial",
+      "passed": true,
+      "durationMs": 501,
+      "list": {
+        "status": 401,
+        "code": "authentication_required"
+      },
+      "detail": {
+        "status": 401,
+        "code": "authentication_required"
+      }
+    },
+    {
+      "name": "explicit unverified foreign preview and ownership boundary",
+      "passed": true,
+      "durationMs": 2922,
+      "kind": "guest",
+      "verified": false,
+      "foreignOwnedRepositories": 0,
+      "detail": {
+        "status": 404,
+        "code": "repository_not_found"
+      },
+      "export": {
+        "status": 404,
+        "code": "repository_not_found"
+      }
+    },
+    {
+      "name": "actual public GitHub index pinned to immutable MIT source",
+      "passed": true,
+      "durationMs": 2534,
+      "lensId": "a5277bb37aa3bd60be7f83045bb812e6dc634037fefae11ab4a9881d58289cdd",
+      "source": {
+        "url": "https://github.com/sindresorhus/is-plain-obj",
+        "owner": "sindresorhus",
+        "repository": "is-plain-obj",
+        "commitSha": "666df7c10035f7e26f27ec214fe5ae3173435f34",
+        "license": "MIT",
+        "attribution": "sindresorhus/is-plain-obj at 666df7c10035f7e26f27ec214fe5ae3173435f34",
+        "licenseNotice": "Source remains under its upstream license; unknown license grants no reuse permission"
+      },
+      "parser": "@babel/parser@7.29.9",
+      "indexVersion": "cgit-structural/1",
+      "inventoryFiles": 14,
+      "indexedFiles": 5,
+      "syntaxErrorFiles": 0,
+      "limits": {
+        "tree": 1000,
+        "indexedFiles": 40,
+        "totalSourceBytes": 2097152,
+        "fileBytes": 204800,
+        "selectedFiles": 5,
+        "sourceBytes": 3811
+      },
+      "benchmark": {
+        "method": "UTF-8 bytes / 4 estimate; not tokenizer-measured",
+        "rawSelectedEstimatedTokens": 953,
+        "navigationEstimatedTokens": 437,
+        "taskSuccess": "NOT_MEASURED; syntax navigation only",
+        "compressionClaim": false
+      }
+    },
+    {
+      "name": "deterministic persisted lens symbol and dependency query",
+      "passed": true,
+      "durationMs": 2947,
+      "lensId": "a5277bb37aa3bd60be7f83045bb812e6dc634037fefae11ab4a9881d58289cdd",
+      "symbol": {
+        "kind": "symbol",
+        "name": "isPlainObject",
+        "matches": [
+          {
+            "path": "index.js",
+            "name": "isPlainObject",
+            "kind": "FunctionDeclaration",
+            "line": 1,
+            "column": 15,
+            "endLine": 8
+          }
+        ],
+        "deterministic": true
+      },
+      "dependencies": {
+        "kind": "dependencies",
+        "name": "index.js",
+        "matches": [
+          {
+            "path": "index.js",
+            "dependencies": [],
+            "imports": []
+          }
+        ],
+        "deterministic": true
+      },
+      "persistedLensRead": true,
+      "foreignRead": {
+        "status": 404,
+        "code": "lens_not_found"
+      }
+    }
+  ],
+  "ok": true,
+  "completedAt": "2026-10-18T17:35:05.146Z",
+  "totalDurationMs": 20522
+}

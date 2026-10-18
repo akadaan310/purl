@@ -1,0 +1,11 @@
+{
+  "environment": "production",
+  "purls_origin": "https://purls-production.up.railway.app",
+  "cgit_origin": "https://cgit-hub-production.up.railway.app",
+  "cases": 18,
+  "responses": 243,
+  "unexpected": [],
+  "pageErrors": [],
+  "requestFailures": [],
+  "expectedAnonymous401": 18
+}

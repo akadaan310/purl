@@ -1,0 +1,50 @@
+{
+  "schema": "purl.backup-restore/1",
+  "started_at": "2026-10-18T17:32:42.450Z",
+  "before": {
+    "resource_id": "resource_2b2ebedbe2f17a5121eef9f7",
+    "execution_id": "execution_6c37bd2535e39c3eedb926ad",
+    "status": "queued"
+  },
+  "backup": {
+    "bytes": 746829,
+    "sha256": "eaf3f4937df2eced7753e160568fbd303fd436f3a9a1b0aaa31cc44b70b1072c",
+    "private_snapshot_in_delivery": false
+  },
+  "restored": {
+    "fresh_container": true,
+    "new_volume": true,
+    "execution_id": "execution_6c37bd2535e39c3eedb926ad",
+    "status": "succeeded",
+    "attempts": 1,
+    "value": 10,
+    "receipt_id": "sha256:930dbb41a1e54fdb68763dac304e8749879d5acc78953d64aad02134cf03737f",
+    "replay": {
+      "resource_id": "resource_2b2ebedbe2f17a5121eef9f7",
+      "version": 4,
+      "valid": true,
+      "history_valid": true,
+      "events": 4,
+      "head": "sha256:64176ad3579b9a81bbb927cf874d58318e4598357ad2970a0fbc7dad4732b81a",
+      "problems": [],
+      "executions": [
+        {
+          "execution_id": "execution_6c37bd2535e39c3eedb926ad",
+          "valid": true,
+          "replayable": true,
+          "reason": null
+        }
+      ],
+      "executions_complete": true,
+      "execution_status_counts": {
+        "total": 1,
+        "succeeded": 1,
+        "failed": 0,
+        "cancelled": 0,
+        "pending": 0
+      },
+      "assurance": "Hashes establish internal consistency, not external authenticity or requirement truth"
+    }
+  },
+  "completed_at": "2026-10-18T17:32:51.523Z"
+}

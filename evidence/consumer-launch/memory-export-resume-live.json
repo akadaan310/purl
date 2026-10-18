@@ -1,0 +1,25 @@
+{
+  "synthetic_input": true,
+  "owner_private": true,
+  "created": true,
+  "exported": true,
+  "export_sha256": "d594c3a73af7b9cc1afc8f15f9c3824ba4d6bf122fdf741b11865be162c3c420",
+  "real_registered_resume_operator": "never-start-over",
+  "context_contains_fact": true,
+  "receipt": {
+    "id": "57751bde-d639-4512-802f-d54c94a158d4",
+    "experience_id": "never-start-over",
+    "input_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "output_hash": "fef4420dd2fe97884d8257cd9ecd504e2f4ab3f55856847845b682435b88dbd6",
+    "graph_hash": "c5d9d8734ca7ca9d156e76483913344fd81ebb756bf30e0e33b6e18a1ba2d2e9",
+    "owner_persisted": false,
+    "determinism": "live-memory",
+    "effects": [
+      "memory:read"
+    ],
+    "executed_at": "2026-10-18T17:53:03.514Z",
+    "replay": "Reads current owner memory; historical snapshots are not stored."
+  },
+  "fact_deleted_after_check": true,
+  "observed_at": "2026-10-18T17:53:04.525Z"
+}

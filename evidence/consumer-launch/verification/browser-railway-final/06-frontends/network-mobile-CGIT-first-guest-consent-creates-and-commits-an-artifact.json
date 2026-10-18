@@ -1,0 +1,92 @@
+{
+  "responses": [
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/cgit/style.css",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/cgit/app.js",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/dm-sans-semibold.ttf",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/identity/me",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/assets/dm-sans-regular.ttf",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/identity/config",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/config",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/assets/instrument-serif-regular.ttf",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/identity/guest",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/identity/me",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/cgit/repos",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/cgit/repos/create",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/cgit/repos/2734a81c-6613-47f2-a497-bf8c353c3975",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/cgit/repos/2734a81c-6613-47f2-a497-bf8c353c3975/commit",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/cgit/repos/2734a81c-6613-47f2-a497-bf8c353c3975",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/cgit/repos/2734a81c-6613-47f2-a497-bf8c353c3975/export",
+      "status": 200
+    }
+  ],
+  "unexpected": [],
+  "pageErrors": [],
+  "requestFailures": []
+}

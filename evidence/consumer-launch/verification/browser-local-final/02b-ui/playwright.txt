@@ -1,0 +1,37 @@
+
+Running 28 tests using 1 worker
+
+(node:61630) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › test/launch/provider-ui.spec.js:35:1 › disabled provider shows precise blockers with no fictitious login (455ms)
+  ✓   2 [desktop] › test/launch/provider-ui.spec.js:36:1 › password is cleared and sign-in never implicitly reviews or approves (169ms)
+  ✓   3 [desktop] › test/launch/provider-ui.spec.js:37:1 › verified user explicitly reviews client scopes then approves exact product callback (662ms)
+  ✓   4 [desktop] › test/launch/provider-ui.spec.js:38:1 › denial is explicit and returns only a validated product callback (191ms)
+  ✓   5 [desktop] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://evil.test/auth/callback?code=x (182ms)
+  ✓   6 [desktop] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://purls.test/not-a-callback (185ms)
+  ✓   7 [desktop] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://person@purls.test/auth/callback (183ms)
+  ✓   8 [desktop] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://purls.test/auth/callback#access_token=fixture (194ms)
+  ✓   9 [desktop] › test/launch/provider-ui.spec.js:40:1 › signup requires provider email verification and recovery makes no verification claim (258ms)
+  ✓  10 [desktop] › test/launch/provider-ui.spec.js:41:1 › email redirect readiness gates signup and recovery (73ms)
+  ✓  11 [desktop] › test/launch/provider-ui.spec.js:42:1 › fragment tokens are discarded and never establish a session (89ms)
+  ✓  12 [desktop] › test/launch/provider-ui.spec.js:43:1 › autoapproved grant fails visibly and never follows an implicit redirect (123ms)
+  ✓  13 [desktop] › test/launch/provider-ui.spec.js:44:1 › missing authorization ID preserves account access without inventing a client (88ms)
+  ✓  14 [desktop] › test/launch/provider-ui.spec.js:45:1 › actual browser HTTP cookies and provider adapter complete explicit local protocol fixture (948ms)
+(node:61911) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 [mobile] › test/launch/provider-ui.spec.js:35:1 › disabled provider shows precise blockers with no fictitious login (540ms)
+  ✓  16 [mobile] › test/launch/provider-ui.spec.js:36:1 › password is cleared and sign-in never implicitly reviews or approves (172ms)
+  ✓  17 [mobile] › test/launch/provider-ui.spec.js:37:1 › verified user explicitly reviews client scopes then approves exact product callback (682ms)
+  ✓  18 [mobile] › test/launch/provider-ui.spec.js:38:1 › denial is explicit and returns only a validated product callback (186ms)
+  ✓  19 [mobile] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://evil.test/auth/callback?code=x (189ms)
+  ✓  20 [mobile] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://purls.test/not-a-callback (195ms)
+  ✓  21 [mobile] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://person@purls.test/auth/callback (156ms)
+  ✓  22 [mobile] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://purls.test/auth/callback#access_token=fixture (179ms)
+  ✓  23 [mobile] › test/launch/provider-ui.spec.js:40:1 › signup requires provider email verification and recovery makes no verification claim (255ms)
+  ✓  24 [mobile] › test/launch/provider-ui.spec.js:41:1 › email redirect readiness gates signup and recovery (75ms)
+  ✓  25 [mobile] › test/launch/provider-ui.spec.js:42:1 › fragment tokens are discarded and never establish a session (63ms)
+  ✓  26 [mobile] › test/launch/provider-ui.spec.js:43:1 › autoapproved grant fails visibly and never follows an implicit redirect (113ms)
+  ✓  27 [mobile] › test/launch/provider-ui.spec.js:44:1 › missing authorization ID preserves account access without inventing a client (66ms)
+  ✓  28 [mobile] › test/launch/provider-ui.spec.js:45:1 › actual browser HTTP cookies and provider adapter complete explicit local protocol fixture (1.1s)
+
+  28 passed (8.8s)

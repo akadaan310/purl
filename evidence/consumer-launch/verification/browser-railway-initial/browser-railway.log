@@ -1,0 +1,143 @@
+
+Running 18 tests using 1 worker
+
+(node:70380) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › test/launch/ui.spec.js:11:2 › PURLs independent, accessible and responsive (3.2s)
+  ✓   2 [desktop] › test/launch/ui.spec.js:11:2 › CGIT independent, accessible and responsive (1.6s)
+  ✓   3 [desktop] › test/launch/ui.spec.js:20:1 › PURLs discovery runs an actual catalog sample and shows its receipt (5.7s)
+  ✓   4 [desktop] › test/launch/ui.spec.js:27:1 › PURLs guest memory remains explicit and supports real create/edit/delete (10.8s)
+  ✓   5 [desktop] › test/launch/ui.spec.js:42:1 › CGIT first guest consent creates and commits an artifact (7.3s)
+  ✘   6 [desktop] › test/launch/ui.spec.js:52:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback (7.0s)
+(node:70877) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   7 [desktop] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability (3.5s)
+(node:71017) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [desktop] › test/launch/ui.spec.js:69:1 › catalog memory sharing requires explicit review before any mutation (1.8s)
+  ✓   9 [desktop] › test/launch/ui.spec.js:75:1 › native mission follows read-only manifest and continuity links (1.9s)
+(node:71159) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [mobile] › test/launch/ui.spec.js:11:2 › PURLs independent, accessible and responsive (2.7s)
+  ✓  11 [mobile] › test/launch/ui.spec.js:11:2 › CGIT independent, accessible and responsive (2.0s)
+  ✓  12 [mobile] › test/launch/ui.spec.js:20:1 › PURLs discovery runs an actual catalog sample and shows its receipt (5.4s)
+  ✓  13 [mobile] › test/launch/ui.spec.js:27:1 › PURLs guest memory remains explicit and supports real create/edit/delete (9.8s)
+  ✓  14 [mobile] › test/launch/ui.spec.js:42:1 › CGIT first guest consent creates and commits an artifact (8.2s)
+  ✘  15 [mobile] › test/launch/ui.spec.js:52:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback (8.8s)
+(node:71672) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  16 [mobile] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability (3.0s)
+(node:71782) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [mobile] › test/launch/ui.spec.js:69:1 › catalog memory sharing requires explicit review before any mutation (1.9s)
+  ✓  18 [mobile] › test/launch/ui.spec.js:75:1 › native mission follows read-only manifest and continuity links (2.7s)
+
+
+  1) [desktop] › test/launch/ui.spec.js:52:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback 
+
+    Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443
+    Call log:
+      - → GET https://purls-production.up.railway.app/api/passports/oYhsSAyVKctODSfCt62Bva4fK7aZYIoC
+        - user-agent: Playwright/1.64.1 (x64; debian 13) node/24.19
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+
+      56 |  await page.getByRole('checkbox',{name:/I consent to sharing only my selected memories/}).check();await page.getByRole('button',{name:'Create selected-memory passport'}).click();
+      57 |  const open=page.locator('.panel').filter({hasText:'Share a small piece.'}).getByRole('link',{name:'Open ↗'}).first();await expect(open).toBeVisible();const url=await open.getAttribute('href');
+    > 58 |  const before=await request.get(url);expect(before.ok()).toBe(true);expect(JSON.stringify(await before.json())).toContain('Share only this selected memory.');
+         |                             ^
+      59 |  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw new Error('Denied')}},configurable:true}));
+      60 |  await page.getByRole('button',{name:'Copy PURL',exact:true}).first().click();await expect(page.getByLabel('PURL',{exact:true})).toHaveValue(url);await page.getByRole('button',{name:'Close dialog'}).click();
+      61 |  const revoked=page.waitForResponse(r=>r.url().includes('/api/passports/')&&r.url().endsWith('/revoke')&&r.request().method()==='POST');await page.getByRole('button',{name:'Revoke future access'}).first().click();expect((await revoked).status()).toBe(200);await expect(page.getByRole('button',{name:'Revoke future access'})).toHaveCount(0);const after=await request.get(url);expect(after.status()).toBe(410);
+        at /workspace/purl/test/launch/ui.spec.js:58:29
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence/consumer-launch/06-frontends/test-results/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence/consumer-launch/06-frontends/test-results/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-desktop/error-context.md
+
+  2) [desktop] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability 
+
+    Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443
+    Call log:
+      - → GET https://purls-production.up.railway.app/api/models
+        - user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+        - cookie: [REDACTED]
+
+
+      65 |  if(!readiness.available){await expect(page.getByText('Verified sign-in is unavailable',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Continue with your identity provider ↗'})).toBeDisabled();}
+      66 |  await page.getByRole('button',{name:'Explore as a guest'}).click();await expect(page.getByRole('link',{name:'Guest preview · unverified ↗',exact:true})).toBeVisible();await page.getByRole('link',{name:'Constellations',exact:true}).click();
+    > 67 |  const models=await page.request.get(`${purls}/api/models`);if(models.ok()&&!(await models.json()).available){await expect(page.getByText(/Live inference is unavailable/)).toBeVisible();await expect(page.getByRole('button',{name:'Create constellation',exact:true})).toBeDisabled();}
+         |                                  ^
+      68 | });
+      69 | test('catalog memory sharing requires explicit review before any mutation',async({page})=>{
+      70 |  await page.goto(`${purls}/my-purl`);await page.getByRole('button',{name:'Explore as a guest'}).click();await page.getByRole('link',{name:'Discover',exact:true}).click();
+        at /workspace/purl/test/launch/ui.spec.js:67:34
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence/consumer-launch/06-frontends/test-results/ui-human-sign-in-and-live--d1d5f-ise-deployment-availability-desktop/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence/consumer-launch/06-frontends/test-results/ui-human-sign-in-and-live--d1d5f-ise-deployment-availability-desktop/error-context.md
+
+  3) [mobile] › test/launch/ui.spec.js:52:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback 
+
+    Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443
+    Call log:
+      - → GET https://purls-production.up.railway.app/api/passports/QuWmXG3M8LDwn8c6m87Dl3FV1BGrHuLf
+        - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+
+      56 |  await page.getByRole('checkbox',{name:/I consent to sharing only my selected memories/}).check();await page.getByRole('button',{name:'Create selected-memory passport'}).click();
+      57 |  const open=page.locator('.panel').filter({hasText:'Share a small piece.'}).getByRole('link',{name:'Open ↗'}).first();await expect(open).toBeVisible();const url=await open.getAttribute('href');
+    > 58 |  const before=await request.get(url);expect(before.ok()).toBe(true);expect(JSON.stringify(await before.json())).toContain('Share only this selected memory.');
+         |                             ^
+      59 |  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw new Error('Denied')}},configurable:true}));
+      60 |  await page.getByRole('button',{name:'Copy PURL',exact:true}).first().click();await expect(page.getByLabel('PURL',{exact:true})).toHaveValue(url);await page.getByRole('button',{name:'Close dialog'}).click();
+      61 |  const revoked=page.waitForResponse(r=>r.url().includes('/api/passports/')&&r.url().endsWith('/revoke')&&r.request().method()==='POST');await page.getByRole('button',{name:'Revoke future access'}).first().click();expect((await revoked).status()).toBe(200);await expect(page.getByRole('button',{name:'Revoke future access'})).toHaveCount(0);const after=await request.get(url);expect(after.status()).toBe(410);
+        at /workspace/purl/test/launch/ui.spec.js:58:29
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence/consumer-launch/06-frontends/test-results/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-mobile/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence/consumer-launch/06-frontends/test-results/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-mobile/error-context.md
+
+  4) [mobile] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability 
+
+    Error: apiRequestContext.get: connect ECONNREFUSED 69.46.46.115:443
+    Call log:
+      - → GET https://purls-production.up.railway.app/api/models
+        - user-agent: Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+        - cookie: [REDACTED]
+
+
+      65 |  if(!readiness.available){await expect(page.getByText('Verified sign-in is unavailable',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Continue with your identity provider ↗'})).toBeDisabled();}
+      66 |  await page.getByRole('button',{name:'Explore as a guest'}).click();await expect(page.getByRole('link',{name:'Guest preview · unverified ↗',exact:true})).toBeVisible();await page.getByRole('link',{name:'Constellations',exact:true}).click();
+    > 67 |  const models=await page.request.get(`${purls}/api/models`);if(models.ok()&&!(await models.json()).available){await expect(page.getByText(/Live inference is unavailable/)).toBeVisible();await expect(page.getByRole('button',{name:'Create constellation',exact:true})).toBeDisabled();}
+         |                                  ^
+      68 | });
+      69 | test('catalog memory sharing requires explicit review before any mutation',async({page})=>{
+      70 |  await page.goto(`${purls}/my-purl`);await page.getByRole('button',{name:'Explore as a guest'}).click();await page.getByRole('link',{name:'Discover',exact:true}).click();
+        at /workspace/purl/test/launch/ui.spec.js:67:34
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    evidence/consumer-launch/06-frontends/test-results/ui-human-sign-in-and-live--d1d5f-ise-deployment-availability-mobile/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: evidence/consumer-launch/06-frontends/test-results/ui-human-sign-in-and-live--d1d5f-ise-deployment-availability-mobile/error-context.md
+
+  4 failed
+    [desktop] › test/launch/ui.spec.js:52:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback 
+    [desktop] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability 
+    [mobile] › test/launch/ui.spec.js:52:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback 
+    [mobile] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability 
+  14 passed (1.5m)

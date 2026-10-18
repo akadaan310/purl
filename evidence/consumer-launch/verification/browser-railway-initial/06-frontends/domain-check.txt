@@ -1,0 +1,370 @@
+[
+  {
+    "product": "purls",
+    "viewport": "desktop",
+    "errors": [],
+    "overflow": {
+      "scroll": 1440,
+      "width": 1440
+    },
+    "violations": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/config",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/config",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/me",
+        "status": 401
+      },
+      {
+        "method": "GET",
+        "path": "/api/catalog",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/identity/guest",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/me",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/memory/create",
+        "status": 201
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/memory/passports/create",
+        "status": 201
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/passports/VUl2aiLXEWWwFiC7oIxPd8EAmueDhnAk",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/passports/VUl2aiLXEWWwFiC7oIxPd8EAmueDhnAk/revoke",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/passports/VUl2aiLXEWWwFiC7oIxPd8EAmueDhnAk",
+        "status": 410
+      },
+      {
+        "method": "POST",
+        "path": "/api/memory/O-wpyEhLYabbdtb4P1LjdC65f-4Ve8HB/update",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/catalog/text-metrics/run",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/memory/O-wpyEhLYabbdtb4P1LjdC65f-4Ve8HB/delete",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "product": "purls",
+    "viewport": "mobile",
+    "errors": [],
+    "overflow": {
+      "scroll": 393,
+      "width": 393
+    },
+    "violations": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/config",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/config",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/me",
+        "status": 401
+      },
+      {
+        "method": "GET",
+        "path": "/api/catalog",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/identity/guest",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/me",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/memory/create",
+        "status": 201
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/memory/passports/create",
+        "status": 201
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/passports/AX3UB8JkG6vgC9Nj4hnK_vp33DrJzTT6",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/passports/AX3UB8JkG6vgC9Nj4hnK_vp33DrJzTT6/revoke",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/passports/AX3UB8JkG6vgC9Nj4hnK_vp33DrJzTT6",
+        "status": 410
+      },
+      {
+        "method": "POST",
+        "path": "/api/memory/CieBxvGpKhFNuStXEHZBCwAGkNQWOtB8/update",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/catalog/text-metrics/run",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/memory/CieBxvGpKhFNuStXEHZBCwAGkNQWOtB8/delete",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/memory",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "product": "cgit",
+    "viewport": "desktop",
+    "errors": [],
+    "overflow": {
+      "scroll": 1440,
+      "width": 1440
+    },
+    "violations": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/config",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/config",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/me",
+        "status": 401
+      },
+      {
+        "method": "POST",
+        "path": "/api/identity/guest",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/me",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/cgit/repos",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/cgit/repos/create",
+        "status": 201
+      },
+      {
+        "method": "GET",
+        "path": "/api/cgit/repos/2aad0207-82a0-468d-a2f1-8b7e26d1b165",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/cgit/repos/2aad0207-82a0-468d-a2f1-8b7e26d1b165/commit",
+        "status": 201
+      },
+      {
+        "method": "GET",
+        "path": "/api/cgit/repos/2aad0207-82a0-468d-a2f1-8b7e26d1b165",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/cgit/repos/2aad0207-82a0-468d-a2f1-8b7e26d1b165/export",
+        "status": 200
+      }
+    ]
+  },
+  {
+    "product": "cgit",
+    "viewport": "mobile",
+    "errors": [],
+    "overflow": {
+      "scroll": 393,
+      "width": 393
+    },
+    "violations": [],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/config",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/config",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/me",
+        "status": 401
+      },
+      {
+        "method": "POST",
+        "path": "/api/identity/guest",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/identity/me",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/cgit/repos",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/cgit/repos/create",
+        "status": 201
+      },
+      {
+        "method": "GET",
+        "path": "/api/cgit/repos/2f2f91ba-612a-4867-b765-98386d12a926",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/cgit/repos/2f2f91ba-612a-4867-b765-98386d12a926/commit",
+        "status": 201
+      },
+      {
+        "method": "GET",
+        "path": "/api/cgit/repos/2f2f91ba-612a-4867-b765-98386d12a926",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/cgit/repos/2f2f91ba-612a-4867-b765-98386d12a926/export",
+        "status": 200
+      }
+    ]
+  }
+]

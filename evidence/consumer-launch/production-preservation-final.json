@@ -1,0 +1,22 @@
+{
+  "schema": "purl.production-preservation/1",
+  "observed_at_approximate": "2026-10-18T18:00:00Z",
+  "source": "Hosted Supabase read-only SQL read-back",
+  "legacy_document": {
+    "document_id": "godseed-v3-production",
+    "revision": 70,
+    "md5_data_text": "4d8b98fcf8a4d6bf0a6aed1cb60d6fcd",
+    "bytes": 5462714,
+    "unchanged_from_baseline": true
+  },
+  "additive_launch_store": {
+    "scopes": 74,
+    "records": 347,
+    "active_bytes": 3708064
+  },
+  "notes": [
+    "Aggregate snapshot; subsequent authorized activity can change launch counts.",
+    "Legacy SQL fingerprint is md5(data::text), not an artifact digest or authenticity proof.",
+    "No private record contents or credentials are included."
+  ]
+}

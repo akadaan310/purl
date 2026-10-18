@@ -1,0 +1,103 @@
+{
+  "fixture_only": true,
+  "remoteRequests": [
+    {
+      "method": "GET",
+      "path": "/auth/v1/.well-known/oauth-authorization-server"
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/.well-known/oauth-authorization-server"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/v1/token"
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/user"
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/.well-known/oauth-authorization-server"
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/user"
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/user"
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/oauth/authorizations/http-fixture-auth"
+    },
+    {
+      "method": "GET",
+      "path": "/auth/v1/user"
+    },
+    {
+      "method": "POST",
+      "path": "/auth/v1/oauth/authorizations/http-fixture-auth/consent"
+    }
+  ],
+  "browserRequests": [
+    {
+      "method": "GET",
+      "path": "/api/config",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/identity/config",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/identity/provider/me",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "path": "/api/identity/provider/config",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/identity/provider/signin",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/config",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/identity/config",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/identity/provider/config",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/identity/provider/me",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/identity/provider/authorization",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/identity/provider/consent",
+      "status": 200
+    }
+  ],
+  "pageErrors": []
+}

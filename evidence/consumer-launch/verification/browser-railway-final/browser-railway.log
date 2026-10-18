@@ -1,0 +1,27 @@
+
+Running 18 tests using 1 worker
+
+(node:73473) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › test/launch/ui.spec.js:11:2 › PURLs independent, accessible and responsive (2.7s)
+  ✓   2 [desktop] › test/launch/ui.spec.js:11:2 › CGIT independent, accessible and responsive (2.2s)
+  ✓   3 [desktop] › test/launch/ui.spec.js:20:1 › PURLs discovery runs an actual catalog sample and shows its receipt (5.3s)
+  ✓   4 [desktop] › test/launch/ui.spec.js:27:1 › PURLs guest memory remains explicit and supports real create/edit/delete (10.3s)
+  ✓   5 [desktop] › test/launch/ui.spec.js:42:1 › CGIT first guest consent creates and commits an artifact (8.1s)
+  ✓   6 [desktop] › test/launch/ui.spec.js:52:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback (11.6s)
+  ✓   7 [desktop] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability (4.9s)
+  ✓   8 [desktop] › test/launch/ui.spec.js:69:1 › catalog memory sharing requires explicit review before any mutation (1.8s)
+  ✓   9 [desktop] › test/launch/ui.spec.js:75:1 › native mission follows read-only manifest and continuity links (2.6s)
+(node:74211) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [mobile] › test/launch/ui.spec.js:11:2 › PURLs independent, accessible and responsive (3.1s)
+  ✓  11 [mobile] › test/launch/ui.spec.js:11:2 › CGIT independent, accessible and responsive (2.2s)
+  ✓  12 [mobile] › test/launch/ui.spec.js:20:1 › PURLs discovery runs an actual catalog sample and shows its receipt (5.6s)
+  ✓  13 [mobile] › test/launch/ui.spec.js:27:1 › PURLs guest memory remains explicit and supports real create/edit/delete (10.6s)
+  ✓  14 [mobile] › test/launch/ui.spec.js:42:1 › CGIT first guest consent creates and commits an artifact (8.1s)
+  ✓  15 [mobile] › test/launch/ui.spec.js:52:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback (11.5s)
+  ✓  16 [mobile] › test/launch/ui.spec.js:63:1 › human sign-in and live inference show precise deployment availability (4.6s)
+  ✓  17 [mobile] › test/launch/ui.spec.js:69:1 › catalog memory sharing requires explicit review before any mutation (2.0s)
+  ✓  18 [mobile] › test/launch/ui.spec.js:75:1 › native mission follows read-only manifest and continuity links (2.7s)
+
+  18 passed (1.7m)

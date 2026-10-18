@@ -1,0 +1,42 @@
+name: purl-launch-oracle-worker
+services:
+  worker:
+    image: ${PURL_LAUNCH_IMAGE:?Set the reviewed image with an immutable sha256 digest}
+    command: [node, service/launch/worker-main.js]
+    init: true
+    restart: unless-stopped
+    read_only: true
+    user: "1000:1000"
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs: [/tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000]
+    stop_grace_period: 180s
+    mem_limit: 512m
+    cpus: 0.5
+    environment:
+      NODE_ENV: production
+      PURL_ROLE: worker
+      PURL_PRODUCT: purls
+      PURL_LAUNCH_PERSISTENCE: supabase
+      SUPABASE_URL: ${SUPABASE_URL:?Use the existing authoritative Supabase project}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY:?Set through the protected worker environment}
+      PURL_IDENTITY_ENCRYPTION_KEY: ${PURL_IDENTITY_ENCRYPTION_KEY:?Use the same launch encryption key}
+      PURL_BASE_URL: ${PURLS_BASE_URL:?Set the existing public PURLs URL}
+      PURLS_BASE_URL: ${PURLS_BASE_URL}
+      CGIT_BASE_URL: ${CGIT_BASE_URL:?Set the existing public CGIT URL}
+      PURL_OIDC_ISSUER: ${PURL_OIDC_ISSUER:-}
+      PURL_OIDC_CLIENT_ID: ${PURLS_OIDC_CLIENT_ID:-}
+      PURL_OIDC_CLIENT_SECRET: ${PURLS_OIDC_CLIENT_SECRET:-}
+      CGIT_OIDC_CLIENT_ID: ${CGIT_OIDC_CLIENT_ID:-}
+      CGIT_OIDC_CLIENT_SECRET: ${CGIT_OIDC_CLIENT_SECRET:-}
+      MODEL_HOSTED_ENABLED: "false"
+      OPENROUTER_MODEL_CATALOG_JSON: ${OPENROUTER_MODEL_CATALOG_JSON:-[]}
+      PURL_WORKER_ID: ${PURL_WORKER_ID:?Set a unique target-worker ID}
+      PURL_WORKER_HEARTBEAT_FILE: /tmp/purl-launch-worker.json
+      PURL_WORKER_POLL_MS: "3000"
+    healthcheck:
+      test: [CMD, node, deploy/healthcheck.js]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3

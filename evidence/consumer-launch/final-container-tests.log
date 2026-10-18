@@ -2,1902 +2,1902 @@ TAP version 13
 # Subtest: alternate source adapters exist as explicit pure compatibility interfaces
 ok 1 - alternate source adapters exist as explicit pure compatibility interfaces
   ---
-  duration_ms: 0.48037
+  duration_ms: 0.461662
   ...
 # Subtest: actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK target, and rejects illegal moves
 ok 2 - actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK target, and rejects illegal moves
   ---
-  duration_ms: 1.258968
+  duration_ms: 1.229184
   ...
 # Subtest: Substrate term mapping matches Python registry fixtures including optional and unmaterialized terms
 ok 3 - Substrate term mapping matches Python registry fixtures including optional and unmaterialized terms
   ---
-  duration_ms: 1.12001
+  duration_ms: 1.315643
   ...
 # Subtest: composition imports re-evaluate pinned snapshots and emit compiler source without claiming event-chain verification
 ok 4 - composition imports re-evaluate pinned snapshots and emit compiler source without claiming event-chain verification
   ---
-  duration_ms: 1.032359
+  duration_ms: 1.083375
   ...
 # Subtest: composition rejects malformed operators, width mismatches and ambiguous snapshot versions
 ok 5 - composition rejects malformed operators, width mismatches and ambiguous snapshot versions
   ---
-  duration_ms: 0.351497
+  duration_ms: 0.345939
   ...
 # Subtest: all six imported bit operators match fixtures produced by original composition algebra
 ok 6 - all six imported bit operators match fixtures produced by original composition algebra
   ---
-  duration_ms: 1.064958
+  duration_ms: 1.148662
   ...
 # Subtest: composition bounds complete snapshot metadata before recursive hashing
 ok 7 - composition bounds complete snapshot metadata before recursive hashing
   ---
-  duration_ms: 7.411846
+  duration_ms: 9.902412
   ...
 # Subtest: imported sources execute in the safe compiler with the original six operator values
 ok 8 - imported sources execute in the safe compiler with the original six operator values
   ---
-  duration_ms: 27.843361
+  duration_ms: 36.805518
   ...
 # Subtest: layer import rule
 ok 9 - layer import rule
   ---
-  duration_ms: 2.084767
+  duration_ms: 2.501883
   ...
 # Subtest: reader cannot mutate; observer cannot read content (I3)
 ok 10 - reader cannot mutate; observer cannot read content (I3)
   ---
-  duration_ms: 3.742664
+  duration_ms: 5.51369
   ...
 # Subtest: no observe right → not found (existence is not leaked)
 ok 11 - no observe right → not found (existence is not leaked)
   ---
-  duration_ms: 1.274532
+  duration_ms: 0.93358
   ...
 # Subtest: the §10 scenario: owner A, observer B, delegated operator C
 ok 12 - the §10 scenario: owner A, observer B, delegated operator C
   ---
-  duration_ms: 1.367732
+  duration_ms: 5.69349
   ...
 # Subtest: delegation chain is recorded, attenuated, and revocation cascades (I8)
 ok 13 - delegation chain is recorded, attenuated, and revocation cascades (I8)
   ---
-  duration_ms: 1.412328
+  duration_ms: 1.641292
   ...
 # Subtest: grant holders may revoke only grants descending from their own
 ok 14 - grant holders may revoke only grants descending from their own
   ---
-  duration_ms: 2.341872
+  duration_ms: 2.872909
   ...
 # Subtest: grants expire
 ok 15 - grants expire
   ---
-  duration_ms: 0.609364
+  duration_ms: 2.991787
   ...
 # Subtest: public grants are limited to observe/read and apply to anonymous requesters
 ok 16 - public grants are limited to observe/read and apply to anonymous requesters
   ---
-  duration_ms: 0.535983
+  duration_ms: 0.553891
   ...
 # Subtest: ownership transfer is owner-only and not delegable
 ok 17 - ownership transfer is owner-only and not delegable
   ---
-  duration_ms: 0.603425
+  duration_ms: 0.544667
   ...
 # Subtest: administrators can archive and revoke but cannot read or edit content
 ok 18 - administrators can archive and revoke but cannot read or edit content
   ---
-  duration_ms: 1.008543
+  duration_ms: 0.958788
   ...
 # Subtest: forward is available only to the current assignee
 ok 19 - forward is available only to the current assignee
   ---
-  duration_ms: 1.655473
+  duration_ms: 1.901022
   ...
 # Subtest: replay reconstructs every version and matches recorded state hashes
 ok 20 - replay reconstructs every version and matches recorded state hashes
   ---
-  duration_ms: 5.017926
+  duration_ms: 4.463014
   ...
 # Subtest: every event and resource state validates against the published schemas
 ok 21 - every event and resource state validates against the published schemas
   ---
-  duration_ms: 2.8199
+  duration_ms: 2.650475
   ...
 # Subtest: tampering with an event is detected by verify
 ok 22 - tampering with an event is detected by verify
   ---
-  duration_ms: 0.80691
+  duration_ms: 0.750936
   ...
 # Subtest: handoff does not change identity or ownership (I1, I5)
 ok 23 - handoff does not change identity or ownership (I1, I5)
   ---
-  duration_ms: 7.689273
+  duration_ms: 1.03336
   ...
 # Subtest: handoff is atomic: a failing component aborts every event
 ok 24 - handoff is atomic: a failing component aborts every event
   ---
-  duration_ms: 4.555753
+  duration_ms: 1.084477
   ...
 # Subtest: expected_version is required and enforced (optimistic concurrency, replay defence)
 ok 25 - expected_version is required and enforced (optimistic concurrency, replay defence)
   ---
-  duration_ms: 0.723075
+  duration_ms: 0.610585
   ...
 # Subtest: Idempotency-Key returns the original result and rejects a different body
 ok 26 - Idempotency-Key returns the original result and rejects a different body
   ---
-  duration_ms: 0.621953
+  duration_ms: 0.575433
   ...
 # Subtest: lifecycle state machine gates operations; revoke is always available
 ok 27 - lifecycle state machine gates operations; revoke is always available
   ---
-  duration_ms: 4.70718
+  duration_ms: 2.104396
   ...
 # Subtest: checkpoint packages are validated; server-verified facts are kept apart from claims
 ok 28 - checkpoint packages are validated; server-verified facts are kept apart from claims
   ---
-  duration_ms: 5.503403
+  duration_ms: 2.135062
   ...
 # Subtest: communication profile: declared vs measured is explicit and the disclaimer is mandatory
 ok 29 - communication profile: declared vs measured is explicit and the disclaimer is mandatory
   ---
-  duration_ms: 0.514372
+  duration_ms: 0.989254
   ...
 # Subtest: JSON Merge Patch follows RFC 7396 examples
 ok 30 - JSON Merge Patch follows RFC 7396 examples
   ---
-  duration_ms: 0.201332
+  duration_ms: 0.168853
   ...
 # Subtest: reducer rejects non-genesis first events and out-of-order versions
 ok 31 - reducer rejects non-genesis first events and out-of-order versions
   ---
-  duration_ms: 6.21935
+  duration_ms: 0.468413
   ...
 # Subtest: persistence: a reloaded store replays and verifies the log
 ok 32 - persistence: a reloaded store replays and verifies the log
   ---
-  duration_ms: 1.50028
+  duration_ms: 1.503536
   ...
 # Subtest: the §23 end-to-end demonstration runs over HTTP and every invariant holds
 ok 33 - the §23 end-to-end demonstration runs over HTTP and every invariant holds
   ---
-  duration_ms: 135.532743
+  duration_ms: 207.350651
   ...
 # Subtest: an experiment rerun from its definition reproduces the output hash
 ok 34 - an experiment rerun from its definition reproduces the output hash
   ---
-  duration_ms: 208.91011
+  duration_ms: 240.205294
   ...
 # Subtest: the committed exp-0001 record validates and its hypotheses were not edited after registration
 ok 35 - the committed exp-0001 record validates and its hypotheses were not edited after registration
   ---
-  duration_ms: 2.492949
+  duration_ms: 11.940709
   ...
 # Subtest: instance manifest validates and describes the protocol
 ok 36 - instance manifest validates and describes the protocol
   ---
-  duration_ms: 27.852235
+  duration_ms: 19.739226
   ...
 # Subtest: the protocol describes itself as a public PURL resource
 ok 37 - the protocol describes itself as a public PURL resource
   ---
-  duration_ms: 10.844686
+  duration_ms: 7.808382
   ...
 # Subtest: GET is safe: ?action=<mutation> and GET on an operation URL never mutate (I4)
 ok 38 - GET is safe: ?action=<mutation> and GET on an operation URL never mutate (I4)
   ---
-  duration_ms: 15.129422
+  duration_ms: 18.829142
   ...
 # Subtest: credentials in the URL are rejected; mutations need JSON and a token
 ok 39 - credentials in the URL are rejected; mutations need JSON and a token
   ---
-  duration_ms: 4.856925
+  duration_ms: 4.361042
   ...
 # Subtest: content negotiation: HTML embeds the machine document and links to the manifest
 ok 40 - content negotiation: HTML embeds the machine document and links to the manifest
   ---
-  duration_ms: 10.832398
+  duration_ms: 6.452748
   ...
 # Subtest: resource manifest validates, is evaluated for the requester, and hides private resources
 ok 41 - resource manifest validates, is evaluated for the requester, and hides private resources
   ---
-  duration_ms: 8.292337
+  duration_ms: 7.436704
   ...
 # Subtest: invoke over HTTP: expected_version, If-Match, idempotency, problem details
 ok 42 - invoke over HTTP: expected_version, If-Match, idempotency, problem details
   ---
-  duration_ms: 17.645827
+  duration_ms: 13.402783
   ...
 # Subtest: projections: events (observer sees headers only), state?at, diff, verify, lineage, transitions
 ok 43 - projections: events (observer sees headers only), state?at, diff, verify, lineage, transitions
   ---
-  duration_ms: 28.583452
+  duration_ms: 14.792848
   ...
 # Subtest: subscribe: SSE stream delivers new events
 ok 44 - subscribe: SSE stream delivers new events
   ---
-  duration_ms: 12.911615
+  duration_ms: 7.144236
   ...
 # Subtest: unknown routes and schemas are problems; schemas are served
 ok 45 - unknown routes and schemas are problems; schemas are served
   ---
-  duration_ms: 4.426429
+  duration_ms: 13.779798
   ...
 # Subtest: every working experience has a unique typed executable graph and real expected sample
 ok 46 - every working experience has a unique typed executable graph and real expected sample
   ---
-  duration_ms: 80.76041
+  duration_ms: 87.119548
   ...
 # Subtest: required titles exist and unavailable inference never fabricates AI output
 ok 47 - required titles exist and unavailable inference never fabricates AI output
   ---
-  duration_ms: 8.860279
+  duration_ms: 18.325256
   ...
 # Subtest: authorization, typed validation and bounded input are enforced before executing
 ok 48 - authorization, typed validation and bounded input are enforced before executing
   ---
-  duration_ms: 6.32063
+  duration_ms: 3.439188
   ...
 # Subtest: independent operation boundaries: CSV quotes, numeric math, graph cycles, dates and JSON pointer
 ok 49 - independent operation boundaries: CSV quotes, numeric math, graph cycles, dates and JSON pointer
   ---
-  duration_ms: 0.659539
+  duration_ms: 0.591467
   ...
 # Subtest: projection bounds and normalized identifiers match their declared behavior
 ok 50 - projection bounds and normalized identifiers match their declared behavior
   ---
-  duration_ms: 0.396405
+  duration_ms: 0.352899
   ...
 # Subtest: independent results cover text, tables, finance, decisions, research and continuity computations
 ok 51 - independent results cover text, tables, finance, decisions, research and continuity computations
   ---
-  duration_ms: 1.336986
+  duration_ms: 1.338668
   ...
 # Subtest: accepted larger canonical JSON and combined owner memory produce valid bounded outputs
 ok 52 - accepted larger canonical JSON and combined owner memory produce valid bounded outputs
   ---
-  duration_ms: 15.449163
+  duration_ms: 12.664716
   ...
 # Subtest: catalog passport run requires supplied consent and never creates an implicit share
 ok 53 - catalog passport run requires supplied consent and never creates an implicit share
   ---
-  duration_ms: 2.750736
+  duration_ms: 2.707671
   ...
 # Subtest: immutable artifacts, concurrent heads, branches, releases, forks, diff and restore
 ok 54 - immutable artifacts, concurrent heads, branches, releases, forks, diff and restore
   ---
-  duration_ms: 18.040829
+  duration_ms: 15.782432
   ...
 # Subtest: authorization, conversation consent, unsafe paths and attribution bounds
 ok 55 - authorization, conversation consent, unsafe paths and attribution bounds
   ---
-  duration_ms: 0.990495
+  duration_ms: 1.195303
   ...
 # Subtest: import rejects altered hashes, missing parents, ownership claims and excessive content
 ok 56 - import rejects altered hashes, missing parents, ownership claims and excessive content
   ---
-  duration_ms: 2.795292
+  duration_ms: 1.429714
   ...
 # Subtest: persisted separate CGIT consent works; HTTP reads do not write
 ok 57 - persisted separate CGIT consent works; HTTP reads do not write
   ---
-  duration_ms: 0.451086
+  duration_ms: 0.472658
   ...
 # Subtest: real identity product profiles and attenuated credentials enforce consent plus read/write scopes
 ok 58 - real identity product profiles and attenuated credentials enforce consent plus read/write scopes
   ---
-  duration_ms: 0.428252
+  duration_ms: 0.464417
   ...
 # Subtest: parallel expected-head commits publish one head and no losing immutable objects
 ok 59 - parallel expected-head commits publish one head and no losing immutable objects
   ---
-  duration_ms: 0.869915
+  duration_ms: 0.875974
   ...
 # Subtest: prototype paths and forged hash-consistent missing-parent imports are rejected
 ok 60 - prototype paths and forged hash-consistent missing-parent imports are rejected
   ---
-  duration_ms: 1.949625
+  duration_ms: 4.450615
   ...
 # Subtest: native code artifact diff reports syntax symbol changes
 ok 61 - native code artifact diff reports syntax symbol changes
   ---
-  duration_ms: 6.506328
+  duration_ms: 6.762383
   ...
 # Subtest: file-backed CGIT commits survive a fresh store process boundary
 ok 62 - file-backed CGIT commits survive a fresh store process boundary
   ---
-  duration_ms: 74.258339
+  duration_ms: 107.936311
   ...
 # Subtest: import rejects forged format/date claims and resumes unpublished staged objects after interruption
 ok 63 - import rejects forged format/date claims and resumes unpublished staged objects after interruption
   ---
-  duration_ms: 35.181558
+  duration_ms: 48.834716
   ...
 # Subtest: restore retries after a hard interruption reuse staged objects across fresh service instances
 ok 64 - restore retries after a hard interruption reuse staged objects across fresh service instances
   ---
-  duration_ms: 28.962831
+  duration_ms: 31.260136
   ...
 # Subtest: concurrent restores cannot delete another importer immutable objects
 ok 65 - concurrent restores cannot delete another importer immutable objects
   ---
-  duration_ms: 27.623482
+  duration_ms: 50.553634
   ...
 # Subtest: deletion blocks restore publication until immutable cleanup completes and can resume
 ok 66 - deletion blocks restore publication until immutable cleanup completes and can resume
   ---
-  duration_ms: 1.888782
+  duration_ms: 2.111046
   ...
 # Subtest: three initial HTTP contexts are independent; attributed evidence survives restart and replay
 ok 67 - three initial HTTP contexts are independent; attributed evidence survives restart and replay
   ---
-  duration_ms: 72.031448
+  duration_ms: 75.741863
   ...
 # Subtest: checkpoint pauses; restart resumes persisted participants without repeating completed provider call
 ok 68 - checkpoint pauses; restart resumes persisted participants without repeating completed provider call
   ---
-  duration_ms: 74.37302
+  duration_ms: 66.718655
   ...
 # Subtest: expired lease fencing prevents stale worker writes and completed-call recovery uses saved receipt
 ok 69 - expired lease fencing prevents stale worker writes and completed-call recovery uses saved receipt
   ---
-  duration_ms: 65.59889
+  duration_ms: 75.396465
   ...
 # Subtest: replay rejects tampering and optional steward requires separate consent and commits real artifact
 ok 70 - replay rejects tampering and optional steward requires separate consent and commits real artifact
   ---
-  duration_ms: 40.138133
+  duration_ms: 35.945584
   ...
 # Subtest: baseline is NOT_RUN without explicit budget consent and reports actual measured usage when authorized
 ok 71 - baseline is NOT_RUN without explicit budget consent and reports actual measured usage when authorized
   ---
-  duration_ms: 36.871813
+  duration_ms: 41.000365
   ...
 # Subtest: live credential revocation blocks queued jobs and every subsequent participant
 ok 72 - live credential revocation blocks queued jobs and every subsequent participant
   ---
-  duration_ms: 21.886437
+  duration_ms: 21.436101
   ...
 # Subtest: missing live validator fails closed, and oversized serialized initial contexts are rejected before storage
 ok 73 - missing live validator fails closed, and oversized serialized initial contexts are rejected before storage
   ---
-  duration_ms: 7.518487
+  duration_ms: 7.492869
   ...
 # Subtest: file-backed restart recovers completed requests and exports a real CGIT steward diff
 ok 74 - file-backed restart recovers completed requests and exports a real CGIT steward diff
   ---
-  duration_ms: 370.831371
+  duration_ms: 363.864473
   ...
 # Subtest: draft and paused jobs do not occupy the indexed runnable queue
 ok 75 - draft and paused jobs do not occupy the indexed runnable queue
   ---
-  duration_ms: 10.129914
+  duration_ms: 4.406399
   ...
 # Subtest: escaped provider output fails terminally with attributed receipt rather than overflowing the job row
 ok 76 - escaped provider output fails terminally with attributed receipt rather than overflowing the job row
   ---
-  duration_ms: 22.832967
+  duration_ms: 14.95488
   ...
 # Subtest: five maximum accepted serialized outputs plus baseline fit pre-reserved durable job capacity
 ok 77 - five maximum accepted serialized outputs plus baseline fit pre-reserved durable job capacity
   ---
-  duration_ms: 71.527352
+  duration_ms: 75.807758
   ...
 # Subtest: concurrent constellation admissions cannot exceed owner object quota
 ok 78 - concurrent constellation admissions cannot exceed owner object quota
   ---
-  duration_ms: 918.664371
+  duration_ms: 666.351675
   ...
 # Subtest: Babel handles TS/JSX, symbols, import aliases and local dependency resolution
 ok 79 - Babel handles TS/JSX, symbols, import aliases and local dependency resolution
   ---
-  duration_ms: 10.132076
+  duration_ms: 10.993739
   ...
 # Subtest: URL allowlist denies credentials, ports, query, traversal and encoded components
 ok 80 - URL allowlist denies credentials, ports, query, traversal and encoded components
   ---
-  duration_ms: 0.511207
+  duration_ms: 0.663816
   ...
 # Subtest: public GitHub reads pin immutable SHA and preserve attribution and bounded index
 ok 81 - public GitHub reads pin immutable SHA and preserve attribution and bounded index
   ---
-  duration_ms: 15.265727
+  duration_ms: 17.846277
   ...
 # Subtest: GitHub fetch rejects redirect, oversized files, rate limit and tree traversal
 ok 82 - GitHub fetch rejects redirect, oversized files, rate limit and tree traversal
   ---
-  duration_ms: 2.394131
+  duration_ms: 3.13287
   ...
 # Subtest: navigation grammar retains destructured symbols, CommonJS/dynamic imports and source hash provenance
 ok 83 - navigation grammar retains destructured symbols, CommonJS/dynamic imports and source hash provenance
   ---
-  duration_ms: 6.581852
+  duration_ms: 8.858707
   ...
 # Subtest: CGIT saved lens survives service restart, denies other tenants and bounds actor indexing rate
 ok 84 - CGIT saved lens survives service restart, denies other tenants and bounds actor indexing rate
   ---
-  duration_ms: 35.946536
+  duration_ms: 23.773468
   ...
 # Subtest: inventory-only structural diff reports upstream Git blob hashes without pretending AST analysis
 ok 85 - inventory-only structural diff reports upstream Git blob hashes without pretending AST analysis
   ---
-  duration_ms: 0.195794
+  duration_ms: 0.203926
   ...
 # Subtest: JSX in JavaScript and TypeScript generic arrows parse while file and AST quotas reject excess
 ok 86 - JSX in JavaScript and TypeScript generic arrows parse while file and AST quotas reject excess
   ---
-  duration_ms: 132.460024
+  duration_ms: 177.933754
   ...
 # Subtest: TypeScript import-equals retains local aliases and resolves external-module dependencies
 ok 87 - TypeScript import-equals retains local aliases and resolves external-module dependencies
   ---
-  duration_ms: 6.124766
+  duration_ms: 2.162994
   ...
 # Subtest: launch discovery, catalog, native manifests and health are self-describing pure reads
 ok 88 - launch discovery, catalog, native manifests and health are self-describing pure reads
   ---
-  duration_ms: 58.563849
+  duration_ms: 55.245121
   ...
 # Subtest: browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous
 ok 89 - browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous
   ---
-  duration_ms: 24.105525
+  duration_ms: 15.385116
   ...
 # Subtest: native queued program persists execution through a freshly constructed application
 ok 90 - native queued program persists execution through a freshly constructed application
   ---
-  duration_ms: 37.244762
+  duration_ms: 52.478181
   ...
 # Subtest: HTTP rejects credential URLs, malformed payloads and arbitrary file paths
 ok 91 - HTTP rejects credential URLs, malformed payloads and arbitrary file paths
   ---
-  duration_ms: 10.631676
+  duration_ms: 17.046097
   ...
 # Subtest: HTTP rejects JSON values incompatible with durable storage before domain writes
 ok 92 - HTTP rejects JSON values incompatible with durable storage before domain writes
   ---
-  duration_ms: 8.988652
+  duration_ms: 6.416775
   ...
 # Subtest: CGIT is independently usable in its own unverified bounded preview
 ok 93 - CGIT is independently usable in its own unverified bounded preview
   ---
-  duration_ms: 22.789561
+  duration_ms: 30.804123
   ...
 # Subtest: missing provider fails closed with actionable config and pure recovery
 ok 94 - missing provider fails closed with actionable config and pure recovery
   ---
-  duration_ms: 20.790022
+  duration_ms: 9.76739
   ...
 # Subtest: real code and PKCE establishes verified identity with encrypted tokens and bounded session
 ok 95 - real code and PKCE establishes verified identity with encrypted tokens and bounded session
   ---
-  duration_ms: 131.60406
+  duration_ms: 254.675001
   ...
 # Subtest: rejects nonce provider identity
 ok 96 - rejects nonce provider identity
   ---
-  duration_ms: 104.036722
+  duration_ms: 176.788782
   ...
 # Subtest: rejects aud provider identity
 ok 97 - rejects aud provider identity
   ---
-  duration_ms: 239.967693
+  duration_ms: 120.719725
   ...
 # Subtest: rejects issuer provider identity
 ok 98 - rejects issuer provider identity
   ---
-  duration_ms: 193.155829
+  duration_ms: 221.553272
   ...
 # Subtest: rejects expired provider identity
 ok 99 - rejects expired provider identity
   ---
-  duration_ms: 141.31223
+  duration_ms: 81.296985
   ...
 # Subtest: rejects unverified provider identity
 ok 100 - rejects unverified provider identity
   ---
-  duration_ms: 197.744973
+  duration_ms: 189.614959
   ...
 # Subtest: state cookie binding and one-use callbacks reject replay
 ok 101 - state cookie binding and one-use callbacks reject replay
   ---
-  duration_ms: 205.114146
+  duration_ms: 209.47083
   ...
 # Subtest: explicit consent, stable subjects, unique rename and product isolation
 ok 102 - explicit consent, stable subjects, unique rename and product isolation
   ---
-  duration_ms: 150.677026
+  duration_ms: 233.579601
   ...
 # Subtest: origin and CSRF guard mutations, owner and provider revocation invalidate agents
 ok 103 - origin and CSRF guard mutations, owner and provider revocation invalidate agents
   ---
-  duration_ms: 122.186755
+  duration_ms: 73.758118
   ...
 # Subtest: live provider revocation blocks sensitive changes and session reads
 ok 104 - live provider revocation blocks sensitive changes and session reads
   ---
-  duration_ms: 217.175435
+  duration_ms: 129.595207
   ...
 # Subtest: guest labels cannot claim verified human or issue delegated agents
 ok 105 - guest labels cannot claim verified human or issue delegated agents
   ---
-  duration_ms: 99.367569
+  duration_ms: 181.459497
   ...
 # Subtest: disabled provider reports unavailable without fake sign-in
 ok 106 - disabled provider reports unavailable without fake sign-in
   ---
-  duration_ms: 122.112944
+  duration_ms: 94.092607
   ...
 # Subtest: wrong PKCE code and missing flow cookie fail closed
 ok 107 - wrong PKCE code and missing flow cookie fail closed
   ---
-  duration_ms: 212.3912
+  duration_ms: 87.363705
   ...
 # Subtest: flow, session and delegated credential expiry are enforced
 ok 108 - flow, session and delegated credential expiry are enforced
   ---
-  duration_ms: 184.871895
+  duration_ms: 167.529193
   ...
 # Subtest: agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation
 ok 109 - agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation
   ---
-  duration_ms: 232.821624
+  duration_ms: 101.061279
   ...
 # Subtest: product consent removal and account deletion revoke sessions and erase owned data
 ok 110 - product consent removal and account deletion revoke sessions and erase owned data
   ---
-  duration_ms: 130.015006
+  duration_ms: 156.637998
   ...
 # Subtest: CGIT first login has separate consent and later PURLs login keeps stable identity
 ok 111 - CGIT first login has separate consent and later PURLs login keeps stable identity
   ---
-  duration_ms: 262.304765
+  duration_ms: 179.5718
   ...
 # Subtest: self-declared AI preview is an unverified agent with bounded permissions
 ok 112 - self-declared AI preview is an unverified agent with bounded permissions
   ---
-  duration_ms: 189.280316
+  duration_ms: 176.887154
   ...
 # Subtest: session issuance and login flows are bounded by per-source rate limits
 ok 113 - session issuance and login flows are bounded by per-source rate limits
   ---
-  duration_ms: 190.69615
+  duration_ms: 171.589804
   ...
 # Subtest: live verified email removal invalidates account authentication
 ok 114 - live verified email removal invalidates account authentication
   ---
-  duration_ms: 157.85378
+  duration_ms: 115.570892
   ...
 # Subtest: production cannot enable insecure development cookies or an HTTP issuer
 ok 115 - production cannot enable insecure development cookies or an HTTP issuer
   ---
-  duration_ms: 358.113245
+  duration_ms: 57.997219
   ...
 # Subtest: tampered ID token signature is rejected by established OIDC verification
 ok 116 - tampered ID token signature is rejected by established OIDC verification
   ---
-  duration_ms: 184.054258
+  duration_ms: 81.700741
   ...
 # Subtest: self-declared AI preview can revoke its own session
 ok 117 - self-declared AI preview can revoke its own session
   ---
-  duration_ms: 129.352272
+  duration_ms: 143.695495
   ...
 # Subtest: delegated agents cannot export their owner identity profiles
 ok 118 - delegated agents cannot export their owner identity profiles
   ---
-  duration_ms: 181.224544
+  duration_ms: 82.601522
   ...
 # Subtest: guest preview scopes match the chosen product and preserve unverified authority
 ok 119 - guest preview scopes match the chosen product and preserve unverified authority
   ---
-  duration_ms: 333.772958
+  duration_ms: 213.904841
   ...
 # Subtest: guest CGIT activation requires explicit consent and cannot claim a handle
 ok 120 - guest CGIT activation requires explicit consent and cannot claim a handle
   ---
-  duration_ms: 38.223751
+  duration_ms: 56.222307
   ...
 # Subtest: integration authority revalidates credential, persisted consent and exact requested scopes
 ok 121 - integration authority revalidates credential, persisted consent and exact requested scopes
   ---
-  duration_ms: 268.024834
+  duration_ms: 79.841703
   ...
 # Subtest: guest integrations require persisted activation and agents never gain undelegated scopes
 ok 122 - guest integrations require persisted activation and agents never gain undelegated scopes
   ---
-  duration_ms: 202.083169
+  duration_ms: 138.113474
   ...
 # Subtest: CGIT guest repositories remain isolated and enforce the actual repository quota
 ok 123 - CGIT guest repositories remain isolated and enforce the actual repository quota
   ---
-  duration_ms: 152.463546
+  duration_ms: 101.399767
   ...
 # Subtest: an unrelated Authorization header cannot disable cookie CSRF checks
 ok 124 - an unrelated Authorization header cannot disable cookie CSRF checks
   ---
-  duration_ms: 102.873357
+  duration_ms: 54.02441
   ...
 # Subtest: a delegated CGIT read credential can integrate without acquiring write authority
 ok 125 - a delegated CGIT read credential can integrate without acquiring write authority
   ---
-  duration_ms: 47.558111
+  duration_ms: 160.059951
   ...
 # Subtest: account deletion erases delegated data and revokes public passports and cognition
 ok 126 - account deletion erases delegated data and revokes public passports and cognition
   ---
-  duration_ms: 125.523089
+  duration_ms: 145.046173
   ...
 # Subtest: interrupted deletion retains its descendant plan and resumes across service restart
 ok 127 - interrupted deletion retains its descendant plan and resumes across service restart
   ---
-  duration_ms: 102.904594
+  duration_ms: 132.081627
   ...
 # Subtest: full legacy identity index partitions cannot deny new issuance for either product
 ok 128 - full legacy identity index partitions cannot deny new issuance for either product
   ---
-  duration_ms: 3560.490064
+  duration_ms: 3536.733346
   ...
 # Subtest: bounded expiry compaction preserves live credentials and replay defenses
 ok 129 - bounded expiry compaction preserves live credentials and replay defenses
   ---
-  duration_ms: 233.91297
+  duration_ms: 157.1389
   ...
 # Subtest: failed external intent persistence leaves the owner active and permits a fresh deletion retry
 ok 130 - failed external intent persistence leaves the owner active and permits a fresh deletion retry
   ---
-  duration_ms: 107.238645
+  duration_ms: 204.420271
   ...
 # Subtest: more than 4096 expired session lifetimes reuse bounded owner metadata
 ok 131 - more than 4096 expired session lifetimes reuse bounded owner metadata
   ---
-  duration_ms: 1539.24575
+  duration_ms: 1707.03534
   ...
 # Subtest: account deletion succeeds at exact and near tenant quota without owner growth
 ok 132 - account deletion succeeds at exact and near tenant quota without owner growth
   ---
-  duration_ms: 1277.923729
+  duration_ms: 1748.627229
   ...
 # Subtest: a full-quota deletion interrupted after external intent resumes without spare owner space
 ok 133 - a full-quota deletion interrupted after external intent resumes without spare owner space
   ---
-  duration_ms: 727.934232
+  duration_ms: 744.726455
   ...
 # Subtest: deletion captures a concurrent owned delegation before fencing inventory
 ok 134 - deletion captures a concurrent owned delegation before fencing inventory
   ---
-  duration_ms: 191.079586
+  duration_ms: 76.621083
   ...
 # Subtest: a persisted deletion intent refuses to erase a changed principal incarnation
 ok 135 - a persisted deletion intent refuses to erase a changed principal incarnation
   ---
-  duration_ms: 106.121519
+  duration_ms: 202.497443
   ...
 # Subtest: overlapping deletion request preserves the durable fence across mixed read timing
 ok 136 - overlapping deletion request preserves the durable fence across mixed read timing
   ---
-  duration_ms: 2.34063
+  duration_ms: 2.39968
   ...
 # Subtest: overlapping deletion maintenance preserves the durable fence across mixed read timing
 ok 137 - overlapping deletion maintenance preserves the durable fence across mixed read timing
   ---
-  duration_ms: 1.9471
+  duration_ms: 1.957907
   ...
 # Subtest: an in-flight agent revocation cannot mutate inventory after the deletion fence
 ok 138 - an in-flight agent revocation cannot mutate inventory after the deletion fence
   ---
-  duration_ms: 114.111493
+  duration_ms: 176.624897
   ...
 # Subtest: unstable inventory reads have bounded retries and later maintenance can recover
 ok 139 - unstable inventory reads have bounded retries and later maintenance can recover
   ---
-  duration_ms: 2.678598
+  duration_ms: 2.807241
   ...
 # Subtest: private memory is tenant isolated, requires scopes, rejects ownership and prototype injection
 ok 140 - private memory is tenant isolated, requires scopes, rejects ownership and prototype injection
   ---
-  duration_ms: 2.085708
+  duration_ms: 1.930546
   ...
 # Subtest: live passport reveals only selected facts and follows edits, deletion and owner revocation
 ok 141 - live passport reveals only selected facts and follows edits, deletion and owner revocation
   ---
-  duration_ms: 2.411016
+  duration_ms: 2.5402
   ...
 # Subtest: relations stay in tenant and public cognition is explicitly selected and revocable live data
 ok 142 - relations stay in tenant and public cognition is explicitly selected and revocable live data
   ---
-  duration_ms: 1.046459
+  duration_ms: 1.151417
   ...
 # Subtest: quotas, fact revisions, expiration, provenance and guest truthfulness are enforced
 ok 143 - quotas, fact revisions, expiration, provenance and guest truthfulness are enforced
   ---
-  duration_ms: 111.461138
+  duration_ms: 104.807529
   ...
 # Subtest: actual shared store preserves privacy across service restart and enforces guest and capability boundaries
 ok 144 - actual shared store preserves privacy across service restart and enforces guest and capability boundaries
   ---
-  duration_ms: 9.478166
+  duration_ms: 9.175192
   ...
 # Subtest: real-store global legacy pointer saturation cannot block fresh tenants and revocation removes active public index
 ok 145 - real-store global legacy pointer saturation cannot block fresh tenants and revocation removes active public index
   ---
-  duration_ms: 2330.991251
+  duration_ms: 2102.508844
   ...
 # Subtest: real-store failed capability reservation cannot consume owner passport allowance
 ok 146 - real-store failed capability reservation cannot consume owner passport allowance
   ---
-  duration_ms: 0.970605
+  duration_ms: 0.849945
   ...
 # Subtest: erasing owner and delegated principal scopes denies all future live passport and public reads
 ok 147 - erasing owner and delegated principal scopes denies all future live passport and public reads
   ---
-  duration_ms: 1.479679
+  duration_ms: 4.942864
   ...
 # Subtest: sharing and publication require explicit consent for humans and authorized unverified guests
 ok 148 - sharing and publication require explicit consent for humans and authorized unverified guests
   ---
-  duration_ms: 1.940971
+  duration_ms: 1.855323
   ...
 # Subtest: real-store failed owner or publication commits leave no active lookup or consumed share allowance
 ok 149 - real-store failed owner or publication commits leave no active lookup or consumed share allowance
   ---
-  duration_ms: 0.857396
+  duration_ms: 0.955302
   ...
 # Subtest: hosted unavailable without operator key; metadata GET is pure
 ok 150 - hosted unavailable without operator key; metadata GET is pure
   ---
-  duration_ms: 1.920581
+  duration_ms: 1.818958
   ...
 # Subtest: encrypted BYOK, redacted listing, real HTTP usage reconciliation and idempotent billing
 ok 151 - encrypted BYOK, redacted listing, real HTTP usage reconciliation and idempotent billing
   ---
-  duration_ms: 24.012626
+  duration_ms: 23.010052
   ...
 # Subtest: private scopes, explicit selected context, revocation and fixed provider prevent leakage
 ok 152 - private scopes, explicit selected context, revocation and fixed provider prevent leakage
   ---
-  duration_ms: 2.642303
+  duration_ms: 2.403044
   ...
 # Subtest: concurrent same idempotency key executes one request and quota reservations prevent overspend
 ok 153 - concurrent same idempotency key executes one request and quota reservations prevent overspend
   ---
-  duration_ms: 30.19576
+  duration_ms: 29.366256
   ...
 # Subtest: timeout and missing usage hold conservative reservation and never repeat ambiguous requests
 ok 154 - timeout and missing usage hold conservative reservation and never repeat ambiguous requests
   ---
-  duration_ms: 11.303293
+  duration_ms: 7.679088
   ...
 # Subtest: known rejected request refunds reservation and persists bounded owner-private chat thread
 ok 155 - known rejected request refunds reservation and persists bounded owner-private chat thread
   ---
-  duration_ms: 6.158797
+  duration_ms: 13.278136
   ...
 # Subtest: provider request enforces published token price ceiling and denies provider data collection
 ok 156 - provider request enforces published token price ceiling and denies provider data collection
   ---
-  duration_ms: 4.787701
+  duration_ms: 4.44683
   ...
 # Subtest: simultaneous different calls cannot exceed daily reserved budget
 ok 157 - simultaneous different calls cannot exceed daily reserved budget
   ---
-  duration_ms: 22.516602
+  duration_ms: 24.013673
   ...
 # Subtest: real HTTP timeout retains reservation and restarting gateway cannot execute that request again
 ok 158 - real HTTP timeout retains reservation and restarting gateway cannot execute that request again
   ---
-  duration_ms: 15.355571
+  duration_ms: 17.740439
   ...
 # Subtest: revocation committed during preparation prevents a later reservation or provider call
 ok 159 - revocation committed during preparation prevents a later reservation or provider call
   ---
-  duration_ms: 1.531978
+  duration_ms: 2.245438
   ...
 # Subtest: unpersistable provider Unicode and oversized escaped text settle known cost into terminal receipts
 ok 160 - unpersistable provider Unicode and oversized escaped text settle known cost into terminal receipts
   ---
-  duration_ms: 13.086879
+  duration_ms: 16.115131
   ...
 # Subtest: concurrent provider-key creation and duplicate revocation maintain atomic active and total counts
 ok 161 - concurrent provider-key creation and duplicate revocation maintain atomic active and total counts
   ---
-  duration_ms: 30.497002
+  duration_ms: 34.475429
   ...
 # Subtest: public models metadata discloses availability and prices without private usage or keys
 ok 162 - public models metadata discloses availability and prices without private usage or keys
   ---
-  duration_ms: 4.380941
+  duration_ms: 4.035783
   ...
 # Subtest: pre-dispatch storage reservation preserves known-cost settlement when other writes fill tenant quota
 ok 163 - pre-dispatch storage reservation preserves known-cost settlement when other writes fill tenant quota
   ---
-  duration_ms: 1211.12716
+  duration_ms: 558.733226
   ...
 # Subtest: deeply nested non-string provider content rejects terminally without blocking known billing
 ok 164 - deeply nested non-string provider content rejects terminally without blocking known billing
   ---
-  duration_ms: 5.420891
+  duration_ms: 5.331937
   ...
 # Subtest: provider readiness is public and read-only, reports disabled server without modifying defaults
 ok 165 - provider readiness is public and read-only, reports disabled server without modifying defaults
   ---
-  duration_ms: 21.867468
+  duration_ms: 22.446317
   ...
 # Subtest: password signin uses provider REST and stores encrypted expiring opaque session only
 ok 166 - password signin uses provider REST and stores encrypted expiring opaque session only
   ---
-  duration_ms: 21.74791
+  duration_ms: 12.193038
   ...
 # Subtest: signin requires matching origin and bound bootstrap, rejects wrong credentials and live unverified email
 ok 167 - signin requires matching origin and bound bootstrap, rejects wrong credentials and live unverified email
   ---
-  duration_ms: 21.105826
+  duration_ms: 8.255171
   ...
 # Subtest: signup and recovery send exact provider email requests with explicit central redirect allowlist
 ok 168 - signup and recovery send exact provider email requests with explicit central redirect allowlist
   ---
-  duration_ms: 15.44172
+  duration_ms: 5.778227
   ...
 # Subtest: authorization review is explicit POST, GET reads staged exact scopes and approval is bound and one-use
 ok 169 - authorization review is explicit POST, GET reads staged exact scopes and approval is bound and one-use
   ---
-  duration_ms: 27.587724
+  duration_ms: 13.752487
   ...
 # Subtest: deny uses provider deny action, refuses implicit approval and unsafe clients or redirects
 ok 170 - deny uses provider deny action, refuses implicit approval and unsafe clients or redirects
   ---
-  duration_ms: 54.873874
+  duration_ms: 22.800898
   ...
 # Subtest: live provider revocation, deletion, expiry, tampering and logout fail closed
 ok 171 - live provider revocation, deletion, expiry, tampering and logout fail closed
   ---
-  duration_ms: 20.148991
+  duration_ms: 14.742732
   ...
 # Subtest: session credentials are isolated by namespace and provider errors never disclose private upstream bodies
 ok 172 - session credentials are isolated by namespace and provider errors never disclose private upstream bodies
   ---
-  duration_ms: 9.066899
+  duration_ms: 22.507709
   ...
 # Subtest: review lifetime, wrong authorization and ciphertext tampering block consent without upstream approval
 ok 173 - review lifetime, wrong authorization and ciphertext tampering block consent without upstream approval
   ---
-  duration_ms: 9.211906
+  duration_ms: 6.682524
   ...
 # Subtest: configuration rejects secret keys, non-origin URLs and production HTTP without provider requests
 ok 174 - configuration rejects secret keys, non-origin URLs and production HTTP without provider requests
   ---
-  duration_ms: 4.034372
+  duration_ms: 0.763785
   ...
 # Subtest: expired bootstrap and per-source rate limits prevent password dispatch
 ok 175 - expired bootstrap and per-source rate limits prevent password dispatch
   ---
-  duration_ms: 29.294118
+  duration_ms: 16.846868
   ...
 # Subtest: read-only me restores cookie session and CSRF after browser refresh without an Origin header
 ok 176 - read-only me restores cookie session and CSRF after browser refresh without an Origin header
   ---
-  duration_ms: 9.480369
+  duration_ms: 7.206478
   ...
 # Subtest: processing time cannot extend a local session past the exact provider expiry
 ok 177 - processing time cannot extend a local session past the exact provider expiry
   ---
-  duration_ms: 7.07403
+  duration_ms: 3.990395
   ...
 # Subtest: slow live verification crossing session expiry prevents /authorization mutation
 ok 178 - slow live verification crossing session expiry prevents /authorization mutation
   ---
-  duration_ms: 4.360741
+  duration_ms: 3.431767
   ...
 # Subtest: slow live verification crossing session expiry prevents /consent mutation
 ok 179 - slow live verification crossing session expiry prevents /consent mutation
   ---
-  duration_ms: 5.028181
+  duration_ms: 4.431056
   ...
 # Subtest: consent CAS crossing session expiry cannot dispatch an upstream decision
 ok 180 - consent CAS crossing session expiry cannot dispatch an upstream decision
   ---
-  duration_ms: 8.559348
+  duration_ms: 5.844235
   ...
 # Subtest: native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays
 ok 181 - native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays
   ---
-  duration_ms: 70.973461
+  duration_ms: 43.435958
   ...
 # Subtest: private IDs and child artifacts do not cross tenants; public reading never grants mutation
 ok 182 - private IDs and child artifacts do not cross tenants; public reading never grants mutation
   ---
-  duration_ms: 51.014426
+  duration_ms: 21.724814
   ...
 # Subtest: resource commands reject stale versions and bind retries before producing new jobs
 ok 183 - resource commands reject stale versions and bind retries before producing new jobs
   ---
-  duration_ms: 15.423223
+  duration_ms: 11.309101
   ...
 # Subtest: revoked credentials cancel queued work and a fresh service instance recovers persisted jobs
 ok 184 - revoked credentials cancel queued work and a fresh service instance recovers persisted jobs
   ---
-  duration_ms: 50.420865
+  duration_ms: 26.33559
   ...
 # Subtest: GET discovery, continuity, history and replay are pure; tampered snapshots fail verification
 ok 185 - GET discovery, continuity, history and replay are pure; tampered snapshots fail verification
   ---
-  duration_ms: 4.119408
+  duration_ms: 2.363816
   ...
 # Subtest: native mission contains documents and dependency evidence, executes and survives fresh-principal fork
 ok 186 - native mission contains documents and dependency evidence, executes and survives fresh-principal fork
   ---
-  duration_ms: 17.414179
+  duration_ms: 14.8011
   ...
 # Subtest: missing worker authority and authored code fail closed
 ok 187 - missing worker authority and authored code fail closed
   ---
-  duration_ms: 23.023843
+  duration_ms: 9.735862
   ...
 # Subtest: parallel product startup seeds one immutable mission without losing either service
 ok 188 - parallel product startup seeds one immutable mission without losing either service
   ---
-  duration_ms: 2.835673
+  duration_ms: 5.537906
   ...
 # Subtest: job intent and its idempotency receipt commit atomically across an interruption boundary
 ok 189 - job intent and its idempotency receipt commit atomically across an interruption boundary
   ---
-  duration_ms: 13.190364
+  duration_ms: 15.604795
   ...
 # Subtest: create and build retries retain original statuses and immutable build IDs
 ok 190 - create and build retries retain original statuses and immutable build IDs
   ---
-  duration_ms: 10.005728
+  duration_ms: 13.772917
   ...
 # Subtest: public-resource proposals remain immutable and private to proposer and owner until owner explicitly commits
 ok 191 - public-resource proposals remain immutable and private to proposer and owner until owner explicitly commits
   ---
-  duration_ms: 6.724786
+  duration_ms: 8.259648
   ...
 # Subtest: owner rejects proposals without applying content and stale/base-version/cross-resource suggestions cannot commit
 ok 192 - owner rejects proposals without applying content and stale/base-version/cross-resource suggestions cannot commit
   ---
-  duration_ms: 6.229964
+  duration_ms: 16.158586
   ...
 # Subtest: proposal and owner decision retry atomically after lost responses and do not repeat transitions
 ok 193 - proposal and owner decision retry atomically after lost responses and do not repeat transitions
   ---
-  duration_ms: 8.309363
+  duration_ms: 8.352337
   ...
 # Subtest: invalid expiry, unsafe JSON, oversized state/source/input and non-pure proposals fail before persistence
 ok 194 - invalid expiry, unsafe JSON, oversized state/source/input and non-pure proposals fail before persistence
   ---
-  duration_ms: 10.950784
+  duration_ms: 20.109502
   ...
 # Subtest: two workers fence an expired lease so the interrupted worker cannot publish a second artifact
 ok 195 - two workers fence an expired lease so the interrupted worker cannot publish a second artifact
   ---
-  duration_ms: 23.550994
+  duration_ms: 17.292377
   ...
 # Subtest: a fresh worker retries pure interrupted execution only after lease expiry without partial results
 ok 196 - a fresh worker retries pure interrupted execution only after lease expiry without partial results
   ---
-  duration_ms: 22.61516
+  duration_ms: 20.662351
   ...
 # Subtest: owner revoked during execution is rechecked before result publication; malformed worker expiry cancels
 ok 197 - owner revoked during execution is rechecked before result publication; malformed worker expiry cancels
   ---
-  duration_ms: 18.645296
+  duration_ms: 15.34177
   ...
 # Subtest: concurrent duplicate proposals and owner decisions retain exactly one immutable record
 ok 198 - concurrent duplicate proposals and owner decisions retain exactly one immutable record
   ---
-  duration_ms: 3.385478
+  duration_ms: 3.668743
   ...
 # Subtest: simultaneous near-64KiB source and state proposals commit and retry without an oversized receipt row
 ok 199 - simultaneous near-64KiB source and state proposals commit and retry without an oversized receipt row
   ---
-  duration_ms: 38.551552
+  duration_ms: 25.440268
   ...
 # Subtest: manifest discloses proposal/decision contracts and proposal reads are pure under current visibility
 ok 200 - manifest discloses proposal/decision contracts and proposal reads are pure under current visibility
   ---
-  duration_ms: 25.392225
+  duration_ms: 10.83376
   ...
 # Subtest: private reads and the collection require active resource scopes even for the same principal in CGIT
 ok 201 - private reads and the collection require active resource scopes even for the same principal in CGIT
   ---
-  duration_ms: 7.639258
+  duration_ms: 3.421622
   ...
 # Subtest: admitted concurrent jobs terminalize once if owner commands consume the remaining history
 ok 202 - admitted concurrent jobs terminalize once if owner commands consume the remaining history
   ---
-  duration_ms: 664.469571
+  duration_ms: 640.593607
   ...
 # Subtest: decimal-expanded artifact storage refusal becomes a small permanent terminal failure
 ok 203 - decimal-expanded artifact storage refusal becomes a small permanent terminal failure
   ---
-  duration_ms: 56.958992
+  duration_ms: 62.333156
   ...
 # Subtest: resource child listing and replay select the resource before unrelated owner pagination
 ok 204 - resource child listing and replay select the resource before unrelated owner pagination
   ---
-  duration_ms: 99.240028
+  duration_ms: 91.44766
   ...
 # Subtest: fresh discovery provides valid checkpoint input and publish/fork options
 ok 205 - fresh discovery provides valid checkpoint input and publish/fork options
   ---
-  duration_ms: 2.2806
+  duration_ms: 2.304377
   ...
 # Subtest: permanent completion failure terminalizes an existing job even when tenant bytes or metadata are saturated
 ok 206 - permanent completion failure terminalizes an existing job even when tenant bytes or metadata are saturated
   ---
-  duration_ms: 1045.154
+  duration_ms: 961.398941
   ...
 # Subtest: quota saturation after queue admission terminalizes pre-claim failure or revoked cancellation once
 ok 207 - quota saturation after queue admission terminalizes pre-claim failure or revoked cancellation once
   ---
-  duration_ms: 1908.257631
+  duration_ms: 1958.122008
   ...
 # Subtest: fresh SDK reconstructs a URL-only mission and compiles, runs, publishes and checkpoints its own fork
 ok 208 - fresh SDK reconstructs a URL-only mission and compiles, runs, publishes and checkpoints its own fork
   ---
-  duration_ms: 154.549895
+  duration_ms: 146.506001
   ...
 # Subtest: SDK refuses cross-origin reconstruction and redirect following before leaking cookies
 ok 209 - SDK refuses cross-origin reconstruction and redirect following before leaking cookies
   ---
-  duration_ms: 0.701342
+  duration_ms: 0.690125
   ...
 # Subtest: store exports the required adapters
 ok 210 - store exports the required adapters
   ---
-  duration_ms: 0.580831
+  duration_ms: 0.579149
   ...
 # Subtest: memory: atomic competing CAS, isolation, immutable reads and tombstone versions
 ok 211 - memory: atomic competing CAS, isolation, immutable reads and tombstone versions
   ---
-  duration_ms: 7.753258
+  duration_ms: 6.054331
   ...
 # Subtest: memory: payload-bound retry and global handle reservation are atomic and erase releases all aliases
 ok 212 - memory: payload-bound retry and global handle reservation are atomic and erase releases all aliases
   ---
-  duration_ms: 8.785678
+  duration_ms: 2.645739
   ...
 # Subtest: file: atomic competing CAS, isolation, immutable reads and tombstone versions
 ok 213 - file: atomic competing CAS, isolation, immutable reads and tombstone versions
   ---
-  duration_ms: 70.815729
+  duration_ms: 46.332002
   ...
 # Subtest: file: payload-bound retry and global handle reservation are atomic and erase releases all aliases
 ok 214 - file: payload-bound retry and global handle reservation are atomic and erase releases all aliases
   ---
-  duration_ms: 52.048236
+  duration_ms: 88.051226
   ...
 # Subtest: lists and global status scans are bounded, exclude tombstones and remain pure
 ok 215 - lists and global status scans are bounded, exclude tombstones and remain pure
   ---
-  duration_ms: 0.961763
+  duration_ms: 0.958287
   ...
 # Subtest: rejects malformed or unbounded data before mutating and enforces tenant quota
 ok 216 - rejects malformed or unbounded data before mutating and enforces tenant quota
   ---
-  duration_ms: 250.602042
+  duration_ms: 152.260095
   ...
 # Subtest: development file reads never create files and production factory fails closed
 ok 217 - development file reads never create files and production factory fails closed
   ---
-  duration_ms: 4.060951
+  duration_ms: 4.884946
   ...
 # Subtest: dictionary-shaped identifiers cannot resolve inherited prototype members
 ok 218 - dictionary-shaped identifiers cannot resolve inherited prototype members
   ---
-  duration_ms: 0.430446
+  duration_ms: 0.377366
   ...
 # Subtest: strict JSON validation rejects accessors, symbol properties, unsupported Unicode and overflowing versions
 ok 219 - strict JSON validation rejects accessors, symbol properties, unsupported Unicode and overflowing versions
   ---
-  duration_ms: 0.33344
+  duration_ms: 0.330876
   ...
 # Subtest: record tombstones and idempotency counts have hard per-scope bounds
 ok 220 - record tombstones and idempotency counts have hard per-scope bounds
   ---
-  duration_ms: 7404.178499
+  duration_ms: 7224.458553
   ...
 # Subtest: memory: retry metadata byte quota fails atomically
 ok 221 - memory: retry metadata byte quota fails atomically
   ---
-  duration_ms: 26.487839
+  duration_ms: 40.461757
   ...
 # Subtest: file: retry metadata byte quota fails atomically
 ok 222 - file: retry metadata byte quota fails atomically
   ---
-  duration_ms: 31.339366
+  duration_ms: 59.164229
   ...
 # Subtest: retained aliases are bounded and an existing alias remains usable at capacity
 ok 223 - retained aliases are bounded and an existing alias remains usable at capacity
   ---
-  duration_ms: 74.078478
+  duration_ms: 83.829494
   ...
 # Subtest: memory: a large user status field does not overflow the queue index
 ok 224 - memory: a large user status field does not overflow the queue index
   ---
-  duration_ms: 2.577025
+  duration_ms: 3.001512
   ...
 # Subtest: file: a large user status field does not overflow the queue index
 ok 225 - file: a large user status field does not overflow the queue index
   ---
-  duration_ms: 7.435362
+  duration_ms: 11.96752
   ...
 # Subtest: row and tenant accounting use compact PostgreSQL JSON bytes for exponent numbers
 ok 226 - row and tenant accounting use compact PostgreSQL JSON bytes for exponent numbers
   ---
-  duration_ms: 1.448042
+  duration_ms: 1.717426
   ...
 # Subtest: persistence configuration and malformed upstream responses expose only safe store errors
 ok 227 - persistence configuration and malformed upstream responses expose only safe store errors
   ---
-  duration_ms: 9.591096
+  duration_ms: 10.938988
   ...
 # Subtest: all read selectors reject nonportable Unicode before Supabase transport
 ok 228 - all read selectors reject nonportable Unicode before Supabase transport
   ---
-  duration_ms: 0.218017
+  duration_ms: 0.353911
   ...
 # Subtest: unconfigured provider is explicitly unavailable and never fabricates identity
 ok 229 - unconfigured provider is explicitly unavailable and never fabricates identity
   ---
-  duration_ms: 0.771678
+  duration_ms: 1.004897
   ...
 # Subtest: provider verifier uses verified subject and rejects editable identity claims
 ok 230 - provider verifier uses verified subject and rejects editable identity claims
   ---
-  duration_ms: 12.168281
+  duration_ms: 15.163504
   ...
 # Subtest: OTP redirect carries browser-bound state using provider redirect_to query
 ok 231 - OTP redirect carries browser-bound state using provider redirect_to query
   ---
-  duration_ms: 1.087562
+  duration_ms: 0.428643
   ...
 # Subtest: compiles a typed arithmetic pipeline to a serializable versioned plan
 ok 232 - compiles a typed arithmetic pipeline to a serializable versioned plan
   ---
-  duration_ms: 7.905026
+  duration_ms: 13.351585
   ...
 # Subtest: JSON and DSL normalize to the same derivation
 ok 233 - JSON and DSL normalize to the same derivation
   ---
-  duration_ms: 10.606368
+  duration_ms: 8.322452
   ...
 # Subtest: diagnostics distinguish parsing, types, capabilities and normalization
 ok 234 - diagnostics distinguish parsing, types, capabilities and normalization
   ---
-  duration_ms: 0.384907
+  duration_ms: 0.4596
   ...
 # Subtest: rejects unknown operators, malformed arguments, versions and source objects
 ok 235 - rejects unknown operators, malformed arguments, versions and source objects
   ---
-  duration_ms: 5.213729
+  duration_ms: 0.362274
   ...
 # Subtest: branch paths agree on output type and join both effect rows
 ok 236 - branch paths agree on output type and join both effect rows
   ---
-  duration_ms: 13.626778
+  duration_ms: 11.099197
   ...
 # Subtest: bounded repetition and nested composition preserve types and execute in order
 ok 237 - bounded repetition and nested composition preserve types and execute in order
   ---
-  duration_ms: 12.348035
+  duration_ms: 6.675302
   ...
 # Subtest: effects are explicit and rights never activate external adapters
 ok 238 - effects are explicit and rights never activate external adapters
   ---
-  duration_ms: 2.797726
+  duration_ms: 3.063394
   ...
 # Subtest: replay records capture seed input versions environment and every pure transition
 ok 239 - replay records capture seed input versions environment and every pure transition
   ---
-  duration_ms: 9.511927
+  duration_ms: 7.038577
   ...
 # Subtest: tampered plans and unsafe values cannot bypass the checker at execution
 ok 240 - tampered plans and unsafe values cannot bypass the checker at execution
   ---
-  duration_ms: 11.511136
+  duration_ms: 9.292578
   ...
 # Subtest: runtime and compilation quotas bound values, source and expanded work
 ok 241 - runtime and compilation quotas bound values, source and expanded work
   ---
-  duration_ms: 2.665768
+  duration_ms: 2.878557
   ...
 # Subtest: allocation preflight and cumulative work quotas reject amplification before allocating
 ok 242 - allocation preflight and cumulative work quotas reject amplification before allocating
   ---
-  duration_ms: 316.229264
+  duration_ms: 293.624941
   ...
 # Subtest: literal data cannot run getters or coercion hooks and prototype keys remain inert
 ok 243 - literal data cannot run getters or coercion hooks and prototype keys remain inert
   ---
-  duration_ms: 7.745086
+  duration_ms: 4.219419
   ...
 # Subtest: identity separates address derivation value content environment build and execution
 ok 244 - identity separates address derivation value content environment build and execution
   ---
-  duration_ms: 7.61431
+  duration_ms: 7.305437
   ...
 # Subtest: pure library supports parsing JSON strings arrays graphs state machines and artifacts
 ok 245 - pure library supports parsing JSON strings arrays graphs state machines and artifacts
   ---
-  duration_ms: 18.077935
+  duration_ms: 29.385885
   ...
 # Subtest: bit toggles and 007 labels retain their exact finite state behavior
 ok 246 - bit toggles and 007 labels retain their exact finite state behavior
   ---
-  duration_ms: 31.530231
+  duration_ms: 13.471465
   ...
 # Subtest: composition binary-string operators retain width and reject unequal operands
 ok 247 - composition binary-string operators retain width and reject unequal operands
   ---
-  duration_ms: 11.199648
+  duration_ms: 11.696032
   ...
 # Subtest: projection compiler rejects a hidden-bit swap with a concrete successor witness
 ok 248 - projection compiler rejects a hidden-bit swap with a concrete successor witness
   ---
-  duration_ms: 16.217234
+  duration_ms: 16.943193
   ...
 # Subtest: complete finite projection checks enabledness effects and closure
 ok 249 - complete finite projection checks enabledness effects and closure
   ---
-  duration_ms: 7.404135
+  duration_ms: 7.669984
   ...
 # Subtest: positive complete quotient compiles a replayable transition program
 ok 250 - positive complete quotient compiles a replayable transition program
   ---
-  duration_ms: 12.909763
+  duration_ms: 12.56083
   ...
 # Subtest: known typed pure operators validate traces without inventing unobserved semantics
 ok 251 - known typed pure operators validate traces without inventing unobserved semantics
   ---
-  duration_ms: 6.78015
+  duration_ms: 18.031125
   ...
 # Subtest: SEURL mappings preserve ambiguity and document each seven-verb decision
 ok 252 - SEURL mappings preserve ambiguity and document each seven-verb decision
   ---
-  duration_ms: 0.283715
+  duration_ms: 0.347361
   ...
 # Subtest: sessions hash bearer secrets and reject forged authority; GET never mutates
 ok 253 - sessions hash bearer secrets and reject forged authority; GET never mutates
   ---
-  duration_ms: 3.645798
+  duration_ms: 3.80679
   ...
 # Subtest: compile, tested immutable build, durable run, publish, artifact and replay
 ok 254 - compile, tested immutable build, durable run, publish, artifact and replay
   ---
-  duration_ms: 20.76209
+  duration_ms: 19.283453
   ...
 # Subtest: request-bound durable idempotency rechecks live revoked grants and stale versions
 ok 255 - request-bound durable idempotency rechecks live revoked grants and stale versions
   ---
-  duration_ms: 11.120469
+  duration_ms: 1.781002
   ...
 # Subtest: worker denies a queued execution after its grant is revoked
 ok 256 - worker denies a queued execution after its grant is revoked
   ---
-  duration_ms: 5.927802
+  duration_ms: 5.454621
   ...
 # Subtest: expired durable leases recover without duplicate completion
 ok 257 - expired durable leases recover without duplicate completion
   ---
-  duration_ms: 6.606769
+  duration_ms: 6.376244
   ...
 # Subtest: checkpoint/proposal/commit/fork/diff reconstruct continuation with no inherited grants
 ok 258 - checkpoint/proposal/commit/fork/diff reconstruct continuation with no inherited grants
   ---
-  duration_ms: 4.238988
+  duration_ms: 3.357486
   ...
 # Subtest: game atomically validates players, turn races, winners and replay
 ok 259 - game atomically validates players, turn races, winners and replay
   ---
-  duration_ms: 3.736655
+  duration_ms: 2.519118
   ...
 # Subtest: unlisted resources are reachable by URL, private artifacts remain private, schemas reject bad data
 ok 260 - unlisted resources are reachable by URL, private artifacts remain private, schemas reject bad data
   ---
-  duration_ms: 11.310484
+  duration_ms: 19.500538
   ...
 # Subtest: authored code execution and publication fail closed without a verified isolated adapter
 ok 261 - authored code execution and publication fail closed without a verified isolated adapter
   ---
-  duration_ms: 1.078888
+  duration_ms: 1.177717
   ...
 # Subtest: seed mission contains the full directive and navigable typed graph; manifests expose no tokens
 ok 262 - seed mission contains the full directive and navigable typed graph; manifests expose no tokens
   ---
-  duration_ms: 16.020299
+  duration_ms: 34.323201
   ...
 # Subtest: verified account exchange maps stable principals and never trusts client account claims
 ok 263 - verified account exchange maps stable principals and never trusts client account claims
   ---
-  duration_ms: 1.916945
+  duration_ms: 1.012959
   ...
 # Subtest: idle workers perform no writes and artifact Storage errors never acknowledge success
 ok 264 - idle workers perform no writes and artifact Storage errors never acknowledge success
   ---
-  duration_ms: 4.986989
+  duration_ms: 6.212979
   ...
 # Subtest: verified authored adapter captures its pinned image and denies changed runtime environments
 ok 265 - verified authored adapter captures its pinned image and denies changed runtime environments
   ---
-  duration_ms: 3.595703
+  duration_ms: 2.762233
   ...
 # Subtest: delegation attenuates, ancestor revocation denies descendants, and mission rejects false evidence
 ok 266 - delegation attenuates, ancestor revocation denies descendants, and mission rejects false evidence
   ---
-  duration_ms: 42.440776
+  duration_ms: 21.605095
   ...
 # Subtest: filesystem restart preserves pending jobs, idempotency, checkpoints and execution replay
 ok 267 - filesystem restart preserves pending jobs, idempotency, checkpoints and execution replay
   ---
-  duration_ms: 111.805956
+  duration_ms: 141.703893
   ...
 # Subtest: two filesystem API instances serialize racing game moves
 ok 268 - two filesystem API instances serialize racing game moves
   ---
-  duration_ms: 23.176371
+  duration_ms: 22.038715
   ...
 # Subtest: HTTP enforces JSON body, rejects URL credentials and cross-origin writes
 ok 269 - HTTP enforces JSON body, rejects URL credentials and cross-origin writes
   ---
-  duration_ms: 21.60863
+  duration_ms: 21.277845
   ...
 # Subtest: HTTP gives bounded errors and never forwards a credential to a static resource
 ok 270 - HTTP gives bounded errors and never forwards a credential to a static resource
   ---
-  duration_ms: 12.897895
+  duration_ms: 15.049783
   ...
 # Subtest: read-only program URL negotiates machine manifest without mutation
 ok 271 - read-only program URL negotiates machine manifest without mutation
   ---
-  duration_ms: 2.168312
+  duration_ms: 2.251847
   ...
 # Subtest: trace compilation returns a concrete hidden-state witness without writing state
 ok 272 - trace compilation returns a concrete hidden-state witness without writing state
   ---
-  duration_ms: 37.102088
+  duration_ms: 58.351469
   ...
 # Subtest: executable mission computes the lawful dependency frontier and distinguishes claims from verified completion
 ok 273 - executable mission computes the lawful dependency frontier and distinguishes claims from verified completion
   ---
-  duration_ms: 10.899338
+  duration_ms: 6.066548
   ...
 # Subtest: mission evaluator rejects duplicate nodes, missing dependencies and dependency cycles
 ok 274 - mission evaluator rejects duplicate nodes, missing dependencies and dependency cycles
   ---
-  duration_ms: 13.786378
+  duration_ms: 11.332007
   ...
 # Subtest: shared registry promotion needs actual configured curator authority and a tested immutable public release
 ok 275 - shared registry promotion needs actual configured curator authority and a tested immutable public release
   ---
-  duration_ms: 16.072302
+  duration_ms: 20.555381
   ...
 # Subtest: memory transactions persist detached snapshots and roll back failed or async mutators
 ok 276 - memory transactions persist detached snapshots and roll back failed or async mutators
   ---
-  duration_ms: 3.577586
+  duration_ms: 2.385909
   ...
 # Subtest: file repository survives restart and ignores interrupted temporary writes
 ok 277 - file repository survives restart and ignores interrupted temporary writes
   ---
-  duration_ms: 15.264895
+  duration_ms: 8.239418
   ...
 # Subtest: file repository serializes independent processes without lost updates
 ok 278 - file repository serializes independent processes without lost updates
   ---
-  duration_ms: 420.436953
+  duration_ms: 290.432624
   ...
 # Subtest: killing a writer during atomic staging preserves a complete committed document
 ok 279 - killing a writer during atomic staging preserves a complete committed document
   ---
-  duration_ms: 123.598993
+  duration_ms: 64.456427
   ...
 # Subtest: file repository recovers dead-process and incomplete crash locks
 ok 280 - file repository recovers dead-process and incomplete crash locks
   ---
-  duration_ms: 58.633242
+  duration_ms: 11.839498
   ...
 # Subtest: an old live-process lock is never stolen
 ok 281 - an old live-process lock is never stolen
   ---
-  duration_ms: 38.833887
+  duration_ms: 49.673715
   ...
 # Subtest: Linux locks record the owner process start time
 ok 282 - Linux locks record the owner process start time
   ---
-  duration_ms: 8.38745
+  duration_ms: 7.244916
   ...
 # Subtest: a reused live PID with a different start time does not retain an abandoned lock
 ok 283 - a reused live PID with a different start time does not retain an abandoned lock
   ---
-  duration_ms: 25.08244
+  duration_ms: 20.387359
   ...
 # Subtest: a matching process start time or foreign host keeps a live lock protected
 ok 284 - a matching process start time or foreign host keeps a live lock protected
   ---
-  duration_ms: 105.305685
+  duration_ms: 97.655986
   ...
 # Subtest: production configuration fails closed and development persistence is explicit
 ok 285 - production configuration fails closed and development persistence is explicit
   ---
-  duration_ms: 0.57324
+  duration_ms: 0.561442
   ...
 # Subtest: Supabase adapter retries document CAS conflicts and preserves immutable object bytes
 ok 286 - Supabase adapter retries document CAS conflicts and preserves immutable object bytes
   ---
-  duration_ms: 46.164921
+  duration_ms: 35.590131
   ...
 # Subtest: Supabase adapter bounds conflicts and surfaces service failures
 ok 287 - Supabase adapter bounds conflicts and surfaces service failures
   ---
-  duration_ms: 5.851677
+  duration_ms: 3.499459
   ...
 # Subtest: sandbox always sets network, process, filesystem and privilege restrictions
 ok 288 - sandbox always sets network, process, filesystem and privilege restrictions
   ---
-  duration_ms: 1.421543
+  duration_ms: 0.524947
   ...
 # Subtest: sandbox cannot silently enable arbitrary execution without explicit verified gate
 ok 289 - sandbox cannot silently enable arbitrary execution without explicit verified gate
   ---
-  duration_ms: 0.440981
+  duration_ms: 0.407571
   ...
 # Subtest: sandbox rejects unsupported language and oversized source before spawn
 ok 290 - sandbox rejects unsupported language and oversized source before spawn
   ---
-  duration_ms: 0.298919
+  duration_ms: 0.282995
   ...
 # Subtest: TypeScript runs only inside the same pinned restricted Node container with native type stripping
 ok 291 - TypeScript runs only inside the same pinned restricted Node container with native type stripping
   ---
-  duration_ms: 0.083084
+  duration_ms: 0.08016
   ...
 # Subtest: SDK refuses to forward bearer credentials to off-origin operation links
 ok 292 - SDK refuses to forward bearer credentials to off-origin operation links
   ---
-  duration_ms: 0.719078
+  duration_ms: 0.775293
   ...
 # Subtest: SDK uses response errors rather than claiming successful operations
 ok 293 - SDK uses response errors rather than claiming successful operations
   ---
-  duration_ms: 11.482892
+  duration_ms: 10.715912
   ...
 # Subtest: SDK resolves program addresses and preserves expected_version in mutation
 ok 294 - SDK resolves program addresses and preserves expected_version in mutation
   ---
-  duration_ms: 1.241332
+  duration_ms: 1.262543
   ...
 # Subtest: required constructor needs an own data property
 ok 295 - required constructor needs an own data property
   ---
-  duration_ms: 1.558848
+  duration_ms: 1.985629
   ...
 # Subtest: additionalProperties false rejects undeclared constructor
 ok 296 - additionalProperties false rejects undeclared constructor
   ---
-  duration_ms: 0.63376
+  duration_ms: 0.295794
   ...
 # Subtest: required toString needs an own data property
 ok 297 - required toString needs an own data property
   ---
-  duration_ms: 0.151567
+  duration_ms: 0.252068
   ...
 # Subtest: additionalProperties false rejects undeclared toString
 ok 298 - additionalProperties false rejects undeclared toString
   ---
-  duration_ms: 0.170005
+  duration_ms: 0.269774
   ...
 # Subtest: required __proto__ needs an own data property
 ok 299 - required __proto__ needs an own data property
   ---
-  duration_ms: 0.094361
+  duration_ms: 0.705278
   ...
 # Subtest: additionalProperties false rejects undeclared __proto__
 ok 300 - additionalProperties false rejects undeclared __proto__
   ---
-  duration_ms: 0.095223
+  duration_ms: 0.124547
   ...
 # Subtest: boolean schemas, false propertyNames and canonical JSON equality are enforced
 ok 301 - boolean schemas, false propertyNames and canonical JSON equality are enforced
   ---
-  duration_ms: 0.359409
+  duration_ms: 0.367381
   ...
 # Subtest: malformed schema is rejected: {"items":42}
 ok 302 - malformed schema is rejected: {"items":42}
   ---
-  duration_ms: 0.097406
+  duration_ms: 0.101412
   ...
 # Subtest: malformed schema is rejected: {"properties":{"x":42}}
 ok 303 - malformed schema is rejected: {"properties":{"x":42}}
   ---
-  duration_ms: 0.202303
+  duration_ms: 0.220751
   ...
 # Subtest: malformed schema is rejected: {"additionalProperties":null}
 ok 304 - malformed schema is rejected: {"additionalProperties":null}
   ---
-  duration_ms: 0.201983
+  duration_ms: 0.210075
   ...
 # Subtest: malformed schema is rejected: {"propertyNames":[]}
 ok 305 - malformed schema is rejected: {"propertyNames":[]}
   ---
-  duration_ms: 0.114211
+  duration_ms: 0.186129
   ...
 # Subtest: malformed schema is rejected: {"$defs":{"x":"schema"}}
 ok 306 - malformed schema is rejected: {"$defs":{"x":"schema"}}
   ---
-  duration_ms: 0.049494
+  duration_ms: 0.057737
   ...
 # Subtest: malformed schema is rejected: {"anyOf":[]}
 ok 307 - malformed schema is rejected: {"anyOf":[]}
   ---
-  duration_ms: 0.038888
+  duration_ms: 0.03994
   ...
 # Subtest: malformed schema is rejected: {"oneOf":[42]}
 ok 308 - malformed schema is rejected: {"oneOf":[42]}
   ---
-  duration_ms: 0.036445
+  duration_ms: 0.037136
   ...
 # Subtest: malformed schema is rejected: {"format":42}
 ok 309 - malformed schema is rejected: {"format":42}
   ---
-  duration_ms: 0.032218
+  duration_ms: 0.045579
   ...
 # Subtest: malformed schema is rejected: {"format":"unimplemented"}
 ok 310 - malformed schema is rejected: {"format":"unimplemented"}
   ---
-  duration_ms: 0.03345
+  duration_ms: 0.034532
   ...
 # Subtest: malformed schema is rejected: {"description":[]}
 ok 311 - malformed schema is rejected: {"description":[]}
   ---
-  duration_ms: 0.031317
+  duration_ms: 0.032428
   ...
 # Subtest: malformed schema is rejected: {"$id":42}
 ok 312 - malformed schema is rejected: {"$id":42}
   ---
-  duration_ms: 0.030977
+  duration_ms: 0.031086
   ...
 # Subtest: malformed schema is rejected: {"examples":{}}
 ok 313 - malformed schema is rejected: {"examples":{}}
   ---
-  duration_ms: 0.081152
+  duration_ms: 0.032288
   ...
 # Subtest: malformed schema is rejected: {"required":["x","x"]}
 ok 314 - malformed schema is rejected: {"required":["x","x"]}
   ---
-  duration_ms: 0.03338
+  duration_ms: 0.03352
   ...
 # Subtest: malformed schema is rejected: {"type":["number","number"]}
 ok 315 - malformed schema is rejected: {"type":["number","number"]}
   ---
-  duration_ms: 0.032328
+  duration_ms: 0.036565
   ...
 # Subtest: malformed schema is rejected: {"enum":[{"a":1,"b":2},{"b":2,"a":1}]}
 ok 316 - malformed schema is rejected: {"enum":[{"a":1,"b":2},{"b":2,"a":1}]}
   ---
-  duration_ms: 0.050706
+  duration_ms: 0.099439
   ...
 # Subtest: schema annotations and nested JSON consume a bounded size and complexity budget
 ok 317 - schema annotations and nested JSON consume a bounded size and complexity budget
   ---
-  duration_ms: 3.335663
+  duration_ms: 4.438848
   ...
 # Subtest: schema identifiers do not create reference authority
 ok 318 - schema identifiers do not create reference authority
   ---
-  duration_ms: 0.099139
+  duration_ms: 0.123966
   ...
 # Subtest: fork enforces the global program quota atomically
 ok 319 - fork enforces the global program quota atomically
   ---
-  duration_ms: 65.087764
+  duration_ms: 69.765008
   ...
 # Subtest: replay rejects tampered receipt seed and fails overall verification
 ok 320 - replay rejects tampered receipt seed and fails overall verification
   ---
-  duration_ms: 12.083824
+  duration_ms: 29.543823
   ...
 # Subtest: replay rejects tampered execution trace and fails overall verification
 ok 321 - replay rejects tampered execution trace and fails overall verification
   ---
-  duration_ms: 7.748151
+  duration_ms: 12.079647
   ...
 # Subtest: replay rejects tampered immutable build source and fails overall verification
 ok 322 - replay rejects tampered immutable build source and fails overall verification
   ---
-  duration_ms: 5.84018
+  duration_ms: 11.136488
   ...
 # Subtest: replay rejects tampered execution build hash and fails overall verification
 ok 323 - replay rejects tampered execution build hash and fails overall verification
   ---
-  duration_ms: 5.480711
+  duration_ms: 15.663884
   ...
 # Subtest: replay rejects tampered execution value id and fails overall verification
 ok 324 - replay rejects tampered execution value id and fails overall verification
   ---
-  duration_ms: 7.974771
+  duration_ms: 19.565175
   ...
 # Subtest: replay rejects tampered captured environment and fails overall verification
 ok 325 - replay rejects tampered captured environment and fails overall verification
   ---
-  duration_ms: 13.450534
+  duration_ms: 5.648502
   ...
 # Subtest: replay rejects tampered runtime environment and fails overall verification
 ok 326 - replay rejects tampered runtime environment and fails overall verification
   ---
-  duration_ms: 8.645297
+  duration_ms: 5.854812
   ...
 # Subtest: replay rejects tampered dependencies and fails overall verification
 ok 327 - replay rejects tampered dependencies and fails overall verification
   ---
-  duration_ms: 42.925082
+  duration_ms: 5.46758
   ...
 # Subtest: replay rejects tampered effects and fails overall verification
 ok 328 - replay rejects tampered effects and fails overall verification
   ---
-  duration_ms: 9.6873
+  duration_ms: 6.430005
   ...
 # Subtest: replay rejects tampered nondeterminism and fails overall verification
 ok 329 - replay rejects tampered nondeterminism and fails overall verification
   ---
-  duration_ms: 6.283214
+  duration_ms: 5.327991
   ...
 # Subtest: replay rejects tampered artifact execution binding and fails overall verification
 ok 330 - replay rejects tampered artifact execution binding and fails overall verification
   ---
-  duration_ms: 17.799091
+  duration_ms: 8.182593
   ...
 # Subtest: replay rejects tampered receipt execution binding with fresh hash and fails overall verification
 ok 331 - replay rejects tampered receipt execution binding with fresh hash and fails overall verification
   ---
-  duration_ms: 7.117075
+  duration_ms: 8.353239
   ...
 # Subtest: replay rejects tampered receipt seed with fresh hash and fails overall verification
 ok 332 - replay rejects tampered receipt seed with fresh hash and fails overall verification
   ---
-  duration_ms: 11.019687
+  duration_ms: 4.939799
   ...
 # Subtest: replay rejects tampered input and receipt rewritten coherently and fails overall verification
 ok 333 - replay rejects tampered input and receipt rewritten coherently and fails overall verification
   ---
-  duration_ms: 6.17381
+  duration_ms: 12.143173
   ...
 # Subtest: replay compares recomputed trace even when artifact and receipt hashes are rewritten
 ok 334 - replay compares recomputed trace even when artifact and receipt hashes are rewritten
   ---
-  duration_ms: 9.656628
+  duration_ms: 18.385465
   ...
 # Subtest: authored replay validates receipt integrity without executing the adapter again
 ok 335 - authored replay validates receipt integrity without executing the adapter again
   ---
-  duration_ms: 10.212668
+  duration_ms: 3.679469
   ...
 # Subtest: build rejects aggregate interpreter cost before running the test batch
 ok 336 - build rejects aggregate interpreter cost before running the test batch
   ---
-  duration_ms: 2.835983
+  duration_ms: 2.491537
   ...
 # Subtest: build rejects oversized aggregate test values before interpreter execution
 ok 337 - build rejects oversized aggregate test values before interpreter execution
   ---
-  duration_ms: 11.887279
+  duration_ms: 10.192448
   ...
 # Subtest: replay rejects an oversized verification batch before recomputing executions
 ok 338 - replay rejects an oversized verification batch before recomputing executions
   ---
-  duration_ms: 20.824284
+  duration_ms: 15.246167
   ...
 # Subtest: authored replay rejects a coherently rehashed runtime image that differs from its build
 ok 339 - authored replay rejects a coherently rehashed runtime image that differs from its build
   ---
-  duration_ms: 4.384697
+  duration_ms: 1.910967
   ...
 # Subtest: completed evidence cannot evade replay by changing execution status
 ok 340 - completed evidence cannot evade replay by changing execution status
   ---
-  duration_ms: 13.155592
+  duration_ms: 7.975303
   ...
 # Subtest: recorded run cannot disappear from replay through program identity
 ok 341 - recorded run cannot disappear from replay through program identity
   ---
-  duration_ms: 4.885478
+  duration_ms: 6.587671
   ...
 # Subtest: recorded run cannot disappear from replay through execution map identity
 ok 342 - recorded run cannot disappear from replay through execution map identity
   ---
-  duration_ms: 6.872659
+  duration_ms: 4.50005
   ...
 # Subtest: recorded run cannot disappear from replay through missing execution record
 ok 343 - recorded run cannot disappear from replay through missing execution record
   ---
-  duration_ms: 5.418306
+  duration_ms: 6.421361
   ...
 # Subtest: build budgets repeated literal argument bytes across every test
 ok 344 - build budgets repeated literal argument bytes across every test
   ---
-  duration_ms: 3.48717
+  duration_ms: 3.168192
   ...
 # Subtest: build records unattempted tests as skipped after the first runtime quota failure
 ok 345 - build records unattempted tests as skipped after the first runtime quota failure
   ---
-  duration_ms: 41.625624
+  duration_ms: 32.256321
   ...
 # Subtest: replay bounds captured input bytes before reexecuting
 ok 346 - replay bounds captured input bytes before reexecuting
   ---
-  duration_ms: 28.954979
+  duration_ms: 31.338994
   ...
 # Subtest: replay bounds captured value bytes before reexecuting
 ok 347 - replay bounds captured value bytes before reexecuting
   ---
-  duration_ms: 24.770273
+  duration_ms: 35.600666
   ...
 # Subtest: replay bounds captured trace bytes before reexecuting
 ok 348 - replay bounds captured trace bytes before reexecuting
   ---
-  duration_ms: 54.359453
+  duration_ms: 33.318114
   ...
 # Subtest: a zero repeat cannot turn expanded-byte admission into NaN
 ok 349 - a zero repeat cannot turn expanded-byte admission into NaN
   ---
-  duration_ms: 3.538067
+  duration_ms: 15.744295
   ...
 # Subtest: idle Supabase worker polls one projected ID without reading or rewriting the authoritative document
 ok 350 - idle Supabase worker polls one projected ID without reading or rewriting the authoritative document
   ---
-  duration_ms: 17.243974
+  duration_ms: 19.446437
   ...
 # Subtest: projected queued candidate is claimed and executed through the authoritative CAS transaction
 ok 351 - projected queued candidate is claimed and executed through the authoritative CAS transaction
   ---
-  duration_ms: 28.844293
+  duration_ms: 41.813971
   ...
 # Subtest: projected running candidate is claimed and executed through the authoritative CAS transaction
 ok 352 - projected running candidate is claimed and executed through the authoritative CAS transaction
   ---
-  duration_ms: 16.353989
+  duration_ms: 35.921628
   ...
 # Subtest: a projected running job with a live lease is never reclaimed
 ok 353 - a projected running job with a live lease is never reclaimed
   ---
-  duration_ms: 7.634822
+  duration_ms: 5.95975
   ...
 # Subtest: a candidate removed after the projection is rechecked atomically and produces no execution
 ok 354 - a candidate removed after the projection is rechecked atomically and produces no execution
   ---
-  duration_ms: 31.412014
+  duration_ms: 9.808422
   ...
 # Subtest: authority revoked after projection still denies the authoritative claim
 ok 355 - authority revoked after projection still denies the authoritative claim
   ---
-  duration_ms: 18.646808
+  duration_ms: 14.685446
   ...
 # Subtest: malformed pending query response fails without loading the full document: {"entity_id":"not-an-array"}
 ok 356 - malformed pending query response fails without loading the full document: {"entity_id":"not-an-array"}
   ---
-  duration_ms: 2.1469
+  duration_ms: 2.582153
   ...
 # Subtest: malformed pending query response fails without loading the full document: null
 ok 357 - malformed pending query response fails without loading the full document: null
   ---
-  duration_ms: 2.064156
+  duration_ms: 1.810435
   ...
 # Subtest: malformed pending query response fails without loading the full document: [{"entity_id":42}]
 ok 358 - malformed pending query response fails without loading the full document: [{"entity_id":42}]
   ---
-  duration_ms: 1.742263
+  duration_ms: 1.8531
   ...
 # Subtest: pending query errors fail without falling back to repeated full-document downloads
 ok 359 - pending query errors fail without falling back to repeated full-document downloads
   ---
-  duration_ms: 1.379058
+  duration_ms: 3.818117
   ...
 # Subtest: entropy of known distributions
 ok 360 - entropy of known distributions
   ---
-  duration_ms: 0.567962
+  duration_ms: 0.561191
   ...
 # Subtest: LZ76 reproduces the Lempel–Ziv (1976) textbook example (0·001·10·100·1000·101 → 6)
 ok 361 - LZ76 reproduces the Lempel–Ziv (1976) textbook example (0·001·10·100·1000·101 → 6)
   ---
-  duration_ms: 14.699687
+  duration_ms: 7.575032
   ...
 # Subtest: transition matrix, changes and runs on a hand-checked sequence
 ok 362 - transition matrix, changes and runs on a hand-checked sequence
   ---
-  duration_ms: 0.654432
+  duration_ms: 0.630456
   ...
 # Subtest: entropy profile: periodic sequence has zero conditional entropy once the period is covered
 ok 363 - entropy profile: periodic sequence has zero conditional entropy once the period is covered
   ---
-  duration_ms: 0.917927
+  duration_ms: 0.395764
   ...
 # Subtest: lag2copy: invisible to the first-order transition matrix, visible to h_3
 ok 364 - lag2copy: invisible to the first-order transition matrix, visible to h_3
   ---
-  duration_ms: 5.654471
+  duration_ms: 10.348822
   ...
 # Subtest: autocorrelation finds the period of a noiseless periodic sequence
 ok 365 - autocorrelation finds the period of a noiseless periodic sequence
   ---
-  duration_ms: 1.224126
+  duration_ms: 1.49341
   ...
 # Subtest: temporal measures: burstiness −1 for a regular clock, ≈0 for Poisson; Fano, differences
 ok 366 - temporal measures: burstiness −1 for a regular clock, ≈0 for Poisson; Fano, differences
   ---
-  duration_ms: 10.959208
+  duration_ms: 11.415882
   ...
 # Subtest: transition graph: SCCs, closed classes, periods and boundary artefacts
 ok 367 - transition graph: SCCs, closed classes, periods and boundary artefacts
   ---
-  duration_ms: 1.037456
+  duration_ms: 1.29357
   ...
 # Subtest: Re-Pair compresses repetition, is deterministic, and never interprets
 ok 368 - Re-Pair compresses repetition, is deterministic, and never interprets
   ---
-  duration_ms: 1.527141
+  duration_ms: 1.508032
   ...
 # Subtest: motifs report expectations under stated null models
 ok 369 - motifs report expectations under stated null models
   ---
-  duration_ms: 0.417115
+  duration_ms: 0.377957
   ...
 # Subtest: surrogates: shuffle preserves counts; Markov surrogate preserves transition structure; p-values in (0,1]
 ok 370 - surrogates: shuffle preserves counts; Markov surrogate preserves transition structure; p-values in (0,1]
   ---
-  duration_ms: 16.652908
+  duration_ms: 18.608841
   ...
 # Subtest: seeded generators are reproducible
 ok 371 - seeded generators are reproducible
   ---
-  duration_ms: 0.228983
+  duration_ms: 0.194261
   ...
 # Subtest: projection alphabet matches the Layer 1 primitive list; boundaries come from invocations
 ok 372 - projection alphabet matches the Layer 1 primitive list; boundaries come from invocations
   ---
-  duration_ms: 0.250666
+  duration_ms: 0.415804
   ...
 # Subtest: hypothesis criteria evaluate to supported / not_supported / indeterminate
 ok 373 - hypothesis criteria evaluate to supported / not_supported / indeterminate
   ---
-  duration_ms: 0.250636
+  duration_ms: 0.254582
   ...
 # Subtest: fork preserves lineage, copies no authority, and leaves the source untouched (I9)
 ok 374 - fork preserves lineage, copies no authority, and leaves the source untouched (I9)
   ---
-  duration_ms: 4.517075
+  duration_ms: 4.90774
   ...
 # Subtest: supersede keeps the original (I10)
 ok 375 - supersede keeps the original (I10)
   ---
-  duration_ms: 1.762464
+  duration_ms: 1.62011
   ...
 # Subtest: linking to a resource grants nothing and does not mutate the target (I2)
 ok 376 - linking to a resource grants nothing and does not mutate the target (I2)
   ---
-  duration_ms: 1.072168
+  duration_ms: 1.130625
   ...
 # Subtest: merge: three-way over state, union over entries, provenance kept, conflicts explicit
 ok 377 - merge: three-way over state, union over entries, provenance kept, conflicts explicit
   ---
-  duration_ms: 1.921592
+  duration_ms: 2.327581
   ...
 # Subtest: merge requires a recorded fork relationship
 ok 378 - merge requires a recorded fork relationship
   ---
-  duration_ms: 0.720361
+  duration_ms: 1.7335
   ...
 # Subtest: threeWayMerge and diff unit cases
 ok 379 - threeWayMerge and diff unit cases
   ---
-  duration_ms: 0.285828
+  duration_ms: 0.294201
   ...
 # Subtest: append with a client-chosen entry id is idempotent; entries are immutable
 ok 380 - append with a client-chosen entry id is idempotent; entries are immutable
   ---
-  duration_ms: 5.716103
+  duration_ms: 3.871226
   ...
 1..380
 # tests 380
@@ -1907,4 +1907,4 @@ ok 380 - append with a client-chosen entry id is idempotent; entries are immutab
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 14252.96854
+# duration_ms 13896.093469

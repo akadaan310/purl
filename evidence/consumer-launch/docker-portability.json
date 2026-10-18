@@ -1,0 +1,10 @@
+{
+  "base_image": "node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+  "registry_manifest_observed": "application/vnd.oci.image.index.v1+json",
+  "observed_linux_platforms": ["amd64", "arm/v7", "arm64/v8", "ppc64le", "s390x"],
+  "local_execution_tested": "linux/amd64",
+  "production_execution_tested": "Railway linux/amd64, Node22.14.0",
+  "sdk_consumer_tested": "Node24 client to Node22.14 HTTP runtime",
+  "oracle_arm_execution": "NOT_RUN: no connected server",
+  "replay_limit": "Full trace equality requires the recorded Node/runtime/architecture environment. ARM trace equality and routing to matching replay environments remain unverified. Do not advertise ARM replay parity from registry metadata alone."
+}

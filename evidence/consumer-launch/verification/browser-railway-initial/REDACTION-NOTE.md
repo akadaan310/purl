@@ -1,0 +1,3 @@
+Initial production result: 14/18 passed; four direct APIRequestContext requests failed ECONNREFUSED because the managed environment requires its HTTPS proxy. Application browser requests had no unexpected HTTP statuses, page errors or request failures. Root approved the transport-only Playwright proxy configuration; assertions and application code were unchanged.
+
+Automatic failed request diagnostics included two own temporary guest cookie headers. Those sessions were revoked, and cookie/CSRF/header material was redacted from generated log, JSON report and error-context Markdown. Original statuses, assertions, failure causes and screenshots are preserved. No raw credentials or traces are retained.
