@@ -1,0 +1,91 @@
+# Task 02 — Identity implementation report
+
+Status: **DONE_WITH_CONCERNS**. Local implementation and protocol tests pass. Real verified production login remains blocked on provider enablement, registered separate clients, consent hosting, credentials and verified email delivery. No external settings, shared Site URL, legacy authentication or dependency files were changed by this task.
+
+## Files
+
+- `service/launch/identity.js` — established OIDC relying party, identity/profile/session lifecycle and bounded delegated agents.
+- `service/launch/identity-crypto.js` — SHA-256 identity/credential identifiers, timing-safe comparisons, AES-256-GCM token encryption and bootstrap HMAC.
+- `test/launch/identity.test.js` — actual local HTTP OIDC provider, synthetic RSA signed tokens/JWKS and production MemoryLaunchStore.
+- `evidence/consumer-launch/02-identity/` — expected initial red, intermediate real regression failures and final passing output.
+
+## Verification
+
+`node --test test/launch/identity.test.js` — **46 passed, 0 failed** (`green-concurrent-fence.log`). Initial absent-module baseline is in `red.log`; meaningful subsequent failures include absent resources scope/worker audience checks, guest finite-JSON store incompatibility, missing explicit AI preview kind/rate limit, and live verified-email removal. Corrected intermediate failures remain in the evidence directory.
+
+Tests exercise real code/S256 exchange, Basic confidential client authentication through openid-client 6.8.8, signed ID-token verification, nonce/audience/issuer/expiry rejection, altered signatures, unverified email, state/cookie binding, wrong PKCE, replay, separate product cookies, both signup directions, stable subjects, handle collision/rename, explicit optional activation, Origin/CSRF, live provider invalidation, flow/session/agent expiry, parent owner/revocation, scope attenuation, per-source rate limit, consent removal, export/deletion, and production HTTP rejection. Full repository suite is delegated to root at integration as instructed in the brief.
+
+## HTTP/UI integration contract
+
+Construct `new IdentityService({store,product,baseUrl,env,fetch,clock})`; product is `purls` or `cgit`. `env.PURL_PRODUCT`, if supplied, selects the product. `baseUrl` normalizes to an origin. Required human-login settings: `PURL_OIDC_ISSUER`, `PURL_OIDC_CLIENT_ID`, `PURL_OIDC_CLIENT_SECRET`, `PURL_IDENTITY_ENCRYPTION_KEY` (canonical 32-byte base64). Optional `PURL_OIDC_RECOVERY_URL` must be HTTPS on the exact issuer origin. Plain HTTP is accepted only with `NODE_ENV !== production` and `PURL_IDENTITY_ALLOW_HTTP=true`; HTTP issuers additionally must be loopback. Production does not honor that bypass.
+
+`handle(method,path,body,context)` returns `{status,body,headers}` or null; errors expose status/code/message. Forward `headers['set-cookie']` faithfully (string or array). Context supports Headers/plain lowercase headers, requestOrigin and trusted `remoteAddress`; absent address conservatively shares the origin rate bucket. Do not accept address directly from arbitrary forwarded headers. The in-process limiter allows 30 login/callback/guest calls per minute/source, at most 10,000 live source buckets; root HTTP/distributed limits remain necessary at production scale.
+
+- `GET /api/identity/config`: `{available,blockers,product,callbackUrl,csrf_token,guest_available,recovery_available}` and HttpOnly bootstrap cookie. No persistent mutation. `available` requires discovered OIDC/S256/UserInfo plus a separate OAuth enablement probe for Supabase. Provider readiness cached at most 30 seconds. Human login fails closed otherwise.
+- `POST /api/identity/login`: send matching Origin, bootstrap cookie and `x-csrf-token` (or `body.csrf_token`) from config. Returns `{authorization_url}` and flow cookie. Exact redirect is `${baseUrl}/auth/callback`.
+- `POST /api/identity/callback`: `{code,state}`, matching Origin and flow cookie. State/cookie is the bound CSRF mechanism here. Callback consumes the flow once before exchange. Returns `{identity,csrf_token}` and session cookie. `GET /auth/callback` is exclusively root's static callback page; identity has no GET mutation callback.
+- `POST /api/identity/guest`: bootstrap CSRF/Origin; optional `{kind:'agent'}`. Default unverified guest; requested AI is explicitly unverified/self-declared, has no owner/attestation claim, and cannot issue delegates or claim a human handle.
+- `GET /api/identity/me`: `{identity,csrf_token}`. Identity contains `id,kind,verified,product,products:[productNames],scopes,handle,expiresAt`; delegated agents additionally have owner and self-declared attestation.
+- Cookie-authenticated mutations require Origin plus session CSRF. Bearer credentials do not use ambient browser cookies. `POST claim {handle,activate_cgit:true?}`, `rename {handle}`, `activate {product,consent:true}`, `deactivate {}`, `logout {all_products:true?}`, `delete {confirm:'DELETE'}`.
+- `GET export` exports safe identity/product profile data, explicitly identifies its scope; each product owns its own full data export endpoint. Deletion erases the human and every retained delegated principal scope, revokes future public-share reads by removing their source data, and retains a minimal external deletion tombstone that blocks silent account recreation. Interrupted deletion can resume using its original CSRF-bound credential or internal maintenance.
+- `POST recover` returns only a configured same-issuer provider recovery URL, never implements local password/reset authority; fails 503 otherwise.
+- `POST /api/agents/create {scopes:[...],expires_in:seconds}` requires verified human, explicit subset scopes (no agents:create), lifetime <=24h and additionally <=parent session expiry. Returns `{agent,credential}` once; no retrieval endpoint returns it again. `POST /api/agents/:id/revoke` requires the owning verified human.
+
+Cookies: `purl_${product}_session`, `purl_${product}_flow`, `purl_${product}_bootstrap`; host-only Path=/, HttpOnly, SameSite=Lax, Secure on HTTPS. Guest sessions max30 minutes, verified sessions max1 hour and never beyond provider access/ID-token lifetime, flows/bootstrap max10 minutes. No refresh flow extends a detached local identity.
+
+`authenticate(context)` and internal-only `authenticateCredentialId(sha256Credential,{product?})` return actor or null. Worker lookup performs the same owner/profile/parent/generation/revocation/expiry/provider checks. Do not expose the latter as an HTTP endpoint. Actor products is an **array**, not a product-to-boolean map. Principal keys are `profile:identity`, `profile:purls`/`profile:cgit`; product profile has `{active,product,generation,consent:{source,at,version},handle?}`. Scopes use exact colon names, including resources:read/write, memory:read/write/share/publish, catalog:run, models:read/write, chat:write, constellations:read/write, agents:create; CGIT session scopes are cgit:read/write plus agents:create. Agents receive only the requested subset. PURLs preview guests receive catalog:run, memory:read/write/share/publish, resources:read/write and models:read. Sharing/publication endpoints separately require explicit consent. CGIT preview guests receive only cgit:read/write. Guest product activation requires consent and cannot claim a handle or issue delegates.
+
+## Security limits / deployment dependencies
+
+- Every verified authentication and sensitive mutation calls provider UserInfo live and requires matching subject plus `email_verified === true`. No application cache extends provider revocation. A provider that still accepts a revoked access JWT at UserInfo can remain usable until its JWT expires; provider grants/session enforcement must be proven in real end-to-end tests. Local logout, consent removal, account deletion and parent/agent revocation invalidate local authority immediately through stored generations/expiry.
+- Logout/delete revoke local authority first and request discovered RFC token revocation for the current product session when available. Responses explicitly identify unavailable/failed provider revocation. The implementation does not invent a Supabase revocation endpoint, remotely delete the provider's account, or claim all other provider sessions were remotely revoked. Provider account deletion remains a provider workflow.
+- Agents are one-level human delegations. Chained agent issuance is denied, which prevents privilege amplification. The credential lifetime is additionally capped by the owner session, so a human must authenticate again to issue a new delegation.
+- Separate product clients require separate configured IdentityService/BFF instances sharing the store and issuer. Product-cookie audience and explicit active profiles are checked separately from domain scopes. Cross-product stewardship requires root/CGIT to define an explicit domain authorization path; a PURLs cookie alone does not become a CGIT browser cookie.
+- Identity storage now uses an independent `__identity_credential:<sha256>` or `__identity_flow:<sha256>` namespace per credential/flow, each with one record and one expiry marker. The old shared lifetime index scopes are no longer read or written. The new public services have not been deployed, so this is a fresh-format rollout rather than a migration of live legacy credentials. Cookie values and credentialId remain opaque random token/SHA-256 respectively. The stable owner `identity:credentials` registry caps unexpired credentials and retained delegated identities at 128 each; audit history retains the latest 128 agent events. Expired session metadata is compacted rather than consuming owner tombstones forever.
+- Shared Supabase Site URL and OAuth server configuration were preserved. No production OIDC/client/email success is asserted by these local protocol tests.
+
+
+## Independent-review remediation and follow-up integration
+
+Both P1 findings in `/workspace/consumer-review/identity-review.md` are addressed in the final implementation. No peer source files or generic store quota rules were changed.
+
+1. **Delegated data after account deletion:** account deletion first persists a server-derived intent in its separate per-account namespace; that marker immediately blocks fresh authentication and credential issuance. It snapshots the complete owner inventory externally, then fences in-flight issuance with an atomic owner-profile tombstone and unchanged-inventory CAS. This fence frees owner bytes and allocates no owner rows or retry metadata, so it works at the exact tenant quota. CAS conflicts refresh the durable inventory before retrying. A stable identity fingerprint and recorded fence version prevent erasing a changed principal incarnation. Only after the fence is durable does deletion erase each delegated scope, credential and owner scope, then record completion. Actual MemoryService passport/public-cognition reads deny or contain no delegated data after deletion. Failed erasures or post-intent interruptions leave an independently resumable plan. If the external intent cannot be persisted at all, the account stays active and no erasure begins; a fresh authorized retry can initiate deletion.
+2. **Shared 4096-lifetime issuance outage:** credentials and login flows each use independent namespaces under the unchanged generic store limits. Consumption retains a flow tombstone only until its original expiry; after expiry the whole namespace can be erased because a missing random state is also rejected. A stable, single-row minute cursor drives bounded expiry scans. No active credentials, active flows, or account-deletion tombstones are erased. Tests fill both former shared index scopes to the actual 4096-record cap, then successfully issue/authenticate both product guests and complete a real human OIDC callback. A separate test issues **4100 sequential expired session lifetimes** for the same owner while its registry remains at three records and the final session remains authenticatable.
+
+New meaningful red evidence: `red-review-p1.log` reproduces both original failures, missing restart-safe descendant deletion and missing compaction; `red-maintenance-resume.log` reproduces interruption before external-plan persistence. Current final command: `node --test test/launch/identity.test.js` → **46 passed, 0 failed**. Existing protocol, encryption, audience, consent, CSRF, agent delegation and product isolation tests remain passing. `green-review-p1.log` retains the first P1 remediation run; `green-quota-deletion.log` retains quota-edge verification; `green-concurrent-fence.log` is the current verification artifact.
+
+Root maintenance integration:
+
+- `identity.compactExpired({limit:100,maxBuckets:32})` is internal-only and returns `{erased,buckets}`. Limits are bounded to 200 namespaces and 128 minute buckets per call. Issuance/callback paths already run bounded compaction; the worker should also invoke it periodically to clear idle expired records and catch up after downtime. The persistent cursor does not enumerate or write a global per-issuance index.
+- `identity.resumeDeletions({limit:10})` is internal-only and returns `{completed,failed}`. Invoke periodically in the worker. It finds external intents in fencing or pending state and retries only that persisted deletion intent. No deletion plan is stored inside quota-bound owner data. It does not require an expired browser credential to finish an already authorized deletion.
+- `identity.authorizeIntegration(actor,'cgit',['cgit:read'|'cgit:write',...])` reauthenticates the original credential and checks persisted active CGIT consent. It returns a narrow server-only actor with `product:'cgit'`, `sourceProduct`, `integration:true` and exactly requested scopes. Verified humans may receive explicit consented CGIT authority; guest previews require explicit preview/activation consent; agents cannot gain scopes beyond their stored credential. It never issues a CGIT browser cookie.
+
+Remaining deployment limitations are provider/client/email enablement, provider-dependent remote revocation behavior and distributed abuse limits. Session/flow persistence no longer has the reviewed shared lifetime exhaustion defect. Retained delegated principals have an explicit per-account quota; their inventory is never silently discarded on credential expiry because it is needed for complete account deletion.
+
+
+## Quota-edge scoped review correction
+
+The follow-up P2 in `/workspace/consumer-review/identity-fix1-review.md` was reproduced: duplicating the deletion plan inside `profile:identity` required owner quota headroom and failed before persisting intent. That design has been removed.
+
+The final transition is: external **fencing** intent → durable external inventory snapshot → owner CAS setting the existing identity record to a tombstone while verifying the unchanged inventory → external **pending** state → descendant/credential/owner erasure → permanent **complete** tombstone. The owner transition never grows data, creates a record, or allocates idempotency metadata. The external namespace has one bounded plan record under ordinary store limits. A crash after intent creation but before the owner CAS is resumed by existing maintenance; a crash after the CAS is recognized by the recorded profile/inventory versions. Provider-revocation updates use CAS and cannot overwrite an already completed deletion with an earlier state.
+
+Additional regressions verify:
+
+- Successful complete deletion with **128 bytes headroom and zero bytes headroom** under actual MemoryLaunchStore quota accounting.
+- Full-quota interruption after external intent, followed by fresh-service maintenance completing owned and delegated erasure.
+- A delegation committed concurrently before the external intent is captured in the final fenced inventory and erased.
+- A changed principal incarnation is rejected with 409 and its data remains intact, including during maintenance retries.
+- Failure to persist the initial external intent leaves authentication active and permits a new authorized deletion attempt.
+
+Evidence: `red-quota-deletion.log` records the pre-fix failures; `green-quota-deletion.log` records **42/42 passing tests**; `node --check service/launch/identity.js` passes. No generic store quota, peer service or export contract changed.
+
+
+## Concurrent-fencing scoped review correction
+
+The deterministic request/request and request/maintenance interleaving from `/workspace/consumer-review/identity-fix2-race-probe.mjs` was reproduced in the identity test suite. A pre-fence profile read combined with a post-fence registry read could overwrite the external witness with incompatible versions and permanently strand recovery.
+
+Before replacing a durable witness, fencing now reads the identity profile **both before and after** the registry. If the profile version changes, it retries without writing the external plan. All credential-inventory writers now include the profile CAS in their owner transaction, including agent revocation, so a stable profile version establishes a consistent inventory observation. An in-flight agent revocation can no longer modify the registry after a successful deletion fence. The existing external-plan CAS and pending/complete early returns retain monotonic state; retries remain bounded at eight attempts and leave durable intent for later maintenance.
+
+New regressions exercise both exact reviewer interleavings using only pauses in real MemoryLaunchStore operations, then verify a fresh service completes maintenance and erases owned and delegated data. A separate regression pauses authenticated agent revocation across the owner fence. A bounded-retry test forces unstable reads, confirms `deletion_busy` instead of an unbounded loop, then verifies later maintenance succeeds. Existing zero-headroom deletion, interrupted intent/fence recovery, changed-incarnation rejection, signed OIDC, expiry, replay and index-lifecycle regressions remain green.
+
+Evidence: `red-concurrent-fence.log` and `red-revocation-fence.log` retain the reproduced failures. Final command `node --test test/launch/identity.test.js` → **46 passed, 0 failed** in `green-concurrent-fence.log`; syntax validation passes. No peer files, store quotas, public contracts or commits changed.

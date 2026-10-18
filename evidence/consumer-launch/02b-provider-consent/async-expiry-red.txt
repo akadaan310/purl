@@ -1,0 +1,80 @@
+✔ provider readiness is public and read-only, reports disabled server without modifying defaults (22.153947ms)
+✔ password signin uses provider REST and stores encrypted expiring opaque session only (14.349703ms)
+✔ signin requires matching origin and bound bootstrap, rejects wrong credentials and live unverified email (9.212076ms)
+✔ signup and recovery send exact provider email requests with explicit central redirect allowlist (9.76428ms)
+✔ authorization review is explicit POST, GET reads staged exact scopes and approval is bound and one-use (18.569001ms)
+✔ deny uses provider deny action, refuses implicit approval and unsafe clients or redirects (43.919654ms)
+✔ live provider revocation, deletion, expiry, tampering and logout fail closed (30.943506ms)
+✔ session credentials are isolated by namespace and provider errors never disclose private upstream bodies (14.531796ms)
+✔ review lifetime, wrong authorization and ciphertext tampering block consent without upstream approval (11.688ms)
+✔ configuration rejects secret keys, non-origin URLs and production HTTP without provider requests (0.741362ms)
+✔ expired bootstrap and per-source rate limits prevent password dispatch (47.015046ms)
+✔ read-only me restores cookie session and CSRF after browser refresh without an Origin header (11.306218ms)
+✔ processing time cannot extend a local session past the exact provider expiry (4.140671ms)
+✖ slow live verification crossing session expiry prevents /authorization mutation (8.053559ms)
+✖ slow live verification crossing session expiry prevents /consent mutation (13.587515ms)
+✖ consent CAS crossing session expiry cannot dispatch an upstream decision (11.624996ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 13
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 332.928546
+
+✖ failing tests:
+
+test at test/launch/provider-consent.test.js:251:3
+✖ slow live verification crossing session expiry prevents /authorization mutation (8.053559ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:262:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/provider-consent.test.js:251:3
+✖ slow live verification crossing session expiry prevents /consent mutation (13.587515ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  Error: Review this authorization again before deciding
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:262:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Review this authorization again before deciding
+        at fail (file:///workspace/purl/service/launch/provider-consent.js:6:63)
+        at ProviderConsentService.handle (file:///workspace/purl/service/launch/provider-consent.js:229:108)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:262:5)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/provider-consent.test.js:268:1
+✖ consent CAS crossing session expiry cannot dispatch an upstream decision (11.624996ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:278:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

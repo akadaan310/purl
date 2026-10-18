@@ -1,0 +1,203 @@
+
+Running 18 tests using 1 worker
+
+(node:54366) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › test/launch/ui.spec.js:6:2 › PURLs independent, accessible and responsive (1.0s)
+  ✘   2 [desktop] › test/launch/ui.spec.js:6:2 › CGIT independent, accessible and responsive (77ms)
+(node:54483) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [desktop] › test/launch/ui.spec.js:15:1 › PURLs discovery runs an actual catalog sample and shows its receipt (357ms)
+  ✓   4 [desktop] › test/launch/ui.spec.js:22:1 › PURLs guest memory remains explicit and supports real create/edit/delete (510ms)
+  ✘   5 [desktop] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact (84ms)
+(node:54596) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   6 [desktop] › test/launch/ui.spec.js:47:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback (695ms)
+(node:54676) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [desktop] › test/launch/ui.spec.js:58:1 › human sign-in and live inference show precise deployment availability (213ms)
+  ✓   8 [desktop] › test/launch/ui.spec.js:64:1 › catalog memory sharing requires explicit review before any mutation (302ms)
+  ✓   9 [desktop] › test/launch/ui.spec.js:70:1 › native mission follows read-only manifest and continuity links (165ms)
+(node:54780) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [mobile] › test/launch/ui.spec.js:6:2 › PURLs independent, accessible and responsive (1.7s)
+  ✘  11 [mobile] › test/launch/ui.spec.js:6:2 › CGIT independent, accessible and responsive (92ms)
+(node:54898) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [mobile] › test/launch/ui.spec.js:15:1 › PURLs discovery runs an actual catalog sample and shows its receipt (365ms)
+  ✓  13 [mobile] › test/launch/ui.spec.js:22:1 › PURLs guest memory remains explicit and supports real create/edit/delete (662ms)
+  ✘  14 [mobile] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact (75ms)
+(node:55011) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  15 [mobile] › test/launch/ui.spec.js:47:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback (753ms)
+(node:55090) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  16 [mobile] › test/launch/ui.spec.js:58:1 › human sign-in and live inference show precise deployment availability (340ms)
+  ✓  17 [mobile] › test/launch/ui.spec.js:64:1 › catalog memory sharing requires explicit review before any mutation (303ms)
+  ✓  18 [mobile] › test/launch/ui.spec.js:70:1 › native mission follows read-only manifest and continuity links (153ms)
+
+
+  1) [desktop] › test/launch/ui.spec.js:6:2 › CGIT independent, accessible and responsive ──────────
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8181/
+    Call log:
+      - navigating to "http://127.0.0.1:8181/", waiting until "load"
+
+
+       5 | for(const [name,url] of [['PURLs',purls],['CGIT',cgit]]){
+       6 |  test(`${name} independent, accessible and responsive`,async({page})=>{
+    >  7 |   await page.goto(url); await expect(page.locator('main')).toBeVisible();
+         |              ^
+       8 |   await expect(page.getByRole('heading',{level:1})).toBeVisible();
+       9 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+      10 |   const results=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
+        at /workspace/purl/test/launch/ui.spec.js:7:14
+
+    Error Context: evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-independent-accessible-and-responsive-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-independent-accessible-and-responsive-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-independent-accessible-and-responsive-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8181/
+    Call log:
+      - navigating to "http://127.0.0.1:8181/", waiting until "load"
+
+
+      36 | });
+      37 | test('CGIT first guest consent creates and commits an artifact',async({page})=>{
+    > 38 |  await page.goto(cgit); await page.getByRole('button',{name:'Explore as a guest'}).click();
+         |             ^
+      39 |  const activate=page.getByRole('button',{name:'Activate CGIT preview'}); if(await activate.isVisible()) await activate.click();
+      40 |  await page.getByRole('button',{name:'New repository',exact:true}).click();
+      41 |  await page.getByLabel('Repository name').fill(`ui-${Date.now()}`); await page.getByRole('button',{name:'Create repository',exact:true}).click();
+        at /workspace/purl/test/launch/ui.spec.js:38:13
+
+    Error Context: evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-first-guest-consent-creates-and-commits-an-artifact-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-first-guest-consent-creates-and-commits-an-artifact-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-first-guest-consent-creates-and-commits-an-artifact-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop] › test/launch/ui.spec.js:47:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 410
+    Received: 200
+
+      54 |  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw new Error('Denied')}},configurable:true}));
+      55 |  await page.getByRole('button',{name:'Copy PURL',exact:true}).first().click();await expect(page.getByLabel('PURL',{exact:true})).toHaveValue(url);await page.getByRole('button',{name:'Close dialog'}).click();
+    > 56 |  await page.getByRole('button',{name:'Revoke future access'}).first().click();const after=await request.get(url);expect(after.status()).toBe(410);
+         |                                                                                                                                         ^
+      57 | });
+      58 | test('human sign-in and live inference show precise deployment availability',async({page})=>{
+      59 |  await page.goto(`${purls}/my-purl`);const config=await page.request.get(`${purls}/api/identity/config`);const readiness=await config.json();
+        at /workspace/purl/test/launch/ui.spec.js:56:137
+
+    Error Context: evidence/consumer-launch/06-frontends/browser-output/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-desktop/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/consumer-launch/06-frontends/browser-output/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-desktop/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/consumer-launch/06-frontends/browser-output/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-desktop/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [mobile] › test/launch/ui.spec.js:6:2 › CGIT independent, accessible and responsive ───────────
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8181/
+    Call log:
+      - navigating to "http://127.0.0.1:8181/", waiting until "load"
+
+
+       5 | for(const [name,url] of [['PURLs',purls],['CGIT',cgit]]){
+       6 |  test(`${name} independent, accessible and responsive`,async({page})=>{
+    >  7 |   await page.goto(url); await expect(page.locator('main')).toBeVisible();
+         |              ^
+       8 |   await expect(page.getByRole('heading',{level:1})).toBeVisible();
+       9 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+      10 |   const results=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
+        at /workspace/purl/test/launch/ui.spec.js:7:14
+
+    Error Context: evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-independent-accessible-and-responsive-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-independent-accessible-and-responsive-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-independent-accessible-and-responsive-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [mobile] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8181/
+    Call log:
+      - navigating to "http://127.0.0.1:8181/", waiting until "load"
+
+
+      36 | });
+      37 | test('CGIT first guest consent creates and commits an artifact',async({page})=>{
+    > 38 |  await page.goto(cgit); await page.getByRole('button',{name:'Explore as a guest'}).click();
+         |             ^
+      39 |  const activate=page.getByRole('button',{name:'Activate CGIT preview'}); if(await activate.isVisible()) await activate.click();
+      40 |  await page.getByRole('button',{name:'New repository',exact:true}).click();
+      41 |  await page.getByLabel('Repository name').fill(`ui-${Date.now()}`); await page.getByRole('button',{name:'Create repository',exact:true}).click();
+        at /workspace/purl/test/launch/ui.spec.js:38:13
+
+    Error Context: evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-first-guest-consent-creates-and-commits-an-artifact-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-first-guest-consent-creates-and-commits-an-artifact-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-first-guest-consent-creates-and-commits-an-artifact-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [mobile] › test/launch/ui.spec.js:47:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 410
+    Received: 200
+
+      54 |  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw new Error('Denied')}},configurable:true}));
+      55 |  await page.getByRole('button',{name:'Copy PURL',exact:true}).first().click();await expect(page.getByLabel('PURL',{exact:true})).toHaveValue(url);await page.getByRole('button',{name:'Close dialog'}).click();
+    > 56 |  await page.getByRole('button',{name:'Revoke future access'}).first().click();const after=await request.get(url);expect(after.status()).toBe(410);
+         |                                                                                                                                         ^
+      57 | });
+      58 | test('human sign-in and live inference show precise deployment availability',async({page})=>{
+      59 |  await page.goto(`${purls}/my-purl`);const config=await page.request.get(`${purls}/api/identity/config`);const readiness=await config.json();
+        at /workspace/purl/test/launch/ui.spec.js:56:137
+
+    Error Context: evidence/consumer-launch/06-frontends/browser-output/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-mobile/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    evidence/consumer-launch/06-frontends/browser-output/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-mobile/trace.zip
+    Usage:
+
+        npx playwright show-trace evidence/consumer-launch/06-frontends/browser-output/ui-selected-live-memory-sh-80fc7-enial-has-a-native-fallback-mobile/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6 failed
+    [desktop] › test/launch/ui.spec.js:6:2 › CGIT independent, accessible and responsive ───────────
+    [desktop] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact 
+    [desktop] › test/launch/ui.spec.js:47:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback 
+    [mobile] › test/launch/ui.spec.js:6:2 › CGIT independent, accessible and responsive ────────────
+    [mobile] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact 
+    [mobile] › test/launch/ui.spec.js:47:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback 
+  12 passed (11.1s)

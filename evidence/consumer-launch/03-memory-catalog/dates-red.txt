@@ -1,0 +1,32 @@
+✔ every working experience has a unique typed executable graph and real expected sample (49.8426ms)
+✔ required titles exist and unavailable inference never fabricates AI output (8.955599ms)
+✔ authorization, typed validation and bounded input are enforced before executing (2.463464ms)
+✔ independent operation boundaries: CSV quotes, numeric math, graph cycles, dates and JSON pointer (0.517186ms)
+✖ projection bounds and normalized identifiers match their declared behavior (0.876715ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.861166
+
+✖ failing tests:
+
+test at test/launch/catalog.test.js:51:1
+✖ projection bounds and normalized identifiers match their declared behavior (0.876715ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/catalog.test.js:54:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'throws',
+    diff: 'simple'
+  }

@@ -1,0 +1,96 @@
+✖ store exports the required adapters (1.131838ms)
+✖ memory: atomic competing CAS, isolation, immutable reads and tombstone versions (3.89296ms)
+✖ memory: payload-bound retry and global handle reservation are atomic and erase releases all aliases (1.705458ms)
+✖ file: atomic competing CAS, isolation, immutable reads and tombstone versions (1.098618ms)
+✖ file: payload-bound retry and global handle reservation are atomic and erase releases all aliases (0.631828ms)
+✖ lists and global status scans are bounded, exclude tombstones and remain pure (0.327412ms)
+✖ rejects malformed or unbounded data before mutating and enforces tenant quota (0.205438ms)
+✖ development file reads never create files and production factory fails closed (4.518928ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 53.154816
+
+✖ failing tests:
+
+test at test/launch/store.test.js:11:1
+✖ store exports the required adapters (1.131838ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:12:112)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/store.test.js:15:3
+✖ memory: atomic competing CAS, isolation, immutable reads and tombstone versions (3.89296ms)
+  TypeError: api.MemoryLaunchStore is not a constructor
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:17:42)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/store.test.js:33:3
+✖ memory: payload-bound retry and global handle reservation are atomic and erase releases all aliases (1.705458ms)
+  TypeError: api.MemoryLaunchStore is not a constructor
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:35:42)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/store.test.js:15:3
+✖ file: atomic competing CAS, isolation, immutable reads and tombstone versions (1.098618ms)
+  TypeError: api.FileLaunchStore is not a constructor
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:17:72)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/store.test.js:33:3
+✖ file: payload-bound retry and global handle reservation are atomic and erase releases all aliases (0.631828ms)
+  TypeError: api.FileLaunchStore is not a constructor
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:35:72)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/store.test.js:52:1
+✖ lists and global status scans are bounded, exclude tombstones and remain pure (0.327412ms)
+  TypeError: api.MemoryLaunchStore is not a constructor
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:53:17)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/store.test.js:63:1
+✖ rejects malformed or unbounded data before mutating and enforces tenant quota (0.205438ms)
+  TypeError: api.MemoryLaunchStore is not a constructor
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:64:17)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/store.test.js:76:1
+✖ development file reads never create files and production factory fails closed (4.518928ms)
+  TypeError: api.FileLaunchStore is not a constructor
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:78:44)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

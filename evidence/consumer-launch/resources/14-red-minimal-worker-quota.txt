@@ -1,0 +1,27 @@
+✖ permanent completion failure terminalizes an existing job even when tenant bytes or metadata are saturated (411.585091ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 474.968767
+
+✖ failing tests:
+
+test at test/launch/resources.test.js:222:1
+✖ permanent completion failure terminalizes an existing job even when tenant bytes or metadata are saturated (411.585091ms)
+  Error: Tenant exceeds 10 MiB
+      at fail (file:///workspace/purl/service/launch/store.js:10:66)
+      at commitState (file:///workspace/purl/service/launch/store.js:92:24)
+      at file:///workspace/purl/service/launch/store.js:117:118
+      at MemoryLaunchStore.mutate (file:///workspace/purl/service/launch/store.js:125:61)
+      at MemoryLaunchStore.commit (file:///workspace/purl/service/launch/store.js:117:104)
+      at ResourceService.terminalFailure (file:///workspace/purl/service/launch/resources.js:274:47)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:233:26)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    code: 'tenant_quota',
+    status: 413
+  }

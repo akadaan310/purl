@@ -1,0 +1,186 @@
+✖ provider readiness is public and read-only, reports disabled server without modifying defaults (5.937034ms)
+✖ password signin uses provider REST and stores encrypted expiring opaque session only (1.230596ms)
+✖ signin requires matching origin and bound bootstrap, rejects wrong credentials and live unverified email (0.62705ms)
+✖ signup and recovery send exact provider email requests with explicit central redirect allowlist (1.028953ms)
+✖ authorization review is explicit POST, GET reads staged exact scopes and approval is bound and one-use (0.99987ms)
+✖ deny uses provider deny action, refuses implicit approval and unsafe clients or redirects (0.679559ms)
+✖ live provider revocation, deletion, expiry, tampering and logout fail closed (0.637125ms)
+✖ session credentials are isolated by namespace and provider errors never disclose private upstream bodies (0.586921ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.330979
+
+✖ failing tests:
+
+test at test/launch/provider-consent.test.js:68:1
+✖ provider readiness is public and read-only, reports disabled server without modifying defaults (5.937034ms)
+  AssertionError [ERR_ASSERTION]: provider consent adapter is implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at fixture (file:///workspace/purl/test/launch/provider-consent.test.js:58:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:69:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/provider-consent.test.js:80:1
+✖ password signin uses provider REST and stores encrypted expiring opaque session only (1.230596ms)
+  AssertionError [ERR_ASSERTION]: provider consent adapter is implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at fixture (file:///workspace/purl/test/launch/provider-consent.test.js:58:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:81:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/provider-consent.test.js:98:1
+✖ signin requires matching origin and bound bootstrap, rejects wrong credentials and live unverified email (0.62705ms)
+  AssertionError [ERR_ASSERTION]: provider consent adapter is implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at fixture (file:///workspace/purl/test/launch/provider-consent.test.js:58:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:99:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/provider-consent.test.js:108:1
+✖ signup and recovery send exact provider email requests with explicit central redirect allowlist (1.028953ms)
+  AssertionError [ERR_ASSERTION]: provider consent adapter is implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at fixture (file:///workspace/purl/test/launch/provider-consent.test.js:58:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:109:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/provider-consent.test.js:123:1
+✖ authorization review is explicit POST, GET reads staged exact scopes and approval is bound and one-use (0.99987ms)
+  AssertionError [ERR_ASSERTION]: provider consent adapter is implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at fixture (file:///workspace/purl/test/launch/provider-consent.test.js:58:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:124:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/provider-consent.test.js:142:1
+✖ deny uses provider deny action, refuses implicit approval and unsafe clients or redirects (0.679559ms)
+  AssertionError [ERR_ASSERTION]: provider consent adapter is implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at fixture (file:///workspace/purl/test/launch/provider-consent.test.js:58:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:143:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/provider-consent.test.js:160:1
+✖ live provider revocation, deletion, expiry, tampering and logout fail closed (0.637125ms)
+  AssertionError [ERR_ASSERTION]: provider consent adapter is implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at fixture (file:///workspace/purl/test/launch/provider-consent.test.js:58:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:161:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/provider-consent.test.js:182:1
+✖ session credentials are isolated by namespace and provider errors never disclose private upstream bodies (0.586921ms)
+  AssertionError [ERR_ASSERTION]: provider consent adapter is implemented
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at fixture (file:///workspace/purl/test/launch/provider-consent.test.js:58:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:183:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

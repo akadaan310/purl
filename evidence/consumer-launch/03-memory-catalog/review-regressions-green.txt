@@ -1,0 +1,24 @@
+✔ every working experience has a unique typed executable graph and real expected sample (51.504175ms)
+✔ required titles exist and unavailable inference never fabricates AI output (5.85352ms)
+✔ authorization, typed validation and bounded input are enforced before executing (2.594622ms)
+✔ independent operation boundaries: CSV quotes, numeric math, graph cycles, dates and JSON pointer (0.543906ms)
+✔ projection bounds and normalized identifiers match their declared behavior (0.40702ms)
+✔ independent results cover text, tables, finance, decisions, research and continuity computations (1.192699ms)
+✔ accepted larger canonical JSON and combined owner memory produce valid bounded outputs (10.608733ms)
+✔ private memory is tenant isolated, requires scopes, rejects ownership and prototype injection (2.045989ms)
+✔ live passport reveals only selected facts and follows edits, deletion and owner revocation (2.344386ms)
+✔ relations stay in tenant and public cognition is explicitly selected and revocable live data (1.02633ms)
+✔ quotas, fact revisions, expiration, provenance and guest truthfulness are enforced (89.628822ms)
+✔ actual shared store preserves privacy across service restart and enforces guest and capability boundaries (4.885388ms)
+✔ real-store global legacy pointer saturation cannot block fresh tenants and revocation removes active public index (1545.17544ms)
+✔ real-store failed capability reservation cannot consume owner passport allowance (0.970947ms)
+✔ erasing owner and delegated principal scopes denies all future live passport and public reads (1.411758ms)
+✔ sharing and publication require explicit consent for humans and authorized unverified guests (1.663615ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1707.176189

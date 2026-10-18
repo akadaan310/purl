@@ -1,0 +1,16 @@
+✔ launch discovery, catalog, native manifests and health are self-describing pure reads (43.753326ms)
+✔ browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous (20.586828ms)
+✔ native queued program persists execution through a freshly constructed application (31.915541ms)
+✔ HTTP rejects credential URLs, malformed payloads and arbitrary file paths (17.12129ms)
+✔ HTTP rejects JSON values incompatible with durable storage before domain writes (10.983585ms)
+✔ CGIT is independently usable in its own unverified bounded preview (19.516578ms)
+✔ fresh SDK reconstructs a URL-only mission and compiles, runs, publishes and checkpoints its own fork (95.505127ms)
+✔ SDK refuses cross-origin reconstruction and redirect following before leaking cookies (1.147582ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 234.931463

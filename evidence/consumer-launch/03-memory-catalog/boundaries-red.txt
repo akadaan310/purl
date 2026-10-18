@@ -1,0 +1,37 @@
+✔ every working experience has a unique typed executable graph and real expected sample (53.11057ms)
+✔ required titles exist and unavailable inference never fabricates AI output (5.849543ms)
+✔ authorization, typed validation and bounded input are enforced before executing (2.554652ms)
+✔ independent operation boundaries: CSV quotes, numeric math, graph cycles, dates and JSON pointer (0.530095ms)
+✖ projection bounds and normalized identifiers match their declared behavior (0.309424ms)
+✔ private memory is tenant isolated, requires scopes, rejects ownership and prototype injection (2.070135ms)
+✔ live passport reveals only selected facts and follows edits, deletion and owner revocation (2.184817ms)
+✔ relations stay in tenant and public cognition is explicitly selected and revocable live data (0.989684ms)
+✔ quotas, fact revisions, expiration, provenance and guest truthfulness are enforced (90.255355ms)
+✔ actual shared store preserves privacy across service restart and enforces guest and capability boundaries (4.826839ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 147.487865
+
+✖ failing tests:
+
+test at test/launch/catalog.test.js:51:1
+✖ projection bounds and normalized identifiers match their declared behavior (0.309424ms)
+  Error: output.series must be bounded array
+      at fault (file:///workspace/purl/service/launch/catalog-operations.js:2:66)
+      at validate (file:///workspace/purl/service/launch/catalog-operations.js:23:134)
+      at validate (file:///workspace/purl/service/launch/catalog-operations.js:22:190)
+      at runOperation (file:///workspace/purl/service/launch/catalog-operations.js:87:458)
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/catalog.test.js:52:15)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12) {
+    status: 400,
+    code: 'INPUT_TYPE'
+  }

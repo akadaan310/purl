@@ -1,0 +1,47 @@
+✔ native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays (32.061407ms)
+✔ private IDs and child artifacts do not cross tenants; public reading never grants mutation (15.26803ms)
+✔ resource commands reject stale versions and bind retries before producing new jobs (10.883093ms)
+✔ revoked credentials cancel queued work and a fresh service instance recovers persisted jobs (14.757224ms)
+✔ GET discovery, continuity, history and replay are pure; tampered snapshots fail verification (2.416314ms)
+✔ native mission contains documents and dependency evidence, executes and survives fresh-principal fork (12.389372ms)
+✔ missing worker authority and authored code fail closed (9.006438ms)
+✔ parallel product startup seeds one immutable mission without losing either service (2.097797ms)
+✔ job intent and its idempotency receipt commit atomically across an interruption boundary (8.89425ms)
+✔ create and build retries retain original statuses and immutable build IDs (6.119018ms)
+✔ public-resource proposals remain immutable and private to proposer and owner until owner explicitly commits (5.637585ms)
+✔ owner rejects proposals without applying content and stale/base-version/cross-resource suggestions cannot commit (4.776774ms)
+✔ proposal and owner decision retry atomically after lost responses and do not repeat transitions (3.556223ms)
+✔ invalid expiry, unsafe JSON, oversized state/source/input and non-pure proposals fail before persistence (9.334491ms)
+✔ two workers fence an expired lease so the interrupted worker cannot publish a second artifact (14.213868ms)
+✔ a fresh worker retries pure interrupted execution only after lease expiry without partial results (14.52128ms)
+✖ owner revoked during execution is rechecked before result publication; malformed worker expiry cancels (12.787209ms)
+✔ concurrent duplicate proposals and owner decisions retain exactly one immutable record (3.317515ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 17
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 238.323456
+
+✖ failing tests:
+
+test at test/launch/resources.test.js:155:1
+✖ owner revoked during execution is rechecked before result publication; malformed worker expiry cancels (12.787209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'succeeded'
+  - 'cancelled'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:157:74)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'succeeded',
+    expected: 'cancelled',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,110 @@
+✖ launch discovery, catalog, native manifests and health are self-describing pure reads (25.479945ms)
+✖ browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous (8.832672ms)
+✖ native queued program persists execution through a freshly constructed application (6.791509ms)
+✖ HTTP rejects credential URLs, malformed payloads and arbitrary file paths (4.884838ms)
+✖ CGIT is independently usable in its own unverified bounded preview (4.681284ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 132.723697
+
+✖ failing tests:
+
+test at test/launch/http.test.js:22:1
+✖ launch discovery, catalog, native manifests and health are self-describing pure reads (25.479945ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 201
+  
+      at fixture (file:///workspace/purl/test/launch/http.test.js:16:158)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/http.test.js:23:25)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 201,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/http.test.js:32:1
+✖ browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous (8.832672ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 201
+  
+      at fixture (file:///workspace/purl/test/launch/http.test.js:16:158)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/http.test.js:33:41)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 201,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/http.test.js:41:1
+✖ native queued program persists execution through a freshly constructed application (6.791509ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 201
+  
+      at fixture (file:///workspace/purl/test/launch/http.test.js:16:158)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/http.test.js:42:51)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 201,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/http.test.js:51:1
+✖ HTTP rejects credential URLs, malformed payloads and arbitrary file paths (4.884838ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 201
+  
+      at fixture (file:///workspace/purl/test/launch/http.test.js:16:158)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/http.test.js:52:15)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 201,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/http.test.js:59:1
+✖ CGIT is independently usable in its own unverified bounded preview (4.681284ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 201
+  
+      at fixture (file:///workspace/purl/test/launch/http.test.js:16:158)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/http.test.js:60:33)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 201,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

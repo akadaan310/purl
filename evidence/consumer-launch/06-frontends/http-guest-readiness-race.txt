@@ -1,0 +1,63 @@
+
+Running 6 tests using 1 worker
+
+(node:55342) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › test/launch/ui.spec.js:6:2 › CGIT independent, accessible and responsive (523ms)
+  ✘  2 [desktop] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact (45.0s)
+(node:55499) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [desktop] › test/launch/ui.spec.js:47:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback (559ms)
+(node:55578) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [mobile] › test/launch/ui.spec.js:6:2 › CGIT independent, accessible and responsive (638ms)
+  ✘  5 [mobile] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact (45.0s)
+(node:55717) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  6 [mobile] › test/launch/ui.spec.js:47:1 › selected live memory sharing revokes future access and clipboard denial has a native fallback (722ms)
+
+
+  1) [desktop] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact 
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.fill: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Repository name')
+
+
+      39 |  page.once('dialog',d=>d.accept()); await page.locator('.fact-card').filter({hasText:'UI acceptance: prefer thoughtful answers'}).getByRole('button',{name:'Delete',exact:true}).click();
+      40 |  await expect(page.locator('.fact-card').filter({hasText:'UI acceptance: prefer thoughtful answers'})).toHaveCount(0);
+    > 41 | });
+         |    ^
+      42 | test('CGIT first guest consent creates and commits an artifact',async({page})=>{
+      43 |  await page.goto(cgit); await page.getByRole('button',{name:'Explore as a guest'}).click();
+      44 |  const activate=page.getByRole('button',{name:'Activate CGIT preview'}); if(await activate.isVisible()) await activate.click();
+        at /workspace/purl/test/launch/ui.spec.js:41:43
+
+    Error Context: evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-first-guest-consent-creates-and-commits-an-artifact-desktop/error-context.md
+
+  2) [mobile] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact 
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.fill: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Repository name')
+
+
+      39 |  page.once('dialog',d=>d.accept()); await page.locator('.fact-card').filter({hasText:'UI acceptance: prefer thoughtful answers'}).getByRole('button',{name:'Delete',exact:true}).click();
+      40 |  await expect(page.locator('.fact-card').filter({hasText:'UI acceptance: prefer thoughtful answers'})).toHaveCount(0);
+    > 41 | });
+         |    ^
+      42 | test('CGIT first guest consent creates and commits an artifact',async({page})=>{
+      43 |  await page.goto(cgit); await page.getByRole('button',{name:'Explore as a guest'}).click();
+      44 |  await expect(page.getByRole('link',{name:'Guest preview · unverified ↗',exact:true})).toBeVisible();const activate=page.getByRole('button',{name:'Activate CGIT preview'});if(await activate.isVisible())await activate.click();
+        at /workspace/purl/test/launch/ui.spec.js:41:43
+
+    Error Context: evidence/consumer-launch/06-frontends/browser-output/ui-CGIT-first-guest-consent-creates-and-commits-an-artifact-mobile/error-context.md
+
+  2 failed
+    [desktop] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact 
+    [mobile] › test/launch/ui.spec.js:37:1 › CGIT first guest consent creates and commits an artifact 
+  4 passed (1.6m)

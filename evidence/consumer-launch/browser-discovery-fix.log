@@ -1,0 +1,11 @@
+
+Running 2 tests using 1 worker
+
+(node:64839) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop] › test/launch/ui.spec.js:20:1 › PURLs discovery runs an actual catalog sample and shows its receipt (643ms)
+(node:64916) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [mobile] › test/launch/ui.spec.js:20:1 › PURLs discovery runs an actual catalog sample and shows its receipt (726ms)
+
+  2 passed (2.2s)

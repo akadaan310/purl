@@ -1,0 +1,58 @@
+✔ missing provider fails closed with actionable config and pure recovery (2.859987ms)
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (58.907991ms)
+✔ rejects nonce provider identity (24.306649ms)
+✔ rejects aud provider identity (36.375312ms)
+✔ rejects issuer provider identity (69.957676ms)
+✔ rejects expired provider identity (39.047737ms)
+✔ rejects unverified provider identity (35.898492ms)
+✔ state cookie binding and one-use callbacks reject replay (59.593919ms)
+✔ explicit consent, stable subjects, unique rename and product isolation (63.899623ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (41.823654ms)
+✔ live provider revocation blocks sensitive changes and session reads (65.862706ms)
+✖ guest labels cannot claim verified human or issue delegated agents (39.885123ms)
+✔ disabled provider reports unavailable without fake sign-in (15.201729ms)
+✔ wrong PKCE code and missing flow cookie fail closed (48.363764ms)
+✔ flow, session and delegated credential expiry are enforced (31.547804ms)
+✖ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (36.220139ms)
+✔ product consent removal and account deletion revoke sessions and erase owned data (58.977816ms)
+✔ CGIT first login has separate consent and later PURLs login keeps stable identity (45.103296ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 16
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 834.305024
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:59:1
+✖ guest labels cannot claim verified human or issue delegated agents (39.885123ms)
+  Error: Values must be finite JSON
+      at fail (file:///workspace/purl/service/launch/store.js:7:66)
+      at canonical (file:///workspace/purl/service/launch/store.js:16:184)
+      at file:///workspace/purl/service/launch/store.js:26:40
+      at Array.map (<anonymous>)
+      at canonical (file:///workspace/purl/service/launch/store.js:24:44)
+      at file:///workspace/purl/service/launch/store.js:47:21
+      at Array.map (<anonymous>)
+      at prepare (file:///workspace/purl/service/launch/store.js:42:30)
+      at MemoryLaunchStore.commit (file:///workspace/purl/service/launch/store.js:87:60)
+      at IdentityService.provision (file:///workspace/purl/service/launch/identity.js:61:51) {
+    code: 'invalid_input',
+    status: 400
+  }
+
+test at test/launch/identity.test.js:63:1
+✖ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (36.220139ms)
+  Error: Agent scopes must be an explicit subset of owner permissions
+      at failure (file:///workspace/purl/service/launch/identity.js:5:52)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:95:190)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:63:420)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 400,
+    code: 'invalid_scopes'
+  }

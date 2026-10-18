@@ -1,0 +1,14 @@
+✔ hosted unavailable without operator key; metadata GET is pure (1.964807ms)
+✔ encrypted BYOK, redacted listing, real HTTP usage reconciliation and idempotent billing (22.623222ms)
+✔ private scopes, explicit selected context, revocation and fixed provider prevent leakage (2.051247ms)
+✔ concurrent same idempotency key executes one request and quota reservations prevent overspend (27.566045ms)
+✔ timeout and missing usage hold conservative reservation and never repeat ambiguous requests (3.939339ms)
+✔ known rejected request refunds reservation and persists bounded owner-private chat thread (5.072789ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135.739553

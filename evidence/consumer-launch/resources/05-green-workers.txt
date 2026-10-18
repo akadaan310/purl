@@ -1,0 +1,26 @@
+✔ native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays (32.46995ms)
+✔ private IDs and child artifacts do not cross tenants; public reading never grants mutation (16.923502ms)
+✔ resource commands reject stale versions and bind retries before producing new jobs (14.216893ms)
+✔ revoked credentials cancel queued work and a fresh service instance recovers persisted jobs (14.835801ms)
+✔ GET discovery, continuity, history and replay are pure; tampered snapshots fail verification (2.349053ms)
+✔ native mission contains documents and dependency evidence, executes and survives fresh-principal fork (13.25469ms)
+✔ missing worker authority and authored code fail closed (9.331555ms)
+✔ parallel product startup seeds one immutable mission without losing either service (2.388582ms)
+✔ job intent and its idempotency receipt commit atomically across an interruption boundary (9.486859ms)
+✔ create and build retries retain original statuses and immutable build IDs (6.064856ms)
+✔ public-resource proposals remain immutable and private to proposer and owner until owner explicitly commits (5.948872ms)
+✔ owner rejects proposals without applying content and stale/base-version/cross-resource suggestions cannot commit (4.451736ms)
+✔ proposal and owner decision retry atomically after lost responses and do not repeat transitions (3.774546ms)
+✔ invalid expiry, unsafe JSON, oversized state/source/input and non-pure proposals fail before persistence (10.828321ms)
+✔ two workers fence an expired lease so the interrupted worker cannot publish a second artifact (13.978345ms)
+✔ a fresh worker retries pure interrupted execution only after lease expiry without partial results (13.811816ms)
+✔ owner revoked during execution is rechecked before result publication; malformed worker expiry cancels (18.256323ms)
+✔ concurrent duplicate proposals and owner decisions retain exactly one immutable record (3.242694ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 255.123088

@@ -1,0 +1,63 @@
+✖ TypeScript import-equals retains local aliases and resolves external-module dependencies (7.065687ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 57.135917
+
+✖ failing tests:
+
+test at test/launch/github-lens.test.js:59:1
+✖ TypeScript import-equals retains local aliases and resolves external-module dependencies (7.065687ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  +     dependencies: [],
+  +     imports: [],
+  -     dependencies: [
+  -       'external:external-package',
+  -       'src/util.ts'
+  -     ],
+  -     imports: [
+  -       {
+  -         line: 1,
+  -         names: [
+  -           {
+  -             imported: '*',
+  -             local: 'util'
+  -           }
+  -         ],
+  -         source: './util'
+  -       },
+  -       {
+  -         line: 2,
+  -         names: [
+  -           {
+  -             imported: '*',
+  -             local: 'external'
+  -           }
+  -         ],
+  -         source: 'external-package'
+  -       }
+  -     ],
+        path: 'src/main.ts'
+      }
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/github-lens.test.js:68:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { path: 'src/main.ts', dependencies: [], imports: [] } ],
+    expected: [ { path: 'src/main.ts', dependencies: [Array], imports: [Array] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

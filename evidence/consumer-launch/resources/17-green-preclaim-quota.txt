@@ -1,0 +1,35 @@
+✔ native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays (37.340176ms)
+✔ private IDs and child artifacts do not cross tenants; public reading never grants mutation (17.613809ms)
+✔ resource commands reject stale versions and bind retries before producing new jobs (13.517845ms)
+✔ revoked credentials cancel queued work and a fresh service instance recovers persisted jobs (17.62828ms)
+✔ GET discovery, continuity, history and replay are pure; tampered snapshots fail verification (2.291697ms)
+✔ native mission contains documents and dependency evidence, executes and survives fresh-principal fork (13.164415ms)
+✔ missing worker authority and authored code fail closed (9.558086ms)
+✔ parallel product startup seeds one immutable mission without losing either service (2.383345ms)
+✔ job intent and its idempotency receipt commit atomically across an interruption boundary (9.57394ms)
+✔ create and build retries retain original statuses and immutable build IDs (6.280581ms)
+✔ public-resource proposals remain immutable and private to proposer and owner until owner explicitly commits (5.642292ms)
+✔ owner rejects proposals without applying content and stale/base-version/cross-resource suggestions cannot commit (4.731167ms)
+✔ proposal and owner decision retry atomically after lost responses and do not repeat transitions (3.468523ms)
+✔ invalid expiry, unsafe JSON, oversized state/source/input and non-pure proposals fail before persistence (9.08778ms)
+✔ two workers fence an expired lease so the interrupted worker cannot publish a second artifact (14.077455ms)
+✔ a fresh worker retries pure interrupted execution only after lease expiry without partial results (13.977735ms)
+✔ owner revoked during execution is rechecked before result publication; malformed worker expiry cancels (14.149763ms)
+✔ concurrent duplicate proposals and owner decisions retain exactly one immutable record (3.239709ms)
+✔ simultaneous near-64KiB source and state proposals commit and retry without an oversized receipt row (12.728131ms)
+✔ manifest discloses proposal/decision contracts and proposal reads are pure under current visibility (10.418617ms)
+✔ private reads and the collection require active resource scopes even for the same principal in CGIT (3.627211ms)
+✔ admitted concurrent jobs terminalize once if owner commands consume the remaining history (545.05655ms)
+✔ decimal-expanded artifact storage refusal becomes a small permanent terminal failure (39.594717ms)
+✔ resource child listing and replay select the resource before unrelated owner pagination (84.204728ms)
+✔ fresh discovery provides valid checkpoint input and publish/fork options (2.715212ms)
+✔ permanent completion failure terminalizes an existing job even when tenant bytes or metadata are saturated (751.148143ms)
+✔ quota saturation after queue admission terminalizes pre-claim failure or revoked cancellation once (1465.507006ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3179.706707

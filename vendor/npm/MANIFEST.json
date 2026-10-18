@@ -1,0 +1,55 @@
+{
+  "schema": "purl.vendored-runtime-packages/1",
+  "packages": [
+    {
+      "name": "@babel/helper-string-parser",
+      "version": "7.29.7",
+      "file": "babel-helper-string-parser-7.29.7.tgz",
+      "integrity": "sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==",
+      "source": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.29.7.tgz"
+    },
+    {
+      "name": "@babel/helper-validator-identifier",
+      "version": "7.29.7",
+      "file": "babel-helper-validator-identifier-7.29.7.tgz",
+      "integrity": "sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==",
+      "source": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz"
+    },
+    {
+      "name": "@babel/parser",
+      "version": "7.29.9",
+      "file": "babel-parser-7.29.9.tgz",
+      "integrity": "sha512-CjXrNHTnvqBVqHgdBysY3vk2T8tpJHb5/RMeHJBTyVa9xgugCB0CJTx/3oO8RV2QRQP391RWpB7D6hLjm8V9uA==",
+      "source": "https://registry.npmjs.org/@babel/parser/-/parser-7.29.9.tgz"
+    },
+    {
+      "name": "@babel/types",
+      "version": "7.29.8",
+      "file": "babel-types-7.29.8.tgz",
+      "integrity": "sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==",
+      "source": "https://registry.npmjs.org/@babel/types/-/types-7.29.8.tgz"
+    },
+    {
+      "name": "jose",
+      "version": "6.2.12",
+      "file": "jose-6.2.12.tgz",
+      "integrity": "sha512-9NiFmJEex0sy2Dk58j2UGBSHgUs2ypF9eZSu4L6vjOX3Dp96Sw1F3uL+H+D1sx02jZZdzUT0HgvCy59CuvXcWw==",
+      "source": "https://registry.npmjs.org/jose/-/jose-6.2.12.tgz"
+    },
+    {
+      "name": "oauth4webapi",
+      "version": "3.8.8",
+      "file": "oauth4webapi-3.8.8.tgz",
+      "integrity": "sha512-8N28E+a/oxfXWBgOMt+ZP/JUf/XR+IFbvkAEPP3gznXOMv9BpAAwiIj0TFNz3tGTPc0ZQ8zmWBNgN1nAys0gng==",
+      "source": "https://registry.npmjs.org/oauth4webapi/-/oauth4webapi-3.8.8.tgz"
+    },
+    {
+      "name": "openid-client",
+      "version": "6.8.8",
+      "file": "openid-client-6.8.8.tgz",
+      "integrity": "sha512-ZsucJA5Ad04Uv7YN4ql+s4GXNmb9uAYQwyJTsJx7CH/MX3JZioLE2pVKi1SC+YrbSLA4Px3Gi30dMjgOZtb6pA==",
+      "source": "https://registry.npmjs.org/openid-client/-/openid-client-6.8.8.tgz"
+    }
+  ],
+  "purpose": "Pinned npm registry tarballs; Docker primes an offline cache and validates package-lock integrity; no session CA or credentials are embedded."
+}

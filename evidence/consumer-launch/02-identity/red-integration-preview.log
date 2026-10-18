@@ -1,0 +1,124 @@
+✔ missing provider fails closed with actionable config and pure recovery (3.086753ms)
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (62.372363ms)
+✔ rejects nonce provider identity (38.119094ms)
+✔ rejects aud provider identity (33.182395ms)
+✔ rejects issuer provider identity (24.852973ms)
+✔ rejects expired provider identity (51.382563ms)
+✔ rejects unverified provider identity (49.197923ms)
+✔ state cookie binding and one-use callbacks reject replay (28.262ms)
+✔ explicit consent, stable subjects, unique rename and product isolation (53.684107ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (43.375915ms)
+✔ live provider revocation blocks sensitive changes and session reads (28.258635ms)
+✔ guest labels cannot claim verified human or issue delegated agents (46.713985ms)
+✔ disabled provider reports unavailable without fake sign-in (71.487499ms)
+✔ wrong PKCE code and missing flow cookie fail closed (44.516828ms)
+✔ flow, session and delegated credential expiry are enforced (35.058ms)
+✔ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (36.755237ms)
+✔ product consent removal and account deletion revoke sessions and erase owned data (65.485511ms)
+✔ CGIT first login has separate consent and later PURLs login keeps stable identity (92.468931ms)
+✔ self-declared AI preview is an unverified agent with bounded permissions (17.376512ms)
+✔ session issuance and login flows are bounded by per-source rate limits (64.117968ms)
+✔ live verified email removal invalidates account authentication (38.285549ms)
+✔ production cannot enable insecure development cookies or an HTTP issuer (38.517563ms)
+✔ tampered ID token signature is rejected by established OIDC verification (18.941569ms)
+✔ self-declared AI preview can revoke its own session (52.919981ms)
+✔ delegated agents cannot export their owner identity profiles (32.050736ms)
+✖ guest preview scopes match the chosen product and preserve unverified authority (74.315704ms)
+✖ guest CGIT activation requires explicit consent and cannot claim a handle (18.795512ms)
+✖ integration authority revalidates credential, persisted consent and exact requested scopes (45.969758ms)
+✖ guest integrations require persisted activation and agents never gain undelegated scopes (16.886736ms)
+✖ CGIT guest repositories remain isolated and enforce the actual repository quota (70.833317ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 25
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1368.272848
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:88:1
+✖ guest preview scopes match the chosen product and preserve unverified authority (74.315704ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'catalog:run',
+      'memory:read',
+      'memory:write',
+  -   'memory:share',
+  -   'memory:publish',
+      'resources:read',
+      'resources:write',
+  -   'models:read'
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:90:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'catalog:run', 'memory:read', 'memory:write', 'resources:read', 'resources:write' ],
+    expected: [ 'catalog:run', 'memory:read', 'memory:write', 'memory:share', 'memory:publish', 'resources:read', 'resources:write', 'models:read' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/identity.test.js:100:1
+✖ guest CGIT activation requires explicit consent and cannot claim a handle (18.795512ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  Error: A verified human account is required
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:102:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: A verified human account is required
+        at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+        at IdentityService.requireActor (file:///workspace/purl/service/launch/identity.js:186:61)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at async IdentityService.handle (file:///workspace/purl/service/launch/identity.js:368:19)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:102:3)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/identity.test.js:114:1
+✖ integration authority revalidates credential, persisted consent and exact requested scopes (45.969758ms)
+  TypeError: f.service.authorizeIntegration is not a function
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:116:34)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/identity.test.js:131:1
+✖ guest integrations require persisted activation and agents never gain undelegated scopes (16.886736ms)
+  TypeError: f.service.authorizeIntegration is not a function
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:133:34)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/identity.test.js:148:1
+✖ CGIT guest repositories remain isolated and enforce the actual repository quota (70.833317ms)
+  Error: Credential requires cgit:write
+      at problem (file:///workspace/purl/service/launch/structural-index.js:6:67)
+      at CgitService.authorize (file:///workspace/purl/service/launch/cgit.js:21:120)
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:152:14)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 403,
+    code: 'scope_required'
+  }

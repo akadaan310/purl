@@ -1,0 +1,62 @@
+✔ three initial HTTP contexts are independent; attributed evidence survives restart and replay (38.64353ms)
+✔ checkpoint pauses; restart resumes persisted participants without repeating completed provider call (22.351534ms)
+✔ expired lease fencing prevents stale worker writes and completed-call recovery uses saved receipt (29.127153ms)
+✔ replay rejects tampering and optional steward requires separate consent and commits real artifact (26.527438ms)
+✔ baseline is NOT_RUN without explicit budget consent and reports actual measured usage when authorized (21.789752ms)
+✔ live credential revocation blocks queued jobs and every subsequent participant (8.225978ms)
+✖ missing live validator fails closed, and oversized serialized initial contexts are rejected before storage (4.653059ms)
+✔ hosted unavailable without operator key; metadata GET is pure (1.970645ms)
+✔ encrypted BYOK, redacted listing, real HTTP usage reconciliation and idempotent billing (21.827929ms)
+✔ private scopes, explicit selected context, revocation and fixed provider prevent leakage (2.049404ms)
+✔ concurrent same idempotency key executes one request and quota reservations prevent overspend (28.297293ms)
+✔ timeout and missing usage hold conservative reservation and never repeat ambiguous requests (4.645898ms)
+✔ known rejected request refunds reservation and persists bounded owner-private chat thread (7.635552ms)
+✖ provider request enforces published token price ceiling and denies provider data collection (7.21039ms)
+✔ simultaneous different calls cannot exceed daily reserved budget (26.126692ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 13
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 213.698665
+
+✖ failing tests:
+
+test at test/launch/constellations.test.js:74:1
+✖ missing live validator fails closed, and oversized serialized initial contexts are rejected before storage (4.653059ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/constellations.test.js:77:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/models.test.js:77:1
+✖ provider request enforces published token price ceiling and denies provider data collection (7.21039ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + undefined
+  - {
+  -   completion: 2,
+  -   prompt: 1
+  - }
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/models.test.js:79:9)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { prompt: 1, completion: 2 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

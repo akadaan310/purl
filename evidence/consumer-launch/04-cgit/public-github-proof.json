@@ -1,0 +1,433 @@
+{
+  "observedAt": "2026-10-18T16:44:13.205Z",
+  "operation": "Read-only GET public GitHub indexing; no execution or upstream writes",
+  "source": {
+    "url": "https://github.com/sindresorhus/is-plain-obj",
+    "owner": "sindresorhus",
+    "repository": "is-plain-obj",
+    "commitSha": "666df7c10035f7e26f27ec214fe5ae3173435f34",
+    "license": "MIT",
+    "attribution": "sindresorhus/is-plain-obj at 666df7c10035f7e26f27ec214fe5ae3173435f34",
+    "licenseNotice": "Source remains under its upstream license; unknown license grants no reuse permission"
+  },
+  "limits": {
+    "tree": 1000,
+    "indexedFiles": 40,
+    "totalSourceBytes": 2097152,
+    "fileBytes": 204800,
+    "selectedFiles": 5,
+    "sourceBytes": 3811
+  },
+  "benchmark": {
+    "method": "UTF-8 bytes / 4 estimate; not tokenizer-measured",
+    "rawSelectedEstimatedTokens": 953,
+    "navigationEstimatedTokens": 437,
+    "taskSuccess": "NOT_MEASURED; syntax navigation only",
+    "compressionClaim": false
+  },
+  "tasks": [
+    {
+      "name": "Find default-exported function",
+      "truth": "isPlainObject",
+      "rawSuccess": true,
+      "navigationSuccess": true
+    },
+    {
+      "name": "Find index.js",
+      "truth": "index.js",
+      "rawSuccess": true,
+      "navigationSuccess": true
+    },
+    {
+      "name": "Count static imports of index.js",
+      "truth": 0,
+      "rawSuccess": true,
+      "navigationSuccess": true
+    }
+  ],
+  "taskCorpusLimit": "Three simple lookup tasks on one small public repository; no general task-success or compression claim",
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/sindresorhus/is-plain-obj"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/sindresorhus/is-plain-obj/commits/HEAD"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/sindresorhus/is-plain-obj/git/trees/666df7c10035f7e26f27ec214fe5ae3173435f34?recursive=1"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/sindresorhus/is-plain-obj/666df7c10035f7e26f27ec214fe5ae3173435f34/benchmark.js"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/sindresorhus/is-plain-obj/666df7c10035f7e26f27ec214fe5ae3173435f34/index.d.ts"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/sindresorhus/is-plain-obj/666df7c10035f7e26f27ec214fe5ae3173435f34/index.js"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/sindresorhus/is-plain-obj/666df7c10035f7e26f27ec214fe5ae3173435f34/index.test-d.ts"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/sindresorhus/is-plain-obj/666df7c10035f7e26f27ec214fe5ae3173435f34/test.js"
+    }
+  ],
+  "index": {
+    "version": "cgit-structural/1",
+    "parser": "@babel/parser@7.29.9",
+    "files": [
+      {
+        "path": ".editorconfig",
+        "status": "inventory-only",
+        "language": "editorconfig",
+        "sourceGitBlobSha": "1c6314a31833395fd5ff016a6506bdd51860657c",
+        "contentHash": null,
+        "bytes": 175
+      },
+      {
+        "path": ".gitattributes",
+        "status": "inventory-only",
+        "language": "gitattributes",
+        "sourceGitBlobSha": "6313b56c57848efce05faa7aa7e901ccfc2886ea",
+        "contentHash": null,
+        "bytes": 19
+      },
+      {
+        "path": ".github/security.md",
+        "status": "inventory-only",
+        "language": "md",
+        "sourceGitBlobSha": "719c2286f920bdde2607f0145b45c7009d75682d",
+        "contentHash": null,
+        "bytes": 180
+      },
+      {
+        "path": ".github/workflows/main.yml",
+        "status": "inventory-only",
+        "language": "yml",
+        "sourceGitBlobSha": "9c27cac00211c29a862ae0f1f3aeae48eabff661",
+        "contentHash": null,
+        "bytes": 421
+      },
+      {
+        "path": ".gitignore",
+        "status": "inventory-only",
+        "language": "gitignore",
+        "sourceGitBlobSha": "239ecff1372358a22aa99dcbb375fdad7abba817",
+        "contentHash": null,
+        "bytes": 23
+      },
+      {
+        "path": ".npmrc",
+        "status": "inventory-only",
+        "language": "npmrc",
+        "sourceGitBlobSha": "43c97e719a5a824700932f72e6e7e6748ce45d01",
+        "contentHash": null,
+        "bytes": 19
+      },
+      {
+        "path": "benchmark.js",
+        "status": "indexed",
+        "language": "js",
+        "sourceGitBlobSha": "4dbc605d9619af78d22c87d13cbb00776bd7534a",
+        "contentHash": "9068f7dc16c727af534f60d1ef2e9ce5538a03664b40b1e7466ee3e2b44d5bb6",
+        "bytes": 1141,
+        "symbols": [
+          {
+            "name": "runBenchmarks",
+            "kind": "VariableDeclarator",
+            "line": 5,
+            "column": 6,
+            "endLine": 13
+          },
+          {
+            "name": "value",
+            "kind": "VariableDeclarator",
+            "line": 6,
+            "column": 12,
+            "endLine": 6
+          },
+          {
+            "name": "name",
+            "kind": "VariableDeclarator",
+            "line": 7,
+            "column": 8,
+            "endLine": 7
+          },
+          {
+            "name": "paddedName",
+            "kind": "VariableDeclarator",
+            "line": 8,
+            "column": 8,
+            "endLine": 8
+          },
+          {
+            "name": "runLoop",
+            "kind": "VariableDeclarator",
+            "line": 15,
+            "column": 6,
+            "endLine": 19
+          },
+          {
+            "name": "index",
+            "kind": "VariableDeclarator",
+            "line": 16,
+            "column": 10,
+            "endLine": 16
+          },
+          {
+            "name": "values",
+            "kind": "VariableDeclarator",
+            "line": 21,
+            "column": 6,
+            "endLine": 50
+          }
+        ],
+        "imports": [
+          {
+            "source": "node:util",
+            "line": 1,
+            "names": [
+              {
+                "imported": "inspect",
+                "local": "inspect"
+              }
+            ]
+          },
+          {
+            "source": "node:vm",
+            "line": 2,
+            "names": [
+              {
+                "imported": "runInNewContext",
+                "local": "runInNewContext"
+              }
+            ]
+          },
+          {
+            "source": "is-plain-obj",
+            "line": 3,
+            "names": [
+              {
+                "imported": "default",
+                "local": "isPlainObject"
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          "external:is-plain-obj",
+          "external:node:util",
+          "external:node:vm"
+        ],
+        "ast": {
+          "nodes": 167,
+          "sourceType": "module"
+        },
+        "truncated": false
+      },
+      {
+        "path": "index.d.ts",
+        "status": "indexed",
+        "language": "ts",
+        "sourceGitBlobSha": "3794c42e44c077ac120fc9c2c87571ca6d3a6d52",
+        "contentHash": "07dd810c936f5e4428e1012fa0e8c92ecb4de6fa9966159742f7185245b17f9e",
+        "bytes": 673,
+        "symbols": [],
+        "imports": [],
+        "dependencies": [],
+        "ast": {
+          "nodes": 22,
+          "sourceType": "module"
+        },
+        "truncated": false
+      },
+      {
+        "path": "index.js",
+        "status": "indexed",
+        "language": "js",
+        "sourceGitBlobSha": "92555c3d3916f4868375fa19d7da7ecafe6ee9b3",
+        "contentHash": "957e14eb5863048b3eb7a97c7cedcf62cbca2bb94745198982d8e278f7b2f89d",
+        "bytes": 344,
+        "symbols": [
+          {
+            "name": "isPlainObject",
+            "kind": "FunctionDeclaration",
+            "line": 1,
+            "column": 15,
+            "endLine": 8
+          },
+          {
+            "name": "prototype",
+            "kind": "VariableDeclarator",
+            "line": 6,
+            "column": 7,
+            "endLine": 6
+          }
+        ],
+        "imports": [],
+        "dependencies": [],
+        "ast": {
+          "nodes": 59,
+          "sourceType": "module"
+        },
+        "truncated": false
+      },
+      {
+        "path": "index.test-d.ts",
+        "status": "indexed",
+        "language": "ts",
+        "sourceGitBlobSha": "b6818fcc9101bf122222e856dfb9b36abbf246f7",
+        "contentHash": "dc5790b967f420eacf5ccba819eb556e229e1120cfabbb4153726783d0fbacad",
+        "bytes": 332,
+        "symbols": [
+          {
+            "name": "foo",
+            "kind": "VariableDeclarator",
+            "line": 4,
+            "column": 6,
+            "endLine": 4
+          }
+        ],
+        "imports": [
+          {
+            "source": "tsd",
+            "line": 1,
+            "names": [
+              {
+                "imported": "expectAssignable",
+                "local": "expectAssignable"
+              }
+            ]
+          },
+          {
+            "source": "./index.js",
+            "line": 2,
+            "names": [
+              {
+                "imported": "default",
+                "local": "isPlainObject"
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          "external:tsd",
+          "index.js"
+        ],
+        "ast": {
+          "nodes": 62,
+          "sourceType": "module"
+        },
+        "truncated": false
+      },
+      {
+        "path": "license",
+        "status": "inventory-only",
+        "language": "license",
+        "sourceGitBlobSha": "fa7ceba3eb4a9657a9db7f3ffca4e4e97a9019de",
+        "contentHash": null,
+        "bytes": 1117
+      },
+      {
+        "path": "package.json",
+        "status": "inventory-only",
+        "language": "json",
+        "sourceGitBlobSha": "340b4909a6aaa34afe976df2dddaf2017ea5d672",
+        "contentHash": null,
+        "bytes": 758
+      },
+      {
+        "path": "readme.md",
+        "status": "inventory-only",
+        "language": "md",
+        "sourceGitBlobSha": "25212c562cd8f1a6101fc1b85c4627b972d59d00",
+        "contentHash": null,
+        "bytes": 794
+      },
+      {
+        "path": "test.js",
+        "status": "indexed",
+        "language": "js",
+        "sourceGitBlobSha": "b6369b2629d4b26ca08f13c90024465ccbb26826",
+        "contentHash": "c41e83e4fdafd670a5d38ccb3a899dc404493829120990c563735ff7e8f508df",
+        "bytes": 1321,
+        "symbols": [
+          {
+            "name": "Foo",
+            "kind": "FunctionDeclaration",
+            "line": 5,
+            "column": 0,
+            "endLine": 7
+          },
+          {
+            "name": "ObjectConstructor",
+            "kind": "FunctionDeclaration",
+            "line": 9,
+            "column": 0,
+            "endLine": 9
+          },
+          {
+            "name": "foo",
+            "kind": "VariableDeclarator",
+            "line": 43,
+            "column": 7,
+            "endLine": 43
+          }
+        ],
+        "imports": [
+          {
+            "source": "node:vm",
+            "line": 1,
+            "names": [
+              {
+                "imported": "runInNewContext",
+                "local": "runInNewContext"
+              }
+            ]
+          },
+          {
+            "source": "ava",
+            "line": 2,
+            "names": [
+              {
+                "imported": "default",
+                "local": "test"
+              }
+            ]
+          },
+          {
+            "source": "./index.js",
+            "line": 3,
+            "names": [
+              {
+                "imported": "default",
+                "local": "isPlainObject"
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          "external:ava",
+          "external:node:vm",
+          "index.js"
+        ],
+        "ast": {
+          "nodes": 289,
+          "sourceType": "module"
+        },
+        "truncated": false
+      }
+    ],
+    "navigationMap": "CGIT-NAV/1\nU \".editorconfig\" #1c6314a31833395fd5ff016a6506bdd51860657c\nU \".gitattributes\" #6313b56c57848efce05faa7aa7e901ccfc2886ea\nU \".github/security.md\" #719c2286f920bdde2607f0145b45c7009d75682d\nU \".github/workflows/main.yml\" #9c27cac00211c29a862ae0f1f3aeae48eabff661\nU \".gitignore\" #239ecff1372358a22aa99dcbb375fdad7abba817\nU \".npmrc\" #43c97e719a5a824700932f72e6e7e6748ce45d01\nF \"benchmark.js\" #9068f7dc16c727af534f60d1ef2e9ce5538a03664b40b1e7466ee3e2b44d5bb6\n S \"runBenchmarks\" VariableDeclarator @5:6\n S \"value\" VariableDeclarator @6:12\n S \"name\" VariableDeclarator @7:8\n S \"paddedName\" VariableDeclarator @8:8\n S \"runLoop\" VariableDeclarator @15:6\n S \"index\" VariableDeclarator @16:10\n S \"values\" VariableDeclarator @21:6\n I \"node:util\" @1\n I \"node:vm\" @2\n I \"is-plain-obj\" @3\n D \"external:is-plain-obj\"\n D \"external:node:util\"\n D \"external:node:vm\"\nF \"index.d.ts\" #07dd810c936f5e4428e1012fa0e8c92ecb4de6fa9966159742f7185245b17f9e\nF \"index.js\" #957e14eb5863048b3eb7a97c7cedcf62cbca2bb94745198982d8e278f7b2f89d\n S \"isPlainObject\" FunctionDeclaration @1:15\n S \"prototype\" VariableDeclarator @6:7\nF \"index.test-d.ts\" #dc5790b967f420eacf5ccba819eb556e229e1120cfabbb4153726783d0fbacad\n S \"foo\" VariableDeclarator @4:6\n I \"tsd\" @1\n I \"./index.js\" @2\n D \"external:tsd\"\n D \"index.js\"\nU \"license\" #fa7ceba3eb4a9657a9db7f3ffca4e4e97a9019de\nU \"package.json\" #340b4909a6aaa34afe976df2dddaf2017ea5d672\nU \"readme.md\" #25212c562cd8f1a6101fc1b85c4627b972d59d00\nF \"test.js\" #c41e83e4fdafd670a5d38ccb3a899dc404493829120990c563735ff7e8f508df\n S \"Foo\" FunctionDeclaration @5:0\n S \"ObjectConstructor\" FunctionDeclaration @9:0\n S \"foo\" VariableDeclarator @43:7\n I \"node:vm\" @1\n I \"ava\" @2\n I \"./index.js\" @3\n D \"external:ava\"\n D \"external:node:vm\"\n D \"index.js\"",
+    "navigationGrammar": "F indexed file, U inventory-only, E syntax error; # content SHA256 or upstream Git blob SHA1; S symbol kind @line:column; I import @line; D dependency. Names and paths JSON-quoted.",
+    "claims": "Deterministic syntax navigation; no execution or semantic-equivalence claim"
+  }
+}

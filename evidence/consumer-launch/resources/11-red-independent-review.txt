@@ -1,0 +1,116 @@
+✔ native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays (35.208147ms)
+✔ private IDs and child artifacts do not cross tenants; public reading never grants mutation (17.432676ms)
+✔ resource commands reject stale versions and bind retries before producing new jobs (13.03391ms)
+✔ revoked credentials cancel queued work and a fresh service instance recovers persisted jobs (17.472827ms)
+✔ GET discovery, continuity, history and replay are pure; tampered snapshots fail verification (2.468493ms)
+✔ native mission contains documents and dependency evidence, executes and survives fresh-principal fork (12.979909ms)
+✔ missing worker authority and authored code fail closed (9.322332ms)
+✔ parallel product startup seeds one immutable mission without losing either service (2.307881ms)
+✔ job intent and its idempotency receipt commit atomically across an interruption boundary (9.091445ms)
+✔ create and build retries retain original statuses and immutable build IDs (6.316404ms)
+✔ public-resource proposals remain immutable and private to proposer and owner until owner explicitly commits (5.371357ms)
+✔ owner rejects proposals without applying content and stale/base-version/cross-resource suggestions cannot commit (4.186549ms)
+✔ proposal and owner decision retry atomically after lost responses and do not repeat transitions (3.459659ms)
+✔ invalid expiry, unsafe JSON, oversized state/source/input and non-pure proposals fail before persistence (8.978026ms)
+✔ two workers fence an expired lease so the interrupted worker cannot publish a second artifact (13.403394ms)
+✔ a fresh worker retries pure interrupted execution only after lease expiry without partial results (13.207098ms)
+✔ owner revoked during execution is rechecked before result publication; malformed worker expiry cancels (13.258817ms)
+✔ concurrent duplicate proposals and owner decisions retain exactly one immutable record (3.022713ms)
+✔ simultaneous near-64KiB source and state proposals commit and retry without an oversized receipt row (12.623884ms)
+✔ manifest discloses proposal/decision contracts and proposal reads are pure under current visibility (9.781801ms)
+✖ private reads and the collection require active resource scopes even for the same principal in CGIT (2.013169ms)
+✖ admitted concurrent jobs terminalize once if owner commands consume the remaining history (558.453025ms)
+✖ decimal-expanded artifact storage refusal becomes a small permanent terminal failure (52.956087ms)
+✖ resource child listing and replay select the resource before unrelated owner pagination (63.397277ms)
+✖ fresh discovery provides valid checkpoint input and publish/fork options (2.099058ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 20
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 956.403348
+
+✖ failing tests:
+
+test at test/launch/resources.test.js:182:1
+✖ private reads and the collection require active resource scopes even for the same principal in CGIT (2.013169ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:184:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/resources.test.js:191:1
+✖ admitted concurrent jobs terminalize once if owner commands consume the remaining history (558.453025ms)
+  Error: Export or fork this resource before continuing beyond 200 versions
+      at issue (file:///workspace/purl/service/launch/resources.js:12:57)
+      at ResourceService.transition (file:///workspace/purl/service/launch/resources.js:100:27)
+      at ResourceService.workOnce (file:///workspace/purl/service/launch/resources.js:275:20)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:197:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 429,
+    code: 'history_limit'
+  }
+
+test at test/launch/resources.test.js:201:1
+✖ decimal-expanded artifact storage refusal becomes a small permanent terminal failure (52.956087ms)
+  Error: Row exceeds 256 KiB
+      at fail (file:///workspace/purl/service/launch/store.js:10:66)
+      at file:///workspace/purl/service/launch/store.js:69:35
+      at Array.map (<anonymous>)
+      at prepare (file:///workspace/purl/service/launch/store.js:63:30)
+      at MemoryLaunchStore.commit (file:///workspace/purl/service/launch/store.js:117:60)
+      at ResourceService.transition (file:///workspace/purl/service/launch/resources.js:106:20)
+      at ResourceService.workOnce (file:///workspace/purl/service/launch/resources.js:275:20)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:203:130)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    code: 'row_limit',
+    status: 413
+  }
+
+test at test/launch/resources.test.js:207:1
+✖ resource child listing and replay select the resource before unrelated owner pagination (63.397277ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:210:95)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/resources.test.js:216:1
+✖ fresh discovery provides valid checkpoint input and publish/fork options (2.099058ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'expected_version',
+  -   'summary'
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:218:183)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'expected_version' ],
+    expected: [ 'expected_version', 'summary' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

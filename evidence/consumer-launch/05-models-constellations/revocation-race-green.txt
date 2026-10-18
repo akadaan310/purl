@@ -1,0 +1,25 @@
+✔ three initial HTTP contexts are independent; attributed evidence survives restart and replay (37.137922ms)
+✔ checkpoint pauses; restart resumes persisted participants without repeating completed provider call (23.363242ms)
+✔ expired lease fencing prevents stale worker writes and completed-call recovery uses saved receipt (21.543583ms)
+✔ replay rejects tampering and optional steward requires separate consent and commits real artifact (17.86131ms)
+✔ baseline is NOT_RUN without explicit budget consent and reports actual measured usage when authorized (18.13511ms)
+✔ live credential revocation blocks queued jobs and every subsequent participant (7.314811ms)
+✔ missing live validator fails closed, and oversized serialized initial contexts are rejected before storage (2.78007ms)
+✔ hosted unavailable without operator key; metadata GET is pure (2.014612ms)
+✔ encrypted BYOK, redacted listing, real HTTP usage reconciliation and idempotent billing (20.886357ms)
+✔ private scopes, explicit selected context, revocation and fixed provider prevent leakage (2.009955ms)
+✔ concurrent same idempotency key executes one request and quota reservations prevent overspend (27.832095ms)
+✔ timeout and missing usage hold conservative reservation and never repeat ambiguous requests (4.462353ms)
+✔ known rejected request refunds reservation and persists bounded owner-private chat thread (4.189664ms)
+✔ provider request enforces published token price ceiling and denies provider data collection (3.061381ms)
+✔ simultaneous different calls cannot exceed daily reserved budget (22.209411ms)
+✔ real HTTP timeout retains reservation and restarting gateway cannot execute that request again (12.346838ms)
+✔ revocation committed during preparation prevents a later reservation or provider call (0.892448ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 225.693

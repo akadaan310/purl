@@ -1,0 +1,28 @@
+✖ simultaneous near-64KiB source and state proposals commit and retry without an oversized receipt row (16.715271ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 74.477727
+
+✖ failing tests:
+
+test at test/launch/resources.test.js:167:1
+✖ simultaneous near-64KiB source and state proposals commit and retry without an oversized receipt row (16.715271ms)
+  Error: Row exceeds 256 KiB
+      at fail (file:///workspace/purl/service/launch/store.js:10:66)
+      at file:///workspace/purl/service/launch/store.js:69:35
+      at Array.map (<anonymous>)
+      at prepare (file:///workspace/purl/service/launch/store.js:63:30)
+      at MemoryLaunchStore.commit (file:///workspace/purl/service/launch/store.js:117:60)
+      at ResourceService.transition (file:///workspace/purl/service/launch/resources.js:88:20)
+      at ResourceService.handle (file:///workspace/purl/service/launch/resources.js:188:27)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:170:132)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    code: 'row_limit',
+    status: 413
+  }

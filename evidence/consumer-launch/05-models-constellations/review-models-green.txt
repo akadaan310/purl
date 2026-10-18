@@ -1,0 +1,21 @@
+✔ hosted unavailable without operator key; metadata GET is pure (2.207189ms)
+✔ encrypted BYOK, redacted listing, real HTTP usage reconciliation and idempotent billing (23.260301ms)
+✔ private scopes, explicit selected context, revocation and fixed provider prevent leakage (2.282893ms)
+✔ concurrent same idempotency key executes one request and quota reservations prevent overspend (29.830434ms)
+✔ timeout and missing usage hold conservative reservation and never repeat ambiguous requests (5.160038ms)
+✔ known rejected request refunds reservation and persists bounded owner-private chat thread (5.622361ms)
+✔ provider request enforces published token price ceiling and denies provider data collection (4.180489ms)
+✔ simultaneous different calls cannot exceed daily reserved budget (21.616205ms)
+✔ real HTTP timeout retains reservation and restarting gateway cannot execute that request again (11.980567ms)
+✔ revocation committed during preparation prevents a later reservation or provider call (0.991297ms)
+✔ unpersistable provider Unicode and oversized escaped text settle known cost into terminal receipts (10.971603ms)
+✔ concurrent provider-key creation and duplicate revocation maintain atomic active and total counts (25.41314ms)
+✔ public models metadata discloses availability and prices without private usage or keys (5.493308ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 250.103181

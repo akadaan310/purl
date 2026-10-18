@@ -1,0 +1,38 @@
+✔ provider readiness is public and read-only, reports disabled server without modifying defaults (21.62956ms)
+✔ password signin uses provider REST and stores encrypted expiring opaque session only (18.180237ms)
+✔ signin requires matching origin and bound bootstrap, rejects wrong credentials and live unverified email (11.865777ms)
+✔ signup and recovery send exact provider email requests with explicit central redirect allowlist (10.84784ms)
+✔ authorization review is explicit POST, GET reads staged exact scopes and approval is bound and one-use (19.534958ms)
+✔ deny uses provider deny action, refuses implicit approval and unsafe clients or redirects (45.299402ms)
+✔ live provider revocation, deletion, expiry, tampering and logout fail closed (31.391472ms)
+✔ session credentials are isolated by namespace and provider errors never disclose private upstream bodies (13.279317ms)
+✔ review lifetime, wrong authorization and ciphertext tampering block consent without upstream approval (11.865766ms)
+✔ configuration rejects secret keys, non-origin URLs and production HTTP without provider requests (0.782574ms)
+✔ expired bootstrap and per-source rate limits prevent password dispatch (47.41263ms)
+✖ read-only me restores cookie session and CSRF after browser refresh without an Origin header (4.63362ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 290.267209
+
+✖ failing tests:
+
+test at test/launch/provider-consent.test.js:230:1
+✖ read-only me restores cookie session and CSRF after browser refresh without an Origin header (4.63362ms)
+  Error: A matching request Origin is required
+      at fail (file:///workspace/purl/service/launch/provider-consent.js:6:63)
+      at ProviderConsentService.origin (file:///workspace/purl/service/launch/provider-consent.js:32:79)
+      at ProviderConsentService.loadSession (file:///workspace/purl/service/launch/provider-consent.js:121:10)
+      at ProviderConsentService.handle (file:///workspace/purl/service/launch/provider-consent.js:202:34)
+      at Object.call (file:///workspace/purl/test/launch/provider-consent.test.js:62:66)
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:234:22)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 403,
+    code: 'origin_required'
+  }

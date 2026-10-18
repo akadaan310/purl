@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-18T16:45:52.478Z",
+  "operatorKeyConfigured": false,
+  "hostedExplicitlyEnabled": false,
+  "actualProviderInference": "NOT_RUN",
+  "metadata": {
+    "provider": "openrouter",
+    "available": false,
+    "hostedAvailable": false,
+    "models": [],
+    "quota": {
+      "day": "2026-10-18",
+      "chargedMicroUSD": 0,
+      "reservedMicroUSD": 0,
+      "calls": 0,
+      "dailyBudgetMicroUSD": 100000,
+      "perCallBudgetMicroUSD": 10000,
+      "dailyCallLimit": 20
+    },
+    "pricing": {
+      "collectionEnabled": false,
+      "markupProposalPercent": 15,
+      "notice": "Provider fees apply to your provider account. A 15% service markup is a proposal only; no invoices or payments are collected."
+    }
+  }
+}

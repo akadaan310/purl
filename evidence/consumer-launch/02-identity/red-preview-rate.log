@@ -1,0 +1,68 @@
+✔ missing provider fails closed with actionable config and pure recovery (2.760919ms)
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (126.385837ms)
+✔ rejects nonce provider identity (63.18415ms)
+✔ rejects aud provider identity (48.137129ms)
+✔ rejects issuer provider identity (59.334067ms)
+✔ rejects expired provider identity (21.345255ms)
+✔ rejects unverified provider identity (47.518721ms)
+✔ state cookie binding and one-use callbacks reject replay (22.369592ms)
+✔ explicit consent, stable subjects, unique rename and product isolation (76.872595ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (93.417247ms)
+✔ live provider revocation blocks sensitive changes and session reads (47.115176ms)
+✔ guest labels cannot claim verified human or issue delegated agents (13.356697ms)
+✔ disabled provider reports unavailable without fake sign-in (12.165081ms)
+✔ wrong PKCE code and missing flow cookie fail closed (23.18264ms)
+✔ flow, session and delegated credential expiry are enforced (41.952204ms)
+✔ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (42.030822ms)
+✔ product consent removal and account deletion revoke sessions and erase owned data (50.570146ms)
+✔ CGIT first login has separate consent and later PURLs login keeps stable identity (41.547788ms)
+✖ self-declared AI preview is an unverified agent with bounded permissions (9.714887ms)
+✖ session issuance and login flows are bounded by per-source rate limits (57.470232ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 18
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 956.300674
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:67:1
+✖ self-declared AI preview is an unverified agent with bounded permissions (9.714887ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'self-declared-agent'
+  - 'agent'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:67:442)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'self-declared-agent',
+    expected: 'agent',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/identity.test.js:68:1
+✖ session issuance and login flows are bounded by per-source rate limits (57.470232ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:68:494)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

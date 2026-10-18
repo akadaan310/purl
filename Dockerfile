@@ -4,10 +4,12 @@ LABEL org.opencontainers.image.title="PURL" \
       org.opencontainers.image.description="PURL API/control plane and durable worker"
 WORKDIR /app
 COPY package.json package-lock.json ./
-# Runtime uses only Node's standard library. Offline install validates the
-# lockfile without network access or provider-specific secret mount support.
-RUN npm ci --omit=dev --ignore-scripts --strict-ssl=true --no-audit --no-fund --offline
+COPY vendor/npm/ ./vendor/npm/
+# Official integrity-pinned tarballs provide reproducible offline installation.
+# No session proxy certificate or server credential is embedded in the image.
+RUN npm cache add --offline ./vendor/npm/*.tgz && npm ci --omit=dev --ignore-scripts --strict-ssl=true --no-audit --no-fund --offline && npm cache clean --force
 COPY --chown=node:node . .
+RUN mkdir -p /app/.purl && chown node:node /app/.purl
 ENV NODE_ENV=production HOST=0.0.0.0 PORT=3000 PURL_ROLE=api PURL_PERSISTENCE=supabase
 USER node
 EXPOSE 3000

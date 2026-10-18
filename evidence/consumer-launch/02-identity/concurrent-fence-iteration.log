@@ -1,0 +1,13 @@
+✔ account deletion succeeds at exact and near tenant quota without owner growth (1190.098053ms)
+✔ a full-quota deletion interrupted after external intent resumes without spare owner space (527.300074ms)
+✔ a persisted deletion intent refuses to erase a changed principal incarnation (54.915186ms)
+✔ overlapping deletion request preserves the durable fence across mixed read timing (2.729674ms)
+✔ overlapping deletion maintenance preserves the durable fence across mixed read timing (2.753319ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1835.245885

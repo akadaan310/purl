@@ -1,0 +1,76 @@
+✖ overlapping deletion request preserves the durable fence across mixed read timing (8.719458ms)
+✖ overlapping deletion maintenance preserves the durable fence across mixed read timing (3.041962ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 69.210847
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:383:3
+✖ overlapping deletion request preserves the durable fence across mixed read timing (8.719458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + Error: The deletion fence no longer matches the owned inventory
+  +     at failure (file:///workspace/purl/service/launch/identity.js:11:54)
+  +     at IdentityService.fenceDeletion (file:///workspace/purl/service/launch/identity.js:311:17)
+  +     at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:421:23)
+  +     at async Test.run (node:internal/test_runner/test:1389:7)
+  +     at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+  +   code: 'deletion_identity_changed',
+  +   status: 409
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:422:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The deletion fence no longer matches the owned inventory
+        at failure (file:///workspace/purl/service/launch/identity.js:11:54)
+        at IdentityService.fenceDeletion (file:///workspace/purl/service/launch/identity.js:311:17)
+        at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:421:23)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3),
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/identity.test.js:383:3
+✖ overlapping deletion maintenance preserves the durable fence across mixed read timing (3.041962ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + Error: The deletion fence no longer matches the owned inventory
+  +     at failure (file:///workspace/purl/service/launch/identity.js:11:54)
+  +     at IdentityService.fenceDeletion (file:///workspace/purl/service/launch/identity.js:311:17)
+  +     at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:421:23)
+  +     at async Test.run (node:internal/test_runner/test:1389:7)
+  +     at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+  +   code: 'deletion_identity_changed',
+  +   status: 409
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:422:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: The deletion fence no longer matches the owned inventory
+        at failure (file:///workspace/purl/service/launch/identity.js:11:54)
+        at IdentityService.fenceDeletion (file:///workspace/purl/service/launch/identity.js:311:17)
+        at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:421:23)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7),
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

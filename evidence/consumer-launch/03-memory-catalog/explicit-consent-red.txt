@@ -1,0 +1,122 @@
+✔ private memory is tenant isolated, requires scopes, rejects ownership and prototype injection (1.967882ms)
+✖ live passport reveals only selected facts and follows edits, deletion and owner revocation (0.534862ms)
+✖ relations stay in tenant and public cognition is explicitly selected and revocable live data (1.159429ms)
+✔ quotas, fact revisions, expiration, provenance and guest truthfulness are enforced (91.215892ms)
+✖ actual shared store preserves privacy across service restart and enforces guest and capability boundaries (3.17962ms)
+✖ real-store global legacy pointer saturation cannot block fresh tenants and revocation removes active public index (1376.769726ms)
+✖ real-store failed capability reservation cannot consume owner passport allowance (0.999759ms)
+✖ erasing owner and delegated principal scopes denies all future live passport and public reads (0.43342ms)
+✖ sharing and publication require explicit consent for humans and authorized unverified guests (0.698488ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 2
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1539.983638
+
+✖ failing tests:
+
+test at test/launch/memory.test.js:33:1
+✖ live passport reveals only selected facts and follows edits, deletion and owner revocation (0.534862ms)
+  Error: Unexpected field: consent
+      at fail (file:///workspace/purl/service/launch/memory.js:7:60)
+      at exact (file:///workspace/purl/service/launch/memory.js:17:85)
+      at MemoryService.handle (file:///workspace/purl/service/launch/memory.js:93:47)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/memory.test.js:35:11)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 400,
+    code: 'INPUT_KEY'
+  }
+
+test at test/launch/memory.test.js:47:1
+✖ relations stay in tenant and public cognition is explicitly selected and revocable live data (1.159429ms)
+  Error: Unexpected field: consent
+      at fail (file:///workspace/purl/service/launch/memory.js:7:60)
+      at exact (file:///workspace/purl/service/launch/memory.js:17:85)
+      at MemoryService.handle (file:///workspace/purl/service/launch/memory.js:93:47)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/memory.test.js:51:11)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 400,
+    code: 'INPUT_KEY'
+  }
+
+test at test/launch/memory.test.js:67:1
+✖ actual shared store preserves privacy across service restart and enforces guest and capability boundaries (3.17962ms)
+  Error: Unexpected field: consent
+      at fail (file:///workspace/purl/service/launch/memory.js:7:60)
+      at exact (file:///workspace/purl/service/launch/memory.js:17:85)
+      at MemoryService.handle (file:///workspace/purl/service/launch/memory.js:93:47)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/memory.test.js:71:21)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 400,
+    code: 'INPUT_KEY'
+  }
+
+test at test/launch/memory.test.js:85:1
+✖ real-store global legacy pointer saturation cannot block fresh tenants and revocation removes active public index (1376.769726ms)
+  Error: Unexpected field: consent
+      at fail (file:///workspace/purl/service/launch/memory.js:7:60)
+      at exact (file:///workspace/purl/service/launch/memory.js:17:85)
+      at MemoryService.handle (file:///workspace/purl/service/launch/memory.js:93:47)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/memory.test.js:91:19)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 400,
+    code: 'INPUT_KEY'
+  }
+
+test at test/launch/memory.test.js:100:1
+✖ real-store failed capability reservation cannot consume owner passport allowance (0.999759ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  Error: Unexpected field: consent
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/memory.test.js:104:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Unexpected field: consent
+        at fail (file:///workspace/purl/service/launch/memory.js:7:60)
+        at exact (file:///workspace/purl/service/launch/memory.js:17:85)
+        at MemoryService.handle (file:///workspace/purl/service/launch/memory.js:93:47)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///workspace/purl/test/launch/memory.test.js:104:2)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/memory.test.js:107:1
+✖ erasing owner and delegated principal scopes denies all future live passport and public reads (0.43342ms)
+  Error: Unexpected field: consent
+      at fail (file:///workspace/purl/service/launch/memory.js:7:60)
+      at exact (file:///workspace/purl/service/launch/memory.js:17:85)
+      at MemoryService.handle (file:///workspace/purl/service/launch/memory.js:93:47)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/memory.test.js:111:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 400,
+    code: 'INPUT_KEY'
+  }
+
+test at test/launch/memory.test.js:118:1
+✖ sharing and publication require explicit consent for humans and authorized unverified guests (0.698488ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/memory.test.js:124:4)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

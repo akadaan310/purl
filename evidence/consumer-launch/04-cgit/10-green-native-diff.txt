@@ -1,0 +1,23 @@
+✔ immutable artifacts, concurrent heads, branches, releases, forks, diff and restore (15.517521ms)
+✔ authorization, conversation consent, unsafe paths and attribution bounds (1.062443ms)
+✔ import rejects altered hashes, missing parents, ownership claims and excessive content (1.299559ms)
+✔ persisted separate CGIT consent works; HTTP reads do not write (0.490546ms)
+✔ real identity product profiles and attenuated credentials enforce consent plus read/write scopes (0.534812ms)
+✔ parallel expected-head commits publish one head and no losing immutable objects (0.869924ms)
+✔ prototype paths and forged hash-consistent missing-parent imports are rejected (2.776765ms)
+✔ native code artifact diff reports syntax symbol changes (6.427159ms)
+✔ file-backed CGIT commits survive a fresh store process boundary (10.340878ms)
+✔ Babel handles TS/JSX, symbols, import aliases and local dependency resolution (10.564913ms)
+✔ URL allowlist denies credentials, ports, query, traversal and encoded components (0.565238ms)
+✔ public GitHub reads pin immutable SHA and preserve attribution and bounded index (16.93658ms)
+✔ GitHub fetch rejects redirect, oversized files, rate limit and tree traversal (2.381432ms)
+✔ navigation grammar retains destructured symbols, CommonJS/dynamic imports and source hash provenance (7.98832ms)
+✔ CGIT saved lens survives service restart, denies other tenants and bounds actor indexing rate (13.162009ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 112.600694

@@ -1,0 +1,56 @@
+✔ missing provider fails closed with actionable config and pure recovery (4.31097ms)
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (71.939402ms)
+✔ rejects nonce provider identity (74.534055ms)
+✔ rejects aud provider identity (22.394551ms)
+✔ rejects issuer provider identity (43.567168ms)
+✔ rejects expired provider identity (52.067366ms)
+✔ rejects unverified provider identity (27.382207ms)
+✔ state cookie binding and one-use callbacks reject replay (33.098787ms)
+✔ explicit consent, stable subjects, unique rename and product isolation (78.731375ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (68.005938ms)
+✔ live provider revocation blocks sensitive changes and session reads (56.206739ms)
+✔ guest labels cannot claim verified human or issue delegated agents (26.5183ms)
+✔ disabled provider reports unavailable without fake sign-in (12.492198ms)
+✔ wrong PKCE code and missing flow cookie fail closed (33.878057ms)
+✔ flow, session and delegated credential expiry are enforced (54.752256ms)
+✔ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (60.264109ms)
+✔ product consent removal and account deletion revoke sessions and erase owned data (76.045825ms)
+✔ CGIT first login has separate consent and later PURLs login keeps stable identity (35.244497ms)
+✔ self-declared AI preview is an unverified agent with bounded permissions (17.038472ms)
+✔ session issuance and login flows are bounded by per-source rate limits (67.30796ms)
+✔ live verified email removal invalidates account authentication (30.000346ms)
+✔ production cannot enable insecure development cookies or an HTTP issuer (20.579146ms)
+✔ tampered ID token signature is rejected by established OIDC verification (24.792805ms)
+✔ self-declared AI preview can revoke its own session (49.426552ms)
+✔ delegated agents cannot export their owner identity profiles (27.380274ms)
+✔ guest preview scopes match the chosen product and preserve unverified authority (96.227685ms)
+✔ guest CGIT activation requires explicit consent and cannot claim a handle (49.069196ms)
+✔ integration authority revalidates credential, persisted consent and exact requested scopes (53.617723ms)
+✔ guest integrations require persisted activation and agents never gain undelegated scopes (35.271227ms)
+✔ CGIT guest repositories remain isolated and enforce the actual repository quota (71.605331ms)
+✖ an unrelated Authorization header cannot disable cookie CSRF checks (19.492205ms)
+✔ a delegated CGIT read credential can integrate without acquiring write authority (42.185675ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 31
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1495.183239
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:160:1
+✖ an unrelated Authorization header cannot disable cookie CSRF checks (19.492205ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:162:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

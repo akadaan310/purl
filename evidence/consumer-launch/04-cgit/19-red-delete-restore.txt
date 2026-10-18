@@ -1,0 +1,42 @@
+✔ immutable artifacts, concurrent heads, branches, releases, forks, diff and restore (14.020884ms)
+✔ authorization, conversation consent, unsafe paths and attribution bounds (0.660902ms)
+✔ import rejects altered hashes, missing parents, ownership claims and excessive content (1.140892ms)
+✔ persisted separate CGIT consent works; HTTP reads do not write (0.425168ms)
+✔ real identity product profiles and attenuated credentials enforce consent plus read/write scopes (0.402905ms)
+✔ parallel expected-head commits publish one head and no losing immutable objects (1.133772ms)
+✔ prototype paths and forged hash-consistent missing-parent imports are rejected (0.964548ms)
+✔ native code artifact diff reports syntax symbol changes (5.959234ms)
+✔ file-backed CGIT commits survive a fresh store process boundary (11.753913ms)
+✔ import rejects forged format/date claims and resumes unpublished staged objects after interruption (20.122352ms)
+✔ restore retries after a hard interruption reuse staged objects across fresh service instances (17.883973ms)
+✔ concurrent restores cannot delete another importer immutable objects (15.888769ms)
+✖ deletion blocks restore publication until immutable cleanup completes and can resume (2.031409ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 144.41476
+
+✖ failing tests:
+
+test at test/launch/cgit.test.js:109:1
+✖ deletion blocks restore publication until immutable cleanup completes and can resume (2.031409ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'fulfilled'
+  - 'rejected'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/cgit.test.js:115:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'fulfilled',
+    expected: 'rejected',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

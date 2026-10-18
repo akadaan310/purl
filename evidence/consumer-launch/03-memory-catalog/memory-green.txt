@@ -1,0 +1,12 @@
+✔ private memory is tenant isolated, requires scopes, rejects ownership and prototype injection (2.077086ms)
+✔ live passport reveals only selected facts and follows edits, deletion and owner revocation (2.524337ms)
+✔ relations stay in tenant and public cognition is explicitly selected and revocable live data (4.253289ms)
+✔ quotas, fact revisions, expiration, provenance and guest truthfulness are enforced (90.132989ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 139.879385

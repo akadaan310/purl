@@ -1,0 +1,37 @@
+✔ three initial HTTP contexts are independent; attributed evidence survives restart and replay (40.660152ms)
+✔ checkpoint pauses; restart resumes persisted participants without repeating completed provider call (24.379966ms)
+✔ expired lease fencing prevents stale worker writes and completed-call recovery uses saved receipt (20.924052ms)
+✔ replay rejects tampering and optional steward requires separate consent and commits real artifact (17.628179ms)
+✔ baseline is NOT_RUN without explicit budget consent and reports actual measured usage when authorized (17.335139ms)
+✔ live credential revocation blocks queued jobs and every subsequent participant (7.579578ms)
+✔ missing live validator fails closed, and oversized serialized initial contexts are rejected before storage (2.817295ms)
+✔ file-backed restart recovers completed requests and exports a real CGIT steward diff (85.446403ms)
+✖ draft and paused jobs do not occupy the indexed runnable queue (1.906829ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 279.236865
+
+✖ failing tests:
+
+test at test/launch/constellations.test.js:100:1
+✖ draft and paused jobs do not occupy the indexed runnable queue (1.906829ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'queued' !== 'draft'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/constellations.test.js:101:61)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'queued',
+    expected: 'draft',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

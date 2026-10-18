@@ -1,0 +1,27 @@
+✔ three initial HTTP contexts are independent; attributed evidence survives restart and replay (39.487804ms)
+✔ checkpoint pauses; restart resumes persisted participants without repeating completed provider call (23.238083ms)
+✔ expired lease fencing prevents stale worker writes and completed-call recovery uses saved receipt (19.265394ms)
+✔ replay rejects tampering and optional steward requires separate consent and commits real artifact (16.585175ms)
+✔ baseline is NOT_RUN without explicit budget consent and reports actual measured usage when authorized (17.157723ms)
+✔ live credential revocation blocks queued jobs and every subsequent participant (7.558226ms)
+✔ missing live validator fails closed, and oversized serialized initial contexts are rejected before storage (2.723615ms)
+✔ file-backed restart recovers completed requests and exports a real CGIT steward diff (96.31928ms)
+✔ draft and paused jobs do not occupy the indexed runnable queue (2.322764ms)
+✔ hosted unavailable without operator key; metadata GET is pure (2.090024ms)
+✔ encrypted BYOK, redacted listing, real HTTP usage reconciliation and idempotent billing (27.790572ms)
+✔ private scopes, explicit selected context, revocation and fixed provider prevent leakage (3.79406ms)
+✔ concurrent same idempotency key executes one request and quota reservations prevent overspend (37.720975ms)
+✔ timeout and missing usage hold conservative reservation and never repeat ambiguous requests (7.890284ms)
+✔ known rejected request refunds reservation and persists bounded owner-private chat thread (7.010495ms)
+✔ provider request enforces published token price ceiling and denies provider data collection (4.44752ms)
+✔ simultaneous different calls cannot exceed daily reserved budget (22.94314ms)
+✔ real HTTP timeout retains reservation and restarting gateway cannot execute that request again (13.245486ms)
+✔ revocation committed during preparation prevents a later reservation or provider call (1.262664ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 290.410575

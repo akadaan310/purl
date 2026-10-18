@@ -1,0 +1,42 @@
+[
+  {
+    "product": "consumer",
+    "name": "desktop",
+    "errors": [],
+    "overflow": {
+      "scroll": 1440,
+      "width": 1440
+    },
+    "violations": []
+  },
+  {
+    "product": "consumer",
+    "name": "mobile",
+    "errors": [],
+    "overflow": {
+      "scroll": 402,
+      "width": 402
+    },
+    "violations": []
+  },
+  {
+    "product": "cgit",
+    "name": "desktop",
+    "errors": [],
+    "overflow": {
+      "scroll": 1440,
+      "width": 1440
+    },
+    "violations": []
+  },
+  {
+    "product": "cgit",
+    "name": "mobile",
+    "errors": [],
+    "overflow": {
+      "scroll": 393,
+      "width": 393
+    },
+    "violations": []
+  }
+]

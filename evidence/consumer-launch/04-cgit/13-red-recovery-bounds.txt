@@ -1,0 +1,63 @@
+✔ immutable artifacts, concurrent heads, branches, releases, forks, diff and restore (14.566656ms)
+✔ authorization, conversation consent, unsafe paths and attribution bounds (0.915963ms)
+✔ import rejects altered hashes, missing parents, ownership claims and excessive content (1.109314ms)
+✔ persisted separate CGIT consent works; HTTP reads do not write (0.417486ms)
+✔ real identity product profiles and attenuated credentials enforce consent plus read/write scopes (0.498167ms)
+✔ parallel expected-head commits publish one head and no losing immutable objects (0.901753ms)
+✔ prototype paths and forged hash-consistent missing-parent imports are rejected (1.635793ms)
+✔ native code artifact diff reports syntax symbol changes (6.324465ms)
+✔ file-backed CGIT commits survive a fresh store process boundary (11.776933ms)
+✖ import rejects forged format/date claims and cleans staged objects after interrupted restore (15.695129ms)
+✔ Babel handles TS/JSX, symbols, import aliases and local dependency resolution (9.802151ms)
+✔ URL allowlist denies credentials, ports, query, traversal and encoded components (0.493029ms)
+✔ public GitHub reads pin immutable SHA and preserve attribution and bounded index (14.803662ms)
+✔ GitHub fetch rejects redirect, oversized files, rate limit and tree traversal (1.977606ms)
+✔ navigation grammar retains destructured symbols, CommonJS/dynamic imports and source hash provenance (5.557605ms)
+✔ CGIT saved lens survives service restart, denies other tenants and bounds actor indexing rate (8.802051ms)
+✔ inventory-only structural diff reports upstream Git blob hashes without pretending AST analysis (0.177276ms)
+✖ JSX in JavaScript and TypeScript generic arrows parse while file and AST quotas reject excess (3.73389ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 16
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114.273822
+
+✖ failing tests:
+
+test at test/launch/cgit.test.js:83:1
+✖ import rejects forged format/date claims and cleans staged objects after interrupted restore (15.695129ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/cgit.test.js:87:239)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'invalid_import' },
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/github-lens.test.js:54:1
+✖ JSX in JavaScript and TypeScript generic arrows parse while file and AST quotas reject excess (3.73389ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(index.files.every(f=>f.status==='indexed'))
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/github-lens.test.js:55:189)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

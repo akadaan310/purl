@@ -1,0 +1,62 @@
+✔ missing provider fails closed with actionable config and pure recovery (2.806178ms)
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (57.758984ms)
+✔ rejects nonce provider identity (55.999564ms)
+✔ rejects aud provider identity (33.012581ms)
+✔ rejects issuer provider identity (48.500979ms)
+✔ rejects expired provider identity (49.391164ms)
+✔ rejects unverified provider identity (35.613501ms)
+✔ state cookie binding and one-use callbacks reject replay (66.183889ms)
+✔ explicit consent, stable subjects, unique rename and product isolation (72.77272ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (49.029272ms)
+✔ live provider revocation blocks sensitive changes and session reads (20.135698ms)
+✔ guest labels cannot claim verified human or issue delegated agents (30.895405ms)
+✔ disabled provider reports unavailable without fake sign-in (65.646683ms)
+✔ wrong PKCE code and missing flow cookie fail closed (54.801449ms)
+✔ flow, session and delegated credential expiry are enforced (37.401903ms)
+✔ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (75.406714ms)
+✔ product consent removal and account deletion revoke sessions and erase owned data (49.258985ms)
+✔ CGIT first login has separate consent and later PURLs login keeps stable identity (64.350229ms)
+✔ self-declared AI preview is an unverified agent with bounded permissions (22.911492ms)
+✔ session issuance and login flows are bounded by per-source rate limits (80.091726ms)
+✔ live verified email removal invalidates account authentication (62.446444ms)
+✔ production cannot enable insecure development cookies or an HTTP issuer (45.039227ms)
+✔ tampered ID token signature is rejected by established OIDC verification (54.3028ms)
+✖ self-declared AI preview can revoke its own session (24.536528ms)
+✖ delegated agents cannot export their owner identity profiles (23.008056ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 23
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1242.692809
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:72:1
+✖ self-declared AI preview can revoke its own session (24.536528ms)
+  Error: Only the account owner can change product access
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:406:37)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:79:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 403,
+    code: 'owner_required'
+  }
+
+test at test/launch/identity.test.js:82:1
+✖ delegated agents cannot export their owner identity profiles (23.008056ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:85:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

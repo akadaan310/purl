@@ -1,0 +1,46 @@
+✔ native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays (29.032898ms)
+✔ private IDs and child artifacts do not cross tenants; public reading never grants mutation (13.046697ms)
+✔ resource commands reject stale versions and bind retries before producing new jobs (10.670499ms)
+✔ revoked credentials cancel queued work and a fresh service instance recovers persisted jobs (15.756856ms)
+✔ GET discovery, continuity, history and replay are pure; tampered snapshots fail verification (1.469932ms)
+✔ native mission contains documents and dependency evidence, executes and survives fresh-principal fork (10.591761ms)
+✔ missing worker authority and authored code fail closed (8.027642ms)
+✔ parallel product startup seeds one immutable mission without losing either service (1.125215ms)
+✖ job intent and its idempotency receipt commit atomically across an interruption boundary (8.145818ms)
+✖ create and build retries retain original statuses and immutable build IDs (1.159006ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 150.677433
+
+✖ failing tests:
+
+test at test/launch/resources.test.js:79:1
+✖ job intent and its idempotency receipt commit atomically across an interruption boundary (8.145818ms)
+  Error: Simulated crash between job and receipt
+      at store.commit (file:///workspace/purl/test/launch/resources.test.js:81:201)
+      at ResourceService.handle (file:///workspace/purl/service/launch/resources.js:135:37)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:82:86)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/resources.test.js:85:1
+✖ create and build retries retain original statuses and immutable build IDs (1.159006ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 201
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:86:232)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 201,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

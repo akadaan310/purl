@@ -1,0 +1,21 @@
+✔ provider readiness is public and read-only, reports disabled server without modifying defaults (45.882988ms)
+✔ password signin uses provider REST and stores encrypted expiring opaque session only (20.921429ms)
+✔ signin requires matching origin and bound bootstrap, rejects wrong credentials and live unverified email (10.488831ms)
+✔ signup and recovery send exact provider email requests with explicit central redirect allowlist (11.132046ms)
+✔ authorization review is explicit POST, GET reads staged exact scopes and approval is bound and one-use (21.633197ms)
+✔ deny uses provider deny action, refuses implicit approval and unsafe clients or redirects (43.743499ms)
+✔ live provider revocation, deletion, expiry, tampering and logout fail closed (32.910561ms)
+✔ session credentials are isolated by namespace and provider errors never disclose private upstream bodies (12.677004ms)
+✔ review lifetime, wrong authorization and ciphertext tampering block consent without upstream approval (13.710012ms)
+✔ configuration rejects secret keys, non-origin URLs and production HTTP without provider requests (1.051277ms)
+✔ expired bootstrap and per-source rate limits prevent password dispatch (50.859197ms)
+✔ read-only me restores cookie session and CSRF after browser refresh without an Origin header (12.602581ms)
+✔ processing time cannot extend a local session past the exact provider expiry (4.541952ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 356.511192

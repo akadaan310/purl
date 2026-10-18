@@ -1,0 +1,94 @@
+{
+  "observedAt": "2026-10-18T16:42:35.974061+00:00",
+  "actualInference": "NOT_RUN: no approved operator inference credentials configured",
+  "sources": [
+    {
+      "url": "https://openrouter.ai/api/v1/models",
+      "finalUrl": "https://openrouter.ai/api/v1/models",
+      "status": 200,
+      "bytes": 787275,
+      "sha256": "2dbd468e4e2757fbec330151cee15f99e990b7b8abc0cbcf73621394aa3e7aee",
+      "contentType": "application/json",
+      "selectedModels": [
+        {
+          "id": "google/gemini-2.5-flash",
+          "name": "Google: Gemini 2.5 Flash",
+          "context_length": 1048576,
+          "pricing": {
+            "prompt": "0.0000003",
+            "completion": "0.0000025",
+            "image": "0.0000003",
+            "audio": "0.000001",
+            "input_audio_cache": "0.0000001",
+            "web_search": "0.014",
+            "internal_reasoning": "0.0000025",
+            "input_cache_read": "0.00000003",
+            "input_cache_write": "0.0000000833333333333333"
+          },
+          "top_provider": {
+            "context_length": 1048576,
+            "max_completion_tokens": 65535,
+            "is_moderated": false
+          }
+        },
+        {
+          "id": "openai/gpt-4.1-mini",
+          "name": "OpenAI: GPT-4.1 Mini",
+          "context_length": 1047576,
+          "pricing": {
+            "prompt": "0.0000004",
+            "completion": "0.0000016",
+            "web_search": "0.01",
+            "input_cache_read": "0.0000001"
+          },
+          "top_provider": {
+            "context_length": 1047576,
+            "max_completion_tokens": 32768,
+            "is_moderated": true
+          }
+        },
+        {
+          "id": "openai/gpt-4.1-nano",
+          "name": "OpenAI: GPT-4.1 Nano",
+          "context_length": 1047576,
+          "pricing": {
+            "prompt": "0.0000001",
+            "completion": "0.0000004",
+            "web_search": "0.01",
+            "input_cache_read": "0.000000025"
+          },
+          "top_provider": {
+            "context_length": 1047576,
+            "max_completion_tokens": 32768,
+            "is_moderated": true
+          }
+        }
+      ],
+      "modelCount": 471
+    },
+    {
+      "url": "https://openrouter.ai/docs/api/reference/overview",
+      "finalUrl": "https://openrouter.ai/docs/api_reference/overview",
+      "status": 200,
+      "bytes": 640894,
+      "sha256": "fe86461e924e65bb1b73d2d1542073817a03cc96bb36bb7daf5ea5c1f87f73cf",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://openrouter.ai/terms",
+      "finalUrl": "https://openrouter.ai/terms",
+      "status": 200,
+      "bytes": 396784,
+      "sha256": "d6b5e0075a18e09945368cd4403f75da10bb00dc40aa30a8641f4be945ecc8ef",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://openrouter.ai/docs/guides/guides/usage-accounting",
+      "finalUrl": "https://openrouter.ai/docs/cookbook/administration/usage-accounting",
+      "status": 200,
+      "bytes": 529911,
+      "sha256": "4229098100c9075e781b0ddaa05fdc6f000552918a63fcf84c9a3aca18f49dd0",
+      "contentType": "text/html; charset=utf-8"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+✔ native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays (29.497865ms)
+✔ private IDs and child artifacts do not cross tenants; public reading never grants mutation (13.10404ms)
+✔ resource commands reject stale versions and bind retries before producing new jobs (9.928225ms)
+✔ revoked credentials cancel queued work and a fresh service instance recovers persisted jobs (13.499163ms)
+✔ GET discovery, continuity, history and replay are pure; tampered snapshots fail verification (1.4596ms)
+✔ native mission contains documents and dependency evidence, executes and survives fresh-principal fork (10.430489ms)
+✔ missing worker authority and authored code fail closed (7.572712ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 139.173859

@@ -1,0 +1,22 @@
+HTTP/1.1 200 OK
+date: Sun, 18 Oct 2026 17:14:48 GMT
+server: envoy
+
+HTTP/2 404 
+date: Sun, 18 Oct 2026 17:14:48 GMT
+content-type: application/json
+content-length: 77
+cf-ray: a4c92e7499fabf1d-WAW
+cf-cache-status: DYNAMIC
+server: envoy
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+vary: Origin
+sb-gateway-version: 2
+sb-project-ref: frxufmwwbegconolevkw
+sb-request-id: 01a15002-4527-72da-a081-114410bdf582
+x-envoy-attempt-count: 1
+x-envoy-upstream-service-time: 238
+x-sb-error-code: feature_disabled
+set-cookie: __cf_bm=6H5aKyYIWZ2fNAXbdDr3lHDQ82l7dh2AdshLVoJGR9M-1792343688.4203246-1.0.1.1-aYxN6c5P4lLUYQ4DAl1aSRnyeDISrV4ILx35It6mqkeb0uqe5ReYn6C_R5QlbQN_tvjACBSXWylS4F5ioP1gkFtuT3WTjdlf8MTZPo2CrRPOYJrOGgjUhCbnfeYxsBE1; HttpOnly; SameSite=None; Secure; Path=/; Domain=supabase.co; Expires=Sun, 18 Oct 2026 17:44:48 GMT
+alt-svc: h3=":443"; ma=86400
+

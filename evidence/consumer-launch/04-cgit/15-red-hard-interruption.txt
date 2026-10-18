@@ -1,0 +1,38 @@
+✔ immutable artifacts, concurrent heads, branches, releases, forks, diff and restore (20.751038ms)
+✔ authorization, conversation consent, unsafe paths and attribution bounds (0.776945ms)
+✔ import rejects altered hashes, missing parents, ownership claims and excessive content (1.076815ms)
+✔ persisted separate CGIT consent works; HTTP reads do not write (0.398648ms)
+✔ real identity product profiles and attenuated credentials enforce consent plus read/write scopes (0.43954ms)
+✔ parallel expected-head commits publish one head and no losing immutable objects (0.776275ms)
+✔ prototype paths and forged hash-consistent missing-parent imports are rejected (1.41361ms)
+✔ native code artifact diff reports syntax symbol changes (6.097006ms)
+✔ file-backed CGIT commits survive a fresh store process boundary (7.721072ms)
+✔ import rejects forged format/date claims and cleans staged objects after interrupted restore (15.270847ms)
+✖ restore retries after a hard interruption reuse staged objects across fresh service instances (16.956566ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 137.15184
+
+✖ failing tests:
+
+test at test/launch/cgit.test.js:93:1
+✖ restore retries after a hard interruption reuse staged objects across fresh service instances (16.956566ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  100 !== 68
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/cgit.test.js:100:51)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 100,
+    expected: 68,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

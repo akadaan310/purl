@@ -1,0 +1,35 @@
+✖ maintenance resumes deletion if interrupted before the external plan is written (100.904553ms)
+✔ more than 4096 expired session lifetimes reuse bounded owner metadata (1421.017691ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1584.994711
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:251:1
+✖ maintenance resumes deletion if interrupted before the external plan is written (100.904553ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   completed: 0,
+  -   completed: 1,
+      failed: 0
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:263:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { completed: 0, failed: 0 },
+    expected: { completed: 1, failed: 0 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

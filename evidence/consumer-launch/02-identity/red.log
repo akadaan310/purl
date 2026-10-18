@@ -1,0 +1,226 @@
+✖ missing provider fails closed with actionable config and pure recovery (1.054191ms)
+✖ real code and PKCE establishes verified identity with encrypted tokens and bounded session (0.336695ms)
+✖ rejects nonce provider identity (0.225949ms)
+✖ rejects aud provider identity (0.154051ms)
+✖ rejects issuer provider identity (0.153961ms)
+✖ rejects expired provider identity (0.138728ms)
+✖ rejects unverified provider identity (0.138918ms)
+✖ state cookie binding and one-use callbacks reject replay (0.184778ms)
+✖ explicit consent, stable subjects, unique rename and product isolation (0.303495ms)
+✖ origin and CSRF guard mutations, owner and provider revocation invalidate agents (0.30002ms)
+✖ live provider revocation blocks sensitive changes and session reads (0.216524ms)
+✖ guest labels cannot claim verified human or issue delegated agents (0.22006ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 0
+ℹ fail 12
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 64.193755
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:51:1
+✖ missing provider fails closed with actionable config and pure recovery (1.054191ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:52:1
+✖ real code and PKCE establishes verified identity with encrypted tokens and bounded session (0.336695ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:53:67
+✖ rejects nonce provider identity (0.225949ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:53:67
+✖ rejects aud provider identity (0.154051ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:53:67
+✖ rejects issuer provider identity (0.153961ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:53:67
+✖ rejects expired provider identity (0.138728ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:53:67
+✖ rejects unverified provider identity (0.138918ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:54:1
+✖ state cookie binding and one-use callbacks reject replay (0.184778ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:55:1
+✖ explicit consent, stable subjects, unique rename and product isolation (0.303495ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:56:1
+✖ origin and CSRF guard mutations, owner and provider revocation invalidate agents (0.30002ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:57:1
+✖ live provider revocation blocks sensitive changes and session reads (0.216524ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }
+
+test at test/launch/identity.test.js:58:1
+✖ guest labels cannot claim verified human or issue delegated agents (0.22006ms)
+  Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/workspace/purl/service/launch/identity.js' imported from /workspace/purl/test/launch/identity.test.js
+      at finalizeResolution (node:internal/modules/esm/resolve:271:11)
+      at moduleResolve (node:internal/modules/esm/resolve:865:10)
+      at defaultResolve (node:internal/modules/esm/resolve:992:11)
+      at #cachedDefaultResolve (node:internal/modules/esm/loader:701:20)
+      at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:721:38)
+      at ModuleLoader.resolveSync (node:internal/modules/esm/loader:759:56)
+      at #resolve (node:internal/modules/esm/loader:683:17)
+      at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:603:35)
+      at node:internal/modules/esm/loader:632:32
+      at TracingChannel.tracePromise (node:diagnostics_channel:362:14) {
+    code: 'ERR_MODULE_NOT_FOUND',
+    url: 'file:///workspace/purl/service/launch/identity.js'
+  }

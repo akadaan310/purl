@@ -1,0 +1,40 @@
+✖ persistence configuration and malformed upstream responses expose only safe store errors (1.106982ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46.948055
+
+✖ failing tests:
+
+test at test/launch/store.test.js:152:1
+✖ persistence configuration and malformed upstream responses expose only safe store errors (1.106982ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  TypeError: Invalid URL
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:153:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: Invalid URL
+        at new URL (node:internal/url:840:25)
+        at new SupabaseLaunchStore (file:///workspace/purl/service/launch/store.js:138:18)
+        at file:///workspace/purl/test/launch/store.test.js:153:21
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:153:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25)
+        at Test.start (node:internal/test_runner/test:1242:17)
+        at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17),
+    operator: 'throws',
+    diff: 'simple'
+  }

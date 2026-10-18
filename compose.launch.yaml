@@ -1,0 +1,85 @@
+name: purl-consumer-local
+
+# Development only. Production uses Supabase, never this file-backed volume.
+x-launch-service: &launch-service
+  image: purl-consumer:local
+  build:
+    context: .
+    dockerfile: Dockerfile
+  env_file:
+    - path: ${PURL_LAUNCH_ENV_FILE:-.env.launch}
+      required: true
+  init: true
+  restart: unless-stopped
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,size=64m,uid=1000,gid=1000
+  volumes:
+    - launch-data:/app/.purl
+  stop_grace_period: 180s
+  healthcheck:
+    test: [CMD, node, deploy/healthcheck.js]
+    interval: 10s
+    timeout: 5s
+    start_period: 20s
+    retries: 6
+
+x-launch-environment: &launch-environment
+  NODE_ENV: development
+  HOST: 0.0.0.0
+  PORT: "3000"
+  PURL_LAUNCH_PERSISTENCE: file
+  PURL_LAUNCH_FILE: /app/.purl/consumer.json
+  PURL_IDENTITY_ALLOW_HTTP: "true"
+  PURL_IDENTITY_ENCRYPTION_KEY: ${PURL_IDENTITY_ENCRYPTION_KEY:?Generate a private 32-byte base64 key in .env.launch}
+  PURLS_BASE_URL: http://localhost:8180
+  CGIT_BASE_URL: http://localhost:8181
+  MODEL_HOSTED_ENABLED: "false"
+
+services:
+  purls:
+    <<: *launch-service
+    command: [node, service/launch/main.js]
+    environment:
+      <<: *launch-environment
+      PURL_PRODUCT: purls
+      PURL_OIDC_CLIENT_ID: ${PURLS_OIDC_CLIENT_ID:-}
+      PURL_OIDC_CLIENT_SECRET: ${PURLS_OIDC_CLIENT_SECRET:-}
+      PURL_ROLE: api
+      PURL_BASE_URL: http://localhost:8180
+    ports:
+      - 127.0.0.1:8180:3000
+
+  cgit:
+    <<: *launch-service
+    command: [node, service/launch/main.js]
+    environment:
+      <<: *launch-environment
+      PURL_PRODUCT: cgit
+      PURL_OIDC_CLIENT_ID: ${CGIT_OIDC_CLIENT_ID:-}
+      PURL_OIDC_CLIENT_SECRET: ${CGIT_OIDC_CLIENT_SECRET:-}
+      PURL_ROLE: api
+      PURL_BASE_URL: http://localhost:8181
+    ports:
+      - 127.0.0.1:8181:3000
+
+  worker:
+    <<: *launch-service
+    command: [node, service/launch/worker-main.js]
+    environment:
+      <<: *launch-environment
+      PURL_PRODUCT: purls
+      PURL_OIDC_CLIENT_ID: ${PURLS_OIDC_CLIENT_ID:-}
+      PURL_OIDC_CLIENT_SECRET: ${PURLS_OIDC_CLIENT_SECRET:-}
+      PURL_ROLE: worker
+      PURL_BASE_URL: http://localhost:8180
+      PURL_WORKER_HEARTBEAT_FILE: /tmp/purl-launch-worker.json
+      PURL_WORKER_POLL_MS: "1000"
+    depends_on:
+      purls:
+        condition: service_healthy
+
+volumes:
+  launch-data:

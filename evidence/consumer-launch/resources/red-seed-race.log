@@ -1,0 +1,35 @@
+✔ native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays (28.163522ms)
+✔ private IDs and child artifacts do not cross tenants; public reading never grants mutation (12.488552ms)
+✔ resource commands reject stale versions and bind retries before producing new jobs (10.215763ms)
+✔ revoked credentials cancel queued work and a fresh service instance recovers persisted jobs (14.749573ms)
+✔ GET discovery, continuity, history and replay are pure; tampered snapshots fail verification (1.304387ms)
+✔ native mission contains documents and dependency evidence, executes and survives fresh-principal fork (10.349483ms)
+✔ missing worker authority and authored code fail closed (8.005697ms)
+✖ parallel product startup seeds one immutable mission without losing either service (0.645118ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 136.734276
+
+✖ failing tests:
+
+test at test/launch/resources.test.js:74:1
+✖ parallel product startup seeds one immutable mission without losing either service (0.645118ms)
+  Error: Record version differs
+      at fail (file:///workspace/purl/service/launch/store.js:10:66)
+      at commitState (file:///workspace/purl/service/launch/store.js:89:105)
+      at file:///workspace/purl/service/launch/store.js:117:118
+      at MemoryLaunchStore.mutate (file:///workspace/purl/service/launch/store.js:125:61)
+      at MemoryLaunchStore.commit (file:///workspace/purl/service/launch/store.js:117:104)
+      at ResourceService.create (file:///workspace/purl/service/launch/resources.js:67:37)
+      at async ResourceService.seedMission (file:///workspace/purl/service/launch/resources.js:73:11)
+      at async Promise.all (index 1)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:76:16)
+      at async Test.run (node:internal/test_runner/test:1389:7) {
+    code: 'version_conflict',
+    status: 409
+  }

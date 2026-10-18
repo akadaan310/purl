@@ -1,0 +1,26 @@
+✔ immutable artifacts, concurrent heads, branches, releases, forks, diff and restore (13.396052ms)
+✔ authorization, conversation consent, unsafe paths and attribution bounds (0.736064ms)
+✔ import rejects altered hashes, missing parents, ownership claims and excessive content (0.984927ms)
+✔ persisted separate CGIT consent works; HTTP reads do not write (0.382784ms)
+✔ real identity product profiles and attenuated credentials enforce consent plus read/write scopes (0.420961ms)
+✔ parallel expected-head commits publish one head and no losing immutable objects (0.763976ms)
+✔ prototype paths and forged hash-consistent missing-parent imports are rejected (1.390506ms)
+✖ native code artifact diff reports syntax symbol changes (0.852148ms)
+✔ file-backed CGIT commits survive a fresh store process boundary (12.77496ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 83.776665
+
+✖ failing tests:
+
+test at test/launch/cgit.test.js:72:1
+✖ native code artifact diff reports syntax symbol changes (0.852148ms)
+  TypeError: Cannot read properties of undefined (reading 'addedSymbols')
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/cgit.test.js:77:52)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

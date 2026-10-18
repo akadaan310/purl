@@ -1,0 +1,130 @@
+✖ account deletion erases delegated data and revokes public passports and cognition (110.574986ms)
+✖ interrupted deletion retains its descendant plan and resumes across service restart (68.323423ms)
+✖ full legacy identity index partitions cannot deny new issuance for either product (2083.993237ms)
+✖ bounded expiry compaction preserves live credentials and replay defenses (15.735563ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2344.0574
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:176:1
+✖ account deletion erases delegated data and revokes public passports and cognition (110.574986ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   {
+  +     key: 'memory/state',
+  +     value: {
+  +       facts: [
+  +         {
+  +           created_at: '2026-10-18T16:57:25.530Z',
+  +           history: [],
+  +           id: 'M860XVUgNKDXHsqhRWLbAuy6KAYFqmUa',
+  +           kind: 'user_assertion',
+  +           occurred_at: '2026-10-18T16:57:25.530Z',
+  +           provenance: null,
+  +           tags: [],
+  +           text: 'Delegated private fact',
+  +           updated_at: '2026-10-18T16:57:25.530Z',
+  +           version: 1
+  +         }
+  +       ],
+  +       passports: [
+  +         {
+  +           allowed_scopes: [
+  +             'memory:read'
+  +           ],
+  +           created_at: '2026-10-18T16:57:25.531Z',
+  +           expires_at: '2026-10-18T17:57:25.531Z',
+  +           fact_ids: [
+  +             'M860XVUgNKDXHsqhRWLbAuy6KAYFqmUa'
+  +           ],
+  +           id: 'm8QMdRb4vORgb6Mrf2EZD0a2i578J6CD',
+  +           purpose: 'Deletion regression',
+  +           revoked_at: null,
+  +           version: 1
+  +         }
+  +       ],
+  +       publications: [
+  +         {
+  +           created_at: '2026-10-18T16:57:25.530Z',
+  +           fact_ids: [
+  +             'M860XVUgNKDXHsqhRWLbAuy6KAYFqmUa'
+  +           ],
+  +           id: 'VD0mY9YqqVB3ryXkwpkd2RWbTSd1PTpn',
+  +           purpose: 'Deletion regression',
+  +           revoked_at: null,
+  +           version: 1
+  +         }
+  +       ],
+  +       relations: []
+  +     },
+  +     version: 3
+  +   },
+  +   {
+  +     key: 'resources/private',
+  +     value: {
+  +       secret: 'delegated resource'
+  +     },
+  +     version: 1
+  +   }
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:188:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { key: 'memory/state', version: 3, value: [Object] }, { key: 'resources/private', version: 1, value: [Object] } ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/identity.test.js:194:1
+✖ interrupted deletion retains its descendant plan and resumes across service restart (68.323423ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:206:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/identity.test.js:217:1
+✖ full legacy identity index partitions cannot deny new issuance for either product (2083.993237ms)
+  Error: Tenant exceeds 4096 records including tombstones
+      at fail (file:///workspace/purl/service/launch/store.js:10:66)
+      at commitState (file:///workspace/purl/service/launch/store.js:95:123)
+      at file:///workspace/purl/service/launch/store.js:117:118
+      at MemoryLaunchStore.mutate (file:///workspace/purl/service/launch/store.js:125:61)
+      at MemoryLaunchStore.commit (file:///workspace/purl/service/launch/store.js:117:104)
+      at IdentityService.write (file:///workspace/purl/service/launch/identity.js:116:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async IdentityService.session (file:///workspace/purl/service/launch/identity.js:248:5)
+      at async preview (file:///workspace/purl/test/launch/identity.test.js:81:18)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:222:43) {
+    code: 'metadata_quota',
+    status: 413
+  }
+
+test at test/launch/identity.test.js:232:1
+✖ bounded expiry compaction preserves live credentials and replay defenses (15.735563ms)
+  TypeError: f.service.compactExpired is not a function
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:237:54)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

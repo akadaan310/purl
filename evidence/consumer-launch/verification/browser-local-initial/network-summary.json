@@ -1,0 +1,8 @@
+{
+  "cases": 18,
+  "responses": 250,
+  "unexpected": [],
+  "pageErrors": [],
+  "requestFailures": [],
+  "expectedAnonymous401": 18
+}

@@ -1,0 +1,18 @@
+✔ store exports the required adapters (0.52648ms)
+✔ memory: atomic competing CAS, isolation, immutable reads and tombstone versions (4.903164ms)
+✔ memory: payload-bound retry and global handle reservation are atomic and erase releases all aliases (1.519218ms)
+✔ file: atomic competing CAS, isolation, immutable reads and tombstone versions (19.778645ms)
+✔ file: payload-bound retry and global handle reservation are atomic and erase releases all aliases (15.608451ms)
+✔ lists and global status scans are bounded, exclude tombstones and remain pure (0.701172ms)
+✔ rejects malformed or unbounded data before mutating and enforces tenant quota (105.46266ms)
+✔ development file reads never create files and production factory fails closed (2.209254ms)
+✔ dictionary-shaped identifiers cannot resolve inherited prototype members (0.402814ms)
+✔ strict JSON validation rejects accessors, symbol properties, unsupported Unicode and overflowing versions (0.398358ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 199.674205

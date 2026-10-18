@@ -1,0 +1,34 @@
+✔ three initial HTTP contexts are independent; attributed evidence survives restart and replay (58.35911ms)
+✔ checkpoint pauses; restart resumes persisted participants without repeating completed provider call (55.593181ms)
+✔ expired lease fencing prevents stale worker writes and completed-call recovery uses saved receipt (37.764788ms)
+✔ replay rejects tampering and optional steward requires separate consent and commits real artifact (30.820372ms)
+✔ baseline is NOT_RUN without explicit budget consent and reports actual measured usage when authorized (26.827662ms)
+✔ live credential revocation blocks queued jobs and every subsequent participant (15.893ms)
+✔ missing live validator fails closed, and oversized serialized initial contexts are rejected before storage (5.440621ms)
+✔ file-backed restart recovers completed requests and exports a real CGIT steward diff (101.572783ms)
+✔ draft and paused jobs do not occupy the indexed runnable queue (7.568162ms)
+✔ escaped provider output fails terminally with attributed receipt rather than overflowing the job row (25.251899ms)
+✔ five maximum accepted serialized outputs plus baseline fit pre-reserved durable job capacity (49.398279ms)
+✔ concurrent constellation admissions cannot exceed owner object quota (540.614298ms)
+✔ hosted unavailable without operator key; metadata GET is pure (2.085738ms)
+✔ encrypted BYOK, redacted listing, real HTTP usage reconciliation and idempotent billing (24.62614ms)
+✔ private scopes, explicit selected context, revocation and fixed provider prevent leakage (2.209485ms)
+✔ concurrent same idempotency key executes one request and quota reservations prevent overspend (34.643086ms)
+✔ timeout and missing usage hold conservative reservation and never repeat ambiguous requests (12.942885ms)
+✔ known rejected request refunds reservation and persists bounded owner-private chat thread (8.714912ms)
+✔ provider request enforces published token price ceiling and denies provider data collection (6.382123ms)
+✔ simultaneous different calls cannot exceed daily reserved budget (23.416646ms)
+✔ real HTTP timeout retains reservation and restarting gateway cannot execute that request again (13.984407ms)
+✔ revocation committed during preparation prevents a later reservation or provider call (1.601352ms)
+✔ unpersistable provider Unicode and oversized escaped text settle known cost into terminal receipts (14.023975ms)
+✔ concurrent provider-key creation and duplicate revocation maintain atomic active and total counts (30.213947ms)
+✔ public models metadata discloses availability and prices without private usage or keys (5.417386ms)
+✔ pre-dispatch storage reservation preserves known-cost settlement when other writes fill tenant quota (544.734423ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1018.325968

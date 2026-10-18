@@ -1,0 +1,30 @@
+✔ immutable artifacts, concurrent heads, branches, releases, forks, diff and restore (15.848431ms)
+✔ authorization, conversation consent, unsafe paths and attribution bounds (0.794672ms)
+✔ import rejects altered hashes, missing parents, ownership claims and excessive content (1.170716ms)
+✔ persisted separate CGIT consent works; HTTP reads do not write (0.421031ms)
+✔ real identity product profiles and attenuated credentials enforce consent plus read/write scopes (0.470957ms)
+✔ parallel expected-head commits publish one head and no losing immutable objects (1.199369ms)
+✔ prototype paths and forged hash-consistent missing-parent imports are rejected (1.029404ms)
+✔ native code artifact diff reports syntax symbol changes (6.298006ms)
+✔ file-backed CGIT commits survive a fresh store process boundary (10.724004ms)
+✔ import rejects forged format/date claims and resumes unpublished staged objects after interruption (20.670563ms)
+✔ restore retries after a hard interruption reuse staged objects across fresh service instances (17.444024ms)
+✔ concurrent restores cannot delete another importer immutable objects (16.095612ms)
+✔ deletion blocks restore publication until immutable cleanup completes and can resume (4.461432ms)
+✔ Babel handles TS/JSX, symbols, import aliases and local dependency resolution (12.457856ms)
+✔ URL allowlist denies credentials, ports, query, traversal and encoded components (0.529934ms)
+✔ public GitHub reads pin immutable SHA and preserve attribution and bounded index (18.749602ms)
+✔ GitHub fetch rejects redirect, oversized files, rate limit and tree traversal (1.956324ms)
+✔ navigation grammar retains destructured symbols, CommonJS/dynamic imports and source hash provenance (5.810776ms)
+✔ CGIT saved lens survives service restart, denies other tenants and bounds actor indexing rate (9.530965ms)
+✔ inventory-only structural diff reports upstream Git blob hashes without pretending AST analysis (0.205829ms)
+✔ JSX in JavaScript and TypeScript generic arrows parse while file and AST quotas reject excess (109.211654ms)
+✔ TypeScript import-equals retains local aliases and resolves external-module dependencies (1.976114ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 236.853851

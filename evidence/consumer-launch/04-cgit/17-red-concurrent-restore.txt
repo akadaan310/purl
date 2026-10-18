@@ -1,0 +1,312 @@
+✔ immutable artifacts, concurrent heads, branches, releases, forks, diff and restore (14.967831ms)
+✔ authorization, conversation consent, unsafe paths and attribution bounds (0.83941ms)
+✔ import rejects altered hashes, missing parents, ownership claims and excessive content (1.229085ms)
+✔ persisted separate CGIT consent works; HTTP reads do not write (0.431818ms)
+✔ real identity product profiles and attenuated credentials enforce consent plus read/write scopes (0.452148ms)
+✔ parallel expected-head commits publish one head and no losing immutable objects (1.24577ms)
+✔ prototype paths and forged hash-consistent missing-parent imports are rejected (1.058158ms)
+✔ native code artifact diff reports syntax symbol changes (6.300725ms)
+✔ file-backed CGIT commits survive a fresh store process boundary (9.951042ms)
+✔ import rejects forged format/date claims and cleans staged objects after interrupted restore (18.598263ms)
+✔ restore retries after a hard interruption reuse staged objects across fresh service instances (21.773553ms)
+✖ concurrent restores cannot delete another importer immutable objects (21.59123ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 151.851339
+
+✖ failing tests:
+
+test at test/launch/cgit.test.js:102:1
+✖ concurrent restores cannot delete another importer immutable objects (21.59123ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.942Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '0b0aa1e941e18df26e114255d3b93827447807b6a2ca1977d01fe3ca8b83c281',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '34686d6fab9f4100c2199ef4b6d539a5a61a4074da538d0560fe817156b3b767'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: 'c97d74c3c3b5397df6441def425a47ffc2051403affc63e87802bda79929d5e1',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.939Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '110a6ca4e5cc87ff67e4164833a0de8052462c59b396fec1f9076f304d274a97',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '38650914886a652fc4be05f798e3a46be73f77cd20a5f9eca60a2242f028eca2'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: 'dddfe3d67692fa910d738a27f27292a0239b126008fdb10b8019c77794b8d23c',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.941Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '20b12c3881163508b674d1fa9e9c6e3617a1494975e42799d9cfaa162182f0c4',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '86de0ad5b1c4ff2865dcefc782b7c5ae01ea41d3c44f82edef7ac3a80ca5fd7a'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: '6adf7839f00a5ce8741c16207f414e9d7f097ee640e4b6b46973f2f9e215c7af',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.942Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '34686d6fab9f4100c2199ef4b6d539a5a61a4074da538d0560fe817156b3b767',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '20b12c3881163508b674d1fa9e9c6e3617a1494975e42799d9cfaa162182f0c4'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: '84689ffc71615d2342f5d83379aedadaed57c6e9035b91edd15de65b403b9054',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.938Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '36fd90fdbc489b7e6b5236a5ca05968e201120759e9cb1842ff76e77f124b466',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       'fc67ac38d372d602bf3cd67fe7b4aaf4ad98b508cd63c03cb70a545eb038d9f7'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: '5db9d5fbebd4f762def236065f0644b599452b9756c8da38559e5133bfe1a25b',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.939Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '38650914886a652fc4be05f798e3a46be73f77cd20a5f9eca60a2242f028eca2',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       'fc0cbff2d2a0ad09a82e805ec2d3a67a88d8b88c10841e94bbe6690d94499ee0'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: '263ebe5218a1d06f5341a381983dcafaf8c709fbab9c2f6c56beeab00409e282',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.940Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '4278a26c521fc598f9bea4d19f605c3e96d99fb2036a92d10e0f7450a6ce292c',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '110a6ca4e5cc87ff67e4164833a0de8052462c59b396fec1f9076f304d274a97'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: 'f25cd2f8e7ac1f795de2365072e6aa286d32db0e3961f608ea2541a312ed8cc3',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.943Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '48c2846f21804c23377d73ad842b5e9bcfec2a7078c46b2b2dd6aa051697ad39',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '0b0aa1e941e18df26e114255d3b93827447807b6a2ca1977d01fe3ca8b83c281'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: 'ec890b680efec613a4746ce2411c16274ea1ec132a1c4fed094ee577c8672c68',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.941Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '60da22c823457e433b2142988b3bd5cf3de88208898e5a80315687d51b5385df',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '6ddbcd537f93204e40047e8515f6729cf4fd34ebabc1caa2fa1756f03be3c59e'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: '071bd5f81dde962b6f3014b4fe73a0e314f6d302630501fd462f5d427d546443',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.940Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '6ddbcd537f93204e40047e8515f6729cf4fd34ebabc1caa2fa1756f03be3c59e',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '4278a26c521fc598f9bea4d19f605c3e96d99fb2036a92d10e0f7450a6ce292c'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: 'e497cf507f893e2a1c11e07e0f1e8e05977f9b98ddecc99f0c8a334e4af425d0',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.941Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '86de0ad5b1c4ff2865dcefc782b7c5ae01ea41d3c44f82edef7ac3a80ca5fd7a',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '60da22c823457e433b2142988b3bd5cf3de88208898e5a80315687d51b5385df'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: 'c3f2613ed725fe1725f3bf372a210f3a0830882d1b59b57d88029c782ab1e3c3',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.938Z',
+  -     format: 'cgit-commit/1',
+  -     hash: '99c36b9ac168b8a1bec1124f790c8bfa3681fbed13160d3ba2e0d884ed9b8719',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       'b092352c99698a93592d7a33f056f87f5f9f7f818d2b7b91b54ced77628c3348'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: '7dcd1b8c4b869716b1bfc7100121a23971190fdfd72580fd23fdb4f9bacbe5dd',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.938Z',
+  -     format: 'cgit-commit/1',
+  -     hash: 'b092352c99698a93592d7a33f056f87f5f9f7f818d2b7b91b54ced77628c3348',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '36fd90fdbc489b7e6b5236a5ca05968e201120759e9cb1842ff76e77f124b466'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: '9a875a6fc192350f0e7733fe872118856e60a4ad32e9049af3c23082a0bb8a48',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.944Z',
+  -     format: 'cgit-commit/1',
+  -     hash: 'd09f85bc46623d36b0f09fab4569ff8dc5a9d812d945c84c8e2edeae4befa17a',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       'ed8bf1cc5733ab88f3111626009d380aa13d91b67d10692c68b9bce53aac1a58'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: '96772fc21797b2da126bbdf4bdf46a8fdb44c58e038b35795eafda84be2cd860',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.943Z',
+  -     format: 'cgit-commit/1',
+  -     hash: 'ed8bf1cc5733ab88f3111626009d380aa13d91b67d10692c68b9bce53aac1a58',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '48c2846f21804c23377d73ad842b5e9bcfec2a7078c46b2b2dd6aa051697ad39'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: '50bb50b852505f58ba144460e48b88191573f454f54950f5abdc49dad4b06821',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.939Z',
+  -     format: 'cgit-commit/1',
+  -     hash: 'fc0cbff2d2a0ad09a82e805ec2d3a67a88d8b88c10841e94bbe6690d94499ee0',
+  -     message: 'Artifact commit',
+  -     parents: [
+  -       '99c36b9ac168b8a1bec1124f790c8bfa3681fbed13160d3ba2e0d884ed9b8719'
+  -     ],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: 'b94c329cdbc7f8fd7e903fa39b3a3136e125e6048d75c20a1cf77ff78c559b77',
+  -         type: 'research'
+  -       }
+  -     }
+  -   },
+  -   {
+  -     author: 'alice',
+  -     createdAt: '2026-10-18T16:47:53.938Z',
+  -     format: 'cgit-commit/1',
+  -     hash: 'fc67ac38d372d602bf3cd67fe7b4aaf4ad98b508cd63c03cb70a545eb038d9f7',
+  -     message: 'Artifact commit',
+  -     parents: [],
+  -     tree: {
+  -       'notes/research.json': {
+  -         hash: 'ea40af4b306521735ab389135692ed71bbcf4390f81d14bec0f8619c386afb02',
+  -         type: 'research'
+  -       }
+  -     }
+  -   }
+  - ]
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/cgit.test.js:106:124)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ { author: 'alice', createdAt: '2026-10-18T16:47:53.942Z', format: 'cgit-commit/1', hash: '0b0aa1e941e18df26e114255d3b93827447807b6a2ca1977d01fe3ca8b83c281', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.939Z', format: 'cgit-commit/1', hash: '110a6ca4e5cc87ff67e4164833a0de8052462c59b396fec1f9076f304d274a97', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.941Z', format: 'cgit-commit/1', hash: '20b12c3881163508b674d1fa9e9c6e3617a1494975e42799d9cfaa162182f0c4', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.942Z', format: 'cgit-commit/1', hash: '34686d6fab9f4100c2199ef4b6d539a5a61a4074da538d0560fe817156b3b767', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.938Z', format: 'cgit-commit/1', hash: '36fd90fdbc489b7e6b5236a5ca05968e201120759e9cb1842ff76e77f124b466', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.939Z', format: 'cgit-commit/1', hash: '38650914886a652fc4be05f798e3a46be73f77cd20a5f9eca60a2242f028eca2', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.940Z', format: 'cgit-commit/1', hash: '4278a26c521fc598f9bea4d19f605c3e96d99fb2036a92d10e0f7450a6ce292c', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.943Z', format: 'cgit-commit/1', hash: '48c2846f21804c23377d73ad842b5e9bcfec2a7078c46b2b2dd6aa051697ad39', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.941Z', format: 'cgit-commit/1', hash: '60da22c823457e433b2142988b3bd5cf3de88208898e5a80315687d51b5385df', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.940Z', format: 'cgit-commit/1', hash: '6ddbcd537f93204e40047e8515f6729cf4fd34ebabc1caa2fa1756f03be3c59e', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.941Z', format: 'cgit-commit/1', hash: '86de0ad5b1c4ff2865dcefc782b7c5ae01ea41d3c44f82edef7ac3a80ca5fd7a', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.938Z', format: 'cgit-commit/1', hash: '99c36b9ac168b8a1bec1124f790c8bfa3681fbed13160d3ba2e0d884ed9b8719', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.938Z', format: 'cgit-commit/1', hash: 'b092352c99698a93592d7a33f056f87f5f9f7f818d2b7b91b54ced77628c3348', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.944Z', format: 'cgit-commit/1', hash: 'd09f85bc46623d36b0f09fab4569ff8dc5a9d812d945c84c8e2edeae4befa17a', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.943Z', format: 'cgit-commit/1', hash: 'ed8bf1cc5733ab88f3111626009d380aa13d91b67d10692c68b9bce53aac1a58', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.939Z', format: 'cgit-commit/1', hash: 'fc0cbff2d2a0ad09a82e805ec2d3a67a88d8b88c10841e94bbe6690d94499ee0', message: 'Artifact commit', parents: [Array], tree: [Object] }, { author: 'alice', createdAt: '2026-10-18T16:47:53.938Z', format: 'cgit-commit/1', hash: 'fc67ac38d372d602bf3cd67fe7b4aaf4ad98b508cd63c03cb70a545eb038d9f7', message: 'Artifact commit', parents: [], tree: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

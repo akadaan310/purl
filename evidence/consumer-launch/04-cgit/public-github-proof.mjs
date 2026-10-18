@@ -1,0 +1,12 @@
+import { writeFile } from 'node:fs/promises';
+import { GithubLens } from '../../../service/launch/github-lens.js';
+import { queryStructuralIndex } from '../../../service/launch/structural-index.js';
+const calls=[],rawFiles=[];
+const fetchReadonly=async(url,options)=>{if(options.method!=='GET')throw Error('Only GET is authorized');calls.push({method:options.method,url});const response=await fetch(url,options);if(new URL(url).hostname==='raw.githubusercontent.com'&&response.ok){const copy=response.clone();rawFiles.push({url,content:await copy.text()});}return response;};
+const lens=await new GithubLens({fetch:fetchReadonly}).index({url:'https://github.com/sindresorhus/is-plain-obj'});
+const indexFile=rawFiles.find(f=>new URL(f.url).pathname.endsWith('/index.js'));
+const symbolExpected=/export default function\s+([A-Za-z_$][\w$]*)/.exec(indexFile.content)?.[1];
+const tasks=[{name:'Find default-exported function',truth:symbolExpected,rawSuccess:Boolean(symbolExpected),navigationSuccess:queryStructuralIndex(lens.index,{kind:'symbol',name:symbolExpected}).matches.some(m=>m.path==='index.js')},{name:'Find index.js',truth:'index.js',rawSuccess:rawFiles.some(f=>new URL(f.url).pathname.endsWith('/index.js')),navigationSuccess:queryStructuralIndex(lens.index,{kind:'name',name:'index.js'}).matches.some(m=>m.path==='index.js')},{name:'Count static imports of index.js',truth:(indexFile.content.match(/^import\s/gm)||[]).length,rawSuccess:true,navigationSuccess:queryStructuralIndex(lens.index,{kind:'dependencies',name:'index.js'}).matches[0].imports.length===(indexFile.content.match(/^import\s/gm)||[]).length}];
+const report={observedAt:new Date().toISOString(),operation:'Read-only GET public GitHub indexing; no execution or upstream writes',source:lens.source,limits:lens.limits,benchmark:lens.benchmark,tasks,taskCorpusLimit:'Three simple lookup tasks on one small public repository; no general task-success or compression claim',requests:calls,index:lens.index};
+await writeFile(new URL('./public-github-proof.json',import.meta.url),JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify({source:lens.source,files:lens.index.files.length,indexed:lens.index.files.filter(f=>f.status==='indexed').length,benchmark:lens.benchmark,tasks,requests:calls.length},null,2));

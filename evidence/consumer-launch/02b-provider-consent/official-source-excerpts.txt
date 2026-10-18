@@ -1,0 +1,479 @@
+Read-only official source research, 2026-10-18 UTC. Auth commit ce9a8eee0cc042be8c7a42981a7ddae631e41d91.
+
+SOURCE purl-oauth-authorize.go; SHA256 882e7defed1260bd61d7f1b1af05a64b85418709429713b84fd13354efbc8d0b
+35: 
+36: // AuthorizationDetailsResponse represents the response for getting authorization details
+37: type AuthorizationDetailsResponse struct {
+38: 	AuthorizationID string                `json:"authorization_id"`
+39: 	RedirectURI     string                `json:"redirect_uri,omitempty"`
+40: 	Client          ClientDetailsResponse `json:"client,omitempty"`
+41: 	User            UserDetailsResponse   `json:"user,omitempty"`
+42: 	Scope           string                `json:"scope,omitempty"`
+43: }
+44: 
+45: // ClientDetailsResponse represents client details in authorization response
+46: type ClientDetailsResponse struct {
+47: 	ID      string `json:"id"`
+48: 	Name    string `json:"name,omitempty"`
+49: 	URI     string `json:"uri,omitempty"`
+50: 	LogoURI string `json:"logo_uri,omitempty"`
+51: }
+52: 
+53: // UserDetailsResponse represents user details in authorization response
+54: type UserDetailsResponse struct {
+55: 	ID    string `json:"id,omitempty"`
+56: 	Email string `json:"email,omitempty"`
+57: }
+58: 
+59: // ConsentRequest represents a consent decision request
+60: type ConsentRequest struct {
+61: 	Action OAuthServerConsentAction `json:"action"`
+62: }
+63: 
+64: // ConsentResponse represents the response after processing consent
+65: type ConsentResponse struct {
+66: 	RedirectURL string `json:"redirect_url,omitempty"`
+67: }
+68: 
+69: type OAuthServerConsentAction string
+70: 
+71: const (
+72: 	OAuthServerConsentActionApprove OAuthServerConsentAction = "approve"
+73: 	OAuthServerConsentActionDeny    OAuthServerConsentAction = "deny"
+74: )
+75: 
+76: // OAuth2 error codes per RFC 6749
+77: const (
+78: 	oAuth2ErrorInvalidRequest = "invalid_request"
+79: 	oAuth2ErrorServerError    = "server_error"
+80: 	oAuth2ErrorAccessDenied   = "access_denied"
+176: // OAuthServerGetAuthorization handles GET /oauth/authorizations/{authorization_id}
+177: func (s *Server) OAuthServerGetAuthorization(w http.ResponseWriter, r *http.Request) error {
+178: 	ctx := r.Context()
+179: 	db := s.db.WithContext(ctx)
+180: 
+181: 	// Validate request origin - the request must come from the site URL as we redirected there at the first place
+182: 	if err := s.validateRequestOrigin(r); err != nil {
+183: 		return err
+184: 	}
+185: 
+186: 	// Get authenticated user
+187: 	user := shared.GetUser(ctx)
+188: 	if user == nil {
+189: 		return apierrors.NewForbiddenError(apierrors.ErrorCodeBadJWT, "authentication required")
+190: 	}
+191: 
+192: 	authorizationID := chi.URLParam(r, "authorization_id")
+193: 	if authorizationID == "" {
+194: 		return apierrors.NewBadRequestError(apierrors.ErrorCodeValidationFailed, "authorization_id is required")
+195: 	}
+196: 
+197: 	var (
+198: 		authorization     *models.OAuthServerAuthorization
+199: 		shouldAutoApprove bool
+200: 	)
+201: 
+202: 	// Lookup, user association, consent check, and optional auto-approve
+203: 	// run under a FOR UPDATE SKIP LOCKED row lock so two concurrent callers
+204: 	// cannot both claim the same pending authorization and each receive a
+205: 	// valid authorization code.
+206: 	err := db.Transaction(func(tx *storage.Connection) error {
+207: 		auth, terr := models.FindOAuthServerAuthorizationByIDForUpdate(tx, authorizationID)
+208: 		if terr != nil {
+209: 			if models.IsNotFoundError(terr) {
+210: 				return apierrors.NewNotFoundError(apierrors.ErrorCodeOAuthAuthorizationNotFound, "authorization not found")
+211: 			}
+212: 			return apierrors.NewInternalServerError("error finding authorization").WithInternalError(terr)
+213: 		}
+214: 
+215: 		if auth.IsExpired() {
+216: 			if merr := auth.MarkExpired(tx); merr != nil {
+217: 				observability.GetLogEntry(r).Entry.WithError(merr).Warn("failed to mark authorization as expired")
+218: 				return apierrors.NewNotFoundError(apierrors.ErrorCodeOAuthAuthorizationNotFound, "authorization not found")
+219: 			}
+220: 			// Commit the MarkExpired update but still return not-found.
+221: 			return storage.NewCommitWithError(apierrors.NewNotFoundError(apierrors.ErrorCodeOAuthAuthorizationNotFound, "authorization not found"))
+222: 		}
+223: 
+224: 		if auth.Status != models.OAuthServerAuthorizationPending {
+225: 			return apierrors.NewBadRequestError(apierrors.ErrorCodeValidationFailed, "authorization request cannot be processed")
+226: 		}
+227: 
+228: 		if auth.UserID == nil {
+229: 			if err := auth.SetUser(tx, user.ID); err != nil {
+230: 				return err
+231: 			}
+232: 
+233: 			existingConsent, cerr := models.FindActiveOAuthServerConsentByUserAndClient(tx, user.ID, auth.ClientID)
+234: 			if cerr != nil {
+235: 				return cerr
+236: 			}
+237: 
+238: 			if existingConsent != nil && s.consentCoversScopes(existingConsent, auth.Scope) {
+239: 				shouldAutoApprove = true
+240: 			}
+241: 		} else if *auth.UserID != user.ID {
+242: 			observability.GetLogEntry(r).Entry.
+243: 				WithField("request_user_id", user.ID).
+244: 				WithField("authorization_id", auth.AuthorizationID).
+245: 				Warn("authorization belongs to different user")
+246: 			return apierrors.NewNotFoundError(apierrors.ErrorCodeOAuthAuthorizationNotFound, "authorization not found")
+247: 		}
+248: 
+249: 		if shouldAutoApprove {
+250: 			if err := auth.Approve(tx); err != nil {
+251: 				return apierrors.NewInternalServerError("Error auto-approving authorization").WithInternalError(err)
+252: 			}
+253: 		}
+254: 
+255: 		authorization = auth
+256: 		return nil
+257: 	})
+258: 
+259: 	if err != nil {
+260: 		return err
+261: 	}
+262: 
+263: 	observability.LogEntrySetField(r, "authorization_id", authorization.AuthorizationID)
+264: 	observability.LogEntrySetField(r, "client_id", authorization.ClientID.String())
+265: 
+266: 	if shouldAutoApprove {
+267: 		observability.LogEntrySetField(r, "auto_approved", true)
+268: 		return shared.SendJSON(w, http.StatusOK, ConsentResponse{
+269: 			RedirectURL: s.buildSuccessRedirectURL(authorization),
+270: 		})
+271: 	}
+272: 
+273: 	client, err := models.FindOAuthServerClientByID(db, authorization.ClientID)
+274: 	if err != nil {
+275: 		if models.IsNotFoundError(err) {
+276: 			return apierrors.NewNotFoundError(apierrors.ErrorCodeOAuthAuthorizationNotFound, "authorization not found")
+277: 		}
+278: 		return apierrors.NewInternalServerError("error finding client").WithInternalError(err)
+279: 	}
+280: 
+281: 	response := AuthorizationDetailsResponse{
+282: 		AuthorizationID: authorization.AuthorizationID,
+283: 		RedirectURI:     authorization.RedirectURI,
+284: 		Client: ClientDetailsResponse{
+285: 			ID:      client.ID.String(),
+286: 			Name:    utilities.StringValue(client.ClientName),
+287: 			URI:     utilities.StringValue(client.ClientURI),
+288: 			LogoURI: utilities.StringValue(client.LogoURI),
+289: 		},
+290: 		User: UserDetailsResponse{
+291: 			ID:    user.ID.String(),
+292: 			Email: user.Email.String(),
+293: 		},
+294: 		Scope: authorization.Scope,
+295: 	}
+296: 
+297: 	return shared.SendJSON(w, http.StatusOK, response)
+298: }
+299: 
+300: // OAuthServerConsent handles POST /oauth/authorizations/{authorization_id}/consent
+300: // OAuthServerConsent handles POST /oauth/authorizations/{authorization_id}/consent
+301: func (s *Server) OAuthServerConsent(w http.ResponseWriter, r *http.Request) error {
+302: 	ctx := r.Context()
+303: 	db := s.db.WithContext(ctx)
+304: 
+305: 	// Validate request origin - the request must come from the site URL as we redirected there at the first place
+306: 	if err := s.validateRequestOrigin(r); err != nil {
+307: 		return err
+308: 	}
+309: 
+310: 	// Get authenticated user
+311: 	user := shared.GetUser(ctx)
+312: 	if user == nil {
+313: 		return apierrors.NewForbiddenError(apierrors.ErrorCodeBadJWT, "authentication required")
+314: 	}
+315: 
+316: 	var body ConsentRequest
+317: 	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
+318: 		return apierrors.NewBadRequestError(apierrors.ErrorCodeBadJSON, "invalid JSON body")
+319: 	}
+320: 
+321: 	if body.Action != OAuthServerConsentActionApprove && body.Action != OAuthServerConsentActionDeny {
+322: 		return apierrors.NewBadRequestError(apierrors.ErrorCodeValidationFailed, "action must be 'approve' or 'deny'")
+323: 	}
+324: 
+325: 	authorizationID := chi.URLParam(r, "authorization_id")
+417: // validateRequestOrigin checks if the request is coming from an authorized origin
+418: func (s *Server) validateRequestOrigin(r *http.Request) error {
+419: 	// Check Origin header
+420: 	// browsers add this header by default, we can at least prevent some basic cross-origin attacks
+421: 	origin := r.Header.Get("Origin")
+422: 	if origin == "" {
+423: 		// Empty Origin header is ok (e.g., for backend-originated requests or mobile apps)
+424: 		return nil
+425: 	}
+426: 
+427: 	if !utilities.IsRedirectURLValid(s.config, origin) {
+428: 		return apierrors.NewBadRequestError(apierrors.ErrorCodeValidationFailed, "unauthorized request origin")
+429: 	}
+430: 
+431: 	return nil
+432: }
+433: 
+
+SOURCE purl-auth-api.go; SHA256 806ea39c37b8ea189cffc9361073c792f80993b5849f3d50a8ea9a25f3ef92fc
+225: 		// where Supabase Auth is an OAuth2 Client
+226: 		r.Get("/authorize", api.ExternalProviderRedirect)
+227: 
+228: 		r.With(api.requireAdminCredentials).Post("/invite", api.Invite)
+229: 		r.With(api.verifyCaptcha).Route("/signup", func(r *router) {
+230: 			// rate limit per hour
+231: 			limitAnonymousSignIns := api.limiterOpts.AnonymousSignIns
+232: 			limitSignups := api.limiterOpts.Signups
+233: 			r.Post("/", func(w http.ResponseWriter, r *http.Request) error {
+234: 				params := &SignupParams{}
+235: 				if err := retrieveRequestParams(r, params); err != nil {
+236: 					return err
+237: 				}
+238: 				if params.Email == "" && params.Phone == "" {
+239: 					if !api.config.External.AnonymousUsers.Enabled {
+240: 						return apierrors.NewUnprocessableEntityError(apierrors.ErrorCodeAnonymousProviderDisabled, "Anonymous sign-ins are disabled")
+241: 					}
+242: 					if _, err := api.limitHandler(limitAnonymousSignIns)(w, r); err != nil {
+243: 						return err
+244: 					}
+245: 					return api.SignupAnonymously(w, r)
+246: 				}
+247: 
+248: 				// apply ip-based rate limiting on otps
+249: 				if _, err := api.limitHandler(limitSignups)(w, r); err != nil {
+250: 					return err
+251: 				}
+252: 				return api.Signup(w, r)
+253: 			})
+254: 		})
+255: 		r.With(api.limitHandler(api.limiterOpts.Recover)).
+256: 			With(api.verifyCaptcha).With(api.requireEmailProvider).Post("/recover", api.Recover)
+257: 
+258: 		r.With(api.limitHandler(api.limiterOpts.Resend)).
+259: 			With(api.verifyCaptcha).Post("/resend", api.Resend)
+260: 
+261: 		r.With(api.limitHandler(api.limiterOpts.MagicLink)).
+262: 			With(api.verifyCaptcha).Post("/magiclink", api.MagicLink)
+263: 
+264: 		r.With(api.limitHandler(api.limiterOpts.Otp)).
+265: 			With(api.verifyCaptcha).Post("/otp", api.Otp)
+266: 
+267: 		// rate limiting applied in handler
+268: 		r.With(api.verifyCaptcha).Post("/token", api.Token)
+269: 
+270: 		r.With(api.limitHandler(api.limiterOpts.Verify)).Route("/verify", func(r *router) {
+271: 			r.Get("/", api.Verify)
+272: 			r.Post("/", api.Verify)
+273: 		})
+274: 
+275: 		r.With(api.requireAuthentication).Post("/logout", api.Logout)
+276: 
+277: 		r.With(api.requireAuthentication).Route("/reauthenticate", func(r *router) {
+447: 			r.Use(api.requireOAuthServerEnabled)
+448: 			r.With(api.limitHandler(api.limiterOpts.OAuthClientRegister)).
+449: 				Post("/clients/register", api.oauthServer.OAuthServerClientDynamicRegister)
+450: 
+451: 			// OAuth Token endpoint (public, with client authentication)
+452: 			r.With(api.requireOAuthClientAuth).Post("/token", api.oauthServer.OAuthToken)
+453: 
+454: 			// OIDC UserInfo endpoint (requires user authentication via Bearer token)
+455: 			r.With(api.requireAuthentication).Get("/userinfo", api.oauthServer.OAuthUserInfo)
+456: 
+457: 			// OAuth 2.1 Authorization endpoints
+458: 			// `/authorize` to initiate OAuth2 authorization code flow where Supabase Auth is the OAuth2 provider
+459: 			r.Get("/authorize", api.oauthServer.OAuthServerAuthorize)
+460: 			r.With(api.requireAuthentication).Get("/authorizations/{authorization_id}", api.oauthServer.OAuthServerGetAuthorization)
+461: 			r.With(api.requireAuthentication).Post("/authorizations/{authorization_id}/consent", api.oauthServer.OAuthServerConsent)
+462: 		})
+463: 
+
+SOURCE purl-auth-token.go; SHA256 f10e7b08e185958cbd7831b373c0ab610c3762f81253f7acfe044ddcfd85c810
+22: 
+23: // PasswordGrantParams are the parameters the ResourceOwnerPasswordGrant method accepts
+24: type PasswordGrantParams struct {
+25: 	Email    string `json:"email"`
+26: 	Phone    string `json:"phone"`
+27: 	Password string `json:"password"`
+28: }
+29: 
+30: // PKCEGrantParams are the parameters the PKCEGrant method accepts
+31: type PKCEGrantParams struct {
+32: 	AuthCode     string `json:"auth_code"`
+33: 	CodeVerifier string `json:"code_verifier"`
+34: }
+35: 
+36: const useCookieHeader = "x-use-cookie"
+37: const InvalidLoginMessage = "Invalid login credentials"
+38: 
+39: // Token is the endpoint for OAuth access token requests
+40: func (a *API) Token(w http.ResponseWriter, r *http.Request) error {
+41: 	ctx := r.Context()
+42: 	grantType := r.FormValue("grant_type")
+43: 
+44: 	handler := a.ResourceOwnerPasswordGrant
+45: 	limiter := a.limiterOpts.Token
+46: 
+47: 	switch grantType {
+48: 	case "password":
+49: 		// set above
+50: 	case "refresh_token":
+51: 		handler = a.RefreshTokenGrant
+52: 	case "id_token":
+53: 		handler = a.IdTokenGrant
+54: 	case "pkce":
+55: 		handler = a.PKCE
+56: 	case "web3":
+57: 		handler = a.Web3Grant
+58: 		limiter = a.limiterOpts.Web3
+59: 	default:
+60: 		return apierrors.NewBadRequestError(apierrors.ErrorCodeInvalidCredentials, "unsupported_grant_type")
+61: 	}
+62: 
+63: 	if err := a.performRateLimiting(limiter, r); err != nil {
+388: 			if ok {
+389: 				return httpErr
+390: 			}
+391: 			return apierrors.NewInternalServerError("error generating jwt token").WithInternalError(terr)
+392: 		}
+393: 		return nil
+394: 	})
+395: 	if err != nil {
+396: 		return nil, err
+397: 	}
+398: 	return &tokens.AccessTokenResponse{
+399: 		Token:        tokenString,
+400: 		TokenType:    "bearer",
+401: 		ExpiresIn:    int(expiresAt - a.Now().Unix()),
+402: 		ExpiresAt:    expiresAt,
+403: 		RefreshToken: issuedRefreshToken,
+404: 		User:         user,
+405: 	}, nil
+406: }
+
+SOURCE purl-auth-recover.go; SHA256 993749795aa8a9aef54bdb4274e373de07dfbc93eccc39087fb12aac61a8a561
+1: package api
+2: 
+3: import (
+4: 	"net/http"
+5: 
+6: 	"github.com/supabase/auth/internal/api/apierrors"
+7: 	"github.com/supabase/auth/internal/models"
+8: 	"github.com/supabase/auth/internal/storage"
+9: )
+10: 
+11: // RecoverParams holds the parameters for a password recovery request
+12: type RecoverParams struct {
+13: 	Email               string `json:"email"`
+14: 	CodeChallenge       string `json:"code_challenge"`
+15: 	CodeChallengeMethod string `json:"code_challenge_method"`
+16: }
+17: 
+18: func (p *RecoverParams) Validate(a *API) error {
+19: 	if p.Email == "" {
+20: 		return apierrors.NewBadRequestError(apierrors.ErrorCodeValidationFailed, "Password recovery requires an email")
+21: 	}
+22: 	var err error
+23: 	if p.Email, err = a.validateEmail(p.Email); err != nil {
+24: 		return err
+25: 	}
+26: 	if err := validatePKCEParams(p.CodeChallengeMethod, p.CodeChallenge); err != nil {
+27: 		return err
+28: 	}
+
+SOURCE purl-auth-signup.go; SHA256 d1e91714c1057a6d2e7354d682b12c9d54d973a37f2c7f93f6cb6bad0dabfdf3
+14: 	"github.com/supabase/auth/internal/metering"
+15: 	"github.com/supabase/auth/internal/models"
+16: 	"github.com/supabase/auth/internal/storage"
+17: )
+18: 
+19: // SignupParams are the parameters the Signup endpoint accepts
+20: type SignupParams struct {
+21: 	Email               string                 `json:"email"`
+22: 	Phone               string                 `json:"phone"`
+23: 	Password            string                 `json:"password"`
+24: 	Data                map[string]interface{} `json:"data"`
+25: 	Provider            string                 `json:"-"`
+26: 	Aud                 string                 `json:"-"`
+27: 	Channel             string                 `json:"channel"`
+28: 	CodeChallengeMethod string                 `json:"code_challenge_method"`
+29: 	CodeChallenge       string                 `json:"code_challenge"`
+30: }
+31: 
+32: func (a *API) validateSignupParams(ctx context.Context, p *SignupParams) error {
+33: 	config := a.config
+34: 
+35: 	if p.Password == "" {
+
+SOURCE purl-auth-fetch.ts; SHA256 3fe0a5c08d6a8a62611ba196042b640457e844711644df9e69601af8e6c64acf
+188:   }
+189: 
+190:   if (options?.jwt) {
+191:     headers['Authorization'] = `Bearer ${options.jwt}`
+192:   }
+193: 
+194:   const qs = options?.query ?? {}
+195:   if (options?.redirectTo) {
+196:     qs['redirect_to'] = options.redirectTo
+197:   }
+198: 
+199:   const queryString = Object.keys(qs).length ? '?' + new URLSearchParams(qs).toString() : ''
+200:   const data = await _handleRequest(
+
+SOURCE purl-oauth-getting-started.md; SHA256 2c3f1753d67cc700256a8f6ff77a5cff4ae5c0c5393b9da227fee793985a25a7
+102: ## Configure your authorization path
+103: 
+104: Before registering clients, you need to configure where your authorization UI will live.
+105: 
+106: 1. In your project dashboard, navigate to **Authentication** > **OAuth Server**
+107: 2. Set the **Authorization Path** (e.g., `/oauth/consent`)
+108: 
+109: Note: The authorization path is combined with your Site URL (configured in **Authentication** > **URL Configuration**) to create the full authorization endpoint URL.
+110: 
+111: Your authorization UI will be at the combined Site URL + Authorization Path. For example:
+112: 
+113: - Site URL: `https://example.com` (from **Authentication** > **URL Configuration**)
+114: - Authorization Path: `/oauth/consent` (from **OAuth Server** settings)
+115: - Your authorization UI: `https://example.com/oauth/consent`
+116: 
+117: When OAuth clients initiate the authorization flow, Supabase Auth will redirect users to this URL with an `authorization_id` query parameter. You'll use [Supabase JavaScript library OAuth methods](https://github.com/supabase/supabase-js/blob/master/packages/core/auth-js/src/GoTrueClient.ts#L2159-L2163) to handle the authorization:
+118: 
+119: - `supabase.auth.oauth.getAuthorizationDetails(authorization_id)` - Retrieve client and authorization details
+120: - `supabase.auth.oauth.approveAuthorization(authorization_id)` - Approve the authorization request
+121: - `supabase.auth.oauth.denyAuthorization(authorization_id)` - Deny the authorization request
+122: 
+123: ## Build your authorization UI
+124: 
+125: This is where you build the **frontend** for your authorization flow. When third-party apps initiate OAuth, users will be redirected to your authorization path (configured in the previous step) with an `authorization_id` query parameter.
+126: 
+127: Your authorization UI should:
+128: 
+129: 1. **Extract authorization\_id** - Get the `authorization_id` from the URL query parameters
+130: 2. **Authenticate the user** - If not already signed in, redirect to your sign-in page (preserving the authorization\_id)
+131: 3. **Retrieve authorization details** - Use `supabase.auth.oauth.getAuthorizationDetails(authorization_id)` to get client information including requested scopes
+132: 4. **Display consent screen** - Show the user what app is requesting access and what scopes/permissions are being requested
+133: 5. **Handle user decision** - Call either `approveAuthorization(authorization_id)` or `denyAuthorization(authorization_id)` based on user choice
+134: 
+135: The authorization details include a `scope` field (singular) containing a space-separated string of scopes requested by the client (e.g., `"openid email profile"`). You should display these scopes to the user so they understand what information will be shared.
+136: 
+137: Note: This is a **frontend implementation**. You're building the UI that displays the consent screen and handles user interactions. The actual OAuth token generation is handled by Supabase Auth after you call the approve/deny methods.
+
+SOURCE purl-supabase-changelog.md; SHA256 15b3d0d1a7dc3b3f2c0af4788e49acfdf2d2edbd2613f22de0705fa43b1cf58b
+1: # Supabase Changelog
+2: 
+3: ## OpenTelemetry traces and metrics in the Supabase .NET SDK
+4: 
+5: 2026-10-14 · New Feature · supabase-dotnet · [supabase.com/changelog/dotnet-opentelemetry-support](https://supabase.com/changelog/dotnet-opentelemetry-support)
+6: 
+7: The .NET SDK now emits traces and metrics for Auth, Postgrest, Storage, and Functions. Collect them with OpenTelemetry and export to any observability backend.
+8: 
+9: ---
+10: 
+11: ## An outdated subset of TLS 1.2 ciphers will be disabled on project HTTP APIs
+12: 
+13: 2026-10-12 · Breaking Change · Auth, Data APIs, Storage, Realtime, Edge Functions · [supabase.com/changelog/cbc-tls-ciphers-deprecated](https://supabase.com/changelog/cbc-tls-ciphers-deprecated)
+14: 
+15: Supabase will be disabling a subset of TLS 1.2 ciphers on project HTTP APIs on November 10, 2026. Clients that don't support modern standards (<0.0001% of Supabase traffic) will fail to connect.
+16: 
+17: ---
+18: 

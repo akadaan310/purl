@@ -1,0 +1,39 @@
+✔ missing provider fails closed with actionable config and pure recovery (2.969284ms)
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (59.258418ms)
+✔ rejects nonce provider identity (74.390304ms)
+✔ rejects aud provider identity (24.035379ms)
+✔ rejects issuer provider identity (22.428559ms)
+✔ rejects expired provider identity (19.236283ms)
+✔ rejects unverified provider identity (23.390752ms)
+✔ state cookie binding and one-use callbacks reject replay (40.134696ms)
+✔ explicit consent, stable subjects, unique rename and product isolation (47.379081ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (47.001636ms)
+✔ live provider revocation blocks sensitive changes and session reads (36.999423ms)
+✖ guest labels cannot claim verified human or issue delegated agents (28.754397ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 487.974998
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:59:1
+✖ guest labels cannot claim verified human or issue delegated agents (28.754397ms)
+  Error: Values must be finite JSON
+      at fail (file:///workspace/purl/service/launch/store.js:7:66)
+      at canonical (file:///workspace/purl/service/launch/store.js:16:184)
+      at file:///workspace/purl/service/launch/store.js:26:40
+      at Array.map (<anonymous>)
+      at canonical (file:///workspace/purl/service/launch/store.js:24:44)
+      at file:///workspace/purl/service/launch/store.js:47:21
+      at Array.map (<anonymous>)
+      at prepare (file:///workspace/purl/service/launch/store.js:42:30)
+      at MemoryLaunchStore.commit (file:///workspace/purl/service/launch/store.js:87:60)
+      at IdentityService.provision (file:///workspace/purl/service/launch/identity.js:61:51) {
+    code: 'invalid_input',
+    status: 400
+  }

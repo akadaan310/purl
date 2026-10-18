@@ -1,0 +1,40 @@
+✔ store exports the required adapters (1.179549ms)
+✔ memory: atomic competing CAS, isolation, immutable reads and tombstone versions (6.08649ms)
+✔ memory: payload-bound retry and global handle reservation are atomic and erase releases all aliases (1.748723ms)
+✔ file: atomic competing CAS, isolation, immutable reads and tombstone versions (16.390545ms)
+✔ file: payload-bound retry and global handle reservation are atomic and erase releases all aliases (22.451347ms)
+✔ lists and global status scans are bounded, exclude tombstones and remain pure (0.811517ms)
+✔ rejects malformed or unbounded data before mutating and enforces tenant quota (105.930382ms)
+✔ development file reads never create files and production factory fails closed (6.501172ms)
+✔ dictionary-shaped identifiers cannot resolve inherited prototype members (0.477486ms)
+✔ strict JSON validation rejects accessors, symbol properties, unsupported Unicode and overflowing versions (0.363526ms)
+✔ record tombstones and idempotency counts have hard per-scope bounds (5616.385218ms)
+✔ memory: retry metadata byte quota fails atomically (18.550958ms)
+✔ file: retry metadata byte quota fails atomically (21.660261ms)
+✔ retained aliases are bounded and an existing alias remains usable at capacity (69.956819ms)
+✔ memory: a large user status field does not overflow the queue index (1.75373ms)
+✔ file: a large user status field does not overflow the queue index (2.576495ms)
+✖ row and tenant accounting use compact PostgreSQL JSON bytes for exponent numbers (1.672249ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5950.443973
+
+✖ failing tests:
+
+test at test/launch/store.test.js:145:1
+✖ row and tenant accounting use compact PostgreSQL JSON bytes for exponent numbers (1.672249ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:147:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

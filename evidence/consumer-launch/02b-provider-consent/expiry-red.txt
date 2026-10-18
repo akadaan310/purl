@@ -1,0 +1,41 @@
+✔ provider readiness is public and read-only, reports disabled server without modifying defaults (21.860378ms)
+✔ password signin uses provider REST and stores encrypted expiring opaque session only (13.985306ms)
+✔ signin requires matching origin and bound bootstrap, rejects wrong credentials and live unverified email (9.885578ms)
+✔ signup and recovery send exact provider email requests with explicit central redirect allowlist (10.359768ms)
+✔ authorization review is explicit POST, GET reads staged exact scopes and approval is bound and one-use (19.139837ms)
+✔ deny uses provider deny action, refuses implicit approval and unsafe clients or redirects (44.760004ms)
+✔ live provider revocation, deletion, expiry, tampering and logout fail closed (32.842319ms)
+✔ session credentials are isolated by namespace and provider errors never disclose private upstream bodies (13.842031ms)
+✔ review lifetime, wrong authorization and ciphertext tampering block consent without upstream approval (12.26693ms)
+✔ configuration rejects secret keys, non-origin URLs and production HTTP without provider requests (0.782254ms)
+✔ expired bootstrap and per-source rate limits prevent password dispatch (46.994275ms)
+✔ read-only me restores cookie session and CSRF after browser refresh without an Origin header (10.919578ms)
+✖ processing time cannot extend a local session past the exact provider expiry (6.997416ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 300.891613
+
+✖ failing tests:
+
+test at test/launch/provider-consent.test.js:244:1
+✖ processing time cannot extend a local session past the exact provider expiry (6.997416ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Date.parse(result.body.expires_at) <= f.getTokenExpiry()*1000)
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/provider-consent.test.js:247:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

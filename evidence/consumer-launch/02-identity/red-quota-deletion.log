@@ -1,0 +1,94 @@
+✖ failed external intent persistence leaves the owner active and permits a fresh deletion retry (77.582168ms)
+✖ account deletion succeeds at exact and near tenant quota without owner growth (829.240007ms)
+✖ a full-quota deletion interrupted after external intent resumes without spare owner space (434.017421ms)
+✖ deletion captures a concurrent owned delegation before fencing inventory (61.991245ms)
+✖ a persisted deletion intent refuses to erase a changed principal incarnation (28.436939ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1537.508056
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:251:1
+✖ failed external intent persistence leaves the owner active and permits a fresh deletion retry (77.582168ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   completed: 1,
+  -   completed: 0,
+      failed: 0
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:263:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { completed: 1, failed: 0 },
+    expected: { completed: 0, failed: 0 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/identity.test.js:299:1
+✖ account deletion succeeds at exact and near tenant quota without owner growth (829.240007ms)
+  Error: Tenant exceeds 10 MiB
+      at fail (file:///workspace/purl/service/launch/store.js:10:66)
+      at commitState (file:///workspace/purl/service/launch/store.js:92:24)
+      at file:///workspace/purl/service/launch/store.js:117:118
+      at MemoryLaunchStore.mutate (file:///workspace/purl/service/launch/store.js:125:61)
+      at MemoryLaunchStore.commit (file:///workspace/purl/service/launch/store.js:117:104)
+      at IdentityService.beginDeletion (file:///workspace/purl/service/launch/identity.js:293:26)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async IdentityService.deleteAccount (file:///workspace/purl/service/launch/identity.js:355:12)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:305:19)
+      at async Test.run (node:internal/test_runner/test:1389:7) {
+    code: 'tenant_quota',
+    status: 413
+  }
+
+test at test/launch/identity.test.js:313:1
+✖ a full-quota deletion interrupted after external intent resumes without spare owner space (434.017421ms)
+  TypeError: Cannot read properties of null (reading 'value')
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:329:92)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/identity.test.js:338:1
+✖ deletion captures a concurrent owned delegation before fencing inventory (61.991245ms)
+  Error: This account has been deleted
+      at failure (file:///workspace/purl/service/launch/identity.js:11:54)
+      at IdentityService.persistCredential (file:///workspace/purl/service/launch/identity.js:175:140)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async store.beforeIntent (file:///workspace/purl/test/launch/identity.test.js:347:5)
+      at async BeforeIntentStore.commit (file:///workspace/purl/test/launch/identity.test.js:341:155)
+      at async IdentityService.finishDeletion (file:///workspace/purl/service/launch/identity.js:307:25)
+      at async IdentityService.deleteAccount (file:///workspace/purl/service/launch/identity.js:358:21)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:350:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 403,
+    code: 'account_deleted'
+  }
+
+test at test/launch/identity.test.js:355:1
+✖ a persisted deletion intent refuses to erase a changed principal incarnation (28.436939ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:370:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

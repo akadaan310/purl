@@ -1,0 +1,89 @@
+✔ native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays (37.667445ms)
+✔ private IDs and child artifacts do not cross tenants; public reading never grants mutation (15.76165ms)
+✔ resource commands reject stale versions and bind retries before producing new jobs (10.168461ms)
+✔ revoked credentials cancel queued work and a fresh service instance recovers persisted jobs (18.384864ms)
+✔ GET discovery, continuity, history and replay are pure; tampered snapshots fail verification (1.55297ms)
+✔ native mission contains documents and dependency evidence, executes and survives fresh-principal fork (11.363914ms)
+✔ missing worker authority and authored code fail closed (8.50104ms)
+✔ parallel product startup seeds one immutable mission without losing either service (0.730225ms)
+✔ job intent and its idempotency receipt commit atomically across an interruption boundary (8.459668ms)
+✔ create and build retries retain original statuses and immutable build IDs (5.466468ms)
+✖ public-resource proposals remain immutable and private to proposer and owner until owner explicitly commits (1.358617ms)
+✖ owner rejects proposals without applying content and stale/base-version/cross-resource suggestions cannot commit (0.614131ms)
+✖ proposal and owner decision retry atomically after lost responses and do not repeat transitions (1.157366ms)
+✖ invalid expiry, unsafe JSON, oversized state/source/input and non-pure proposals fail before persistence (0.556404ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 10
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 185.659258
+
+✖ failing tests:
+
+test at test/launch/resources.test.js:90:1
+✖ public-resource proposals remain immutable and private to proposer and owner until owner explicitly commits (1.358617ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'owner-a'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:93:226)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'owner-a',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/resources.test.js:104:1
+✖ owner rejects proposals without applying content and stale/base-version/cross-resource suggestions cannot commit (0.614131ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:106:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/resources.test.js:114:1
+✖ proposal and owner decision retry atomically after lost responses and do not repeat transitions (1.157366ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'proposal_44f5fde4590442d0d393842a'
+  - 'proposal_b6c0b5d615ddac7c02526ff8'
+              ^
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:119:163)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'proposal_44f5fde4590442d0d393842a',
+    expected: 'proposal_b6c0b5d615ddac7c02526ff8',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/resources.test.js:126:1
+✖ invalid expiry, unsafe JSON, oversized state/source/input and non-pure proposals fail before persistence (0.556404ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/resources.test.js:127:109)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

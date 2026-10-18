@@ -1,0 +1,50 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.07kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#2 DONE 1.5s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 186B done
+#5 DONE 0.0s
+
+#6 [1/6] FROM docker.io/library/node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 1.81MB 0.0s done
+#7 DONE 0.0s
+
+#8 [2/6] WORKDIR /app
+#8 CACHED
+
+#9 [3/6] COPY package.json package-lock.json ./
+#9 DONE 0.2s
+
+#10 [4/6] COPY vendor/npm/ ./vendor/npm/
+#10 DONE 0.2s
+
+#11 [5/6] RUN npm cache add --offline ./vendor/npm/*.tgz && npm ci --omit=dev --ignore-scripts --strict-ssl=true --no-audit --no-fund --offline && npm cache clean --force
+#11 0.744 
+#11 0.744 added 7 packages in 178ms
+#11 0.794 npm warn using --force Recommended protections disabled.
+#11 DONE 0.9s
+
+#12 [6/6] COPY --chown=node:node . .
+#12 DONE 0.3s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 0.3s done
+#13 writing image sha256:68555d01717bf77d12becd4b2d0ec0c973cae0b75ffd119bcbcf449c5b4ad79e done
+#13 naming to docker.io/library/purl-consumer:verification done
+#13 DONE 0.3s

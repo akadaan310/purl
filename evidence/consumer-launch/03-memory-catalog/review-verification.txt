@@ -1,0 +1,26 @@
+✔ every working experience has a unique typed executable graph and real expected sample (65.162692ms)
+✔ required titles exist and unavailable inference never fabricates AI output (5.701832ms)
+✔ authorization, typed validation and bounded input are enforced before executing (2.61973ms)
+✔ independent operation boundaries: CSV quotes, numeric math, graph cycles, dates and JSON pointer (0.615563ms)
+✔ projection bounds and normalized identifiers match their declared behavior (0.528353ms)
+✔ independent results cover text, tables, finance, decisions, research and continuity computations (1.338117ms)
+✔ accepted larger canonical JSON and combined owner memory produce valid bounded outputs (10.859168ms)
+✔ catalog passport run requires supplied consent and never creates an implicit share (2.202173ms)
+✔ private memory is tenant isolated, requires scopes, rejects ownership and prototype injection (2.123495ms)
+✔ live passport reveals only selected facts and follows edits, deletion and owner revocation (2.443756ms)
+✔ relations stay in tenant and public cognition is explicitly selected and revocable live data (1.040331ms)
+✔ quotas, fact revisions, expiration, provenance and guest truthfulness are enforced (104.936121ms)
+✔ actual shared store preserves privacy across service restart and enforces guest and capability boundaries (5.176585ms)
+✔ real-store global legacy pointer saturation cannot block fresh tenants and revocation removes active public index (1726.490287ms)
+✔ real-store failed capability reservation cannot consume owner passport allowance (1.344977ms)
+✔ erasing owner and delegated principal scopes denies all future live passport and public reads (1.754461ms)
+✔ sharing and publication require explicit consent for humans and authorized unverified guests (2.142383ms)
+✔ real-store failed owner or publication commits leave no active lookup or consumed share allowance (0.945058ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1912.229898

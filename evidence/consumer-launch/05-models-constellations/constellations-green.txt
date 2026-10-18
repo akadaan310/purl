@@ -1,0 +1,13 @@
+✔ three initial HTTP contexts are independent; attributed evidence survives restart and replay (41.189882ms)
+✔ checkpoint pauses; restart resumes persisted participants without repeating completed provider call (22.481761ms)
+✔ expired lease fencing prevents stale worker writes and completed-call recovery uses saved receipt (17.248762ms)
+✔ replay rejects tampering and optional steward requires separate consent and commits real artifact (17.029774ms)
+✔ baseline is NOT_RUN without explicit budget consent and reports actual measured usage when authorized (16.929533ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 183.515922

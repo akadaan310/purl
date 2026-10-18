@@ -1,0 +1,26 @@
+✔ store exports the required adapters (1.125609ms)
+✔ memory: atomic competing CAS, isolation, immutable reads and tombstone versions (5.187666ms)
+✔ memory: payload-bound retry and global handle reservation are atomic and erase releases all aliases (1.683817ms)
+✔ file: atomic competing CAS, isolation, immutable reads and tombstone versions (21.376315ms)
+✔ file: payload-bound retry and global handle reservation are atomic and erase releases all aliases (21.999541ms)
+✔ lists and global status scans are bounded, exclude tombstones and remain pure (0.651828ms)
+✔ rejects malformed or unbounded data before mutating and enforces tenant quota (135.211127ms)
+✔ development file reads never create files and production factory fails closed (1.877027ms)
+✔ dictionary-shaped identifiers cannot resolve inherited prototype members (0.392308ms)
+✔ strict JSON validation rejects accessors, symbol properties, unsupported Unicode and overflowing versions (0.42613ms)
+✔ record tombstones and idempotency counts have hard per-scope bounds (5795.257761ms)
+✔ memory: retry metadata byte quota fails atomically (25.105482ms)
+✔ file: retry metadata byte quota fails atomically (21.764387ms)
+✔ retained aliases are bounded and an existing alias remains usable at capacity (72.346779ms)
+✔ memory: a large user status field does not overflow the queue index (1.724939ms)
+✔ file: a large user status field does not overflow the queue index (1.991109ms)
+✔ row and tenant accounting use compact PostgreSQL JSON bytes for exponent numbers (1.583456ms)
+✔ persistence configuration and malformed upstream responses expose only safe store errors (11.366981ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6177.900278

@@ -1,0 +1,396 @@
+CREATE ROLE
+CREATE ROLE
+CREATE ROLE
+CREATE ROLE
+GRANT ROLE
+CREATE SCHEMA
+CREATE TABLE
+CREATE TABLE
+ALTER TABLE
+BEGIN
+CREATE TABLE
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+REVOKE
+GRANT
+GRANT
+CREATE FUNCTION
+CREATE FUNCTION
+REVOKE
+REVOKE
+GRANT
+GRANT
+INSERT 0 1
+DO
+CREATE POLICY
+CREATE POLICY
+CREATE POLICY
+CREATE POLICY
+COMMIT
+BEGIN
+CREATE FUNCTION
+REVOKE
+GRANT
+COMMIT
+BEGIN
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+REVOKE
+GRANT
+CREATE POLICY
+CREATE POLICY
+CREATE POLICY
+CREATE POLICY
+DO
+COMMIT
+CREATE FUNCTION
+CREATE FUNCTION
+ assert 
+--------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+                                               purl_launch_commit                                               
+----------------------------------------------------------------------------------------------------------------
+ {"records": [{"key": "one", "value": {"status": "pending"}, "version": 1}], "revision": 1, "duplicate": false}
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+                                      purl_launch_commit                                       
+-----------------------------------------------------------------------------------------------
+ {"records": [{"key": "one", "value": null, "version": 2}], "revision": 2, "duplicate": false}
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+ quota_revision 
+----------------
+ 1
+(1 row)
+
+ quota_revision 
+----------------
+ 2
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ freed_quota_revision 
+----------------------
+ 3
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+ rejected 
+----------
+ 
+(1 row)
+
+                                                                                  purl_launch_commit                                                                                   
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"records": [{"key": "job:%_one", "value": {"status": "pending"}, "version": 1}, {"key": "job:other", "value": {"status": "done"}, "version": 1}], "revision": 1, "duplicate": false}
+(1 row)
+
+                                                  purl_launch_commit                                                  
+----------------------------------------------------------------------------------------------------------------------
+ {"records": [{"key": "job:%_two", "value": {"status": "pending"}, "version": 1}], "revision": 1, "duplicate": false}
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+BEGIN
+                                        purl_launch_commit                                         
+---------------------------------------------------------------------------------------------------
+ {"records": [{"key": "aborted", "value": true, "version": 1}], "revision": 1, "duplicate": false}
+(1 row)
+
+ROLLBACK
+ assert 
+--------
+ 
+(1 row)
+
+SET
+                                           QUERY PLAN                                            
+-------------------------------------------------------------------------------------------------
+ Index Only Scan using purl_launch_records_scope_prefix on purl_launch_records
+   Index Cond: ((scope = 'scan-a'::text) AND (key ~>=~ 'job:'::text) AND (key ~<~ 'job;'::text))
+   Filter: (key ~~ 'job:%'::text)
+(3 rows)
+
+                                                 QUERY PLAN                                                  
+-------------------------------------------------------------------------------------------------------------
+ Index Only Scan using purl_launch_records_pending_prefix on purl_launch_records
+   Index Cond: ((status = ANY ('{pending}'::text[])) AND (key ~>=~ 'job:'::text) AND (key ~<~ 'job;'::text))
+   Filter: (key ~~ 'job:%'::text)
+(3 rows)
+
+RESET
+                                      purl_launch_commit                                      
+----------------------------------------------------------------------------------------------
+ {"records": [{"key": "t0", "value": null, "version": 1}], "revision": 1, "duplicate": false}
+(1 row)
+
+INSERT 0 4095
+UPDATE 1
+ rejected 
+----------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+                                      purl_launch_commit                                      
+----------------------------------------------------------------------------------------------
+ {"records": [{"key": "t0", "value": null, "version": 2}], "revision": 2, "duplicate": false}
+(1 row)
+
+                                       purl_launch_commit                                       
+------------------------------------------------------------------------------------------------
+ {"records": [{"key": "counter", "value": 0, "version": 1}], "revision": 1, "duplicate": false}
+(1 row)
+
+INSERT 0 1023
+UPDATE 1
+ rejected 
+----------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+                                       purl_launch_commit                                       
+------------------------------------------------------------------------------------------------
+ {"records": [{"key": "counter", "value": 0, "version": 1}], "revision": 1, "duplicate": false}
+(1 row)
+
+INSERT 0 1023
+UPDATE 1
+ rejected 
+----------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+                                       purl_launch_commit                                       
+------------------------------------------------------------------------------------------------
+ {"records": [{"key": "counter", "value": 1, "version": 2}], "revision": 2, "duplicate": false}
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+DO
+SET
+                                      purl_launch_commit                                      
+----------------------------------------------------------------------------------------------
+ {"records": [{"key": "ok", "value": true, "version": 1}], "revision": 1, "duplicate": false}
+(1 row)
+
+ purl_launch_erase 
+-------------------
+ null
+(1 row)
+
+RESET
+ assert 
+--------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+ assert 
+--------
+ 
+(1 row)
+
+                                             verification                                             
+------------------------------------------------------------------------------------------------------
+ PASS: SQL atomic rollback, tombstones, handle aliases, privacy erasure, invoker/RLS and denied roles
+(1 row)
+
+DO
+✔ store exports the required adapters (1.342334ms)
+✔ memory: atomic competing CAS, isolation, immutable reads and tombstone versions (8.153987ms)
+✔ memory: payload-bound retry and global handle reservation are atomic and erase releases all aliases (1.656915ms)
+✔ file: atomic competing CAS, isolation, immutable reads and tombstone versions (13.522306ms)
+✔ file: payload-bound retry and global handle reservation are atomic and erase releases all aliases (25.355773ms)
+✔ supabase: atomic competing CAS, isolation, immutable reads and tombstone versions (128.651973ms)
+✔ supabase: payload-bound retry and global handle reservation are atomic and erase releases all aliases (83.684402ms)
+✔ lists and global status scans are bounded, exclude tombstones and remain pure (0.967762ms)
+✔ rejects malformed or unbounded data before mutating and enforces tenant quota (168.441172ms)
+✔ development file reads never create files and production factory fails closed (3.122665ms)
+✔ dictionary-shaped identifiers cannot resolve inherited prototype members (0.445278ms)
+✔ strict JSON validation rejects accessors, symbol properties, unsupported Unicode and overflowing versions (0.349935ms)
+✔ record tombstones and idempotency counts have hard per-scope bounds (6247.452902ms)
+✔ memory: retry metadata byte quota fails atomically (30.483571ms)
+✔ file: retry metadata byte quota fails atomically (29.567346ms)
+✔ supabase: retry metadata byte quota fails atomically (91.486396ms)
+✔ retained aliases are bounded and an existing alias remains usable at capacity (73.83052ms)
+✔ memory: a large user status field does not overflow the queue index (6.276035ms)
+✔ file: a large user status field does not overflow the queue index (8.654633ms)
+✔ supabase: a large user status field does not overflow the queue index (36.47517ms)
+✔ row and tenant accounting use compact PostgreSQL JSON bytes for exponent numbers (1.731798ms)
+✔ persistence configuration and malformed upstream responses expose only safe store errors (0.718387ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7020.722405
+PASS: real PostgreSQL17.7/PostgREST13.0.4 adapter, concurrent CAS/handle conflicts, role denial and database restart

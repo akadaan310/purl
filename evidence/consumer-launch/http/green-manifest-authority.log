@@ -1,0 +1,14 @@
+✔ launch discovery, catalog, native manifests and health are self-describing pure reads (44.83764ms)
+✔ browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous (18.499207ms)
+✔ native queued program persists execution through a freshly constructed application (29.910702ms)
+✔ HTTP rejects credential URLs, malformed payloads and arbitrary file paths (15.607439ms)
+✔ HTTP rejects JSON values incompatible with durable storage before domain writes (9.661913ms)
+✔ CGIT is independently usable in its own unverified bounded preview (22.941919ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 214.180593

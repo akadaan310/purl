@@ -1,0 +1,159 @@
+{
+  "schema": "purl.consumer-dogfood/1",
+  "base": "http://127.0.0.1:8180",
+  "started_at": "2026-10-18T17:21:59.767Z",
+  "steps": [
+    {
+      "operation": "URL-only reconstruction",
+      "documents": [
+        {
+          "name": "00_START.md",
+          "sha256": "8a3aa0bdc24596dfc895c757df3dd0cc99c53fcb064a73ef692f8199de8887c6"
+        },
+        {
+          "name": "01_CONSUMER.md",
+          "sha256": "3d91afbd4c651bc8413e0ada71c37d8b24aa4b889e4f7ec96f3a5cbdaef2badf"
+        },
+        {
+          "name": "02_IDENTITY.md",
+          "sha256": "d557c95c8a8eb9eea998d7b93154c4220d1cdbf5a106508e2a7aba4fd778d457"
+        },
+        {
+          "name": "03_PROTOCOLS.md",
+          "sha256": "6787ffc3c87a328949257a70b62651e74ef5cbb2a47dba683e7368c54ecf3bea"
+        },
+        {
+          "name": "04_MEMORY_CONSTELLATIONS.md",
+          "sha256": "1ff54dbe10a2c0a451ecbbda97f2df754b321866d308b7866054940b8952419a"
+        },
+        {
+          "name": "05_CGIT.md",
+          "sha256": "fac0c9c351ff85270f3bb1e09253c2b4a405576446c567bd8c2d22969ddf28c9"
+        },
+        {
+          "name": "06_MODELS_RUNTIME.md",
+          "sha256": "a4f80be5020a58629b378fcaf7537b865f37dd055cb7b90ece72894b6962cc38"
+        },
+        {
+          "name": "07_ACCEPTANCE.md",
+          "sha256": "780f117b48d6847dac4301661507293de2a2e99ff75315e4caf13353c41bd95b"
+        },
+        {
+          "name": "CODEX_MASTER.md",
+          "sha256": "5ffd2530421a7416449923c498b6524a1b97f7d67e129db3c0c2176641413c2d"
+        }
+      ],
+      "nodes": 38,
+      "version": 1,
+      "anonymous_available_operations": []
+    },
+    {
+      "operation": "fork",
+      "id": "resource_90ed07c053b14c6abe158a08",
+      "version": 1,
+      "lineage": {
+        "resource_id": "consumer-launch-mission",
+        "url": "http://127.0.0.1:8180/p/consumer-launch-mission",
+        "version": 1,
+        "source_content_id": "sha256:6f25ddea5c67b6fda73380a729cbc5db7984816117225f71cb39534b8209e21d"
+      }
+    },
+    {
+      "operation": "compile",
+      "version": 2,
+      "ok": true
+    },
+    {
+      "operation": "build",
+      "version": 3,
+      "build_id": "build_cb976f21e251747889e0c0e0",
+      "status": "passed",
+      "tests": [
+        {
+          "index": 0,
+          "passed": true,
+          "actual": {
+            "total_nodes": 1,
+            "dependency_edges": 0,
+            "ready_nodes": [
+              "test"
+            ],
+            "completed_nodes": [],
+            "waiting_nodes": [],
+            "completion": "NOT_RUN",
+            "verified": false,
+            "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth."
+          },
+          "expected": {
+            "completed_nodes": [],
+            "completion": "NOT_RUN",
+            "dependency_edges": 0,
+            "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth.",
+            "ready_nodes": [
+              "test"
+            ],
+            "total_nodes": 1,
+            "verified": false,
+            "waiting_nodes": []
+          }
+        }
+      ]
+    },
+    {
+      "operation": "run",
+      "execution_id": "execution_e99aa6e53144f94ffacacf59",
+      "status": "queued"
+    },
+    {
+      "operation": "inspect durable execution",
+      "status": "succeeded",
+      "attempts": 1,
+      "value_id": "value:852a6ee2766aa3ec65ca41f9940a88eee373a851f05d2a2f353f6b6ab83ff9de",
+      "artifact_id": "artifact_2b3aa59271bfc07f2819f51a",
+      "receipt": {
+        "artifact_content_id": "sha256:206d9de0bb7a30cb87ac3aa3ecb36c8830aac9975fcbfdb319ce5d9615bd6055",
+        "build_content_id": "sha256:72511c48804ada7e207a4e319f506c72f44b5e99a4f19c34290edab6751dac88",
+        "build_id": "build_cb976f21e251747889e0c0e0",
+        "completed_at": "2026-10-18T17:22:00.554Z",
+        "content_id": "sha256:1a5df7caf42baa4f9f7b96ab7fe045086672c2751572aa01074b4334d1eccae9",
+        "environment_id": "environment:79bb63c525a7bd10ca5d64c54f87cdca1c6487d5fca7b50d3121f709c71935d0",
+        "execution_id": "execution_e99aa6e53144f94ffacacf59",
+        "input_id": "sha256:a9fa25604003d06ed2853e874738380d4d1d2963360d455f36e10412740d3767",
+        "schema": "purl.launch-execution-receipt/1",
+        "value_id": "value:852a6ee2766aa3ec65ca41f9940a88eee373a851f05d2a2f353f6b6ab83ff9de"
+      }
+    },
+    {
+      "operation": "publish",
+      "version": 7,
+      "release_id": "release_2ab20de4a737493f1e76bb12",
+      "url": "http://127.0.0.1:8180/p/resource_90ed07c053b14c6abe158a08"
+    },
+    {
+      "operation": "fresh unauthenticated continuation",
+      "documents": 9,
+      "checkpoint": "Native PURL dogfood: URL-only reconstruction, owner fork, compilation, passing declared build tests, durable worker execution and artifact inspection.",
+      "replay": {
+        "resource_id": "resource_90ed07c053b14c6abe158a08",
+        "version": 7,
+        "valid": true,
+        "history_valid": true,
+        "events": 7,
+        "head": "sha256:5f241aaafae2559eeb2a4a7527bce5e53e0573660e066067a8895a68123d51a0",
+        "problems": [],
+        "executions": [
+          {
+            "execution_id": "execution_e99aa6e53144f94ffacacf59",
+            "valid": true,
+            "replayable": true,
+            "reason": null
+          }
+        ],
+        "assurance": "Hashes establish internal consistency, not external authenticity or requirement truth"
+      }
+    }
+  ],
+  "mission_url": "http://127.0.0.1:8180/p/resource_90ed07c053b14c6abe158a08",
+  "resource_id": "resource_90ed07c053b14c6abe158a08",
+  "completed_at": "2026-10-18T17:22:00.957Z"
+}

@@ -1,0 +1,30 @@
+✔ immutable artifacts, concurrent heads, branches, releases, forks, diff and restore (16.455466ms)
+✔ authorization, conversation consent, unsafe paths and attribution bounds (0.9531ms)
+✔ import rejects altered hashes, missing parents, ownership claims and excessive content (1.589725ms)
+✔ persisted separate CGIT consent works; HTTP reads do not write (0.401422ms)
+✖ real identity product profiles and attenuated credentials enforce consent plus read/write scopes (0.351547ms)
+✔ parallel expected-head commits publish one head and no losing immutable objects (0.743745ms)
+✔ prototype paths and forged hash-consistent missing-parent imports are rejected (1.248232ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91.225263
+
+✖ failing tests:
+
+test at test/launch/cgit.test.js:48:1
+✖ real identity product profiles and attenuated credentials enforce consent plus read/write scopes (0.351547ms)
+  Error: Activate the separate CGIT profile with consent
+      at problem (file:///workspace/purl/service/launch/structural-index.js:6:67)
+      at CgitService.authorize (file:///workspace/purl/service/launch/cgit.js:18:338)
+      at async CgitService.handle (file:///workspace/purl/service/launch/cgit.js:47:48)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/cgit.test.js:52:14)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 403,
+    code: 'cgit_consent_required'
+  }

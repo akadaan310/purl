@@ -1,0 +1,41 @@
+{
+  "source": {
+    "url": "https://github.com/sindresorhus/is-plain-obj",
+    "owner": "sindresorhus",
+    "repository": "is-plain-obj",
+    "commitSha": "666df7c10035f7e26f27ec214fe5ae3173435f34",
+    "license": "MIT",
+    "attribution": "sindresorhus/is-plain-obj at 666df7c10035f7e26f27ec214fe5ae3173435f34",
+    "licenseNotice": "Source remains under its upstream license; unknown license grants no reuse permission"
+  },
+  "files": 14,
+  "indexed": 5,
+  "benchmark": {
+    "method": "UTF-8 bytes / 4 estimate; not tokenizer-measured",
+    "rawSelectedEstimatedTokens": 953,
+    "navigationEstimatedTokens": 437,
+    "taskSuccess": "NOT_MEASURED; syntax navigation only",
+    "compressionClaim": false
+  },
+  "tasks": [
+    {
+      "name": "Find default-exported function",
+      "truth": "isPlainObject",
+      "rawSuccess": true,
+      "navigationSuccess": true
+    },
+    {
+      "name": "Find index.js",
+      "truth": "index.js",
+      "rawSuccess": true,
+      "navigationSuccess": true
+    },
+    {
+      "name": "Count static imports of index.js",
+      "truth": 0,
+      "rawSuccess": true,
+      "navigationSuccess": true
+    }
+  ],
+  "requests": 8
+}

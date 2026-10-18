@@ -1,0 +1,33 @@
+✔ launch discovery, catalog, native manifests and health are self-describing pure reads (44.184594ms)
+✖ browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous (16.076649ms)
+✔ native queued program persists execution through a freshly constructed application (27.500345ms)
+✔ HTTP rejects credential URLs, malformed payloads and arbitrary file paths (15.761936ms)
+✔ CGIT is independently usable in its own unverified bounded preview (11.782386ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 193.05862
+
+✖ failing tests:
+
+test at test/launch/http.test.js:32:1
+✖ browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous (16.076649ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  400 !== 201
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/http.test.js:36:141)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 400,
+    expected: 201,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,34 @@
+{
+  "babelAst": {
+    "type": "TSImportEqualsDeclaration",
+    "local": "util",
+    "moduleReferenceType": "TSExternalModuleReference",
+    "expressionType": "StringLiteral",
+    "source": "./util"
+  },
+  "query": {
+    "kind": "dependencies",
+    "name": "src/main.ts",
+    "matches": [
+      {
+        "path": "src/main.ts",
+        "dependencies": [
+          "src/util.ts"
+        ],
+        "imports": [
+          {
+            "source": "./util",
+            "line": 1,
+            "names": [
+              {
+                "imported": "*",
+                "local": "util"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "deterministic": true
+  }
+}

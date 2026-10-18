@@ -1,0 +1,33 @@
+✔ missing provider fails closed with actionable config and pure recovery (2.684777ms)
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (77.984712ms)
+✔ rejects nonce provider identity (78.969655ms)
+✔ rejects aud provider identity (26.9234ms)
+✔ rejects issuer provider identity (27.364662ms)
+✔ rejects expired provider identity (17.372746ms)
+✔ rejects unverified provider identity (34.458529ms)
+✔ state cookie binding and one-use callbacks reject replay (32.642123ms)
+✔ explicit consent, stable subjects, unique rename and product isolation (73.989232ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (40.268751ms)
+✔ live provider revocation blocks sensitive changes and session reads (32.684087ms)
+✔ guest labels cannot claim verified human or issue delegated agents (32.767412ms)
+✔ disabled provider reports unavailable without fake sign-in (29.300312ms)
+✔ wrong PKCE code and missing flow cookie fail closed (44.456251ms)
+✔ flow, session and delegated credential expiry are enforced (34.572819ms)
+✔ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (45.767828ms)
+✔ product consent removal and account deletion revoke sessions and erase owned data (62.917959ms)
+✔ CGIT first login has separate consent and later PURLs login keeps stable identity (24.960754ms)
+✔ self-declared AI preview is an unverified agent with bounded permissions (31.194172ms)
+✔ session issuance and login flows are bounded by per-source rate limits (52.607186ms)
+✔ live verified email removal invalidates account authentication (72.025027ms)
+✔ production cannot enable insecure development cookies or an HTTP issuer (23.718741ms)
+✔ tampered ID token signature is rejected by established OIDC verification (36.284516ms)
+✔ self-declared AI preview can revoke its own session (19.469118ms)
+✔ delegated agents cannot export their owner identity profiles (39.233508ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1051.069086

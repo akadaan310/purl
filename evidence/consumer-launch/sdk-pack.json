@@ -1,0 +1,586 @@
+[
+  {
+    "id": "purl@0.2.0",
+    "name": "purl",
+    "version": "0.2.0",
+    "size": 432949,
+    "unpackedSize": 1286153,
+    "shasum": "7835e57d46714020596f737cf22ad6873ee46334",
+    "integrity": "sha512-+KgPbomH2R1SAmN8UqVUgnzbqlzDD+fjsROB3P/z1828KBUEVxR7X4OO8fSAvaFHAQvR9p/iK4c08IOJvXzU3Q==",
+    "filename": "purl-0.2.0.tgz",
+    "files": [
+      {
+        "path": "FORMAL_SEMANTICS.md",
+        "size": 8420,
+        "mode": 384
+      },
+      {
+        "path": "LANGUAGE_SPEC.md",
+        "size": 11545,
+        "mode": 384
+      },
+      {
+        "path": "README.md",
+        "size": 5731,
+        "mode": 384
+      },
+      {
+        "path": "SDK.md",
+        "size": 2305,
+        "mode": 384
+      },
+      {
+        "path": "deploy/consumer-mission.seed.json",
+        "size": 41214,
+        "mode": 384
+      },
+      {
+        "path": "deploy/runtime.json",
+        "size": 1075,
+        "mode": 384
+      },
+      {
+        "path": "package.json",
+        "size": 1874,
+        "mode": 384
+      },
+      {
+        "path": "reference/consumer-launch/00_START.md",
+        "size": 2124,
+        "mode": 384
+      },
+      {
+        "path": "reference/consumer-launch/01_CONSUMER.md",
+        "size": 2019,
+        "mode": 384
+      },
+      {
+        "path": "reference/consumer-launch/02_IDENTITY.md",
+        "size": 1253,
+        "mode": 384
+      },
+      {
+        "path": "reference/consumer-launch/03_PROTOCOLS.md",
+        "size": 1570,
+        "mode": 384
+      },
+      {
+        "path": "reference/consumer-launch/04_MEMORY_CONSTELLATIONS.md",
+        "size": 1406,
+        "mode": 384
+      },
+      {
+        "path": "reference/consumer-launch/05_CGIT.md",
+        "size": 1435,
+        "mode": 384
+      },
+      {
+        "path": "reference/consumer-launch/06_MODELS_RUNTIME.md",
+        "size": 1160,
+        "mode": 384
+      },
+      {
+        "path": "reference/consumer-launch/07_ACCEPTANCE.md",
+        "size": 1580,
+        "mode": 384
+      },
+      {
+        "path": "reference/consumer-launch/CODEX_MASTER.md",
+        "size": 1165,
+        "mode": 384
+      },
+      {
+        "path": "reference/godseed/DEPLOYMENT_AMENDMENT.md",
+        "size": 1253,
+        "mode": 384
+      },
+      {
+        "path": "reference/godseed/GODSEED.md",
+        "size": 10506,
+        "mode": 384
+      },
+      {
+        "path": "reference/godseed/README.md",
+        "size": 339,
+        "mode": 384
+      },
+      {
+        "path": "schemas/communication-profile.schema.json",
+        "size": 2973,
+        "mode": 384
+      },
+      {
+        "path": "schemas/continuity-package.schema.json",
+        "size": 1827,
+        "mode": 384
+      },
+      {
+        "path": "schemas/event.schema.json",
+        "size": 2445,
+        "mode": 384
+      },
+      {
+        "path": "schemas/experiment-record.schema.json",
+        "size": 2851,
+        "mode": 384
+      },
+      {
+        "path": "schemas/instance-manifest.schema.json",
+        "size": 4061,
+        "mode": 384
+      },
+      {
+        "path": "schemas/resource-manifest.schema.json",
+        "size": 1982,
+        "mode": 384
+      },
+      {
+        "path": "schemas/resource.schema.json",
+        "size": 5611,
+        "mode": 384
+      },
+      {
+        "path": "sdk/cli.js",
+        "size": 1550,
+        "mode": 448
+      },
+      {
+        "path": "sdk/client.d.ts",
+        "size": 1626,
+        "mode": 384
+      },
+      {
+        "path": "sdk/client.js",
+        "size": 3965,
+        "mode": 384
+      },
+      {
+        "path": "sdk/launch.js",
+        "size": 2993,
+        "mode": 384
+      },
+      {
+        "path": "service/adapters.js",
+        "size": 14714,
+        "mode": 384
+      },
+      {
+        "path": "service/auth.js",
+        "size": 2139,
+        "mode": 384
+      },
+      {
+        "path": "service/compat/seurl.js",
+        "size": 6496,
+        "mode": 384
+      },
+      {
+        "path": "service/compat/substrate-registry.json",
+        "size": 24145,
+        "mode": 384
+      },
+      {
+        "path": "service/compiler.js",
+        "size": 9817,
+        "mode": 384
+      },
+      {
+        "path": "service/CONTRACTS.md",
+        "size": 3908,
+        "mode": 384
+      },
+      {
+        "path": "service/domain.js",
+        "size": 63280,
+        "mode": 384
+      },
+      {
+        "path": "service/domain/schema.js",
+        "size": 9046,
+        "mode": 384
+      },
+      {
+        "path": "service/domain/seed.js",
+        "size": 6662,
+        "mode": 384
+      },
+      {
+        "path": "service/domain/support.js",
+        "size": 8374,
+        "mode": 384
+      },
+      {
+        "path": "service/http.js",
+        "size": 10807,
+        "mode": 384
+      },
+      {
+        "path": "service/language/parser.js",
+        "size": 3272,
+        "mode": 384
+      },
+      {
+        "path": "service/language/projection.js",
+        "size": 11627,
+        "mode": 384
+      },
+      {
+        "path": "service/language/registry.js",
+        "size": 18588,
+        "mode": 384
+      },
+      {
+        "path": "service/language/seurl.js",
+        "size": 2278,
+        "mode": 384
+      },
+      {
+        "path": "service/language/values.js",
+        "size": 6559,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/application.js",
+        "size": 3194,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/catalog-operations.js",
+        "size": 28598,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/catalog.js",
+        "size": 13645,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/cgit.js",
+        "size": 20492,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/constellations.js",
+        "size": 17301,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/github-lens.js",
+        "size": 5713,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/http.js",
+        "size": 13308,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/identity-crypto.js",
+        "size": 1494,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/identity.js",
+        "size": 39561,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/main.js",
+        "size": 759,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/memory.js",
+        "size": 13520,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/models.js",
+        "size": 20867,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/provider-consent.js",
+        "size": 17842,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/resources.js",
+        "size": 40346,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/store.js",
+        "size": 13987,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/structural-index.js",
+        "size": 7864,
+        "mode": 384
+      },
+      {
+        "path": "service/launch/worker-main.js",
+        "size": 1866,
+        "mode": 384
+      },
+      {
+        "path": "service/main.js",
+        "size": 1403,
+        "mode": 384
+      },
+      {
+        "path": "service/openapi.js",
+        "size": 2400,
+        "mode": 384
+      },
+      {
+        "path": "service/registry.js",
+        "size": 2410,
+        "mode": 384
+      },
+      {
+        "path": "service/repository.js",
+        "size": 13077,
+        "mode": 384
+      },
+      {
+        "path": "service/sandbox.js",
+        "size": 6449,
+        "mode": 384
+      },
+      {
+        "path": "service/worker.js",
+        "size": 1892,
+        "mode": 384
+      },
+      {
+        "path": "src/client/client.js",
+        "size": 4183,
+        "mode": 384
+      },
+      {
+        "path": "src/continuity/authority.js",
+        "size": 4137,
+        "mode": 384
+      },
+      {
+        "path": "src/continuity/diff.js",
+        "size": 2501,
+        "mode": 384
+      },
+      {
+        "path": "src/continuity/operations.js",
+        "size": 24688,
+        "mode": 384
+      },
+      {
+        "path": "src/continuity/profile.js",
+        "size": 2888,
+        "mode": 384
+      },
+      {
+        "path": "src/continuity/reducer.js",
+        "size": 6142,
+        "mode": 384
+      },
+      {
+        "path": "src/continuity/rights.js",
+        "size": 2521,
+        "mode": 384
+      },
+      {
+        "path": "src/continuity/store.js",
+        "size": 18637,
+        "mode": 384
+      },
+      {
+        "path": "src/continuity/views.js",
+        "size": 2340,
+        "mode": 384
+      },
+      {
+        "path": "src/core/canonical.js",
+        "size": 2026,
+        "mode": 384
+      },
+      {
+        "path": "src/core/errors.js",
+        "size": 2324,
+        "mode": 384
+      },
+      {
+        "path": "src/core/ids.js",
+        "size": 914,
+        "mode": 384
+      },
+      {
+        "path": "src/core/schema.js",
+        "size": 7964,
+        "mode": 384
+      },
+      {
+        "path": "src/research/experiment.js",
+        "size": 14691,
+        "mode": 384
+      },
+      {
+        "path": "src/research/generators.js",
+        "size": 2624,
+        "mode": 384
+      },
+      {
+        "path": "src/research/grammar.js",
+        "size": 5967,
+        "mode": 384
+      },
+      {
+        "path": "src/research/graph.js",
+        "size": 6557,
+        "mode": 384
+      },
+      {
+        "path": "src/research/measures.js",
+        "size": 6496,
+        "mode": 384
+      },
+      {
+        "path": "src/research/projection.js",
+        "size": 2059,
+        "mode": 384
+      },
+      {
+        "path": "src/research/rng.js",
+        "size": 1071,
+        "mode": 384
+      },
+      {
+        "path": "src/research/surrogates.js",
+        "size": 2291,
+        "mode": 384
+      },
+      {
+        "path": "src/research/temporal.js",
+        "size": 3264,
+        "mode": 384
+      },
+      {
+        "path": "src/transport/documents.js",
+        "size": 17866,
+        "mode": 384
+      },
+      {
+        "path": "src/transport/html.js",
+        "size": 9544,
+        "mode": 384
+      },
+      {
+        "path": "src/transport/http.js",
+        "size": 5620,
+        "mode": 384
+      },
+      {
+        "path": "src/transport/main.js",
+        "size": 1068,
+        "mode": 384
+      },
+      {
+        "path": "src/transport/server.js",
+        "size": 16861,
+        "mode": 384
+      },
+      {
+        "path": "web/app.js",
+        "size": 74581,
+        "mode": 384
+      },
+      {
+        "path": "web/assets/DM-Sans-OFL.txt",
+        "size": 4482,
+        "mode": 384
+      },
+      {
+        "path": "web/assets/dm-sans-regular.ttf",
+        "size": 48280,
+        "mode": 384
+      },
+      {
+        "path": "web/assets/dm-sans-semibold.ttf",
+        "size": 48280,
+        "mode": 384
+      },
+      {
+        "path": "web/assets/instrument-serif-italic.ttf",
+        "size": 64208,
+        "mode": 384
+      },
+      {
+        "path": "web/assets/Instrument-Serif-OFL.txt",
+        "size": 4405,
+        "mode": 384
+      },
+      {
+        "path": "web/assets/instrument-serif-regular.ttf",
+        "size": 62284,
+        "mode": 384
+      },
+      {
+        "path": "web/cgit/app.js",
+        "size": 26515,
+        "mode": 384
+      },
+      {
+        "path": "web/cgit/index.html",
+        "size": 1238,
+        "mode": 384
+      },
+      {
+        "path": "web/cgit/style.css",
+        "size": 12010,
+        "mode": 384
+      },
+      {
+        "path": "web/consumer/app.js",
+        "size": 49322,
+        "mode": 384
+      },
+      {
+        "path": "web/consumer/index.html",
+        "size": 1599,
+        "mode": 384
+      },
+      {
+        "path": "web/consumer/style.css",
+        "size": 17211,
+        "mode": 384
+      },
+      {
+        "path": "web/identity/app.js",
+        "size": 15326,
+        "mode": 384
+      },
+      {
+        "path": "web/identity/index.html",
+        "size": 2095,
+        "mode": 384
+      },
+      {
+        "path": "web/identity/style.css",
+        "size": 7935,
+        "mode": 384
+      },
+      {
+        "path": "web/index.html",
+        "size": 2914,
+        "mode": 384
+      },
+      {
+        "path": "web/style.css",
+        "size": 46666,
+        "mode": 384
+      }
+    ],
+    "entryCount": 114,
+    "bundled": []
+  }
+]

@@ -1,0 +1,62 @@
+✔ store exports the required adapters (0.601642ms)
+✔ memory: atomic competing CAS, isolation, immutable reads and tombstone versions (5.478668ms)
+✔ memory: payload-bound retry and global handle reservation are atomic and erase releases all aliases (1.932579ms)
+✔ file: atomic competing CAS, isolation, immutable reads and tombstone versions (19.923733ms)
+✔ file: payload-bound retry and global handle reservation are atomic and erase releases all aliases (13.592588ms)
+✔ lists and global status scans are bounded, exclude tombstones and remain pure (0.673841ms)
+✔ rejects malformed or unbounded data before mutating and enforces tenant quota (100.83569ms)
+✔ development file reads never create files and production factory fails closed (8.893739ms)
+✔ dictionary-shaped identifiers cannot resolve inherited prototype members (0.439129ms)
+✔ strict JSON validation rejects accessors, symbol properties, unsupported Unicode and overflowing versions (0.407501ms)
+✖ record tombstones and idempotency counts have hard per-scope bounds (203.253163ms)
+✖ memory: retry metadata byte quota fails atomically (13.544586ms)
+✖ file: retry metadata byte quota fails atomically (21.251565ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 10
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 438.465231
+
+✖ failing tests:
+
+test at test/launch/store.test.js:104:1
+✖ record tombstones and idempotency counts have hard per-scope bounds (203.253163ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:107:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/store.test.js:115:95
+✖ memory: retry metadata byte quota fails atomically (13.544586ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:120:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/store.test.js:115:95
+✖ file: retry metadata byte quota fails atomically (21.251565ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:120:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

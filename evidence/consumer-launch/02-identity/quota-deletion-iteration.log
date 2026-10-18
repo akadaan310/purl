@@ -1,0 +1,15 @@
+✔ account deletion erases delegated data and revokes public passports and cognition (161.42501ms)
+✔ interrupted deletion retains its descendant plan and resumes across service restart (71.287559ms)
+✔ failed external intent persistence leaves the owner active and permits a fresh deletion retry (57.837547ms)
+✔ account deletion succeeds at exact and near tenant quota without owner growth (1016.142757ms)
+✔ a full-quota deletion interrupted after external intent resumes without spare owner space (491.86304ms)
+✔ deletion captures a concurrent owned delegation before fencing inventory (51.410707ms)
+✔ a persisted deletion intent refuses to erase a changed principal incarnation (45.852472ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1963.475486

@@ -1,0 +1,151 @@
+✔ three initial HTTP contexts are independent; attributed evidence survives restart and replay (57.10847ms)
+✔ checkpoint pauses; restart resumes persisted participants without repeating completed provider call (35.682138ms)
+✔ expired lease fencing prevents stale worker writes and completed-call recovery uses saved receipt (29.33366ms)
+✔ replay rejects tampering and optional steward requires separate consent and commits real artifact (19.332551ms)
+✔ baseline is NOT_RUN without explicit budget consent and reports actual measured usage when authorized (18.142426ms)
+✔ live credential revocation blocks queued jobs and every subsequent participant (8.146231ms)
+✔ missing live validator fails closed, and oversized serialized initial contexts are rejected before storage (2.834563ms)
+✔ file-backed restart recovers completed requests and exports a real CGIT steward diff (76.648885ms)
+✔ draft and paused jobs do not occupy the indexed runnable queue (3.245208ms)
+✖ escaped provider output fails terminally with attributed receipt rather than overflowing the job row (24.23106ms)
+✖ five maximum accepted serialized outputs plus baseline fit pre-reserved durable job capacity (5.060211ms)
+✖ concurrent constellation admissions cannot exceed owner object quota (7.128423ms)
+✔ hosted unavailable without operator key; metadata GET is pure (2.900291ms)
+✔ encrypted BYOK, redacted listing, real HTTP usage reconciliation and idempotent billing (31.204621ms)
+✔ private scopes, explicit selected context, revocation and fixed provider prevent leakage (3.455223ms)
+✔ concurrent same idempotency key executes one request and quota reservations prevent overspend (32.799854ms)
+✔ timeout and missing usage hold conservative reservation and never repeat ambiguous requests (7.687522ms)
+✔ known rejected request refunds reservation and persists bounded owner-private chat thread (6.086801ms)
+✔ provider request enforces published token price ceiling and denies provider data collection (5.004778ms)
+✔ simultaneous different calls cannot exceed daily reserved budget (23.666033ms)
+✔ real HTTP timeout retains reservation and restarting gateway cannot execute that request again (13.387003ms)
+✔ revocation committed during preparation prevents a later reservation or provider call (1.160331ms)
+✖ unpersistable provider Unicode and oversized escaped text settle known cost into terminal receipts (7.265029ms)
+✖ concurrent provider-key creation and duplicate revocation maintain atomic active and total counts (6.106651ms)
+✖ public models metadata discloses availability and prices without private usage or keys (4.083235ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 19
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 362.006282
+
+✖ failing tests:
+
+test at test/launch/constellations.test.js:108:1
+✖ escaped provider output fails terminally with attributed receipt rather than overflowing the job row (24.23106ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'row_limit'
+  - 'PROVIDER_OUTPUT_REJECTED'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/constellations.test.js:111:69)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'row_limit',
+    expected: 'PROVIDER_OUTPUT_REJECTED',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/constellations.test.js:115:1
+✖ five maximum accepted serialized outputs plus baseline fit pre-reserved durable job capacity (5.060211ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(before.storageCapacityBytes>100000)
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/constellations.test.js:118:89)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/launch/constellations.test.js:124:1
+✖ concurrent constellation admissions cannot exceed owner object quota (7.128423ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  8 !== 2
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/constellations.test.js:128:87)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 8,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/models.test.js:103:1
+✖ unpersistable provider Unicode and oversized escaped text settle known cost into terminal receipts (7.265029ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  Error: JSON requires valid Unicode without NUL
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/models.test.js:106:41)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: JSON requires valid Unicode without NUL
+        at fail (file:///workspace/purl/service/launch/store.js:10:66)
+        at canonical (file:///workspace/purl/service/launch/store.js:29:58)
+        at file:///workspace/purl/service/launch/store.js:47:40
+        at Array.map (<anonymous>)
+        at canonical (file:///workspace/purl/service/launch/store.js:45:44)
+        at file:///workspace/purl/service/launch/store.js:47:40
+        at Array.map (<anonymous>)
+        at canonical (file:///workspace/purl/service/launch/store.js:45:44)
+        at file:///workspace/purl/service/launch/store.js:68:21
+        at Array.map (<anonymous>),
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at test/launch/models.test.js:111:1
+✖ concurrent provider-key creation and duplicate revocation maintain atomic active and total counts (6.106651ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  25 !== 19
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/models.test.js:113:9)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 25,
+    expected: 19,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/models.test.js:118:1
+✖ public models metadata discloses availability and prices without private usage or keys (4.083235ms)
+  Error: Authentication required
+      at modelError (file:///workspace/purl/service/launch/models.js:3:68)
+      at authorize (file:///workspace/purl/service/launch/models.js:8:75)
+      at ModelGateway.handle (file:///workspace/purl/service/launch/models.js:99:4)
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/models.test.js:120:95)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'AUTH_REQUIRED'
+  }

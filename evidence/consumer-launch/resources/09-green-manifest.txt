@@ -1,0 +1,28 @@
+✔ native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays (32.381442ms)
+✔ private IDs and child artifacts do not cross tenants; public reading never grants mutation (14.529054ms)
+✔ resource commands reject stale versions and bind retries before producing new jobs (11.283815ms)
+✔ revoked credentials cancel queued work and a fresh service instance recovers persisted jobs (14.57371ms)
+✔ GET discovery, continuity, history and replay are pure; tampered snapshots fail verification (2.450936ms)
+✔ native mission contains documents and dependency evidence, executes and survives fresh-principal fork (12.668131ms)
+✔ missing worker authority and authored code fail closed (9.028733ms)
+✔ parallel product startup seeds one immutable mission without losing either service (2.14674ms)
+✔ job intent and its idempotency receipt commit atomically across an interruption boundary (8.889344ms)
+✔ create and build retries retain original statuses and immutable build IDs (6.135453ms)
+✔ public-resource proposals remain immutable and private to proposer and owner until owner explicitly commits (5.328112ms)
+✔ owner rejects proposals without applying content and stale/base-version/cross-resource suggestions cannot commit (4.427641ms)
+✔ proposal and owner decision retry atomically after lost responses and do not repeat transitions (3.41344ms)
+✔ invalid expiry, unsafe JSON, oversized state/source/input and non-pure proposals fail before persistence (8.988872ms)
+✔ two workers fence an expired lease so the interrupted worker cannot publish a second artifact (14.129894ms)
+✔ a fresh worker retries pure interrupted execution only after lease expiry without partial results (13.597314ms)
+✔ owner revoked during execution is rechecked before result publication; malformed worker expiry cancels (13.172728ms)
+✔ concurrent duplicate proposals and owner decisions retain exactly one immutable record (3.415894ms)
+✔ simultaneous near-64KiB source and state proposals commit and retry without an oversized receipt row (12.992968ms)
+✔ manifest discloses proposal/decision contracts and proposal reads are pure under current visibility (10.086049ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 262.739644

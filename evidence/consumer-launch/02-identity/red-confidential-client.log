@@ -1,0 +1,188 @@
+✔ missing provider fails closed with actionable config and pure recovery (2.854501ms)
+✖ real code and PKCE establishes verified identity with encrypted tokens and bounded session (52.126139ms)
+✔ rejects nonce provider identity (29.995344ms)
+✔ rejects aud provider identity (39.295234ms)
+✔ rejects issuer provider identity (13.920621ms)
+✔ rejects expired provider identity (14.371638ms)
+✔ rejects unverified provider identity (57.425399ms)
+✖ state cookie binding and one-use callbacks reject replay (45.734663ms)
+✖ explicit consent, stable subjects, unique rename and product isolation (45.311098ms)
+✖ origin and CSRF guard mutations, owner and provider revocation invalidate agents (33.357077ms)
+✖ live provider revocation blocks sensitive changes and session reads (20.062985ms)
+✔ guest labels cannot claim verified human or issue delegated agents (49.321253ms)
+✔ disabled provider reports unavailable without fake sign-in (27.313351ms)
+✔ wrong PKCE code and missing flow cookie fail closed (22.101202ms)
+✖ flow, session and delegated credential expiry are enforced (24.297196ms)
+✖ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (39.608053ms)
+✖ product consent removal and account deletion revoke sessions and erase owned data (47.584357ms)
+✖ CGIT first login has separate consent and later PURLs login keeps stable identity (72.647747ms)
+✔ self-declared AI preview is an unverified agent with bounded permissions (15.519326ms)
+✔ session issuance and login flows are bounded by per-source rate limits (75.454955ms)
+✖ live verified email removal invalidates account authentication (28.164871ms)
+✔ production cannot enable insecure development cookies or an HTTP issuer (55.163593ms)
+✔ tampered ID token signature is rejected by established OIDC verification (74.167284ms)
+✔ self-declared AI preview can revoke its own session (42.867432ms)
+✖ delegated agents cannot export their owner identity profiles (20.225484ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 14
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1008.57664
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:42:1
+✖ real code and PKCE establishes verified identity with encrypted tokens and bounded session (52.126139ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async login (file:///workspace/purl/test/launch/identity.test.js:39:85)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:42:140)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }
+
+test at test/launch/identity.test.js:44:1
+✖ state cookie binding and one-use callbacks reject replay (45.734663ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:44:302)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }
+
+test at test/launch/identity.test.js:45:1
+✖ explicit consent, stable subjects, unique rename and product isolation (45.311098ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async login (file:///workspace/purl/test/launch/identity.test.js:39:85)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:45:114)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }
+
+test at test/launch/identity.test.js:46:1
+✖ origin and CSRF guard mutations, owner and provider revocation invalidate agents (33.357077ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async login (file:///workspace/purl/test/launch/identity.test.js:39:85)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:46:124)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }
+
+test at test/launch/identity.test.js:47:1
+✖ live provider revocation blocks sensitive changes and session reads (20.062985ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async login (file:///workspace/purl/test/launch/identity.test.js:39:85)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:47:111)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }
+
+test at test/launch/identity.test.js:51:1
+✖ flow, session and delegated credential expiry are enforced (24.297196ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async login (file:///workspace/purl/test/launch/identity.test.js:39:85)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:51:155)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }
+
+test at test/launch/identity.test.js:52:1
+✖ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (39.608053ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async login (file:///workspace/purl/test/launch/identity.test.js:39:85)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:52:147)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }
+
+test at test/launch/identity.test.js:54:1
+✖ product consent removal and account deletion revoke sessions and erase owned data (47.584357ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async login (file:///workspace/purl/test/launch/identity.test.js:39:85)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:54:125)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }
+
+test at test/launch/identity.test.js:55:1
+✖ CGIT first login has separate consent and later PURLs login keeps stable identity (72.647747ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async login (file:///workspace/purl/test/launch/identity.test.js:39:85)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:55:132)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }
+
+test at test/launch/identity.test.js:58:1
+✖ live verified email removal invalidates account authentication (28.164871ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async login (file:///workspace/purl/test/launch/identity.test.js:39:85)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:58:106)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }
+
+test at test/launch/identity.test.js:71:1
+✖ delegated agents cannot export their owner identity profiles (20.225484ms)
+  Error: Provider login could not establish a verified identity
+      at failure (file:///workspace/purl/service/launch/identity.js:7:54)
+      at IdentityService.handle (file:///workspace/purl/service/launch/identity.js:323:15)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async login (file:///workspace/purl/test/launch/identity.test.js:39:85)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:72:33)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    status: 401,
+    code: 'invalid_identity'
+  }

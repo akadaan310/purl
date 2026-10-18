@@ -1,0 +1,34 @@
+✔ hosted unavailable without operator key; metadata GET is pure (1.989343ms)
+✔ encrypted BYOK, redacted listing, real HTTP usage reconciliation and idempotent billing (20.758114ms)
+✔ private scopes, explicit selected context, revocation and fixed provider prevent leakage (1.99362ms)
+✔ concurrent same idempotency key executes one request and quota reservations prevent overspend (27.552956ms)
+✔ timeout and missing usage hold conservative reservation and never repeat ambiguous requests (4.139269ms)
+✔ known rejected request refunds reservation and persists bounded owner-private chat thread (5.150005ms)
+✔ provider request enforces published token price ceiling and denies provider data collection (3.244637ms)
+✔ simultaneous different calls cannot exceed daily reserved budget (21.449531ms)
+✔ real HTTP timeout retains reservation and restarting gateway cannot execute that request again (12.431861ms)
+✖ revocation committed during preparation prevents a later reservation or provider call (4.323735ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 226.967072
+
+✖ failing tests:
+
+test at test/launch/models.test.js:97:1
+✖ revocation committed during preparation prevents a later reservation or provider call (4.323735ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/models.test.js:100:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

@@ -1,0 +1,75 @@
+✔ launch discovery, catalog, native manifests and health are self-describing pure reads (53.760284ms)
+✔ browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous (21.138605ms)
+✔ native queued program persists execution through a freshly constructed application (34.408868ms)
+✔ HTTP rejects credential URLs, malformed payloads and arbitrary file paths (15.576272ms)
+✖ HTTP rejects JSON values incompatible with durable storage before domain writes (7.368722ms)
+✔ CGIT is independently usable in its own unverified bounded preview (19.657944ms)
+✔ fresh SDK reconstructs a URL-only mission and compiles, runs, publishes and checkpoints its own fork (105.007949ms)
+✖ SDK refuses cross-origin reconstruction and redirect following before leaking cookies (1.852359ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 232.730486
+
+✖ failing tests:
+
+test at test/launch/http.test.js:59:1
+✖ HTTP rejects JSON values incompatible with durable storage before domain writes (7.368722ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'invalid_input'
+  - 'storage_json'
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/http.test.js:62:105)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'invalid_input',
+    expected: 'storage_json',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/launch/sdk.test.js:23:1
+✖ SDK refuses cross-origin reconstruction and redirect following before leaking cookies (1.852359ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Cross-origin/. Input:
+  
+  'AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n' +
+    '+ actual - expected\n' +
+    '\n' +
+    '+ undefined\n' +
+    "- 'manual'\n"
+  
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/sdk.test.js:25:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - 'manual'
+    
+        at PurlLaunchClient.fetch (file:///workspace/purl/test/launch/sdk.test.js:24:113)
+        at PurlLaunchClient.request (file:///workspace/purl/sdk/launch.js:7:22)
+        at PurlLaunchClient.reconstruct (file:///workspace/purl/sdk/launch.js:19:52)
+        at TestContext.<anonymous> (file:///workspace/purl/test/launch/sdk.test.js:25:27)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+        at Test.postRun (node:internal/test_runner/test:1522:19)
+        at Test.run (node:internal/test_runner/test:1447:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:104:5),
+    expected: /Cross-origin/,
+    operator: 'rejects',
+    diff: 'simple'
+  }

@@ -3,10 +3,31 @@
   "version": "0.2.0",
   "description": "PURL — Programmable URL Protocol: addressable, stateful, self-describing resources with an experimental substrate for studying state transitions.",
   "type": "module",
-  "exports": { ".": "./sdk/client.js", "./compiler": "./service/compiler.js" },
+  "exports": {
+    ".": "./sdk/client.js",
+    "./launch": "./sdk/launch.js",
+    "./compiler": "./service/compiler.js"
+  },
   "types": "./sdk/client.d.ts",
-  "bin": { "purl": "./sdk/cli.js" },
-  "files": ["sdk", "service", "src", "schemas", "web", "README.md", "SDK.md", "LANGUAGE_SPEC.md", "FORMAL_SEMANTICS.md", "reference/godseed/GODSEED.md", "reference/godseed/DEPLOYMENT_AMENDMENT.md", "deploy/runtime.json"],
+  "bin": {
+    "purl": "./sdk/cli.js"
+  },
+  "files": [
+    "sdk",
+    "service",
+    "src",
+    "schemas",
+    "web",
+    "README.md",
+    "SDK.md",
+    "LANGUAGE_SPEC.md",
+    "FORMAL_SEMANTICS.md",
+    "reference/godseed/GODSEED.md",
+    "reference/godseed/DEPLOYMENT_AMENDMENT.md",
+    "reference/consumer-launch",
+    "deploy/consumer-mission.seed.json",
+    "deploy/runtime.json"
+  ],
   "engines": {
     "node": ">=20"
   },
@@ -14,6 +35,11 @@
     "start": "node service/main.js",
     "start:legacy": "node src/transport/main.js",
     "worker": "node service/worker.js",
+    "start:purls": "PURL_PRODUCT=purls node service/launch/main.js",
+    "start:cgit": "PURL_PRODUCT=cgit node service/launch/main.js",
+    "worker:launch": "node service/launch/worker-main.js",
+    "test:launch": "node --test test/launch/*.test.js",
+    "test:launch:ui": "playwright test --config=playwright.launch.config.js",
     "test:product": "node --test test/product/*.test.js",
     "test:ui": "playwright test",
     "experiments:godseed": "node scripts/godseed-experiments.js",
@@ -26,5 +52,9 @@
   "devDependencies": {
     "@axe-core/playwright": "4.11.1",
     "@playwright/test": "1.64.1"
+  },
+  "dependencies": {
+    "@babel/parser": "7.29.9",
+    "openid-client": "6.8.8"
   }
 }

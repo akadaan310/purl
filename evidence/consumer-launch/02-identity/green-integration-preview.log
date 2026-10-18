@@ -1,0 +1,40 @@
+✔ missing provider fails closed with actionable config and pure recovery (2.788333ms)
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (91.560387ms)
+✔ rejects nonce provider identity (56.393501ms)
+✔ rejects aud provider identity (63.675595ms)
+✔ rejects issuer provider identity (51.313339ms)
+✔ rejects expired provider identity (48.047219ms)
+✔ rejects unverified provider identity (19.836739ms)
+✔ state cookie binding and one-use callbacks reject replay (32.645955ms)
+✔ explicit consent, stable subjects, unique rename and product isolation (124.793563ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (93.935912ms)
+✔ live provider revocation blocks sensitive changes and session reads (48.542653ms)
+✔ guest labels cannot claim verified human or issue delegated agents (23.19673ms)
+✔ disabled provider reports unavailable without fake sign-in (14.99816ms)
+✔ wrong PKCE code and missing flow cookie fail closed (40.128941ms)
+✔ flow, session and delegated credential expiry are enforced (60.977868ms)
+✔ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (43.83419ms)
+✔ product consent removal and account deletion revoke sessions and erase owned data (66.579772ms)
+✔ CGIT first login has separate consent and later PURLs login keeps stable identity (106.154155ms)
+✔ self-declared AI preview is an unverified agent with bounded permissions (26.25697ms)
+✔ session issuance and login flows are bounded by per-source rate limits (122.584949ms)
+✔ live verified email removal invalidates account authentication (52.35988ms)
+✔ production cannot enable insecure development cookies or an HTTP issuer (23.094756ms)
+✔ tampered ID token signature is rejected by established OIDC verification (26.265133ms)
+✔ self-declared AI preview can revoke its own session (34.406867ms)
+✔ delegated agents cannot export their owner identity profiles (51.663174ms)
+✔ guest preview scopes match the chosen product and preserve unverified authority (67.418805ms)
+✔ guest CGIT activation requires explicit consent and cannot claim a handle (15.674064ms)
+✔ integration authority revalidates credential, persisted consent and exact requested scopes (53.130435ms)
+✔ guest integrations require persisted activation and agents never gain undelegated scopes (37.880348ms)
+✔ CGIT guest repositories remain isolated and enforce the actual repository quota (26.746545ms)
+✔ an unrelated Authorization header cannot disable cookie CSRF checks (12.484428ms)
+✔ a delegated CGIT read credential can integrate without acquiring write authority (30.491202ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1633.082196

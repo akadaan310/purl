@@ -1,0 +1,79 @@
+✔ missing provider fails closed with actionable config and pure recovery (2.872138ms)
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (110.773521ms)
+✔ rejects nonce provider identity (38.833797ms)
+✔ rejects aud provider identity (48.71073ms)
+✔ rejects issuer provider identity (30.851433ms)
+✔ rejects expired provider identity (24.193598ms)
+✔ rejects unverified provider identity (20.231966ms)
+✔ state cookie binding and one-use callbacks reject replay (38.750421ms)
+✔ explicit consent, stable subjects, unique rename and product isolation (48.546133ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (53.259673ms)
+✔ live provider revocation blocks sensitive changes and session reads (92.728272ms)
+✔ guest labels cannot claim verified human or issue delegated agents (44.127065ms)
+✔ disabled provider reports unavailable without fake sign-in (37.65601ms)
+✔ wrong PKCE code and missing flow cookie fail closed (71.220142ms)
+✔ flow, session and delegated credential expiry are enforced (31.104763ms)
+✔ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (64.645431ms)
+✔ product consent removal and account deletion revoke sessions and erase owned data (103.613743ms)
+✔ CGIT first login has separate consent and later PURLs login keeps stable identity (27.159115ms)
+✔ self-declared AI preview is an unverified agent with bounded permissions (31.242921ms)
+✔ session issuance and login flows are bounded by per-source rate limits (59.063638ms)
+✖ live verified email removal invalidates account authentication (25.300998ms)
+✔ production cannot enable insecure development cookies or an HTTP issuer (9.549604ms)
+✔ tampered ID token signature is rejected by established OIDC verification (45.040345ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 22
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1119.500065
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:69:1
+✖ live verified email removal invalidates account authentication (25.300998ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   credentialId: 'a4092b5d0ff9626dfe3f421ba05d5ce16c26f6f25580c727fd4e3cf723ca6d84',
+  +   expiresAt: '2026-10-18T17:42:56.638Z',
+  +   handle: null,
+  +   id: 'id_d19c8238bee499db14231a66e3d49536888c8b9f39945acaf222b568be8181f1',
+  +   kind: 'human',
+  +   product: 'purls',
+  +   products: [
+  +     'purls'
+  +   ],
+  +   scopes: [
+  +     'resources:read',
+  +     'resources:write',
+  +     'memory:read',
+  +     'memory:write',
+  +     'memory:share',
+  +     'memory:publish',
+  +     'catalog:run',
+  +     'models:read',
+  +     'models:write',
+  +     'chat:write',
+  +     'constellations:read',
+  +     'constellations:write',
+  +     'agents:create'
+  +   ],
+  +   verified: true
+  + }
+  - null
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:69:219)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { id: 'id_d19c8238bee499db14231a66e3d49536888c8b9f39945acaf222b568be8181f1', kind: 'human', verified: true, product: 'purls', scopes: [ 'resources:read', 'resources:write', 'memory:read', 'memory:write', 'memory:share', 'memory:publish', 'catalog:run', 'models:read', 'models:write', 'chat:write', 'constellations:read', 'constellations:write', 'agents:create' ], credentialId: 'a4092b5d0ff9626dfe3f421ba05d5ce16c26f6f25580c727fd4e3cf723ca6d84', expiresAt: '2026-10-18T17:42:56.638Z', products: [ 'purls' ], handle: null },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

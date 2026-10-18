@@ -1,0 +1,95 @@
+
+Running 26 tests using 1 worker
+
+(node:59319) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › test/launch/provider-ui.spec.js:35:1 › disabled provider shows precise blockers with no fictitious login (474ms)
+  ✓   2 [desktop] › test/launch/provider-ui.spec.js:36:1 › password is cleared and sign-in never implicitly reviews or approves (158ms)
+  ✘   3 [desktop] › test/launch/provider-ui.spec.js:37:1 › verified user explicitly reviews client scopes then approves exact product callback (5.1s)
+(node:59449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [desktop] › test/launch/provider-ui.spec.js:38:1 › denial is explicit and returns only a validated product callback (225ms)
+  ✓   5 [desktop] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://evil.test/auth/callback?code=x (196ms)
+  ✓   6 [desktop] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://purls.test/not-a-callback (225ms)
+  ✓   7 [desktop] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://person@purls.test/auth/callback (228ms)
+  ✓   8 [desktop] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://purls.test/auth/callback#access_token=fixture (188ms)
+  ✓   9 [desktop] › test/launch/provider-ui.spec.js:40:1 › signup requires provider email verification and recovery makes no verification claim (282ms)
+  ✓  10 [desktop] › test/launch/provider-ui.spec.js:41:1 › email redirect readiness gates signup and recovery (77ms)
+  ✓  11 [desktop] › test/launch/provider-ui.spec.js:42:1 › fragment tokens are discarded and never establish a session (70ms)
+  ✓  12 [desktop] › test/launch/provider-ui.spec.js:43:1 › autoapproved grant fails visibly and never follows an implicit redirect (140ms)
+  ✓  13 [desktop] › test/launch/provider-ui.spec.js:44:1 › missing authorization ID preserves account access without inventing a client (72ms)
+(node:59635) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  14 [mobile] › test/launch/provider-ui.spec.js:35:1 › disabled provider shows precise blockers with no fictitious login (567ms)
+  ✓  15 [mobile] › test/launch/provider-ui.spec.js:36:1 › password is cleared and sign-in never implicitly reviews or approves (166ms)
+  ✘  16 [mobile] › test/launch/provider-ui.spec.js:37:1 › verified user explicitly reviews client scopes then approves exact product callback (5.2s)
+(node:59774) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [mobile] › test/launch/provider-ui.spec.js:38:1 › denial is explicit and returns only a validated product callback (226ms)
+  ✓  18 [mobile] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://evil.test/auth/callback?code=x (175ms)
+  ✓  19 [mobile] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://purls.test/not-a-callback (181ms)
+  ✓  20 [mobile] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://person@purls.test/auth/callback (214ms)
+  ✓  21 [mobile] › test/launch/provider-ui.spec.js:39:200 › unsafe callback is rejected: https://purls.test/auth/callback#access_token=fixture (173ms)
+  ✓  22 [mobile] › test/launch/provider-ui.spec.js:40:1 › signup requires provider email verification and recovery makes no verification claim (259ms)
+  ✓  23 [mobile] › test/launch/provider-ui.spec.js:41:1 › email redirect readiness gates signup and recovery (81ms)
+  ✓  24 [mobile] › test/launch/provider-ui.spec.js:42:1 › fragment tokens are discarded and never establish a session (67ms)
+  ✓  25 [mobile] › test/launch/provider-ui.spec.js:43:1 › autoapproved grant fails visibly and never follows an implicit redirect (131ms)
+  ✓  26 [mobile] › test/launch/provider-ui.spec.js:44:1 › missing authorization ID preserves account access without inventing a client (58ms)
+
+
+  1) [desktop] › test/launch/provider-ui.spec.js:37:1 › verified user explicitly reviews client scopes then approves exact product callback 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Verified by your identity provider', { exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Verified by your identity provider', { exact: true }) with timeout 5000ms
+      - waiting for getByText('Verified by your identity provider', { exact: true })
+
+
+      31 |  });return {requests,errors,redirects};
+      32 | }
+    > 33 | async function signIn(page){await page.getByLabel('Email address',{exact:true}).fill('reader@example.test');await page.getByLabel('Password',{exact:true}).fill('test-only-not-a-credential');await page.getByRole('button',{name:'Sign in securely',exact:true}).click();await expect(page.getByText('Verified by your identity provider',{exact:true})).toBeVisible()}
+         |                                                                                                                                                                                                                                                                                                                                                           ^
+      34 | async function check(page,name){expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(axe.violations).toEqual([]);await page.screenshot({path:`evidence/consumer-launch/02b-ui/${name}-${test.info().project.name}.png`,fullPage:true})}
+      35 | test('disabled provider shows precise blockers with no fictitious login',async({page})=>{const f=await fixture(page,{available:false,emailRedirect:false});await page.goto(`${origin}/oauth/consent?authorization_id=fixture-auth`);await expect(page.getByText('Supabase OAuth server is disabled.',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Sign in securely'})).toBeDisabled();expect(f.requests.filter(r=>r.method==='POST')).toEqual([]);await check(page,'provider-unavailable');expect(f.errors).toEqual([])});
+      36 | test('password is cleared and sign-in never implicitly reviews or approves',async({page})=>{let release;const gate=new Promise(r=>release=r);const f=await fixture(page,{signinGate:gate});await page.goto(`${origin}/oauth/consent?authorization_id=fixture-auth`);await page.getByLabel('Email address',{exact:true}).fill('reader@example.test');await page.getByLabel('Password',{exact:true}).fill('test-only-not-a-credential');await page.getByRole('button',{name:'Sign in securely'}).click();await expect(page.getByLabel('Password',{exact:true})).toHaveValue('');release();await expect(page.getByRole('button',{name:'Review request',exact:true})).toBeVisible();expect(f.requests.filter(r=>r.path.endsWith('/authorization')||r.path.endsWith('/consent'))).toEqual([]);expect(f.requests.find(r=>r.path.endsWith('/signin')).csrf).toBe('fixture-bootstrap-csrf');expect(await page.evaluate(()=>({local:localStorage.length,session:sessionStorage.length}))).toEqual({local:0,session:0});expect(f.errors).toEqual([])});
+        at signIn (/workspace/purl/test/launch/provider-ui.spec.js:33:347)
+        at /workspace/purl/test/launch/provider-ui.spec.js:37:209
+
+    Error Context: evidence/consumer-launch/02b-ui/browser-output/provider-ui-verified-user--bce4a-oves-exact-product-callback-desktop/error-context.md
+
+  2) [mobile] › test/launch/provider-ui.spec.js:37:1 › verified user explicitly reviews client scopes then approves exact product callback 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Verified by your identity provider', { exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Verified by your identity provider', { exact: true }) with timeout 5000ms
+      - waiting for getByText('Verified by your identity provider', { exact: true })
+
+
+      31 |  });return {requests,errors,redirects};
+      32 | }
+    > 33 | async function signIn(page){await page.getByLabel('Email address',{exact:true}).fill('reader@example.test');await page.getByLabel('Password',{exact:true}).fill('test-only-not-a-credential');await page.getByRole('button',{name:'Sign in securely',exact:true}).click();await expect(page.getByText('Verified by your identity provider',{exact:true})).toBeVisible()}
+         |                                                                                                                                                                                                                                                                                                                                                           ^
+      34 | async function check(page,name){expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(axe.violations).toEqual([]);await page.screenshot({path:`evidence/consumer-launch/02b-ui/${name}-${test.info().project.name}.png`,fullPage:true})}
+      35 | test('disabled provider shows precise blockers with no fictitious login',async({page})=>{const f=await fixture(page,{available:false,emailRedirect:false});await page.goto(`${origin}/oauth/consent?authorization_id=fixture-auth`);await expect(page.getByText('Supabase OAuth server is disabled.',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Sign in securely'})).toBeDisabled();expect(f.requests.filter(r=>r.method==='POST')).toEqual([]);await check(page,'provider-unavailable');expect(f.errors).toEqual([])});
+      36 | test('password is cleared and sign-in never implicitly reviews or approves',async({page})=>{let release;const gate=new Promise(r=>release=r);const f=await fixture(page,{signinGate:gate});await page.goto(`${origin}/oauth/consent?authorization_id=fixture-auth`);await page.getByLabel('Email address',{exact:true}).fill('reader@example.test');await page.getByLabel('Password',{exact:true}).fill('test-only-not-a-credential');await page.getByRole('button',{name:'Sign in securely'}).click();await expect(page.getByLabel('Password',{exact:true})).toHaveValue('');release();await expect(page.getByRole('button',{name:'Review request',exact:true})).toBeVisible();expect(f.requests.filter(r=>r.path.endsWith('/authorization')||r.path.endsWith('/consent'))).toEqual([]);expect(f.requests.find(r=>r.path.endsWith('/signin')).csrf).toBe('fixture-bootstrap-csrf');expect(await page.evaluate(()=>({local:localStorage.length,session:sessionStorage.length}))).toEqual({local:0,session:0});expect(f.errors).toEqual([])});
+        at signIn (/workspace/purl/test/launch/provider-ui.spec.js:33:347)
+        at /workspace/purl/test/launch/provider-ui.spec.js:37:209
+
+    Error Context: evidence/consumer-launch/02b-ui/browser-output/provider-ui-verified-user--bce4a-oves-exact-product-callback-mobile/error-context.md
+
+  2 failed
+    [desktop] › test/launch/provider-ui.spec.js:37:1 › verified user explicitly reviews client scopes then approves exact product callback 
+    [mobile] › test/launch/provider-ui.spec.js:37:1 › verified user explicitly reviews client scopes then approves exact product callback 
+  24 passed (16.5s)

@@ -1,0 +1,85 @@
+--- a/service/launch/provider-consent.js
++++ b/service/launch/provider-consent.js
+@@ -117,6 +117,9 @@
+     if ((await this.identity.identity(owner))?.deleted) fail(403,'account_deleted','This account has been deleted');
+     return {id:user.id,email:user.email,email_verified:true};
+   }
++  assertSessionExpiry(record) {
++    if (!Number.isFinite(Date.parse(record.expiresAt)) || Date.parse(record.expiresAt) <= this.now()) fail(401,'provider_session_expired','Provider session expired or was revoked');
++  }
+   async loadSession(body, context, {live=true,write=true}={}) {
+     if (write) this.origin(context);
+     const cookieValues = (header(context,'cookie') || '').split(';').map(x=>x.trim()).filter(x=>x.startsWith(COOKIE+'='));
+@@ -132,6 +135,7 @@
+       if (!equal(submitted,tokens.csrf)) fail(403,'csrf_required','A bound provider CSRF token is required');
+     }
+     const user = live ? await this.verifiedUser(tokens.access_token,row.value.subject) : null;
++    this.assertSessionExpiry(row.value);
+     return {hash,row,tokens,user};
+   }
+   async entry(body, context) {
+@@ -198,7 +202,7 @@
+       // Local invalidation is durable even while the provider is down.
+       await this.store.erase(scope(session.hash));
+       let revoked = false;
+-      try { await this.remote('POST','/logout?scope=local',{},session.tokens.access_token);revoked=true; } catch {}
++      try { this.assertSessionExpiry(session.row.value);await this.remote('POST','/logout?scope=local',{},session.tokens.access_token);revoked=true; } catch {}
+       return this.response(200,{logged_out:true,provider_revoked:revoked},{'set-cookie':this.cookie('',0)});
+     }
+     if (method === 'GET' && route === '/me') {
+@@ -216,7 +220,9 @@
+       }
+       // Despite its GET verb, Supabase associates the user here and may reuse consent.
+       // This operation is reachable only from this CSRF-protected explicit POST.
++      this.assertSessionExpiry(session.row.value);
+       const details = await this.remote('GET','/oauth/authorizations/'+encodeURIComponent(id),undefined,session.tokens.access_token);
++      this.assertSessionExpiry(session.row.value);
+       const review = this.validateDetails(details,id,session);
+       await this.store.commit(scope(session.hash),[{key:'record',expectedVersion:session.row.version,value:{...session.row.value,review}}]);
+       return this.response(200,review);
+@@ -229,6 +235,7 @@
+       if (!review || review.authorization_id !== id || Date.parse(review.review_expires_at) <= this.now()) fail(409,'authorization_review_required','Review this authorization again before deciding');
+       // Consume the exact staged review with CAS before the provider operation.
+       await this.store.commit(scope(session.hash),[{key:'record',expectedVersion:session.row.version,value:{...session.row.value,review:null}}]);
++      this.assertSessionExpiry(session.row.value);
+       const result = await this.remote('POST','/oauth/authorizations/'+encodeURIComponent(id)+'/consent',{action:body.approve ? 'approve' : 'deny'},session.tokens.access_token);
+       return this.response(200,{redirect_url:this.validateRedirect(result.redirect_url,review,body.approve)});
+     }
+--- a/test/launch/provider-consent.test.js
++++ b/test/launch/provider-consent.test.js
+@@ -246,3 +246,35 @@
+   const {result} = await f.signin();
+   assert.ok(Date.parse(result.body.expires_at) <= f.getTokenExpiry()*1000);
+ });
++
++for (const route of ['/authorization','/consent']) {
++  test(`slow live verification crossing session expiry prevents ${route} mutation`, async t => {
++    const f = await fixture(t), {result,context} = await f.signin();f.authorization();
++    let now = Date.parse(result.body.expires_at)-5000;f.identity.clock = () => now;
++    if (route === '/consent') await f.call('POST','/authorization',{authorization_id:'request-one'},context);
++    const snapshot = await f.store.snapshot(), before = f.requests.length;
++    const fetcher = f.service.fetch;
++    f.service.fetch = async (url,options) => {
++      const response = await fetcher(url,options);
++      if (new URL(url).pathname === '/auth/v1/user') now+=6000;
++      return response;
++    };
++    await assert.rejects(f.call('POST',route,{authorization_id:'request-one',approve:true},context),rejected(401,'provider_session_expired'));
++    assert.deepEqual(f.requests.slice(before).map(request=>request.url),['/auth/v1/user']);
++    assert.deepEqual(await f.store.snapshot(),snapshot);
++  });
++}
++
++test('consent CAS crossing session expiry cannot dispatch an upstream decision', async t => {
++  const f = await fixture(t), {result,context} = await f.signin();f.authorization();
++  let now = Date.parse(result.body.expires_at)-5000;f.identity.clock = () => now;
++  await f.call('POST','/authorization',{authorization_id:'request-one'},context);
++  const commit = f.store.commit.bind(f.store);
++  f.store.commit = async (...args) => {
++    const result = await commit(...args);
++    if (args[1].some(change=>change.key === 'record' && change.value?.review === null)) now+=6000;
++    return result;
++  };
++  await assert.rejects(f.call('POST','/consent',{authorization_id:'request-one',approve:true},context),rejected(401,'provider_session_expired'));
++  assert.equal(f.requests.some(request=>request.url.endsWith('/consent')),false);
++});

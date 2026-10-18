@@ -1,0 +1,20 @@
+✔ launch discovery, catalog, native manifests and health are self-describing pure reads (44.540058ms)
+✔ browser cookie mutation needs exact Origin and session CSRF; explicit bad bearer never becomes anonymous (20.553089ms)
+✔ native queued program persists execution through a freshly constructed application (31.464365ms)
+✔ HTTP rejects credential URLs, malformed payloads and arbitrary file paths (14.410246ms)
+✔ CGIT is independently usable in its own unverified bounded preview (15.610235ms)
+✔ native resource lifecycle compiles actual PURL, tests, queues, persists artifacts, publishes and replays (31.545247ms)
+✔ private IDs and child artifacts do not cross tenants; public reading never grants mutation (12.444286ms)
+✔ resource commands reject stale versions and bind retries before producing new jobs (14.828142ms)
+✔ revoked credentials cancel queued work and a fresh service instance recovers persisted jobs (16.629734ms)
+✔ GET discovery, continuity, history and replay are pure; tampered snapshots fail verification (1.3661ms)
+✔ native mission contains documents and dependency evidence, executes and survives fresh-principal fork (11.744292ms)
+✔ missing worker authority and authored code fail closed (10.299359ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 199.8109

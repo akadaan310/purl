@@ -1,0 +1,417 @@
+{
+  "observedAt": "2026-10-18T16:42:54.282Z",
+  "operation": "Read-only GET public GitHub indexing; no execution or upstream writes",
+  "source": {
+    "url": "https://github.com/sindresorhus/is-plain-obj",
+    "owner": "sindresorhus",
+    "repository": "is-plain-obj",
+    "commitSha": "666df7c10035f7e26f27ec214fe5ae3173435f34",
+    "license": "MIT",
+    "attribution": "sindresorhus/is-plain-obj at 666df7c10035f7e26f27ec214fe5ae3173435f34",
+    "licenseNotice": "Source remains under its upstream license; unknown license grants no reuse permission"
+  },
+  "limits": {
+    "tree": 1000,
+    "indexedFiles": 40,
+    "totalSourceBytes": 2097152,
+    "fileBytes": 204800,
+    "selectedFiles": 5,
+    "sourceBytes": 3811
+  },
+  "benchmark": {
+    "method": "UTF-8 bytes / 4 estimate; not tokenizer-measured",
+    "rawSelectedEstimatedTokens": 953,
+    "navigationEstimatedTokens": 1061,
+    "taskSuccess": "NOT_MEASURED; syntax navigation only",
+    "compressionClaim": false
+  },
+  "tasks": [
+    {
+      "name": "Find default-exported function",
+      "truth": "isPlainObject",
+      "rawSuccess": true,
+      "navigationSuccess": true
+    },
+    {
+      "name": "Find index.js",
+      "truth": "index.js",
+      "rawSuccess": true,
+      "navigationSuccess": true
+    },
+    {
+      "name": "Count static imports of index.js",
+      "truth": 0,
+      "rawSuccess": true,
+      "navigationSuccess": true
+    }
+  ],
+  "taskCorpusLimit": "Three simple lookup tasks on one small public repository; no general task-success or compression claim",
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/sindresorhus/is-plain-obj"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/sindresorhus/is-plain-obj/commits/HEAD"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/sindresorhus/is-plain-obj/git/trees/666df7c10035f7e26f27ec214fe5ae3173435f34?recursive=1"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/sindresorhus/is-plain-obj/666df7c10035f7e26f27ec214fe5ae3173435f34/benchmark.js"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/sindresorhus/is-plain-obj/666df7c10035f7e26f27ec214fe5ae3173435f34/index.d.ts"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/sindresorhus/is-plain-obj/666df7c10035f7e26f27ec214fe5ae3173435f34/index.js"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/sindresorhus/is-plain-obj/666df7c10035f7e26f27ec214fe5ae3173435f34/index.test-d.ts"
+    },
+    {
+      "method": "GET",
+      "url": "https://raw.githubusercontent.com/sindresorhus/is-plain-obj/666df7c10035f7e26f27ec214fe5ae3173435f34/test.js"
+    }
+  ],
+  "index": {
+    "version": "cgit-structural/1",
+    "parser": "@babel/parser@7.29.9",
+    "files": [
+      {
+        "path": ".editorconfig",
+        "status": "inventory-only",
+        "language": "editorconfig",
+        "contentHash": null,
+        "bytes": 175
+      },
+      {
+        "path": ".gitattributes",
+        "status": "inventory-only",
+        "language": "gitattributes",
+        "contentHash": null,
+        "bytes": 19
+      },
+      {
+        "path": ".github/security.md",
+        "status": "inventory-only",
+        "language": "md",
+        "contentHash": null,
+        "bytes": 180
+      },
+      {
+        "path": ".github/workflows/main.yml",
+        "status": "inventory-only",
+        "language": "yml",
+        "contentHash": null,
+        "bytes": 421
+      },
+      {
+        "path": ".gitignore",
+        "status": "inventory-only",
+        "language": "gitignore",
+        "contentHash": null,
+        "bytes": 23
+      },
+      {
+        "path": ".npmrc",
+        "status": "inventory-only",
+        "language": "npmrc",
+        "contentHash": null,
+        "bytes": 19
+      },
+      {
+        "path": "benchmark.js",
+        "status": "indexed",
+        "language": "js",
+        "contentHash": "9068f7dc16c727af534f60d1ef2e9ce5538a03664b40b1e7466ee3e2b44d5bb6",
+        "bytes": 1141,
+        "symbols": [
+          {
+            "name": "runBenchmarks",
+            "kind": "VariableDeclarator",
+            "line": 5,
+            "column": 6,
+            "endLine": 13
+          },
+          {
+            "name": "value",
+            "kind": "VariableDeclarator",
+            "line": 6,
+            "column": 12,
+            "endLine": 6
+          },
+          {
+            "name": "name",
+            "kind": "VariableDeclarator",
+            "line": 7,
+            "column": 8,
+            "endLine": 7
+          },
+          {
+            "name": "paddedName",
+            "kind": "VariableDeclarator",
+            "line": 8,
+            "column": 8,
+            "endLine": 8
+          },
+          {
+            "name": "runLoop",
+            "kind": "VariableDeclarator",
+            "line": 15,
+            "column": 6,
+            "endLine": 19
+          },
+          {
+            "name": "index",
+            "kind": "VariableDeclarator",
+            "line": 16,
+            "column": 10,
+            "endLine": 16
+          },
+          {
+            "name": "values",
+            "kind": "VariableDeclarator",
+            "line": 21,
+            "column": 6,
+            "endLine": 50
+          }
+        ],
+        "imports": [
+          {
+            "source": "node:util",
+            "line": 1,
+            "names": [
+              {
+                "imported": "inspect",
+                "local": "inspect"
+              }
+            ]
+          },
+          {
+            "source": "node:vm",
+            "line": 2,
+            "names": [
+              {
+                "imported": "runInNewContext",
+                "local": "runInNewContext"
+              }
+            ]
+          },
+          {
+            "source": "is-plain-obj",
+            "line": 3,
+            "names": [
+              {
+                "imported": "default",
+                "local": "isPlainObject"
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          "external:is-plain-obj",
+          "external:node:util",
+          "external:node:vm"
+        ],
+        "ast": {
+          "nodes": 167,
+          "sourceType": "module"
+        },
+        "truncated": false
+      },
+      {
+        "path": "index.d.ts",
+        "status": "indexed",
+        "language": "ts",
+        "contentHash": "07dd810c936f5e4428e1012fa0e8c92ecb4de6fa9966159742f7185245b17f9e",
+        "bytes": 673,
+        "symbols": [],
+        "imports": [],
+        "dependencies": [],
+        "ast": {
+          "nodes": 22,
+          "sourceType": "module"
+        },
+        "truncated": false
+      },
+      {
+        "path": "index.js",
+        "status": "indexed",
+        "language": "js",
+        "contentHash": "957e14eb5863048b3eb7a97c7cedcf62cbca2bb94745198982d8e278f7b2f89d",
+        "bytes": 344,
+        "symbols": [
+          {
+            "name": "isPlainObject",
+            "kind": "FunctionDeclaration",
+            "line": 1,
+            "column": 15,
+            "endLine": 8
+          },
+          {
+            "name": "prototype",
+            "kind": "VariableDeclarator",
+            "line": 6,
+            "column": 7,
+            "endLine": 6
+          }
+        ],
+        "imports": [],
+        "dependencies": [],
+        "ast": {
+          "nodes": 59,
+          "sourceType": "module"
+        },
+        "truncated": false
+      },
+      {
+        "path": "index.test-d.ts",
+        "status": "indexed",
+        "language": "ts",
+        "contentHash": "dc5790b967f420eacf5ccba819eb556e229e1120cfabbb4153726783d0fbacad",
+        "bytes": 332,
+        "symbols": [
+          {
+            "name": "foo",
+            "kind": "VariableDeclarator",
+            "line": 4,
+            "column": 6,
+            "endLine": 4
+          }
+        ],
+        "imports": [
+          {
+            "source": "tsd",
+            "line": 1,
+            "names": [
+              {
+                "imported": "expectAssignable",
+                "local": "expectAssignable"
+              }
+            ]
+          },
+          {
+            "source": "./index.js",
+            "line": 2,
+            "names": [
+              {
+                "imported": "default",
+                "local": "isPlainObject"
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          "external:tsd",
+          "index.js"
+        ],
+        "ast": {
+          "nodes": 62,
+          "sourceType": "module"
+        },
+        "truncated": false
+      },
+      {
+        "path": "license",
+        "status": "inventory-only",
+        "language": "license",
+        "contentHash": null,
+        "bytes": 1117
+      },
+      {
+        "path": "package.json",
+        "status": "inventory-only",
+        "language": "json",
+        "contentHash": null,
+        "bytes": 758
+      },
+      {
+        "path": "readme.md",
+        "status": "inventory-only",
+        "language": "md",
+        "contentHash": null,
+        "bytes": 794
+      },
+      {
+        "path": "test.js",
+        "status": "indexed",
+        "language": "js",
+        "contentHash": "c41e83e4fdafd670a5d38ccb3a899dc404493829120990c563735ff7e8f508df",
+        "bytes": 1321,
+        "symbols": [
+          {
+            "name": "Foo",
+            "kind": "FunctionDeclaration",
+            "line": 5,
+            "column": 0,
+            "endLine": 7
+          },
+          {
+            "name": "ObjectConstructor",
+            "kind": "FunctionDeclaration",
+            "line": 9,
+            "column": 0,
+            "endLine": 9
+          },
+          {
+            "name": "foo",
+            "kind": "VariableDeclarator",
+            "line": 43,
+            "column": 7,
+            "endLine": 43
+          }
+        ],
+        "imports": [
+          {
+            "source": "node:vm",
+            "line": 1,
+            "names": [
+              {
+                "imported": "runInNewContext",
+                "local": "runInNewContext"
+              }
+            ]
+          },
+          {
+            "source": "ava",
+            "line": 2,
+            "names": [
+              {
+                "imported": "default",
+                "local": "test"
+              }
+            ]
+          },
+          {
+            "source": "./index.js",
+            "line": 3,
+            "names": [
+              {
+                "imported": "default",
+                "local": "isPlainObject"
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          "external:ava",
+          "external:node:vm",
+          "index.js"
+        ],
+        "ast": {
+          "nodes": 289,
+          "sourceType": "module"
+        },
+        "truncated": false
+      }
+    ],
+    "claims": "Deterministic syntax navigation; no execution or semantic-equivalence claim"
+  }
+}

@@ -1,0 +1,13 @@
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (59.849631ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (82.427487ms)
+✔ agent scopes attenuate, worker lookup binds audience, and raw credentials are returned only at creation (32.874351ms)
+✔ full legacy identity index partitions cannot deny new issuance for either product (2802.445354ms)
+✔ bounded expiry compaction preserves live credentials and replay defenses (47.999656ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3088.395045

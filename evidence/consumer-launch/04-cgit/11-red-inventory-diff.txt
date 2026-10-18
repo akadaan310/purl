@@ -1,0 +1,38 @@
+✔ Babel handles TS/JSX, symbols, import aliases and local dependency resolution (9.289683ms)
+✔ URL allowlist denies credentials, ports, query, traversal and encoded components (0.498828ms)
+✔ public GitHub reads pin immutable SHA and preserve attribution and bounded index (15.104683ms)
+✔ GitHub fetch rejects redirect, oversized files, rate limit and tree traversal (3.983394ms)
+✔ navigation grammar retains destructured symbols, CommonJS/dynamic imports and source hash provenance (10.375781ms)
+✔ CGIT saved lens survives service restart, denies other tenants and bounds actor indexing rate (9.14181ms)
+✖ inventory-only structural diff reports upstream Git blob hashes without pretending AST analysis (0.649404ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 102.639964
+
+✖ failing tests:
+
+test at test/launch/github-lens.test.js:50:1
+✖ inventory-only structural diff reports upstream Git blob hashes without pretending AST analysis (0.649404ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/github-lens.test.js:52:49)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

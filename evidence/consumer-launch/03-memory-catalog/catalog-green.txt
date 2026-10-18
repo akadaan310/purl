@@ -1,0 +1,12 @@
+✔ every working experience has a unique typed executable graph and real expected sample (56.289838ms)
+✔ required titles exist and unavailable inference never fabricates AI output (6.310725ms)
+✔ authorization, typed validation and bounded input are enforced before executing (2.697746ms)
+✔ independent operation boundaries: CSV quotes, numeric math, graph cycles, dates and JSON pointer (0.56653ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 113.819841

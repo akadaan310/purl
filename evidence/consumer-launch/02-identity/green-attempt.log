@@ -1,0 +1,45 @@
+✔ missing provider fails closed with actionable config and pure recovery (2.98035ms)
+✔ real code and PKCE establishes verified identity with encrypted tokens and bounded session (86.725341ms)
+✔ rejects nonce provider identity (44.626725ms)
+✔ rejects aud provider identity (52.593083ms)
+✔ rejects issuer provider identity (30.08951ms)
+✔ rejects expired provider identity (21.857073ms)
+✔ rejects unverified provider identity (34.600156ms)
+✔ state cookie binding and one-use callbacks reject replay (89.803363ms)
+✖ explicit consent, stable subjects, unique rename and product isolation (66.030708ms)
+✔ origin and CSRF guard mutations, owner and provider revocation invalidate agents (47.452103ms)
+✔ live provider revocation blocks sensitive changes and session reads (43.506163ms)
+✔ guest labels cannot claim verified human or issue delegated agents (80.403005ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 656.934172
+
+✖ failing tests:
+
+test at test/launch/identity.test.js:55:1
+✖ explicit consent, stable subjects, unique rename and product isolation (66.030708ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'cgit',
+      'purls',
+  -   'cgit'
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/purl/test/launch/identity.test.js:55:288)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'cgit', 'purls' ],
+    expected: [ 'purls', 'cgit' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

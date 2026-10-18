@@ -1,0 +1,41 @@
+✔ store exports the required adapters (0.54696ms)
+✔ memory: atomic competing CAS, isolation, immutable reads and tombstone versions (4.904957ms)
+✔ memory: payload-bound retry and global handle reservation are atomic and erase releases all aliases (1.540751ms)
+✔ file: atomic competing CAS, isolation, immutable reads and tombstone versions (15.667109ms)
+✔ file: payload-bound retry and global handle reservation are atomic and erase releases all aliases (18.475571ms)
+✔ lists and global status scans are bounded, exclude tombstones and remain pure (0.645649ms)
+✔ rejects malformed or unbounded data before mutating and enforces tenant quota (98.38058ms)
+✔ development file reads never create files and production factory fails closed (7.791527ms)
+✖ dictionary-shaped identifiers cannot resolve inherited prototype members (0.292158ms)
+✖ strict JSON validation rejects accessors, symbol properties, unsupported Unicode and overflowing versions (0.668483ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 190.337911
+
+✖ failing tests:
+
+test at test/launch/store.test.js:88:1
+✖ dictionary-shaped identifiers cannot resolve inherited prototype members (0.292158ms)
+  TypeError: Cannot read properties of undefined (reading 'valueOf')
+      at MemoryLaunchStore.read (file:///workspace/purl/service/launch/store.js:80:124)
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:90:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at test/launch/store.test.js:95:1
+✖ strict JSON validation rejects accessors, symbol properties, unsupported Unicode and overflowing versions (0.668483ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///workspace/purl/test/launch/store.test.js:99:61)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
