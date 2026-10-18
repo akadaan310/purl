@@ -1,0 +1,311 @@
+{
+  "schema": "purl-acceptance/1",
+  "recorded_at": "2026-10-18T14:33:10.653820+00:00",
+  "overall_status": "BLOCKED",
+  "scope": "Working locally verified implementation; complete public production mission remains blocked by external service access and unverified production operations",
+  "implementation_revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
+  "original_purl_revision": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+  "public_deployment": {
+    "status": "BLOCKED",
+    "railway_url": null,
+    "allocated_railway_url": "https://purl-api-production.up.railway.app",
+    "reason": "Railway project/services/domain configured; Supabase migration applied. Awaiting server-only SUPABASE_SERVICE_ROLE_KEY in shared Railway variables before deployment. Allocated domain is not a verified working URL.",
+    "railway_project_id": "7b6d6969-ebfe-4823-ac60-6370fb068458",
+    "supabase_project_id": "frxufmwwbegconolevkw",
+    "backend_placement": "Isolated additive PURL resources in existing healthy Supabase project after free quota refused new project/ACSP restore",
+    "oracle": "Deferred by Railway-first amendment; no target credentials"
+  },
+  "features": [
+    {
+      "id": "F01",
+      "name": "Public service and cinematic interface",
+      "status": "BLOCKED",
+      "local_status": "PASS",
+      "evidence": "All local routes and responsive capsules work; public Railway deployment is unavailable."
+    },
+    {
+      "id": "F02",
+      "name": "Accounts, principals and authority",
+      "status": "BLOCKED",
+      "local_status": "PASS",
+      "evidence": "Guests, self-declared agents, grants and verified-provider exchange are implemented/tested; hosted Supabase Auth sign-in is not exercised."
+    },
+    {
+      "id": "F03",
+      "name": "Typed PURL language and compiler",
+      "status": "PASS",
+      "local_status": "PASS",
+      "evidence": "Versioned JSON AST/DSL, composition, branch, bounded repetition, static effects/rights, diagnostics and checked execution."
+    },
+    {
+      "id": "F04",
+      "name": "AI-native IDE",
+      "status": "PASS",
+      "local_status": "PASS",
+      "evidence": "Live editor, graph, schemas/tests, compile/build/run, artifacts, logs, history/diff, fork/publish/checkpoint, grants/proposals and discovery."
+    },
+    {
+      "id": "F05",
+      "name": "AI self-extension and reuse",
+      "status": "PASS",
+      "local_status": "PASS",
+      "evidence": "PURL/JS/erasable TypeScript/Python build/run/publish/reuse through actual isolated execution; fresh AI reused JS in21checks. Shared promotion requires configured curator authority."
+    },
+    {
+      "id": "F06",
+      "name": "Nano/micro performer library",
+      "status": "PASS",
+      "local_status": "PASS",
+      "evidence": "71 descriptors:68 pure and3 explicitly unavailable effect adapters. Exact versions, types, effects and provenance are discoverable; no package-count inflation."
+    },
+    {
+      "id": "F07",
+      "name": "Transition-to-program compiler",
+      "status": "PASS",
+      "local_status": "PASS",
+      "evidence": "Known pure trace replay and complete finite quotient admission; successor/definedness/effect counterexamples reject. General sampled-trace induction is rejected."
+    },
+    {
+      "id": "F08",
+      "name": "Authoritative persistent backend",
+      "status": "BLOCKED",
+      "local_status": "PASS",
+      "evidence": "Real PostgreSQL17.7/PostgREST13.0.4 CAS/RLS/migrations pass. Hosted Supabase Storage/Auth, backup and restore remain unavailable."
+    },
+    {
+      "id": "F09",
+      "name": "Computational worker placement",
+      "status": "BLOCKED",
+      "local_status": "PASS",
+      "evidence": "Separate restricted non-root API/worker images, restart/lease recovery and x64 Node22/24 portability pass. Railway/Oracle/ARM require provider targets."
+    },
+    {
+      "id": "F10",
+      "name": "Real examples and executable God-seed",
+      "status": "PASS",
+      "local_status": "PASS",
+      "evidence": "Math, diagnostic, game, workspace and52-node/65-edge full directive/amendment mission; inspector computes ready state; published fork/checkpoint and exported session."
+    },
+    {
+      "id": "F11",
+      "name": "Fresh-session continuation",
+      "status": "PASS",
+      "local_status": "PASS",
+      "evidence": "Actual fresh same-provider AI HTTP discovery/proposal and independent AI fork/build/run/checkpoint/reuse; cross-provider controlled trial NOT_RUN."
+    },
+    {
+      "id": "F12",
+      "name": "Observability and reproducibility",
+      "status": "PASS",
+      "local_status": "PASS",
+      "evidence": "Persisted job states/logs/traces/environments/artifacts, replay/tamper checks, build hashes, polling observatory and measured browser evidence."
+    }
+  ],
+  "experiments": [
+    {
+      "id": "E01",
+      "status": "PASS",
+      "execution_scope": "LOCAL_VERIFIED",
+      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "limitations": "Hash equality is encoding equality; no semantic equivalence or authenticity claim",
+      "hypothesis": "Separate address/derivation/value/run identities are stable and distinct"
+    },
+    {
+      "id": "E02",
+      "status": "PASS",
+      "execution_scope": "LOCAL_VERIFIED",
+      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "limitations": "Bounded contract corpus, not universal type-system soundness or intelligence benchmark",
+      "hypothesis": "Typed composition/effects normalize and execute deterministically"
+    },
+    {
+      "id": "E03",
+      "status": "PASS",
+      "execution_scope": "LOCAL_VERIFIED",
+      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "limitations": "Static SEURL repository and later executable FSM are separate evidence. Contextual mapping is not protocol equivalence; external TALK does not acquire authority.",
+      "hypothesis": "Seven SEURL labels require contextual, loss-aware mappings"
+    },
+    {
+      "id": "E04",
+      "status": "PASS",
+      "execution_scope": "LOCAL_VERIFIED",
+      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "limitations": "Completeness of the submitted finite universe is a caller/model assertion. No induction from sampled traces or general-program congruence proof.",
+      "hypothesis": "Projection compilation requires congruent enabledness/effects/successors"
+    },
+    {
+      "id": "E05",
+      "status": "PASS",
+      "execution_scope": "LOCAL_VERIFIED",
+      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "limitations": [
+        "Fresh reuse is an independent HTTP client and Node process, not a cross-provider AI study",
+        "Registry promotion beyond personal/public releases requires separate authority; no fake package-count claim"
+      ],
+      "hypothesis": "An AI-authored program can be built/tested/published and reused via URL"
+    },
+    {
+      "id": "E06",
+      "status": "PASS",
+      "execution_scope": "LOCAL_VERIFIED",
+      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "limitations": "These attacks do not certify kernel security, unrestricted dependency installs or multi-tenant safety. Authored runtime remains disabled in default public configuration.",
+      "hypothesis": "Execution and authority boundaries fail closed"
+    },
+    {
+      "id": "E07",
+      "status": "PASS",
+      "execution_scope": "LOCAL_VERIFIED",
+      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "limitations": [
+        "Client sessions are programmatic, not three independent AI providers",
+        "No claim of transferred private memory or model identity"
+      ],
+      "hypothesis": "Three isolated clients reconstruct and continue persisted checkpoint state lawfully"
+    },
+    {
+      "id": "E08",
+      "status": "PASS",
+      "execution_scope": "LOCAL_VERIFIED",
+      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "limitations": null,
+      "hypothesis": "Concurrent tic-tac-toe validates turns and survives restart"
+    },
+    {
+      "id": "E09",
+      "status": "PASS",
+      "execution_scope": "LOCAL_VERIFIED",
+      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "limitations": [
+        "Feature structure comparison only; no randomized token/cost/success advantage measured",
+        "Mission artifact integrity is checked; requirement truth still requires independent review",
+        "Fresh same-provider AI reconstruction is recorded separately when available"
+      ],
+      "hypothesis": "God-seed PURL exposes typed mission graph and reconstructible cursor"
+    },
+    {
+      "id": "E10",
+      "status": "PASS",
+      "execution_scope": "LOCAL_VERIFIED",
+      "evidence": "evidence/experiments/runs/2026-10-18T14-32-25.207Z/results.json",
+      "limitations": [
+        "Hosted Supabase Storage/Auth integration and public Railway deployment cannot be exercised without configured service access."
+      ],
+      "hypothesis": "Cold product/container/UI rebuild preserves persistence and core flows"
+    }
+  ],
+  "checks": {
+    "host_node24": {
+      "status": "PASS",
+      "tests": 187,
+      "failed": 0,
+      "evidence": "evidence/final-tests.txt"
+    },
+    "container_node22": {
+      "status": "PASS",
+      "tests": 187,
+      "failed": 0,
+      "evidence": "evidence/infrastructure/node22-tests.txt"
+    },
+    "original_math": {
+      "status": "PASS",
+      "tests": 17,
+      "failed": 0,
+      "evidence": "evidence/research/rerun-evidence.json"
+    },
+    "browser": {
+      "status": "PASS",
+      "tests": 12,
+      "failed": 0,
+      "axe_routes": 12,
+      "serious_or_critical_violations": 0,
+      "evidence": "evidence/ui/latest.json"
+    },
+    "sandbox": {
+      "status": "PASS",
+      "checks": 10,
+      "failed": 0,
+      "evidence": "evidence/sandbox/latest.json"
+    },
+    "cold_checkout": {
+      "status": "PASS",
+      "revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
+      "tests": 187,
+      "evidence": "evidence/cold-rebuild/latest.json"
+    },
+    "postgres_and_rest": {
+      "status": "PASS",
+      "evidence": "deploy/verification/results.json"
+    },
+    "sdk_package": {
+      "status": "PASS",
+      "evidence": "evidence/sdk-package.json"
+    },
+    "scoped_security_review": {
+      "status": "PASS",
+      "findings": "R1\u2013R6",
+      "evidence": "evidence/code-review-followup.md"
+    },
+    "fresh_AI_reuse": {
+      "status": "PASS",
+      "checks": 21,
+      "evidence": "evidence/fresh-reuse/report.json"
+    },
+    "local_docker_compose": {
+      "status": "PASS",
+      "evidence": "evidence/infrastructure/local-compose.json",
+      "scope": "Loopback API, distinct worker, named-volume persistence, arbitrary-code execution disabled"
+    },
+    "development_pid_reuse": {
+      "status": "PASS",
+      "evidence": "evidence/infrastructure/pid-reuse/report.json"
+    },
+    "published_checkpoint_after_restart": {
+      "status": "PASS",
+      "evidence": "evidence/infrastructure/live-restart.json"
+    },
+    "hosted_migration_security": {
+      "status": "PASS",
+      "evidence": "evidence/deployment/provisioning.json",
+      "scope": "Applied migration; real table/RPC denial and private bucket readback. Runtime REST/Storage pending credential."
+    },
+    "snapshot_restore": {
+      "status": "PASS",
+      "checks": 30,
+      "failed": 0,
+      "evidence": "evidence/infrastructure/snapshot-restore/report.json"
+    }
+  },
+  "runtime_image": "sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401",
+  "remaining_not_run": [
+    "Hosted Supabase Storage persistence and backup/restore drill",
+    "Real provider email sign-in in a dedicated Supabase Auth project",
+    "Public Railway deployment/smoke/restart",
+    "Oracle host inventory and ARM execution",
+    "Cross-provider blinded comparison and token/cost advantage",
+    "External signature/transparency anchoring against a malicious full-history rewrite"
+  ],
+  "execution_restrictions": [
+    "Public unrestricted code execution disabled by default",
+    "Authored JS/TS/Python require explicit restricted Docker configuration",
+    "TypeScript erasable syntax only; no semantic tsc analysis or dependency installs",
+    "Julia and Octave unavailable",
+    "Mission evidence remains unverified claims until requirement truth is independently reviewed"
+  ],
+  "preservation": {
+    "original_repositories_unchanged": true,
+    "live_acsp_mutations": false,
+    "failed_runs_preserved": true,
+    "git_branch": "codex/godseed-v3",
+    "worktree": "/workspace/purl",
+    "hosted_mutations": "Created Railway targets and additive isolated PURL backend resources; no existing application rows/ACSP data modified"
+  },
+  "local_demo": {
+    "base_url": "http://127.0.0.1:8080",
+    "publicly_hosted": false,
+    "persistence": "Local development file, exported in examples/live-session.snapshot.json"
+  },
+  "implementation_frozen_since_verification": true,
+  "delivery_source_note": "Product source/test/config remains at the verified implementation revision; later commits add evidence, exported examples and delivery reports."
+}

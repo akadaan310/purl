@@ -4,8 +4,8 @@
   "image": "Dockerfile",
   "runtime": { "node": ">=20", "uid": 1000, "stop_signal": "SIGTERM", "stop_grace_seconds": 45 },
   "roles": {
-    "api": { "command": ["node", "service/main.js"], "port_env": "PORT", "health_path": "/healthz", "railway_config": "railway.toml" },
-    "worker": { "command": ["node", "service/worker.js"], "health_command": ["node", "deploy/healthcheck.js"], "railway_config": "deploy/railway-worker.toml" }
+    "api": { "command": ["node", "service/main.js"], "port_env": "PORT", "health_path": "/healthz", "railway_service_map": "deploy/railway-services.json#/services/api" },
+    "worker": { "command": ["node", "service/worker.js"], "health_command": ["node", "deploy/healthcheck.js"], "railway_service_map": "deploy/railway-services.json#/services/worker" }
   },
   "production_persistence": "supabase",
   "required_secrets": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"],

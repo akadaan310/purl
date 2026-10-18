@@ -1,0 +1,57 @@
+{
+  "schema": "purl.pid-reuse-verification/1",
+  "status": "PASS",
+  "execution_class": "DISPOSABLE_LOCAL_CONTAINER",
+  "source_base_revision": "85b9ee2bf8f428eafeee0eaed1c4cb8dc680134a",
+  "source_state": "Uncommitted changes to service/repository.js and test/product/repository.test.js during the recorded run",
+  "evidence_capture_clock_utc": "2026-10-18T14:30:41Z",
+  "timestamps": {
+    "original_reproduction_script_mtime_utc": "2026-10-18T14:27:59.203203708Z",
+    "original_full_test_log_mtime_utc": "2026-10-18T14:28:02.197889125Z",
+    "smoke_exact_start_utc": null,
+    "smoke_exact_end_utc": null,
+    "qualification": "The original harness did not emit wall-clock start/end timestamps. The script timestamp and evidence capture timestamp bound the original run; exact times have not been invented. Process start markers below are Linux clock ticks since boot, not UTC timestamps."
+  },
+  "commands": {
+    "working_directory": "/workspace/purl",
+    "original_smoke": "sh /tmp/purl-pid-reuse-smoke.sh",
+    "retained_reproduction": "sh evidence/infrastructure/pid-reuse/reproduce.sh",
+    "original_full_tests": "npm test > /tmp/purl-pid-reuse-full-tests.log 2>&1",
+    "qualification": "reproduce.sh is a byte-for-byte copy of the original script and contains the exact Docker commands, mounts, assertions and cleanup. It mounts the current repository source when rerun; this evidence capture did not rerun it or any tests."
+  },
+  "container": {
+    "image": "node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b",
+    "uid": 1000,
+    "pid": 1,
+    "hostname": "purl-pid-reuse",
+    "network": "none",
+    "root_filesystem": "read-only",
+    "capabilities": "ALL dropped",
+    "privilege_escalation": "no-new-privileges:true",
+    "repository_module": "Read-only bind mount of /workspace/purl/service/repository.js",
+    "state": "Disposable /tmp/purl-pid-reuse-* directory; removed by cleanup trap",
+    "interruption": "docker kill --signal KILL followed by docker start of the same container"
+  },
+  "observed": {
+    "smoke_exit_code": 0,
+    "owner_pid_before_and_after": 1,
+    "owner_start_time_before": "298182",
+    "owner_start_time_after": "298216",
+    "recovered_revision": 2,
+    "recovered_audit": ["committed before restart", "recovered after PID1 restart"],
+    "full_test_count": 187,
+    "full_tests_pass": 187,
+    "full_tests_fail": 0
+  },
+  "files": {
+    "reproduce.sh": "Original reproduction script copied without modification from /tmp; its source timestamp is retained",
+    "smoke.stdout.jsonl": "Exact original successful stdout reconstructed from the tool transcript; no new smoke run",
+    "full-tests.log": "Raw available npm test output copied without modification from /tmp; its source timestamp is retained"
+  },
+  "limits": [
+    "This verifies local development FileRepository recovery, not production Supabase durability.",
+    "The smoke used a stable hostname. The foreign-host guard remains in force.",
+    "Hosted Supabase Storage, Railway deployment, Oracle migration and hosted backup restore blockers are unchanged.",
+    "No live .purl state, product files, prior evidence or commits were changed while saving this evidence."
+  ]
+}

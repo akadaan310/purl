@@ -1,9 +1,9 @@
 # Deployment
 
-This repository supplies portable deployment configuration. No Railway service,
-Oracle instance, hosted Supabase project, or public production URL was created by
-this implementation. Local HTTP and container checks do not establish a public
-deployment or hosted durability.
+This repository supplies portable deployment configuration. A Railway project
+and separate API/worker services have been configured through the authenticated
+Railway MCP. The allocated API domain is not yet verified live. Local HTTP and
+container checks do not establish a public deployment or hosted durability.
 
 ## Run locally
 
@@ -77,19 +77,46 @@ at `/tmp/purl-worker-heartbeat.json` (default maximum age 120 seconds).
 
 ## Railway first
 
-Create two services from this repository and use the same release revision:
+Railway's current [Infrastructure as Code documentation](https://docs.railway.com/infrastructure-as-code#iac-vs-config-as-code)
+states: “Config as Code (`railway.json` / `railway.toml`) is deprecated.
+Infrastructure as Code is the replacement.” The live MCP also rejected the
+deprecated `railwayConfigFile` setting during setup. Both earlier TOML files are
+preserved unchanged under `deploy/reference/*.legacy.toml`; no active root
+Railway config file remains to override the worker's start command on attach.
 
-1. API: root `railway.toml`, start command `node service/main.js`, `PURL_ROLE=api`,
-   generated HTTPS domain, health route `/healthz`. The image binds `0.0.0.0` and
-   honors Railway's `PORT`.
-2. Worker: configuration file `deploy/railway-worker.toml`, command
-   `node service/worker.js`, `PURL_ROLE=worker`, no public domain. Railway does not
-   provide a worker HTTP health route; monitor heartbeat, logs, queue age and
-   execution failures in addition to process restarts.
-3. Set the shared production values above, set both canonical base URLs to the
-   API's HTTPS domain, and deploy. Verify the discovery manifest and `/healthz`,
-   enqueue a pure job through the SDK/API, and verify its result survives API and
-   worker restarts before claiming hosted durability.
+The current services were configured directly with MCP `update_service`, without
+a config-file path. [deploy/railway-services.json](deploy/railway-services.json)
+records the portable field map and actual project/environment/service IDs. It is
+a descriptive service map, not native Railway IaC or an automatically applied
+configuration file. No `railway config plan/apply` has been tested for this map.
+
+| Setting | API | Worker |
+| --- | --- | --- |
+| Dockerfile path | `Dockerfile` | `Dockerfile` |
+| Start command | `node service/main.js` | `node service/worker.js` |
+| HTTP health check | `/healthz`, timeout 120 seconds | No HTTP health route |
+| Restart policy | `ON_FAILURE`, 3 retries | `ON_FAILURE`, 3 retries |
+| Sleep application | `false` | `false` |
+| Runtime role variable | `PURL_ROLE=api` | `PURL_ROLE=worker` |
+
+Project: `7b6d6969-ebfe-4823-ac60-6370fb068458`; environment:
+`eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2`. The API service is
+`5ed93f79-e12c-4cb6-a835-b3158e8da5af`; worker service is
+`063e5f3b-9953-44d2-b479-84dab49bb7f1`. The allocated domain
+`https://purl-api-production.up.railway.app` is not yet verified live.
+
+Attach both services to `akadaan310/purl`, branch `codex/godseed-v3`, using the
+same release revision and the distinct commands above. Set shared production
+secrets and role variables separately; the field map contains no secret values.
+The image binds `0.0.0.0` and honors Railway's `PORT`. Monitor worker heartbeat,
+logs, queue age and execution failures in addition to process restarts.
+
+After deploying, observe Railway's terminal `SUCCESS`, verify the public discovery
+manifest and `/healthz`, enqueue a pure job, and verify its result survives API
+and worker restarts before claiming hosted durability. To adopt native Railway
+IaC later, import the actual project with `railway config pull`, review the
+generated `.railway/railway.ts`, and inspect `railway config plan` before applying.
+That migration has not been performed by this implementation.
 
 Do not copy local `.purl` state into production as a second database. Supabase is
 the sole production authority. A successful local image build is separate

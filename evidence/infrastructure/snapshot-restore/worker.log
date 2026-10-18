@@ -1,0 +1,3 @@
+{"event":"worker_ready","workerId":"snapshot-restore-worker","persistence":"development-file","sandbox":false,"leaseMs":30000}
+{"event":"job_observed","workerId":"snapshot-restore-worker","execution_id":"execution_fc618d661360aa73db2f8675","status":"succeeded"}
+{"event":"worker_drained","workerId":"snapshot-restore-worker"}

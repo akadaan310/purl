@@ -2,7 +2,7 @@
 
 A working local language, API, worker, SDK and browser IDE extending the original PURL/0.1 continuity implementation. PURL is pronounced **pearl**. Programs have discoverable operations, explicit authority, immutable builds, execution receipts, artifacts and continuation checkpoints.
 
-**Deployment status:** local development and Docker verified. No public Railway URL was deployed. Production requires a dedicated Supabase project and Railway access; production startup refuses filesystem persistence. See [ACCEPTANCE.json](ACCEPTANCE.json) for exact feature and experiment status, including remaining gaps.
+**Deployment status:** local development and Docker verified. Railway targets and domain are provisioned; isolated hosted Supabase resources are migrated. Live startup awaits the server credential in Railway. The allocated domain is not yet a verified working URL; production startup refuses filesystem persistence. See [ACCEPTANCE.json](ACCEPTANCE.json) for exact feature and experiment status, including remaining gaps.
 
 ## Run
 

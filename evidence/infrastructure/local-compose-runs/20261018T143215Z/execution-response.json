@@ -1,0 +1,237 @@
+{
+  "execution": {
+    "id": "execution_fd1a209d49c8585511288e11",
+    "program_id": "program_9ccc3984b677bce10d8b1aa3",
+    "program_version": 2,
+    "source_revision": 1,
+    "build_id": "build_85d9db4015c76a348c4b9608",
+    "build_content_id": "sha256:fd78706c326c25f098d90aea75f06dbdacdc433e6a2a94dac7a0ffcd6ce58c91",
+    "requested_by": "principal_b7220cd31873686415b99f6d",
+    "authorization": {
+      "via": "owner",
+      "grant": null,
+      "rights": [
+        "read",
+        "edit",
+        "build",
+        "run",
+        "publish",
+        "checkpoint",
+        "propose",
+        "grant",
+        "play"
+      ]
+    },
+    "input": 4,
+    "input_id": "sha256:4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+    "seed": 0,
+    "environment": {
+      "runtime": "purl-bounded-interpreter",
+      "runtime_version": "1",
+      "ir_version": "purl-ir/1",
+      "architecture": "x64",
+      "node": "22.14.0",
+      "network": false,
+      "external_effects": false,
+      "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd"
+    },
+    "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+    "status": "succeeded",
+    "created_at": "2026-10-18T14:24:22.158Z",
+    "started_at": "2026-10-18T14:24:22.260Z",
+    "completed_at": "2026-10-18T14:24:22.282Z",
+    "attempts": 1,
+    "lease": null,
+    "logs": [
+      {
+        "at": "2026-10-18T14:24:22.158Z",
+        "level": "info",
+        "message": "Execution durably queued"
+      },
+      {
+        "at": "2026-10-18T14:24:22.260Z",
+        "level": "info",
+        "message": "Worker claimed execution attempt 1"
+      },
+      {
+        "at": "2026-10-18T14:24:22.282Z",
+        "level": "info",
+        "message": "Result and immutable artifact committed durably"
+      }
+    ],
+    "artifacts": [
+      "artifact_94ee95ef6364b81e93b9665a"
+    ],
+    "dependencies": [],
+    "effects": [],
+    "nondeterminism": [],
+    "value": 18,
+    "error": null,
+    "receipt": {
+      "schema": "purl.execution-receipt/1",
+      "execution_id": "execution_fd1a209d49c8585511288e11",
+      "build_id": "build_85d9db4015c76a348c4b9608",
+      "build_content_id": "sha256:fd78706c326c25f098d90aea75f06dbdacdc433e6a2a94dac7a0ffcd6ce58c91",
+      "input_id": "sha256:4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+      "seed": 0,
+      "environment_id": "sha256:bc742a70a66615a5411ef83855f237864171b62d41642b93b6fe0f55e243a8bd",
+      "runtime_environment_id": "sha256:05c667183246d0b1b61c40fda6a1c270f16a5393a32b8ef1da0c1576451b813c",
+      "dependencies": [],
+      "deterministic": true,
+      "nondeterminism": [],
+      "effects": [],
+      "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+      "artifact_content_id": "sha256:eab0de80cab5aa25b0d9e8485de7db9a85091f5dac729bcf4db2859fd9ad7b12",
+      "completed_at": "2026-10-18T14:24:22.282Z",
+      "content_id": "sha256:b09d284c544c9801c58db790c9742db140faffcef7cf749c19ba7339d81edb1a"
+    },
+    "claim_authorization": {
+      "via": "owner",
+      "grant": null,
+      "rights": [
+        "read",
+        "edit",
+        "build",
+        "run",
+        "publish",
+        "checkpoint",
+        "propose",
+        "grant",
+        "play"
+      ]
+    },
+    "completion_authorization": {
+      "via": "owner",
+      "grant": null,
+      "rights": [
+        "read",
+        "edit",
+        "build",
+        "run",
+        "publish",
+        "checkpoint",
+        "propose",
+        "grant",
+        "play"
+      ]
+    },
+    "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+    "trace": {
+      "protocol": "purl-replay/1",
+      "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+      "environment": {
+        "interpreter": "purl-ir/1",
+        "runtime": "node",
+        "runtime_version": "v22.14.0",
+        "architecture": "x64",
+        "platform": "linux",
+        "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+        "limits": {
+          "sourceBytes": 65536,
+          "valueBytes": 1048576,
+          "workBytes": 16777216,
+          "arrayLength": 10000,
+          "depth": 32,
+          "nodes": 512,
+          "steps": 10000,
+          "repeat": 1000,
+          "graphNodes": 1000,
+          "graphEdges": 10000
+        },
+        "dependencies": [
+          {
+            "name": "math.add",
+            "version": "1.0.0",
+            "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af"
+          },
+          {
+            "name": "math.multiply",
+            "version": "1.0.0",
+            "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3"
+          }
+        ]
+      },
+      "environment_id": "environment:6c5c1b748d5d8e07374329c4868415696990c60948f6e3beff506e0a55015b47",
+      "input": 4,
+      "seed": 0,
+      "operators": [
+        {
+          "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+          "name": "math.add",
+          "version": "1.0.0"
+        },
+        {
+          "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+          "name": "math.multiply",
+          "version": "1.0.0"
+        }
+      ],
+      "declared_effects": [],
+      "observed_effects": [],
+      "determinism": "deterministic",
+      "steps": [
+        {
+          "index": 0,
+          "path": "$.steps[0]",
+          "op": "math.add",
+          "version": "1.0.0",
+          "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af",
+          "args": {
+            "value": 2
+          },
+          "input_id": "value:60bafb9c2493d36269d585b43b19bc2f7c4af88e0d82bee60a965b1362a32a92",
+          "output_id": "value:f08d751de5d8ea3408bac4020a0c5a55a5baf986cac6102e27c1822b3bf4690a",
+          "effects": []
+        },
+        {
+          "index": 1,
+          "path": "$.steps[1]",
+          "op": "math.multiply",
+          "version": "1.0.0",
+          "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3",
+          "args": {
+            "value": 3
+          },
+          "input_id": "value:f08d751de5d8ea3408bac4020a0c5a55a5baf986cac6102e27c1822b3bf4690a",
+          "output_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+          "effects": []
+        }
+      ],
+      "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+      "receipt_id": "execution:0640ee12c60175b9b70bf46acd09e84aed7a3391d1cb97853837488175c04c61"
+    },
+    "runtime_environment": {
+      "interpreter": "purl-ir/1",
+      "runtime": "node",
+      "runtime_version": "v22.14.0",
+      "architecture": "x64",
+      "platform": "linux",
+      "registry_id": "content:1245a51179ee4bdd182d8beb6701892c69af31417b4c8e1d8824407f1022847c",
+      "limits": {
+        "sourceBytes": 65536,
+        "valueBytes": 1048576,
+        "workBytes": 16777216,
+        "arrayLength": 10000,
+        "depth": 32,
+        "nodes": 512,
+        "steps": 10000,
+        "repeat": 1000,
+        "graphNodes": 1000,
+        "graphEdges": 10000
+      },
+      "dependencies": [
+        {
+          "name": "math.add",
+          "version": "1.0.0",
+          "digest": "sha256:3ec88634ab449c5af61dfac6741f4f1746578d4fe52dac3e26e3c2772d5487af"
+        },
+        {
+          "name": "math.multiply",
+          "version": "1.0.0",
+          "digest": "sha256:e69df94aea602f6a9359e13086fd76f48049c889a2e0408557d90924c053a5a3"
+        }
+      ]
+    },
+    "runtime_environment_id": "sha256:05c667183246d0b1b61c40fda6a1c270f16a5393a32b8ef1da0c1576451b813c"
+  }
+}

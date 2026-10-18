@@ -1,0 +1,309 @@
+{
+  "schema": "purl.snapshot-restore/1",
+  "status": "PASS",
+  "started_at": "2026-10-18T14:36:35.227Z",
+  "execution_class": "LIVE_LOCAL_HTTP_SEPARATE_NODE_API_AND_WORKER",
+  "scope": "Disposable exported snapshot restore; no live state access; sandbox disabled",
+  "base_url": "http://127.0.0.1:18182",
+  "implementation_revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
+  "runtime": {
+    "node": "v24.19.0",
+    "architecture": "x64",
+    "platform": "linux"
+  },
+  "checks": [
+    {
+      "name": "frozen implementation revision",
+      "status": "PASS"
+    },
+    {
+      "name": "dedicated loopback port18182 is available",
+      "status": "PASS"
+    },
+    {
+      "name": "dogfood and handoff identify the same published mission",
+      "status": "PASS"
+    },
+    {
+      "name": "export strips all prior principal token hashes",
+      "status": "PASS",
+      "principals": 13
+    },
+    {
+      "name": "copied snapshot boots a separate API and worker",
+      "status": "PASS",
+      "persistence": "development-file",
+      "api_pid": 31930,
+      "worker_pid": 31931
+    },
+    {
+      "name": "sandbox remains explicitly unavailable",
+      "status": "PASS"
+    },
+    {
+      "name": "recorded public published mission is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "recorded immutable execution survives restore",
+      "status": "PASS"
+    },
+    {
+      "name": "recorded checkpoint survives restore",
+      "status": "PASS"
+    },
+    {
+      "name": "recorded immutable release is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "prior principal ID does not authenticate after hash stripping",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh agent session receives new credentials",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh agent cannot edit the prior published mission",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh agent can fork the public pure mission",
+      "status": "PASS"
+    },
+    {
+      "name": "fork preserves the full typed mission and clears grants",
+      "status": "PASS"
+    },
+    {
+      "name": "restored inspector builds and its declared tests pass",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh inspector execution is durably queued",
+      "status": "PASS"
+    },
+    {
+      "name": "separate sandbox-disabled worker completes pure inspector",
+      "status": "PASS",
+      "worker_status": "succeeded",
+      "error": null
+    },
+    {
+      "name": "restored mission inspector computes52 nodes and65 edges",
+      "status": "PASS",
+      "value": {
+        "total_nodes": 52,
+        "dependency_edges": 65,
+        "ready_nodes": [
+          "mission"
+        ],
+        "completed_nodes": [],
+        "waiting_nodes": [
+          "reconstruction",
+          "formal-contract",
+          "features",
+          "cinematic-design",
+          "experiments",
+          "infrastructure",
+          "work-plan",
+          "deliverables",
+          "execution",
+          "feature-1",
+          "feature-2",
+          "feature-3",
+          "feature-4",
+          "feature-5",
+          "feature-6",
+          "feature-7",
+          "feature-8",
+          "feature-9",
+          "feature-10",
+          "feature-11",
+          "feature-12",
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "E05",
+          "E06",
+          "E07",
+          "E08",
+          "E09",
+          "E10",
+          "artifact-readme",
+          "artifact-architecture",
+          "artifact-formal-semantics",
+          "artifact-language-spec",
+          "artifact-sdk",
+          "artifact-nomenclature",
+          "artifact-constitution",
+          "artifact-security",
+          "artifact-deployment",
+          "artifact-reconstruction",
+          "artifact-migrations",
+          "artifact-experiments",
+          "artifact-acceptance-json",
+          "artifact-program-graph-json",
+          "artifact-handoff-json",
+          "artifact-playwright-screenshots",
+          "artifact-example-purls",
+          "artifact-build-hashes",
+          "artifact-deployed-url",
+          "deployment-amendment"
+        ],
+        "completion": "NOT_RUN",
+        "verified": false,
+        "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth."
+      }
+    },
+    {
+      "name": "fresh immutable result artifact is accessible",
+      "status": "PASS"
+    },
+    {
+      "name": "fresh fork and execution replay verify",
+      "status": "PASS"
+    },
+    {
+      "name": "original program HTTP representation remains unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "original execution HTTP representation remains unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "original checkpoint HTTP representation remains unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "original release HTTP representation remains unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "prior stored published program is byte-equivalent canonically",
+      "status": "PASS"
+    },
+    {
+      "name": "prior stored execution is byte-equivalent canonically",
+      "status": "PASS"
+    },
+    {
+      "name": "prior stored release is byte-equivalent canonically",
+      "status": "PASS"
+    },
+    {
+      "name": "prior stored artifacts remain unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "exported snapshot itself remains unchanged",
+      "status": "PASS"
+    }
+  ],
+  "source": {
+    "snapshot": "examples/live-session.snapshot.json",
+    "snapshot_bytes": 4052602,
+    "snapshot_sha256": "sha256:1ea389889003a4a62ef0f300f4397bd8833fdcc5e331467edf5d50046d4724d5",
+    "snapshot_revision": 89,
+    "program_id": "program_3768603b09871a991eff0830",
+    "execution_id": "execution_1024b318162e58ee3234c308",
+    "checkpoint_id": "checkpoint_cd2a0f56be35e593b8f604ac",
+    "release_id": "release_1d654c25e5f632d24c383422",
+    "prior_program_hash": "sha256:7259dcbce028efb707f5c752f4322ac199363482023ea67a682c5bdf94858b67",
+    "prior_execution_hash": "sha256:fc7816cc1ab3bed089052c809c208f74f306ddef49b6009ba39e389fbe7585f4",
+    "prior_release_hash": "sha256:920c904c45a6f731fb047d5ab698bea9e86d1430a9eba30efa2e5205e2a2e591",
+    "prior_artifacts_hash": "sha256:6f9a74400f5a702d75e20c169e75007a01539ebc7cc862e774c8f4f7c1196f64"
+  },
+  "fresh_principal_id": "principal_7948a83e3e5facc3e8f77d7a",
+  "fresh": {
+    "program_id": "program_00749d598e75c5504da29ceb",
+    "program_visibility": "private",
+    "build_id": "build_1ac45f80fc48ce9c5bd98c70",
+    "execution_id": "execution_fc618d661360aa73db2f8675",
+    "artifact_ids": [
+      "artifact_ca953cc029e2222f74c7db0d"
+    ],
+    "value": {
+      "total_nodes": 52,
+      "dependency_edges": 65,
+      "ready_nodes": [
+        "mission"
+      ],
+      "completed_nodes": [],
+      "waiting_nodes": [
+        "reconstruction",
+        "formal-contract",
+        "features",
+        "cinematic-design",
+        "experiments",
+        "infrastructure",
+        "work-plan",
+        "deliverables",
+        "execution",
+        "feature-1",
+        "feature-2",
+        "feature-3",
+        "feature-4",
+        "feature-5",
+        "feature-6",
+        "feature-7",
+        "feature-8",
+        "feature-9",
+        "feature-10",
+        "feature-11",
+        "feature-12",
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "artifact-readme",
+        "artifact-architecture",
+        "artifact-formal-semantics",
+        "artifact-language-spec",
+        "artifact-sdk",
+        "artifact-nomenclature",
+        "artifact-constitution",
+        "artifact-security",
+        "artifact-deployment",
+        "artifact-reconstruction",
+        "artifact-migrations",
+        "artifact-experiments",
+        "artifact-acceptance-json",
+        "artifact-program-graph-json",
+        "artifact-handoff-json",
+        "artifact-playwright-screenshots",
+        "artifact-example-purls",
+        "artifact-build-hashes",
+        "artifact-deployed-url",
+        "deployment-amendment"
+      ],
+      "completion": "NOT_RUN",
+      "verified": false,
+      "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth."
+    },
+    "final_revision": 96
+  },
+  "disposable_state_removed": true,
+  "owned_processes_stopped": true,
+  "completed_at": "2026-10-18T14:36:36.426Z",
+  "summary": {
+    "checks": 30,
+    "passed": 30,
+    "failed": 0
+  },
+  "artifacts": {
+    "harness": "evidence/infrastructure/snapshot-restore/harness.mjs",
+    "raw_http": "evidence/infrastructure/snapshot-restore/raw-http.jsonl",
+    "api_log": "evidence/infrastructure/snapshot-restore/api.log",
+    "worker_log": "evidence/infrastructure/snapshot-restore/worker.log"
+  }
+}

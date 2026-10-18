@@ -1,0 +1,1 @@
+{"status":"PASS","checks":30,"passed":30,"failed":0,"report":"evidence/infrastructure/snapshot-restore/report.json","error":null,"owned_processes_stopped":true,"disposable_state_removed":true}

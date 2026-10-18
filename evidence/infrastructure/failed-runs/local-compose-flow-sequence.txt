@@ -1,0 +1,10 @@
+ Network purl-dev-verify_default  Creating
+ Network purl-dev-verify_default  Created
+ Volume purl-dev-verify_purl-development  Creating
+ Volume purl-dev-verify_purl-development  Created
+ Container purl-dev-verify-init-data-1  Creating
+ Container purl-dev-verify-init-data-1  Created
+ Container purl-dev-verify-api-1  Creating
+ Container purl-dev-verify-worker-1  Creating
+ Container purl-dev-verify-api-1  Error response from daemon: invalid mount path: 'size=64m' mount path must be absolute
+Error response from daemon: invalid mount path: 'size=64m' mount path must be absolute

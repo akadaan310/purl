@@ -1,0 +1,36 @@
+{
+  "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
+  "given_only_url": "http://127.0.0.1:18181/p/godseed-mission",
+  "previous_conversation_available": false,
+  "sdk_discovered": "http://127.0.0.1:18181/sdk/client.js",
+  "program_id": "godseed-mission",
+  "version": 1,
+  "kind": "mission",
+  "source": "input json | mission.inspect",
+  "tests": [],
+  "mission_nodes": 52,
+  "full_directive_characters": 10449,
+  "amendment_characters": 1251,
+  "ready_nodes": [
+    "mission"
+  ],
+  "checkpoint": null,
+  "permitted_operations": [
+    "inspect",
+    "history",
+    "continuity",
+    "replay",
+    "diff"
+  ],
+  "replay_valid": true,
+  "authority": {
+    "authenticated": false,
+    "principal_id": null,
+    "owner": false,
+    "rights": [
+      "read",
+      "run",
+      "propose"
+    ]
+  }
+}

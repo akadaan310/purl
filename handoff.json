@@ -1,0 +1,244 @@
+{
+  "schema": "purl-handoff/1",
+  "status": "LOCAL_VERIFIED_PUBLIC_DEPLOYMENT_BLOCKED",
+  "implementation_revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
+  "canonical_local_mission": "http://127.0.0.1:8080/p/godseed-mission",
+  "executed_published_mission": {
+    "program_url": "http://127.0.0.1:8080/p/program_3768603b09871a991eff0830",
+    "program_id": "program_3768603b09871a991eff0830",
+    "build_id": "build_c252c61ea2b8a862bd75957f",
+    "build_hash": "sha256:72ea90e634c45c68075d692e5f7150493e5ae313fa9e1e9701e03c6fb3e48fdd",
+    "execution_id": "execution_1024b318162e58ee3234c308",
+    "value": {
+      "total_nodes": 52,
+      "dependency_edges": 65,
+      "ready_nodes": [
+        "mission"
+      ],
+      "completed_nodes": [],
+      "waiting_nodes": [
+        "reconstruction",
+        "formal-contract",
+        "features",
+        "cinematic-design",
+        "experiments",
+        "infrastructure",
+        "work-plan",
+        "deliverables",
+        "execution",
+        "feature-1",
+        "feature-2",
+        "feature-3",
+        "feature-4",
+        "feature-5",
+        "feature-6",
+        "feature-7",
+        "feature-8",
+        "feature-9",
+        "feature-10",
+        "feature-11",
+        "feature-12",
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "artifact-readme",
+        "artifact-architecture",
+        "artifact-formal-semantics",
+        "artifact-language-spec",
+        "artifact-sdk",
+        "artifact-nomenclature",
+        "artifact-constitution",
+        "artifact-security",
+        "artifact-deployment",
+        "artifact-reconstruction",
+        "artifact-migrations",
+        "artifact-experiments",
+        "artifact-acceptance-json",
+        "artifact-program-graph-json",
+        "artifact-handoff-json",
+        "artifact-playwright-screenshots",
+        "artifact-example-purls",
+        "artifact-build-hashes",
+        "artifact-deployed-url",
+        "deployment-amendment"
+      ],
+      "completion": "NOT_RUN",
+      "verified": false,
+      "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth."
+    },
+    "checkpoint_id": "checkpoint_cd2a0f56be35e593b8f604ac",
+    "release_url": "http://127.0.0.1:8080/api/releases/release_1d654c25e5f632d24c383422"
+  },
+  "fresh_reusable_program": "http://127.0.0.1:8080/p/program_6ea22ff8dea86c69b61f7f47",
+  "bootstrap": {
+    "method": "GET",
+    "accept": "application/purl+json",
+    "metadata": "/.well-known/purl",
+    "sdk": "/sdk/client.js",
+    "credentials": "Header Bearer, out of band; never URL. Export strips prior token hashes."
+  },
+  "start": {
+    "requirements": [
+      "Node>=20; verified host24.19.0/container22.14.0",
+      "npm ci",
+      "npm exec playwright install chromium for browser checks"
+    ],
+    "api": "npm start",
+    "worker_second_terminal": "npm run worker",
+    "persistence": "Development FileRepository at .purl/state.json; production requires Supabase"
+  },
+  "restore_recorded_session": {
+    "prepare": [
+      "mkdir -p .purl",
+      "cp examples/live-session.snapshot.json .purl/state.json"
+    ],
+    "note": "Recorded runtime/environment affects exact replay; fresh credentials may fork public programs."
+  },
+  "read_first": [
+    "DELIVERY_REPORT.md",
+    "ACCEPTANCE.json",
+    "README.md",
+    "RECONSTRUCTION.md",
+    "SECURITY.md",
+    "DEPLOYMENT.md",
+    "EXPERIMENTS.md",
+    "evidence/code-review-followup.md"
+  ],
+  "mission": {
+    "nodes": 52,
+    "edges": 65,
+    "source": "input json | mission.inspect",
+    "ready": [
+      "mission"
+    ],
+    "completion": "NOT_RUN",
+    "verified": false,
+    "why": "Program evaluates graph/frontier; requirement truth and public deployment are not implied by integrity or local test success."
+  },
+  "verification": {
+    "host_node24": {
+      "status": "PASS",
+      "tests": 187,
+      "failed": 0,
+      "evidence": "evidence/final-tests.txt"
+    },
+    "container_node22": {
+      "status": "PASS",
+      "tests": 187,
+      "failed": 0,
+      "evidence": "evidence/infrastructure/node22-tests.txt"
+    },
+    "original_math": {
+      "status": "PASS",
+      "tests": 17,
+      "failed": 0,
+      "evidence": "evidence/research/rerun-evidence.json"
+    },
+    "browser": {
+      "status": "PASS",
+      "tests": 12,
+      "failed": 0,
+      "axe_routes": 12,
+      "serious_or_critical_violations": 0,
+      "evidence": "evidence/ui/latest.json"
+    },
+    "sandbox": {
+      "status": "PASS",
+      "checks": 10,
+      "failed": 0,
+      "evidence": "evidence/sandbox/latest.json"
+    },
+    "cold_checkout": {
+      "status": "PASS",
+      "revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
+      "tests": 187,
+      "evidence": "evidence/cold-rebuild/latest.json"
+    },
+    "postgres_and_rest": {
+      "status": "PASS",
+      "evidence": "deploy/verification/results.json"
+    },
+    "sdk_package": {
+      "status": "PASS",
+      "evidence": "evidence/sdk-package.json"
+    },
+    "scoped_security_review": {
+      "status": "PASS",
+      "findings": "R1\u2013R6",
+      "evidence": "evidence/code-review-followup.md"
+    },
+    "fresh_AI_reuse": {
+      "status": "PASS",
+      "checks": 21,
+      "evidence": "evidence/fresh-reuse/report.json"
+    },
+    "local_docker_compose": {
+      "status": "PASS",
+      "evidence": "evidence/infrastructure/local-compose.json",
+      "scope": "Loopback API, distinct worker, named-volume persistence, arbitrary-code execution disabled"
+    },
+    "development_pid_reuse": {
+      "status": "PASS",
+      "evidence": "evidence/infrastructure/pid-reuse/report.json"
+    },
+    "published_checkpoint_after_restart": {
+      "status": "PASS",
+      "evidence": "evidence/infrastructure/live-restart.json"
+    },
+    "hosted_migration_security": {
+      "status": "PASS",
+      "evidence": "evidence/deployment/provisioning.json",
+      "scope": "Applied migration; real table/RPC denial and private bucket readback. Runtime REST/Storage pending credential."
+    },
+    "snapshot_restore": {
+      "status": "PASS",
+      "checks": 30,
+      "failed": 0,
+      "evidence": "evidence/infrastructure/snapshot-restore/report.json"
+    }
+  },
+  "next_authorized_local_actions": [
+    "Inspect manifests, SDK, state, receipts and checkpoints",
+    "Fork public programs under a fresh principal and build/test/run within configured policy",
+    "Review evidence before recording requirement completion"
+  ],
+  "deployment_next_steps": [
+    "Set shared server-only SUPABASE_SERVICE_ROLE_KEY in the configured Railway production environment",
+    "Deploy pinned source to the configured API and worker; verify terminalSUCCESS, health, durable execution, private artifact recovery and restart",
+    "Exercise hostedAuth/Storage and backup/restore before claiming full public mission completion",
+    "Later follow DEPLOYMENT.md Oracle lease-safe worker migration retaining the same backend"
+  ],
+  "oracle_migration_document": "DEPLOYMENT.md#move-workers-to-oracle-later",
+  "blocks": {
+    "status": "BLOCKED",
+    "railway_url": null,
+    "allocated_railway_url": "https://purl-api-production.up.railway.app",
+    "reason": "Railway project/services/domain configured; Supabase migration applied. Awaiting server-only SUPABASE_SERVICE_ROLE_KEY in shared Railway variables before deployment. Allocated domain is not a verified working URL.",
+    "railway_project_id": "7b6d6969-ebfe-4823-ac60-6370fb068458",
+    "supabase_project_id": "frxufmwwbegconolevkw",
+    "backend_placement": "Isolated additive PURL resources in existing healthy Supabase project after free quota refused new project/ACSP restore",
+    "oracle": "Deferred by Railway-first amendment; no target credentials"
+  },
+  "claims": "Fresh same-provider AI sessions and independent Node processes actually ran; no cross-provider/private-memory continuity or general semantic-equivalence claim.",
+  "runtime_image": "sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401",
+  "local_docker_compose": "docker compose -f compose.dev.yaml up -d",
+  "implementation_frozen_since_verification": true,
+  "delivery_source_note": "Product source/test/config remains at the verified implementation revision; later commits add evidence, exported examples and delivery reports.",
+  "railway_target": {
+    "status": "BLOCKED",
+    "railway_url": null,
+    "allocated_railway_url": "https://purl-api-production.up.railway.app",
+    "reason": "Railway project/services/domain configured; Supabase migration applied. Awaiting server-only SUPABASE_SERVICE_ROLE_KEY in shared Railway variables before deployment. Allocated domain is not a verified working URL.",
+    "railway_project_id": "7b6d6969-ebfe-4823-ac60-6370fb068458",
+    "supabase_project_id": "frxufmwwbegconolevkw",
+    "backend_placement": "Isolated additive PURL resources in existing healthy Supabase project after free quota refused new project/ACSP restore",
+    "oracle": "Deferred by Railway-first amendment; no target credentials"
+  }
+}

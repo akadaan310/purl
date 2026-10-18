@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "protocol": "PURL/0.2",
+  "service": "api",
+  "persistence": "development-file",
+  "untrusted_execution": "disabled-unless-verified-worker"
+}

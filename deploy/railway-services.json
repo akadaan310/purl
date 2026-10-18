@@ -1,0 +1,44 @@
+{
+  "schema": "purl.railway-service-map/1",
+  "purpose": "Portable declarative field map for directly configured Railway services; not native Railway IaC",
+  "configuration_authority": "Railway service settings applied by authenticated MCP update_service without railwayConfigFile",
+  "observation_source": "Coordinating agent's live MCP setup observations",
+  "native_iac_plan_or_apply_tested": false,
+  "status": "CONFIGURED_NOT_VERIFIED_LIVE",
+  "project_id": "7b6d6969-ebfe-4823-ac60-6370fb068458",
+  "environment_id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+  "intended_source": { "repository": "akadaan310/purl", "branch": "codex/godseed-v3", "same_revision_for_both_services": true },
+  "services": {
+    "api": {
+      "service_id": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+      "configured_fields": {
+        "dockerfilePath": "Dockerfile",
+        "startCommand": "node service/main.js",
+        "healthcheckPath": "/healthz",
+        "healthcheckTimeout": 120,
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 3,
+        "sleepApplication": false
+      },
+      "required_role_variable": { "PURL_ROLE": "api" },
+      "allocated_domain": "https://purl-api-production.up.railway.app",
+      "domain_status": "ALLOCATED_NOT_VERIFIED_LIVE"
+    },
+    "worker": {
+      "service_id": "063e5f3b-9953-44d2-b479-84dab49bb7f1",
+      "configured_fields": {
+        "dockerfilePath": "Dockerfile",
+        "startCommand": "node service/worker.js",
+        "restartPolicyType": "ON_FAILURE",
+        "restartPolicyMaxRetries": 3,
+        "sleepApplication": false
+      },
+      "required_role_variable": { "PURL_ROLE": "worker" },
+      "health": "No HTTP health route; monitor heartbeat, queue age, logs and process restarts"
+    }
+  },
+  "secret_values": "Omitted; configure production Supabase secrets through Railway secret settings",
+  "historical_configs": ["deploy/reference/railway-api.legacy.toml", "deploy/reference/railway-worker.legacy.toml"],
+  "deprecation_reference": "https://docs.railway.com/infrastructure-as-code#iac-vs-config-as-code",
+  "verification_required": ["Attach the intended source revision", "Observe terminal deployment SUCCESS", "Public health and discovery smoke", "Durable queued execution and restart recovery"]
+}

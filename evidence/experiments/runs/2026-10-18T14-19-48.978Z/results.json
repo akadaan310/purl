@@ -1,0 +1,1774 @@
+{
+  "protocol": "purl-godseed-experiments/1",
+  "run_id": "2026-10-18T14-19-48.978Z",
+  "registered_at": "2026-10-18T13:47:36.679832+00:00",
+  "registration_class": "Local file saved before GODSEED harness execution; not an externally timestamped preregistration",
+  "source_revision": "85b9ee2bf8f428eafeee0eaed1c4cb8dc680134a",
+  "source_snapshot_sha256": "b8e1b42a949b373949bf3b45fce14d88f622dd47dc40cc3a87b62a5fe04561a8",
+  "source_files": [
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "3e04bdd5753d1bca71ab608d6ace7be11766516b4ccdc2a0d7587520023eb5a0"
+    },
+    {
+      "path": "CONSTITUTION.md",
+      "sha256": "6fa8e8425c58b3c805ef16345453ea743f5dc807b7623b195347a29a7def304a"
+    },
+    {
+      "path": "DEPLOYMENT.md",
+      "sha256": "f0c1cba3fe4def89e3a5880732559476dce7827dc18151b488ed475b42290326"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "f0fa7eb997c201e63b014cafe497dfa069ada708340f4fec13aeea7da9396474"
+    },
+    {
+      "path": "EXPERIMENTS.md",
+      "sha256": "169c3f4855c44c4cbc49a842e683a5ef47a32bce9b91b6988c6386ea2df72b8a"
+    },
+    {
+      "path": "FORMAL_SEMANTICS.md",
+      "sha256": "1a5cd7e27fde47ff0ab4acd28ba98a2a7309a15041b9d82ff2e74f9ae2186885"
+    },
+    {
+      "path": "LANGUAGE_SPEC.md",
+      "sha256": "e838be22c50031919d575538f14ceb1c4e6b80e1191fc4a0ae42d3a7faf47674"
+    },
+    {
+      "path": "MIGRATIONS.md",
+      "sha256": "e843e1988b6434b244af2fffffa20e7cd4d6bf848a1f8570ba36c51ac62f95d7"
+    },
+    {
+      "path": "NOMENCLATURE.md",
+      "sha256": "e481883d60389849a49cd6301e665d34612a88070f90b5d86a04525af78f607d"
+    },
+    {
+      "path": "PRINCIPLES.md",
+      "sha256": "2a284254ef12f79ddbdf2c2b9ca3ecbd85a027609706c60de9fd71447c554af0"
+    },
+    {
+      "path": "PROGRAM_GRAPH.json",
+      "sha256": "5cdaf5ac89dc09c066f1f78b2a832dfe2fbbeb26244069470c006dd4b787a80a"
+    },
+    {
+      "path": "README.md",
+      "sha256": "012ef2dec82bc59f9ad63a779a3abb0e101300c9f3d8a55937cd40a397bea46f"
+    },
+    {
+      "path": "RECONSTRUCTION.md",
+      "sha256": "f4935f6cfa1cd48ed0fde97159db41be76e918e86cb772ed6add70c4e902dca2"
+    },
+    {
+      "path": "RESEARCH_QUESTIONS.md",
+      "sha256": "f43c5c4cd876e028f040061f625e5cc6d012388f0f7258f124c1f05ff954f8dc"
+    },
+    {
+      "path": "SDK.md",
+      "sha256": "8e6d5ea9807f93c3a7e22011d0140a72829b204ef2e935b635b2cf7653c2624a"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "4ef985b23cb82ab0478518a328f1b0b4a10cbcc127795c5a4d71bac26ffe1d19"
+    },
+    {
+      "path": "SPEC.md",
+      "sha256": "1844b4e11fbced7a46bdf772bd329754c2ed7f6e6522d8ee08788e7546720648"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "b6ee74e8fd9ddd1c7b037e87b9f6afef2f2659a0b1078f559878d665ee518dac"
+    },
+    {
+      "path": "deploy/healthcheck.js",
+      "sha256": "a0d99e4f0178585a6d9f29a8c3ce361a0a1689e57128a5762a608c582c142358"
+    },
+    {
+      "path": "deploy/oracle-worker.compose.yaml",
+      "sha256": "ca368025a6be002f37f35f6219340e4c955d880d39ea981fd318886114e00887"
+    },
+    {
+      "path": "deploy/railway-worker.toml",
+      "sha256": "7648b16539fa39e89edea53b6493bccd86aba27e4cdbdd475f37853009feb47d"
+    },
+    {
+      "path": "deploy/runtime.json",
+      "sha256": "de97374824633a9f4b9c235ba06b2eae8863d9ba69e06487e8627ce3bbf022f4"
+    },
+    {
+      "path": "deploy/verification/results.json",
+      "sha256": "d5184c3d05377d2ec526330c859706026b1f33d517602385f261a5f33a524f71"
+    },
+    {
+      "path": "deploy/verify-rest.js",
+      "sha256": "c8232c3ce0827af208c1b16591f904e0380d46973b006192ae37ca5b840aab7d"
+    },
+    {
+      "path": "deploy/verify-schema.sql",
+      "sha256": "de40d4746a613078cd95d9ebb801567699105c6377a9e5639246dac06d848db9"
+    },
+    {
+      "path": "docs/authority.md",
+      "sha256": "998ea5f157a6d5231f37fb0925017bc67d9b7cf9c3f841e6d48ca9b80966589a"
+    },
+    {
+      "path": "docs/continuity.md",
+      "sha256": "ba4818712791632b289bf99ee19a2fd4a760676f7023325f1050f661dcb4af35"
+    },
+    {
+      "path": "docs/decisions/0001-url-form.md",
+      "sha256": "348c174beeefb1e4c27e5c2db7e9ad0c6502adccb95a11b9907382a6df2adee6"
+    },
+    {
+      "path": "docs/decisions/0002-discovery.md",
+      "sha256": "336cfd45df6d3aff548471cfade96d2bd67691e634f3a7c1e786f3aa87f99397"
+    },
+    {
+      "path": "docs/decisions/0003-event-sourcing.md",
+      "sha256": "f0f7961c7fc4033345d0f0b02ac763caa89f1422653d0dc35bdfbd617e1971e7"
+    },
+    {
+      "path": "docs/decisions/0004-self-description.md",
+      "sha256": "ecb7f68564aa956aa45315afcaef3062e494d428be56a561510617e30b57f0bd"
+    },
+    {
+      "path": "docs/legacy/ARCHITECTURE.md",
+      "sha256": "ffc82b06b6647164f5eb88a42adfe94201f21e2c3510163bdbe0c48e983216f8"
+    },
+    {
+      "path": "docs/legacy/README.md",
+      "sha256": "849cba5599368f77efe95b8775e7b992e69eabe20ccc34954da7fc435be6cc67"
+    },
+    {
+      "path": "docs/legacy/SECURITY.md",
+      "sha256": "fac3362d16d8ac8659820a1d1f7080ce763be8c037b1dc7c93bd22c409a03fce"
+    },
+    {
+      "path": "docs/operations.md",
+      "sha256": "c6028a38d15eaf3b52881db0028bd06025ffafab583177ca7ff27fd05482ec28"
+    },
+    {
+      "path": "docs/prior-art.md",
+      "sha256": "877dd3ab7b36d8842ab62623d3d622f83b05c65da484937d3d5c5188dcee4dbd"
+    },
+    {
+      "path": "docs/research/MEASURES.md",
+      "sha256": "160020be9583d98133e862ed732ec455e885875dcddcbfc20fe5326a14ca97ac"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-18-godseed.md",
+      "sha256": "d4e1737ff3a0ccac4064daa2bb426ca1f509e46b2689ef4d77335301c89f4ab6"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-18-godseed-design.md",
+      "sha256": "53746f9a04bdffddba6f76a1edfb8af35f5269c1c8dcc651132c59119a4ca5ff"
+    },
+    {
+      "path": "experiments/exp-0001/REPORT.md",
+      "sha256": "e9772a47893c5d20a9bba9d4e6ab30527473e390f112093fb8ac90665cf18d0d"
+    },
+    {
+      "path": "experiments/exp-0001/definition.json",
+      "sha256": "7f858334f8c059b0e122d9bb5ab15083e6e4345196a133e172c149c042b972e3"
+    },
+    {
+      "path": "experiments/exp-0001/record.json",
+      "sha256": "ed6b1d57c1732ede665a4cdad832a0e6ae717b43589666a7e1f810af9e2d53af"
+    },
+    {
+      "path": "experiments/godseed-v3/protocol.json",
+      "sha256": "7c006d70a4a5e9e7f7b63d717e8431351d8ba6584ae2642bc8dbd773569fb309"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "b65649596d8cb8a98c539ac10b290781ae3f9bbc1352fa114b6f5ad081bbe96d"
+    },
+    {
+      "path": "package.json",
+      "sha256": "618001f21235d52c55fd4ae039f621c2d5fae18feffadccf9284f3975e5ab1c2"
+    },
+    {
+      "path": "playwright.config.js",
+      "sha256": "0543400f93d72d59882cc9295983b794d4943c5e8a5001932d85517274c2bf9c"
+    },
+    {
+      "path": "public/graph.js",
+      "sha256": "818f5e7f661569d7a17881d096e1f18dfc942641a5ce3ed1c2a176b45a53f44e"
+    },
+    {
+      "path": "public/home.js",
+      "sha256": "23a4115b9ed852845dd155a06ba44d2df9062ccfbf554eda7261d6c476c08e79"
+    },
+    {
+      "path": "public/lab.js",
+      "sha256": "a377663f1972827a2e996f82f92158427484f344444afa0ad8e8833d40ddbb4d"
+    },
+    {
+      "path": "public/purl.css",
+      "sha256": "0bbdb84afdda6e3472bad31197710c9d147a18c5ba801d86f1fc5fc190a7b39e"
+    },
+    {
+      "path": "public/resource.js",
+      "sha256": "1242ad98a8bf980b24d316d7dde95b4fd25ae0eb323dd699016b492a5c42803f"
+    },
+    {
+      "path": "railway.toml",
+      "sha256": "5c4e2bbf3c6ae227a95aeec0d92915ecc89cbb339a61f71f4310dbf8ee0b4a6a"
+    },
+    {
+      "path": "reference/godseed/DEPLOYMENT_AMENDMENT.md",
+      "sha256": "67c7161debfa865b95320639b2253284f12e5b075520903366044299bcacd75e"
+    },
+    {
+      "path": "reference/godseed/GODSEED.md",
+      "sha256": "bfa3d94bebc884a6a76dcd82bf8639737cc84dc75f475a205e51afbed820453b"
+    },
+    {
+      "path": "reference/godseed/README.md",
+      "sha256": "d23808b213a903af7d7271cb7dd321d9319c35aaae455a8fa29eebc0f1671da0"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_BOOK_PROPOSALS.md",
+      "sha256": "456516bff329cbaecc1e1ad0d6bd8e111b5df254c0ef96f853df82b701ea6c9b"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_CGT_GIN_THEORY_MAP.md",
+      "sha256": "4055cb57e77d4f6d3012660dcf70b2100ae29ebcda94c148dbcae3f72500f555"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_EXPERIMENTS.md",
+      "sha256": "87ead6bebadd0c479cb7146dc93faa5bfa137afe203c4eed2cc58e2d86dd7edf"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_FORMAL_SEMANTICS.md",
+      "sha256": "d2c12face3b7d1c2805ddb8b089379c0c53eb0633022420e3a80f9f520cbe1c0"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_GRAMMAR_RECOMMENDATIONS.md",
+      "sha256": "94624b8b41b236a6d61e592ae2fbe49b86c707695cc013d485581c97a180afde"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_INDEPENDENT_DISCOVERIES.md",
+      "sha256": "37ea9c4e2356303c8e6b3999252916d5afcfb67a0690b8eefce3328d9ce768a3"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_MISSION_EXAMPLE.json",
+      "sha256": "7c8fe3d3c65a04c29b5e293976645ea58e2027689b8c3b6c2a893941af187420"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_NEW_RESEARCH_DIRECTIONS.md",
+      "sha256": "e5d9130feb1aeedd8a2c0e82cecb797e79efa4b2c590540f5eeee9e11c694d14"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_NEXT_SESSION_SEED.md",
+      "sha256": "3eca23b1b6e39c4a5a7d22c44f82d0247f262da716b6e7bf923ef030925c9978"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_OPEN_CONJECTURES.md",
+      "sha256": "c92af3e2a2ef9660945a50e055cabb955765950bec3522e8ffe2537cded90ebb"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_REVIEW_HANDOFF.json",
+      "sha256": "f6044d4d8cad40281385fdf945438e028db4052765cfee2dd13bbb93a47eb56a"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/PURL_TRANSITION_LANGUAGE.md",
+      "sha256": "0477dff665ebae82e4291c17c5158e86a33e7b59eab2ee5fb725801f16be2e0d"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/README_HANDOFF.md",
+      "sha256": "25a1a552ede5e43857ee9f154e6876159ecbcb791ff5b2e736ec3005590f50c1"
+    },
+    {
+      "path": "reference/godseed/reference/math_handoff/experiments/results.json",
+      "sha256": "695f673f14d277d0862dc1b177aeba6e6909726e6335ab1a7d531324440c126c"
+    },
+    {
+      "path": "schemas/communication-profile.schema.json",
+      "sha256": "25acf43ceb9a20749e59951dc9face4bac249d4868313469fcbfeb77a53733b0"
+    },
+    {
+      "path": "schemas/continuity-package.schema.json",
+      "sha256": "a6bd4aa5a1335f80e0c774c8d715195d29d6583d3124c90436cdb5cd9572e9d0"
+    },
+    {
+      "path": "schemas/event.schema.json",
+      "sha256": "2b0653ae3a414879d770d806e17e20bb647975cdf91b62c9ae419cd9645cdd6a"
+    },
+    {
+      "path": "schemas/experiment-record.schema.json",
+      "sha256": "ec3ae19fa2544bb900509c4240ad1317224dd256bade9b4eeaa7c79dc787dd67"
+    },
+    {
+      "path": "schemas/instance-manifest.schema.json",
+      "sha256": "7181b3ddd8cf75bdd88710a2ec60d2bf9e540e1a5e8d042ad22cbf7a735f60d5"
+    },
+    {
+      "path": "schemas/resource-manifest.schema.json",
+      "sha256": "faa89f0cf3102130f5abf21d4e94d14e72b30209b67677aaf07914cba9b58919"
+    },
+    {
+      "path": "schemas/resource.schema.json",
+      "sha256": "69969964c32b4787a46c390a1ad8172281adaa2935796147e17fd76dba7643d6"
+    },
+    {
+      "path": "scripts/cold-client.js",
+      "sha256": "8970db35b06ad1c829800115c78bfa175d008b13417dbd47bf09fd474187d449"
+    },
+    {
+      "path": "scripts/cold-rebuild.js",
+      "sha256": "645716f1f61641c79c82b19058ac26fee19867ab1c3bc9fae83f7c8bf04f5bb2"
+    },
+    {
+      "path": "scripts/demo.js",
+      "sha256": "c121ff4eaba9748b206f1b689eadc511c3ccde1f0969f6d2cf0116bd5216e3fc"
+    },
+    {
+      "path": "scripts/godseed-experiments.js",
+      "sha256": "83aee0c2aee5421771bcf85d98a4e53ef1731f91dd21a8e9d17d99f7815af12a"
+    },
+    {
+      "path": "scripts/lib/datasets.js",
+      "sha256": "ea3b7892e691c3c72af9d06f4bcfb7c4a86f216fb2249c82dda960fd3648e806"
+    },
+    {
+      "path": "scripts/lib/workload.js",
+      "sha256": "32587bd5bd938b2f06322b1c4ec06c02b9331c90c2b28231d9019b182d4884ab"
+    },
+    {
+      "path": "scripts/math-experiments.js",
+      "sha256": "47943bfbb8d3caff5c04c846c4bf5e2c9f79bcc7b660efc12f3b87c76395933e"
+    },
+    {
+      "path": "scripts/reproduce.js",
+      "sha256": "21f46ed7d8f55c37c76414e0b06b3c2ed143a24581a9803a026efa5de0536d65"
+    },
+    {
+      "path": "scripts/run-experiment.js",
+      "sha256": "ea052e2f11d6446088475419d472ae2053b7035e0def26dc27f7d8f8a7c789bb"
+    },
+    {
+      "path": "scripts/verify-sandbox.js",
+      "sha256": "6779952e027ecd05008a0e8be666e5eafc870563fea7b0800b89a4706c01efd0"
+    },
+    {
+      "path": "sdk/cli.js",
+      "sha256": "4c69842d2ac30183637d6c2cd800809fb96ed05d3bc6357224db33516172bddc"
+    },
+    {
+      "path": "sdk/client.js",
+      "sha256": "1a14fc5012cc1ebacb492c2258c774a21dc2be9568d10d0c59075a88cb65bbcc"
+    },
+    {
+      "path": "service/CONTRACTS.md",
+      "sha256": "ecf80f8f8bb209a2547e5ac1921426fdfa87eec344a0b33b7903b24a0873c175"
+    },
+    {
+      "path": "service/adapters.js",
+      "sha256": "daa1eb81d2e4d6f6fa0e17a08ed5a0b7cc8d592d7b63f495262933f1804648fc"
+    },
+    {
+      "path": "service/auth.js",
+      "sha256": "6db1429f104a4159fb3f95ec98a26688b75a3f603facd9dc2bb35ac9b982c857"
+    },
+    {
+      "path": "service/compat/seurl.js",
+      "sha256": "e83ed72ee1218124a7cc4e4679843ff59015324fba477b07b3d7f672796f3493"
+    },
+    {
+      "path": "service/compat/substrate-registry.json",
+      "sha256": "ead82b45f0c8c528c607610b3967265c58813cf6ba5b40513348aa4e7014858c"
+    },
+    {
+      "path": "service/compiler.js",
+      "sha256": "c7c6a83c5930463ae1c3f1442e8d6defeb3d289cc812bebe5a034490801a6c81"
+    },
+    {
+      "path": "service/domain/schema.js",
+      "sha256": "3dd2e16a7c62444fef66fcd763242e8f9ce739318cb1900b00ad8415c90bf502"
+    },
+    {
+      "path": "service/domain/seed.js",
+      "sha256": "c2ae4d50a5dc3c78bf8f385b347e3213f1c4334187f1cb28680e4d8579b84f4c"
+    },
+    {
+      "path": "service/domain/support.js",
+      "sha256": "9f625fa9a64fb9d566a0915cbec6725fc4d589e5ee8fb802a63981ab388cc629"
+    },
+    {
+      "path": "service/domain.js",
+      "sha256": "066cc9ee7656a9578b1a6696d7a5c6eeecd730fe6f8e7cd648aa4659a42eac85"
+    },
+    {
+      "path": "service/http.js",
+      "sha256": "111e9daa17ad4c21c1cd2923a8c18038a3a940ea0fbc8005f854428a144718fd"
+    },
+    {
+      "path": "service/language/parser.js",
+      "sha256": "1c8250e60357d3d34cb346a1a58f1d1091b70effb129dda1fe3d75a2080244c1"
+    },
+    {
+      "path": "service/language/projection.js",
+      "sha256": "2b8943c38ae29c855090cc2284c8c88ac205249dbdc36560f0df8f70e9b3c5e5"
+    },
+    {
+      "path": "service/language/registry.js",
+      "sha256": "da716a3d0f1b1a85d1966794301270ceff172f224e6b8376e6752384dfdd12ef"
+    },
+    {
+      "path": "service/language/seurl.js",
+      "sha256": "31b483cefac41bd8eadf2774b6f56f4637e4ce22c34e6ed78112207019a1c163"
+    },
+    {
+      "path": "service/language/values.js",
+      "sha256": "6775c5c808ef3d6c1257dbd59764e49cb94d0087a749dffc3aa3fdf88439ff2e"
+    },
+    {
+      "path": "service/main.js",
+      "sha256": "a8f0f9382efc2c731acd4928a816f6ea733d144e72141e839de57e426688abab"
+    },
+    {
+      "path": "service/openapi.js",
+      "sha256": "f8f6c706a6e2e839d9ebf6c8d980ffe709739a619c23c2b6ff785d2e58890c23"
+    },
+    {
+      "path": "service/registry.js",
+      "sha256": "9b3501a28e51549b85cb49d5da9bec321e59c13aae5b71acaeadc1bc36a398ec"
+    },
+    {
+      "path": "service/repository.js",
+      "sha256": "556072ca3c99fbe8c9474ab74a84cd513f57b6e624ae5a523ece72625fd9d587"
+    },
+    {
+      "path": "service/sandbox.js",
+      "sha256": "ea28ee24857a8b1efa6d6a753ba4f1ab5380523767637228caf866748a79875e"
+    },
+    {
+      "path": "service/worker.js",
+      "sha256": "6d7aa6d29b03dde64e1f3aeb41ca36403f478bc5841ba2af998938889b9f8266"
+    },
+    {
+      "path": "src/client/client.js",
+      "sha256": "b0dd99d9043a9e9e8b9220abaf6749e835353f50e9ac521cec010649c5495c68"
+    },
+    {
+      "path": "src/continuity/authority.js",
+      "sha256": "bf901c176d410bf88c4ba7a1d606eb9966e0dc62f8be4b3c5931b2c4f25cad94"
+    },
+    {
+      "path": "src/continuity/diff.js",
+      "sha256": "50cc11d9976e941545b2a4a4ad23e84159fb6e3d7f4f797f4b8fffe7769f18b3"
+    },
+    {
+      "path": "src/continuity/operations.js",
+      "sha256": "f72e3ba099f8e37d0ddfd16b5fe52394fa524a48b990acf6e76c62f50822198d"
+    },
+    {
+      "path": "src/continuity/profile.js",
+      "sha256": "0b1528c0e620c4d04e579cb35cb894510d2d917411e6ab34f56b201b392c5da7"
+    },
+    {
+      "path": "src/continuity/reducer.js",
+      "sha256": "bea4dbc5f16088605b93bea03eb580ee2423c7d35b6529b2e389571b0dc30932"
+    },
+    {
+      "path": "src/continuity/rights.js",
+      "sha256": "24fda1f02287585655363d29167d22835d3e6cde451413c5bd7a5e25948bee61"
+    },
+    {
+      "path": "src/continuity/store.js",
+      "sha256": "a54ba07ed0a4e8f997381313266f3b0a25be0b47b3995f4236729098346fc83d"
+    },
+    {
+      "path": "src/continuity/views.js",
+      "sha256": "7b9c9905826d2d2aa2e7b745dd800ce4461ee13baf4ebe7894e49395477bb467"
+    },
+    {
+      "path": "src/core/canonical.js",
+      "sha256": "7deeada7c6ea616b530e26a659594797b864654304f1a7e8f4b93d27b3a7eb69"
+    },
+    {
+      "path": "src/core/errors.js",
+      "sha256": "8f28d0005511b4307aaea446c034680e626e522ce3f51bd863a9ad3c2ad8b46b"
+    },
+    {
+      "path": "src/core/ids.js",
+      "sha256": "f720e0dded7a42bd8201d7290924fd6228309e07bda82b5add3c250541283944"
+    },
+    {
+      "path": "src/core/schema.js",
+      "sha256": "e0371c9d35969cf2dea2dfeea10f548578d007d769a1a0643a16cc29aa2b7f6f"
+    },
+    {
+      "path": "src/research/experiment.js",
+      "sha256": "d57230e2f6f3ebd3635055c0ed765e646a97d658873430e9cdd8bae7b4dc5121"
+    },
+    {
+      "path": "src/research/generators.js",
+      "sha256": "6261a252acdcb6dda1398301750f5c9c0be7ca400aae3294078f42495000645e"
+    },
+    {
+      "path": "src/research/grammar.js",
+      "sha256": "5498d6677f2acba240693e628c1a381dc847de8579325ceb7522dc2f13255df2"
+    },
+    {
+      "path": "src/research/graph.js",
+      "sha256": "b1b82773a2f33d842041948a65e053dac745d35d30d7471d2196288498a10a5f"
+    },
+    {
+      "path": "src/research/measures.js",
+      "sha256": "0841432abe2eea753d6b075289f5a2d587c7fb2e700cbb034136e281c5dc51c5"
+    },
+    {
+      "path": "src/research/projection.js",
+      "sha256": "41277017655531c00ed8196f15b1427d20d73a1ebbb42a4a25707825df3fc4f8"
+    },
+    {
+      "path": "src/research/rng.js",
+      "sha256": "6f41aeff83674818c3373f764a0c5895c24acfcaf9a4c670a104f3654b10468e"
+    },
+    {
+      "path": "src/research/surrogates.js",
+      "sha256": "beef4dac5e5be2223b17c2ac38b197178eb8657af1bc4007e9ef02ce6e9fdf74"
+    },
+    {
+      "path": "src/research/temporal.js",
+      "sha256": "315d0caa911e41ec9fa8bee6683ba7114c575205b0001b2cc97cfa49841f0d24"
+    },
+    {
+      "path": "src/transport/documents.js",
+      "sha256": "b84bf88c1070abd8a18aa4341612a187d61c99568f1f53508caa285b4416d632"
+    },
+    {
+      "path": "src/transport/html.js",
+      "sha256": "e1480007fe82e269ef0b703175ac5517afca6c229e8add5f0dcd37e6c7fe302c"
+    },
+    {
+      "path": "src/transport/http.js",
+      "sha256": "cf4123f073b8a47643124da683b0146580c83fa8929a62a0d6f779f3fd916ec3"
+    },
+    {
+      "path": "src/transport/main.js",
+      "sha256": "7758d5fc4f067480142b75ee6196690fef57774285ae56d225e9fc4656f1dd78"
+    },
+    {
+      "path": "src/transport/server.js",
+      "sha256": "a575b3f55a6e215af76aad1e2c69e3310d96d72355650664e6f623c1dd734ad4"
+    },
+    {
+      "path": "supabase/README.md",
+      "sha256": "73896e2a085acae9ae011f7674cd22b411a3a287823011bb725823bc585c9dca"
+    },
+    {
+      "path": "supabase/config.toml",
+      "sha256": "9820e50458aa4fc51eda3a8b22ddbdfa1dc392cf6975c551c5d1e8898d378018"
+    },
+    {
+      "path": "supabase/migrations/20261018134521_purl_durable_repository.sql",
+      "sha256": "4506cfa8398348f8ebb0c3fa75cddb6d97c8d140551a2bd7f13d21a245c74792"
+    },
+    {
+      "path": "test/adapters.test.js",
+      "sha256": "61aca39713877e0fde109090442cf0cd0a6fec6a00828c7cfaa55a5b7c4ab368"
+    },
+    {
+      "path": "test/architecture.test.js",
+      "sha256": "0851e26375d45afc5bf68b1cc215fd19b2a94dadc9e7e3d76f0b5c39311b2dbd"
+    },
+    {
+      "path": "test/authority.test.js",
+      "sha256": "334d55813a1ce507c4fd9322f1d6057f8a91f3f39527e6f4f8b726f82d90149f"
+    },
+    {
+      "path": "test/continuity.test.js",
+      "sha256": "9860ff40ee01b71afc12d9e0e17f88cfa939180393116f8a7e30a8964936cf52"
+    },
+    {
+      "path": "test/demo.test.js",
+      "sha256": "54c6a053c90eaf686cadc1f8f9cc34e80cb438b2c0de75edc32a3089ae4db706"
+    },
+    {
+      "path": "test/experiment.test.js",
+      "sha256": "82b7ea4751fb9b1fb706edda5fe443e7077f1f52433f1afa2d7a8373aabf1602"
+    },
+    {
+      "path": "test/fixtures/composition-algebra-fixtures.json",
+      "sha256": "ea0f6eae4ae68e003206cc7647ab8054182415dda80d2ce2fc02cde618e906ae"
+    },
+    {
+      "path": "test/fixtures/substrate-term-fixtures.json",
+      "sha256": "3b11a3339882c5a61976d22f767201aff7cd540d47b69f06864936a2852da6a3"
+    },
+    {
+      "path": "test/helpers.js",
+      "sha256": "1ebc83f5792c60e99031648f27aabbc54dfea41d0d8089e32f9051deeaf80bc9"
+    },
+    {
+      "path": "test/http.test.js",
+      "sha256": "5eb57b5a7c95a7ef3b04f9a149d73555342afba751b433404ebee1a7c3f46174"
+    },
+    {
+      "path": "test/product/auth.test.js",
+      "sha256": "8f171daa646e506fb82b4913c8a5efcf35b82b06e8559bacb030a67b646f654b"
+    },
+    {
+      "path": "test/product/compiler.test.js",
+      "sha256": "b629a6fc4f09339bd5ba3159ba0196f174d4e21952a145fdbd1027010984f9a5"
+    },
+    {
+      "path": "test/product/domain.test.js",
+      "sha256": "1aea38479c55895897ffb9a60f8e15086f53a0c3f0bcab7535ece40c00275542"
+    },
+    {
+      "path": "test/product/http.test.js",
+      "sha256": "720540af955d409d1ba041519f1023f3301f664adc863b2675078e504aa2988b"
+    },
+    {
+      "path": "test/product/mission.test.js",
+      "sha256": "9bc88d157be76096350ac6ed50067b115d23268fa5dd41413540d4086bdf0102"
+    },
+    {
+      "path": "test/product/registry.test.js",
+      "sha256": "3f0a90a8b9a097a8baa509dd0708c99d02a39dd3e8404c701fba1e87bf43b23b"
+    },
+    {
+      "path": "test/product/repository.test.js",
+      "sha256": "648a4186db460b78b0d48ca30651c478096acfb2c4484f98d76f5132d393e53c"
+    },
+    {
+      "path": "test/product/sandbox.test.js",
+      "sha256": "17bfd628478c8011bffe0e63f5a7955221e59f48afec6d6585b7eca77db6f602"
+    },
+    {
+      "path": "test/product/sdk.test.js",
+      "sha256": "aae849b9b6dbef6b3cdb6e866d90b6f0b2749ebf6ea336d4e3aca90ae0cfc436"
+    },
+    {
+      "path": "test/product/security-regression.test.js",
+      "sha256": "8ff0ebbcfe5bd0bf72493cd8e4e627eeacd59ea5d57cef1352dfb030e01576ae"
+    },
+    {
+      "path": "test/research.test.js",
+      "sha256": "c72a3fc99501f22793ca2db36a5bf7f654a28aff8d2d43cbc24e6c3b06eaa174"
+    },
+    {
+      "path": "test/structure.test.js",
+      "sha256": "ccd5e111c7cd60b612f71b4f66c16c15e294bc442ec4890b6a632ed7909bf095"
+    },
+    {
+      "path": "tests/ui/product.spec.js",
+      "sha256": "89bb9f3a27def96b5be9678ab65ff402c3f872ae0a46e1ec660e55c497383d92"
+    },
+    {
+      "path": "web/app.js",
+      "sha256": "7ebb6ffa2476eedca338fd12cf1a4f829209254d3d5a73a4850c39cccd679ffc"
+    },
+    {
+      "path": "web/index.html",
+      "sha256": "12fba55e79522225e795cfd21777bcc6e4b352bd23a87a5b8718b3eb91ac9071"
+    },
+    {
+      "path": "web/style.css",
+      "sha256": "8203f361ae87805dd1db336dd5381ab797432296a0b181a166872d30ca94299c"
+    }
+  ],
+  "environment": {
+    "node": "v24.19.0",
+    "architecture": "x64",
+    "platform": "linux"
+  },
+  "base_url_during_run": "http://127.0.0.1:38841",
+  "experiments": [
+    {
+      "id": "E01",
+      "status": "PASS",
+      "metrics": {
+        "stable_canonicalization_cases": 100,
+        "distinct_namespaces": 7,
+        "value": 3,
+        "derivations": [
+          "derivation:43c5b1d0692a8b169ca06529613e259178a7e5dac976b670c1affc439ddf1a9c",
+          "derivation:f2a2a0f1640a8feb8bdba370a49010c6e456faa7d1451a73fdfa9ab590ac9020"
+        ],
+        "value_id": "value:50ca3d7375c1fe90ee0e28a536d90d9e229dc7a93ca28f7e95fad190a400a54d"
+      },
+      "controls": [
+        "Same mathematical integer from distinct derivations",
+        "Reordered object keys"
+      ],
+      "negative_evidence": "Hash equality is encoding equality; no semantic equivalence or authenticity claim"
+    },
+    {
+      "id": "E02",
+      "status": "PASS",
+      "metrics": {
+        "typed_pair_corpus": 25,
+        "accepted": 15,
+        "rejected": 10,
+        "false_acceptances": 0,
+        "false_rejections": 0,
+        "registry_size": 71,
+        "toggle_steps": 40,
+        "cycle_labels": 3
+      },
+      "controls": [
+        "Independently declared operator input/output table",
+        "Unknown operation, missing capability, loop bound and divide-by-zero"
+      ],
+      "negative_evidence": "Bounded contract corpus, not universal type-system soundness or intelligence benchmark"
+    },
+    {
+      "id": "E03",
+      "status": "PASS",
+      "metrics": {
+        "verbs": 7,
+        "lossless_universal_mappings": 0,
+        "substrate_registry_size": 21
+      },
+      "mappings": [
+        {
+          "ok": false,
+          "verb": "START",
+          "decision": "derived-macro",
+          "lossless": false,
+          "operation": null,
+          "candidates": [
+            "create",
+            "reopen"
+          ],
+          "caveats": [
+            "Creating a resource and reopening an existing one have different preconditions.",
+            "This migration result does not grant rights, mutate a resource, or prove protocol equivalence."
+          ]
+        },
+        {
+          "ok": false,
+          "verb": "SWITCH",
+          "decision": "split",
+          "lossless": false,
+          "operation": null,
+          "candidates": [
+            "assign",
+            "handoff",
+            "client-focus"
+          ],
+          "caveats": [
+            "Client focus does not imply resource mutation or authority transfer.",
+            "This migration result does not grant rights, mutate a resource, or prove protocol equivalence."
+          ]
+        },
+        {
+          "ok": false,
+          "verb": "WRITE",
+          "decision": "typed-overload",
+          "lossless": false,
+          "operation": null,
+          "candidates": [
+            "append",
+            "update"
+          ],
+          "caveats": [
+            "Append preserves immutable history; update changes a versioned document.",
+            "This migration result does not grant rights, mutate a resource, or prove protocol equivalence."
+          ]
+        },
+        {
+          "ok": false,
+          "verb": "COMMIT",
+          "decision": "disambiguate",
+          "lossless": false,
+          "operation": null,
+          "candidates": [
+            "checkpoint",
+            "commit"
+          ],
+          "caveats": [
+            "An evidence checkpoint and an atomic mutation transaction differ.",
+            "This migration result does not grant rights, mutate a resource, or prove protocol equivalence."
+          ]
+        },
+        {
+          "ok": false,
+          "verb": "BUILD",
+          "decision": "adapter-required",
+          "lossless": false,
+          "operation": null,
+          "candidates": [
+            "build"
+          ],
+          "caveats": [
+            "Execution needs a configured isolated builder and live authorization.",
+            "This migration result does not grant rights, mutate a resource, or prove protocol equivalence."
+          ]
+        },
+        {
+          "ok": false,
+          "verb": "TALK",
+          "decision": "keep-separate",
+          "lossless": false,
+          "operation": null,
+          "candidates": [
+            "append",
+            "external-communication"
+          ],
+          "caveats": [
+            "Recording a message does not authorize sending it externally.",
+            "This migration result does not grant rights, mutate a resource, or prove protocol equivalence."
+          ]
+        },
+        {
+          "ok": false,
+          "verb": "PERTURB",
+          "decision": "research-only",
+          "lossless": false,
+          "operation": null,
+          "candidates": [
+            "math.add",
+            "external-action"
+          ],
+          "caveats": [
+            "A pure mathematical perturbation conveys no permission for external action.",
+            "This migration result does not grant rights, mutate a resource, or prove protocol equivalence."
+          ]
+        }
+      ],
+      "historical_parser": {
+        "valid": {
+          "state": "WRITING",
+          "would_reach": "BUILT",
+          "bound": "/map/eca/90/8/state/5",
+          "program": [
+            {
+              "verb": "WRITE",
+              "op": "next"
+            }
+          ],
+          "current_address": "/map/eca/90/8/state/5/next",
+          "prepared": [
+            {
+              "verb": "COMMIT"
+            },
+            {
+              "verb": "BUILD"
+            }
+          ],
+          "legal": [
+            "TALK"
+          ],
+          "moves": [
+            {
+              "verb": "START",
+              "args": [
+                "map",
+                "eca",
+                "90",
+                "8",
+                "state",
+                "5"
+              ]
+            },
+            {
+              "verb": "WRITE",
+              "args": [
+                "next"
+              ]
+            },
+            {
+              "verb": "COMMIT",
+              "args": []
+            },
+            {
+              "verb": "BUILD",
+              "args": []
+            }
+          ],
+          "evaluated": false,
+          "effects": "none",
+          "source_sha": "83d6bcaf8b811e9d2744fb15a6d42ae5d899de1c"
+        },
+        "invalid": {
+          "rejected": true,
+          "path": "/WRITE/hello"
+        }
+      },
+      "substrate_example": {
+        "protocol": "substrate-purl/0 (provisional)",
+        "address": "/space/4/state/3",
+        "kind": "state",
+        "steps": [
+          {
+            "op": "substrate.space",
+            "args": [
+              4
+            ],
+            "sort": "root -> space",
+            "prefix": "/space/4"
+          },
+          {
+            "op": "substrate.space.state",
+            "args": [
+              3
+            ],
+            "sort": "space -> state",
+            "prefix": "/space/4/state/3"
+          }
+        ],
+        "requires": [],
+        "address_id": "sha256:ca4868defd8cf7233c27cc481007328eef057b61f7d48048744aaeb917219c4f",
+        "derivation_id": "sha256:b85fb74f46fd897113f464f6f2d23f0d2d252c2507c0917cf78c5bf7b4ef6a8c",
+        "value_id": null,
+        "evaluated": false,
+        "effects": "none",
+        "source_sha": "165712038643f306f3ec882d9c50da84477de534",
+        "constraints": "Syntax, parameter minima and kind transitions checked; cross-parameter constraints and availability require evaluation in the actual substrate."
+      },
+      "controls": [
+        {
+          "repository": "purl",
+          "branch": "claude/purl-protocol-research-bxevq5",
+          "sha": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
+          "role": "original continuity implementation"
+        },
+        {
+          "repository": "purl",
+          "branch": "claude/acsp-purl-composition-adsbn6",
+          "sha": "18c85bf2960685ce8903937598e3ac0506409673",
+          "role": "pinned bit-string computation snapshots",
+          "path": "src/compute/composer.js"
+        },
+        {
+          "repository": "purl",
+          "branch": "ccr-d0887a23-30wf63",
+          "sha": "83d6bcaf8b811e9d2744fb15a6d42ae5d899de1c",
+          "role": "actual pure SEURL FSM (vendored unchanged)",
+          "path": "src/circle/seurl.js"
+        },
+        {
+          "repository": "substrateIO",
+          "branch": "ccr-d0887a23-30wf63",
+          "sha": "165712038643f306f3ec882d9c50da84477de534",
+          "role": "typed mathematical registry; parse-only mapping",
+          "path": "substrate/purl.py"
+        },
+        {
+          "repository": "substrateIO",
+          "branch": "claude/research-substrate-bootstrap-bfd02a",
+          "sha": "7ace119a544fc736f0d4ec1d72cded9dad0a83e3",
+          "role": "original research instruments and Program 001 transition-history reader"
+        },
+        {
+          "repository": "NetGovComEduGovOrgEduGovComNet",
+          "branch": "claude/agent-continuity-protocol-doi4bn",
+          "sha": "9fcf2e1da3ce01a4e66eb5be5e2249b1f211878b",
+          "role": "original ACSP/0.1 continuity; no live mutations authorized by these adapters"
+        },
+        {
+          "repository": "NetGovComEduGovOrgEduGovComNet",
+          "branch": "claude/acsp-program-001-k616hw",
+          "sha": "417da6c740de22aaa497e10a09251c4c2af7b948",
+          "role": "divergent agent identity, immutable Scrolls and transition export; not merged"
+        },
+        {
+          "repository": "NetGovComEduGovOrgEduGovComNet",
+          "branch": "claude/acsp-purl-composition-adsbn6",
+          "sha": "edd1963750d1fc839cc350797b6a9bc9da8f6a20",
+          "role": "divergent ACSP/0.2 operation records/extensions; not merged"
+        },
+        {
+          "repository": "NetGovComEduGovOrgEduGovComNet",
+          "branch": "ccr-d0887a23-30wf63",
+          "sha": "e8d989afee2025e2315605b4349ccfa833db13bf",
+          "role": "ACSP/0.1 plus local server and historical snapshots"
+        },
+        {
+          "repository": "seurl",
+          "branch": "master",
+          "sha": "620ff955b87857c3eb7a7700a81b6a4d0217400a",
+          "role": "static seven-verb page; no executable runtime"
+        }
+      ],
+      "negative_evidence": "Static SEURL repository and later executable FSM are separate evidence. Contextual mapping is not protocol equivalence; external TALK does not acquire authority."
+    },
+    {
+      "id": "E04",
+      "status": "PASS",
+      "metrics": {
+        "finite_full_states": 4,
+        "positive_projected_states": 2,
+        "rejected_negative_classes": 5
+      },
+      "positive": {
+        "class": "complete-finite-domain",
+        "scope": "Exhaustive for the explicitly declared closed finite model only.",
+        "states": 2,
+        "fibers": 2,
+        "checked_pairs": 0,
+        "transitions": 3
+      },
+      "witness": {
+        "reason": "successor",
+        "operation": "swap",
+        "left": [
+          0,
+          0
+        ],
+        "right": [
+          0,
+          1
+        ],
+        "observed": 0,
+        "left_enabled": true,
+        "right_enabled": true,
+        "left_effects": [],
+        "right_effects": [],
+        "left_successor": 0,
+        "right_successor": 1
+      },
+      "definedness_witness": {
+        "reason": "enabledness",
+        "operation": "partial",
+        "left": {
+          "a": 0,
+          "b": 0
+        },
+        "right": {
+          "a": 0,
+          "b": 1
+        },
+        "observed": 0,
+        "left_enabled": true,
+        "right_enabled": false,
+        "left_effects": [],
+        "right_effects": [],
+        "left_successor": 0
+      },
+      "effect_witness": {
+        "reason": "effects",
+        "operation": "effect",
+        "left": {
+          "a": 0,
+          "b": 0
+        },
+        "right": {
+          "a": 0,
+          "b": 1
+        },
+        "observed": 0,
+        "left_enabled": true,
+        "right_enabled": true,
+        "left_effects": [],
+        "right_effects": [
+          "mutation"
+        ],
+        "left_successor": 0,
+        "right_successor": 0
+      },
+      "negative_evidence": "Completeness of the submitted finite universe is a caller/model assertion. No induction from sampled traces or general-program congruence proof."
+    },
+    {
+      "id": "E05",
+      "status": "PASS",
+      "execution_class": "LIVE_HTTP_WITH_SEPARATE_WORKER_AND_DOCKER",
+      "metrics": {
+        "languages": 4,
+        "passing_builds": 8,
+        "reused_outputs": 4,
+        "value": 18
+      },
+      "programs": [
+        {
+          "language": "purl",
+          "program_id": "program_0dcfd357f0d6de0bbdee21fb",
+          "build_id": "build_c569906109c80b0ed0b2fe43",
+          "build_hash": "sha256:80195b5f36b8e9476b5ff540af8a6c5b4330ef83f90ee2420b5d9bfb6f9158e6",
+          "execution_id": "execution_5abb4a55b4d5784094ee17f0",
+          "value": 18,
+          "release_id": "release_b53ad99c64c7420d47458c5e",
+          "release_url": "http://127.0.0.1:38841/api/releases/release_b53ad99c64c7420d47458c5e",
+          "reused_fork": "program_eaeb410a82dc87789cfbf5a9",
+          "reused_execution": "execution_3d6eec60ea6790bfbdcb6e11",
+          "cold_process": {
+            "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
+            "given_only_url": "http://127.0.0.1:38841/p/program_0dcfd357f0d6de0bbdee21fb",
+            "previous_conversation_available": false,
+            "sdk_discovered": "http://127.0.0.1:38841/sdk/client.js",
+            "program_id": "program_0dcfd357f0d6de0bbdee21fb",
+            "version": 5,
+            "kind": "program",
+            "source": "input number | math.add 2 | math.multiply 3",
+            "tests": [
+              {
+                "input": 4,
+                "expected": 18
+              }
+            ],
+            "mission_nodes": 0,
+            "full_directive_characters": 0,
+            "amendment_characters": 0,
+            "ready_nodes": [],
+            "checkpoint": null,
+            "permitted_operations": [
+              "inspect",
+              "history",
+              "continuity",
+              "replay",
+              "diff"
+            ],
+            "replay_valid": true,
+            "authority": {
+              "authenticated": false,
+              "principal_id": null,
+              "owner": false,
+              "rights": [
+                "read"
+              ]
+            }
+          }
+        },
+        {
+          "language": "javascript",
+          "program_id": "program_cd1a07337ae60b318432931c",
+          "build_id": "build_0ed067c97448156e1694dfcf",
+          "build_hash": "sha256:eb058c3feea72817be66124fbdd8b6d21bb464543d87151a7bce9ac2659b934b",
+          "execution_id": "execution_cfdec5743d53c336581f56d1",
+          "value": 18,
+          "release_id": "release_a3739443e743346c8f6f9e49",
+          "release_url": "http://127.0.0.1:38841/api/releases/release_a3739443e743346c8f6f9e49",
+          "reused_fork": "program_3d7b3be8496f923956f6154d",
+          "reused_execution": "execution_260af446c52ead29fbb82730",
+          "cold_process": {
+            "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
+            "given_only_url": "http://127.0.0.1:38841/p/program_cd1a07337ae60b318432931c",
+            "previous_conversation_available": false,
+            "sdk_discovered": "http://127.0.0.1:38841/sdk/client.js",
+            "program_id": "program_cd1a07337ae60b318432931c",
+            "version": 5,
+            "kind": "program",
+            "source": "function main(input){return (input+2)*3}",
+            "tests": [
+              {
+                "input": 4,
+                "expected": 18
+              }
+            ],
+            "mission_nodes": 0,
+            "full_directive_characters": 0,
+            "amendment_characters": 0,
+            "ready_nodes": [],
+            "checkpoint": null,
+            "permitted_operations": [
+              "inspect",
+              "history",
+              "continuity",
+              "replay",
+              "diff"
+            ],
+            "replay_valid": true,
+            "authority": {
+              "authenticated": false,
+              "principal_id": null,
+              "owner": false,
+              "rights": [
+                "read"
+              ]
+            }
+          }
+        },
+        {
+          "language": "typescript",
+          "program_id": "program_48f35244eab8d26f5692e765",
+          "build_id": "build_cb68a020f4099c4d274c6dda",
+          "build_hash": "sha256:0706fcc11ee7680c8c7378ec056ed863bce394a7f3cf7e05371efe0d009b353f",
+          "execution_id": "execution_09760d6c0c8a39b372508ec0",
+          "value": 18,
+          "release_id": "release_7009bfcd0badf373d26618d9",
+          "release_url": "http://127.0.0.1:38841/api/releases/release_7009bfcd0badf373d26618d9",
+          "reused_fork": "program_3400d4838dd7f0df782d228b",
+          "reused_execution": "execution_203e32f92cd7a9a212f3944c",
+          "cold_process": {
+            "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
+            "given_only_url": "http://127.0.0.1:38841/p/program_48f35244eab8d26f5692e765",
+            "previous_conversation_available": false,
+            "sdk_discovered": "http://127.0.0.1:38841/sdk/client.js",
+            "program_id": "program_48f35244eab8d26f5692e765",
+            "version": 5,
+            "kind": "program",
+            "source": "export default function main(input: number): number {return (input+2)*3}",
+            "tests": [
+              {
+                "input": 4,
+                "expected": 18
+              }
+            ],
+            "mission_nodes": 0,
+            "full_directive_characters": 0,
+            "amendment_characters": 0,
+            "ready_nodes": [],
+            "checkpoint": null,
+            "permitted_operations": [
+              "inspect",
+              "history",
+              "continuity",
+              "replay",
+              "diff"
+            ],
+            "replay_valid": true,
+            "authority": {
+              "authenticated": false,
+              "principal_id": null,
+              "owner": false,
+              "rights": [
+                "read"
+              ]
+            }
+          }
+        },
+        {
+          "language": "python",
+          "program_id": "program_a8022e21516ace543e84ae0d",
+          "build_id": "build_c4b270cc6dbda77c024452b1",
+          "build_hash": "sha256:efbf9dd976d7dd94172e7e789b043bfaa69e82386c99c5448497c990ba03c720",
+          "execution_id": "execution_c7fc1852760a6926f3cca048",
+          "value": 18,
+          "release_id": "release_2b2674f634b10f83a33635ef",
+          "release_url": "http://127.0.0.1:38841/api/releases/release_2b2674f634b10f83a33635ef",
+          "reused_fork": "program_edab73c1726dbe5ce5c6015c",
+          "reused_execution": "execution_b723151d53449858ea2d17a3",
+          "cold_process": {
+            "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
+            "given_only_url": "http://127.0.0.1:38841/p/program_a8022e21516ace543e84ae0d",
+            "previous_conversation_available": false,
+            "sdk_discovered": "http://127.0.0.1:38841/sdk/client.js",
+            "program_id": "program_a8022e21516ace543e84ae0d",
+            "version": 5,
+            "kind": "program",
+            "source": "def main(input):\n return (input+2)*3",
+            "tests": [
+              {
+                "input": 4,
+                "expected": 18
+              }
+            ],
+            "mission_nodes": 0,
+            "full_directive_characters": 0,
+            "amendment_characters": 0,
+            "ready_nodes": [],
+            "checkpoint": null,
+            "permitted_operations": [
+              "inspect",
+              "history",
+              "continuity",
+              "replay",
+              "diff"
+            ],
+            "replay_valid": true,
+            "authority": {
+              "authenticated": false,
+              "principal_id": null,
+              "owner": false,
+              "rights": [
+                "read"
+              ]
+            }
+          }
+        }
+      ],
+      "limitations": [
+        "Fresh reuse is an independent HTTP client and Node process, not a cross-provider AI study",
+        "Registry promotion beyond personal/public releases requires separate authority; no fake package-count claim"
+      ],
+      "elapsed_ms": 21970
+    },
+    {
+      "id": "E06",
+      "status": "PASS",
+      "execution_class": "LIVE_HTTP_AUTHORITY_AND_DOCKER_ATTACKS",
+      "metrics": {
+        "sandbox_checks": 10,
+        "forged_denied": true,
+        "revoked_idempotent_replay_denied": true,
+        "queued_revocation_denied": true,
+        "stale_rejected": true,
+        "get_mutations": 0,
+        "ssrf_compile_rejected": true
+      },
+      "sandbox_run": "2026-10-18T14-08-41.086Z",
+      "negative_evidence": "These attacks do not certify kernel security, unrestricted dependency installs or multi-tenant safety. Authored runtime remains disabled in default public configuration.",
+      "elapsed_ms": 339
+    },
+    {
+      "id": "E07",
+      "status": "PASS",
+      "execution_class": "THREE_ISOLATED_CREDENTIALLED_HTTP_CLIENTS_PLUS_FRESH_PROCESS",
+      "metrics": {
+        "sessions": 3,
+        "proposals": 1,
+        "commits": 1,
+        "checkpoints": 2,
+        "unauthorized_commits": 0,
+        "replay_valid": true
+      },
+      "reconstruction": {
+        "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
+        "given_only_url": "http://127.0.0.1:38841/p/program_6a4d5b2a6cb1f28003962e40",
+        "previous_conversation_available": false,
+        "sdk_discovered": "http://127.0.0.1:38841/sdk/client.js",
+        "program_id": "program_6a4d5b2a6cb1f28003962e40",
+        "version": 6,
+        "kind": "program",
+        "source": "input number | math.multiply 3 | math.add 6",
+        "tests": [
+          {
+            "input": 4,
+            "expected": 18
+          }
+        ],
+        "mission_nodes": 0,
+        "full_directive_characters": 0,
+        "amendment_characters": 0,
+        "ready_nodes": [],
+        "checkpoint": {
+          "id": "checkpoint_1611bf30f7f03fcafcacf4b5",
+          "program_id": "program_6a4d5b2a6cb1f28003962e40",
+          "version": 6,
+          "prepared_at_version": 5,
+          "summary": "B: proposal accepted; next session rebuilds and executes",
+          "next": "Build then run input4",
+          "evidence": [],
+          "state_hash": "sha256:b8c49dca419509da3ddb050b7f347a1073abf7a555c7aeb11370ed807b47a8d5",
+          "actor": "principal_54cf8966ee1173a90165cc7b",
+          "created_at": "2026-10-18T14:20:11.620Z",
+          "evidence_verified": false,
+          "provenance": "author assertions; state hash verified by service"
+        },
+        "permitted_operations": [
+          "inspect",
+          "history",
+          "continuity",
+          "replay",
+          "diff"
+        ],
+        "replay_valid": true,
+        "authority": {
+          "authenticated": false,
+          "principal_id": null,
+          "owner": false,
+          "rights": [
+            "read"
+          ]
+        }
+      },
+      "limitations": [
+        "Client sessions are programmatic, not three independent AI providers",
+        "No claim of transferred private memory or model identity"
+      ],
+      "elapsed_ms": 253
+    },
+    {
+      "id": "E08",
+      "status": "PASS",
+      "execution_class": "LIVE_HTTP_TWO_PLAYERS_AND_REOPENED_DURABLE_STORE",
+      "metrics": {
+        "race_commits": 1,
+        "race_conflicts": 1,
+        "valid_moves": 5,
+        "winner": "X",
+        "replay_after_restart": true
+      },
+      "program_id": "program_f8c746db03121cbb012721d8",
+      "elapsed_ms": 162
+    },
+    {
+      "id": "E09",
+      "status": "PASS",
+      "execution_class": "LIVE_EXECUTABLE_MISSION_AND_FRESH_NO_TRANSCRIPT_PROCESS",
+      "metrics": {
+        "mission_nodes": 52,
+        "edges": 65,
+        "ready_nodes": [
+          "mission"
+        ],
+        "executable_result": {
+          "total_nodes": 52,
+          "dependency_edges": 65,
+          "ready_nodes": [
+            "mission"
+          ],
+          "completed_nodes": [],
+          "waiting_nodes": [
+            "reconstruction",
+            "formal-contract",
+            "features",
+            "cinematic-design",
+            "experiments",
+            "infrastructure",
+            "work-plan",
+            "deliverables",
+            "execution",
+            "feature-1",
+            "feature-2",
+            "feature-3",
+            "feature-4",
+            "feature-5",
+            "feature-6",
+            "feature-7",
+            "feature-8",
+            "feature-9",
+            "feature-10",
+            "feature-11",
+            "feature-12",
+            "E01",
+            "E02",
+            "E03",
+            "E04",
+            "E05",
+            "E06",
+            "E07",
+            "E08",
+            "E09",
+            "E10",
+            "artifact-readme",
+            "artifact-architecture",
+            "artifact-formal-semantics",
+            "artifact-language-spec",
+            "artifact-sdk",
+            "artifact-nomenclature",
+            "artifact-constitution",
+            "artifact-security",
+            "artifact-deployment",
+            "artifact-reconstruction",
+            "artifact-migrations",
+            "artifact-experiments",
+            "artifact-acceptance-json",
+            "artifact-program-graph-json",
+            "artifact-handoff-json",
+            "artifact-playwright-screenshots",
+            "artifact-example-purls",
+            "artifact-build-hashes",
+            "artifact-deployed-url",
+            "deployment-amendment"
+          ],
+          "completion": "NOT_RUN",
+          "verified": false,
+          "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth."
+        },
+        "checkpoint_id": "checkpoint_9cf73a3ee416a9cb6b2177a5"
+      },
+      "single_purl": {
+        "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
+        "given_only_url": "http://127.0.0.1:38841/p/godseed-mission",
+        "previous_conversation_available": false,
+        "sdk_discovered": "http://127.0.0.1:38841/sdk/client.js",
+        "program_id": "godseed-mission",
+        "version": 1,
+        "kind": "mission",
+        "source": "input json | mission.inspect",
+        "tests": [],
+        "mission_nodes": 52,
+        "full_directive_characters": 10449,
+        "amendment_characters": 1251,
+        "ready_nodes": [
+          "mission"
+        ],
+        "checkpoint": null,
+        "permitted_operations": [
+          "inspect",
+          "history",
+          "continuity",
+          "replay",
+          "diff"
+        ],
+        "replay_valid": true,
+        "authority": {
+          "authenticated": false,
+          "principal_id": null,
+          "owner": false,
+          "rights": [
+            "read",
+            "run",
+            "propose"
+          ]
+        }
+      },
+      "plain_text_control": {
+        "full_directive_characters": 10449,
+        "authenticated": false,
+        "live_state": false,
+        "operations": false,
+        "checkpoint": false
+      },
+      "limitations": [
+        "Feature structure comparison only; no randomized token/cost/success advantage measured",
+        "Mission artifact integrity is checked; requirement truth still requires independent review",
+        "Fresh same-provider AI reconstruction is recorded separately when available"
+      ],
+      "elapsed_ms": 464
+    },
+    {
+      "id": "E10",
+      "status": "PASS",
+      "execution_class": "LOCAL_COLD_BUILD_AND_REAL_BROWSER",
+      "ui": {
+        "status": "PASS",
+        "tests": 12,
+        "failures": 0,
+        "duration_ms": 20455.336,
+        "execution_class": "REAL_CHROMIUM_DESKTOP_AND_PIXEL5_EMULATION",
+        "clipboard": "native read/write; pointer mouse/touch; Enter/Space; separate Open; explicit denial simulation fallback",
+        "visual_regression": "Repeated local baseline screenshot comparisons with reduced motion and animations disabled",
+        "desktop": {
+          "findings": [
+            {
+              "path": "/",
+              "violations": [],
+              "serious": 0
+            },
+            {
+              "path": "/explore",
+              "violations": [],
+              "serious": 0
+            },
+            {
+              "path": "/create",
+              "violations": [],
+              "serious": 0
+            },
+            {
+              "path": "/p/godseed-mission",
+              "violations": [],
+              "serious": 0
+            },
+            {
+              "path": "/observatory",
+              "violations": [],
+              "serious": 0
+            },
+            {
+              "path": "/docs",
+              "violations": [],
+              "serious": 0
+            }
+          ],
+          "performance": {
+            "dom_content_loaded_ms": 14.700000000186265,
+            "response_ms": 1.7000000001862645,
+            "load_ms": 16.600000000093132,
+            "transferred_bytes": 218746,
+            "reduced_motion": true
+          }
+        },
+        "android": {
+          "findings": [
+            {
+              "path": "/",
+              "violations": [],
+              "serious": 0
+            },
+            {
+              "path": "/explore",
+              "violations": [],
+              "serious": 0
+            },
+            {
+              "path": "/create",
+              "violations": [],
+              "serious": 0
+            },
+            {
+              "path": "/p/godseed-mission",
+              "violations": [],
+              "serious": 0
+            },
+            {
+              "path": "/observatory",
+              "violations": [],
+              "serious": 0
+            },
+            {
+              "path": "/docs",
+              "violations": [],
+              "serious": 0
+            }
+          ],
+          "performance": {
+            "dom_content_loaded_ms": 12.699999999720603,
+            "response_ms": 2,
+            "load_ms": 18,
+            "transferred_bytes": 224870,
+            "reduced_motion": true
+          }
+        }
+      },
+      "containers": {
+        "status": "PASS",
+        "execution_class": "LOCAL_CONTAINER_DEVELOPMENT_FILE",
+        "image": "sha256:87b7b33cb425ee676ff8ada3ade1c4547b79e4f72ce0e13de87d1ab571c0068e",
+        "tests": {
+          "node24": 184,
+          "node22": 184
+        },
+        "checks": [
+          "separate non-root read-only API/worker",
+          "durable queue execution value18",
+          "API/worker restart retains artifacts/results",
+          "runtime capability manifest",
+          "role health checks"
+        ],
+        "source": "evidence/infrastructure/final-image-smoke.txt",
+        "production_supabase": "BLOCKED; no configured project",
+        "portability": {
+          "status": "PASS",
+          "class": "PURE_VALUES_AND_DERIVATIONS_ACROSS_NODE_VERSIONS",
+          "host": {
+            "node": "v24.19.0",
+            "arch": "x64",
+            "results": [
+              {
+                "source": "input number | math.add 2 | math.multiply 3",
+                "input": 4,
+                "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+                "value": 18,
+                "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+                "environment_id": "environment:8872c2d1ce661e0ac98dafa0f6d507f0edbb9412ccafef67b81e47ee08c646f6"
+              },
+              {
+                "source": "input string | string.trim | string.uppercase",
+                "input": " purl ",
+                "derivation_id": "derivation:a6fdac3cf1b62ed988ddada3aecbc8556aa30a9244c0f31eea5cd61ad6827091",
+                "value": "PURL",
+                "value_id": "value:21ea0609b14cb6e77e08b808875b66a090851691eec597bd9122ee30adb15b0c",
+                "environment_id": "environment:b4d03dcc8986ec82fd9b81e01b66133d5a53fe4f3353901f03177417ffd08148"
+              },
+              {
+                "source": "input string | repeat 3 { state.cycle007 }",
+                "input": "007",
+                "derivation_id": "derivation:e13ab82941e4726010667c2d6ff1db86424dc679c8eccbc4eefd08a832212913",
+                "value": "007",
+                "value_id": "value:280ec15c32961a0ceb8e1171dc659fc6e0be032f59fee42ab41de4403d0f79a8",
+                "environment_id": "environment:29b2decffb678f481dff29abbd204b0e7099dd254fa54210866b3d465a1725ba"
+              }
+            ]
+          },
+          "container": {
+            "node": "v22.14.0",
+            "arch": "x64",
+            "results": [
+              {
+                "source": "input number | math.add 2 | math.multiply 3",
+                "input": 4,
+                "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+                "value": 18,
+                "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+                "environment_id": "environment:6c5c1b748d5d8e07374329c4868415696990c60948f6e3beff506e0a55015b47"
+              },
+              {
+                "source": "input string | string.trim | string.uppercase",
+                "input": " purl ",
+                "derivation_id": "derivation:a6fdac3cf1b62ed988ddada3aecbc8556aa30a9244c0f31eea5cd61ad6827091",
+                "value": "PURL",
+                "value_id": "value:21ea0609b14cb6e77e08b808875b66a090851691eec597bd9122ee30adb15b0c",
+                "environment_id": "environment:60f3064f44d43879ddeec845594f303c88c947ca5a6c56910dcf8c6eff0fb110"
+              },
+              {
+                "source": "input string | repeat 3 { state.cycle007 }",
+                "input": "007",
+                "derivation_id": "derivation:e13ab82941e4726010667c2d6ff1db86424dc679c8eccbc4eefd08a832212913",
+                "value": "007",
+                "value_id": "value:280ec15c32961a0ceb8e1171dc659fc6e0be032f59fee42ab41de4403d0f79a8",
+                "environment_id": "environment:9ddce18db5635bbb3c8a06983fcc8fa9c47c2619c6210954e2a4907cd44f7f1f"
+              }
+            ]
+          },
+          "environment_ids_differ": true,
+          "arm": "NOT_RUN",
+          "qualification": "Equal defined values/derivations for three pinned programs on x64; environment hashes explicitly differ. No universal cross-architecture equivalence claimed."
+        }
+      },
+      "cold_rebuild": {
+        "status": "PASS",
+        "run_id": "2026-10-18T14-18-45.043Z",
+        "source_revision": "85b9ee2bf8f428eafeee0eaed1c4cb8dc680134a",
+        "execution_class": "CLEAN_LOCAL_GIT_CLONE_NO_NODE_MODULES_OR_STATE",
+        "checkout": "/tmp/purl-cold-GXVs8x",
+        "tests": 184,
+        "checks": [
+          {
+            "name": "clean-clone",
+            "status": "PASS",
+            "elapsed_ms": 70,
+            "exit_code": 0
+          },
+          {
+            "name": "dependencies",
+            "status": "PASS",
+            "elapsed_ms": 233,
+            "exit_code": 0
+          },
+          {
+            "name": "test",
+            "status": "PASS",
+            "elapsed_ms": 1212,
+            "exit_code": 0
+          },
+          {
+            "name": "cold-client",
+            "status": "PASS",
+            "elapsed_ms": 78,
+            "exit_code": 0
+          }
+        ],
+        "mission": {
+          "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
+          "given_only_url": "http://127.0.0.1:18181/p/godseed-mission",
+          "previous_conversation_available": false,
+          "sdk_discovered": "http://127.0.0.1:18181/sdk/client.js",
+          "program_id": "godseed-mission",
+          "version": 1,
+          "kind": "mission",
+          "source": "input json | mission.inspect",
+          "tests": [],
+          "mission_nodes": 52,
+          "full_directive_characters": 10449,
+          "amendment_characters": 1251,
+          "ready_nodes": [
+            "mission"
+          ],
+          "checkpoint": null,
+          "permitted_operations": [
+            "inspect",
+            "history",
+            "continuity",
+            "replay",
+            "diff"
+          ],
+          "replay_valid": true,
+          "authority": {
+            "authenticated": false,
+            "principal_id": null,
+            "owner": false,
+            "rights": [
+              "read",
+              "run",
+              "propose"
+            ]
+          }
+        },
+        "hosted_supabase_migrations": "Separate real PostgreSQL/PostgREST verification; hosted application BLOCKED",
+        "errors": ""
+      },
+      "hosted_deployment": {
+        "status": "BLOCKED",
+        "reason": "No Railway token/linked project and no configured PURL Supabase production project; Oracle adapter deferred by amendment"
+      },
+      "limitations": [
+        "Hosted Supabase Storage/Auth integration and public Railway deployment cannot be exercised without configured service access."
+      ]
+    }
+  ],
+  "summary": {
+    "PASS": 10,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "NOT_RUN": 0
+  },
+  "production_deployed": false
+}

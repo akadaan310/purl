@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "execution_class": "LOCAL_DOCKER_COMPOSE_DEVELOPMENT_FILE",
+  "base_url": "http://127.0.0.1:18080",
+  "value": 18,
+  "execution_id": "execution_fd1a209d49c8585511288e11",
+  "public_interface": "loopback-only",
+  "persistence": "named Docker volume",
+  "untrusted_execution": false
+}

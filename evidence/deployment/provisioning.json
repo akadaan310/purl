@@ -1,0 +1,82 @@
+{
+  "schema": "purl-hosted-provisioning/1",
+  "recorded_at": "2026-10-18T14:44:02.797Z",
+  "status": "WAITING_FOR_SERVER_CREDENTIAL",
+  "railway": {
+    "project_id": "7b6d6969-ebfe-4823-ac60-6370fb068458",
+    "environment_id": "eaa160f9-ab30-4dee-8fd5-9a6524eb7ee2",
+    "api_service_id": "5ed93f79-e12c-4cb6-a835-b3158e8da5af",
+    "worker_service_id": "063e5f3b-9953-44d2-b479-84dab49bb7f1",
+    "allocated_url": "https://purl-api-production.up.railway.app",
+    "deployment_status": "NOT_DEPLOYED",
+    "arbitrary_code_enabled": false
+  },
+  "supabase": {
+    "project_id": "frxufmwwbegconolevkw",
+    "organization_id": "wesmazatlddlwofnmgbf",
+    "placement": "Isolated new PURL tables/functions/private bucket in existing healthy project; existing application rows preserved",
+    "migration_version": "20261018144237",
+    "migration_name": "purl_godseed_durable_repository",
+    "migration_source": "supabase/migrations/20261018134521_purl_durable_repository.sql",
+    "document_id": "godseed-v3-production",
+    "security": {
+      "bucket": {
+        "id": "purl-artifacts",
+        "public": false,
+        "file_size_limit": 52428800
+      },
+      "tables": [
+        {
+          "rls": true,
+          "name": "purl_audit",
+          "anon_select": false,
+          "service_select": true,
+          "authenticated_select": false
+        },
+        {
+          "rls": true,
+          "name": "purl_documents",
+          "anon_select": false,
+          "service_select": true,
+          "authenticated_select": false
+        },
+        {
+          "rls": true,
+          "name": "purl_entities",
+          "anon_select": false,
+          "service_select": true,
+          "authenticated_select": false
+        }
+      ],
+      "functions": [
+        {
+          "name": "purl_compare_and_swap",
+          "anon_execute": false,
+          "service_execute": true
+        },
+        {
+          "name": "purl_read_document",
+          "anon_execute": false,
+          "service_execute": true
+        }
+      ],
+      "document_count": 0
+    }
+  },
+  "failed_attempts": [
+    {
+      "action": "Create dedicated purl-godseed Supabase project",
+      "reason": "Maximum two active free projects reached"
+    },
+    {
+      "action": "Restore inactive ACSP project fjlonsmwjdxoybaisalh",
+      "reason": "Same maximum active free project limit"
+    },
+    {
+      "action": "Set deprecated railwayConfigFile",
+      "reason": "Railway requires current service config/IaC instead; direct service settings succeeded"
+    }
+  ],
+  "required_user_configuration": "Add SUPABASE_SERVICE_ROLE_KEY as a shared Railway production variable; OAuth apps cannot read server secret; both services reference shared variable",
+  "secrets_recorded": false
+}

@@ -1,0 +1,92 @@
++ cd /workspace/purl
++ purl_compose_run=evidence/infrastructure/local-compose-runs/20261018T143215Z
++ export PURL_DEV_PORT=18080
++ PURL_DEV_PORT=18080
++ trap 'purl_compose down' EXIT
++ node -e 'console.log(JSON.stringify({event:"compose_verification_start",at:new Date().toISOString(),project:"purl-dev-verify",port:18080}))'
+{"event":"compose_verification_start","at":"2026-10-18T14:33:21.434Z","project":"purl-dev-verify","port":18080}
++ purl_docker image inspect purl:local --format '{{.Id}}'
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock image inspect purl:local --format '{{.Id}}'
+sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401
++ purl_docker volume inspect purl-dev-verify_purl-development --format '{{.Name}} {{.CreatedAt}}'
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock volume inspect purl-dev-verify_purl-development --format '{{.Name}} {{.CreatedAt}}'
+purl-dev-verify_purl-development 2026-10-18T14:23:56Z
++ purl_compose up -d --no-build
++ purl_docker compose -p purl-dev-verify -f compose.dev.yaml up -d --no-build
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock compose -p purl-dev-verify -f compose.dev.yaml up -d --no-build
+ Network purl-dev-verify_default  Creating
+ Network purl-dev-verify_default  Created
+ Container purl-dev-verify-init-data-1  Creating
+ Container purl-dev-verify-init-data-1  Created
+ Container purl-dev-verify-worker-1  Creating
+ Container purl-dev-verify-api-1  Creating
+ Container purl-dev-verify-api-1  Created
+ Container purl-dev-verify-worker-1  Created
+ Container purl-dev-verify-init-data-1  Starting
+ Container purl-dev-verify-init-data-1  Started
+ Container purl-dev-verify-init-data-1  Waiting
+ Container purl-dev-verify-init-data-1  Waiting
+ Container purl-dev-verify-init-data-1  Exited
+ Container purl-dev-verify-api-1  Starting
+ Container purl-dev-verify-init-data-1  Exited
+ Container purl-dev-verify-worker-1  Starting
+ Container purl-dev-verify-worker-1  Started
+ Container purl-dev-verify-api-1  Started
++ purl_compose ps --format json
++ purl_docker compose -p purl-dev-verify -f compose.dev.yaml ps --format json
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock compose -p purl-dev-verify -f compose.dev.yaml ps --format json
++ cat evidence/infrastructure/local-compose-runs/20261018T143215Z/compose-ps.jsonl
+{"Command":"\"docker-entrypoint.s…\"","CreatedAt":"2026-10-18 14:33:23 +0000 UTC","ExitCode":0,"Health":"starting","ID":"e98fc89b4e99","Image":"purl:local","Labels":"com.docker.compose.config-hash=65ffb85240adf2dd76e49a3e762f43a15e17d440b44bc9db393f4ee9fdf56411,com.docker.compose.depends_on=init-data:service_completed_successfully:false,com.docker.compose.image=sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401,com.docker.compose.oneoff=False,com.docker.compose.project.config_files=/workspace/purl/compose.dev.yaml,com.docker.compose.service=api,org.opencontainers.image.title=PURL,com.docker.compose.container-number=1,com.docker.compose.project=purl-dev-verify,com.docker.compose.project.working_dir=/workspace/purl,com.docker.compose.version=2.40.3,org.opencontainers.image.description=PURL API/control plane and durable worker","LocalVolumes":"1","Mounts":"purl-dev-verif…","Name":"purl-dev-verify-api-1","Names":"purl-dev-verify-api-1","Networks":"purl-dev-verify_default","Ports":"127.0.0.1:18080-\u003e3000/tcp","Project":"purl-dev-verify","Publishers":[{"URL":"127.0.0.1","TargetPort":3000,"PublishedPort":18080,"Protocol":"tcp"}],"RunningFor":"3 seconds ago","Service":"api","Size":"0B","State":"running","Status":"Up Less than a second (health: starting)"}
+{"Command":"\"docker-entrypoint.s…\"","CreatedAt":"2026-10-18 14:33:23 +0000 UTC","ExitCode":0,"Health":"starting","ID":"23b2f85b5194","Image":"purl:local","Labels":"com.docker.compose.project.config_files=/workspace/purl/compose.dev.yaml,com.docker.compose.service=worker,com.docker.compose.version=2.40.3,org.opencontainers.image.description=PURL API/control plane and durable worker,com.docker.compose.config-hash=a5ecd6b5989923e60c9d48348d9c330ed3fffc3866874957b6deeee5461b30db,com.docker.compose.depends_on=init-data:service_completed_successfully:false,com.docker.compose.image=sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401,com.docker.compose.project=purl-dev-verify,com.docker.compose.project.working_dir=/workspace/purl,org.opencontainers.image.title=PURL,com.docker.compose.container-number=1,com.docker.compose.oneoff=False","LocalVolumes":"1","Mounts":"purl-dev-verif…","Name":"purl-dev-verify-worker-1","Names":"purl-dev-verify-worker-1","Networks":"none","Ports":"","Project":"purl-dev-verify","Publishers":[],"RunningFor":"3 seconds ago","Service":"worker","Size":"0B","State":"running","Status":"Up Less than a second (health: starting)"}
+++ purl_compose ps -q api
+++ purl_docker compose -p purl-dev-verify -f compose.dev.yaml ps -q api
+++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock compose -p purl-dev-verify -f compose.dev.yaml ps -q api
++ purl_api_id=e98fc89b4e9955509ee9044210981ad3a5a1527b86ee27ac3f47daf58db9bc09
+++ purl_compose ps -q worker
+++ purl_docker compose -p purl-dev-verify -f compose.dev.yaml ps -q worker
+++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock compose -p purl-dev-verify -f compose.dev.yaml ps -q worker
++ purl_worker_id=23b2f85b51944241d70301170cbcbc91e7555153eb7db360ee3d223351a2c619
++ test -n e98fc89b4e9955509ee9044210981ad3a5a1527b86ee27ac3f47daf58db9bc09
++ test -n 23b2f85b51944241d70301170cbcbc91e7555153eb7db360ee3d223351a2c619
++ test e98fc89b4e9955509ee9044210981ad3a5a1527b86ee27ac3f47daf58db9bc09 '!=' 23b2f85b51944241d70301170cbcbc91e7555153eb7db360ee3d223351a2c619
++ purl_docker inspect --format '{"id":{{json .Id}},"name":{{json .Name}},"hostname":{{json .Config.Hostname}},"user":{{json .Config.User}},"path":{{json .Path}},"args":{{json .Args}},"image":{{json .Image}},"read_only":{{json .HostConfig.ReadonlyRootfs}},"network_mode":{{json .HostConfig.NetworkMode}}}' e98fc89b4e9955509ee9044210981ad3a5a1527b86ee27ac3f47daf58db9bc09 23b2f85b51944241d70301170cbcbc91e7555153eb7db360ee3d223351a2c619
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock inspect --format '{"id":{{json .Id}},"name":{{json .Name}},"hostname":{{json .Config.Hostname}},"user":{{json .Config.User}},"path":{{json .Path}},"args":{{json .Args}},"image":{{json .Image}},"read_only":{{json .HostConfig.ReadonlyRootfs}},"network_mode":{{json .HostConfig.NetworkMode}}}' e98fc89b4e9955509ee9044210981ad3a5a1527b86ee27ac3f47daf58db9bc09 23b2f85b51944241d70301170cbcbc91e7555153eb7db360ee3d223351a2c619
++ cat evidence/infrastructure/local-compose-runs/20261018T143215Z/containers.jsonl
+{"id":"e98fc89b4e9955509ee9044210981ad3a5a1527b86ee27ac3f47daf58db9bc09","name":"/purl-dev-verify-api-1","hostname":"purl-api-development","user":"node","path":"docker-entrypoint.sh","args":["node","service/main.js"],"image":"sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401","read_only":true,"network_mode":"purl-dev-verify_default"}
+{"id":"23b2f85b51944241d70301170cbcbc91e7555153eb7db360ee3d223351a2c619","name":"/purl-dev-verify-worker-1","hostname":"purl-worker-development","user":"node","path":"docker-entrypoint.sh","args":["node","service/worker.js"],"image":"sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401","read_only":true,"network_mode":"none"}
++ node --input-type=module
+{"event":"retained_execution","at":"2026-10-18T14:33:26.332Z","status":"PASS","execution_id":"execution_fd1a209d49c8585511288e11","execution_status":"succeeded","value":18,"health":{"status":"ok","protocol":"PURL/0.2","service":"api","persistence":"development-file","untrusted_execution":"disabled-unless-verified-worker"}}
++ purl_docker exec e98fc89b4e9955509ee9044210981ad3a5a1527b86ee27ac3f47daf58db9bc09 node deploy/healthcheck.js
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock exec e98fc89b4e9955509ee9044210981ad3a5a1527b86ee27ac3f47daf58db9bc09 node deploy/healthcheck.js
++ purl_docker exec 23b2f85b51944241d70301170cbcbc91e7555153eb7db360ee3d223351a2c619 node deploy/healthcheck.js
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock exec 23b2f85b51944241d70301170cbcbc91e7555153eb7db360ee3d223351a2c619 node deploy/healthcheck.js
++ purl_docker exec e98fc89b4e9955509ee9044210981ad3a5a1527b86ee27ac3f47daf58db9bc09 node -e 'const assert=require("node:assert/strict");const o={role:process.env.PURL_ROLE,hostname:require("node:os").hostname(),uid:process.getuid(),sandbox_enabled:process.env.PURL_SANDBOX_ENABLED,sandbox_verified:process.env.PURL_SANDBOX_VERIFIED};assert.equal(o.role,"api");assert.equal(o.hostname,"purl-api-development");assert.equal(o.uid,1000);assert.equal(o.sandbox_enabled,"0");assert.equal(o.sandbox_verified,"0");console.log(JSON.stringify(o))'
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock exec e98fc89b4e9955509ee9044210981ad3a5a1527b86ee27ac3f47daf58db9bc09 node -e 'const assert=require("node:assert/strict");const o={role:process.env.PURL_ROLE,hostname:require("node:os").hostname(),uid:process.getuid(),sandbox_enabled:process.env.PURL_SANDBOX_ENABLED,sandbox_verified:process.env.PURL_SANDBOX_VERIFIED};assert.equal(o.role,"api");assert.equal(o.hostname,"purl-api-development");assert.equal(o.uid,1000);assert.equal(o.sandbox_enabled,"0");assert.equal(o.sandbox_verified,"0");console.log(JSON.stringify(o))'
++ purl_docker exec 23b2f85b51944241d70301170cbcbc91e7555153eb7db360ee3d223351a2c619 node -e 'const assert=require("node:assert/strict");const o={role:process.env.PURL_ROLE,hostname:require("node:os").hostname(),uid:process.getuid(),sandbox_enabled:process.env.PURL_SANDBOX_ENABLED,sandbox_verified:process.env.PURL_SANDBOX_VERIFIED,heartbeat:JSON.parse(require("node:fs").readFileSync("/tmp/purl-worker-heartbeat.json","utf8"))};assert.equal(o.role,"worker");assert.equal(o.hostname,"purl-worker-development");assert.equal(o.uid,1000);assert.equal(o.sandbox_enabled,"0");assert.equal(o.sandbox_verified,"0");assert.equal(o.heartbeat.status,"running");console.log(JSON.stringify(o))'
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock exec 23b2f85b51944241d70301170cbcbc91e7555153eb7db360ee3d223351a2c619 node -e 'const assert=require("node:assert/strict");const o={role:process.env.PURL_ROLE,hostname:require("node:os").hostname(),uid:process.getuid(),sandbox_enabled:process.env.PURL_SANDBOX_ENABLED,sandbox_verified:process.env.PURL_SANDBOX_VERIFIED,heartbeat:JSON.parse(require("node:fs").readFileSync("/tmp/purl-worker-heartbeat.json","utf8"))};assert.equal(o.role,"worker");assert.equal(o.hostname,"purl-worker-development");assert.equal(o.uid,1000);assert.equal(o.sandbox_enabled,"0");assert.equal(o.sandbox_verified,"0");assert.equal(o.heartbeat.status,"running");console.log(JSON.stringify(o))'
++ cat evidence/infrastructure/local-compose-runs/20261018T143215Z/api-runtime.json evidence/infrastructure/local-compose-runs/20261018T143215Z/worker-runtime.json
+{"role":"api","hostname":"purl-api-development","uid":1000,"sandbox_enabled":"0","sandbox_verified":"0"}
+{"role":"worker","hostname":"purl-worker-development","uid":1000,"sandbox_enabled":"0","sandbox_verified":"0","heartbeat":{"updatedAt":"2026-10-18T14:33:26.512Z","workerId":"purl-worker-development-ca976500-0dd0-409a-b71b-c93e7de14e37","status":"running"}}
++ purl_compose down
++ purl_docker compose -p purl-dev-verify -f compose.dev.yaml down
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock compose -p purl-dev-verify -f compose.dev.yaml down
+ Container purl-dev-verify-worker-1  Stopping
+ Container purl-dev-verify-api-1  Stopping
+ Container purl-dev-verify-worker-1  Stopped
+ Container purl-dev-verify-worker-1  Removing
+ Container purl-dev-verify-api-1  Stopped
+ Container purl-dev-verify-api-1  Removing
+ Container purl-dev-verify-worker-1  Removed
+ Container purl-dev-verify-api-1  Removed
+ Container purl-dev-verify-init-data-1  Stopping
+ Container purl-dev-verify-init-data-1  Stopped
+ Container purl-dev-verify-init-data-1  Removing
+ Container purl-dev-verify-init-data-1  Removed
+ Network purl-dev-verify_default  Removing
+ Network purl-dev-verify_default  Removed
++ trap - EXIT
++ purl_docker volume inspect purl-dev-verify_purl-development --format '{{.Name}} {{.CreatedAt}}'
++ env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock volume inspect purl-dev-verify_purl-development --format '{{.Name}} {{.CreatedAt}}'
+purl-dev-verify_purl-development 2026-10-18T14:23:56Z
++ node -e 'console.log(JSON.stringify({event:"compose_verification_end",at:new Date().toISOString(),status:"PASS",cleanup:"docker compose down without -v; named volume retained"}))'
+{"event":"compose_verification_end","at":"2026-10-18T14:33:27.150Z","status":"PASS","cleanup":"docker compose down without -v; named volume retained"}

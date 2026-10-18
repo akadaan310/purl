@@ -1,11 +1,15 @@
 {
   "protocol": "purl-godseed-experiments/1",
-  "run_id": "2026-10-18T14-11-09.636Z",
+  "run_id": "2026-10-18T14-32-25.207Z",
   "registered_at": "2026-10-18T13:47:36.679832+00:00",
   "registration_class": "Local file saved before GODSEED harness execution; not an externally timestamped preregistration",
-  "source_revision": "3df4452a3624b3f5492bf23c2dacc49d8d2b33c7",
-  "source_snapshot_sha256": "abdc73a74fbdb7c8b728feed5a252895632f7e875618ad735ad333025817b1aa",
+  "source_revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
+  "source_snapshot_sha256": "85e37e46046175ba0ecda2908fd5711b008cb2e1b9aa8294fd0d84e39a33e65c",
   "source_files": [
+    {
+      "path": "ACCEPTANCE.json",
+      "sha256": "27f0336752b01e646fcb456674d28b75afc50df9758c5805cb24e220d59cfa8d"
+    },
     {
       "path": "ARCHITECTURE.md",
       "sha256": "3e04bdd5753d1bca71ab608d6ace7be11766516b4ccdc2a0d7587520023eb5a0"
@@ -16,7 +20,7 @@
     },
     {
       "path": "DEPLOYMENT.md",
-      "sha256": "f0c1cba3fe4def89e3a5880732559476dce7827dc18151b488ed475b42290326"
+      "sha256": "618a1ed9f7cac6e78603db8ad7540309aa1b314f0b93099cb1624c34991d2d7a"
     },
     {
       "path": "Dockerfile",
@@ -40,7 +44,7 @@
     },
     {
       "path": "NOMENCLATURE.md",
-      "sha256": "e481883d60389849a49cd6301e665d34612a88070f90b5d86a04525af78f607d"
+      "sha256": "d0adb0c0f942737d5622a8d7d347a6484e94724425a1def11ab926b67c075ef2"
     },
     {
       "path": "PRINCIPLES.md",
@@ -73,6 +77,10 @@
     {
       "path": "SPEC.md",
       "sha256": "1844b4e11fbced7a46bdf772bd329754c2ed7f6e6522d8ee08788e7546720648"
+    },
+    {
+      "path": "compose.dev.yaml",
+      "sha256": "d12625afb5e604ce654df75750d03c01395d7def96e564305533dfe8d78ca2e9"
     },
     {
       "path": "compose.yaml",
@@ -163,6 +171,14 @@
       "sha256": "53746f9a04bdffddba6f76a1edfb8af35f5269c1c8dcc651132c59119a4ca5ff"
     },
     {
+      "path": "examples/PURLS.json",
+      "sha256": "b64a4022276583d048e4966dd35c5bec859f5b67ca8817a32d61758ab2cfb83f"
+    },
+    {
+      "path": "examples/live-session.snapshot.json",
+      "sha256": "1ea389889003a4a62ef0f300f4397bd8833fdcc5e331467edf5d50046d4724d5"
+    },
+    {
       "path": "experiments/exp-0001/REPORT.md",
       "sha256": "e9772a47893c5d20a9bba9d4e6ab30527473e390f112093fb8ac90665cf18d0d"
     },
@@ -179,12 +195,16 @@
       "sha256": "7c006d70a4a5e9e7f7b63d717e8431351d8ba6584ae2642bc8dbd773569fb309"
     },
     {
+      "path": "handoff.json",
+      "sha256": "0fda6307aea5e55e2742d25dfc43a61531a05a2b47f84b964d18f70dee05d6b5"
+    },
+    {
       "path": "package-lock.json",
-      "sha256": "e522bad8587d796e66916914675be1230d11bbedda44f4494ffc15ad983b1563"
+      "sha256": "b65649596d8cb8a98c539ac10b290781ae3f9bbc1352fa114b6f5ad081bbe96d"
     },
     {
       "path": "package.json",
-      "sha256": "62dd0a249cbd439e918c76722dc31f0a5ac457d4dacb1748a234c4bc4f766daa"
+      "sha256": "618001f21235d52c55fd4ae039f621c2d5fae18feffadccf9284f3975e5ab1c2"
     },
     {
       "path": "playwright.config.js",
@@ -436,7 +456,7 @@
     },
     {
       "path": "service/repository.js",
-      "sha256": "556072ca3c99fbe8c9474ab74a84cd513f57b6e624ae5a523ece72625fd9d587"
+      "sha256": "2e0106d14d44558fef8a51bc0c2dc61030d09adef59710bb29d5e6d3f2ab4e5b"
     },
     {
       "path": "service/sandbox.js",
@@ -568,7 +588,7 @@
     },
     {
       "path": "test/adapters.test.js",
-      "sha256": "e12ac5a28b2a48eaf2d204eebdd691cb3b0705bfaad56c81b78c87eb804192ec"
+      "sha256": "61aca39713877e0fde109090442cf0cd0a6fec6a00828c7cfaa55a5b7c4ab368"
     },
     {
       "path": "test/architecture.test.js",
@@ -589,6 +609,14 @@
     {
       "path": "test/experiment.test.js",
       "sha256": "82b7ea4751fb9b1fb706edda5fe443e7077f1f52433f1afa2d7a8373aabf1602"
+    },
+    {
+      "path": "test/fixtures/composition-algebra-fixtures.json",
+      "sha256": "ea0f6eae4ae68e003206cc7647ab8054182415dda80d2ce2fc02cde618e906ae"
+    },
+    {
+      "path": "test/fixtures/substrate-term-fixtures.json",
+      "sha256": "3b11a3339882c5a61976d22f767201aff7cd540d47b69f06864936a2852da6a3"
     },
     {
       "path": "test/helpers.js",
@@ -624,7 +652,7 @@
     },
     {
       "path": "test/product/repository.test.js",
-      "sha256": "648a4186db460b78b0d48ca30651c478096acfb2c4484f98d76f5132d393e53c"
+      "sha256": "14fa25c6ab0d2155d2a319823317b9ed8686cd7bedad9d3d3c4e2e0297d2c76d"
     },
     {
       "path": "test/product/sandbox.test.js",
@@ -660,7 +688,7 @@
     },
     {
       "path": "web/style.css",
-      "sha256": "dad913da26f9bd157374d3c113062aacf533f969c80448ea5970eb3e770969ba"
+      "sha256": "8203f361ae87805dd1db336dd5381ab797432296a0b181a166872d30ca94299c"
     }
   ],
   "environment": {
@@ -668,7 +696,7 @@
     "architecture": "x64",
     "platform": "linux"
   },
-  "base_url_during_run": "http://127.0.0.1:32815",
+  "base_url_during_run": "http://127.0.0.1:46377",
   "experiments": [
     {
       "id": "E01",
@@ -1069,21 +1097,21 @@
       "programs": [
         {
           "language": "purl",
-          "program_id": "program_1a6ecbb5a0d5a01a06083d75",
-          "build_id": "build_9740b60e9757be1435f5dae3",
-          "build_hash": "sha256:188d551614b62dcf16dd4b7b4b9fbf361f71455161fdac3476c6676a7bd9ba04",
-          "execution_id": "execution_c11aa9818e07b55d77759347",
+          "program_id": "program_53dba02a732a25f68a2c61f3",
+          "build_id": "build_dfef6cfda8eca07bf42fa203",
+          "build_hash": "sha256:581b18f77c8b111f7ee73eb7f488f749bc98461e14e1a11d0414bee7bbca909b",
+          "execution_id": "execution_5bdd39a2ad19566b7898d8b0",
           "value": 18,
-          "release_id": "release_c1a1f6bc20042460230c03dd",
-          "release_url": "http://127.0.0.1:32815/api/releases/release_c1a1f6bc20042460230c03dd",
-          "reused_fork": "program_d19d7109bcffc6aebb2f4427",
-          "reused_execution": "execution_3bb144deffe393e447953dbb",
+          "release_id": "release_3204e3373de595af549296bf",
+          "release_url": "http://127.0.0.1:46377/api/releases/release_3204e3373de595af549296bf",
+          "reused_fork": "program_c34e9ef37c3decfa6fa4e245",
+          "reused_execution": "execution_fd854012139acd0ed28af487",
           "cold_process": {
             "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-            "given_only_url": "http://127.0.0.1:32815/p/program_1a6ecbb5a0d5a01a06083d75",
+            "given_only_url": "http://127.0.0.1:46377/p/program_53dba02a732a25f68a2c61f3",
             "previous_conversation_available": false,
-            "sdk_discovered": "http://127.0.0.1:32815/sdk/client.js",
-            "program_id": "program_1a6ecbb5a0d5a01a06083d75",
+            "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
+            "program_id": "program_53dba02a732a25f68a2c61f3",
             "version": 5,
             "kind": "program",
             "source": "input number | math.add 2 | math.multiply 3",
@@ -1118,21 +1146,21 @@
         },
         {
           "language": "javascript",
-          "program_id": "program_6bd57b21c40064070821d6a0",
-          "build_id": "build_bf21747283644bf2f1dbe1d5",
-          "build_hash": "sha256:d0f281189b6094f15a7f6269ec059736cf49d04349e1e0bcc7f633b83c725702",
-          "execution_id": "execution_643e8805048528f4438ac760",
+          "program_id": "program_9da2fb84726b5e1a0c306c9f",
+          "build_id": "build_dcc433e67e0b29e25fdd5800",
+          "build_hash": "sha256:f4d64291b54b7ed104f3951235ba40e3b1f68042b2d6d73417e966057adb8613",
+          "execution_id": "execution_5957f3065ec33d4f8144cae7",
           "value": 18,
-          "release_id": "release_8db201cc3f15bcfa57a34f32",
-          "release_url": "http://127.0.0.1:32815/api/releases/release_8db201cc3f15bcfa57a34f32",
-          "reused_fork": "program_9cbe4188837eb621a2cd4d68",
-          "reused_execution": "execution_305c90f8ec2a847b38a7b70a",
+          "release_id": "release_e6a903d8691ed3f8064cdef9",
+          "release_url": "http://127.0.0.1:46377/api/releases/release_e6a903d8691ed3f8064cdef9",
+          "reused_fork": "program_8e1d3028c8787e2e3d76b241",
+          "reused_execution": "execution_1ddb4152e631d6e9f949f2f4",
           "cold_process": {
             "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-            "given_only_url": "http://127.0.0.1:32815/p/program_6bd57b21c40064070821d6a0",
+            "given_only_url": "http://127.0.0.1:46377/p/program_9da2fb84726b5e1a0c306c9f",
             "previous_conversation_available": false,
-            "sdk_discovered": "http://127.0.0.1:32815/sdk/client.js",
-            "program_id": "program_6bd57b21c40064070821d6a0",
+            "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
+            "program_id": "program_9da2fb84726b5e1a0c306c9f",
             "version": 5,
             "kind": "program",
             "source": "function main(input){return (input+2)*3}",
@@ -1167,21 +1195,21 @@
         },
         {
           "language": "typescript",
-          "program_id": "program_abe9cbba2052651251f5c93c",
-          "build_id": "build_004fc57c9a5ca37937bce290",
-          "build_hash": "sha256:d3879d9622a908e329cb4851c61f90a34c4ece735ac9af096d1b5ce4827c1814",
-          "execution_id": "execution_702025d7d52848462a4462f2",
+          "program_id": "program_e3c0731e2bf1b9c8e3bf9702",
+          "build_id": "build_122b34ea044af82aed6addd9",
+          "build_hash": "sha256:92ab6f452f4e0c0d4f367e0163adaf23c7f53cbde1af695c5416972f4dcf3b1b",
+          "execution_id": "execution_84eaf2dfdd6465c7b5fe833d",
           "value": 18,
-          "release_id": "release_6991c69a70964137bfbcfd1c",
-          "release_url": "http://127.0.0.1:32815/api/releases/release_6991c69a70964137bfbcfd1c",
-          "reused_fork": "program_0c61a53b78e621ae70263c92",
-          "reused_execution": "execution_09fdb3b2224e0eb3ff4c1b3d",
+          "release_id": "release_5fbf5f4b8bb4dcb7506bc6c9",
+          "release_url": "http://127.0.0.1:46377/api/releases/release_5fbf5f4b8bb4dcb7506bc6c9",
+          "reused_fork": "program_84cb0cfb00de70442b881817",
+          "reused_execution": "execution_708b99337ccbf88c36823406",
           "cold_process": {
             "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-            "given_only_url": "http://127.0.0.1:32815/p/program_abe9cbba2052651251f5c93c",
+            "given_only_url": "http://127.0.0.1:46377/p/program_e3c0731e2bf1b9c8e3bf9702",
             "previous_conversation_available": false,
-            "sdk_discovered": "http://127.0.0.1:32815/sdk/client.js",
-            "program_id": "program_abe9cbba2052651251f5c93c",
+            "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
+            "program_id": "program_e3c0731e2bf1b9c8e3bf9702",
             "version": 5,
             "kind": "program",
             "source": "export default function main(input: number): number {return (input+2)*3}",
@@ -1216,21 +1244,21 @@
         },
         {
           "language": "python",
-          "program_id": "program_6023202f8c6a11c8456c2c7e",
-          "build_id": "build_c92331515a43239a8e9d92df",
-          "build_hash": "sha256:e2e760a87ada0b76ff84d4679bd5ba196a53f54c4a1f8daa274bf8f9b98846b1",
-          "execution_id": "execution_fcb026824b0350148f03cdbb",
+          "program_id": "program_8952f356518afe5edf8b2a74",
+          "build_id": "build_5850c961b3df4c78329b5644",
+          "build_hash": "sha256:d4913b2ff0c78db08cc4089e72ef0153d81ee9fb4018fe2e29bf4faba0b684d0",
+          "execution_id": "execution_5d50f031234c3f799dc0d046",
           "value": 18,
-          "release_id": "release_c18c18d38c9e328ab54722b0",
-          "release_url": "http://127.0.0.1:32815/api/releases/release_c18c18d38c9e328ab54722b0",
-          "reused_fork": "program_9c503a7eace068bfc4cb4647",
-          "reused_execution": "execution_b25c00f16491f15c9bbc51f7",
+          "release_id": "release_4efb50be6aabb0a3eb0779ae",
+          "release_url": "http://127.0.0.1:46377/api/releases/release_4efb50be6aabb0a3eb0779ae",
+          "reused_fork": "program_534dc1ee3f57fc007c872bd1",
+          "reused_execution": "execution_b5da5f50f8186092b3372926",
           "cold_process": {
             "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-            "given_only_url": "http://127.0.0.1:32815/p/program_6023202f8c6a11c8456c2c7e",
+            "given_only_url": "http://127.0.0.1:46377/p/program_8952f356518afe5edf8b2a74",
             "previous_conversation_available": false,
-            "sdk_discovered": "http://127.0.0.1:32815/sdk/client.js",
-            "program_id": "program_6023202f8c6a11c8456c2c7e",
+            "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
+            "program_id": "program_8952f356518afe5edf8b2a74",
             "version": 5,
             "kind": "program",
             "source": "def main(input):\n return (input+2)*3",
@@ -1268,7 +1296,7 @@
         "Fresh reuse is an independent HTTP client and Node process, not a cross-provider AI study",
         "Registry promotion beyond personal/public releases requires separate authority; no fake package-count claim"
       ],
-      "elapsed_ms": 20685
+      "elapsed_ms": 15644
     },
     {
       "id": "E06",
@@ -1285,7 +1313,7 @@
       },
       "sandbox_run": "2026-10-18T14-08-41.086Z",
       "negative_evidence": "These attacks do not certify kernel security, unrestricted dependency installs or multi-tenant safety. Authored runtime remains disabled in default public configuration.",
-      "elapsed_ms": 444
+      "elapsed_ms": 417
     },
     {
       "id": "E07",
@@ -1301,10 +1329,10 @@
       },
       "reconstruction": {
         "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-        "given_only_url": "http://127.0.0.1:32815/p/program_2aa4668e1731c69ada3adc65",
+        "given_only_url": "http://127.0.0.1:46377/p/program_aebe36d07c95d6524ada8245",
         "previous_conversation_available": false,
-        "sdk_discovered": "http://127.0.0.1:32815/sdk/client.js",
-        "program_id": "program_2aa4668e1731c69ada3adc65",
+        "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
+        "program_id": "program_aebe36d07c95d6524ada8245",
         "version": 6,
         "kind": "program",
         "source": "input number | math.multiply 3 | math.add 6",
@@ -1319,16 +1347,16 @@
         "amendment_characters": 0,
         "ready_nodes": [],
         "checkpoint": {
-          "id": "checkpoint_9f4f87982ff68a8d28e1ba21",
-          "program_id": "program_2aa4668e1731c69ada3adc65",
+          "id": "checkpoint_724d04e3707fc39491b1c6a1",
+          "program_id": "program_aebe36d07c95d6524ada8245",
           "version": 6,
           "prepared_at_version": 5,
           "summary": "B: proposal accepted; next session rebuilds and executes",
           "next": "Build then run input4",
           "evidence": [],
-          "state_hash": "sha256:293f4eac2f46dca914b880402e17bba806b8fd6d110f203fdb87f40d1714b865",
-          "actor": "principal_a280b0cbe3554fca4735863b",
-          "created_at": "2026-10-18T14:11:31.085Z",
+          "state_hash": "sha256:f1bedef7dd58a3180d59821e548342159c33f6c440521637e0a5bd1141c43cbc",
+          "actor": "principal_dcc2d427f0fc20ab0e4c57d1",
+          "created_at": "2026-10-18T14:32:41.593Z",
           "evidence_verified": false,
           "provenance": "author assertions; state hash verified by service"
         },
@@ -1353,7 +1381,7 @@
         "Client sessions are programmatic, not three independent AI providers",
         "No claim of transferred private memory or model identity"
       ],
-      "elapsed_ms": 248
+      "elapsed_ms": 213
     },
     {
       "id": "E08",
@@ -1366,8 +1394,8 @@
         "winner": "X",
         "replay_after_restart": true
       },
-      "program_id": "program_28a9c2344191120344257c99",
-      "elapsed_ms": 160
+      "program_id": "program_f80b710b3b3dc971cda28c21",
+      "elapsed_ms": 179
     },
     {
       "id": "E09",
@@ -1443,13 +1471,13 @@
           "verified": false,
           "evidence_policy": "Statuses are recorded claims; dependency validation and artifact integrity do not establish requirement truth."
         },
-        "checkpoint_id": "checkpoint_05c72f2635bd80ea051e89e7"
+        "checkpoint_id": "checkpoint_52aac8ac5d740fdd055f6ba3"
       },
       "single_purl": {
         "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
-        "given_only_url": "http://127.0.0.1:32815/p/godseed-mission",
+        "given_only_url": "http://127.0.0.1:46377/p/godseed-mission",
         "previous_conversation_available": false,
-        "sdk_discovered": "http://127.0.0.1:32815/sdk/client.js",
+        "sdk_discovered": "http://127.0.0.1:46377/sdk/client.js",
         "program_id": "godseed-mission",
         "version": 1,
         "kind": "mission",
@@ -1493,19 +1521,20 @@
         "Mission artifact integrity is checked; requirement truth still requires independent review",
         "Fresh same-provider AI reconstruction is recorded separately when available"
       ],
-      "elapsed_ms": 487
+      "elapsed_ms": 480
     },
     {
       "id": "E10",
-      "status": "BLOCKED",
+      "status": "PASS",
       "execution_class": "LOCAL_COLD_BUILD_AND_REAL_BROWSER",
       "ui": {
         "status": "PASS",
         "tests": 12,
         "failures": 0,
-        "duration_ms": 19114.891,
+        "duration_ms": 20455.336,
         "execution_class": "REAL_CHROMIUM_DESKTOP_AND_PIXEL5_EMULATION",
-        "screenshot_regression": "Second run compared against captured local baselines; animations disabled and reduced-motion enabled",
+        "clipboard": "native read/write; pointer mouse/touch; Enter/Space; separate Open; explicit denial simulation fallback",
+        "visual_regression": "Repeated local baseline screenshot comparisons with reduced motion and animations disabled",
         "desktop": {
           "findings": [
             {
@@ -1540,10 +1569,10 @@
             }
           ],
           "performance": {
-            "dom_content_loaded_ms": 16.5,
-            "response_ms": 2.1000000000931323,
-            "load_ms": 17.9000000001397,
-            "transferred_bytes": 143755,
+            "dom_content_loaded_ms": 14.700000000186265,
+            "response_ms": 1.7000000001862645,
+            "load_ms": 16.600000000093132,
+            "transferred_bytes": 218746,
             "reduced_motion": true
           }
         },
@@ -1581,38 +1610,172 @@
             }
           ],
           "performance": {
-            "dom_content_loaded_ms": 14.800000000046566,
-            "response_ms": 1.3999999999068677,
-            "load_ms": 17.5,
-            "transferred_bytes": 149879,
+            "dom_content_loaded_ms": 12.699999999720603,
+            "response_ms": 2,
+            "load_ms": 18,
+            "transferred_bytes": 224870,
             "reduced_motion": true
           }
         }
       },
       "containers": {
         "status": "PASS",
-        "source": "deploy/verification/results.json",
-        "image": "sha256:13ea9884960aaf5abb814dd1389ca0c820e814d9439d95a4ffdb07548c021f1b",
-        "checks": {
-          "status": "PASS",
-          "command": "sh deploy/verify-image.sh",
-          "execution_class": "LOCAL_CONTAINER_DEVELOPMENT_FILE",
-          "value": 18,
-          "evidence": "image-smoke.log",
-          "coverage": [
-            "separate API and worker",
-            "UID 1000",
-            "read-only root filesystem",
-            "network disabled",
-            "build and queued execution",
-            "persisted result after both containers restart",
-            "role health checks"
-          ]
+        "execution_class": "LOCAL_CONTAINER_DEVELOPMENT_FILE",
+        "image": "sha256:0512076d9f6c28f11d2b3f8a760add7ed30c06a31703fed05b656e64d8348401",
+        "tests": {
+          "node24": 187,
+          "node22": 187
         },
-        "qualification": "Will rebuild final source before release; see latest build evidence."
+        "checks": [
+          "separate non-root read-only API/worker",
+          "durable queue execution value18",
+          "API/worker restart retains artifacts/results",
+          "runtime capability manifest",
+          "role health checks"
+        ],
+        "source": "evidence/infrastructure/final-image-smoke.txt",
+        "production_supabase": "BLOCKED; no configured project",
+        "portability": {
+          "status": "PASS",
+          "class": "PURE_VALUES_AND_DERIVATIONS_ACROSS_NODE_VERSIONS",
+          "host": {
+            "node": "v24.19.0",
+            "arch": "x64",
+            "results": [
+              {
+                "source": "input number | math.add 2 | math.multiply 3",
+                "input": 4,
+                "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+                "value": 18,
+                "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+                "environment_id": "environment:8872c2d1ce661e0ac98dafa0f6d507f0edbb9412ccafef67b81e47ee08c646f6"
+              },
+              {
+                "source": "input string | string.trim | string.uppercase",
+                "input": " purl ",
+                "derivation_id": "derivation:a6fdac3cf1b62ed988ddada3aecbc8556aa30a9244c0f31eea5cd61ad6827091",
+                "value": "PURL",
+                "value_id": "value:21ea0609b14cb6e77e08b808875b66a090851691eec597bd9122ee30adb15b0c",
+                "environment_id": "environment:b4d03dcc8986ec82fd9b81e01b66133d5a53fe4f3353901f03177417ffd08148"
+              },
+              {
+                "source": "input string | repeat 3 { state.cycle007 }",
+                "input": "007",
+                "derivation_id": "derivation:e13ab82941e4726010667c2d6ff1db86424dc679c8eccbc4eefd08a832212913",
+                "value": "007",
+                "value_id": "value:280ec15c32961a0ceb8e1171dc659fc6e0be032f59fee42ab41de4403d0f79a8",
+                "environment_id": "environment:29b2decffb678f481dff29abbd204b0e7099dd254fa54210866b3d465a1725ba"
+              }
+            ]
+          },
+          "container": {
+            "node": "v22.14.0",
+            "arch": "x64",
+            "results": [
+              {
+                "source": "input number | math.add 2 | math.multiply 3",
+                "input": 4,
+                "derivation_id": "derivation:677906e119a5f24542aec413fde9e0fdc3638eb73bcf232bba281b5a8b32cb57",
+                "value": 18,
+                "value_id": "value:c3ac9832dc28adeee7ea3e2cbf9d514fd7f6fa1075a53fe70ac623f1fee8debd",
+                "environment_id": "environment:6c5c1b748d5d8e07374329c4868415696990c60948f6e3beff506e0a55015b47"
+              },
+              {
+                "source": "input string | string.trim | string.uppercase",
+                "input": " purl ",
+                "derivation_id": "derivation:a6fdac3cf1b62ed988ddada3aecbc8556aa30a9244c0f31eea5cd61ad6827091",
+                "value": "PURL",
+                "value_id": "value:21ea0609b14cb6e77e08b808875b66a090851691eec597bd9122ee30adb15b0c",
+                "environment_id": "environment:60f3064f44d43879ddeec845594f303c88c947ca5a6c56910dcf8c6eff0fb110"
+              },
+              {
+                "source": "input string | repeat 3 { state.cycle007 }",
+                "input": "007",
+                "derivation_id": "derivation:e13ab82941e4726010667c2d6ff1db86424dc679c8eccbc4eefd08a832212913",
+                "value": "007",
+                "value_id": "value:280ec15c32961a0ceb8e1171dc659fc6e0be032f59fee42ab41de4403d0f79a8",
+                "environment_id": "environment:9ddce18db5635bbb3c8a06983fcc8fa9c47c2619c6210954e2a4907cd44f7f1f"
+              }
+            ]
+          },
+          "environment_ids_differ": true,
+          "arm": "NOT_RUN",
+          "qualification": "Equal defined values/derivations for three pinned programs on x64; environment hashes explicitly differ. No universal cross-architecture equivalence claimed."
+        },
+        "pid_reuse": "evidence/infrastructure/pid-reuse/report.json",
+        "live_session_restart": "evidence/infrastructure/live-restart.json"
       },
       "cold_rebuild": {
-        "status": "NOT_RUN"
+        "status": "PASS",
+        "run_id": "2026-10-18T14-32-07.699Z",
+        "source_revision": "d45fcc214350c8380b369ea97f0add9a6643c442",
+        "execution_class": "CLEAN_LOCAL_GIT_CLONE_NO_NODE_MODULES_OR_STATE",
+        "checkout": "/tmp/purl-cold-wWQU4J",
+        "tests": 187,
+        "checks": [
+          {
+            "name": "clean-clone",
+            "status": "PASS",
+            "elapsed_ms": 79,
+            "exit_code": 0
+          },
+          {
+            "name": "dependencies",
+            "status": "PASS",
+            "elapsed_ms": 264,
+            "exit_code": 0
+          },
+          {
+            "name": "test",
+            "status": "PASS",
+            "elapsed_ms": 1250,
+            "exit_code": 0
+          },
+          {
+            "name": "cold-client",
+            "status": "PASS",
+            "elapsed_ms": 81,
+            "exit_code": 0
+          }
+        ],
+        "mission": {
+          "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
+          "given_only_url": "http://127.0.0.1:18181/p/godseed-mission",
+          "previous_conversation_available": false,
+          "sdk_discovered": "http://127.0.0.1:18181/sdk/client.js",
+          "program_id": "godseed-mission",
+          "version": 1,
+          "kind": "mission",
+          "source": "input json | mission.inspect",
+          "tests": [],
+          "mission_nodes": 52,
+          "full_directive_characters": 10449,
+          "amendment_characters": 1251,
+          "ready_nodes": [
+            "mission"
+          ],
+          "checkpoint": null,
+          "permitted_operations": [
+            "inspect",
+            "history",
+            "continuity",
+            "replay",
+            "diff"
+          ],
+          "replay_valid": true,
+          "authority": {
+            "authenticated": false,
+            "principal_id": null,
+            "owner": false,
+            "rights": [
+              "read",
+              "run",
+              "propose"
+            ]
+          }
+        },
+        "hosted_supabase_migrations": "Separate real PostgreSQL/PostgREST verification; hosted application BLOCKED",
+        "errors": ""
       },
       "hosted_deployment": {
         "status": "BLOCKED",
@@ -1624,9 +1787,9 @@
     }
   ],
   "summary": {
-    "PASS": 9,
+    "PASS": 10,
     "FAIL": 0,
-    "BLOCKED": 1,
+    "BLOCKED": 0,
     "NOT_RUN": 0
   },
   "production_deployed": false

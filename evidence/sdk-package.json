@@ -1,15 +1,16 @@
 {
   "status": "PASS",
   "package": "purl-0.2.0.tgz",
-  "shasum": "82d840c60955d3c6c729320de9965a850c42e1d3",
-  "integrity": "sha512-+mjKqRD9EiBNdGtnFQtbyXYZReTDSimmxUFIyECX+eFH188X5nemgYreNf/xYNh+4s9uf6W4WLudBAO4yToVgQ==",
+  "shasum": "48f7a42fadb8b02c871c18fc6331bde3c1b2dbe1",
+  "integrity": "sha512-QMa7b+UO3aJ4l3wfHBB2cGgYZIzzWEydhrEYpXN+AvqCd/lYf8ZYiFz85IE8FTZKzpsaRZjvVoNkK+q7k05D0A==",
   "files": 77,
-  "bytes": 303396,
+  "bytes": 303759,
   "clean_consumer": {
     "sdk": "function",
     "compiled": true,
     "value": 18
   },
   "published_to_npm": false,
-  "repack_reason": "Final TypeScript template contrast correction; SDK/compiler code unchanged"
+  "repack_reason": "Railway deployment metadata/documentation update; SDK/compiler unchanged",
+  "prior_harness_note": "Prior verification wrapper/plan call error corrected; retained in earlier commit evidence"
 }
