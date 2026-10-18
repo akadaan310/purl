@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "run_id": "2026-10-18T14-17-16.386Z",
+  "source_revision": "e30f1205a3ba71d62faab87132b4702b6dc9dc07",
+  "execution_class": "CLEAN_LOCAL_GIT_CLONE_NO_NODE_MODULES_OR_STATE",
+  "checkout": "/tmp/purl-cold-zePC9D",
+  "tests": 184,
+  "checks": [
+    {
+      "name": "clean-clone",
+      "status": "PASS",
+      "elapsed_ms": 68,
+      "exit_code": 0
+    },
+    {
+      "name": "dependencies",
+      "status": "PASS",
+      "elapsed_ms": 265,
+      "exit_code": 0
+    },
+    {
+      "name": "test",
+      "status": "PASS",
+      "elapsed_ms": 1310,
+      "exit_code": 0
+    },
+    {
+      "name": "cold-client",
+      "status": "PASS",
+      "elapsed_ms": 85,
+      "exit_code": 0
+    }
+  ],
+  "mission": {
+    "execution_class": "INDEPENDENT_NODE_PROCESS_LIVE_HTTP",
+    "given_only_url": "http://127.0.0.1:18181/p/godseed-mission",
+    "previous_conversation_available": false,
+    "sdk_discovered": "http://127.0.0.1:18181/sdk/client.js",
+    "program_id": "godseed-mission",
+    "version": 1,
+    "kind": "mission",
+    "source": "input json | mission.inspect",
+    "tests": [],
+    "mission_nodes": 52,
+    "full_directive_characters": 10449,
+    "amendment_characters": 1251,
+    "ready_nodes": [
+      "mission"
+    ],
+    "checkpoint": null,
+    "permitted_operations": [
+      "inspect",
+      "history",
+      "continuity",
+      "replay",
+      "diff"
+    ],
+    "replay_valid": true,
+    "authority": {
+      "authenticated": false,
+      "principal_id": null,
+      "owner": false,
+      "rights": [
+        "read",
+        "run",
+        "propose"
+      ]
+    }
+  },
+  "hosted_supabase_migrations": "Separate real PostgreSQL/PostgREST verification; hosted application BLOCKED",
+  "errors": ""
+}

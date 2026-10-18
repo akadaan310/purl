@@ -24,7 +24,7 @@ test('actual SEURL FSM keeps mutations prepared, recognizes uppercase TALK targe
 });
 
 test('Substrate term mapping matches Python registry fixtures including optional and unmaterialized terms', () => {
-  const fixtures = JSON.parse(readFileSync(new URL('../evidence/reconstruction/substrate-term-fixtures.json', import.meta.url)));
+  const fixtures = JSON.parse(readFileSync(new URL('./fixtures/substrate-term-fixtures.json', import.meta.url)));
   for (const fixture of fixtures) {
     const actual = adapter.mapSubstrateTerm(fixture.address);
     assert.equal(actual.address, fixture.address);
@@ -81,7 +81,7 @@ test('composition rejects malformed operators, width mismatches and ambiguous sn
 });
 
 test('all six imported bit operators match fixtures produced by original composition algebra', () => {
-  const fixtures = JSON.parse(readFileSync(new URL('../evidence/reconstruction/composition-algebra-fixtures.json', import.meta.url)));
+  const fixtures = JSON.parse(readFileSync(new URL('./fixtures/composition-algebra-fixtures.json', import.meta.url)));
   for (const fixture of fixtures) {
     const operands = fixture.operands.map((value, index) => literal(`r_${index}`, value));
     const root = { id: 'r_root', type: 'compute-application', version: 1, state: { compute: 'purl.compute/0.1', node: 'application', operation: fixture.operation, operands: operands.map(pin), value: fixture.value } };
@@ -111,7 +111,7 @@ test('composition bounds complete snapshot metadata before recursive hashing', (
 });
 
 test('imported sources execute in the safe compiler with the original six operator values', () => {
-  const fixtures = JSON.parse(readFileSync(new URL('../evidence/reconstruction/composition-algebra-fixtures.json', import.meta.url)));
+  const fixtures = JSON.parse(readFileSync(new URL('./fixtures/composition-algebra-fixtures.json', import.meta.url)));
   for (const fixture of fixtures) {
     const operands = fixture.operands.map((value, index) => literal(`r_${index}`, value));
     const root = { id: 'r_root', type: 'compute-application', version: 1, state: { compute: 'purl.compute/0.1', node: 'application', operation: fixture.operation, operands: operands.map(pin), value: fixture.value } };
