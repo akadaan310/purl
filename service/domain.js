@@ -545,8 +545,10 @@ export class PurlService {
   async workOnce({ workerId, leaseMs = 30000 } = {}) {
     if (typeof workerId !== 'string' || !workerId.trim() || workerId.length > 200) throw new TypeError('workerId is required');
     if (!Number.isSafeInteger(leaseMs) || leaseMs < 100 || leaseMs > 300000) throw new TypeError('leaseMs must be 100 through 300000');
-    // Idle workers must not CAS-write the entire state document on every poll.
-    // Eligibility is still checked atomically after this read-only fast path.
+    // Supabase can answer an idle poll from its small indexed projection.
+    // Positive hints still use the read-only eligibility check, so a live lease
+    // never causes a no-op CAS write. The claim below rechecks atomically.
+    if (typeof this.repository.hasPendingExecutions === 'function' && !await this.repository.hasPendingExecutions()) return null;
     const pending = await this.repository.read();
     if (!Object.values(pending.data.executions).some((execution) => execution.status === 'queued' || execution.status === 'running' && Date.parse(execution.lease?.expires_at ?? 0) <= Date.now())) return null;
     const claim = await this.repository.transaction((document) => {

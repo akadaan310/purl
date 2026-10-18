@@ -195,6 +195,15 @@ export class SupabaseRepository {
     }
     return response;
   }
+  async hasPendingExecutions() {
+    // This private indexed projection is only an idle-poll hint. CAS reads and
+    // rechecks the authoritative document before any execution can be claimed.
+    const query = new URLSearchParams({ document_id: `eq.${this.documentId}`, kind: 'eq.execution', status: 'in.(queued,running)', select: 'entity_id', limit: '1' });
+    const response = await this.request(`/rest/v1/purl_entities?${query}`, { method: 'GET' });
+    const rows = await response.json();
+    if (!Array.isArray(rows) || rows.length > 1 || rows.some(row => !row || typeof row.entity_id !== 'string' || !row.entity_id)) throw new Error('Invalid pending execution query response');
+    return rows.length > 0;
+  }
   async read() {
     const response = await this.request('/rest/v1/rpc/purl_read_document', { body: { p_document_id: this.documentId } });
     return clone(document(await response.json()));

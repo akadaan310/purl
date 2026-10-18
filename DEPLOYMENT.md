@@ -27,7 +27,7 @@ authored code and is deliberately distinct from Supabase-backed production.
 
 ## Production configuration
 
-Apply [MIGRATIONS.md](MIGRATIONS.md) to a dedicated Supabase project first. Set the
+Apply [MIGRATIONS.md](MIGRATIONS.md) to a Supabase project with isolated PURL resources first. A dedicated project is preferred; the current free-account quota required additive PURL tables and a private bucket in the existing healthy project. Set the
 following values in both API and worker secret/configuration settings:
 
 | Variable | Value |
@@ -36,11 +36,12 @@ following values in both API and worker secret/configuration settings:
 | `PURL_PERSISTENCE` | `supabase` |
 | `SUPABASE_URL` | HTTPS URL of the same Supabase project |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only project service-role credential |
-| `PURL_DOCUMENT_ID` | `main`, identical across both processes |
+| `PURL_DOCUMENT_ID` | Same ID across both roles; deployed target `godseed-v3-production` |
 | `SUPABASE_ARTIFACT_BUCKET` | `purl-artifacts` |
 | `PURL_BASE_URL` | Canonical HTTPS URL of the API service |
 | `PURL_ROLE` | `api` for the API; `worker` for the worker |
 | `PURL_JOB_LEASE_MS` | `30000`; increase above the maximum allowed execution duration |
+| `PURL_WORKER_POLL_MS` | `1000` on Railway; idle polls query a small indexed projection |
 | `PURL_SANDBOX_ENABLED`, `PURL_SANDBOX_VERIFIED` | `0` for these deployment profiles |
 
 The server and worker reject missing Supabase configuration in production. The
@@ -58,17 +59,15 @@ enable flag does not establish sandbox safety.
 
 ## Image and Compose
 
-The Dockerfile pins the base image digest, installs the committed lockfile using
-`npm ci`, runs as UID 1000, and has API/worker health checks. Build on a normal
-host with `docker build -t purl:local .`. In the managed cloud environment, retain
-the configured proxy/CA and use:
+The Dockerfile pins the base image digest, validates the committed lockfile using
+`npm ci --offline --omit=dev`, runs as UID1000, and has API/worker health checks.
+The runtime has no external production dependencies. Build with
+`docker build --network none -t purl:local .`. Railway's current builder rejects
+Docker secret mounts; the offline build needs none. Base-image download still
+uses the host/container engine's configured TLS trust.
 
-```sh
-docker build --secret id=proxy_ca,src="$CODEX_PROXY_CERT" -t purl:local .
-```
-
-The build secret never enters image layers. With production secrets supplied in
-the environment, `docker compose up --build -d` starts distinct API and worker
+With production secrets supplied in the environment,
+`docker compose up --build -d` starts distinct API and worker
 processes. Do not store real credentials in tracked files. Compose uses a read-only
 root filesystem, writable temporary directory, dropped capabilities and a
 45-second graceful-stop interval. `docker compose ps` reports health;

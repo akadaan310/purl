@@ -4,10 +4,9 @@ LABEL org.opencontainers.image.title="PURL" \
       org.opencontainers.image.description="PURL API/control plane and durable worker"
 WORKDIR /app
 COPY package.json package-lock.json ./
-# The optional CA is a build secret and never enters an image layer.
-RUN --mount=type=secret,id=proxy_ca \
-    if [ -f /run/secrets/proxy_ca ]; then export NODE_EXTRA_CA_CERTS=/run/secrets/proxy_ca; fi; \
-    npm ci --omit=dev --ignore-scripts --strict-ssl=true --no-audit --no-fund
+# Runtime uses only Node's standard library. Offline install validates the
+# lockfile without network access or provider-specific secret mount support.
+RUN npm ci --omit=dev --ignore-scripts --strict-ssl=true --no-audit --no-fund --offline
 COPY --chown=node:node . .
 ENV NODE_ENV=production HOST=0.0.0.0 PORT=3000 PURL_ROLE=api PURL_PERSISTENCE=supabase
 USER node
